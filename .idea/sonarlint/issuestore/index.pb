@@ -15,8 +15,6 @@ f
 6src/test/java/com/pw/TestCamposDeTextoSelectorCss.java,6\d\6d9abbd052bdbb00ceddf0f391e9854ba672a591
 h
 8src/test/java/SpaceLogik/pw/proposalFuncionArchivar.java,2\8\28970deb1252ea776c8d911a5c53b84268bc3244
-^
-.src/test/java/Fabrica/programFuncionClone.java,5\4\5449db4f829639e2f8bfe07b94a5daf7fa522271
 f
 6src/test/java/SpaceLogik/pw/prospectFuncionEditar.java,f\d\fdd0c4f95bf9226061b029a1bd0c55b6f7328aeb
 h

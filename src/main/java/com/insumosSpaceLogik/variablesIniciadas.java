@@ -118,4 +118,8 @@ public class variablesIniciadas extends variables{
         industryAutoProgram = "5";
         quantityAutoProgram ="50";
     }
+    public void iniciarVariablesLaunchFeliz(){
+        legalFormationLaunch ="6";
+        bussinesSinceLaunch = "5";
+    }
 }

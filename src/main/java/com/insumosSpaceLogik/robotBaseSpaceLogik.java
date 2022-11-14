@@ -288,4 +288,27 @@ public class robotBaseSpaceLogik extends autenticacionBaseSpaceLogik {
         page.click(".create-plan-info-container div .plan-add-room-button-container button:nth-of-type(1)");
         page.click(".create-plan-info-container div:nth-of-type(5) button");
     }
+    public void crearLaunch(){
+        Keyboard kb = page.keyboard();
+        page.click("text=CONTEST");
+        page.click("text=Launch");
+        page.focus(".contest-details-timing-body input:nth-of-type(1)");
+        kb.type(dateDeadLineLaunch);
+        page.focus(".contest-details-timing-body input:nth-of-type(2)");
+        kb.type(dateOccupancyLaunch);
+        page.click(".contest-details-settings-container div:nth-of-type(3) .requested-terms-table tr:nth-of-type(2) td:nth-of-type(2) button");
+        page.click(".contest-details-settings-container div:nth-of-type(5) .requested-terms-table tr:nth-of-type(3) td:nth-of-type(2) button");
+        page.selectOption(".contest-corporation-container select", legalFormationLaunch);
+        page.fill(".contest-corporation-container input",bussinesSinceLaunch);
+        page.click(".contest-details-buttons-container button:nth-of-type(4)");
+        page.click(".saved-buildings-table tbody tr:nth-of-type(4) td:nth-of-type(1) input");
+        page.click(".saved-buildings-table tbody tr:nth-of-type(9) td:nth-of-type(1) input");
+        page.click(".saved-buildings-title button");
+        page.click(".contest-details-buttons-container button:nth-of-type(4)");
+        page.click(".contest-details-buildings-body div:nth-of-type(2).building-display-container div:nth-of-type(6) input");
+        page.click(".contest-details-buildings-body div:nth-of-type(2).building-display-container div:nth-of-type(7) input");
+        page.click(".contest-details-buildings-body div:nth-of-type(3).building-display-container div:nth-of-type(6) input");
+        page.click(".contest-details-buildings-body div:nth-of-type(3).building-display-container div:nth-of-type(7) input");
+        page.click(".launch-contest-buttons-container button:nth-of-type(2)");
+    }
 }

@@ -106,4 +106,10 @@ public class variables {
     public String nameRoomAutoProgram;
     public String quantityAutoProgram;
 
+    //CREATE LAUNCH
+    public String dateDeadLineLaunch = "11-03-2031";
+    public String dateOccupancyLaunch = "06-08-2035";
+    public String legalFormationLaunch;
+    public String bussinesSinceLaunch;
+
 }

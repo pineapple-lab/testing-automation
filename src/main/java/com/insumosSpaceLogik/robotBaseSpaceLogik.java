@@ -281,7 +281,7 @@ public class robotBaseSpaceLogik extends autenticacionBaseSpaceLogik {
         page.click(".office-setup-container div:nth-of-type(2) #option-construction-level-3");
         page.click(".office-setup-container .office-question-info-container div:nth-of-type(2) .office-setup-level-selection-container div:nth-of-type(4) button");
         page.fill(".create-plan-info-input-container input",nameRoomAutoProgram);
-        page.click(".plan-info-option-component-wrapper div:nth-of-type(2) [value=\"Shared Office\"]");
+        page.click(".plan-info-option-component-wrapper div:nth-of-type(2) [value=\"Private Office(s)\"]");
         page.click(".plan-info-option-component-wrapper div:nth-of-type(2) [value=\"Locate on interior\"]");
         page.click(".plan-info-option-component-wrapper div:nth-of-type(2) [value=\"10*15\"]");
         page.fill(".plan-info-option-component-wrapper div:nth-of-type(2) .plan-info-quantity-container input",quantityAutoProgram);

@@ -1,0 +1,181 @@
+
+x
+java:S1104"]Make firstNameRegistro a static final constant or non-public and provide accessors if needed.(Œè®ìşÿÿÿÿ
+r
+java:S1104"\Make lastNameRegistro a static final constant or non-public and provide accessors if needed.(±«Ù¦
+p
+java:S1104"[Make companyRegistro a static final constant or non-public and provide accessors if needed.(är
+t
+java:S1104	"YMake titleRegistro a static final constant or non-public and provide accessors if needed.(ê˜æ¬ûÿÿÿÿ
+n
+java:S1104
+"XMake mailRegistro a static final constant or non-public and provide accessors if needed.(şË²
+r
+java:S1104"\Make passwordRegistro a static final constant or non-public and provide accessors if needed.(È›İû
+}
+java:S1104"bMake verifyPasswordRegistro a static final constant or non-public and provide accessors if needed.(„·¹Šşÿÿÿÿ
+t
+java:S1104"YMake formattedDate a static final constant or non-public and provide accessors if needed.(¢ºğèûÿÿÿÿ
+s
+java:S1104"XMake nameProposal a static final constant or non-public and provide accessors if needed.(§¯İ…ıÿÿÿÿ
+j
+java:S1104"TMake building a static final constant or non-public and provide accessors if needed.(‰µî
+j
+java:S1104"TMake prospect a static final constant or non-public and provide accessors if needed.(å°ÒŠ
+i
+java:S1104"SMake program a static final constant or non-public and provide accessors if needed.(ò¥¿¨
+f
+java:S1104"PMake term a static final constant or non-public and provide accessors if needed.(×øŸÌ
+s
+java:S1104"XMake startingRate a static final constant or non-public and provide accessors if needed.(£ëúõùÿÿÿÿ
+v
+java:S1104"[Make annualIncreases a static final constant or non-public and provide accessors if needed.(àóûìşÿÿÿÿ
+n
+java:S1104"YMake rentAbatement a static final constant or non-public and provide accessors if needed.(ªêÜR
+n
+java:S1104"XMake construction a static final constant or non-public and provide accessors if needed.(€Å‰ş
+n
+java:S1104"XMake baseBuilding a static final constant or non-public and provide accessors if needed.(¼åë 
+l
+java:S1104"QMake month a static final constant or non-public and provide accessors if needed.(Âÿ†˜úÿÿÿÿ
+k
+java:S1104"PMake cost a static final constant or non-public and provide accessors if needed.(ÆÂ°™øÿÿÿÿ
+r
+java:S1104"WMake dateOffered a static final constant or non-public and provide accessors if needed.(¦¶ÿ¢ıÿÿÿÿ
+s
+java:S1104"XMake interestRate a static final constant or non-public and provide accessors if needed.(›¯æâøÿÿÿÿ
+t
+java:S1104""_Make nameCompanyProspect a static final constant or non-public and provide accessors if needed.(§î¡
+y
+java:S1104#"^Make salutationProspect a static final constant or non-public and provide accessors if needed.(ÌäƒÓùÿÿÿÿ
+x
+java:S1104$"]Make firstNameProspect a static final constant or non-public and provide accessors if needed.(óïŠÕüÿÿÿÿ
+w
+java:S1104%"\Make lastNameProspect a static final constant or non-public and provide accessors if needed.(»Œÿ»üÿÿÿÿ
+o
+java:S1104&"YMake titleProspect a static final constant or non-public and provide accessors if needed.(¦¦ÿ
+v
+java:S1104'"[Make adress1Prospect a static final constant or non-public and provide accessors if needed.(÷‹¬°ûÿÿÿÿ
+v
+java:S1104("[Make adress2Prospect a static final constant or non-public and provide accessors if needed.(»é¤‚øÿÿÿÿ
+o
+java:S1104)"YMake stateProspect a static final constant or non-public and provide accessors if needed.(ä¼™…
+s
+java:S1104*"XMake cityProspect a static final constant or non-public and provide accessors if needed.(Ä±¥àüÿÿÿÿ
+v
+java:S1104+"[Make zipcodeProspect a static final constant or non-public and provide accessors if needed.(ô©ä±øÿÿÿÿ
+o
+java:S1104,"YMake emailProspect a static final constant or non-public and provide accessors if needed.(¼çÏ’
+o
+java:S1104-"YMake phoneProspect a static final constant or non-public and provide accessors if needed.(ô°ôÿ
+r
+java:S1104."\Make industryProspect a static final constant or non-public and provide accessors if needed.(ıÙ¥ù
+x
+java:S1104/"]Make approxRsfProspect a static final constant or non-public and provide accessors if needed.(Æı·‹øÿÿÿÿ
+v
+java:S11040"`Make ocupancyDateProspect a static final constant or non-public and provide accessors if needed.(½şí™
+€
+java:S11043"jMake buildingCompetitiveSetProspect a static final constant or non-public and provide accessors if needed.(„™É§
+‚
+java:S11044"gMake notesCompetitiveSetProspect a static final constant or non-public and provide accessors if needed.(Ş¶Şõüÿÿÿÿ
+{
+java:S11047"`Make dateTrackingProspect a static final constant or non-public and provide accessors if needed.(âáüâúÿÿÿÿ
+~
+java:S11048"cMake subjectTrackingProspect a static final constant or non-public and provide accessors if needed.(¥æÊóÿÿÿÿÿ
+y
+java:S11049"dMake commentsTrackingProspect a static final constant or non-public and provide accessors if needed.(—•s
+z
+java:S1104:"dMake followupTrackingProspect a static final constant or non-public and provide accessors if needed.(‡ƒ¹Ï
+|
+java:S1104="fMake salutationEditBrokerManual a static final constant or non-public and provide accessors if needed.(äğÁÂ
+{
+java:S1104>"eMake firstNameEditBrokerManual a static final constant or non-public and provide accessors if needed.(§à¬
+z
+java:S1104?"dMake lastNameEditBrokerManual a static final constant or non-public and provide accessors if needed.(í íŠ
+w
+java:S1104@"aMake titleEditBrokerManual a static final constant or non-public and provide accessors if needed.(¿°÷°
+
+java:S1104A"dMake address1EditBrokerManual a static final constant or non-public and provide accessors if needed.(â¾ù°øÿÿÿÿ
+z
+java:S1104B"dMake address2EditBrokerManual a static final constant or non-public and provide accessors if needed.(âÏ™õ
+|
+java:S1104C"aMake stateEditBrokerManual a static final constant or non-public and provide accessors if needed.(¯Ÿ¦¯ÿÿÿÿÿ
+v
+java:S1104D"`Make cityEditBrokerManual a static final constant or non-public and provide accessors if needed.(½‹Ş…
+~
+java:S1104E"cMake zipcodeEditBrokerManual a static final constant or non-public and provide accessors if needed.(õ€äÉùÿÿÿÿ
+w
+java:S1104F"aMake emailEditBrokerManual a static final constant or non-public and provide accessors if needed.(Çı—
+|
+java:S1104G"aMake phoneEditBrokerManual a static final constant or non-public and provide accessors if needed.(“îœÀüÿÿÿÿ
+}
+java:S1104H"bMake mobileEditBrokerManual a static final constant or non-public and provide accessors if needed.(ÈØƒëşÿÿÿÿ
+„
+java:S1104K"nMake nameCompanyEditProspectGeneralInfo a static final constant or non-public and provide accessors if needed.(ŸÙ«±
+ƒ
+java:S1104L"mMake salutationEditProspectGeneralInfo a static final constant or non-public and provide accessors if needed.(àˆ½š
+‚
+java:S1104M"lMake firstNameEditProspectGeneralInfo a static final constant or non-public and provide accessors if needed.(Î´¿ï
+
+java:S1104N"kMake lastNameEditProspectGeneralInfo a static final constant or non-public and provide accessors if needed.(„Ñœ
+ƒ
+java:S1104O"hMake titleEditProspectGeneralInfo a static final constant or non-public and provide accessors if needed.(Ìª¥µşÿÿÿÿ
+
+java:S1104P"kMake address1EditProspectGeneralInfo a static final constant or non-public and provide accessors if needed.(ÒİÂ‘
+†
+java:S1104Q"kMake address2EditProspectGeneralInfo a static final constant or non-public and provide accessors if needed.(Œû«¬şÿÿÿÿ
+ƒ
+java:S1104R"hMake stateEditProspectGeneralInfo a static final constant or non-public and provide accessors if needed.(ºÌÓüÿÿÿÿ
+}
+java:S1104S"gMake cityEditProspectGeneralInfo a static final constant or non-public and provide accessors if needed.(šªßé
+€
+java:S1104T"jMake zipcodeEditProspectGeneralInfo a static final constant or non-public and provide accessors if needed.(—°öƒ
+~
+java:S1104U"hMake emailEditProspectGeneralInfo a static final constant or non-public and provide accessors if needed.(ÛùŸ€
+†
+java:S1104V"kMake industryEditProspectGeneralInfo a static final constant or non-public and provide accessors if needed.(½ß¾¸úÿÿÿÿ
+‡
+java:S1104W"lMake approxRsfEditProspectGeneralInfo a static final constant or non-public and provide accessors if needed.(×ë¦¬øÿÿÿÿ
+Š
+java:S1104X"oMake ocupancyEditProspectDateGeneralInfo a static final constant or non-public and provide accessors if needed.(—Íîäúÿÿÿÿ
+ƒ
+java:S1104Y"hMake phoneEditProspectGeneralInfo a static final constant or non-public and provide accessors if needed.(ÙÆÊûÿÿÿÿ
+
+java:S1104Z"iMake mobileEditGProspecteneralInfo a static final constant or non-public and provide accessors if needed.(Å¦ˆŞ
+r
+java:S1104]"WMake nameProgram a static final constant or non-public and provide accessors if needed.(ÆÁÅşÿÿÿÿ
+r
+java:S1104^"WMake dateProgram a static final constant or non-public and provide accessors if needed.(†Òûüÿÿÿÿ
+
+java:S1104a"fMake sequenceRoomOptionsProgram a static final constant or non-public and provide accessors if needed.(ÑÅ’ÿÿÿÿÿ
+|
+java:S1104b"fMake quantityRoomOptionsProgram a static final constant or non-public and provide accessors if needed.(Ü™»
+z
+java:S1104e"_Make commentsRoomDetails a static final constant or non-public and provide accessors if needed.(Ÿ£‰úÿÿÿÿ
+p
+java:S1104h"[Make nameAutoProgram a static final constant or non-public and provide accessors if needed.(ÚôL
+u
+java:S1104i"_Make industryAutoProgram a static final constant or non-public and provide accessors if needed.(ÚŸËã
+t
+java:S1104j"_Make nameRoomAutoProgram a static final constant or non-public and provide accessors if needed.(Ğóõ
+
+u
+java:S1104k"_Make quantityAutoProgram a static final constant or non-public and provide accessors if needed.(ó®Æ«
+s
+java:S1104n"^Make dateDeadLineLaunch a static final constant or non-public and provide accessors if needed.(Â·k
+z
+java:S1104o"_Make dateOccupancyLaunch a static final constant or non-public and provide accessors if needed.(è×Ÿ–øÿÿÿÿ
+v
+java:S1104p"`Make legalFormationLaunch a static final constant or non-public and provide accessors if needed.(¶Œè
+u
+java:S1104q"_Make bussinesSinceLaunch a static final constant or non-public and provide accessors if needed.(øşÊ×
+t
+java:S1104t"^Make selectProgramTweak a static final constant or non-public and provide accessors if needed.(öƒéâ
+w
+java:S1104u"\Make programNameTweak a static final constant or non-public and provide accessors if needed.(—ƒÿùÿÿÿÿÿ
+p
+java:S1104v"UMake sizeTweak a static final constant or non-public and provide accessors if needed.(êˆ®»ûÿÿÿÿ
+o
+java:S1104w"TMake qtyTweak a static final constant or non-public and provide accessors if needed.(ÂËº™ùÿÿÿÿ
+g	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(İ±¨§ûÿÿÿÿ
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Í‚Şx

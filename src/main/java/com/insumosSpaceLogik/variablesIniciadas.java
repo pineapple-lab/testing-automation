@@ -115,7 +115,7 @@ public class variablesIniciadas extends variables{
     }
     public void iniciarVariablesAutoProgramFeliz(){
         nameRoomAutoProgram ="pruebAutomatizada";
-        industryAutoProgram = "5";
+        industryAutoProgram = "138";
         quantityAutoProgram ="50";
     }
     public void iniciarVariablesLaunchFeliz(){

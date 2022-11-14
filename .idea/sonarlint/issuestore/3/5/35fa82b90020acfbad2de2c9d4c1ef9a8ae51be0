@@ -1,0 +1,22 @@
+
+j
+java:S1192Ñ"NDefine a constant instead of duplicating this literal "text=Programs" 5 times.(¶˜íıÿÿÿÿ
+¥
+java:S1192"ˆDefine a constant instead of duplicating this literal ".prospect-list-landlord-table tr:last-child div > button:nth-of-type(1)" 4 times.(¼‚Ñûÿÿÿÿ
+e
+java:S1192,"ODefine a constant instead of duplicating this literal "text=Proposals" 3 times.( ¹›å
+Š
+java:S1192Ğ"sDefine a constant instead of duplicating this literal ".app-sidebar__inner > div > ul > li:nth-of-type(5)" 6 times.(Æ§‡
+
+java:S1192ƒ"{Define a constant instead of duplicating this literal ".program-room-detail-areas-container button:nth-of-type(3)" 3 times.(Ÿü¾Ğüÿÿÿÿ8ÔÖÂ»Æ0
+’
+java:S1192à"oDefine a constant instead of duplicating this literal ".new-building-button-div button:nth-of-type(1)" 3 times.(À¥Å‘ıÿÿÿÿ8ÔÖÂ»Æ0
+b	java:S101	"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ÀéÛØ
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Í‚Şx
+`
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(¯ÉÖ¦üÿÿÿÿ
+Q
+java:S1854+"6Remove this useless assignment to local variable "kb".(ÈòŠÉøÿÿÿÿ
+B
+java:S1481+"'Remove this unused "kb" local variable.(ÈòŠÉøÿÿÿÿ
+W	java:S125Ä"<This block of commented-out lines of code should be removed.(‰îºğûÿÿÿÿ

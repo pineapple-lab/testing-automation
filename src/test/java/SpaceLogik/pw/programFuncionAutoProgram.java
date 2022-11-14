@@ -17,8 +17,11 @@ public class programFuncionAutoProgram extends robotBaseSpaceLogik {
         crearAutoProgram();
         page.focus("#root");
         assertTrue(page.isVisible("text=Changes saved successfully"));
-        assertTrue(page.getByLabel("Shared Office").isChecked());
-        assertTrue(page.getByLabel("Locate on interior").isChecked());
-        assertTrue(page.getByLabel("10*15").isChecked());
+        page.focus("#root");
+        assertTrue(page.isVisible("text=PruebAutomatizada32-validacionCrearAutoProgram"));
+        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(5)");
+        page.click("text=Programs");
+        page.focus("#root");
+        assertTrue(page.isVisible("text=PruebAutomatizada32-validacionCrearAutoProgram"));
     }
 }

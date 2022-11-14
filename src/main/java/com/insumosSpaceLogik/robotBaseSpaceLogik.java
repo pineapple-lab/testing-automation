@@ -311,4 +311,18 @@ public class robotBaseSpaceLogik extends autenticacionBaseSpaceLogik {
         page.click(".contest-details-buildings-body div:nth-of-type(3).building-display-container div:nth-of-type(7) input");
         page.click(".launch-contest-buttons-container button:nth-of-type(2)");
     }
+    public void crearTweak(){
+        Keyboard kb = page.keyboard();
+        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(5)");
+        page.click("text=Tweak");
+        page.fill(".program-selector-wrapper input",selectProgramTweak);
+        kb.press("ArrowDown");
+        kb.press("Enter");
+        page.selectOption(".area-display-size-select", sizeTweak);
+        page.fill(".room-list-area-display-row td:nth-of-type(3) .number-input-container #inputNumber",qtyTweak);
+        page.click(".saved-building-list li:nth-of-type(2) input");
+        page.click(".adjust-program-room-list-selector button:nth-of-type(2)");
+        page.fill(".save-program-modal-container input",programNameTweak);
+        page.click(".modal-buttons button:nth-of-type(1)");
+    }
 }

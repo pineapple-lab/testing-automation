@@ -122,4 +122,8 @@ public class variablesIniciadas extends variables{
         legalFormationLaunch ="6";
         bussinesSinceLaunch = "5";
     }
+    public void iniciarVariablesTweakFeliz(){
+        sizeTweak = "25*40";
+        qtyTweak = "5";
+    }
 }

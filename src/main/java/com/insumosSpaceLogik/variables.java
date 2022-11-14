@@ -112,4 +112,10 @@ public class variables {
     public String legalFormationLaunch;
     public String bussinesSinceLaunch;
 
+    //TWEAK
+    public String selectProgramTweak;
+    public String programNameTweak;
+    public String sizeTweak;
+    public String qtyTweak;
+
 }

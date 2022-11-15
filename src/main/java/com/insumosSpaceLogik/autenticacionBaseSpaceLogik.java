@@ -11,7 +11,7 @@ public class autenticacionBaseSpaceLogik extends variablesIniciadas {
     @BeforeAll
     static void launchBrowser(){
         playwright = Playwright.create();
-        browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false).setSlowMo(900));
+        browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false).setSlowMo(1050));
     }
    @BeforeEach
        public void createContextAndPage(){

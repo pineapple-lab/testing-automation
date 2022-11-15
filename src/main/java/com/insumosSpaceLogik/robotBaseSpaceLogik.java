@@ -44,7 +44,7 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones{
         page.click("text=Proposals");
         page.click("[class=\"default-spacelogik-button\"]");
         page.focus(".new-proposal-modal-container label:nth-of-type(1)");
-        page.keyboard().insertText(nameProposal);
+        kb.insertText(nameProposal);
         page.selectOption(".new-proposal-modal-container label:nth-of-type(2)", building);
         page.selectOption(".new-proposal-modal-container label:nth-of-type(3)", prospect);
         page.selectOption(".new-proposal-modal-container label:nth-of-type(4)", program);
@@ -122,13 +122,12 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones{
         page.selectOption(".general-info-container > label:nth-of-type(1)", industryProspect);
         page.fill(".general-info-container > label:nth-of-type(2)", approxRsfProspect);
         page.focus(".general-info-container > label:nth-of-type(3)");
-        kb.type(ocupancyDateProspect);
+        kb.insertText(ocupancyDateProspect);
         page.click(".add-prospect-modal-button-container > button:nth-of-type(1)");
     }
     public void archivarProspect() {
         page.click(".prospect-list-landlord-table tr:last-child div > button:nth-of-type(2)");
     }
-
     public void eliminarProspect() {
         page.click(".prospect-list-landlord-table tr:last-child div > button:nth-of-type(3)");
         page.click(".decline-prospect-buttons-container button:nth-of-type(1)");
@@ -136,7 +135,6 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones{
     public void activarProspect() {
         page.click(".prospect-list-landlord-button-container button:nth-of-type(2)");
         page.click(".prospect-list-landlord-table tr:last-child td:last-child");
-
     }
     public void crearCompetitiveSetProspect() {
         Keyboard kb = page.keyboard();
@@ -167,10 +165,10 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones{
         page.click(".view-prospect-general-broker-info-contact button");
         page.selectOption(".contact-info-container label:nth-of-type(1) select", salutationEditBrokerManual);
         page.fill(".contact-info-container label:nth-of-type(2) input", firstNameEditBrokerManual);
-        page.fill(".contact-info-container label:nth-of-type(3) input", titleEditBrokerManual);
-        page.fill(".contact-info-container label:nth-of-type(4) input", address1EditBrokerManual);
-        page.fill(".contact-info-container label:nth-of-type(5) input", address2EditBrokerManual);
-        page.fill(".contact-info-container label:nth-of-type(6) input", stateEditBrokerManual);
+        page.fill(".contact-info-container label:nth-of-type(3) input", lastNameEditProspectGeneralInfo);
+        page.fill(".contact-info-container label:nth-of-type(4) input", titleEditBrokerManual);
+        page.fill(".contact-info-container label:nth-of-type(5) input", address1EditBrokerManual);
+        page.fill(".contact-info-container label:nth-of-type(6) input", address2EditBrokerManual);
         page.selectOption(".contact-info-container label:nth-of-type(7) select", stateEditBrokerManual);
         page.selectOption(".contact-info-container label:nth-of-type(8) select", cityEditBrokerManual);
         page.selectOption(".contact-info-container label:nth-of-type(9) select", zipcodeEditBrokerManual);

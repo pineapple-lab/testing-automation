@@ -1,0 +1,9 @@
+1-Instalar playwright
+----> Link de instalacion y descarga: https://playwright.dev/docs/intro
+
+2-Instalar ultima version de maven
+----> Link de instalacion y descarga: https://maven.apache.org/download.cgi + https://maven.apache.org/install.html
+
+3-Instalar IDE eclipse, IntelliJ IDEA o cualquiera con buena compatibilidad con java
+----> Link de descarga IntelliJ IDEA: https://www.jetbrains.com/idea/download/#section=windows
+----> Link de descarga Eclipse: https://www.eclipse.org/downloads/

@@ -141,6 +141,7 @@ public class programFuncionEdit extends robotBaseSpaceLogik {
         page.focus("#root");
         Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
     }
+    @Test
     public void validacionEdicionCompleta(){
         iniciarVariablesEditRoom();
         nameProgram = "pruebAutomatizada31-validacionEdicionCompleta";

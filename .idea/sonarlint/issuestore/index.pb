@@ -1,25 +1,3 @@
 
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
-h
-8src/test/java/SpaceLogik/pw/proposalFuncionArchivar.java,2\8\28970deb1252ea776c8d911a5c53b84268bc3244
-f
-6src/test/java/SpaceLogik/pw/prospectFuncionEditar.java,f\d\fdd0c4f95bf9226061b029a1bd0c55b6f7328aeb
-g
-7src/test/java/SpaceLogik/pw/usuarioFuncionRegistro.java,8\b\8b355cf13f7ea01ca8ceed074ec241f423930400
-g
-7src/test/java/SpaceLogik/pw/prospectFuncionActivar.java,b\c\bc7508637fd0ebf0d676d03e7fcf4931074fe059
-h
-8src/test/java/SpaceLogik/pw/prospectFuncionEliminar.java,a\5\a51d8b957238ce3212e28a7801a4eb43a5efcf9a
-h
-8src/test/java/SpaceLogik/pw/prospectFuncionTracking.java,0\5\057c880162a2efbcaf3cde8de6f7ee40779f89cf
-^
-.src/test/java/Fabrica/programFuncionClone.java,5\4\5449db4f829639e2f8bfe07b94a5daf7fa522271
-c
-3src/test/java/SpaceLogik/pw/launchFuncionCrear.java,3\4\34b7c94a1abdcd064812887f347fde9f83df23d3
-b
-2src/test/java/SpaceLogik/pw/TweakFuncionCrear.java,9\8\98fa4dbe63fa1e82e17deca1b9caa053f034ffd7
-c
-3src/test/java/SpaceLogik/pw/programFuncionEdit.java,2\3\237b1beb6ff2bb034353a29660449277a72d338c
-h
-8src/test/java/SpaceLogik/pw/programFuncionCreateNew.java,9\0\909d40119e028cfa7e4192f481a44632edc2942b

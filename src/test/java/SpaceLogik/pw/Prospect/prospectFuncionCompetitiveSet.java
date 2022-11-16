@@ -9,15 +9,15 @@ import org.junit.jupiter.api.Test;
 public class prospectFuncionCompetitiveSet extends robotBaseSpaceLogik {
    @Test
     public void validacionCrearCompetitiveSet(){
-        notesCompetitiveSetProspect = "pruebaAutomatizada17-validacionCrearCompetitiveSet";
-        nameCompanyProspect = "pruebaAutomatizada17-validacionCrearCompetitiveSet";
+        notesCompetitiveSetProspect = "pruebAutomatizada17-validacionCrearCompetitiveSet";
+        nameCompanyProspect = "pruebAutomatizada17-validacionCrearCompetitiveSet";
         login();
         iniciarVariablesProspectFeliz();
         iniciarVariablesCompetitiveSetFeliz();
         crearProspect();
         crearCompetitiveSetProspect();
         page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=pruebaAutomatizada17-validacionCrearCompetitiveSet"));
+        Assertions.assertTrue(page.isVisible("text=pruebAutomatizada17-validacionCrearCompetitiveSet"));
 
     }
 

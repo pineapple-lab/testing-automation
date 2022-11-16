@@ -10,14 +10,14 @@ public class prospectFuncionEditar extends robotBaseSpaceLogik {
         iniciarVariablesProspectFeliz();
         iniciarVariablesEditGeneralInfoProspect();
         nameCompanyProspect="pruebAutomatizada20-validacionEditProspectGeneralInfo";
-        nameCompanyEditProspectGeneralInfo="editcompany-PruebAutomatizada20-validacionEditProspectGeneralInfo";
-        firstNameEditProspectGeneralInfo = "editfirstName-PruebAutomatizada20-validacionEditProspectGeneralInfo";
+        nameCompanyEditProspectGeneralInfo="editcompany-pruebAutomatizada20-validacionEditProspectGeneralInfo";
+        firstNameEditProspectGeneralInfo = "editfirstName-pruebAutomatizada20-validacionEditProspectGeneralInfo";
         login();
         crearProspect();
         editarPorspectGeneralInfo();
         page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=editcompany-PruebAutomatizada20-validacionEditProspectGeneralInfo"));
-        Assertions.assertTrue(page.isVisible("text=editfirstName-PruebAutomatizada20-validacionEditProspectGeneralInfo"));
+        Assertions.assertTrue(page.isVisible("text=editcompany-pruebAutomatizada20-validacionEditProspectGeneralInfo"));
+        Assertions.assertTrue(page.isVisible("text=editfirstName-pruebAutomatizada20-validacionEditProspectGeneralInfo"));
         Assertions.assertTrue(page.isVisible("text=Public"));
     }
     @Test
@@ -25,33 +25,33 @@ public class prospectFuncionEditar extends robotBaseSpaceLogik {
         iniciarVariablesProspectFeliz();
         iniciarVariablesEditManualBrokerFeliz();
         nameCompanyProspect = "prueabAutomatizada19-validacionEdicionManualInfoBrokerage";
-        firstNameEditBrokerManual = "pruebaAutomatizada19-validacionEdicionManualInfoBrokerage";
+        firstNameEditBrokerManual = "pruebAutomatizada19-validacionEdicionManualInfoBrokerage";
         login();
         crearProspect();
         editarManualmenteInfoBrokerage();
         page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=pruebaAutomatizada19-validacionEdicionManualInfoBrokerage"));
+        Assertions.assertTrue(page.isVisible("text=pruebAutomatizada19-validacionEdicionManualInfoBrokerage"));
     }
     @Test
     public void validacionEdicionCompleta(){
         iniciarVariablesProspectFeliz();
         iniciarVariablesEditGeneralInfoProspect();
         iniciarVariablesEditManualBrokerFeliz();
-        nameCompanyProspect = "pruebaAutomatizada21-validacionEdicionManualInfoBrokerage";
-        firstNameEditBrokerManual = "pruebaAutomatizada21-validacionEdicionManualInfoBrokerage";
-        nameCompanyEditProspectGeneralInfo="editcompany-PruebaAutomatizada21-validacionEditProspectGeneralInfo";
-        firstNameEditProspectGeneralInfo = "editfirstName-PruebaAutomatizada21-validacionEditProspectGeneralInfo";
+        nameCompanyProspect = "pruebAutomatizada21-validacionEdicionManualInfoBrokerage";
+        firstNameEditBrokerManual = "pruebAutomatizada21-validacionEdicionManualInfoBrokerage";
+        nameCompanyEditProspectGeneralInfo="editcompany-pruebAutomatizada21-validacionEditProspectGeneralInfo";
+        firstNameEditProspectGeneralInfo = "editfirstName-pruebAutomatizada21-validacionEditProspectGeneralInfo";
         login();
         crearProspect();
         page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=pruebaAutomatizada21-validacionEdicionManualInfoBrokerage"));
+        Assertions.assertTrue(page.isVisible("text=pruebAutomatizada21-validacionEdicionManualInfoBrokerage"));
         editarPorspectGeneralInfo();
         page.click("text=MY LOGIK");
         page.click("text=Prospects");
         editarManualmenteInfoBrokerage();
         page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=pruebaAutomatizada21-validacionEdicionManualInfoBrokerage"));
-        Assertions.assertTrue(page.isVisible("text=editcompany-PruebaAutomatizada21-validacionEditProspectGeneralInfo"));
-        Assertions.assertTrue(page.isVisible("text=editfirstName-PruebaAutomatizada21-validacionEditProspectGeneralInfo"));
+        Assertions.assertTrue(page.isVisible("text=pruebAutomatizada21-validacionEdicionManualInfoBrokerage"));
+        Assertions.assertTrue(page.isVisible("text=editcompany-pruebAutomatizada21-validacionEditProspectGeneralInfo"));
+        Assertions.assertTrue(page.isVisible("text=editfirstName-pruebAutomatizada21-validacionEditProspectGeneralInfo"));
     }
 }

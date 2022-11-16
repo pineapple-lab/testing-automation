@@ -27,7 +27,7 @@ public class proposalFuncionNuevaVersion extends robotBaseSpaceLogik {
     public void validacionPaymentNuevaVersion(){
         iniciarVariablesProposalXYZ77M();
         iniciarVariablesPropposalValoresMedianos();
-        nameProposal = "pruebaautomatizada9-validacionPaymentNuevaVersion";
+        nameProposal = "pruebAutomatizada9-validacionPaymentNuevaVersion";
         login();
         crearProposal();
         llenarProposal();

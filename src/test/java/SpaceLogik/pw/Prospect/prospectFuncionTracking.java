@@ -9,12 +9,12 @@ public class prospectFuncionTracking extends robotBaseSpaceLogik {
     public void validacionCrearTracking(){
         iniciarVariablesTrackingFeliz();
         iniciarVariablesProspectFeliz();
-        subjectTrackingProspect = "pruebaaAutomatizada18-validacionCrearTracking";
-        nameCompanyProspect = "pruebaaAutomatizada18-validacionCrearTracking";
+        subjectTrackingProspect = "pruebAutomatizada18-validacionCrearTracking";
+        nameCompanyProspect = "pruebAutomatizada18-validacionCrearTracking";
         login();
         crearProspect();
         crearTrackingProspect();
         page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=pruebaaAutomatizada18-validacionCrearTracking"));
+        Assertions.assertTrue(page.isVisible("text=pruebAutomatizada18-validacionCrearTracking"));
     }
 }

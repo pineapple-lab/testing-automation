@@ -11,7 +11,7 @@ public class programFuncionAutoProgram extends robotBaseSpaceLogik {
 
     @Test
     public void validacionCrearAutoProgram(){
-        nameAutoProgram="PruebAutomatizada32-validacionCrearAutoProgram";
+        nameAutoProgram="pruebAutomatizada32-validacionCrearAutoProgram";
         iniciarVariablesAutoProgramFeliz();
         login();
         crearAutoProgram();
@@ -22,6 +22,6 @@ public class programFuncionAutoProgram extends robotBaseSpaceLogik {
         page.click(".app-sidebar__inner > div > ul > li:nth-of-type(5)");
         page.click("text=Programs");
         page.focus("#root");
-        assertTrue(page.isVisible("text=PruebAutomatizada32-validacionCrearAutoProgram"));
+        assertTrue(page.isVisible("text=pruebAutomatizada32-validacionCrearAutoProgram"));
     }
 }

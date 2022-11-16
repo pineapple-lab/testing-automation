@@ -1,9 +1,12 @@
-package com.insumosSpaceLogik;
+package insumosPeppermint;
 
 import com.microsoft.playwright.*;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 
-public class autenticacionBaseSpaceLogik extends variablesIniciadas {
+public class contextoBase extends iniciarVariables {
     protected static Playwright playwright;
     protected static Browser browser;
     protected static BrowserContext context;
@@ -13,11 +16,11 @@ public class autenticacionBaseSpaceLogik extends variablesIniciadas {
         playwright = Playwright.create();
         browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false).setSlowMo(1050));
     }
-   @BeforeEach
-       public void createContextAndPage(){
-           context = browser.newContext();
-           page = context.newPage();
-           page.setViewportSize(1366, 768);
+    @BeforeEach
+    public void createContextAndPage(){
+        context = browser.newContext();
+        page = context.newPage();
+        page.setViewportSize(1366, 768);
     }
     @AfterEach
     void closeContext(){ context.close(); }
@@ -25,4 +28,3 @@ public class autenticacionBaseSpaceLogik extends variablesIniciadas {
     static void closeBrowser(){ playwright.close();
     }
 }
-

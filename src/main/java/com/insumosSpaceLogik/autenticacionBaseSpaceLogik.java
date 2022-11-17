@@ -3,7 +3,7 @@ package com.insumosSpaceLogik;
 import com.microsoft.playwright.*;
 import org.junit.jupiter.api.*;
 
-public class autenticacionBaseSpaceLogik extends variablesIniciadas {
+public class autenticacionBaseSpaceLogik extends variablesIniciadasSpaceLogik {
     protected static Playwright playwright;
     protected static Browser browser;
     protected static BrowserContext context;

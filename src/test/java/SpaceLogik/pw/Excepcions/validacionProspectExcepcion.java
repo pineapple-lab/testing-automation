@@ -94,7 +94,7 @@ public class validacionProspectExcepcion extends robotBaseSpaceLogik {
     public void validacionTrackingSubjectVacio(){
         iniciarVariablesProspectFeliz();
         iniciarVariablesTrackingFeliz();
-        nameCompanyProspect="pruebAutomatizad35-validacionTrackingSubjectVacio";
+        nameCompanyProspect="pruebAutomatizad44-validacionTrackingSubjectVacio";
         login();
         crearProspect();
         excepcionProspectTrackingSubjectVacio();
@@ -105,8 +105,8 @@ public class validacionProspectExcepcion extends robotBaseSpaceLogik {
     public void validacionTrackingDateSubjectVacio(){
         iniciarVariablesProspectFeliz();
         iniciarVariablesTrackingFeliz();
-        nameCompanyProspect="pruebAutomatizada36-validacionTrackingDateSubjectVacio";
-        subjectTrackingProspect="pruebAutomatizada36-validacionTrackingDateSubjectVacio";
+        nameCompanyProspect="pruebAutomatizada45-validacionTrackingDateSubjectVacio";
+        subjectTrackingProspect="pruebAutomatizada45-validacionTrackingDateSubjectVacio";
         login();
         crearProspect();
         excepcionProspectDateSubjectVacio();
@@ -117,7 +117,7 @@ public class validacionProspectExcepcion extends robotBaseSpaceLogik {
     public void validacionEditBrokerFirstNameVacioExcepcion(){
         iniciarVariablesProspectFeliz();
         iniciarVariablesEditManualBrokerFeliz();
-        nameCompanyProspect="pruebAutomatizada37-validacionEditBrokerFirstNameVacioExcepcion";
+        nameCompanyProspect="pruebAutomatizada46-validacionEditBrokerFirstNameVacioExcepcion";
         login();
         crearProspect();
         excepcionProspectFirstNameVacioEditBrokerInfo();
@@ -128,8 +128,8 @@ public class validacionProspectExcepcion extends robotBaseSpaceLogik {
     public void validacionEditBrokerLastNameVacioExcepcion(){
         iniciarVariablesProspectFeliz();
         iniciarVariablesEditManualBrokerFeliz();
-        nameCompanyProspect="pruebAutomatizada38-validacionEditBrokerLastNameVacioExcepcion";
-        firstNameEditBrokerManual="pruebAutomatizada38-validacionEditBrokerLastNameVacioExcepcion";
+        nameCompanyProspect="pruebAutomatizada47-validacionEditBrokerLastNameVacioExcepcion";
+        firstNameEditBrokerManual="pruebAutomatizada47-validacionEditBrokerLastNameVacioExcepcion";
         login();
         crearProspect();
         excepcionProspectLastNameVacioEditBrokerInfo();
@@ -140,8 +140,8 @@ public class validacionProspectExcepcion extends robotBaseSpaceLogik {
     public void validacionEditBrokerEmailVacioExcepcion(){
         iniciarVariablesProspectFeliz();
         iniciarVariablesEditManualBrokerFeliz();
-        nameCompanyProspect="pruebAutomatizada38-validacionEditBrokerLastNameVacioExcepcion";
-        firstNameEditBrokerManual="pruebAutomatizada38-validacionEditBrokerLastNameVacioExcepcion";
+        nameCompanyProspect="pruebAutomatizada48-validacionEditBrokerLastNameVacioExcepcion";
+        firstNameEditBrokerManual="pruebAutomatizada48-validacionEditBrokerLastNameVacioExcepcion";
         login();
         crearProspect();
         excepcionProspectEmailVacioEditBrokerInfo();
@@ -152,8 +152,8 @@ public class validacionProspectExcepcion extends robotBaseSpaceLogik {
     public void validacionEditBrokerEmailFormatoIncorrectoExcepcion(){
         iniciarVariablesProspectFeliz();
         iniciarVariablesEditManualBrokerFeliz();
-        nameCompanyProspect="pruebAutomatizada40-validacionEditBrokerEmailFormatoIncorrectoExcepcion";
-        firstNameEditBrokerManual="pruebAutomatizada40-validacionEditBrokerEmailFormatoIncorrectoExcepcion";
+        nameCompanyProspect="pruebAutomatizada49-validacionEditBrokerEmailFormatoIncorrectoExcepcion";
+        firstNameEditBrokerManual="pruebAutomatizada49-validacionEditBrokerEmailFormatoIncorrectoExcepcion";
         emailEditBrokerManual="pruebExcepcion";
         login();
         crearProspect();
@@ -165,8 +165,8 @@ public class validacionProspectExcepcion extends robotBaseSpaceLogik {
     public void validacionEditBrokerCityVacioExcepcion(){
         iniciarVariablesProspectFeliz();
         iniciarVariablesEditManualBrokerFeliz();
-        nameCompanyProspect="pruebAutomatizada41-validacionEditBrokerCityVacioExcepcion";
-        firstNameEditBrokerManual="pruebAutomatizada41-validacionEditBrokerCityVacioExcepcion";
+        nameCompanyProspect="pruebAutomatizada50-validacionEditBrokerCityVacioExcepcion";
+        firstNameEditBrokerManual="pruebAutomatizada50-validacionEditBrokerCityVacioExcepcion";
         login();
         crearProspect();
         excepcionProspectCityVacionEditBrokerInfo();
@@ -177,8 +177,8 @@ public class validacionProspectExcepcion extends robotBaseSpaceLogik {
     public void validacionEditBrokerZipCodeVacioExcepcion(){
         iniciarVariablesProspectFeliz();
         iniciarVariablesEditManualBrokerFeliz();
-        nameCompanyProspect="pruebAutomatizada42-validacionEditBrokerZipCodeVacioExcepcion";
-        firstNameEditBrokerManual="pruebAutomatizada42-validacionEditBrokerZipCodeVacioExcepcion";
+        nameCompanyProspect="pruebAutomatizada51-validacionEditBrokerZipCodeVacioExcepcion";
+        firstNameEditBrokerManual="pruebAutomatizada51-validacionEditBrokerZipCodeVacioExcepcion";
         login();
         crearProspect();
         excepcionProspectZipCodeVacioEditBrokerInfo();

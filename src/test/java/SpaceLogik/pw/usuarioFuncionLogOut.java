@@ -1,0 +1,20 @@
+package SpaceLogik.pw;
+
+import com.insumosSpaceLogik.robotBaseSpaceLogik;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+public class usuarioFuncionLogOut  extends robotBaseSpaceLogik {
+
+    @Test
+    public void validacionLogut() {
+        login();
+        logout();
+        page.focus("#root");
+        Assertions.assertTrue(page.isVisible("text=Login"));
+        Assertions.assertTrue(page.isVisible("text=LOG IN"));
+        Assertions.assertTrue(page.isVisible("text=REGISTER NOW"));
+    }
+
+
+}

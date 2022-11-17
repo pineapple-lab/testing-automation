@@ -19,6 +19,10 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones{
         page.fill("#txtPassword", "Pickle30");
         page.click("'LOG IN'");
     }
+    public void logout(){
+        page.click(".btn-group");
+        page.click(".dropdown-menu-header div:nth-of-type(2) .widget-content-wrapper button");
+    }
     public void registrarse() {
         page.navigate("https://space-logic.web.app/react/login");
         page.click("text=REGISTER NOW");
@@ -322,5 +326,115 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones{
         page.click(".adjust-program-room-list-selector button:nth-of-type(2)");
         page.fill(".save-program-modal-container input",programNameTweak);
         page.click(".modal-buttons button:nth-of-type(1)");
+    }
+    public void crearCompareTerm3(){
+        Keyboard kb = page.keyboard();
+        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(6)");
+        page.click("text=Compare");
+        page.click(".term-selection-container button:nth-of-type(1)");
+        page.focus(".compare-building-list-table tbody tr:nth-of-type(1) input");
+        page.click(".compare-building-list-table tbody tr:nth-of-type(1) input");
+        page.click(".compare-building-list-table tbody tr:nth-of-type(2) input");
+        page.click(".compare-building-list-table tbody tr:nth-of-type(3) input");
+        page.click(".compare-building-list-table tbody tr:nth-of-type(4) input");
+        page.click(".compare-building-list-table tbody tr:nth-of-type(5) input");
+        page.click(".compare-building-list-table tbody tr:nth-of-type(6) input");
+        page.click(".compare-buildings-info-header button:nth-of-type(4)");
+        page.focus(".save-comparison-as-modal-input");
+        kb.insertText(nameComparison);
+        page.click(".button-container button:nth-of-type(1)");
+    }
+    public void crearCompareTerm5(){
+        Keyboard kb = page.keyboard();
+        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(6)");
+        page.click("text=Compare");
+        page.click(".term-selection-container button:nth-of-type(2)");
+        page.focus(".compare-building-list-table tbody tr:nth-of-type(1) input");
+        page.click(".compare-building-list-table tbody tr:nth-of-type(1) input");
+        page.click(".compare-building-list-table tbody tr:nth-of-type(2) input");
+        page.click(".compare-building-list-table tbody tr:nth-of-type(3) input");
+        page.click(".compare-building-list-table tbody tr:nth-of-type(4) input");
+        page.click(".compare-building-list-table tbody tr:nth-of-type(5) input");
+        page.click(".compare-building-list-table tbody tr:nth-of-type(6) input");
+        page.click(".compare-buildings-info-header button:nth-of-type(4)");
+        page.focus(".save-comparison-as-modal-input");
+        kb.insertText(nameComparison);
+        page.click(".button-container button:nth-of-type(1)");
+    }
+    public void crearCompareTerm7(){
+        Keyboard kb = page.keyboard();
+        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(6)");
+        page.click("text=Compare");
+        page.click(".term-selection-container button:nth-of-type(3)");
+        page.click(".compare-building-list-table tbody tr:nth-of-type(1) input");
+        page.click(".compare-building-list-table tbody tr:nth-of-type(2) input");
+        page.click(".compare-building-list-table tbody tr:nth-of-type(3) input");
+        page.click(".compare-building-list-table tbody tr:nth-of-type(4) input");
+        page.click(".compare-building-list-table tbody tr:nth-of-type(5) input");
+        page.click(".compare-building-list-table tbody tr:nth-of-type(6) input");
+        page.click(".compare-buildings-info-header button:nth-of-type(4)");
+        page.focus(".save-comparison-as-modal-input");
+        kb.insertText(nameComparison);
+        page.click(".button-container button:nth-of-type(1)");
+    }
+    public void crearCompareTerm10(){
+        Keyboard kb = page.keyboard();
+        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(6)");
+        page.click("text=Compare");
+        page.click(".term-selection-container button:nth-of-type(4)");
+        page.click(".compare-building-list-table tbody tr:nth-of-type(1) input");
+        page.click(".compare-building-list-table tbody tr:nth-of-type(2) input");
+        page.click(".compare-building-list-table tbody tr:nth-of-type(3) input");
+        page.click(".compare-building-list-table tbody tr:nth-of-type(4) input");
+        page.click(".compare-building-list-table tbody tr:nth-of-type(5) input");
+        page.click(".compare-building-list-table tbody tr:nth-of-type(6) input");
+        page.click(".compare-buildings-info-header button:nth-of-type(4)");
+        page.focus(".save-comparison-as-modal-input");
+        kb.insertText(nameComparison);
+        page.click(".button-container button:nth-of-type(1)");
+    }
+    public void crearCompareTerm12(){
+        Keyboard kb = page.keyboard();
+        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(6)");
+        page.click("text=Compare");
+        page.click(".term-selection-container button:nth-of-type(5)");
+        page.click(".compare-building-list-table tbody tr:nth-of-type(1) input");
+        page.click(".compare-building-list-table tbody tr:nth-of-type(2) input");
+        page.click(".compare-building-list-table tbody tr:nth-of-type(3) input");
+        page.click(".compare-building-list-table tbody tr:nth-of-type(4) input");
+        page.click(".compare-building-list-table tbody tr:nth-of-type(5) input");
+        page.click(".compare-building-list-table tbody tr:nth-of-type(6) input");
+        page.click(".compare-buildings-info-header button:nth-of-type(4)");
+        page.focus(".save-comparison-as-modal-input");
+        kb.insertText(nameComparison);
+        page.click(".button-container button:nth-of-type(1)");
+    }
+    public void crearCompareTerm15(){
+        Keyboard kb = page.keyboard();
+        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(6)");
+        page.click("text=Compare");
+        page.click(".term-selection-container button:nth-of-type(6)");
+        page.click(".compare-building-list-table tbody tr:nth-of-type(1) input");
+        page.click(".compare-building-list-table tbody tr:nth-of-type(2) input");
+        page.click(".compare-building-list-table tbody tr:nth-of-type(3) input");
+        page.click(".compare-building-list-table tbody tr:nth-of-type(4) input");
+        page.click(".compare-building-list-table tbody tr:nth-of-type(5) input");
+        page.click(".compare-building-list-table tbody tr:nth-of-type(6) input");
+        page.click(".compare-buildings-info-header button:nth-of-type(4)");
+        page.focus(".save-comparison-as-modal-input");
+        kb.insertText(nameComparison);
+        page.click(".button-container button:nth-of-type(1)");
+    }
+    public void borrarCompare(){
+        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(6)");
+        page.click("text=Compare");
+        page.click(".compare-buildings-info-header button:nth-of-type(2)");
+        page.click(".compare-list-modal-table tbody tr:last-child td:last-child button:nth-of-type(2)");
+    }
+    public void abrirCompare(){
+        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(6)");
+        page.click("text=Compare");
+        page.click(".compare-buildings-info-header button:nth-of-type(2)");
+        page.click(".compare-list-modal-table tbody tr:last-child td:last-child button:nth-of-type(1)");
     }
 }

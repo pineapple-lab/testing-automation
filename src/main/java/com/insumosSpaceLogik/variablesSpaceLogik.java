@@ -1,6 +1,6 @@
 package com.insumosSpaceLogik;
 
-public class variables {
+public class variablesSpaceLogik {
 
     //REGISTRO
     public String firstNameRegistro;
@@ -117,5 +117,6 @@ public class variables {
     public String programNameTweak;
     public String sizeTweak;
     public String qtyTweak;
-
+    //COMPARE
+    public String nameComparison;
 }

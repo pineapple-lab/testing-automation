@@ -10,9 +10,12 @@ public class TweakFuncionCrear extends robotBaseSpaceLogik {
     @Test
     public void validacionCrearTweak(){
         iniciarVariablesTweakFeliz();
+        iniciarVariablesAutoProgramFeliz();
+        nameProgram="pruebAutomatizada37-validacionCrearTweak";
         selectProgramTweak="pruebAutomatizada30-validacionEditarAlacarteOptions";
-        programNameTweak="pruebAutomatizada31-validacionCrearTweak";
+        programNameTweak="pruebAutomatizada37-validacionCrearTweak";
         login();
+        crearPrograma();
         crearTweak();
         page.focus("#root");
         Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));

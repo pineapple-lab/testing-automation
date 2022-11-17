@@ -1,6 +1,6 @@
 package com.insumosSpaceLogik;
 
-public class variablesIniciadas extends variables{
+public class variablesIniciadasSpaceLogik extends variablesSpaceLogik{
     public void iniciarVariablesPropposalValoresPequeños(){
         term = "84";
         startingRate = "0.25";

@@ -123,7 +123,7 @@ public class variablesIniciadasSpaceLogik extends variablesSpaceLogik{
         bussinesSinceLaunch = "5";
     }
     public void iniciarVariablesTweakFeliz(){
-        sizeTweak = "25*40";
-        qtyTweak = "5";
+        sizeTweak = "10*12";
+        qtyTweak = "80";
     }
 }

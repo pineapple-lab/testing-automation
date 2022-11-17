@@ -317,7 +317,8 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones{
         Keyboard kb = page.keyboard();
         page.click(".app-sidebar__inner > div > ul > li:nth-of-type(5)");
         page.click("text=Tweak");
-        page.fill(".program-selector-wrapper input",selectProgramTweak);
+        page.focus(".program-selector-wrapper input");
+        kb.insertText(selectProgramTweak);
         kb.press("ArrowDown");
         kb.press("Enter");
         page.selectOption(".area-display-size-select", sizeTweak);
@@ -436,5 +437,9 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones{
         page.click("text=Compare");
         page.click(".compare-buildings-info-header button:nth-of-type(2)");
         page.click(".compare-list-modal-table tbody tr:last-child td:last-child button:nth-of-type(1)");
+    }
+    public void guardarCompare(){
+        page.click(".compare-building-list-table tbody tr:nth-of-type(2) input");
+        page.click(".compare-buildings-info-header button:nth-of-type(3)");
     }
 }

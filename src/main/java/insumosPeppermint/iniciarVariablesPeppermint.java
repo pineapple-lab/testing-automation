@@ -1,6 +1,6 @@
 package insumosPeppermint;
 
-public class iniciarVariables extends variables{
+public class iniciarVariablesPeppermint extends variablesPeppermint{
     public void iniciarVariablesDeNavegacoin(){
         linkDeNavegacion = "https://peppermint-development.web.app/";
     }

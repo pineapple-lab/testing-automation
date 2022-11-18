@@ -1,6 +1,6 @@
 package insumosPeppermint;
 
-public class robotBasePeppermint extends contextoBase {
+public class robotBasePeppermint extends contextoBasePeppermint {
     public void iniciarNavegacion(){
         page.navigate(linkDeNavegacion);
     }

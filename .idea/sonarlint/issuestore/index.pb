@@ -1,10 +1,6 @@
 
-7
-pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 ?
 IMPORTANTE LEER,0\1\01f0de8e21ddd5608d4aa09ded2a4080b3a7d455
-w
-Gsrc/test/java/SpaceLogik/pw/Excepcions/validacionProposalExcepcion.java,0\2\024d0cd758efb1da7a7ae786f1e2d08f15c979f7
 t
 Dsrc/test/java/SpaceLogik/pw/Excepcions/validacionLoginExcepcion.java,2\7\276b0b6c28152c89725199cbe304f686f18f4c5e
 v
@@ -59,7 +55,3 @@ m
 =src/test/java/SpaceLogik/pw/Compare/compareFuncionDelete.java,7\1\711e1767a51a18388b481a16f0177ee457a64799
 k
 ;src/test/java/SpaceLogik/pw/Compare/compareFuncionOpen.java,e\2\e27c8d2b2ebae2a7a392c18d7dbc4b25d974330c
-m
-=src/test/java/SpaceLogik/pw/Compare/compareFuncionSaveAs.java,d\7\d733a1068a2ea6b9077283935936465b65c08f01
-k
-;src/test/java/SpaceLogik/pw/Compare/compareFuncionSave.java,c\f\cfba5a1f88bb1d6cfd11d21d8dae26ca9c2d5610

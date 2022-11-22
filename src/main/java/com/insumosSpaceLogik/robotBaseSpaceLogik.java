@@ -13,16 +13,6 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones{
         Date dateObj = calendar.getTime();
         formattedDate = dtf.format(dateObj);
     }
-    static public void login() {
-        page.navigate("https://space-logic.web.app/react/login");
-        page.fill("#txtMail", "admin");
-        page.fill("#txtPassword", "Pickle30");
-        page.click("'LOG IN'");
-    }
-    public void logout(){
-        page.click(".btn-group");
-        page.click(".dropdown-menu-header div:nth-of-type(2) .widget-content-wrapper button");
-    }
     public void registrarse() {
         page.navigate("https://space-logic.web.app/react/login");
         page.click("text=REGISTER NOW");
@@ -43,68 +33,85 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones{
         page.click(".ModalDiv > input[type=button]");
         page.click("text=REGISTER");
     }
-    public void crearProposal() {
+    static public void login() {
+        page.navigate("https://space-logic.web.app/react/login");
+        page.fill("#txtMail", "admin");
+        page.fill("#txtPassword", "Pickle30");
+        page.click("'LOG IN'");
+    }
+    public void logout(){
+        page.click(".btn-group");
+        page.click(".dropdown-menu-header div:nth-of-type(2) .widget-content-wrapper button");
+    }
+    public void editarMyDealLeaseTypeLocation(){
         Keyboard kb = page.keyboard();
-        page.click("text=Proposals");
-        page.click("[class=\"default-spacelogik-button\"]");
-        page.focus(".new-proposal-modal-container label:nth-of-type(1)");
-        kb.insertText(nameProposal);
-        page.selectOption(".new-proposal-modal-container label:nth-of-type(2)", building);
-        page.selectOption(".new-proposal-modal-container label:nth-of-type(3)", prospect);
-        page.selectOption(".new-proposal-modal-container label:nth-of-type(4)", program);
-        page.click(".new-proposal-modal-button-container button:nth-of-type(1)");
+        page.click("text=MY LOGIK");
+        page.click("text = My Deal");
+        page.click(".deal-location-selector-container div:nth-of-type(1) input");
+        page.focus(".deal-current-location-container input");
+        kb.insertText(ubicacionMyDealLeaseTypeLocation);
+        kb.press("ArrowDown");
+        kb.press("Enter");
+        page.click(".deal-future-location-container div:nth-of-type(1) label:nth-of-type(2) input");
+        page.click(".deal-future-location-container div:nth-of-type(2) label:nth-of-type(2) input");
+        page.click(".deal-location-header button");
     }
-    public void archivarProposal() {
-        page.click("text=Proposals");
-        page.click("tr:last-child .proposal-list-name-column ~ td:last-child div > button:nth-of-type(4)");
-        page.click(".proposal-modal-button-container button:nth-of-type(1)");
-    }
-    public void eliminarProposal() {
-        page.click("text=Proposals");
-        page.click(".proposal-list-landlord-button-container button:nth-of-type(2)");
-        page.click("tr:last-child .proposal-list-name-column ~ td:last-child div > button:last-child");
-        page.click(".proposal-modal-button-container button:nth-of-type(1)");
-    }
-    public void activarProposal() {
-        page.click(".proposal-list-landlord-button-container button:nth-of-type(2)");
-        page.click("tr:last-child .proposal-list-name-column ~ td:last-child div > button:nth-of-type(1)");
-    }
-    public void crearNuevaVersion() {
-        page.click("tr:last-child .proposal-list-name-column ~ td:last-child div > button:nth-of-type(2)");
-        page.click(".proposal-editing-name-header button:nth-of-type(1)");
-    }
-    public void llenarProposal() {
+    public void editarMyDealOfficeSize(){
         Keyboard kb = page.keyboard();
-        page.click("tr:last-child .proposal-list-name-column ~ td:last-child div > button:nth-of-type(1)");
-        //BOTON EDIT DEL CAMPO SELECTED SUITES
-        page.click(".general-shared-container button:nth-of-type(1)");
-        //BOTON ADD DE LA PRIMERA SUITE DE LA LISTA
-        page.click(".suite-selector-component tr:nth-child(1) button:nth-of-type(1)");
-        //BOTON SAVE DE LA LISTA SUITE
-        page.click(".suite-selector-modal-button-container button:nth-child(1)");
-        page.fill("#termNumber", term);
-        page.fill("#stratingRateNumber", startingRate);
-        page.fill("#annualIncreasesNumber", annualIncreases);
-        page.fill("#rentAbatementNumber", rentAbatement);
-        page.fill("#constructionNumber", construction);
-        page.fill("#baseBuildingNumber", baseBuilding);
-        //BOTON ADD ADDTIONAL LANDLORD COSTS
-        page.click(".additional-landlord-costs-header button:nth-of-type(1)");
-        page.fill(".add-cost-info-field-container label:nth-of-type(1)", month);
-        page.fill(".add-cost-info-field-container label:nth-of-type(2)", cost);
-        //BOTON SAVE DE VENTANA EDIT ADDITIONAL COST
-        page.click(".add-cost-modal-button-container button:nth-of-type(1)");
-        page.focus(".proposal-options-selected-component label:nth-of-type(1) > input[type=date]");
-        kb.type(dateOffered);
-        page.focus("#inputNumber");
-        kb.type(interestRate);
-        //Checkboxcost
-        page.click(".proposal-options-selected-container label:nth-of-type(5) > input[type=checkbox]");
-        page.click(".proposal-options-selected-container label:nth-of-type(6) > input[type=checkbox]");
-        page.click(".proposal-options-selected-container label:nth-of-type(7) > input[type=checkbox]");
-        page.click(".proposal-options-selected-container label:nth-of-type(8) > input[type=checkbox]");
-        //save
-        page.click(".proposal-editing-name-header button:nth-of-type(1)");
+        page.click("text=MY LOGIK");
+        page.click("text = My Deal");
+        page.focus(".deal-current-rsf-container input");
+        kb.insertText(rsfMyDealOfficeSize);
+        page.click(".future-employees-specific-headcount-container label input");
+        page.focus(".future-headcount-input");
+        kb.insertText(specificHeadCountMyDealOfficeSize);
+        page.click(".growth-adjust-container label:nth-of-type(1) input");
+        page.click(".deal-office-size-header button");
+    }
+    public void editarMyDealOccupancyAndSchedule(){
+        Keyboard kb = page.keyboard();
+        page.click("text=MY LOGIK");
+        page.click("text = My Deal");
+        page.focus(".occupancy-dates-container div:nth-of-type(1) input");
+        kb.insertText(dateExpirationMydealOccupancyAndSchedule);
+        page.focus(".occupancy-dates-container div:nth-of-type(2) input");
+        kb.insertText(dateLikeOccupyMydealOccupancyAndSchedule);
+        page.click(".minimum-schedule-button-container button:nth-of-type(3)");
+        page.click(".deal-occupancy-size-header button");
+    }
+    public void editarMyPreferencesConstructionQualityDefault(){
+        page.click("text=MY LOGIK");
+        page.click("text = My Preferences");
+        page.click(".tenant-preference-component #construction_level_number1");
+        page.click(".tenant-preference-component:nth-of-type(1) .term-selection-container button:nth-of-type(6)");
+        page.click(".tenant-preference-component:nth-of-type(1) .component-title button");
+    }
+    public void editarMyPreferencesFurnitureQualityDefault(){
+        page.click("text=MY LOGIK");
+        page.click("text = My Preferences");
+        page.click(".tenant-preference-component #furniture_level_number1");
+        page.click(".tenant-preference-component:nth-of-type(2) .term-selection-container button:nth-of-type(4)");
+        page.click(".tenant-preference-component:nth-of-type(2) .component-title button");
+    }
+    public void editarMyPreferenceFinancialDefaults(){
+        page.click("text=MY LOGIK");
+        page.click("text = My Preferences");
+        page.click(".number-changer-body:nth-of-type(1) button:nth-of-type(2)");
+        page.click(".number-changer-body:nth-of-type(2) button:nth-of-type(1)");
+        page.click(".tenant-preference-component:nth-of-type(3) .component-title button");
+    }
+    public void editarMyPreferencesYourIndustry(){
+        page.click("text=MY LOGIK");
+        page.click("text = My Preferences");
+        page.click(".radio-answer-container #industry_id6");
+        page.click(".tenant-preference-component:nth-of-type(4) .component-title button");
+    }
+    public void editarMyAmenities(){
+        page.click("text=MY LOGIK");
+        page.click("text = My Amenities");
+        page.click(".amenities-table-container tbody tr:nth-of-type(3) td:nth-of-type(4) button:nth-of-type(2)");
+        page.click(".amenities-table-container tbody tr:nth-of-type(2) td:nth-of-type(4) button:nth-of-type(1)");
+        page.click(".building-info-header button");
     }
     public void crearProspect() {
         Keyboard kb = page.keyboard();
@@ -205,6 +212,70 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones{
         page.click(".private-status-options-container label:nth-of-type(2) input");
         page.click(".edit-prospect-modal-button-container button:nth-of-type(1)");
     }
+    public void crearProposal() {
+        Keyboard kb = page.keyboard();
+        page.click("text=Proposals");
+        page.click("[class=\"default-spacelogik-button\"]");
+        page.focus(".new-proposal-modal-container label:nth-of-type(1)");
+        kb.insertText(nameProposal);
+        page.selectOption(".new-proposal-modal-container label:nth-of-type(2)", building);
+        page.selectOption(".new-proposal-modal-container label:nth-of-type(3)", prospect);
+        page.selectOption(".new-proposal-modal-container label:nth-of-type(4)", program);
+        page.click(".new-proposal-modal-button-container button:nth-of-type(1)");
+    }
+    public void archivarProposal() {
+        page.click("text=Proposals");
+        page.click("tr:last-child .proposal-list-name-column ~ td:last-child div > button:nth-of-type(4)");
+        page.click(".proposal-modal-button-container button:nth-of-type(1)");
+    }
+    public void eliminarProposal() {
+        page.click("text=Proposals");
+        page.click(".proposal-list-landlord-button-container button:nth-of-type(2)");
+        page.click("tr:last-child .proposal-list-name-column ~ td:last-child div > button:last-child");
+        page.click(".proposal-modal-button-container button:nth-of-type(1)");
+    }
+    public void activarProposal() {
+        page.click(".proposal-list-landlord-button-container button:nth-of-type(2)");
+        page.click("tr:last-child .proposal-list-name-column ~ td:last-child div > button:nth-of-type(1)");
+    }
+    public void crearNuevaVersion() {
+        page.click("tr:last-child .proposal-list-name-column ~ td:last-child div > button:nth-of-type(2)");
+        page.click(".proposal-editing-name-header button:nth-of-type(1)");
+    }
+    public void llenarProposal() {
+        Keyboard kb = page.keyboard();
+        page.click("tr:last-child .proposal-list-name-column ~ td:last-child div > button:nth-of-type(1)");
+        //BOTON EDIT DEL CAMPO SELECTED SUITES
+        page.click(".general-shared-container button:nth-of-type(1)");
+        //BOTON ADD DE LA PRIMERA SUITE DE LA LISTA
+        page.click(".suite-selector-component tr:nth-child(1) button:nth-of-type(1)");
+        //BOTON SAVE DE LA LISTA SUITE
+        page.click(".suite-selector-modal-button-container button:nth-child(1)");
+        page.fill("#termNumber", term);
+        page.fill("#stratingRateNumber", startingRate);
+        page.fill("#annualIncreasesNumber", annualIncreases);
+        page.fill("#rentAbatementNumber", rentAbatement);
+        page.fill("#constructionNumber", construction);
+        page.fill("#baseBuildingNumber", baseBuilding);
+        //BOTON ADD ADDTIONAL LANDLORD COSTS
+        page.click(".additional-landlord-costs-header button:nth-of-type(1)");
+        page.fill(".add-cost-info-field-container label:nth-of-type(1)", month);
+        page.fill(".add-cost-info-field-container label:nth-of-type(2)", cost);
+        //BOTON SAVE DE VENTANA EDIT ADDITIONAL COST
+        page.click(".add-cost-modal-button-container button:nth-of-type(1)");
+        page.focus(".proposal-options-selected-component label:nth-of-type(1) > input[type=date]");
+        kb.type(dateOffered);
+        page.focus("#inputNumber");
+        kb.type(interestRate);
+        //Checkboxcost
+        page.click(".proposal-options-selected-container label:nth-of-type(5) > input[type=checkbox]");
+        page.click(".proposal-options-selected-container label:nth-of-type(6) > input[type=checkbox]");
+        page.click(".proposal-options-selected-container label:nth-of-type(7) > input[type=checkbox]");
+        page.click(".proposal-options-selected-container label:nth-of-type(8) > input[type=checkbox]");
+        //save
+        page.click(".proposal-editing-name-header button:nth-of-type(1)");
+    }
+
     public void crearPrograma() {
         Keyboard kb = page.keyboard();
         page.click(".app-sidebar__inner > div > ul > li:nth-of-type(5)");

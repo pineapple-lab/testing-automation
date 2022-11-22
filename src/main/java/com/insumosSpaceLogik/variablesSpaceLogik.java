@@ -119,4 +119,16 @@ public class variablesSpaceLogik {
     public String qtyTweak;
     //COMPARE
     public String nameComparison;
+
+    //MY DEAL - LEASE TYPE & LOCATION
+    public String ubicacionMyDealLeaseTypeLocation;
+
+    //MY DEAL - OFFICE SIZE
+    public String rsfMyDealOfficeSize;
+    public String specificHeadCountMyDealOfficeSize;
+    //MY DEAL - OCCUPANCYANDSCHEDULE
+    public String dateExpirationMydealOccupancyAndSchedule = "03-03-2024";
+    public String dateLikeOccupyMydealOccupancyAndSchedule = "04-09-2024";
+
+
 }

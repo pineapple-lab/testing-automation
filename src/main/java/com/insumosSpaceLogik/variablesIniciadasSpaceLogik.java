@@ -126,4 +126,11 @@ public class variablesIniciadasSpaceLogik extends variablesSpaceLogik{
         sizeTweak = "10*12";
         qtyTweak = "80";
     }
+    public void iniciarVariablesEditMyDealLeaseTypeLocation(){
+        ubicacionMyDealLeaseTypeLocation = "Astor Place, Nueva York, EE. UU.";
+    }
+    public void iniciarVariablesEditMyDealOfficeSize(){
+        rsfMyDealOfficeSize="29000";
+        specificHeadCountMyDealOfficeSize="500";
+    }
 }

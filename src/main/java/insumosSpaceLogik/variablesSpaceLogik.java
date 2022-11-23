@@ -126,9 +126,14 @@ public class variablesSpaceLogik {
     //MY DEAL - OFFICE SIZE
     public String rsfMyDealOfficeSize;
     public String specificHeadCountMyDealOfficeSize;
+
     //MY DEAL - OCCUPANCYANDSCHEDULE
     public String dateExpirationMydealOccupancyAndSchedule = "03-03-2024";
     public String dateLikeOccupyMydealOccupancyAndSchedule = "04-09-2024";
 
+    //LISTING - GENERAL LOCATION INFORMATION
+    public String yearBuiltListingLocationInformation;
+    public String totalBuildingRsfListingLocationInformation;
+    public String numberOfStoriesListingLocationInformation;
 
 }

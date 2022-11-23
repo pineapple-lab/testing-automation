@@ -1,0 +1,8 @@
+
+l
+java:S1192c"VDefine a constant instead of duplicating this literal "editPruebAutomatizada" 4 times.(Æ°ó“
+h
+java:S11927"SDefine a constant instead of duplicating this literal "pruebAutomatizada" 11 times.(ôçÄI
+b	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ò◊û¡
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÕÇﬁx
+c	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶•…æ

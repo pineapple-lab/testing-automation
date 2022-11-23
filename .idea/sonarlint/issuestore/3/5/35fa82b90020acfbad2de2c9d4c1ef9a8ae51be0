@@ -1,0 +1,50 @@
+
+q
+java:S11921"ODefine a constant instead of duplicating this literal "text = My Deal" 3 times.(Í“ÁÃıÿÿÿÿ8šˆ£ÿÉ0
+’
+java:S1192›"{Define a constant instead of duplicating this literal ".compare-building-list-table tbody tr:nth-of-type(4) input" 6 times.(ÕÃá¯
+‘
+java:S1192”"sDefine a constant instead of duplicating this literal ".app-sidebar__inner > div > ul > li:nth-of-type(6)" 8 times.(¼ƒ¸ê8øÓàÊ0
+j
+java:S1192š"NDefine a constant instead of duplicating this literal "text=Programs" 5 times.(¶˜íıÿÿÿÿ
+¬
+java:S1192˜"ˆDefine a constant instead of duplicating this literal ".prospect-list-landlord-table tr:last-child div > button:nth-of-type(1)" 4 times.(¼‚Ñûÿÿÿÿ8ùÓàÊ0
+g
+java:S11925"JDefine a constant instead of duplicating this literal "ArrowDown" 3 times.(Úô8ìñÃşÉ0
+k
+java:S11920"NDefine a constant instead of duplicating this literal "text=MY LOGIK" 9 times.(ôÓúÅ8éØışÉ0
+‘
+java:S1192™"sDefine a constant instead of duplicating this literal ".app-sidebar__inner > div > ul > li:nth-of-type(5)" 6 times.(Æ§‡8úÓàÊ0
+i
+java:S1192•"MDefine a constant instead of duplicating this literal "text=Compare" 8 times.(ÙÃ™Æÿÿÿÿÿ
+h
+java:S11926"FDefine a constant instead of duplicating this literal "Enter" 3 times.(Íƒæüÿÿÿÿ8íñÃşÉ0
+
+java:S1192Ì"{Define a constant instead of duplicating this literal ".program-room-detail-areas-container button:nth-of-type(3)" 3 times.(Ÿü¾Ğüÿÿÿÿ8ûÓàÊ0
+—
+java:S1192"{Define a constant instead of duplicating this literal ".compare-building-list-table tbody tr:nth-of-type(6) input" 6 times.(®·ÏËùÿÿÿÿ
+—
+java:S1192š"{Define a constant instead of duplicating this literal ".compare-building-list-table tbody tr:nth-of-type(3) input" 6 times.(Ò«İÆùÿÿÿÿ
+‹
+java:S1192¡"hDefine a constant instead of duplicating this literal ".button-container button:nth-of-type(1)" 6 times.(úà„Óıÿÿÿÿ8üÓàÊ0
+s
+java:S1192T"VDefine a constant instead of duplicating this literal "text = My Preferences" 4 times.(°ÒÈå8ìãæÊ0
+—
+java:S1192œ"{Define a constant instead of duplicating this literal ".compare-building-list-table tbody tr:nth-of-type(5) input" 6 times.(¢“…Ïşÿÿÿÿ
+’
+java:S1192—"{Define a constant instead of duplicating this literal ".compare-building-list-table tbody tr:nth-of-type(1) input" 8 times.(ğÔÃÕ
+m
+java:S1192Ù"ODefine a constant instead of duplicating this literal "text=Proposals" 3 times.( ¹›å8üÓàÊ0
+’
+java:S1192©"oDefine a constant instead of duplicating this literal ".new-building-button-div button:nth-of-type(1)" 3 times.(À¥Å‘ıÿÿÿÿ8ıÓàÊ0
+™
+java:S1192™"{Define a constant instead of duplicating this literal ".compare-building-list-table tbody tr:nth-of-type(2) input" 7 times.(•˜ƒï8ıÓàÊ0
+‘
+java:S1192"uDefine a constant instead of duplicating this literal ".compare-buildings-info-header button:nth-of-type(4)" 6 times.(¸şïÿÿÿÿÿ
+|
+java:S1192Ÿ"`Define a constant instead of duplicating this literal ".save-comparison-as-modal-input" 6 times.(¼ï¿§ÿÿÿÿÿ
+g	java:S101	"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ÛğÖñúÿÿÿÿ
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Í‚Şx
+`
+java:S1124$"EReorder the modifiers to comply with the Java Language Specification.(¯ÉÖ¦üÿÿÿÿ
+^	java:S125Í"<This block of commented-out lines of code should be removed.(‰îºğûÿÿÿÿ8ÏÔàÊ0

@@ -1,4 +1,4 @@
-package com.insumosSpaceLogik;
+package insumosSpaceLogik;
 
 import com.microsoft.playwright.Keyboard;
 
@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class robotBaseSpaceLogik extends comportamientoBaseExcepciones{
+public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
     public void obtenerFecha() {
         SimpleDateFormat dtf = new SimpleDateFormat("MM-dd-yyyy");
         Calendar calendar = Calendar.getInstance();

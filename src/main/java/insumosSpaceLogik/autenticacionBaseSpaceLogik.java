@@ -1,4 +1,4 @@
-package com.insumosSpaceLogik;
+package insumosSpaceLogik;
 
 import com.microsoft.playwright.*;
 import org.junit.jupiter.api.*;

@@ -1,6 +1,7 @@
 package SpaceLogik.pw.Compare;
 
-import com.insumosSpaceLogik.robotBaseSpaceLogik;
+
+import insumosSpaceLogik.robotBaseSpaceLogik;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

@@ -1,10 +1,10 @@
 package SpaceLogik.pw.Proposal;
 
-import com.insumosSpaceLogik.robotBaseSpaceLogik;
+import insumosSpaceLogik.robotBaseSpaceLogik;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
-public class proposalFuncionActivar extends robotBaseSpaceLogik  {
+public class proposalFuncionActivar extends robotBaseSpaceLogik {
     @Test
     public void validacionActivarProposal(){
         nameProposal= "pruebAutomatizada16-validacionActivarProposal";

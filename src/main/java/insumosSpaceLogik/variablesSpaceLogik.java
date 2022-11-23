@@ -1,4 +1,4 @@
-package com.insumosSpaceLogik;
+package insumosSpaceLogik;
 
 public class variablesSpaceLogik {
 

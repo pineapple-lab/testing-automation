@@ -1,6 +1,7 @@
 package SpaceLogik.pw;
 
-import com.insumosSpaceLogik.robotBaseSpaceLogik;
+
+import insumosSpaceLogik.robotBaseSpaceLogik;
 import org.junit.jupiter.api.Test;
 
 public class usuarioFuncionRegistro extends robotBaseSpaceLogik {

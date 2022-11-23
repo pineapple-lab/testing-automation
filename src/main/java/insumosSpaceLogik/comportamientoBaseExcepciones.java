@@ -1,6 +1,5 @@
-package com.insumosSpaceLogik;
+package insumosSpaceLogik;
 
-import com.insumosSpaceLogik.autenticacionBaseSpaceLogik;
 import com.microsoft.playwright.Keyboard;
 
 public class comportamientoBaseExcepciones extends autenticacionBaseSpaceLogik {

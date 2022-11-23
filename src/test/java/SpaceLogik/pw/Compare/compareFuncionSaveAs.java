@@ -1,7 +1,7 @@
 package SpaceLogik.pw.Compare;
 
-import com.insumosSpaceLogik.robotBaseSpaceLogik;
 import com.microsoft.playwright.Keyboard;
+import insumosSpaceLogik.robotBaseSpaceLogik;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

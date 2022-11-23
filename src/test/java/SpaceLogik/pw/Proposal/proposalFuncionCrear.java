@@ -1,7 +1,8 @@
 
 package SpaceLogik.pw.Proposal;
 
-import com.insumosSpaceLogik.robotBaseSpaceLogik;
+
+import insumosSpaceLogik.robotBaseSpaceLogik;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 public class proposalFuncionCrear extends robotBaseSpaceLogik {

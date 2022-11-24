@@ -135,5 +135,36 @@ public class variablesSpaceLogik {
     public String yearBuiltListingLocationInformation;
     public String totalBuildingRsfListingLocationInformation;
     public String numberOfStoriesListingLocationInformation;
+    public String dateMondayFridayListingLocationInformation = "1600";
+    public String dateSaturdayListingLocationInformation = "1700";
+    public String dateSundayListingLocationInformation = "1800";
 
+    //LISTING - BUILDING DESCRIPTION
+    public String descriptionBuildingListing;
+    public String locationBuildingListing;
+
+    //LISTING - PRIMARY LEASING CONTACT
+    public String saludoListingPrimaryLeasingContact;
+    public String firstNameListingPrimaryLeasingContacts;
+    public String lastNameListingPrimaryLeasingContcts;
+    public String companyListingPrimaryLeasingContacts;
+    public String address1ListingPrimaryLeasingContacts;
+    public String address2ListingPrimaryLeasingContacts;
+    public String stateListingPrimaryLeasingContacts;
+    public String cityListingPrimaryLeasingContacts;
+    public String zipCodeListingPrimaryLeasingContacts;
+    public String phoneListingPrimaryLeasingContacts;
+    public String emailListingPrimaryLeasingContacts;
+
+    //LISTING - SPACE - EDIT BUILDING RSF
+    public String rsfFloorListingSpaceBuilding;
+
+    //LISTING - SPACE - CREAR SINGLE SUITE
+    public String suiteNumberListingSpaceBuildin;
+
+    //LISTING - SPACE - EDITAR SINGLE SUITE
+    public String suiteDescriptionListingSingleSuite;
+    public String dateAvailableListingSingleSuite;
+    public String dateAvailableEndListingSingleSuite;
+    public String divisibleToListingSingleSuite;
 }

@@ -135,4 +135,37 @@ public class variablesIniciadasSpaceLogik extends variablesSpaceLogik {
         rsfMyDealOfficeSize="29000";
         specificHeadCountMyDealOfficeSize="500";
     }
+    public void iniciarVariablesEditarListingLocationInformation(){
+        yearBuiltListingLocationInformation = "2880";
+        totalBuildingRsfListingLocationInformation = "608808";
+        numberOfStoriesListingLocationInformation = "30";
+    }
+    public void iniciarVariablesEditarBuildingDescrption(){
+    descriptionBuildingListing = "pruebAutomatizada";
+    }
+    public void iniciarVariablesEditarBuildingContacts(){
+        saludoListingPrimaryLeasingContact = "3";
+        lastNameListingPrimaryLeasingContcts = "pruebAutomatizada";
+        companyListingPrimaryLeasingContacts = "pruebAutomatizada";
+        address1ListingPrimaryLeasingContacts = "pruebAutomatizada";
+        address2ListingPrimaryLeasingContacts = "pruebAutomatizada";
+        stateListingPrimaryLeasingContacts = "41";
+        cityListingPrimaryLeasingContacts = "16513";
+        zipCodeListingPrimaryLeasingContacts = "35743";
+        phoneListingPrimaryLeasingContacts = "0993537369875";
+        emailListingPrimaryLeasingContacts = "pruebAutomatizada@pruebAutomatizada.com";
+    }
+    public void iniciarVariablesEditarBuildingRsf(){
+        rsfFloorListingSpaceBuilding = "26502";
+    }
+    public void iniciarVariablesCrearSuiteListingBuild(){
+        suiteNumberListingSpaceBuildin="4";
+    }
+    public void iniciarVariablesEditarSingleSuite(){
+        dateAvailableListingSingleSuite = "04012022";
+        dateAvailableEndListingSingleSuite = "07062030";
+        divisibleToListingSingleSuite = "3";
+    }
+
+
 }

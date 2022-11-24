@@ -212,6 +212,163 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.click(".private-status-options-container label:nth-of-type(2) input");
         page.click(".edit-prospect-modal-button-container button:nth-of-type(1)");
     }
+    public void editarListiningGeneralLocationInformation(){
+        //page.click(".app-sidebar__inner > div > ul > li:nth-of-type(5)");
+        //page.click("text=Listing");
+        Keyboard kb = page.keyboard();
+        page.click(".my-properties-container .my-properties-building-container:last-child>div>div:nth-of-type(2)");
+        page.focus(".location-shared-div div:nth-of-type(1) input");
+        kb.insertText(yearBuiltListingLocationInformation);
+        page.focus(".location-shared-div div:nth-of-type(2) input");
+        kb.insertText(totalBuildingRsfListingLocationInformation);
+        page.focus(".location-shared-div div:nth-of-type(3) input");
+        kb.insertText(numberOfStoriesListingLocationInformation);
+        page.focus(".building-hours-container div tbody tr:nth-of-type(1) td:nth-of-type(3) input");
+        kb.insertText(dateMondayFridayListingLocationInformation);
+        page.focus(".building-hours-container div tbody tr:nth-of-type(2) td:nth-of-type(3) input");
+        kb.insertText(dateSaturdayListingLocationInformation);
+        page.focus(".building-hours-container div tbody tr:nth-of-type(3) td:nth-of-type(3) input");
+        kb.insertText(dateSundayListingLocationInformation);
+        page.click(".location-access-div label:nth-of-type(2) input");
+        page.click(".building-hours-holidays-table tbody tr:nth-of-type(1) td:nth-of-type(1) input");
+        page.click(".building-hours-holidays-table tbody tr:nth-of-type(2) td:nth-of-type(1) input");
+        page.click(".building-hours-holidays-table tbody tr:nth-of-type(3) td:nth-of-type(1) input");
+        page.click(".building-hours-holidays-table tbody tr:nth-of-type(4) td:nth-of-type(1) input");
+        page.click(".building-hours-holidays-table tbody tr:nth-of-type(5) td:nth-of-type(1) input");
+        page.click(".building-hours-holidays-table tbody tr:nth-of-type(6) td:nth-of-type(1) input");
+        page.click(".building-hours-holidays-table tbody tr:nth-of-type(7) td:nth-of-type(1) input");
+        page.click(".building-hours-holidays-table tbody tr:nth-of-type(8) td:nth-of-type(1) input");
+        page.click(".divBuildingDescription > div:nth-of-type(2) > div:nth-of-type(1) .building-info-header button");
+    }
+    public void editarListingBuildingCertifications(){
+        page.click(".my-properties-container .my-properties-building-container:last-child>div>div:nth-of-type(2)");
+        page.click(".divBuildingDescription > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) div:nth-of-type(2) label:nth-of-type(3) input");
+        page.click(".divBuildingDescription > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) div:nth-of-type(3) label:nth-of-type(2) input");
+        page.click(".divBuildingDescription > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) div:nth-of-type(4) label:nth-of-type(2) input");
+        page.click(".divBuildingDescription > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) .building-info-header button");
+    }
+    public void editarListingBuildingDescription(){
+        Keyboard kb = page.keyboard();
+        page.click(".my-properties-container .my-properties-building-container:last-child>div>div:nth-of-type(2)");
+        page.focus(".building-general-description-container div:nth-of-type(2) textarea");
+        kb.insertText(descriptionBuildingListing);
+        page.click(".ButtonSwitch input:nth-of-type(2)");
+        page.focus(".building-general-description-container div:nth-of-type(2) textarea");
+        kb.insertText(locationBuildingListing);
+        page.click(".divBuildingDescription > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) .building-info-header button");
+    }
+    public void editarListingPrimaryLeasingContact(){
+        Keyboard kb = page.keyboard();
+        page.click(".my-properties-container .my-properties-building-container:last-child>div>div:nth-of-type(2)");
+        page.click(".divBuildingDescription > div:nth-of-type(2) > div:nth-of-type(3) > div > div:nth-of-type(2) button:nth-of-type(1)");
+        page.selectOption("form > div:nth-of-type(1) select", saludoListingPrimaryLeasingContact);
+        page.fill("form > div:nth-of-type(1) > div:nth-of-type(2) input",firstNameListingPrimaryLeasingContacts);
+        page.fill("form > div:nth-of-type(1) > div:nth-of-type(3) input",lastNameListingPrimaryLeasingContcts);
+        page.fill("form > div:nth-of-type(2) > div:nth-of-type(1) input",companyListingPrimaryLeasingContacts);
+        page.fill("form > div:nth-of-type(3) > div:nth-of-type(1) input",address1ListingPrimaryLeasingContacts);
+        page.fill("form > div:nth-of-type(3) > div:nth-of-type(2) input",address2ListingPrimaryLeasingContacts);
+        page.selectOption("form > div:nth-of-type(4) > div:nth-of-type(1) select",stateListingPrimaryLeasingContacts);
+        page.selectOption("form > div:nth-of-type(4) > div:nth-of-type(2) select",cityListingPrimaryLeasingContacts);
+        page.selectOption("form > div:nth-of-type(4) > div:nth-of-type(3) select",zipCodeListingPrimaryLeasingContacts);
+        page.fill("form > div:nth-of-type(5) > div:nth-of-type(1) input",phoneListingPrimaryLeasingContacts);
+        page.fill("form > div:nth-of-type(5) > div:nth-of-type(2) input",emailListingPrimaryLeasingContacts);
+        page.click("form > div:nth-of-type(6) tbody tr:nth-of-type(1) td:nth-of-type(2) input");
+        page.click("form > div:nth-of-type(6) tbody tr:nth-of-type(2) td:nth-of-type(2) input");
+        page.click("form > div:nth-of-type(6) tbody tr:nth-of-type(4) td:nth-of-type(2) input");
+        page.click("form > div:nth-of-type(6) tbody tr:nth-of-type(5) td:nth-of-type(2) input");
+        page.click("form > div:nth-of-type(6) tbody tr:nth-of-type(6) td:nth-of-type(2) input");
+        page.click(".button-container input");
+    }
+    public void editarListingSecondaryLeasingContact(){
+        Keyboard kb = page.keyboard();
+        page.click(".my-properties-container .my-properties-building-container:last-child>div>div:nth-of-type(2)");
+        page.click(".divBuildingDescription > div:nth-of-type(2) > div:nth-of-type(3) > div > div:nth-of-type(3) button:nth-of-type(1)");
+        page.selectOption("form > div:nth-of-type(1) select", saludoListingPrimaryLeasingContact);
+        page.fill("form > div:nth-of-type(1) > div:nth-of-type(2) input",firstNameListingPrimaryLeasingContacts);
+        page.fill("form > div:nth-of-type(1) > div:nth-of-type(3) input",lastNameListingPrimaryLeasingContcts);
+        page.fill("form > div:nth-of-type(2) > div:nth-of-type(1) input",companyListingPrimaryLeasingContacts);
+        page.fill("form > div:nth-of-type(3) > div:nth-of-type(1) input",address1ListingPrimaryLeasingContacts);
+        page.fill("form > div:nth-of-type(3) > div:nth-of-type(2) input",address2ListingPrimaryLeasingContacts);
+        page.selectOption("form > div:nth-of-type(4) > div:nth-of-type(1) select",stateListingPrimaryLeasingContacts);
+        page.selectOption("form > div:nth-of-type(4) > div:nth-of-type(2) select",cityListingPrimaryLeasingContacts);
+        page.selectOption("form > div:nth-of-type(4) > div:nth-of-type(3) select",zipCodeListingPrimaryLeasingContacts);
+        page.fill("form > div:nth-of-type(5) > div:nth-of-type(1) input",phoneListingPrimaryLeasingContacts);
+        page.fill("form > div:nth-of-type(5) > div:nth-of-type(2) input",emailListingPrimaryLeasingContacts);
+        page.click("form > div:nth-of-type(6) tbody tr:nth-of-type(1) td:nth-of-type(2) input");
+        page.click("form > div:nth-of-type(6) tbody tr:nth-of-type(2) td:nth-of-type(2) input");
+        page.click("form > div:nth-of-type(6) tbody tr:nth-of-type(4) td:nth-of-type(2) input");
+        page.click("form > div:nth-of-type(6) tbody tr:nth-of-type(5) td:nth-of-type(2) input");
+        page.click("form > div:nth-of-type(6) tbody tr:nth-of-type(6) td:nth-of-type(2) input");
+        page.click(".button-container input");
+    }
+    public void editarListingBuildingOwner(){
+        Keyboard kb = page.keyboard();
+        page.click(".my-properties-container .my-properties-building-container:last-child>div>div:nth-of-type(2)");
+        page.click(".divBuildingDescription > div:nth-of-type(2) > div:nth-of-type(3) > div > div:nth-of-type(4) button:nth-of-type(1)");
+        page.selectOption("form > div:nth-of-type(1) select", saludoListingPrimaryLeasingContact);
+        page.fill("form > div:nth-of-type(1) > div:nth-of-type(2) input",firstNameListingPrimaryLeasingContacts);
+        page.fill("form > div:nth-of-type(1) > div:nth-of-type(3) input",lastNameListingPrimaryLeasingContcts);
+        page.fill("form > div:nth-of-type(2) > div:nth-of-type(1) input",companyListingPrimaryLeasingContacts);
+        page.fill("form > div:nth-of-type(3) > div:nth-of-type(1) input",address1ListingPrimaryLeasingContacts);
+        page.fill("form > div:nth-of-type(3) > div:nth-of-type(2) input",address2ListingPrimaryLeasingContacts);
+        page.selectOption("form > div:nth-of-type(4) > div:nth-of-type(1) select",stateListingPrimaryLeasingContacts);
+        page.selectOption("form > div:nth-of-type(4) > div:nth-of-type(2) select",cityListingPrimaryLeasingContacts);
+        page.selectOption("form > div:nth-of-type(4) > div:nth-of-type(3) select",zipCodeListingPrimaryLeasingContacts);
+        page.fill("form > div:nth-of-type(5) > div:nth-of-type(1) input",phoneListingPrimaryLeasingContacts);
+        page.fill("form > div:nth-of-type(5) > div:nth-of-type(2) input",emailListingPrimaryLeasingContacts);
+        page.click("form > div:nth-of-type(6) tbody tr:nth-of-type(1) td:nth-of-type(2) input");
+        page.click("form > div:nth-of-type(6) tbody tr:nth-of-type(2) td:nth-of-type(2) input");
+        page.click("form > div:nth-of-type(6) tbody tr:nth-of-type(4) td:nth-of-type(2) input");
+        page.click("form > div:nth-of-type(6) tbody tr:nth-of-type(5) td:nth-of-type(2) input");
+        page.click("form > div:nth-of-type(6) tbody tr:nth-of-type(6) td:nth-of-type(2) input");
+        page.click(".button-container input");
+    }
+    public void editarListingAdditionalLeasingContact(){
+        Keyboard kb = page.keyboard();
+        page.click(".my-properties-container .my-properties-building-container:last-child>div>div:nth-of-type(2)");
+        page.click(".divBuildingDescription > div:nth-of-type(2) > div:nth-of-type(3) > div > div:nth-of-type(5) button:nth-of-type(1)");
+        page.selectOption("form > div:nth-of-type(1) select", saludoListingPrimaryLeasingContact);
+        page.fill("form > div:nth-of-type(1) > div:nth-of-type(2) input",firstNameListingPrimaryLeasingContacts);
+        page.fill("form > div:nth-of-type(1) > div:nth-of-type(3) input",lastNameListingPrimaryLeasingContcts);
+        page.fill("form > div:nth-of-type(2) > div:nth-of-type(1) input",companyListingPrimaryLeasingContacts);
+        page.fill("form > div:nth-of-type(3) > div:nth-of-type(1) input",address1ListingPrimaryLeasingContacts);
+        page.fill("form > div:nth-of-type(3) > div:nth-of-type(2) input",address2ListingPrimaryLeasingContacts);
+        page.selectOption("form > div:nth-of-type(4) > div:nth-of-type(1) select",stateListingPrimaryLeasingContacts);
+        page.selectOption("form > div:nth-of-type(4) > div:nth-of-type(2) select",cityListingPrimaryLeasingContacts);
+        page.selectOption("form > div:nth-of-type(4) > div:nth-of-type(3) select",zipCodeListingPrimaryLeasingContacts);
+        page.fill("form > div:nth-of-type(5) > div:nth-of-type(1) input",phoneListingPrimaryLeasingContacts);
+        page.fill("form > div:nth-of-type(5) > div:nth-of-type(2) input",emailListingPrimaryLeasingContacts);
+        page.click("form > div:nth-of-type(6) tbody tr:nth-of-type(1) td:nth-of-type(2) input");
+        page.click("form > div:nth-of-type(6) tbody tr:nth-of-type(2) td:nth-of-type(2) input");
+        page.click("form > div:nth-of-type(6) tbody tr:nth-of-type(4) td:nth-of-type(2) input");
+        page.click("form > div:nth-of-type(6) tbody tr:nth-of-type(5) td:nth-of-type(2) input");
+        page.click("form > div:nth-of-type(6) tbody tr:nth-of-type(6) td:nth-of-type(2) input");
+        page.click(".button-container input");
+    }
+    public void editarListingBuildingRsf(){
+        page.click(".my-properties-container .my-properties-building-container:last-child>div>div:nth-of-type(2)");
+        page.click(".BuildingInfoHeaderDiv ul li:nth-of-type(2) input");
+        page.click(".building-info-header .floor-space-edit-button");
+        page.fill(".floor-space-management-floor-display-container > div:nth-of-type(1) div:nth-of-type(3) input",rsfFloorListingSpaceBuilding);
+        page.click(".floor-space-management-buttons-container button:nth-of-type(1)");
+    }
+    public void crearListingSingleSuiteSpace(){
+        page.click(".my-properties-container .my-properties-building-container:last-child>div>div:nth-of-type(2)");
+        page.click(".BuildingInfoHeaderDiv ul li:nth-of-type(2) input");
+        page.click(".building-floors-table  tbody > tr:nth-of-type(1) td:nth-of-type(5) button");
+        page.click(".building-info-container button");
+        page.click(".add-suite-button-container button");
+        page.fill(".suite-modal-suite-number",suiteNumberListingSpaceBuildin);
+        page.click(".modal-buttons button:nth-of-type(1)");
+        page.click(".button-container button:nth-of-type(1)");
+    }
+    public void eliminarSingleSuiteSpace(){
+        page.click(".building-info-container button");
+        page.click(".floor-suite-modal-display:first-child td:nth-of-type(1) button");
+        page.click(".modal-buttons button:nth-of-type(1)");
+        page.click(".button-container button:nth-of-type(1)");
+
+    }
     public void crearProposal() {
         Keyboard kb = page.keyboard();
         page.click("text=Proposals");

@@ -146,6 +146,7 @@ public class programFuncionEdit extends robotBaseSpaceLogik {
     public void validacionEdicionCompleta(){
         iniciarVariablesEditRoom();
         nameProgram = "pruebAutomatizada31-validacionEdicionCompleta";
+        commentsRoomDetails = "pruebAutomatizada31-validacionEdicionCompleta";
         login();
         crearPrograma();
         page.focus("#root");

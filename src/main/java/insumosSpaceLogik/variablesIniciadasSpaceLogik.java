@@ -81,7 +81,7 @@ public class variablesIniciadasSpaceLogik extends variablesSpaceLogik {
        buildingCompetitiveSetProspect="Abbot Kinney Blvd, Los Angeles, CA, EE. UU.";
    }
    public void iniciarVariablesTrackingFeliz(){
-       commentsTrackingProspect = "pruebAutomatizada";
+        commentsTrackingProspect = "pruebAutomatizada";
    }
    public void iniciarVariablesEditManualBrokerFeliz(){
         salutationEditBrokerManual = "1";
@@ -158,14 +158,14 @@ public class variablesIniciadasSpaceLogik extends variablesSpaceLogik {
     public void iniciarVariablesEditarBuildingRsf(){
         rsfFloorListingSpaceBuilding = "26502";
     }
-    public void iniciarVariablesCrearSuiteListingBuild(){
-        suiteNumberListingSpaceBuildin="4";
-    }
+
     public void iniciarVariablesEditarSingleSuite(){
         dateAvailableListingSingleSuite = "04012022";
         dateAvailableEndListingSingleSuite = "07062030";
         divisibleToListingSingleSuite = "3";
     }
-
-
+    public void iniciarVariablesEditarExpensesPassedThrough(){
+        taxesListingExpenses = "10";
+        expensesListingExpenses = "30";
+    }
 }

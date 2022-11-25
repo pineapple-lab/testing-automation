@@ -16,7 +16,7 @@ public class comportamientoBaseExcepciones extends autenticacionBaseSpaceLogik {
     public void excepcionProgramNombreVacio(){
         page.click(".app-sidebar__inner > div > ul > li:nth-of-type(5)");
         page.click("text=Programs");
-        page.click(".my-programs-header div:nth-of-type(2) button");
+        page.click(".my-programs-header div:nth-of-type(3) button");
         page.click(".add-program-modal-button-container button:nth-of-type(1)");
     }
     public void excepcionAutoProgramNombreVacio(){

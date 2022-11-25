@@ -369,6 +369,108 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.click(".button-container button:nth-of-type(1)");
 
     }
+    public void editarListingSingleSuiteSpace(){
+        Keyboard kb = page.keyboard();
+        page.click(".floor-styled-table tr:last-child > td:last-child button");
+        page.click(".suite-edit-status-butttons label:nth-of-type(1) button");
+        page.focus(".suite-edit-inline-inputs-labels > div:first-child input");
+        kb.type(dateAvailableListingSingleSuite);
+        page.focus(".suite-edit-inline-inputs-labels > div:last-child input");
+        kb.type(dateAvailableEndListingSingleSuite);
+        page.click(".suite-edit-status-butttons:nth-of-type(1) label:nth-of-type(1) button");
+        page.fill(".divisible-container > div:last-child input",divisibleToListingSingleSuite);
+        page.click(".floor-allocation-number-display button");
+        page.fill(".suite-description-label textarea",suiteDescriptionListingSingleSuite);
+        page.click(".suite-description-container .building-info-header button");
+    }
+    public void editarListingFinancialInfoRateUnaSuite(){
+        page.click(".building-finances-container > div:first-child > div:first-child .finances-suite-table-container button");
+        page.click(".terms-table-container tbody > tr:nth-of-type(3) > td:nth-of-type(4) button:nth-of-type(2)");
+        page.click(".terms-table-container tbody > tr:nth-of-type(3) > td:nth-of-type(5) button:nth-of-type(2)");
+        page.click(".terms-table-container tbody > tr:nth-of-type(3) > td:nth-of-type(6) button:nth-of-type(2)");
+        page.click(".terms-table-container tbody > tr:nth-of-type(3) > td:nth-of-type(7) button:nth-of-type(2)");
+        page.click(".terms-table-container tbody > tr:nth-of-type(4) > td:nth-of-type(4) button:nth-of-type(2)");
+        page.click(".terms-table-container tbody > tr:nth-of-type(4) > td:nth-of-type(5) button:nth-of-type(2)");
+        page.click(".terms-table-container tbody > tr:nth-of-type(4) > td:nth-of-type(6) button:nth-of-type(2)");
+        page.click(".terms-table-container tbody > tr:nth-of-type(4) > td:nth-of-type(7) button:nth-of-type(2)");
+        page.click(".building-info-header button:nth-of-type(1)");
+    }
+    public void editarListingFinancialInfoAbatementUnaSuite(){
+        page.click(".building-finances-container > div:first-child > div:first-child .finances-suite-table-container button");
+        page.click(".terms-table-container tbody > tr:nth-of-type(8) > td:nth-of-type(4) button:nth-of-type(2)");
+        page.click(".terms-table-container tbody > tr:nth-of-type(8) > td:nth-of-type(5) button:nth-of-type(2)");
+        page.click(".terms-table-container tbody > tr:nth-of-type(8) > td:nth-of-type(6) button:nth-of-type(2)");
+        page.click(".terms-table-container tbody > tr:nth-of-type(8) > td:nth-of-type(7) button:nth-of-type(2)");
+        page.click(".building-info-header button:nth-of-type(1)");
+    }
+    public void editarListingFinancialInfoCommissionUnaSuite(){
+        page.click(".building-finances-container > div:first-child > div:first-child .finances-suite-table-container button");
+        page.click(".terms-table-container tbody > tr:nth-of-type(11) > td:nth-of-type(4) button:nth-of-type(2)");
+        page.click(".terms-table-container tbody > tr:nth-of-type(11) > td:nth-of-type(5) button:nth-of-type(2)");
+        page.click(".terms-table-container tbody > tr:nth-of-type(11) > td:nth-of-type(6) button:nth-of-type(2)");
+        page.click(".terms-table-container tbody > tr:nth-of-type(11) > td:nth-of-type(7) button:nth-of-type(2)");
+        page.click(".terms-table-container tbody > tr:nth-of-type(12) > td:nth-of-type(4) button:nth-of-type(2)");
+        page.click(".terms-table-container tbody > tr:nth-of-type(12) > td:nth-of-type(5) button:nth-of-type(2)");
+        page.click(".terms-table-container tbody > tr:nth-of-type(12) > td:nth-of-type(6) button:nth-of-type(2)");
+        page.click(".terms-table-container tbody > tr:nth-of-type(12) > td:nth-of-type(7) button:nth-of-type(2)");
+        page.click(".building-info-header button:nth-of-type(1)");
+    }
+    public void editarListingFinancialInfoConstructionUnaSuite(){
+        page.click(".building-finances-container > div:first-child > div:first-child .finances-suite-table-container button");
+        page.click(".terms-table-container tbody > tr:nth-of-type(15) > td:nth-of-type(4) button:nth-of-type(2)");
+        page.click(".terms-table-container tbody > tr:nth-of-type(15) > td:nth-of-type(5) button:nth-of-type(2)");
+        page.click(".terms-table-container tbody > tr:nth-of-type(15) > td:nth-of-type(6) button:nth-of-type(2)");
+        page.click(".terms-table-container tbody > tr:nth-of-type(15) > td:nth-of-type(7) button:nth-of-type(2)");
+        page.click(".terms-table-container tbody > tr:nth-of-type(16) > td:nth-of-type(4) button:nth-of-type(2)");
+        page.click(".terms-table-container tbody > tr:nth-of-type(16) > td:nth-of-type(5) button:nth-of-type(2)");
+        page.click(".terms-table-container tbody > tr:nth-of-type(16) > td:nth-of-type(6) button:nth-of-type(2)");
+        page.click(".terms-table-container tbody > tr:nth-of-type(16) > td:nth-of-type(7) button:nth-of-type(2)");
+        page.click(".building-info-header button:nth-of-type(1)");
+    }
+    public void editarListingFinancialInfoVariables(){
+        page.click(".building-finances-container > div:first-child > div:first-child .finances-suite-table-container button");
+        page.click(".variables-option-component label:nth-of-type(2) input");
+        page.click(".variables-option-container:nth-of-type(2) button:nth-of-type(2)");
+        page.click(".building-info-header button:nth-of-type(1)");
+    }
+    public void editarListingAmenitiesInfo(){
+        page.click(".amenities-table tbody tr:first-child button");
+        page.click(".amenity-question-button-container button:nth-of-type(1)");
+        page.click(".amenity-options div:nth-of-type(1) input");
+        page.click(".amenity-options div:nth-of-type(2) input");
+        page.click(".amenity-options div:nth-of-type(3) input");
+        page.click(".amenity-options div:nth-of-type(4) input");
+        page.click(".amenities-header button:nth-of-type(1)");
+    }
+    public void editarListingExpensesPassedThrough(){
+        page.click(".building-info-column:nth-of-type(1) > div > div:nth-of-type(2) tbody tr:nth-of-type(1) td:nth-of-type(3) button:nth-of-type(2)");
+        page.click(".building-info-column:nth-of-type(1) > div > div:nth-of-type(2) tbody tr:nth-of-type(2) td:nth-of-type(3) button:nth-of-type(2)");
+        page.click(".building-info-column:nth-of-type(1) > div > div:nth-of-type(2) tbody tr:nth-of-type(3) td:nth-of-type(3) button:nth-of-type(2)");
+        page.click(".building-info-column:nth-of-type(1) > div > div:nth-of-type(2) tbody tr:nth-of-type(4) td:nth-of-type(3) button:nth-of-type(2)");
+        page.fill(".building-info-column:nth-of-type(1) > div > div:nth-of-type(2) tbody tr:nth-of-type(4) td:nth-of-type(2) > div > div:nth-of-type(2) input",taxesListingExpenses);
+        page.click(".building-info-column:nth-of-type(1) > div > div:nth-of-type(3) tbody tr:nth-of-type(1) td:nth-of-type(3) button:nth-of-type(2)");
+        page.click(".building-info-column:nth-of-type(1) > div > div:nth-of-type(3) tbody tr:nth-of-type(2) td:nth-of-type(3) button:nth-of-type(2)");
+        page.click(".building-info-column:nth-of-type(1) > div > div:nth-of-type(3) tbody tr:nth-of-type(3) td:nth-of-type(3) button:nth-of-type(2)");
+        page.click(".building-info-column:nth-of-type(1) > div > div:nth-of-type(3) tbody tr:nth-of-type(4) td:nth-of-type(3) button:nth-of-type(2)");
+        page.fill(".building-info-column:nth-of-type(1) > div > div:nth-of-type(3) tbody tr:nth-of-type(4) td:nth-of-type(2) > div > div:nth-of-type(2) input",expensesListingExpenses);
+        page.click(".building-expenses-container > div:nth-of-type(1) .building-info-header button");
+    }
+    public void editarListingAdditionalTenantExpenses(){
+        page.click(".building-expenses-container > div:nth-of-type(2) tbody tr:nth-of-type(1) td:nth-of-type(3)");
+        page.click(".building-expenses-container > div:nth-of-type(2) tbody tr:nth-of-type(2) td:nth-of-type(3)");
+        page.click(".building-expenses-container > div:nth-of-type(2) tbody tr:nth-of-type(3) td:nth-of-type(3)");
+        page.click(".building-expenses-container > div:nth-of-type(2) tbody tr:nth-of-type(4) td:nth-of-type(3)");
+        page.click(".building-expenses-container > div:nth-of-type(2) tbody tr:nth-of-type(5) td:nth-of-type(3)");
+        page.click(".building-expenses-container > div:nth-of-type(2) tbody tr:nth-of-type(6) td:nth-of-type(3)");
+        page.click(".building-expenses-container > div:nth-of-type(2) tbody tr:nth-of-type(7) td:nth-of-type(3)");
+        page.click(".building-expenses-container > div:nth-of-type(2) tbody tr:nth-of-type(8) td:nth-of-type(3)");
+        page.click(".building-expenses-container > div:nth-of-type(2) tbody tr:nth-of-type(9) td:nth-of-type(3)");
+        page.click(".building-expenses-container > div:nth-of-type(2) .building-info-header button");
+    }
+    public void editarListingElectricalExpensesInPremises(){
+        page.click(".building-expenses-container > div:nth-of-type(3) > div > div:nth-of-type(2) > div:nth-of-type(3) input");
+        page.click(".building-expenses-container > div:nth-of-type(3) .building-info-header button");
+    }
     public void crearProposal() {
         Keyboard kb = page.keyboard();
         page.click("text=Proposals");
@@ -437,7 +539,7 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         Keyboard kb = page.keyboard();
         page.click(".app-sidebar__inner > div > ul > li:nth-of-type(5)");
         page.click("text=Programs");
-        page.click(".my-programs-header div:nth-of-type(2) button");
+        page.click(".my-programs-header div:nth-of-type(3) button");
         page.fill(".add-program-modal-info-container > div:nth-of-type(1) input", nameProgram);
         page.focus(".add-program-modal-info-container > div:nth-of-type(2) input[type=date]");
         kb.type(dateProgram);
@@ -473,7 +575,7 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
     public void editarRoomOptions() {
         page.click(".program-room-selection-button-container button:nth-of-type(2)");
         page.fill(".sequence-div input", sequenceRoomOptionsProgram);
-        page.click("[value=\"Workstations\"]");
+        page.click("[value=\"Private Office(s)\"]");
         page.click("[value=\"10*10\"]");
         page.fill(".quantity-input-container input", quantityRoomOptionsProgram);
         page.click(".program-room-selection-header button");

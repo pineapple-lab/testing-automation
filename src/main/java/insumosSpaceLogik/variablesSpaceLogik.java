@@ -167,4 +167,8 @@ public class variablesSpaceLogik {
     public String dateAvailableListingSingleSuite;
     public String dateAvailableEndListingSingleSuite;
     public String divisibleToListingSingleSuite;
+
+    //LISTING - EXPENSES- EXPENSES PASSED THROUGH
+    public String taxesListingExpenses;
+    public String expensesListingExpenses;
 }

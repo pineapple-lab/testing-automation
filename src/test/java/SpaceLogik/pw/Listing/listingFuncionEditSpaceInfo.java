@@ -36,7 +36,7 @@ public class listingFuncionEditSpaceInfo extends robotBaseSpaceLogik {
     @Test
     public void validacionEditSingleSuiteSpace(){
         suiteDescriptionListingSingleSuite="pruebAutomatizada97";
-        suiteNumberListingSpaceBuildin="6";
+        suiteNumberListingSpaceBuildin="9";
         iniciarVariablesEditarSingleSuite();
         login();
         crearListingSingleSuiteSpace();

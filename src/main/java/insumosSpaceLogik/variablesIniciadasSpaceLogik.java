@@ -158,7 +158,6 @@ public class variablesIniciadasSpaceLogik extends variablesSpaceLogik {
     public void iniciarVariablesEditarBuildingRsf(){
         rsfFloorListingSpaceBuilding = "26502";
     }
-
     public void iniciarVariablesEditarSingleSuite(){
         dateAvailableListingSingleSuite = "04012022";
         dateAvailableEndListingSingleSuite = "07062030";

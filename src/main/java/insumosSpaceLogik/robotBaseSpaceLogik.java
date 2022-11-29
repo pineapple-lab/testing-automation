@@ -60,11 +60,9 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         Keyboard kb = page.keyboard();
         page.click("text=MY LOGIK");
         page.click("text = My Deal");
-        page.focus(".deal-current-rsf-container input");
-        kb.insertText(rsfMyDealOfficeSize);
+        page.fill(".deal-current-rsf-container input",rsfMyDealOfficeSize);
         page.click(".future-employees-specific-headcount-container label input");
-        page.focus(".future-headcount-input");
-        kb.insertText(specificHeadCountMyDealOfficeSize);
+        page.fill(".future-headcount-input",specificHeadCountMyDealOfficeSize);
         page.click(".growth-adjust-container label:nth-of-type(1) input");
         page.click(".deal-office-size-header button");
     }
@@ -176,7 +174,7 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.click(".view-prospect-general-broker-info-contact button");
         page.selectOption(".contact-info-container label:nth-of-type(1) select", salutationEditBrokerManual);
         page.fill(".contact-info-container label:nth-of-type(2) input", firstNameEditBrokerManual);
-        page.fill(".contact-info-container label:nth-of-type(3) input", lastNameEditProspectGeneralInfo);
+        page.fill(".contact-info-container label:nth-of-type(3) input", lastNameEditBrokerManual);
         page.fill(".contact-info-container label:nth-of-type(4) input", titleEditBrokerManual);
         page.fill(".contact-info-container label:nth-of-type(5) input", address1EditBrokerManual);
         page.fill(".contact-info-container label:nth-of-type(6) input", address2EditBrokerManual);
@@ -217,12 +215,9 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         //page.click("text=Listing");
         Keyboard kb = page.keyboard();
         page.click(".my-properties-container .my-properties-building-container:last-child>div>div:nth-of-type(2)");
-        page.focus(".location-shared-div div:nth-of-type(1) input");
-        kb.insertText(yearBuiltListingLocationInformation);
-        page.focus(".location-shared-div div:nth-of-type(2) input");
-        kb.insertText(totalBuildingRsfListingLocationInformation);
-        page.focus(".location-shared-div div:nth-of-type(3) input");
-        kb.insertText(numberOfStoriesListingLocationInformation);
+        page.fill(".location-shared-div div:nth-of-type(1) input", yearBuiltListingLocationInformation);
+        page.fill(".location-shared-div div:nth-of-type(2) input", totalBuildingRsfListingLocationInformation);
+        page.fill(".location-shared-div div:nth-of-type(3) input", numberOfStoriesListingLocationInformation );
         page.focus(".building-hours-container div tbody tr:nth-of-type(1) td:nth-of-type(3) input");
         kb.insertText(dateMondayFridayListingLocationInformation);
         page.focus(".building-hours-container div tbody tr:nth-of-type(2) td:nth-of-type(3) input");
@@ -534,7 +529,6 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         //save
         page.click(".proposal-editing-name-header button:nth-of-type(1)");
     }
-
     public void crearPrograma() {
         Keyboard kb = page.keyboard();
         page.click(".app-sidebar__inner > div > ul > li:nth-of-type(5)");
@@ -632,16 +626,14 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.click(".contest-details-settings-container div:nth-of-type(5) .requested-terms-table tr:nth-of-type(3) td:nth-of-type(2) button");
         page.selectOption(".contest-corporation-container select", legalFormationLaunch);
         page.fill(".contest-corporation-container input",bussinesSinceLaunch);
-        page.click(".contest-details-buttons-container button:nth-of-type(4)");
-        page.click(".saved-buildings-table tbody tr:nth-of-type(4) td:nth-of-type(1) input");
+        page.click(".contest-details-buttons-container button:nth-of-type(5)");
         page.click(".saved-buildings-table tbody tr:nth-of-type(9) td:nth-of-type(1) input");
-        page.click(".saved-buildings-title button");
-        page.click(".contest-details-buttons-container button:nth-of-type(4)");
+        page.click(".contest-details-buttons-container button:nth-of-type(5)");
         page.click(".contest-details-buildings-body div:nth-of-type(2).building-display-container div:nth-of-type(6) input");
         page.click(".contest-details-buildings-body div:nth-of-type(2).building-display-container div:nth-of-type(7) input");
         page.click(".contest-details-buildings-body div:nth-of-type(3).building-display-container div:nth-of-type(6) input");
         page.click(".contest-details-buildings-body div:nth-of-type(3).building-display-container div:nth-of-type(7) input");
-        page.click(".launch-contest-buttons-container button:nth-of-type(2)");
+        page.click(".launch-contest-buttons-container button:nth-of-type(1)");
     }
     public void crearTweak(){
         Keyboard kb = page.keyboard();

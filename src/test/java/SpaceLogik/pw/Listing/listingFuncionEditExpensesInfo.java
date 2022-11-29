@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class listingFuncionEditExpensesInfo extends robotBaseSpaceLogik {
-
     @Test
     public void validacionEditListingExpensesPassedThrough(){
         iniciarVariablesEditarExpensesPassedThrough();
@@ -31,7 +30,6 @@ public class listingFuncionEditExpensesInfo extends robotBaseSpaceLogik {
         page.focus("#root");
         Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
     }
-
     public void navegarListingExpenses(){
         page.click(".my-properties-container .my-properties-building-container:last-child>div>div:nth-of-type(2)");
         page.click(".BuildingInfoHeaderDiv ul li:nth-of-type(6) input");

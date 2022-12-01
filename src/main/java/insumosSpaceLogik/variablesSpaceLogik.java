@@ -27,7 +27,7 @@ public class variablesSpaceLogik {
     public String baseBuilding;
     public String month;
     public String cost;
-    public String dateOffered = "02-01-2031";
+    public String dateOffered = "03-01-2031";
     public String interestRate;
 
     //ADD PROSPECT

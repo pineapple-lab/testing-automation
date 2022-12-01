@@ -534,6 +534,8 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.click(".app-sidebar__inner > div > ul > li:nth-of-type(5)");
         page.click("text=Programs");
         page.click(".my-programs-header div:nth-of-type(3) button");
+        page.click(".container-types div:nth-child(1)");
+        page.click(".modal-buttons button:nth-of-type(1)");
         page.fill(".add-program-modal-info-container > div:nth-of-type(1) input", nameProgram);
         page.focus(".add-program-modal-info-container > div:nth-of-type(2) input[type=date]");
         kb.type(dateProgram);
@@ -552,13 +554,14 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
     public void borrarPrograma() {
         page.click(".app-sidebar__inner > div > ul > li:nth-of-type(5)");
         page.click("text=Programs");
+        page.click(".my-programs-header button:nth-of-type(2)");
         page.click(".program-list-table-container tbody tr:last-child div:last-child button:nth-of-type(2)");
         page.click(".new-building-button-div button:nth-of-type(1)");
     }
     public void crearRoom() {
         page.click(".app-sidebar__inner > div > ul > li:nth-of-type(5)");
         page.click("text=Programs");
-        page.click(".program-list-table-container tr:last-child div button:nth-of-type(2)");
+        page.click(".program-list-table-container tr:last-child div button:nth-of-type(1)");
         page.click(".program-room-header button:nth-of-type(1)");
     }
     public void guardarRoom() {
@@ -607,7 +610,8 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
     public void crearAutoProgram(){
         page.click(".app-sidebar__inner > div > ul > li:nth-of-type(5)");
         page.click("text=Programs");
-        page.click(".my-programs-header button:nth-of-type(2)");
+        page.click(".my-programs-header div:nth-of-type(3) button");
+        page.click(".modal-buttons button:nth-of-type(1)");
         page.fill(".office-question-info-container input",nameAutoProgram);
         page.selectOption(".office-question-info-container select",industryAutoProgram);
         page.click(".office-setup-container div:nth-of-type(2) #option-construction-level-3");

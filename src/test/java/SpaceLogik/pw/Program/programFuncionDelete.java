@@ -14,9 +14,11 @@ public class programFuncionDelete extends robotBaseSpaceLogik {
         crearPrograma();
         page.focus("#root");
         Assertions.assertTrue(page.isVisible("text=pruebAutomatizada23-validacionDeleteProgram"));
+        archivarPrograma();
+        page.focus("#root");
+        Assertions.assertFalse(page.isVisible("text=pruebAutomatizada23-validacionDeleteProgram"));
         borrarPrograma();
         page.focus("#root");
         Assertions.assertFalse(page.isVisible("text=pruebAutomatizada23-validacionDeleteProgram"));
-
     }
 }

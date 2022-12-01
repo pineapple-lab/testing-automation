@@ -543,10 +543,16 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.click(".add-program-modal-info-container > div:nth-of-type(6) label:nth-of-type(3) input");
         page.click(".add-program-modal-button-container button:nth-of-type(1)");
     }
+    public void archivarPrograma(){
+        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(5)");
+        page.click("text=Programs");
+        page.click(".program-list-table-container tbody tr:last-child div:last-child button:nth-of-type(3)");
+        page.click(".new-building-button-div button:nth-of-type(1)");
+    }
     public void borrarPrograma() {
         page.click(".app-sidebar__inner > div > ul > li:nth-of-type(5)");
         page.click("text=Programs");
-        page.click(".program-list-table-container tr:last-child div button:nth-of-type(3)");
+        page.click(".program-list-table-container tbody tr:last-child div:last-child button:nth-of-type(2)");
         page.click(".new-building-button-div button:nth-of-type(1)");
     }
     public void crearRoom() {

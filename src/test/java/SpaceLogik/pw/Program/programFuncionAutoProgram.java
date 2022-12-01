@@ -1,4 +1,4 @@
-package SpaceLogik.pw.Program;
+/*package SpaceLogik.pw.Program;
 
 
 import insumosSpaceLogik.robotBaseSpaceLogik;
@@ -25,4 +25,4 @@ public class programFuncionAutoProgram extends robotBaseSpaceLogik {
         page.focus("#root");
         assertTrue(page.isVisible("text=pruebAutomatizada32-validacionCrearAutoProgram"));
     }
-}
+}*/

@@ -17,12 +17,15 @@ public class comportamientoBaseExcepciones extends autenticacionBaseSpaceLogik {
         page.click(".app-sidebar__inner > div > ul > li:nth-of-type(5)");
         page.click("text=Programs");
         page.click(".my-programs-header div:nth-of-type(3) button");
+        page.click(".container-types div:nth-child(1)");
+        page.click(".modal-buttons button:nth-of-type(1)");
         page.click(".add-program-modal-button-container button:nth-of-type(1)");
     }
     public void excepcionAutoProgramNombreVacio(){
         page.click(".app-sidebar__inner > div > ul > li:nth-of-type(5)");
         page.click("text=Programs");
-        page.click(".my-programs-header button:nth-of-type(2)");
+        page.click(".my-programs-header div:nth-of-type(3) button");
+        page.click(".modal-buttons button:nth-of-type(1)");
         page.selectOption(".office-question-info-container select",industryAutoProgram);
         page.click(".office-setup-container div:nth-of-type(2) #option-construction-level-3");
         page.click(".office-setup-container .office-question-info-container div:nth-of-type(2) .office-setup-level-selection-container div:nth-of-type(4) button");
@@ -37,7 +40,8 @@ public class comportamientoBaseExcepciones extends autenticacionBaseSpaceLogik {
     public void excepcionProgramRoomNameVacio(){
         page.click(".app-sidebar__inner > div > ul > li:nth-of-type(5)");
         page.click("text=Programs");
-        page.click(".my-programs-header button:nth-of-type(2)");
+        page.click(".my-programs-header div:nth-of-type(3) button");
+        page.click(".modal-buttons button:nth-of-type(1)");
         page.fill(".office-question-info-container input",nameAutoProgram);
         page.selectOption(".office-question-info-container select",industryAutoProgram);
         page.click(".office-setup-container div:nth-of-type(2) #option-construction-level-3");
@@ -51,7 +55,8 @@ public class comportamientoBaseExcepciones extends autenticacionBaseSpaceLogik {
     public void excepcionProgramLevelVacio(){
         page.click(".app-sidebar__inner > div > ul > li:nth-of-type(5)");
         page.click("text=Programs");
-        page.click(".my-programs-header button:nth-of-type(2)");
+        page.click(".my-programs-header div:nth-of-type(3) button");
+        page.click(".modal-buttons button:nth-of-type(1)");
         page.fill(".office-question-info-container input",nameAutoProgram);
         page.selectOption(".office-question-info-container select",industryAutoProgram);
         page.fill(".create-plan-info-input-container input",nameRoomAutoProgram);
@@ -64,7 +69,8 @@ public class comportamientoBaseExcepciones extends autenticacionBaseSpaceLogik {
     }
     public void excepcionProgramAreaListVacio(){  page.click(".app-sidebar__inner > div > ul > li:nth-of-type(5)");
         page.click("text=Programs");
-        page.click(".my-programs-header button:nth-of-type(2)");
+        page.click(".my-programs-header div:nth-of-type(3) button");
+        page.click(".modal-buttons button:nth-of-type(1)");
         page.fill(".office-question-info-container input",nameAutoProgram);
         page.selectOption(".office-question-info-container select",industryAutoProgram);
         page.click(".office-setup-container div:nth-of-type(2) #option-construction-level-3");

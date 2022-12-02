@@ -211,8 +211,6 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.click(".edit-prospect-modal-button-container button:nth-of-type(1)");
     }
     public void editarListiningGeneralLocationInformation(){
-        //page.click(".app-sidebar__inner > div > ul > li:nth-of-type(5)");
-        //page.click("text=Listing");
         Keyboard kb = page.keyboard();
         page.click(".my-properties-container .my-properties-building-container:last-child>div>div:nth-of-type(2)");
         page.fill(".location-shared-div div:nth-of-type(1) input", yearBuiltListingLocationInformation);

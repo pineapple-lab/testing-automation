@@ -3,7 +3,7 @@ package insumosSpaceLogik;
 import com.microsoft.playwright.*;
 import org.junit.jupiter.api.*;
 
-public class autenticacionBaseSpaceLogik extends variablesIniciadasSpaceLogik {
+public class contextoBaseSpaceLogik extends variablesIniciadasSpaceLogik{
     protected static Playwright playwright;
     protected static Browser browser;
     protected static BrowserContext context;
@@ -17,7 +17,7 @@ public class autenticacionBaseSpaceLogik extends variablesIniciadasSpaceLogik {
        public void createContextAndPage(){
            context = browser.newContext();
            page = context.newPage();
-           page.setViewportSize(1366, 768);
+           page.setViewportSize(1280, 768);
     }
     @AfterEach
     void closeContext(){ context.close(); }

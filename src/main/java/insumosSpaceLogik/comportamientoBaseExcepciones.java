@@ -2,7 +2,7 @@ package insumosSpaceLogik;
 
 import com.microsoft.playwright.Keyboard;
 
-public class comportamientoBaseExcepciones extends autenticacionBaseSpaceLogik {
+public class comportamientoBaseExcepciones extends contextoBaseSpaceLogik{
     public void excepcionLogin(){
         page.navigate("https://space-logic.web.app/react/login");
         page.click("'LOG IN'");

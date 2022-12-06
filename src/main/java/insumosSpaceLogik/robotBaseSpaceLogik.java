@@ -108,7 +108,7 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.click("text=MY LOGIK");
         page.click("text = My Amenities");
         page.click(".amenities-table-container tbody tr:nth-of-type(3) td:nth-of-type(4) button:nth-of-type(2)");
-        page.click(".amenities-table-container tbody tr:nth-of-type(2) td:nth-of-type(4) button:nth-of-type(1)");
+        page.click(".amenities-table-container tbody tr:nth-of-type(1) td:nth-of-type(4) button:nth-of-type(1)");
         page.click(".building-info-header button");
     }
     public void crearProspect() {
@@ -568,7 +568,7 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
     public void eliminarRoom() {
         page.click(".app-sidebar__inner > div > ul > li:nth-of-type(5)");
         page.click("text=Programs");
-        page.click(".program-list-table-container tr:last-child div button:nth-of-type(2)");
+        page.click(".program-list-table-container tr:last-child div button:nth-of-type(1)");
         page.click(".program-room-list-table-container tr:last-child td:nth-of-type(2)");
         page.click(".program-room-header button:nth-of-type(2)");
         page.click(".new-building-button-div button:nth-of-type(1)");

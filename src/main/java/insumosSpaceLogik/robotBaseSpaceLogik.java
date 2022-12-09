@@ -544,21 +544,16 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.click(".add-program-modal-button-container button:nth-of-type(1)");
     }
     public void archivarPrograma(){
-        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(5)");
-        page.click("text=Programs");
         page.click(".program-list-table-container tbody tr:last-child div:last-child button:nth-of-type(3)");
         page.click(".new-building-button-div button:nth-of-type(1)");
     }
     public void borrarPrograma() {
-        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(5)");
-        page.click("text=Programs");
         page.click(".my-programs-header button:nth-of-type(2)");
+        page.click(".program-list-table-container table thead th:nth-of-type(2)");
         page.click(".program-list-table-container tbody tr:last-child div:last-child button:nth-of-type(2)");
         page.click(".new-building-button-div button:nth-of-type(1)");
     }
     public void crearRoom() {
-        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(5)");
-        page.click("text=Programs");
         page.click(".program-list-table-container tr:last-child div button:nth-of-type(1)");
         page.click(".program-room-header button:nth-of-type(1)");
     }
@@ -635,7 +630,10 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.selectOption(".contest-corporation-container select", legalFormationLaunch);
         page.fill(".contest-corporation-container input",bussinesSinceLaunch);
         page.click(".contest-details-buttons-container button:nth-of-type(5)");
+        page.click(".saved-buildings-table tbody tr:nth-of-type(7) td:nth-of-type(1) input");
+        page.click(".saved-buildings-table tbody tr:nth-of-type(8) td:nth-of-type(1) input");
         page.click(".saved-buildings-table tbody tr:nth-of-type(9) td:nth-of-type(1) input");
+        page.click(".contest-details-buttons-container button:nth-of-type(4)");
         page.click(".contest-details-buttons-container button:nth-of-type(5)");
         page.click(".contest-details-buildings-body div:nth-of-type(2).building-display-container div:nth-of-type(6) input");
         page.click(".contest-details-buildings-body div:nth-of-type(2).building-display-container div:nth-of-type(7) input");

@@ -1,6 +1,7 @@
 package SpaceLogik.pw.Program;
 
 
+import com.microsoft.playwright.Keyboard;
 import insumosSpaceLogik.robotBaseSpaceLogik;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -42,6 +43,7 @@ public class CA018programFuncionEdit extends robotBaseSpaceLogik {
     }
     @Test
     public void CA0183validacionEditRoomOptions(){
+            Keyboard kb = page.keyboard();
         iniciarVariablesEditRoom();
         nameProgram = "pruebAutomatizada26-validacionEditRoomOptions";
         login();
@@ -49,6 +51,8 @@ public class CA018programFuncionEdit extends robotBaseSpaceLogik {
         page.focus("#root");
         Assertions.assertTrue(page.isVisible("text=Program created successfully"));
         Assertions.assertTrue(page.isVisible("text=pruebAutomatizada26-validacionEditRoomOptions"));
+        page.focus(".my-programs-header input");
+        kb.insertText("pruebAutomatizada26-validacionEditRoomOptions");
         crearRoom();
         page.focus("#root");
         Assertions.assertTrue(page.isVisible("text=Room created successfully"));

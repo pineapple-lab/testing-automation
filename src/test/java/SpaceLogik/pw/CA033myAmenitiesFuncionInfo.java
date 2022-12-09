@@ -132,11 +132,27 @@ public class CA033myAmenitiesFuncionInfo extends robotBaseSpaceLogik {
         Assertions.assertTrue(page.isVisible("text=Lockers"));
     }
     @Test
-    public void CA0339validacionInfoMyAmenitiesBankingAtm(){
+    public void CA0339validacionInfoMyAmenitiesExecutiveParking(){
         login();
         page.click("text=MY LOGIK");
         page.click("text = My Amenities");
         page.click(".amenities-table-container tbody tr:nth-of-type(10) td:nth-of-type(1)");
+        page.focus(".building-info-column-amenities");
+        Assertions.assertTrue(page.isVisible("text=EXECUTIVE PARKING"));
+        Assertions.assertTrue(page.isVisible("text=Executive parking refers to secure, climate controlled parking available on a monthly basis, usually for a fee. Sometimes a small number of executive parking spots are provided as a part of lease negotiations."));
+        Assertions.assertTrue(page.isVisible("text=FEATURES"));
+        Assertions.assertTrue(page.isVisible("text=Secure"));
+        Assertions.assertTrue(page.isVisible("text=Heated"));
+        Assertions.assertTrue(page.isVisible("text=Car wash"));
+        Assertions.assertTrue(page.isVisible("text=Valet"));
+        Assertions.assertTrue(page.isVisible("text=What is executive parking?"));
+    }
+    @Test
+    public void CA0339validacionInfoMyAmenitiesBankingAtm(){
+        login();
+        page.click("text=MY LOGIK");
+        page.click("text = My Amenities");
+        page.click(".amenities-table-container tbody tr:nth-of-type(11) td:nth-of-type(1)");
         page.focus(".building-info-column-amenities");
         Assertions.assertTrue(page.isVisible("text=BANKING / ATM"));
         Assertions.assertTrue(page.isVisible("text=FEATURES"));
@@ -148,7 +164,7 @@ public class CA033myAmenitiesFuncionInfo extends robotBaseSpaceLogik {
         login();
         page.click("text=MY LOGIK");
         page.click("text = My Amenities");
-        page.click(".amenities-table-container tbody tr:nth-of-type(11) td:nth-of-type(1)");
+        page.click(".amenities-table-container tbody tr:nth-of-type(12) td:nth-of-type(1)");
         page.focus(".building-info-column-amenities");
         Assertions.assertTrue(page.isVisible("text=DRY CLEANER"));
         Assertions.assertTrue(page.isVisible("text=FEATURES"));
@@ -160,7 +176,7 @@ public class CA033myAmenitiesFuncionInfo extends robotBaseSpaceLogik {
         login();
         page.click("text=MY LOGIK");
         page.click("text = My Amenities");
-        page.click(".amenities-table-container tbody tr:nth-of-type(12) td:nth-of-type(1)");
+        page.click(".amenities-table-container tbody tr:nth-of-type(13) td:nth-of-type(1)");
         page.focus(".building-info-column-amenities");
         Assertions.assertTrue(page.isVisible("text=HAIR SALON / BARBER"));
         Assertions.assertTrue(page.isVisible("text=FEATURES"));
@@ -173,7 +189,7 @@ public class CA033myAmenitiesFuncionInfo extends robotBaseSpaceLogik {
         login();
         page.click("text=MY LOGIK");
         page.click("text = My Amenities");
-        page.click(".amenities-table-container tbody tr:nth-of-type(13) td:nth-of-type(1)");
+        page.click(".amenities-table-container tbody tr:nth-of-type(14) td:nth-of-type(1)");
         page.focus(".building-info-column-amenities");
         Assertions.assertTrue(page.isVisible("text=CONCIERGE"));
         Assertions.assertTrue(page.isVisible("text=FEATURES"));
@@ -185,7 +201,7 @@ public class CA033myAmenitiesFuncionInfo extends robotBaseSpaceLogik {
         login();
         page.click("text=MY LOGIK");
         page.click("text = My Amenities");
-        page.click(".amenities-table-container tbody tr:nth-of-type(14) td:nth-of-type(1)");
+        page.click(".amenities-table-container tbody tr:nth-of-type(15) td:nth-of-type(1)");
         page.focus(".building-info-column-amenities");
         Assertions.assertTrue(page.isVisible("text=MANNED SECURITY"));
         Assertions.assertTrue(page.isVisible("text=FEATURES"));
@@ -197,7 +213,7 @@ public class CA033myAmenitiesFuncionInfo extends robotBaseSpaceLogik {
         login();
         page.click("text=MY LOGIK");
         page.click("text = My Amenities");
-        page.click(".amenities-table-container tbody tr:nth-of-type(15) td:nth-of-type(1)");
+        page.click(".amenities-table-container tbody tr:nth-of-type(16) td:nth-of-type(1)");
         page.focus(".building-info-column-amenities");
         Assertions.assertTrue(page.isVisible("text=DAY CARE"));
         Assertions.assertTrue(page.isVisible("text=FEATURES"));

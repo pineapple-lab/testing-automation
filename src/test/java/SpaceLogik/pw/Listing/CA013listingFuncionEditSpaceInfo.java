@@ -24,12 +24,12 @@ public class CA013listingFuncionEditSpaceInfo extends robotBaseSpaceLogik {
     }
     @Test
     public void CA0133validacionEliminarSingleSuiteSpace(){
-        suiteNumberListingSpaceBuildin="5";
+        suiteNumberListingSpaceBuildin="131";
         login();
         crearListingSingleSuiteSpace();
         eliminarSingleSuiteSpace();
         page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=Suite 5 deleted"));
+        Assertions.assertTrue(page.isVisible("text=Suite 131 deleted"));
         Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
     }
     @Test

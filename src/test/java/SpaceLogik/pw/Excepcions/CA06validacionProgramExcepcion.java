@@ -23,7 +23,7 @@ public class CA06validacionProgramExcepcion extends robotBaseSpaceLogik {
         page.focus("#root");
         Assertions.assertTrue(page.isVisible("text=Program name is required"));
     }
-    @Test
+   /* @Test
     public void CA063validacionLevelVacioExcepcion(){
         iniciarVariablesAutoProgramFeliz();
         nameAutoProgram = "pruebAutomatizada35-validacionLevelVacioExcepcion";
@@ -32,7 +32,7 @@ public class CA06validacionProgramExcepcion extends robotBaseSpaceLogik {
         excepcionProgramLevelVacio();
         page.focus("#root");
         Assertions.assertTrue(page.isVisible("text=Construction and furniture levels are required"));
-    }
+    }ESTE CASO YA NO APLICA*/
     @Test
     public void CA064validacionRoomNameVacionExcepcion(){
         iniciarVariablesAutoProgramFeliz();

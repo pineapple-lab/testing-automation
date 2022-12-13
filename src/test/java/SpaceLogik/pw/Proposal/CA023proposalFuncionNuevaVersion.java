@@ -8,20 +8,20 @@ public class CA023proposalFuncionNuevaVersion extends robotBaseSpaceLogik {
 
     @Test
     public void CA0231validacionCrearNuevaVersion(){
-        nameProposal = "pruebaAutomatizada8-validacionNuevaVersion";
+        nameProposal = "pruebAutomatizada8-validacionNuevaVersion";
         obtenerFecha();
         iniciarVariablesProposalXYZ77M();
         login();
         crearProposal();
         page.focus("#root");
-        Assertions.assertTrue(page.isVisible( "text=pruebaAutomatizada8-validacionNuevaVersion"));
+        Assertions.assertTrue(page.isVisible( "text=pruebAutomatizada8-validacionNuevaVersion"));
         crearNuevaVersion();
         page.focus("#root");
         Assertions.assertTrue(page.isVisible( "text=Changes saved successfully"));
         page.click("text=BUILDINGS");
         page.click("text=Proposals");
         page.focus("#root");
-        Assertions.assertTrue(page.isVisible( "text=pruebaAutomatizada8-validacionNuevaVersion ("+formattedDate+" - Revision 1)"));
+        Assertions.assertTrue(page.isVisible( "text=pruebAutomatizada8-validacionNuevaVersion ("+formattedDate+" - Revision 1)"));
     }
     @Test
     public void CA0232validacionPaymentNuevaVersion(){

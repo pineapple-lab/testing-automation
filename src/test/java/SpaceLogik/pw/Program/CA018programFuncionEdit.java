@@ -67,6 +67,7 @@ public class CA018programFuncionEdit extends robotBaseSpaceLogik {
     }
     @Test
     public void CA0184validacionEditSpacePlan(){
+        Keyboard kb = page.keyboard();
         nameProgram="pruebAutomatizada27-validacionEditSpacePlan";
         commentsRoomDetails="validacionEditSpacePlanRoomDetails";
         login();
@@ -74,6 +75,8 @@ public class CA018programFuncionEdit extends robotBaseSpaceLogik {
         page.focus("#root");
         Assertions.assertTrue(page.isVisible("text=Program created successfully"));
         Assertions.assertTrue(page.isVisible("text=pruebAutomatizada27-validacionEditSpacePlan"));
+        page.focus(".my-programs-header input");
+        kb.insertText("pruebAutomatizada27-validacionEditSpacePlan");
         crearRoom();
         page.focus("#root");
         Assertions.assertTrue(page.isVisible("text=Room created successfully"));

@@ -149,7 +149,7 @@ public class variablesIniciadasSpaceLogik extends variablesSpaceLogik {
         companyListingPrimaryLeasingContacts = "pruebAutomatizada";
         address1ListingPrimaryLeasingContacts = "pruebAutomatizada";
         address2ListingPrimaryLeasingContacts = "pruebAutomatizada";
-        char prueba = 'a';
+
         stateListingPrimaryLeasingContacts = "41";
         cityListingPrimaryLeasingContacts = "16513";
         zipCodeListingPrimaryLeasingContacts = "35743";

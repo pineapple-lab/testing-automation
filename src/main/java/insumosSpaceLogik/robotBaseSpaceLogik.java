@@ -49,17 +49,28 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.click(".dropdown-menu-header div:nth-of-type(2) .widget-content-wrapper button");
     }
     public void editarMyDealLeaseTypeLocation(){
+        sqlconectar();
         Keyboard kb = page.keyboard();
         page.click("text=MY LOGIK");
         page.click("text = My Deal");
         page.click(".deal-location-selector-container div:nth-of-type(1) input");
         page.focus(".deal-current-location-container input");
+        kb.press("Control+Shift+End");
+        kb.press("Delete");
         kb.insertText(ubicacionMyDealLeaseTypeLocation);
         kb.press("ArrowDown");
         kb.press("Enter");
         page.click(".deal-future-location-container div:nth-of-type(1) label:nth-of-type(2) input");
         page.click(".deal-future-location-container div:nth-of-type(2) label:nth-of-type(2) input");
         page.click(".deal-location-header button");
+        try {
+            Statement st = CN.createStatement();
+            String query = "INSERT INTO ddpeditleasetypelocation (`ubicacionMyDealLeaseTypeLocation`,`fechaDePrueba`) " +
+                    "VALUES("+"'"+ubicacionMyDealLeaseTypeLocation+"'"+",NOW())";
+            st.executeUpdate(query);
+            System.out.println("Los datos de la prueba se guardaron correctamente");
+        }catch (Exception ex){ex.printStackTrace();}
+        sqlclose();
     }
     public void editarMyDealOfficeSize(){
         sqlconectar();
@@ -72,7 +83,7 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.click(".deal-office-size-header button");
         try {
             Statement st = CN.createStatement();
-            String query = "INSERT INTO datosdepruebamydealofficesize (`rsfMyDealOfficeSize`,`specificHeadCountyMyDealOffice`,`fechaDePrueba`) " +
+            String query = "INSERT INTO datosDePruebaEditOfficeSize (`rsfMyDealOfficeSize`,`specificHeadCountyMyDealOffice`,`fechaDePrueba`) " +
                                                                         "VALUES("+rsfMyDealOfficeSize+","+specificHeadCountMyDealOfficeSize+",NOW())";
             st.executeUpdate(query);
             System.out.println("Los datos de la prueba se guardaron correctamente");

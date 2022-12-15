@@ -80,22 +80,20 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
     public void editarMyPreferencesConstructionQualityDefault(){
         page.click("text=MY LOGIK");
         page.click("text = My Preferences");
-        page.click(".tenant-preference-component #construction_level_number1");
-        page.click(".tenant-preference-component:nth-of-type(1) .term-selection-container button:nth-of-type(6)");
+        page.click(".tenant-preference-component:nth-of-type(1) .level-selection-container > div:nth-of-type(3) button");
         page.click(".tenant-preference-component:nth-of-type(1) .component-title button");
     }
     public void editarMyPreferencesFurnitureQualityDefault(){
         page.click("text=MY LOGIK");
         page.click("text = My Preferences");
-        page.click(".tenant-preference-component #furniture_level_number1");
-        page.click(".tenant-preference-component:nth-of-type(2) .term-selection-container button:nth-of-type(4)");
+        page.click(".tenant-preference-component:nth-of-type(2) .level-selection-container > div:nth-of-type(4) button");
         page.click(".tenant-preference-component:nth-of-type(2) .component-title button");
     }
     public void editarMyPreferenceFinancialDefaults(){
         page.click("text=MY LOGIK");
         page.click("text = My Preferences");
         page.click(".number-changer-body:nth-of-type(1) button:nth-of-type(2)");
-        page.click(".number-changer-body:nth-of-type(2) button:nth-of-type(1)");
+        page.click(".number-changer-body:nth-of-type(3) button:nth-of-type(1)");
         page.click(".tenant-preference-component:nth-of-type(3) .component-title button");
     }
     public void editarMyPreferencesYourIndustry(){

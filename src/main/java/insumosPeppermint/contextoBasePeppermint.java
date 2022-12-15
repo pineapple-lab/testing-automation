@@ -6,7 +6,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 
-public class contextoBasePeppermint extends iniciarVariablesPeppermint {
+public class contextoBasePeppermint extends variablesIniciadasPeppermint {
     protected static Playwright playwright;
     protected static Browser browser;
     protected static BrowserContext context;

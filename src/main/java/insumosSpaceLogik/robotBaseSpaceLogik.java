@@ -2,7 +2,12 @@ package insumosSpaceLogik;
 
 import com.microsoft.playwright.Keyboard;
 
+import javax.swing.text.DateFormatter;
+import java.sql.Statement;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -57,7 +62,7 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.click(".deal-location-header button");
     }
     public void editarMyDealOfficeSize(){
-        Keyboard kb = page.keyboard();
+        sqlconectar();
         page.click("text=MY LOGIK");
         page.click("text = My Deal");
         page.fill(".deal-current-rsf-container input",rsfMyDealOfficeSize);
@@ -65,6 +70,14 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.fill(".future-headcount-input",specificHeadCountMyDealOfficeSize);
         page.click(".growth-adjust-container label:nth-of-type(1) input");
         page.click(".deal-office-size-header button");
+        try {
+            Statement st = CN.createStatement();
+            String query = "INSERT INTO datosdepruebamydealofficesize (`rsfMyDealOfficeSize`,`specificHeadCountyMyDealOffice`,`fechaDePrueba`) " +
+                                                                        "VALUES("+rsfMyDealOfficeSize+","+specificHeadCountMyDealOfficeSize+",NOW())";
+            st.executeUpdate(query);
+            System.out.println("Los datos de la prueba se guardaron correctamente");
+        }catch (Exception ex){ex.printStackTrace();}
+        sqlclose();
     }
     public void editarMyDealOccupancyAndSchedule(){
         Keyboard kb = page.keyboard();

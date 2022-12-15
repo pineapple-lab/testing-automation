@@ -1,6 +1,8 @@
 package insumosSpaceLogik;
 
 public class variablesSpaceLogik {
+    //SQL
+    public String sqlFormattedDate;
 
     //REGISTRO
     public String firstNameRegistro;

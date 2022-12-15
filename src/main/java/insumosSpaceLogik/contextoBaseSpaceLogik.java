@@ -3,7 +3,7 @@ package insumosSpaceLogik;
 import com.microsoft.playwright.*;
 import org.junit.jupiter.api.*;
 
-public class contextoBaseSpaceLogik extends variablesIniciadasSpaceLogik{
+public class contextoBaseSpaceLogik extends conexionsql{
     protected static Playwright playwright;
     protected static Browser browser;
     protected static BrowserContext context;

@@ -19,7 +19,7 @@ public class CA015programFuncionAutoProgram extends robotBaseSpaceLogik {
         assertTrue(page.isVisible("text=Changes saved successfully"));
         page.focus("#root");
         assertTrue(page.isVisible("text=PruebAutomatizada32-validacionCrearAutoProgram"));
-        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(5)");
+        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(3)");
         page.click("text=Programs");
         page.focus("#root");
         assertTrue(page.isVisible("text=pruebAutomatizada32-validacionCrearAutoProgram"));

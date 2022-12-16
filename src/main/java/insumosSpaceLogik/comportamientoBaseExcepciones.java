@@ -8,13 +8,13 @@ public class comportamientoBaseExcepciones extends contextoBaseSpaceLogik{
         page.click("'LOG IN'");
     }
     public void excepcionProposalNombreVacio(){
-        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(6)");
+        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
         page.click("text=Proposals");
         page.click("[class=\"default-spacelogik-button\"]");
         page.click(".new-proposal-modal-button-container button:nth-of-type(1)");
     }
     public void excepcionProgramNombreVacio(){
-        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(5)");
+        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(3)");
         page.click("text=Programs");
         page.click(".my-programs-header div:nth-of-type(3) button");
         page.click(".container-types div:nth-child(1)");
@@ -22,7 +22,7 @@ public class comportamientoBaseExcepciones extends contextoBaseSpaceLogik{
         page.click(".add-program-modal-button-container button:nth-of-type(1)");
     }
     public void excepcionAutoProgramNombreVacio(){
-        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(5)");
+        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(3)");
         page.click("text=Programs");
         page.click(".my-programs-header div:nth-of-type(3) button");
         page.click(".modal-buttons button:nth-of-type(1)");
@@ -38,7 +38,7 @@ public class comportamientoBaseExcepciones extends contextoBaseSpaceLogik{
         page.click(".create-plan-info-container div:nth-of-type(5) button");
     }
     public void excepcionProgramRoomNameVacio(){
-        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(5)");
+        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(3)");
         page.click("text=Programs");
         page.click(".my-programs-header div:nth-of-type(3) button");
         page.click(".modal-buttons button:nth-of-type(1)");
@@ -67,7 +67,8 @@ public class comportamientoBaseExcepciones extends contextoBaseSpaceLogik{
         page.click(".create-plan-info-container div .plan-add-room-button-container button:nth-of-type(1)");
         page.click(".create-plan-info-container div:nth-of-type(5) button");
     }
-    public void excepcionProgramAreaListVacio(){  page.click(".app-sidebar__inner > div > ul > li:nth-of-type(5)");
+    public void excepcionProgramAreaListVacio(){
+        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(3)");
         page.click("text=Programs");
         page.click(".my-programs-header div:nth-of-type(3) button");
         page.click(".modal-buttons button:nth-of-type(1)");

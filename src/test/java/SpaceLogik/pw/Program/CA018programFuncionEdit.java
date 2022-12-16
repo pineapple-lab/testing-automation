@@ -8,13 +8,17 @@ import org.junit.jupiter.api.Test;
 
 public class CA018programFuncionEdit extends robotBaseSpaceLogik {
 
+
         @Test
         public void CA0181validacionAddRoom(){
+        Keyboard kb = page.keyboard();
         nameProgram="pruebAutomatizada24-validacionAddRoom";
         login();
         crearPrograma();
         page.focus("#root");
         Assertions.assertTrue(page.isVisible("text=pruebAutomatizada24-validacionAddRoom"));
+        page.focus(".my-programs-header input");
+        kb.insertText("pruebAutomatizada24-validacionAddRoom");
         crearRoom();
         page.focus("#root");
         Assertions.assertTrue(page.isVisible("text=Room created successfully"));
@@ -25,25 +29,28 @@ public class CA018programFuncionEdit extends robotBaseSpaceLogik {
     }
     @Test
     public void CA0182validacionDeleteRoom() {
+        Keyboard kb = page.keyboard();
         nameProgram = "pruebAutomatizada25-validacionDeleteRoom";
         login();
         crearPrograma();
-        page.focus("#root");
+        page.focus("tbody");
         Assertions.assertTrue(page.isVisible("text=pruebAutomatizada25-validacionDeleteRoom"));
+        page.focus(".my-programs-header input");
+        kb.insertText("pruebAutomatizada25-validacionDeleteRoom");
         crearRoom();
         page.focus("#root");
         Assertions.assertTrue(page.isVisible("text=Room created successfully"));
         guardarRoom();
         page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=Conference Room"));
+        Assertions.assertTrue(page.isVisible("text=Coat Closet"));
         Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
         eliminarRoom();
         Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
-        Assertions.assertFalse(page.isVisible("text=Conference Room"));
+        Assertions.assertFalse(page.isVisible("text=Coat Closet"));
     }
     @Test
     public void CA0183validacionEditRoomOptions(){
-            Keyboard kb = page.keyboard();
+        Keyboard kb = page.keyboard();
         iniciarVariablesEditRoom();
         nameProgram = "pruebAutomatizada26-validacionEditRoomOptions";
         login();
@@ -58,7 +65,7 @@ public class CA018programFuncionEdit extends robotBaseSpaceLogik {
         Assertions.assertTrue(page.isVisible("text=Room created successfully"));
         guardarRoom();
         page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=Conference Room"));
+        Assertions.assertTrue(page.isVisible("text=Coat Closet"));
         Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
         editarRoomOptions();
         page.focus("#root");
@@ -81,8 +88,8 @@ public class CA018programFuncionEdit extends robotBaseSpaceLogik {
         page.focus("#root");
         Assertions.assertTrue(page.isVisible("text=Room created successfully"));
         guardarRoom();
-        page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=Conference Room"));
+        page.focus(".program-room-list-table-container table");
+        Assertions.assertTrue(page.isVisible("text=Coat Closet"));
         Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
         editarSpacePlanRoomDetails();
         page.focus("#root");
@@ -94,18 +101,22 @@ public class CA018programFuncionEdit extends robotBaseSpaceLogik {
     }
     @Test
     public void CA0185validacionEditarConstructionLevel(){
+        Keyboard kb = page.keyboard();
         nameProgram="pruebAutomatizada28-validacionEditarConstructionLevel";
         login();
         crearPrograma();
         page.focus("#root");
         Assertions.assertTrue(page.isVisible("text=Program created successfully"));
+        page.focus("tbody");
         Assertions.assertTrue(page.isVisible("text=pruebAutomatizada28-validacionEditarConstructionLevel"));
+        page.focus(".my-programs-header input");
+        kb.insertText("pruebAutomatizada28-validacionEditarConstructionLevel");
         crearRoom();
         page.focus("#root");
         Assertions.assertTrue(page.isVisible("text=Room created successfully"));
         guardarRoom();
-        page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=Conference Room"));
+        page.focus(".program-room-list-table-container table");
+        Assertions.assertTrue(page.isVisible("text=Coat Closet"));
         Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
         editarConstructionLevelRoomDetails();
         page.focus("#root");
@@ -113,18 +124,21 @@ public class CA018programFuncionEdit extends robotBaseSpaceLogik {
     }
     @Test
     public void CA0186validacionEditarUpgradeOptions(){
+        Keyboard kb = page.keyboard();
         nameProgram="pruebAutomatizada29-validacionEditarUpgradeOptions";
         login();
         crearPrograma();
         page.focus("#root");
         Assertions.assertTrue(page.isVisible("text=Program created successfully"));
         Assertions.assertTrue(page.isVisible("text=pruebAutomatizada29-validacionEditarUpgradeOptions"));
+        page.focus(".my-programs-header input");
+        kb.insertText("pruebAutomatizada29-validacionEditarUpgradeOptions");
         crearRoom();
         page.focus("#root");
         Assertions.assertTrue(page.isVisible("text=Room created successfully"));
         guardarRoom();
-        page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=Conference Room"));
+        page.focus(".program-room-list-table-container table");
+        Assertions.assertTrue(page.isVisible("text=Coat Closet"));
         Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
         editarUpgradeOptionsRoomDetails();
         page.focus("#root");
@@ -132,18 +146,21 @@ public class CA018programFuncionEdit extends robotBaseSpaceLogik {
     }
     @Test
     public void CA0187validacionEditarAlacarteOptions(){
+        Keyboard kb = page.keyboard();
         nameProgram="pruebAutomatizada30-validacionEditarAlacarteOptions";
         login();
         crearPrograma();
         page.focus("#root");
         Assertions.assertTrue(page.isVisible("text=Program created successfully"));
         Assertions.assertTrue(page.isVisible("text=pruebAutomatizada30-validacionEditarAlacarteOptions"));
+        page.focus(".my-programs-header input");
+        kb.insertText("pruebAutomatizada30-validacionEditarAlacarteOptions");
         crearRoom();
         page.focus("#root");
         Assertions.assertTrue(page.isVisible("text=Room created successfully"));
         guardarRoom();
-        page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=Conference Room"));
+        page.focus(".program-room-list-table-container table");
+        Assertions.assertTrue(page.isVisible("text=Coat Closet"));
         Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
         editarAlacarteOptionsRoomDetails();
         page.focus("#root");
@@ -151,6 +168,7 @@ public class CA018programFuncionEdit extends robotBaseSpaceLogik {
     }
     @Test
     public void CA0188validacionEdicionCompleta(){
+        Keyboard kb = page.keyboard();
         iniciarVariablesEditRoom();
         nameProgram = "pruebAutomatizada31-validacionEdicionCompleta";
         commentsRoomDetails = "pruebAutomatizada31-validacionEdicionCompleta";
@@ -159,12 +177,14 @@ public class CA018programFuncionEdit extends robotBaseSpaceLogik {
         page.focus("#root");
         Assertions.assertTrue(page.isVisible("text=Program created successfully"));
         Assertions.assertTrue(page.isVisible("text=pruebAutomatizada31-validacionEdicionCompleta"));
+        page.focus(".my-programs-header input");
+        kb.insertText("pruebAutomatizada31-validacionEdicionCompleta");
         crearRoom();
         page.focus("#root");
         Assertions.assertTrue(page.isVisible("text=Room created successfully"));
         guardarRoom();
-        page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=Conference Room"));
+        page.focus(".program-room-list-table-container table");
+        Assertions.assertTrue(page.isVisible("text=Coat Closet"));
         Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
         editarRoomOptions();
         page.focus("#root");

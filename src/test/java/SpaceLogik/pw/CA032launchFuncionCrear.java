@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class CA032launchFuncionCrear extends robotBaseSpaceLogik {
 
     @Test
-    public void CA0321validacionCrearLaunch(){
+     public void CA0321validacionCrearLaunch(){
         iniciarVariablesLaunchFeliz();
         login();
         crearLaunch();

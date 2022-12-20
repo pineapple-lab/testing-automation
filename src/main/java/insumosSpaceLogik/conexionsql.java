@@ -4,7 +4,7 @@ import java.sql.*;
 
 
 
-public class conexionsql extends variablesIniciadasSpaceLogik{
+public class conexionsql extends variablesSpaceLogik{
 
     private static final String url = "jdbc:mysql://localhost:3306/testbdspacelogik?serverTimezone=UTC";
     private static final String username = "root";

@@ -30,7 +30,7 @@ public class CA018programFuncionEdit extends robotBaseSpaceLogik {
     @Test
     public void CA0182validacionDeleteRoom() {
         Keyboard kb = page.keyboard();
-        nameProgram = "pruebAutomatizada25-validacionDeleteRoom";
+        nameProgram = "pruebAutomatizada25-validacionProgramDeleteRoom";
         login();
         crearPrograma();
         page.focus("tbody");

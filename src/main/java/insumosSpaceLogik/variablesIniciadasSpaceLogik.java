@@ -2,8 +2,13 @@ package insumosSpaceLogik;
 
 import insumosSpaceLogik.variablesSpaceLogik;
 
-public class variablesIniciadasSpaceLogik extends variablesSpaceLogik {
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class variablesIniciadasSpaceLogik extends conexionsql {
     public void iniciarVariablesPropposalValoresPequeños(){
+
         term = "84";
         startingRate = "0.25";
         annualIncreases = "2.1";
@@ -48,9 +53,17 @@ public class variablesIniciadasSpaceLogik extends variablesSpaceLogik {
         interestRate = "1";
     }
     public void iniciarVariablesProposalXYZ77M(){
-        building = "230019";
-        prospect = "9";
-        program = "797";
+        try {
+            sqlconectar();
+            Statement stm = CN.createStatement();
+            ResultSet rs = stm.executeQuery("SELECT * FROM datosproposal WHERE estado=0");
+            while(rs.next()){
+                building = rs.getString(rs.findColumn("building"));
+                prospect = rs.getString(rs.findColumn("prospect"));
+                program = rs.getString(rs.findColumn("program"));
+            }
+        }catch(Exception e){}
+        sqlclose();
     }
     public void iniciarVariablesProspectFeliz(){
         salutationProspect = "1"; //mr.

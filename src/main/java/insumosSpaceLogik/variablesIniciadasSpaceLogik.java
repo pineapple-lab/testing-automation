@@ -56,12 +56,19 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
         try {
             sqlconectar();
             Statement stm = CN.createStatement();
-            ResultSet rs = stm.executeQuery("SELECT * FROM datosproposal WHERE estado=0");
+            ResultSet rs = stm.executeQuery("SELECT * FROM datosproposal WHERE estado=0 ORDER BY fecha_deprueba");
             while(rs.next()){
                 building = rs.getString(rs.findColumn("building"));
                 prospect = rs.getString(rs.findColumn("prospect"));
                 program = rs.getString(rs.findColumn("program"));
             }
+            String query1 = "UPDATE testbdspacelogik.datosproposal SET estado = 1 WHERE building="+"'"+building+"'";
+            stm.executeUpdate(query1);
+            String query2 = "UPDATE testbdspacelogik.datosproposal SET fecha_deprueba = DATE_ADD(NOW(), INTERVAL 5 SECOND)  WHERE estado = 0";
+            stm.executeUpdate(query2);
+            String query3 = "UPDATE testbdspacelogik.datosproposal SET estado = 0 WHERE building!="+"'"+building+"'";
+            stm.executeUpdate(query3);
+            System.out.println("llegueaca5");
         }catch(Exception e){}
         sqlclose();
     }

@@ -12,7 +12,7 @@ public class CA021proposalFuncionCrear extends robotBaseSpaceLogik {
         @Test
         public void CA0211ProposalCreatorFeliz001() {
 
-            nameProposal = "asdfasdfdasfsdaf";
+            nameProposal = "pruebAutomatizada1-validacioncrear";
             login();
             iniciarVariablesProposalXYZ77M();
             crearProposal();

@@ -12,16 +12,21 @@ public class CA015programFuncionAutoProgram extends robotBaseSpaceLogik {
     @Test
     public void CA0151validacionCrearAutoProgram(){
         nameAutoProgram="pruebAutomatizada32-validacionCrearAutoProgram";
+        assertions1 = "text=Changes saved successfully";
+        assertions = "text=PruebAutomatizada32-validacionCrearAutoProgram";
         iniciarVariablesAutoProgramFeliz();
         login();
         crearAutoProgram();
         page.focus("#root");
-        assertTrue(page.isVisible("text=Changes saved successfully"));
+        sqlGuardarCasoSiFallaCartelDeCrearAutoProgram();
+        assertTrue(page.isVisible(assertions1));
         page.focus("#root");
-        assertTrue(page.isVisible("text=PruebAutomatizada32-validacionCrearAutoProgram"));
+        sqlGuardarCasoSiFallaCrearAutoProgram();
+        assertTrue(page.isVisible(assertions));
         page.click(".app-sidebar__inner > div > ul > li:nth-of-type(3)");
         page.click("text=Programs");
         page.focus("#root");
-        assertTrue(page.isVisible("text=pruebAutomatizada32-validacionCrearAutoProgram"));
+        sqlGuardarCasoSiFallaCrearAutoProgram();
+        assertTrue(page.isVisible(assertions));
     }
 }

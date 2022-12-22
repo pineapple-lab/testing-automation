@@ -1,9 +1,9 @@
 package insumosSpaceLogik;
 
 public class variablesSpaceLogik {
-    //SQL
-    public String sqlFormattedDate;
-
+    //VALIDACIONES
+    public String assertions;
+    public String assertions1;
     //REGISTRO
     public String firstNameRegistro;
     public String lastNameRegistro;

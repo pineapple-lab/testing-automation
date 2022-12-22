@@ -56,37 +56,46 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
         try {
             sqlconectar();
             Statement stm = CN.createStatement();
-            ResultSet rs = stm.executeQuery("SELECT * FROM datosproposal WHERE estado=0 ORDER BY fecha_deprueba");
+            ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoscrearproposal WHERE estado = 0 ORDER BY RAND() LIMIT 1");
             while(rs.next()){
                 building = rs.getString(rs.findColumn("building"));
                 prospect = rs.getString(rs.findColumn("prospect"));
                 program = rs.getString(rs.findColumn("program"));
             }
-            String query1 = "UPDATE testbdspacelogik.datosproposal SET estado = 1 WHERE building="+"'"+building+"'";
+            String query1 = "UPDATE testbdspacelogik.datoscrearproposal SET estado = 1 WHERE building="+"'"+building+"'";
             stm.executeUpdate(query1);
-            String query2 = "UPDATE testbdspacelogik.datosproposal SET fecha_deprueba = DATE_ADD(NOW(), INTERVAL 5 SECOND)  WHERE estado = 0";
+            String query2 = "UPDATE testbdspacelogik.datoscrearproposal SET estado = 0 WHERE building!="+"'"+program+"'";
             stm.executeUpdate(query2);
-            String query3 = "UPDATE testbdspacelogik.datosproposal SET estado = 0 WHERE building!="+"'"+building+"'";
-            stm.executeUpdate(query3);
-            System.out.println("llegueaca5");
         }catch(Exception e){}
         sqlclose();
     }
     public void iniciarVariablesProspectFeliz(){
-        salutationProspect = "1"; //mr.
-        firstNameProspect = "pruebAutomatizada";
-        lastNameProspect = "pruebAutomatizada";
-        titleProspect = "pruebAutomatizada";
-        adress1Prospect = "pruebAutomatizada";
-        adress2Prospect = "pruebAutomatizada";
-        stateProspect = "16"; //iowa
-        cityProspect = "3158"; //allison
-        zipcodeProspect = "9650";
-        emailProspect = "pruebAutomatizada@gmail.com";
-        phoneProspect = "095271342";
-        industryProspect = "7"; //insurance
-        approxRsfProspect = "458947";
-        ocupancyDateProspect = "05-03-2031";
+        try {
+            sqlconectar();
+            Statement stm = CN.createStatement();
+            ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoscrearprospect WHERE estado = 0 ORDER BY RAND() LIMIT 1");
+            while(rs.next()){
+                salutationProspect = rs.getString(rs.findColumn("salutation"));
+                firstNameProspect = rs.getString(rs.findColumn("firstName"));
+                lastNameProspect = rs.getString(rs.findColumn("lastName"));
+                titleProspect = rs.getString(rs.findColumn("titleProspect"));
+                adress1Prospect = rs.getString(rs.findColumn("adress1"));
+                adress2Prospect = rs.getString(rs.findColumn("adress2"));
+                stateProspect = rs.getString(rs.findColumn("state"));
+                cityProspect = rs.getString(rs.findColumn("city"));
+                zipcodeProspect = rs.getString(rs.findColumn("zipCode"));
+                emailProspect = rs.getString(rs.findColumn("email"));
+                phoneProspect = rs.getString(rs.findColumn("phone"));
+                industryProspect = rs.getString(rs.findColumn("industry"));
+                approxRsfProspect = rs.getString(rs.findColumn("approxRsf"));
+                ocupancyDateProspect = rs.getString(rs.findColumn("ocupancyDate"));
+            }
+            String query1 = "UPDATE testbdspacelogik.datoscrearprospect SET estado = 1 WHERE state="+"'"+stateProspect+"'";
+            stm.executeUpdate(query1);
+            String query2 = "UPDATE testbdspacelogik.datoscrearprospect SET estado = 0 WHERE state!="+"'"+stateProspect+"'";
+            stm.executeUpdate(query2);
+        }catch(Exception e){}
+        sqlclose();
     }
    public void iniciarVariablesRegistroFeliz(){
 
@@ -136,9 +145,21 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
         quantityRoomOptionsProgram = "50";
     }
     public void iniciarVariablesAutoProgramFeliz(){
-        nameRoomAutoProgram ="pruebAutomatizada";
-        industryAutoProgram = "138";
-        quantityAutoProgram ="50";
+        try {
+            sqlconectar();
+            Statement stm = CN.createStatement();
+            ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoscrearautoprogram WHERE estado = 0 ORDER BY RAND() LIMIT 1");
+            while(rs.next()){
+                nameRoomAutoProgram = rs.getString(rs.findColumn("nameRoomAutoProgram"));
+                industryAutoProgram = rs.getString(rs.findColumn("industry"));
+                quantityAutoProgram = rs.getString(rs.findColumn("quantity"));
+            }
+            String query1 = "UPDATE testbdspacelogik.datosCrearAutoProgram SET estado = 1 WHERE industry="+"'"+industryAutoProgram+"'";
+            stm.executeUpdate(query1);
+            String query2 = "UPDATE testbdspacelogik.datosCrearAutoProgram SET estado = 0 WHERE industry!="+"'"+industryAutoProgram+"'";
+            stm.executeUpdate(query2);
+        }catch(Exception e){}
+        sqlclose();
     }
     public void iniciarVariablesLaunchFeliz(){
         legalFormationLaunch ="6";

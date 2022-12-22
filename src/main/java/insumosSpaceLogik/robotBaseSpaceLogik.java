@@ -153,7 +153,7 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.selectOption(".general-info-container > label:nth-of-type(1)", industryProspect);
         page.fill(".general-info-container > label:nth-of-type(2)", approxRsfProspect);
         page.focus(".general-info-container > label:nth-of-type(3)");
-        kb.insertText(ocupancyDateProspect);
+        kb.type(ocupancyDateProspect);
         page.click(".add-prospect-modal-button-container > button:nth-of-type(1)");
     }
     public void archivarProspect() {
@@ -626,19 +626,23 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.click(".room-details-construction-component:nth-of-type(3) .room-details-save-button");
     }
     public void crearAutoProgram(){
+        Keyboard kb = page.keyboard();
         page.click(".app-sidebar__inner > div > ul > li:nth-of-type(3)");
         page.click("text=Programs");
         page.click(".my-programs-header div:nth-of-type(3) button");
         page.click(".modal-buttons button:nth-of-type(1)");
-        page.fill(".office-question-info-container input",nameAutoProgram);
+        page.focus(".office-question-info-container input");
+        kb.insertText(nameRoomAutoProgram);
         page.selectOption(".office-question-info-container select",industryAutoProgram);
         page.click(".office-setup-container div:nth-of-type(2) #option-construction-level-3");
         page.click(".office-setup-container .office-question-info-container div:nth-of-type(2) .office-setup-level-selection-container div:nth-of-type(4) button");
-        page.fill(".create-plan-info-input-container input",nameRoomAutoProgram);
+        page.focus(".create-plan-info-input-container input");
+        kb.insertText(nameRoomAutoProgram);
         page.click(".plan-info-option-component-wrapper div:nth-of-type(2) [value=\"Private Office(s)\"]");
         page.click(".plan-info-option-component-wrapper div:nth-of-type(2) [value=\"Locate on interior\"]");
         page.click(".plan-info-option-component-wrapper div:nth-of-type(2) [value=\"10*15\"]");
-        page.fill(".plan-info-option-component-wrapper div:nth-of-type(2) .plan-info-quantity-container input",quantityAutoProgram);
+        page.focus(".plan-info-option-component-wrapper div:nth-of-type(2) .plan-info-quantity-container input");
+        kb.insertText(quantityAutoProgram);
         page.click(".create-plan-info-container div .plan-add-room-button-container button:nth-of-type(1)");
         page.click(".create-plan-info-container div:nth-of-type(5) button");
     }

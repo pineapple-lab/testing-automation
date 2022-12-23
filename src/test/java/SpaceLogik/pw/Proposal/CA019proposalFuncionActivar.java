@@ -9,7 +9,7 @@ public class CA019proposalFuncionActivar extends robotBaseSpaceLogik {
     public void CA0191validacionActivarProposal(){
         nameProposal= "pruebAutomatizada16-validacionActivarProposal";
         login();
-        iniciarVariablesProposalXYZ77M();
+        iniciarVariablesCreacionProposal();
         crearProposal();
         page.focus("#root");
         Assert.assertTrue(page.isVisible("text=pruebAutomatizada16-validacionActivarProposal"));

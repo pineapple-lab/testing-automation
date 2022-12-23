@@ -27,11 +27,13 @@ public class CA029prospectFuncionEditar extends robotBaseSpaceLogik {
         iniciarVariablesEditManualBrokerFeliz();
         nameCompanyProspect = "prueabAutomatizada19-validacionEdicionManualInfoBrokerage";
         firstNameEditBrokerManual = "pruebAutomatizada19-validacionEdicionManualInfoBrokerage";
+        assertions = "text=pruebAutomatizada19-validacionEdicionManualInfoBrokerage";
         login();
         crearProspect();
         editarManualmenteInfoBrokerage();
         page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=pruebAutomatizada19-validacionEdicionManualInfoBrokerage"));
+        sqlGuardarCasoSiFallaEditarBrokerManual();
+        Assertions.assertTrue(page.isVisible(assertions));
     }
     @Test
     public void CA0293validacionEdicionCompleta(){

@@ -14,7 +14,7 @@ public class CA021proposalFuncionCrear extends robotBaseSpaceLogik {
             nameProposal = "pruebAutomatizada1-validacioncre";
             assertions = "text=pruebAutomatizada1-validacioncrear";
             login();
-            iniciarVariablesProposalXYZ77M();
+            iniciarVariablesCreacionProposal();
             crearProposal();
             page.focus(".proposal-list-table-container");
             sqlGuardarCasoSiFallaCrearProposal();

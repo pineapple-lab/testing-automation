@@ -10,7 +10,7 @@ public class CA023proposalFuncionNuevaVersion extends robotBaseSpaceLogik {
     public void CA0231validacionCrearNuevaVersion(){
         nameProposal = "pruebAutomatizada8-validacionNuevaVersion";
         obtenerFecha();
-        iniciarVariablesProposalXYZ77M();
+        iniciarVariablesCreacionProposal();
         login();
         crearProposal();
         page.focus("#root");
@@ -25,7 +25,7 @@ public class CA023proposalFuncionNuevaVersion extends robotBaseSpaceLogik {
     }
     @Test
     public void CA0232validacionPaymentNuevaVersion(){
-        iniciarVariablesProposalXYZ77M();
+        iniciarVariablesCreacionProposal();
         iniciarVariablesPropposalValoresMedianos();
         nameProposal = "pruebAutomatizada9-validacionPaymentNuevaVersion";
         login();

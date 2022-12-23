@@ -17,7 +17,7 @@ public class CA07validacionProposalExcepcion extends robotBaseSpaceLogik {
     @Test
     public void CA072validacionMensajePropposalDuplicado(){
         nameProposal = "pruebAutomatizada7-validacionExcepcionPropposalduplicado";
-        iniciarVariablesProposalXYZ77M();
+        iniciarVariablesCreacionProposal();
         login();
         crearProposal();
         crearProposal();
@@ -27,7 +27,7 @@ public class CA07validacionProposalExcepcion extends robotBaseSpaceLogik {
     @Test
     public void CA073validacionMensajePropposalDuplicadoArchivado(){
         nameProposal = "pruebAutomatizada34-validacionExcepcionPropposalDuplicadoArchivado";
-        iniciarVariablesProposalXYZ77M();
+        iniciarVariablesCreacionProposal();
         login();
         crearProposal();
         archivarProposal();

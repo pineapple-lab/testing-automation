@@ -518,6 +518,14 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
     }
     public void llenarProposal() {
         Keyboard kb = page.keyboard();
+        page.click("text=Proposals");
+        page.click("[class=\"default-spacelogik-button\"]");
+        page.focus(".new-proposal-modal-container label:nth-of-type(1)");
+        kb.insertText(nameProposal);
+        page.selectOption(".new-proposal-modal-container label:nth-of-type(2)", building);
+        page.selectOption(".new-proposal-modal-container label:nth-of-type(3)", prospect);
+        page.selectOption(".new-proposal-modal-container label:nth-of-type(4)", program);
+        page.click(".new-proposal-modal-button-container button:nth-of-type(1)");
         page.click("tr:last-child .proposal-list-name-column ~ td:last-child div > button:nth-of-type(1)");
         //BOTON EDIT DEL CAMPO SELECTED SUITES
         page.click(".general-shared-container button:nth-of-type(1)");
@@ -632,7 +640,7 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.click(".my-programs-header div:nth-of-type(3) button");
         page.click(".modal-buttons button:nth-of-type(1)");
         page.focus(".office-question-info-container input");
-        kb.insertText(nameRoomAutoProgram);
+        kb.insertText(nameAutoProgram);
         page.selectOption(".office-question-info-container select",industryAutoProgram);
         page.click(".office-setup-container div:nth-of-type(2) #option-construction-level-3");
         page.click(".office-setup-container .office-question-info-container div:nth-of-type(2) .office-setup-level-selection-container div:nth-of-type(4) button");

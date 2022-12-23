@@ -9,7 +9,7 @@ public class CA022proposalFuncionEliminar extends robotBaseSpaceLogik {
     public void CA0221validacionProposalDelete001(){
         nameProposal = "pruebAutomatizada11-validacionProposalDelete";
         login();
-        iniciarVariablesProposalXYZ77M();
+        iniciarVariablesCreacionProposal();
         crearProposal();
         archivarProposal();
         page.click(".proposal-list-landlord-button-container button:nth-of-type(2)");

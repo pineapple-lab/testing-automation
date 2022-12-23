@@ -11,9 +11,9 @@ public class CA015programFuncionAutoProgram extends robotBaseSpaceLogik {
 
     @Test
     public void CA0151validacionCrearAutoProgram(){
-        nameAutoProgram="pruebAutomatizada32-validacionCrearAutoProgram";
+        nameAutoProgram="pruebAutomatizada32-validacionCrearAutoProgr";
         assertions1 = "text=Changes saved successfully";
-        assertions = "text=PruebAutomatizada32-validacionCrearAutoProgram";
+        assertions = "text=PruebAutomatizada32-validacionCrearAutoProgr";
         iniciarVariablesAutoProgramFeliz();
         login();
         crearAutoProgram();

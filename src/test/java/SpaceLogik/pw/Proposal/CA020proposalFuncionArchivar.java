@@ -10,7 +10,7 @@ public class CA020proposalFuncionArchivar extends robotBaseSpaceLogik {
     public void CA0201validacionProposalArchive001(){
         nameProposal ="pruebAutomatizada11-validacionArchivarProposal";
         login();
-        iniciarVariablesProposalXYZ77M();
+        iniciarVariablesCreacionProposal();
         crearProposal();
         page.focus(".proposal-list-table-container");
         Assertions.assertTrue(page.isVisible( "text=pruebAutomatizada11-validacionArchivarProposal"));

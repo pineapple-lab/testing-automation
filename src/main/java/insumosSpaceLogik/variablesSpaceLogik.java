@@ -4,6 +4,7 @@ public class variablesSpaceLogik {
     //VALIDACIONES
     public String assertions;
     public String assertions1;
+    public String assertionPenaltyAmount;
     //REGISTRO
     public String firstNameRegistro;
     public String lastNameRegistro;
@@ -29,7 +30,7 @@ public class variablesSpaceLogik {
     public String baseBuilding;
     public String month;
     public String cost;
-    public String dateOffered = "03-01-2031";
+    public String dateOffered = "03-01-2031";//AUMENTAR UN MES
     public String interestRate;
 
     //ADD PROSPECT

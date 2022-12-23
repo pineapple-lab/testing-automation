@@ -8,51 +8,114 @@ import java.sql.Statement;
 
 public class variablesIniciadasSpaceLogik extends conexionsql {
     public void iniciarVariablesPropposalValoresPequeños(){
-
-        term = "84";
-        startingRate = "0.25";
-        annualIncreases = "2.1";
-        rentAbatement = "1";
-        construction = "1.00";
-        baseBuilding = "1.00";
-        month = "24";
-        cost = "100000";
-        interestRate = "3";
+        try {
+            sqlconectar();
+            Statement stm = CN.createStatement();
+            ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoscrearpaymentcancelationpequeño WHERE estado = 0 ORDER BY RAND() LIMIT 1");
+            while(rs.next()){
+                term = rs.getString(rs.findColumn("term"));
+                startingRate = rs.getString(rs.findColumn("startingRate"));
+                annualIncreases = rs.getString(rs.findColumn("annualIncreases"));
+                rentAbatement = rs.getString(rs.findColumn("rentAbatement"));
+                construction = rs.getString(rs.findColumn("construction"));
+                baseBuilding = rs.getString(rs.findColumn("baseBuilding"));
+                month = rs.getString(rs.findColumn("monthPaymentCancelation"));
+                cost = rs.getString(rs.findColumn("cost"));
+                interestRate = rs.getString(rs.findColumn("interestRate"));
+                assertionPenaltyAmount = rs.getString(rs.findColumn("assertionsPenaltyAmount"));
+                building = rs.getString(rs.findColumn("building"));
+                prospect = rs.getString(rs.findColumn("prospect"));
+                program = rs.getString(rs.findColumn("program"));
+            }
+            String query1 = "UPDATE testbdspacelogik.datoscrearpaymentcancelationpequeño SET estado = 1 WHERE startingRate="+"'"+term+"'";
+            stm.executeUpdate(query1);
+            String query2 = "UPDATE testbdspacelogik.datoscrearpaymentcancelationpequeño SET estado = 0 WHERE startingRate!="+"'"+term+"'";
+            stm.executeUpdate(query2);
+        }catch(Exception e){}
+        sqlclose();
     }
     public void iniciarVariablesPropposalValoresMedianos(){
-        term = "180";
-        startingRate = "11";
-        annualIncreases = "10";
-        rentAbatement = "20";
-        construction = "25";
-        baseBuilding = "25";
-        month = "24";
-        cost = "200000";
-        interestRate = "1";
+        try {
+            sqlconectar();
+            Statement stm = CN.createStatement();
+            ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoscrearpaymentcancelationmediano WHERE estado = 0 ORDER BY RAND() LIMIT 1");
+            while(rs.next()){
+                term = rs.getString(rs.findColumn("term"));
+                startingRate = rs.getString(rs.findColumn("startingRate"));
+                annualIncreases = rs.getString(rs.findColumn("annualIncreases"));
+                rentAbatement = rs.getString(rs.findColumn("rentAbatement"));
+                construction = rs.getString(rs.findColumn("construction"));
+                baseBuilding = rs.getString(rs.findColumn("baseBuilding"));
+                month = rs.getString(rs.findColumn("monthPaymentCancelation"));
+                cost = rs.getString(rs.findColumn("cost"));
+                interestRate = rs.getString(rs.findColumn("interestRate"));
+                assertionPenaltyAmount = rs.getString(rs.findColumn("assertionsPenaltyAmount"));
+                building = rs.getString(rs.findColumn("building"));
+                prospect = rs.getString(rs.findColumn("prospect"));
+                program = rs.getString(rs.findColumn("program"));
+            }
+            String query1 = "UPDATE testbdspacelogik.datoscrearpaymentcancelationmediano SET estado = 1 WHERE startingRate="+"'"+term+"'";
+            stm.executeUpdate(query1);
+            String query2 = "UPDATE testbdspacelogik.datoscrearpaymentcancelationmediano SET estado = 0 WHERE startingRate!="+"'"+term+"'";
+            stm.executeUpdate(query2);
+        }catch(Exception e){}
+        sqlclose();
     }
     public void iniciarVariablesPropposalValoresGrandes(){
-        term = "180";
-        startingRate = "20.5";
-        annualIncreases = "50.40";
-        rentAbatement = "100";
-        construction = "100";
-        baseBuilding = "100";
-        month = "24";
-        cost = "1000000";
-        interestRate = "1";
+        try {
+            sqlconectar();
+            Statement stm = CN.createStatement();
+            ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoscrearpaymentcancelationgrande WHERE estado = 0 ORDER BY RAND() LIMIT 1");
+            while(rs.next()){
+                term = rs.getString(rs.findColumn("term"));
+                startingRate = rs.getString(rs.findColumn("startingRate"));
+                annualIncreases = rs.getString(rs.findColumn("annualIncreases"));
+                rentAbatement = rs.getString(rs.findColumn("rentAbatement"));
+                construction = rs.getString(rs.findColumn("construction"));
+                baseBuilding = rs.getString(rs.findColumn("baseBuilding"));
+                month = rs.getString(rs.findColumn("monthPaymentCancelation"));
+                cost = rs.getString(rs.findColumn("cost"));
+                interestRate = rs.getString(rs.findColumn("interestRate"));
+                assertionPenaltyAmount = rs.getString(rs.findColumn("assertionsPenaltyAmount"));
+                building = rs.getString(rs.findColumn("building"));
+                prospect = rs.getString(rs.findColumn("prospect"));
+                program = rs.getString(rs.findColumn("program"));
+            }
+            String query1 = "UPDATE testbdspacelogik.datoscrearpaymentcancelationgrande SET estado = 1 WHERE startingRate="+"'"+term+"'";
+            stm.executeUpdate(query1);
+            String query2 = "UPDATE testbdspacelogik.datoscrearpaymentcancelationgrande SET estado = 0 WHERE startingRate!="+"'"+term+"'";
+            stm.executeUpdate(query2);
+        }catch(Exception e){}
+        sqlclose();
     }
     public void iniciarVariablesPropposalValoresMuyGrandes(){
-        term = "180";
-        startingRate = "30";
-        annualIncreases = "70.00";
-        rentAbatement = "300";
-        construction = "200";
-        baseBuilding = "150";
-        month = "24";
-        cost = "5000000";
-        interestRate = "1";
+        try {
+            sqlconectar();
+            Statement stm = CN.createStatement();
+            ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoscrearpaymentcancelationmuygrande WHERE estado = 0 ORDER BY RAND() LIMIT 1");
+            while(rs.next()){
+                term = rs.getString(rs.findColumn("term"));
+                startingRate = rs.getString(rs.findColumn("startingRate"));
+                annualIncreases = rs.getString(rs.findColumn("annualIncreases"));
+                rentAbatement = rs.getString(rs.findColumn("rentAbatement"));
+                construction = rs.getString(rs.findColumn("construction"));
+                baseBuilding = rs.getString(rs.findColumn("baseBuilding"));
+                month = rs.getString(rs.findColumn("monthPaymentCancelation"));
+                cost = rs.getString(rs.findColumn("cost"));
+                interestRate = rs.getString(rs.findColumn("interestRate"));
+                assertionPenaltyAmount = rs.getString(rs.findColumn("assertionsPenaltyAmount"));
+                building = rs.getString(rs.findColumn("building"));
+                prospect = rs.getString(rs.findColumn("prospect"));
+                program = rs.getString(rs.findColumn("program"));
+            }
+            String query1 = "UPDATE testbdspacelogik.datoscrearpaymentcancelationmuygrande SET estado = 1 WHERE startingRate="+"'"+term+"'";
+            stm.executeUpdate(query1);
+            String query2 = "UPDATE testbdspacelogik.datoscrearpaymentcancelationmuygrande SET estado = 0 WHERE startingRate!="+"'"+term+"'";
+            stm.executeUpdate(query2);
+        }catch(Exception e){}
+        sqlclose();
     }
-    public void iniciarVariablesProposalXYZ77M(){
+    public void iniciarVariablesCreacionProposal(){
         try {
             sqlconectar();
             Statement stm = CN.createStatement();
@@ -113,17 +176,29 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
         commentsTrackingProspect = "pruebAutomatizada";
    }
    public void iniciarVariablesEditManualBrokerFeliz(){
-        salutationEditBrokerManual = "1";
-        lastNameEditBrokerManual = "pruebAutomatizada";
-        address1EditBrokerManual = "pruebAutomatizada";
-        address2EditBrokerManual = "pruebAutomatizada";
-        titleEditBrokerManual = "pruebAutomatizada";
-        stateEditBrokerManual = "6";
-        cityEditBrokerManual = "1691";
-        zipcodeEditBrokerManual = "5094";
-        emailEditBrokerManual = "pruebAutomatizada_33@gmail.com";
-        phoneEditBrokerManual = "093455623";
-        mobileEditBrokerManual = "094595762";
+       try {
+           sqlconectar();
+           Statement stm = CN.createStatement();
+           ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoseditarmanualmentebroker WHERE estado = 0 ORDER BY RAND() LIMIT 1");
+           while(rs.next()){
+               salutationEditBrokerManual = rs.getString(rs.findColumn("salutation"));
+               lastNameEditBrokerManual = rs.getString(rs.findColumn("lastName"));
+               address1EditBrokerManual = rs.getString(rs.findColumn("adress1"));
+               address2EditBrokerManual = rs.getString(rs.findColumn("adress2"));
+               titleEditBrokerManual = rs.getString(rs.findColumn("title"));
+               stateEditBrokerManual = rs.getString(rs.findColumn("state"));
+               cityEditBrokerManual = rs.getString(rs.findColumn("city"));
+               zipcodeEditBrokerManual = rs.getString(rs.findColumn("zipCode"));
+               emailEditBrokerManual = rs.getString(rs.findColumn("email"));
+               phoneEditBrokerManual = rs.getString(rs.findColumn("phone"));
+               mobileEditBrokerManual = rs.getString(rs.findColumn("mobile"));
+           }
+           String query1 = "UPDATE testbdspacelogik.datoseditarmanualmentebroker SET estado = 1 WHERE state="+"'"+stateEditBrokerManual+"'";
+           stm.executeUpdate(query1);
+           String query2 = "UPDATE testbdspacelogik.datoseditarmanualmentebroker SET estado = 0 WHERE state!="+"'"+stateEditBrokerManual+"'";
+           stm.executeUpdate(query2);
+       }catch(Exception e){}
+       sqlclose();
     }
     public void iniciarVariablesEditGeneralInfoProspect(){
         salutationEditProspectGeneralInfo = "3";
@@ -190,7 +265,6 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
         companyListingPrimaryLeasingContacts = "pruebAutomatizada";
         address1ListingPrimaryLeasingContacts = "pruebAutomatizada";
         address2ListingPrimaryLeasingContacts = "pruebAutomatizada";
-
         stateListingPrimaryLeasingContacts = "41";
         cityListingPrimaryLeasingContacts = "16513";
         zipCodeListingPrimaryLeasingContacts = "35743";

@@ -12,56 +12,60 @@ public class CA024proposalFuncionPaymentCancelation extends robotBaseSpaceLogik 
     @Test
     public void CA0241PaymentCancelationPequeño() {
         nameProposal = "pruebAutomatizada2-PaymentCancelationPequeño";
+        assertions = "text=Changes saved successfully";
         iniciarVariablesPropposalValoresPequeños();
-        iniciarVariablesProposalXYZ77M();
         login();
-        crearProposal();
         llenarProposal();
         page.focus("#root");
-        Assertions.assertTrue(page.isVisible( "text=Changes saved successfully"));
+        sqlGuardarCasoSiFallaCartelDePaymentCancelationPequeño();
+        Assertions.assertTrue(page.isVisible( assertions));
         page.focus(".proposal-calculation-container h3:nth-of-type(2)");
-        Assertions.assertTrue(page.isVisible( "text=$23,817"));
+        sqlGuardarCasoSiFallaPaymentCancelationPequeño();
+        Assertions.assertTrue(page.isVisible(assertionPenaltyAmount));
     }
     @Test
     public void CA0242PaymentCancelationMediano() {
         nameProposal = "pruebAutomatizada3-PaymentCancelationMediano";
+        assertions = "text=Changes saved successfully";
         iniciarVariablesPropposalValoresMedianos();
-        iniciarVariablesProposalXYZ77M();
         login();
-        crearProposal();
         llenarProposal();
         page.focus("#root");
-        Assertions.assertTrue(page.isVisible( "text=Changes saved successfully"));
+        sqlGuardarCasoSiFallaCartelDePaymentCancelationMediano();
+        Assertions.assertTrue(page.isVisible( assertions));
         page.focus(".proposal-calculation-container h3:nth-of-type(2)");
-        Assertions.assertTrue(page.isVisible( "text=$952,578"));
+        sqlGuardarCasoSiFallaPaymentCancelationMediano();
+        Assertions.assertTrue(page.isVisible( assertionPenaltyAmount));
     }
     @Test
     public void CA0243PaymentCancelationGrande() {
         nameProposal = "pruebAutomatizada4-PaymentCancelationGrande";
+        assertions = "text=Changes saved successfully";
         iniciarVariablesPropposalValoresGrandes();
-        iniciarVariablesProposalXYZ77M();
         login();
-        crearProposal();
         llenarProposal();
         page.focus("#root");
-        Assertions.assertTrue(page.isVisible( "text=Changes saved successfully"));
+        sqlGuardarCasoSiFallaCartelDePaymentCancelationGrande();
+        Assertions.assertTrue(page.isVisible( assertions));
         page.focus(".proposal-calculation-container h3:nth-of-type(2)");
-        Assertions.assertTrue(page.isVisible( "text=$6,838,824"));
+        sqlGuardarCasoSiFallaPaymentCancelationGrande();
+        Assertions.assertTrue(page.isVisible( assertionPenaltyAmount));
     }
     @Test
     public void CA0245PaymentCancelationMuyGrande() {
         nameProposal = "pruebAutomatizada5-PaymentCancelationMuyGrande";
+        assertions = "text=Changes saved successfully";
         iniciarVariablesPropposalValoresMuyGrandes();
-        iniciarVariablesProposalXYZ77M();
         login();
-        crearProposal();
         llenarProposal();
         page.focus("#root");
-        Assertions.assertTrue(page.isVisible( "text=Changes saved successfully"));
+        sqlGuardarCasoSiFallaCartelDePaymentCancelationMuyGrande();
+        Assertions.assertTrue(page.isVisible( assertions));
         page.focus(".proposal-calculation-container h3:nth-of-type(2)");
-        Assertions.assertTrue(page.isVisible( "text=$32,931,060"));
+        sqlGuardarCasoSiFallaPaymentCancelationMuyGrande();
+        Assertions.assertTrue(page.isVisible( assertionPenaltyAmount));
     }
-    @Test
+    /*@Test
     public void CA0246ValidacionDeDatosProposalAnalysis() {
         nameProposal = "pruebAutomatizada6-ValidacionDeDatosProposalAnalysis";
         iniciarVariablesPropposalValoresMuyGrandes();
@@ -88,5 +92,5 @@ public class CA024proposalFuncionPaymentCancelation extends robotBaseSpaceLogik 
         Assertions.assertTrue(page.isVisible( "text=Net income:$-13,063,650"));
         Assertions.assertTrue(page.isVisible( "text=IRR:N/A"));
         //Assertions.assertTrue(page.isVisible( "text=NER:$0.00"));
-    }
+    }*/
 }

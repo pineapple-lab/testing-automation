@@ -12,58 +12,63 @@ public class CA024proposalFuncionPaymentCancelation extends robotBaseSpaceLogik 
     @Test
     public void CA0241PaymentCancelationPequeño() {
         nameProposal = "pruebAutomatizada2-PaymentCancelationPequeño";
-        assertions = "text=Changes saved successfully";
         iniciarVariablesPropposalValoresPequeños();
         login();
         llenarProposal();
         page.focus("#root");
-        sqlGuardarCasoSiFallaCartelDePaymentCancelationPequeño();
+        assertions= "text=Changes saved successfully";
+        sqlGuardarCasoSiFallaPaymentCancelationPequeño();
         Assertions.assertTrue(page.isVisible( assertions));
         page.focus(".proposal-calculation-container h3:nth-of-type(2)");
+        assertions = "text="+assertionPenaltyAmount;
         sqlGuardarCasoSiFallaPaymentCancelationPequeño();
-        Assertions.assertTrue(page.isVisible(assertionPenaltyAmount));
+        Assertions.assertTrue(page.isVisible(assertions));
     }
     @Test
     public void CA0242PaymentCancelationMediano() {
         nameProposal = "pruebAutomatizada3-PaymentCancelationMediano";
-        assertions = "text=Changes saved successfully";
+
         iniciarVariablesPropposalValoresMedianos();
         login();
         llenarProposal();
         page.focus("#root");
-        sqlGuardarCasoSiFallaCartelDePaymentCancelationMediano();
+        assertions = "text=Changes saved successfully";
+        sqlGuardarCasoSiFallaPaymentCancelationMediano();
         Assertions.assertTrue(page.isVisible( assertions));
         page.focus(".proposal-calculation-container h3:nth-of-type(2)");
+        assertions = "text="+assertionPenaltyAmount;
         sqlGuardarCasoSiFallaPaymentCancelationMediano();
-        Assertions.assertTrue(page.isVisible( assertionPenaltyAmount));
+        Assertions.assertTrue(page.isVisible(assertions));
     }
     @Test
     public void CA0243PaymentCancelationGrande() {
         nameProposal = "pruebAutomatizada4-PaymentCancelationGrande";
-        assertions = "text=Changes saved successfully";
         iniciarVariablesPropposalValoresGrandes();
         login();
         llenarProposal();
         page.focus("#root");
-        sqlGuardarCasoSiFallaCartelDePaymentCancelationGrande();
+        assertions = "text=Changes saved successfully";
+        sqlGuardarCasoSiFallaPaymentCancelationGrande();
         Assertions.assertTrue(page.isVisible( assertions));
         page.focus(".proposal-calculation-container h3:nth-of-type(2)");
+        assertions = "text="+assertionPenaltyAmount;
         sqlGuardarCasoSiFallaPaymentCancelationGrande();
-        Assertions.assertTrue(page.isVisible( assertionPenaltyAmount));
+        Assertions.assertTrue(page.isVisible(assertions));
     }
     @Test
     public void CA0245PaymentCancelationMuyGrande() {
         nameProposal = "pruebAutomatizada5-PaymentCancelationMuyGrande";
-        assertions = "text=Changes saved successfully";
         iniciarVariablesPropposalValoresMuyGrandes();
         login();
         llenarProposal();
         page.focus("#root");
-        sqlGuardarCasoSiFallaCartelDePaymentCancelationMuyGrande();
+        assertions = "text=Changes saved successfully";
+        sqlGuardarCasoSiFallaPaymentCancelationMuyGrande();
         Assertions.assertTrue(page.isVisible( assertions));
         page.focus(".proposal-calculation-container h3:nth-of-type(2)");
+        assertions = "text="+assertionPenaltyAmount;
         sqlGuardarCasoSiFallaPaymentCancelationMuyGrande();
-        Assertions.assertTrue(page.isVisible( assertionPenaltyAmount));
+        Assertions.assertTrue(page.isVisible(assertions));
     }
     /*@Test
     public void CA0246ValidacionDeDatosProposalAnalysis() {

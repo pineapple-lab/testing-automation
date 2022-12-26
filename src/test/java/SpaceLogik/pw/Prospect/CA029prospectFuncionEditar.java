@@ -12,13 +12,16 @@ public class CA029prospectFuncionEditar extends robotBaseSpaceLogik {
         iniciarVariablesEditGeneralInfoProspect();
         nameCompanyProspect="pruebAutomatizada20-validacionEditProspectGeneralInfo";
         nameCompanyEditProspectGeneralInfo="editcompany-pruebAutomatizada20-validacionEditProspectGeneralInfo";
-        firstNameEditProspectGeneralInfo = "editfirstName-pruebAutomatizada20-validacionEditProspectGeneralInfo";
         login();
         crearProspect();
         editarPorspectGeneralInfo();
         page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=editcompany-pruebAutomatizada20-validacionEditProspectGeneralInfo"));
-        Assertions.assertTrue(page.isVisible("text=editfirstName-pruebAutomatizada20-validacionEditProspectGeneralInfo"));
+        assertions="text="+nameCompanyEditProspectGeneralInfo;
+        sqlGuardarCasoSiFallaEditarGeneralInfoProspect();
+        Assertions.assertTrue(page.isVisible(assertions));
+        assertions="text="+firstNameEditProspectGeneralInfo;
+        sqlGuardarCasoSiFallaEditarGeneralInfoProspect();
+        Assertions.assertTrue(page.isVisible(assertions));
         Assertions.assertTrue(page.isVisible("text=Public"));
     }
     @Test

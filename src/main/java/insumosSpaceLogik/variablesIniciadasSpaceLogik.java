@@ -201,23 +201,50 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
        sqlclose();
     }
     public void iniciarVariablesEditGeneralInfoProspect(){
-        salutationEditProspectGeneralInfo = "3";
-        lastNameEditProspectGeneralInfo = "editPruebAutomatizada";
-        titleEditProspectGeneralInfo = "editPruebAutomatizada";
-        address1EditProspectGeneralInfo = "editPruebAutomatizada";
-        address2EditProspectGeneralInfo = "editPruebAutomatizada";
-        stateEditProspectGeneralInfo = "37";
-        cityEditProspectGeneralInfo = "15695";
-        zipcodeEditProspectGeneralInfo = "33933";
-        emailEditProspectGeneralInfo = "editPruebAutomatizada_33@gmail.com";
-        industryEditProspectGeneralInfo = "3";
-        approxRsfEditProspectGeneralInfo = "459954";
-        phoneEditProspectGeneralInfo = "096823412";
-        mobileEditGProspecteneralInfo = "087421516";
+        try {
+            sqlconectar();
+            Statement stm = CN.createStatement();
+            ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoseditargeneralinfoprospect WHERE estado = 0 ORDER BY RAND() LIMIT 1");
+            while(rs.next()){
+                salutationEditProspectGeneralInfo = rs.getString(rs.findColumn("salutation"));
+                firstNameEditProspectGeneralInfo = rs.getString(rs.findColumn("firstName"));
+                lastNameEditProspectGeneralInfo = rs.getString(rs.findColumn("lastName"));
+                titleEditProspectGeneralInfo = rs.getString(rs.findColumn("title"));
+                address1EditProspectGeneralInfo = rs.getString(rs.findColumn("adress1"));
+                address2EditProspectGeneralInfo = rs.getString(rs.findColumn("adress2"));
+                stateEditProspectGeneralInfo = rs.getString(rs.findColumn("state"));
+                cityEditProspectGeneralInfo = rs.getString(rs.findColumn("city"));
+                zipcodeEditProspectGeneralInfo = rs.getString(rs.findColumn("zipCode"));
+                emailEditProspectGeneralInfo = rs.getString(rs.findColumn("email"));
+                industryEditProspectGeneralInfo = rs.getString(rs.findColumn("industry"));
+                approxRsfEditProspectGeneralInfo = rs.getString(rs.findColumn("approxRSF"));
+                phoneEditProspectGeneralInfo = rs.getString(rs.findColumn("phone"));
+                mobileEditGProspecteneralInfo = rs.getString(rs.findColumn("mobile"));
+            }
+            String query1 = "UPDATE testbdspacelogik.datoseditargeneralinfoprospect SET estado = 1 WHERE state="+"'"+stateEditProspectGeneralInfo+"'";
+            stm.executeUpdate(query1);
+            String query2 = "UPDATE testbdspacelogik.datoseditargeneralinfoprospect SET estado = 0 WHERE state!="+"'"+stateEditProspectGeneralInfo+"'";
+            stm.executeUpdate(query2);
+        }catch(Exception e){}
+        sqlclose();
     }
     public void iniciarVariablesEditRoom(){
-        sequenceRoomOptionsProgram = "50";
-        quantityRoomOptionsProgram = "50";
+        try {
+            sqlconectar();
+            Statement stm = CN.createStatement();
+            ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoseditarroomoptions WHERE estado = 0 ORDER BY RAND() LIMIT 1");
+            while(rs.next()){
+                sequenceRoomOptionsProgram = rs.getString(rs.findColumn("sequenceRoomOptions"));
+                employeAreaTypesProgram = rs.getString(rs.findColumn("employeAreaTypes"));
+                roomSizeProgram = rs.getString(rs.findColumn("roomSize"));
+                quantityRoomOptionsProgram = rs.getString(rs.findColumn("quantity"));
+            }
+            String query1 = "UPDATE testbdspacelogik.datoseditarroomoptions SET estado = 1 WHERE sequenceRoomOptions="+"'"+sequenceRoomOptionsProgram+"'";
+            stm.executeUpdate(query1);
+            String query2 = "UPDATE testbdspacelogik.datoseditarroomoptions SET estado = 0 WHERE sequenceRoomOptions!="+"'"+sequenceRoomOptionsProgram+"'";
+            stm.executeUpdate(query2);
+        }catch(Exception e){}
+        sqlclose();
     }
     public void iniciarVariablesAutoProgramFeliz(){
         try {

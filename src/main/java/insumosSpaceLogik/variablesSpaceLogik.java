@@ -3,7 +3,6 @@ package insumosSpaceLogik;
 public class variablesSpaceLogik {
     //VALIDACIONES
     public String assertions;
-    public String assertions1;
     public String assertionPenaltyAmount;
     //REGISTRO
     public String firstNameRegistro;
@@ -97,6 +96,8 @@ public class variablesSpaceLogik {
     public String dateProgram = "03-01-2031";
 
     //EDIT ROOM OPTIONS
+    public String employeAreaTypesProgram;
+    public String roomSizeProgram;
     public String sequenceRoomOptionsProgram;
     public String quantityRoomOptionsProgram;
 

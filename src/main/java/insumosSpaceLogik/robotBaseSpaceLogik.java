@@ -604,8 +604,8 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
     public void editarRoomOptions() {
         page.click(".program-room-selection-button-container button:nth-of-type(2)");
         page.fill(".sequence-div input", sequenceRoomOptionsProgram);
-        page.click("[value=\"Private Office(s)\"]");
-        page.click("[value=\"10*10\"]");
+        page.click("[value=\""+employeAreaTypesProgram+"\"]");
+        page.click("[value=\""+roomSizeProgram+"\"]");
         page.fill(".quantity-input-container input", quantityRoomOptionsProgram);
         page.click(".program-room-selection-header button");
     }

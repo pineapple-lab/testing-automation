@@ -52,14 +52,15 @@ public class CA018programFuncionEdit extends robotBaseSpaceLogik {
     public void CA0183validacionEditRoomOptions(){
         Keyboard kb = page.keyboard();
         iniciarVariablesEditRoom();
-        nameProgram = "pruebAutomatizada26-validacionEditRoomOptions";
+        nameProgram = "pruebAutomatizada26-val";
         login();
         crearPrograma();
         page.focus("#root");
+
         Assertions.assertTrue(page.isVisible("text=Program created successfully"));
-        Assertions.assertTrue(page.isVisible("text=pruebAutomatizada26-validacionEditRoomOptions"));
+        Assertions.assertTrue(page.isVisible("text=pruebAutomatizada26-val"));
         page.focus(".my-programs-header input");
-        kb.insertText("pruebAutomatizada26-validacionEditRoomOptions");
+        kb.insertText("pruebAutomatizada26-val");
         crearRoom();
         page.focus("#root");
         Assertions.assertTrue(page.isVisible("text=Room created successfully"));
@@ -69,8 +70,13 @@ public class CA018programFuncionEdit extends robotBaseSpaceLogik {
         Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
         editarRoomOptions();
         page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=Workstations"));
-        Assertions.assertTrue(page.isVisible("text=50"));
+        assertions="text="+employeAreaTypesProgram;
+        sqlGuardarCasoSiFallaEditarRoomProgram();
+        Assertions.assertTrue(page.isVisible(assertions));
+        page.focus(".program-room-list-table tbody tr td:nth-of-type(3)");
+        assertions="text="+quantityRoomOptionsProgram;
+        sqlGuardarCasoSiFallaEditarRoomProgram();
+        Assertions.assertTrue(page.isVisible(assertions));
     }
     @Test
     public void CA0184validacionEditSpacePlan(){

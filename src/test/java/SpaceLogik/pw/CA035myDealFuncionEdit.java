@@ -24,7 +24,9 @@ public class CA035myDealFuncionEdit extends robotBaseSpaceLogik {
         login();
         editarMyDealOfficeSize();
         page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
+        assertions = "text=Changes saved successfully";
+        sqlGuardarCasoSiFallaEditarMyDealOfficeSize();
+        Assertions.assertTrue(page.isVisible(assertions));
         Assertions.assertTrue(page.getByLabel("Specific headcount").isChecked());
         Assertions.assertTrue(page.getByLabel("Adjust by seats").isChecked());
     }

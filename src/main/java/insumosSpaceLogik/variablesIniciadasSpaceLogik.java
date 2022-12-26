@@ -160,7 +160,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
         }catch(Exception e){}
         sqlclose();
     }
-   public void iniciarVariablesRegistroFeliz(){
+    public void iniciarVariablesRegistroFeliz(){
 
         lastNameRegistro = "pruebAutomatizada13";
         companyRegistro = "pruebaAutomatizada13";
@@ -199,8 +199,8 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
            stm.executeUpdate(query2);
        }catch(Exception e){}
        sqlclose();
-    }
-    public void iniciarVariablesEditGeneralInfoProspect(){
+   }
+   public void iniciarVariablesEditGeneralInfoProspect(){
         try {
             sqlconectar();
             Statement stm = CN.createStatement();
@@ -228,7 +228,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
         }catch(Exception e){}
         sqlclose();
     }
-    public void iniciarVariablesEditRoom(){
+   public void iniciarVariablesEditRoom(){
         try {
             sqlconectar();
             Statement stm = CN.createStatement();
@@ -245,8 +245,8 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
             stm.executeUpdate(query2);
         }catch(Exception e){}
         sqlclose();
-    }
-    public void iniciarVariablesAutoProgramFeliz(){
+   }
+   public void iniciarVariablesAutoProgramFeliz(){
         try {
             sqlconectar();
             Statement stm = CN.createStatement();
@@ -262,31 +262,67 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
             stm.executeUpdate(query2);
         }catch(Exception e){}
         sqlclose();
-    }
-    public void iniciarVariablesLaunchFeliz(){
-        legalFormationLaunch ="6";
-        bussinesSinceLaunch = "5";
-    }
-    public void iniciarVariablesTweakFeliz(){
-        sizeTweak = "10*12";
-        qtyTweak = "80";
-    }
-    public void iniciarVariablesEditMyDealLeaseTypeLocation(){
+   }
+   public void iniciarVariablesLaunchFeliz(){
+        try {
+            sqlconectar();
+            Statement stm = CN.createStatement();
+            ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoscrearlaunch WHERE estado = 0 ORDER BY RAND() LIMIT 1");
+            while(rs.next()){
+                legalFormationLaunch = rs.getString(rs.findColumn("legalFormationLaunch"));
+                bussinesSinceLaunch = rs.getString(rs.findColumn("bussinesSinceLaunch"));
+            }
+            String query1 = "UPDATE testbdspacelogik.datoscrearlaunch SET estado = 1 WHERE legalFormationLaunch="+"'"+legalFormationLaunch+"'";
+            stm.executeUpdate(query1);
+            String query2 = "UPDATE testbdspacelogik.datoscrearlaunch SET estado = 0 WHERE legalFormationLaunch!="+"'"+legalFormationLaunch+"'";
+            stm.executeUpdate(query2);
+        }catch(Exception e){}
+        sqlclose();
+   }
+   public void iniciarVariablesTweakFeliz(){
+       try {
+           sqlconectar();
+           Statement stm = CN.createStatement();
+           ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoscreartweak WHERE estado = 0 ORDER BY RAND() LIMIT 1");
+           while(rs.next()){
+               sizeTweak = rs.getString(rs.findColumn("size"));
+               qtyTweak = rs.getString(rs.findColumn("quantity"));
+           }
+           String query1 = "UPDATE testbdspacelogik.datoscreartweak SET estado = 1 WHERE size="+"'"+sizeTweak+"'";
+           stm.executeUpdate(query1);
+           String query2 = "UPDATE testbdspacelogik.datoscreartweak SET estado = 0 WHERE size!="+"'"+sizeTweak+"'";
+           stm.executeUpdate(query2);
+       }catch(Exception e){}
+       sqlclose();
+   }
+   public void iniciarVariablesEditMyDealLeaseTypeLocation(){
         ubicacionMyDealLeaseTypeLocation = "Astor Place, Nueva York, EE. UU.";
-    }
-    public void iniciarVariablesEditMyDealOfficeSize(){
-        rsfMyDealOfficeSize="29000";
-        specificHeadCountMyDealOfficeSize="500";
-    }
-    public void iniciarVariablesEditarListingLocationInformation(){
+   }
+   public void iniciarVariablesEditMyDealOfficeSize(){
+       try {
+           sqlconectar();
+           Statement stm = CN.createStatement();
+           ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoseditarmydealofficesize WHERE estado = 0 ORDER BY RAND() LIMIT 1");
+           while(rs.next()){
+               rsfMyDealOfficeSize = rs.getString(rs.findColumn("rsfOficeSize"));
+               specificHeadCountMyDealOfficeSize = rs.getString(rs.findColumn("specificHeadCounty"));
+           }
+           String query1 = "UPDATE testbdspacelogik.datoseditarmydealofficesize SET estado = 1 WHERE rsfOficeSize="+"'"+rsfMyDealOfficeSize+"'";
+           stm.executeUpdate(query1);
+           String query2 = "UPDATE testbdspacelogik.datoseditarmydealofficesize SET estado = 0 WHERE rsfOficeSize!="+"'"+specificHeadCountMyDealOfficeSize+"'";
+           stm.executeUpdate(query2);
+       }catch(Exception e){}
+       sqlclose();
+   }
+   public void iniciarVariablesEditarListingLocationInformation(){
         yearBuiltListingLocationInformation = "2880";
         totalBuildingRsfListingLocationInformation = "608808";
         numberOfStoriesListingLocationInformation = "30";
-    }
-    public void iniciarVariablesEditarBuildingDescrption(){
+   }
+   public void iniciarVariablesEditarBuildingDescrption(){
     descriptionBuildingListing = "pruebAutomatizada";
     }
-    public void iniciarVariablesEditarBuildingContacts(){
+   public void iniciarVariablesEditarBuildingContacts(){
         saludoListingPrimaryLeasingContact = "3";
         lastNameListingPrimaryLeasingContcts = "pruebAutomatizada";
         companyListingPrimaryLeasingContacts = "pruebAutomatizada";
@@ -297,17 +333,17 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
         zipCodeListingPrimaryLeasingContacts = "35743";
         phoneListingPrimaryLeasingContacts = "0993537369875";
         emailListingPrimaryLeasingContacts = "pruebAutomatizada@pruebAutomatizada.com";
-    }
-    public void iniciarVariablesEditarBuildingRsf(){
+   }
+   public void iniciarVariablesEditarBuildingRsf(){
         rsfFloorListingSpaceBuilding = "26502";
     }
-    public void iniciarVariablesEditarSingleSuite(){
+   public void iniciarVariablesEditarSingleSuite(){
         dateAvailableListingSingleSuite = "04012022";
         dateAvailableEndListingSingleSuite = "07062030";
         divisibleToListingSingleSuite = "3";
-    }
+   }
     public void iniciarVariablesEditarExpensesPassedThrough(){
         taxesListingExpenses = "10";
         expensesListingExpenses = "30";
-    }
+   }
 }

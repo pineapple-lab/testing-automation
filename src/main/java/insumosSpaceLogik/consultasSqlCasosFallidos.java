@@ -3,6 +3,21 @@ package insumosSpaceLogik;
 import java.sql.Statement;
 
 public class consultasSqlCasosFallidos extends contextoBaseSpaceLogik{
+    public void sqlGuardarCasoSiFallaEditarMyDealOfficeSize() {
+        if ((page.isVisible(assertions)) == false) {
+            sqlconectar();
+            try {
+                Statement st = CN.createStatement();
+                String query = "INSERT INTO datoscasosfallidoseditarmydealofficesize (`rsfOficeSize`,`specificHeadCounty`,`fechaDePrueba`) " +
+                        "VALUES(" + "'" + rsfMyDealOfficeSize + "'" + "," + "'" + specificHeadCountMyDealOfficeSize + "'" + "," + "NOW())";
+                st.executeUpdate(query);
+                System.out.println("Los datos de la prueba fallida se guardaron correctamente");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            sqlclose();
+        }
+    }
     public void sqlGuardarCasoSiFallaCrearProspect(){
         if( (page.isVisible(assertions))==false){
             sqlconectar();
@@ -47,6 +62,21 @@ public class consultasSqlCasosFallidos extends contextoBaseSpaceLogik{
                 st.executeUpdate(query);
                 System.out.println("Los datos de la prueba fallida se guardaron correctamente");
             }catch (Exception e){e.printStackTrace();}
+            sqlclose();
+        }
+    }
+    public void sqlGuardarCasoSiFallaCrearTweak() {
+        if ((page.isVisible(assertions)) == false) {
+            sqlconectar();
+            try {
+                Statement st = CN.createStatement();
+                String query = "INSERT INTO datoscasosfallidoscreartweak (`size`,`quantity`,`fechaDePrueba`) " +
+                        "VALUES(" + "'" + sizeTweak + "'" + "," + "'" + qtyTweak + "'" + "," + "NOW())";
+                st.executeUpdate(query);
+                System.out.println("Los datos de la prueba fallida se guardaron correctamente");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             sqlclose();
         }
     }
@@ -143,6 +173,19 @@ public class consultasSqlCasosFallidos extends contextoBaseSpaceLogik{
                         "`baseBuilding`,`monthPaymentCancelation`,`cost`,`interestRate`,`dateOffered`,`penaltyAmount`,`building`,`prospect`,`program`,`fechaDePrueba`) " +
                         "VALUES("+"'"+term+"'"+","+"'"+startingRate+"'"+","+"'"+annualIncreases+"'"+","+"'"+rentAbatement+"'"+","+"'"+construction+"'"+","+"'"+baseBuilding+"'"+","+"'"
                         +month+"'"+","+"'"+cost+"'"+","+"'"+interestRate+"'"+","+"'"+dateOffered+"'"+","+"'"+assertionPenaltyAmount+"'"+","+"'"+building+"'"+","+"'"+prospect+"'"+","+"'"+program+"'"+","+"NOW())";
+                st.executeUpdate(query);
+                System.out.println("Los datos de la prueba fallida se guardaron correctamente");
+            }catch (Exception e){e.printStackTrace();}
+            sqlclose();
+        }
+    }
+    public void sqlGuardarCasoSiFallaCrearLaunch(){
+        if( (page.isVisible(assertions))==false){
+            sqlconectar();
+            try {
+                Statement st = CN.createStatement();
+                String query = "INSERT INTO testbdspacelogik.datoscasosfallidoscrearlaunch(`legalFormationLaunch`,`bussinesSinceLaunch`,`fechaDePrueba`) " +
+                        "VALUES("+"'"+legalFormationLaunch+"'"+","+"'"+bussinesSinceLaunch+"'"+","+"NOW())";
                 st.executeUpdate(query);
                 System.out.println("Los datos de la prueba fallida se guardaron correctamente");
             }catch (Exception e){e.printStackTrace();}

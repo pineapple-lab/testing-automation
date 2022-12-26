@@ -13,6 +13,8 @@ public class CA032launchFuncionCrear extends robotBaseSpaceLogik {
         login();
         crearLaunch();
         page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
+        assertions = "text=Changes saved successfully";
+        sqlGuardarCasoSiFallaCrearLaunch();
+        Assertions.assertTrue(page.isVisible(assertions));
     }
 }

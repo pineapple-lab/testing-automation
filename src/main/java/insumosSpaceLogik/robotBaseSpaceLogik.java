@@ -63,14 +63,6 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.click(".deal-future-location-container div:nth-of-type(1) label:nth-of-type(2) input");
         page.click(".deal-future-location-container div:nth-of-type(2) label:nth-of-type(2) input");
         page.click(".deal-location-header button");
-        try {
-            Statement st = CN.createStatement();
-            String query = "INSERT INTO ddpeditleasetypelocation (`ubicacionMyDealLeaseTypeLocation`,`fechaDePrueba`) " +
-                    "VALUES("+"'"+ubicacionMyDealLeaseTypeLocation+"'"+",NOW())";
-            st.executeUpdate(query);
-            System.out.println("Los datos de la prueba se guardaron correctamente");
-        }catch (Exception ex){ex.printStackTrace();}
-        sqlclose();
     }
     public void editarMyDealOfficeSize(){
         sqlconectar();
@@ -81,14 +73,6 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.fill(".future-headcount-input",specificHeadCountMyDealOfficeSize);
         page.click(".growth-adjust-container label:nth-of-type(1) input");
         page.click(".deal-office-size-header button");
-        try {
-            Statement st = CN.createStatement();
-            String query = "INSERT INTO datosDePruebaEditOfficeSize (`rsfMyDealOfficeSize`,`specificHeadCountyMyDealOffice`,`fechaDePrueba`) " +
-                                                                        "VALUES("+rsfMyDealOfficeSize+","+specificHeadCountMyDealOfficeSize+",NOW())";
-            st.executeUpdate(query);
-            System.out.println("Los datos de la prueba se guardaron correctamente");
-        }catch (Exception ex){ex.printStackTrace();}
-        sqlclose();
     }
     public void editarMyDealOccupancyAndSchedule(){
         Keyboard kb = page.keyboard();
@@ -665,6 +649,7 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.click(".contest-details-settings-container div:nth-of-type(3) .requested-terms-table tr:nth-of-type(2) td:nth-of-type(2) button");
         page.click(".contest-details-settings-container div:nth-of-type(5) .requested-terms-table tr:nth-of-type(3) td:nth-of-type(2) button");
         page.click(".contest-details-financial-checkbox label:nth-of-type(2) input");
+        page.selectOption(".contest-corporation-container select",legalFormationLaunch);
         page.fill(".contest-corporation-container input",bussinesSinceLaunch);
         page.click(".contest-details-buttons-container button:nth-of-type(5)");
         page.click(".saved-buildings-table tbody tr:nth-of-type(7) td:nth-of-type(1) input");

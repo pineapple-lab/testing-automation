@@ -11,19 +11,20 @@ public class CA037tweakFuncionCrear extends robotBaseSpaceLogik {
     public void CA0371validacionCrearTweak(){
         Keyboard kb = page.keyboard();
         iniciarVariablesTweakFeliz();
-        iniciarVariablesAutoProgramFeliz();
         iniciarVariablesEditRoom();
-        nameProgram="pruebAutomatizada37-validacionCrearTweak";
-        selectProgramTweak="pruebAutomatizada37-validacionCrearTweak";
-        programNameTweak="pruebAutomatizada37-validacionCrearTweak";
+        nameProgram="pruebAutomatizada37-validacionCrearTw";
+        selectProgramTweak="pruebAutomatizada37-validacionCrearTw";
+        programNameTweak="pruebAutomatizada37-validacionCrearTw";
         login();
         crearPrograma();
         page.focus(".my-programs-header input");
-        kb.insertText("pruebAutomatizada37-validacionCrearTweak");
+        kb.insertText(programNameTweak);
         crearRoom();
         editarRoomOptions();
         crearTweak();
         page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
+        assertions = "text=Changes saved successfully";//
+        sqlGuardarCasoSiFallaCrearTweak();
+        Assertions.assertTrue(page.isVisible(assertions));
     }
 }

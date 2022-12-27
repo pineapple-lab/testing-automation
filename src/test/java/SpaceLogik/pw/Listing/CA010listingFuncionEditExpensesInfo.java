@@ -12,7 +12,9 @@ public class CA010listingFuncionEditExpensesInfo extends robotBaseSpaceLogik {
         navegarListingExpenses();
         editarListingExpensesPassedThrough();
         page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
+        assertions="text=Changes saved successfully";
+        sqlGuardarCasoSiFallaEditarExpensesThrough();
+        Assertions.assertTrue(page.isVisible(assertions));
     }
     @Test
     public void CA0102validacionEditAdditionalTenantExpenses(){

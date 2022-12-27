@@ -18,6 +18,21 @@ public class consultasSqlCasosFallidos extends contextoBaseSpaceLogik{
             sqlclose();
         }
     }
+    public void sqlGuardarCasoSiFallaEditarMyDealLeaseTypeLocation() {
+        if ((page.isVisible(assertions)) == false) {
+            sqlconectar();
+            try {
+                Statement st = CN.createStatement();
+                String query = "INSERT INTO datoscasosfallidoseditarmydealleasetypelocation (`ubication`,`fechaDePrueba`) " +
+                        "VALUES(" + "'" +ubicacionMyDealLeaseTypeLocation+"'"+","+"NOW())";
+                st.executeUpdate(query);
+                System.out.println("Los datos de la prueba fallida se guardaron correctamente");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            sqlclose();
+        }
+    }
     public void sqlGuardarCasoSiFallaCrearProspect(){
         if( (page.isVisible(assertions))==false){
             sqlconectar();
@@ -65,6 +80,21 @@ public class consultasSqlCasosFallidos extends contextoBaseSpaceLogik{
             sqlclose();
         }
     }
+    public void sqlGuardarCasoSiFallaCrearCompetitiveSet() {
+        if ((page.isVisible(assertions)) == false) {
+            sqlconectar();
+            try {
+                Statement st = CN.createStatement();
+                String query = "INSERT INTO datoscasosfallidoscrearcompetitiveset (`building`,`fechaDePrueba`) " +
+                        "VALUES(" + "'" +buildingCompetitiveSetProspect+"'"+","+"NOW())";
+                st.executeUpdate(query);
+                System.out.println("Los datos de la prueba fallida se guardaron correctamente");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            sqlclose();
+        }
+    }
     public void sqlGuardarCasoSiFallaCrearTweak() {
         if ((page.isVisible(assertions)) == false) {
             sqlconectar();
@@ -106,6 +136,76 @@ public class consultasSqlCasosFallidos extends contextoBaseSpaceLogik{
             sqlclose();
         }
     }
+    public void sqlGuardarCasoSiFallaEditarListingLocationInformation(){
+        if( (page.isVisible(assertions))==false){
+            sqlconectar();
+            try {
+                Statement st = CN.createStatement();
+                String query = "INSERT INTO datoscasosfallidoseditarlistinglocationinformation (`yearBuilt`,`totalBuildingRsf`,`numberOfStories`,`fechaDePrueba`) " +
+                        "VALUES("+"'"+yearBuiltListingLocationInformation+"'"+","+"'"+totalBuildingRsfListingLocationInformation+"'"+","+"'"+numberOfStoriesListingLocationInformation+"'"+","+"NOW())";
+                st.executeUpdate(query);
+                System.out.println("Los datos de la prueba fallida se guardaron correctamente");
+            }catch (Exception e){e.printStackTrace();}
+            sqlclose();
+        }
+    }
+    public void sqlGuardarCasoSiFallaEditarBuildingContacts(){
+        if( (page.isVisible(assertions))==false){
+            sqlconectar();
+            try {
+                Statement st = CN.createStatement();
+                String query = "INSERT INTO testbdspacelogik.datoscasosfallidoseditarbuildingcontacts (`salutation`,`firstName`,`lastName`,`company`,`address1`,`address2`" +
+                        ",`state`,`city`,`zipCode`,`phone`,`email`,`fechaDePrueba`) " +
+                        "VALUES("+"'"+saludoListingPrimaryLeasingContact+"'"+","+"'"+firstNameListingPrimaryLeasingContacts+"'"+","+"'"+lastNameListingPrimaryLeasingContcts+"'"+","+"'"+companyListingPrimaryLeasingContacts+"'"+","+"'"+address1ListingPrimaryLeasingContacts+"'"+","+
+                        "'"+address2ListingPrimaryLeasingContacts+"'"+","+stateListingPrimaryLeasingContacts+","+cityListingPrimaryLeasingContacts+","+zipCodeListingPrimaryLeasingContacts+","+"'"+phoneListingPrimaryLeasingContacts+"'"+","+"'"+emailListingPrimaryLeasingContacts+"'"+","+"NOW())";
+                st.executeUpdate(query);
+                System.out.println("Los datos de la prueba fallida se guardaron correctamente");
+            }catch (Exception e){e.printStackTrace();}
+            sqlclose();
+        }
+    }
+    public void sqlGuardarCasoSiFallaEditarBuildingRsf() {
+        if ((page.isVisible(assertions)) == false) {
+            sqlconectar();
+            try {
+                Statement st = CN.createStatement();
+                String query = "INSERT INTO datoscasosfallidoseditarbuildingrsf (`rsfFloor`,`fechaDePrueba`) " +
+                        "VALUES(" + "'" +rsfFloorListingSpaceBuilding+"'"+","+"NOW())";
+                st.executeUpdate(query);
+                System.out.println("Los datos de la prueba fallida se guardaron correctamente");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            sqlclose();
+        }
+    }
+    public void sqlGuardarCasoSiFallaEditarBuildingSingleSuite(){
+        if( (page.isVisible(assertions))==false){
+            sqlconectar();
+            try {
+                Statement st = CN.createStatement();
+                String query = "INSERT INTO datoscasosfallidoseditarsinglesuite (`dateAvailable`,`dateAvailableEnd`,`divisibleTo`,`fechaDePrueba`) " +
+                        "VALUES("+"'"+dateAvailableListingSingleSuite+"'"+","+"'"+dateAvailableEndListingSingleSuite+"'"+","+"'"+divisibleToListingSingleSuite+"'"+","+"NOW())";
+                st.executeUpdate(query);
+                System.out.println("Los datos de la prueba fallida se guardaron correctamente");
+            }catch (Exception e){e.printStackTrace();}
+            sqlclose();
+        }
+    }
+    public void sqlGuardarCasoSiFallaEditarExpensesThrough(){
+        if( (page.isVisible(assertions))==false){
+            sqlconectar();
+            try {
+                Statement st = CN.createStatement();
+                String query = "INSERT INTO datoscasosfallidoseditarexpensespassedthrough (`taxes`,`expenses`,`fechaDePrueba`) " +
+                        "VALUES("+"'"+taxesListingExpenses+"'"+","+"'"+expensesListingExpenses+"'"+","+"NOW())";
+                st.executeUpdate(query);
+                System.out.println("Los datos de la prueba fallida se guardaron correctamente");
+            }catch (Exception e){e.printStackTrace();}
+            sqlclose();
+        }
+    }
+
     public void sqlGuardarCasoSiFallaCrearProposal(){
         if( (page.isVisible(assertions))==false){
             sqlconectar();

@@ -11,7 +11,9 @@ public class CA013listingFuncionEditSpaceInfo extends robotBaseSpaceLogik {
         login();
         editarListingBuildingRsf();
         page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
+        assertions = "text=ASDFASDFSF";//Changes saved successfully
+        sqlGuardarCasoSiFallaEditarBuildingRsf();
+        Assertions.assertTrue(page.isVisible(assertions));
     }
     @Test
     public void CA0132validacionCrearSingleSuiteListingSpace(){
@@ -41,8 +43,13 @@ public class CA013listingFuncionEditSpaceInfo extends robotBaseSpaceLogik {
         crearListingSingleSuiteSpace();
         editarListingSingleSuiteSpace();
         page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=Suite edited successfully"));
-        Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
+        assertions="text=Suite edited successfully";
+        sqlGuardarCasoSiFallaEditarBuildingSingleSuite();
+        Assertions.assertTrue(page.isVisible(assertions));
+        page.focus("#root");
+        assertions="text=Changes saved successfully";//
+        sqlGuardarCasoSiFallaEditarBuildingSingleSuite();
+        Assertions.assertTrue(page.isVisible(assertions));
     }
 
 }

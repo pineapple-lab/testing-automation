@@ -18,7 +18,9 @@ public class CA027prospectFuncionCompetitiveSet extends robotBaseSpaceLogik {
         crearProspect();
         crearCompetitiveSetProspect();
         page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=pruebAutomatizada17-validacionCrearCompetitiveSet"));
+        assertions ="text=dsfdsfdsfdsf";//nameCompanyProspect
+        sqlGuardarCasoSiFallaCrearCompetitiveSet();
+        Assertions.assertTrue(page.isVisible(assertions));
 
     }
 

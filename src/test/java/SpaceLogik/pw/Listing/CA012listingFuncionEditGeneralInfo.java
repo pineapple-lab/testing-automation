@@ -12,7 +12,9 @@ public class CA012listingFuncionEditGeneralInfo extends robotBaseSpaceLogik {
          login();
          editarListiningGeneralLocationInformation();
          page.focus("#root");
-         Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
+         assertions = "text=Changes saved successfully";
+         sqlGuardarCasoSiFallaEditarListingLocationInformation();
+         Assertions.assertTrue(page.isVisible(assertions));
     }
     @Test
     public void CA0122validacionEditBuildingCertifications(){
@@ -36,8 +38,9 @@ public class CA012listingFuncionEditGeneralInfo extends robotBaseSpaceLogik {
         iniciarVariablesEditarBuildingContacts();
         login();
         editarListingPrimaryLeasingContact();
-        page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
+        assertions="text=asdfasfasdfdasf";//Changes saved successfully
+        sqlGuardarCasoSiFallaEditarBuildingContacts();
+        Assertions.assertTrue(page.isVisible(assertions));
     }
     @Test
     public void CA0125validacionEditListingSecondaryLeasingContact(){
@@ -46,7 +49,9 @@ public class CA012listingFuncionEditGeneralInfo extends robotBaseSpaceLogik {
         login();
         editarListingSecondaryLeasingContact();
         page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
+        assertions="text=Changes saved successfully";
+        sqlGuardarCasoSiFallaEditarBuildingContacts();
+        Assertions.assertTrue(page.isVisible(assertions));
     }
     @Test
     public void CA0126validacionEditBuildingOwner(){
@@ -55,7 +60,9 @@ public class CA012listingFuncionEditGeneralInfo extends robotBaseSpaceLogik {
         login();
         editarListingBuildingOwner();
         page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
+        assertions="text=Changes saved successfully";
+        sqlGuardarCasoSiFallaEditarBuildingContacts();
+        Assertions.assertTrue(page.isVisible(assertions));
     }
     @Test
     public void CA0127validacionEditAdditionalLeasingContact(){
@@ -63,8 +70,9 @@ public class CA012listingFuncionEditGeneralInfo extends robotBaseSpaceLogik {
         iniciarVariablesEditarBuildingContacts();
         login();
         editarListingAdditionalLeasingContact();
-        page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
+        assertions="text=Changes saved successfully";
+        sqlGuardarCasoSiFallaEditarBuildingContacts();
+        Assertions.assertTrue(page.isVisible(assertions));
     }
 
 

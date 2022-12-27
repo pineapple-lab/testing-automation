@@ -13,7 +13,9 @@ public class CA035myDealFuncionEdit extends robotBaseSpaceLogik {
         login();
         editarMyDealLeaseTypeLocation();
         page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
+        assertions="text=Changes saved successfully";
+        sqlGuardarCasoSiFallaEditarMyDealLeaseTypeLocation();
+        Assertions.assertTrue(page.isVisible(assertions));
         Assertions.assertTrue(page.getByLabel("NEW").isChecked());
         Assertions.assertTrue(page.getByLabel("Within 3 mile radius").isChecked());
         Assertions.assertTrue(page.getByLabel("Another address").isChecked());

@@ -1,0 +1,8 @@
+/*CONSULTAS PELIGROSAS*/
+
+ALTER TABLE testbdspacelogik.datoscasosfallidoscrearproposal
+DROP COLUMN estadoDeLaPrueba;/*PARA ELIMINAR COLUMNA COMPLETA DE UNA TABLA*/
+
+SET SQL_SAFE_UPDATES = 0;/*CAMBIAR ENTRE MODO SEGURO E INSEGURO*/
+
+DELETE FROM testbdspacelogik.datosproposal;/*PARA ELIMINAR DATOS DE TABLA*/

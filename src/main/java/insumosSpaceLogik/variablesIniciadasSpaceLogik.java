@@ -170,7 +170,19 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
         verifyPasswordRegistro = "pruebAutomatizada13*";
    }
    public void iniciarVariablesCompetitiveSetFeliz(){
-       buildingCompetitiveSetProspect="Abbot Kinney Blvd, Los Angeles, CA, EE. UU.";
+       try {
+           sqlconectar();
+           Statement stm = CN.createStatement();
+           ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoscrearcompetitiveset WHERE estado = 0 ORDER BY RAND() LIMIT 1");
+           while(rs.next()){
+               buildingCompetitiveSetProspect = rs.getString(rs.findColumn("building"));
+           }
+           String query1 = "UPDATE testbdspacelogik.datoscrearcompetitiveset SET estado = 1 WHERE building="+"'"+buildingCompetitiveSetProspect+"'";
+           stm.executeUpdate(query1);
+           String query2 = "UPDATE testbdspacelogik.datoscrearcompetitiveset SET estado = 0 WHERE building!="+"'"+buildingCompetitiveSetProspect+"'";
+           stm.executeUpdate(query2);
+       }catch(Exception e){}
+       sqlclose();
    }
    public void iniciarVariablesTrackingFeliz(){
         commentsTrackingProspect = "pruebAutomatizada";
@@ -296,7 +308,19 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
        sqlclose();
    }
    public void iniciarVariablesEditMyDealLeaseTypeLocation(){
-        ubicacionMyDealLeaseTypeLocation = "Astor Place, Nueva York, EE. UU.";
+       try {
+           sqlconectar();
+           Statement stm = CN.createStatement();
+           ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoseditarmydealleasetypelocation WHERE estado = 0 ORDER BY RAND() LIMIT 1");
+           while(rs.next()){
+               ubicacionMyDealLeaseTypeLocation = rs.getString(rs.findColumn("ubication"));
+           }
+           String query1 = "UPDATE testbdspacelogik.datoseditarmydealleasetypelocation SET estado = 1 WHERE ubication="+"'"+ubicacionMyDealLeaseTypeLocation+"'";
+           stm.executeUpdate(query1);
+           String query2 = "UPDATE testbdspacelogik.datoseditarmydealleasetypelocation SET estado = 0 WHERE ubication!="+"'"+ubicacionMyDealLeaseTypeLocation+"'";
+           stm.executeUpdate(query2);
+       }catch(Exception e){}
+       sqlclose();
    }
    public void iniciarVariablesEditMyDealOfficeSize(){
        try {
@@ -315,35 +339,93 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
        sqlclose();
    }
    public void iniciarVariablesEditarListingLocationInformation(){
-        yearBuiltListingLocationInformation = "2880";
-        totalBuildingRsfListingLocationInformation = "608808";
-        numberOfStoriesListingLocationInformation = "30";
+       try {
+           sqlconectar();
+           Statement stm = CN.createStatement();
+           ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoseditarlistinglocationinformation WHERE estado = 0 ORDER BY RAND() LIMIT 1");
+           while(rs.next()){
+               yearBuiltListingLocationInformation = rs.getString(rs.findColumn("yearBuilt"));
+               totalBuildingRsfListingLocationInformation = rs.getString(rs.findColumn("totalBuildingRsf"));
+               numberOfStoriesListingLocationInformation = rs.getString(rs.findColumn("numberOfStories"));
+           }
+           String query1 = "UPDATE testbdspacelogik.datoseditarlistinglocationinformation SET estado = 1 WHERE yearBuilt="+"'"+yearBuiltListingLocationInformation+"'";
+           stm.executeUpdate(query1);
+           String query2 = "UPDATE testbdspacelogik.datoseditarlistinglocationinformation SET estado = 0 WHERE yearBuilt!="+"'"+yearBuiltListingLocationInformation+"'";
+           stm.executeUpdate(query2);
+       }catch(Exception e){}
+       sqlclose();
    }
-   public void iniciarVariablesEditarBuildingDescrption(){
-    descriptionBuildingListing = "pruebAutomatizada";
-    }
+   public void iniciarVariablesEditarBuildingDescrption(){descriptionBuildingListing = "pruebAutomatizada";}
    public void iniciarVariablesEditarBuildingContacts(){
-        saludoListingPrimaryLeasingContact = "3";
-        lastNameListingPrimaryLeasingContcts = "pruebAutomatizada";
-        companyListingPrimaryLeasingContacts = "pruebAutomatizada";
-        address1ListingPrimaryLeasingContacts = "pruebAutomatizada";
-        address2ListingPrimaryLeasingContacts = "pruebAutomatizada";
-        stateListingPrimaryLeasingContacts = "41";
-        cityListingPrimaryLeasingContacts = "16513";
-        zipCodeListingPrimaryLeasingContacts = "35743";
-        phoneListingPrimaryLeasingContacts = "0993537369875";
-        emailListingPrimaryLeasingContacts = "pruebAutomatizada@pruebAutomatizada.com";
+       try {
+           sqlconectar();
+           Statement stm = CN.createStatement();
+           ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoseditarbuildingcontacts WHERE estado = 0 ORDER BY RAND() LIMIT 1");
+           while(rs.next()){
+               saludoListingPrimaryLeasingContact = rs.getString(rs.findColumn("salutation"));
+               lastNameListingPrimaryLeasingContcts = rs.getString(rs.findColumn("lastName"));
+               companyListingPrimaryLeasingContacts = rs.getString(rs.findColumn("company"));
+               address1ListingPrimaryLeasingContacts = rs.getString(rs.findColumn("address1"));
+               address2ListingPrimaryLeasingContacts = rs.getString(rs.findColumn("address2"));
+               stateListingPrimaryLeasingContacts = rs.getString(rs.findColumn("state"));
+               cityListingPrimaryLeasingContacts = rs.getString(rs.findColumn("city"));
+               zipCodeListingPrimaryLeasingContacts = rs.getString(rs.findColumn("zipCode"));
+               phoneListingPrimaryLeasingContacts = rs.getString(rs.findColumn("phone"));
+               emailListingPrimaryLeasingContacts = rs.getString(rs.findColumn("email"));
+           }
+           String query1 = "UPDATE testbdspacelogik.datoseditarbuildingcontacts SET estado = 1 WHERE state="+"'"+stateListingPrimaryLeasingContacts+"'";
+           stm.executeUpdate(query1);
+           String query2 = "UPDATE testbdspacelogik.datoseditarbuildingcontacts SET estado = 0 WHERE state!="+"'"+stateListingPrimaryLeasingContacts+"'";
+           stm.executeUpdate(query2);
+       }catch(Exception e){}
+       sqlclose();
    }
    public void iniciarVariablesEditarBuildingRsf(){
-        rsfFloorListingSpaceBuilding = "26502";
+       try {
+           sqlconectar();
+           Statement stm = CN.createStatement();
+           ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoseditarbuildingrsf WHERE estado = 0 ORDER BY RAND() LIMIT 1");
+           while(rs.next()){
+               rsfFloorListingSpaceBuilding = rs.getString(rs.findColumn("rsfFloor"));
+           }
+           String query1 = "UPDATE testbdspacelogik.datoseditarbuildingrsf SET estado = 1 WHERE rsfFloor="+"'"+rsfFloorListingSpaceBuilding+"'";
+           stm.executeUpdate(query1);
+           String query2 = "UPDATE testbdspacelogik.datoseditarbuildingrsf SET estado = 0 WHERE rsfFloor!="+"'"+rsfFloorListingSpaceBuilding+"'";
+           stm.executeUpdate(query2);
+       }catch(Exception e){}
+       sqlclose();
     }
    public void iniciarVariablesEditarSingleSuite(){
-        dateAvailableListingSingleSuite = "04012022";
-        dateAvailableEndListingSingleSuite = "07062030";
-        divisibleToListingSingleSuite = "3";
+       try {
+           sqlconectar();
+           Statement stm = CN.createStatement();
+           ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoseditarsinglesuite WHERE estado = 0 ORDER BY RAND() LIMIT 1");
+           while(rs.next()){
+               dateAvailableListingSingleSuite = rs.getString(rs.findColumn("dateAvailable"));
+               dateAvailableEndListingSingleSuite = rs.getString(rs.findColumn("dateAvailableEnd"));
+               divisibleToListingSingleSuite = rs.getString(rs.findColumn("divisibleTo"));
+           }
+           String query1 = "UPDATE testbdspacelogik.datoseditarsinglesuite SET estado = 1 WHERE dateAvailable="+"'"+dateAvailableListingSingleSuite+"'";
+           stm.executeUpdate(query1);
+           String query2 = "UPDATE testbdspacelogik.datoseditarsinglesuite SET estado = 0 WHERE dateAvailable!="+"'"+dateAvailableListingSingleSuite+"'";
+           stm.executeUpdate(query2);
+       }catch(Exception e){}
+       sqlclose();
    }
     public void iniciarVariablesEditarExpensesPassedThrough(){
-        taxesListingExpenses = "10";
-        expensesListingExpenses = "30";
+        try {
+            sqlconectar();
+            Statement stm = CN.createStatement();
+            ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoseditarexpensespassedthrough WHERE estado = 0 ORDER BY RAND() LIMIT 1");
+            while(rs.next()){
+                taxesListingExpenses = rs.getString(rs.findColumn("taxes"));
+                expensesListingExpenses = rs.getString(rs.findColumn("expenses"));
+            }
+            String query1 = "UPDATE testbdspacelogik.datoseditarexpensespassedthrough SET estado = 1 WHERE taxes="+"'"+taxesListingExpenses+"'";
+            stm.executeUpdate(query1);
+            String query2 = "UPDATE testbdspacelogik.datoseditarexpensespassedthrough SET estado = 0 WHERE taxes!="+"'"+taxesListingExpenses+"'";
+            stm.executeUpdate(query2);
+        }catch(Exception e){}
+        sqlclose();
    }
 }

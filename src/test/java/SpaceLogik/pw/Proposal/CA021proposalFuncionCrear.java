@@ -11,8 +11,8 @@ import java.sql.Statement;
 public class CA021proposalFuncionCrear extends robotBaseSpaceLogik {
         @Test
         public void CA0211ProposalCreatorFeliz001() {
-            nameProposal = "pruebAutomatizada1-validacioncre";
-            assertions = "text=pruebAutomatizada1-validacioncrear";
+            nameProposal = "pruebAutomatizada1-validacioncrearProposal";
+            assertions = "text=pruebAutomatizada1-validacioncrearProposal";
             login();
             iniciarVariablesCreacionProposal();
             crearProposal();

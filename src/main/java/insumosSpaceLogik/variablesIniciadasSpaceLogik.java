@@ -29,7 +29,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
             }
             String query1 = "UPDATE testbdspacelogik.datoscrearpaymentcancelationpequeño SET estado = 1 WHERE startingRate="+"'"+term+"'";
             stm.executeUpdate(query1);
-            String query2 = "UPDATE testbdspacelogik.datoscrearpaymentcancelationpequeño SET estado = 0 WHERE startingRate!="+"'"+term+"'";
+            String query2 = "UPDATE testbdspacelogik.datoscrearpaymentcancelationpequeño SET estado = 0 WHERE startingRate!="+"'"+term+"' AND NOT IN ID IS NULL";
             stm.executeUpdate(query2);
         }catch(Exception e){}
         sqlclose();
@@ -56,7 +56,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
             }
             String query1 = "UPDATE testbdspacelogik.datoscrearpaymentcancelationmediano SET estado = 1 WHERE startingRate="+"'"+term+"'";
             stm.executeUpdate(query1);
-            String query2 = "UPDATE testbdspacelogik.datoscrearpaymentcancelationmediano SET estado = 0 WHERE startingRate!="+"'"+term+"'";
+            String query2 = "UPDATE testbdspacelogik.datoscrearpaymentcancelationmediano SET estado = 0 WHERE startingRate!="+"'"+term+"' AND NOT IN ID IS NULL";
             stm.executeUpdate(query2);
         }catch(Exception e){}
         sqlclose();
@@ -83,7 +83,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
             }
             String query1 = "UPDATE testbdspacelogik.datoscrearpaymentcancelationgrande SET estado = 1 WHERE startingRate="+"'"+term+"'";
             stm.executeUpdate(query1);
-            String query2 = "UPDATE testbdspacelogik.datoscrearpaymentcancelationgrande SET estado = 0 WHERE startingRate!="+"'"+term+"'";
+            String query2 = "UPDATE testbdspacelogik.datoscrearpaymentcancelationgrande SET estado = 0 WHERE startingRate!="+"'"+term+"' AND NOT IN ID IS NULL";
             stm.executeUpdate(query2);
         }catch(Exception e){}
         sqlclose();
@@ -110,7 +110,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
             }
             String query1 = "UPDATE testbdspacelogik.datoscrearpaymentcancelationmuygrande SET estado = 1 WHERE startingRate="+"'"+term+"'";
             stm.executeUpdate(query1);
-            String query2 = "UPDATE testbdspacelogik.datoscrearpaymentcancelationmuygrande SET estado = 0 WHERE startingRate!="+"'"+term+"'";
+            String query2 = "UPDATE testbdspacelogik.datoscrearpaymentcancelationmuygrande SET estado = 0 WHERE startingRate!="+"'"+term+"' AND NOT IN ID IS NULL";
             stm.executeUpdate(query2);
         }catch(Exception e){}
         sqlclose();
@@ -127,7 +127,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
             }
             String query1 = "UPDATE testbdspacelogik.datoscrearproposal SET estado = 1 WHERE building="+"'"+building+"'";
             stm.executeUpdate(query1);
-            String query2 = "UPDATE testbdspacelogik.datoscrearproposal SET estado = 0 WHERE building!="+"'"+program+"'";
+            String query2 = "UPDATE testbdspacelogik.datoscrearproposal SET estado = 0 WHERE building!="+"'"+program+"'  AND NOT IN ID IS NULL";
             stm.executeUpdate(query2);
         }catch(Exception e){}
         sqlclose();
@@ -155,7 +155,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
             }
             String query1 = "UPDATE testbdspacelogik.datoscrearprospect SET estado = 1 WHERE state="+"'"+stateProspect+"'";
             stm.executeUpdate(query1);
-            String query2 = "UPDATE testbdspacelogik.datoscrearprospect SET estado = 0 WHERE state!="+"'"+stateProspect+"'";
+            String query2 = "UPDATE testbdspacelogik.datoscrearprospect SET estado = 0 WHERE state!="+"'"+stateProspect+"' AND NOT IN ID IS NULL";
             stm.executeUpdate(query2);
         }catch(Exception e){}
         sqlclose();
@@ -179,7 +179,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
            }
            String query1 = "UPDATE testbdspacelogik.datoscrearcompetitiveset SET estado = 1 WHERE building="+"'"+buildingCompetitiveSetProspect+"'";
            stm.executeUpdate(query1);
-           String query2 = "UPDATE testbdspacelogik.datoscrearcompetitiveset SET estado = 0 WHERE building!="+"'"+buildingCompetitiveSetProspect+"'";
+           String query2 = "UPDATE testbdspacelogik.datoscrearcompetitiveset SET estado = 0 WHERE building!="+"'"+buildingCompetitiveSetProspect+"' AND NOT IN ID IS NULL";
            stm.executeUpdate(query2);
        }catch(Exception e){}
        sqlclose();
@@ -207,7 +207,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
            }
            String query1 = "UPDATE testbdspacelogik.datoseditarmanualmentebroker SET estado = 1 WHERE state="+"'"+stateEditBrokerManual+"'";
            stm.executeUpdate(query1);
-           String query2 = "UPDATE testbdspacelogik.datoseditarmanualmentebroker SET estado = 0 WHERE state!="+"'"+stateEditBrokerManual+"'";
+           String query2 = "UPDATE testbdspacelogik.datoseditarmanualmentebroker SET estado = 0 WHERE state!="+"'"+stateEditBrokerManual+"' AND NOT IN ID IS NULL";
            stm.executeUpdate(query2);
        }catch(Exception e){}
        sqlclose();
@@ -235,7 +235,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
             }
             String query1 = "UPDATE testbdspacelogik.datoseditargeneralinfoprospect SET estado = 1 WHERE state="+"'"+stateEditProspectGeneralInfo+"'";
             stm.executeUpdate(query1);
-            String query2 = "UPDATE testbdspacelogik.datoseditargeneralinfoprospect SET estado = 0 WHERE state!="+"'"+stateEditProspectGeneralInfo+"'";
+            String query2 = "UPDATE testbdspacelogik.datoseditargeneralinfoprospect SET estado = 0 WHERE state!="+"'"+stateEditProspectGeneralInfo+"' AND NOT IN ID IS NULL";
             stm.executeUpdate(query2);
         }catch(Exception e){}
         sqlclose();
@@ -253,7 +253,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
             }
             String query1 = "UPDATE testbdspacelogik.datoseditarroomoptions SET estado = 1 WHERE sequenceRoomOptions="+"'"+sequenceRoomOptionsProgram+"'";
             stm.executeUpdate(query1);
-            String query2 = "UPDATE testbdspacelogik.datoseditarroomoptions SET estado = 0 WHERE sequenceRoomOptions!="+"'"+sequenceRoomOptionsProgram+"'";
+            String query2 = "UPDATE testbdspacelogik.datoseditarroomoptions SET estado = 0 WHERE sequenceRoomOptions!="+"'"+sequenceRoomOptionsProgram+"' AND NOT IN ID IS NULL";
             stm.executeUpdate(query2);
         }catch(Exception e){}
         sqlclose();
@@ -270,7 +270,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
             }
             String query1 = "UPDATE testbdspacelogik.datosCrearAutoProgram SET estado = 1 WHERE industry="+"'"+industryAutoProgram+"'";
             stm.executeUpdate(query1);
-            String query2 = "UPDATE testbdspacelogik.datosCrearAutoProgram SET estado = 0 WHERE industry!="+"'"+industryAutoProgram+"'";
+            String query2 = "UPDATE testbdspacelogik.datosCrearAutoProgram SET estado = 0 WHERE industry!="+"'"+industryAutoProgram+"' AND NOT IN ID IS NULL";
             stm.executeUpdate(query2);
         }catch(Exception e){}
         sqlclose();
@@ -286,7 +286,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
             }
             String query1 = "UPDATE testbdspacelogik.datoscrearlaunch SET estado = 1 WHERE legalFormationLaunch="+"'"+legalFormationLaunch+"'";
             stm.executeUpdate(query1);
-            String query2 = "UPDATE testbdspacelogik.datoscrearlaunch SET estado = 0 WHERE legalFormationLaunch!="+"'"+legalFormationLaunch+"'";
+            String query2 = "UPDATE testbdspacelogik.datoscrearlaunch SET estado = 0 WHERE legalFormationLaunch!="+"'"+legalFormationLaunch+"' AND NOT IN ID IS NULL";
             stm.executeUpdate(query2);
         }catch(Exception e){}
         sqlclose();
@@ -302,7 +302,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
            }
            String query1 = "UPDATE testbdspacelogik.datoscreartweak SET estado = 1 WHERE size="+"'"+sizeTweak+"'";
            stm.executeUpdate(query1);
-           String query2 = "UPDATE testbdspacelogik.datoscreartweak SET estado = 0 WHERE size!="+"'"+sizeTweak+"'";
+           String query2 = "UPDATE testbdspacelogik.datoscreartweak SET estado = 0 WHERE size!="+"'"+sizeTweak+"' AND NOT IN ID IS NULL";
            stm.executeUpdate(query2);
        }catch(Exception e){}
        sqlclose();
@@ -317,7 +317,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
            }
            String query1 = "UPDATE testbdspacelogik.datoseditarmydealleasetypelocation SET estado = 1 WHERE ubication="+"'"+ubicacionMyDealLeaseTypeLocation+"'";
            stm.executeUpdate(query1);
-           String query2 = "UPDATE testbdspacelogik.datoseditarmydealleasetypelocation SET estado = 0 WHERE ubication!="+"'"+ubicacionMyDealLeaseTypeLocation+"'";
+           String query2 = "UPDATE testbdspacelogik.datoseditarmydealleasetypelocation SET estado = 0 WHERE ubication!="+"'"+ubicacionMyDealLeaseTypeLocation+"' AND NOT IN ID IS NULL";
            stm.executeUpdate(query2);
        }catch(Exception e){}
        sqlclose();
@@ -329,11 +329,10 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
            ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoseditarmydealofficesize WHERE estado = 0 ORDER BY RAND() LIMIT 1");
            while(rs.next()){
                rsfMyDealOfficeSize = rs.getString(rs.findColumn("rsfOficeSize"));
-               specificHeadCountMyDealOfficeSize = rs.getString(rs.findColumn("specificHeadCounty"));
            }
            String query1 = "UPDATE testbdspacelogik.datoseditarmydealofficesize SET estado = 1 WHERE rsfOficeSize="+"'"+rsfMyDealOfficeSize+"'";
            stm.executeUpdate(query1);
-           String query2 = "UPDATE testbdspacelogik.datoseditarmydealofficesize SET estado = 0 WHERE rsfOficeSize!="+"'"+specificHeadCountMyDealOfficeSize+"'";
+           String query2 = "UPDATE testbdspacelogik.datoseditarmydealofficesize SET estado = 0 WHERE rsfOficeSize!="+"'"+rsfMyDealOfficeSize+"' AND NOT IN ID IS NULL";
            stm.executeUpdate(query2);
        }catch(Exception e){}
        sqlclose();
@@ -350,7 +349,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
            }
            String query1 = "UPDATE testbdspacelogik.datoseditarlistinglocationinformation SET estado = 1 WHERE yearBuilt="+"'"+yearBuiltListingLocationInformation+"'";
            stm.executeUpdate(query1);
-           String query2 = "UPDATE testbdspacelogik.datoseditarlistinglocationinformation SET estado = 0 WHERE yearBuilt!="+"'"+yearBuiltListingLocationInformation+"'";
+           String query2 = "UPDATE testbdspacelogik.datoseditarlistinglocationinformation SET estado = 0 WHERE yearBuilt!="+"'"+yearBuiltListingLocationInformation+"' AND NOT IN ID IS NULL";
            stm.executeUpdate(query2);
        }catch(Exception e){}
        sqlclose();
@@ -375,7 +374,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
            }
            String query1 = "UPDATE testbdspacelogik.datoseditarbuildingcontacts SET estado = 1 WHERE state="+"'"+stateListingPrimaryLeasingContacts+"'";
            stm.executeUpdate(query1);
-           String query2 = "UPDATE testbdspacelogik.datoseditarbuildingcontacts SET estado = 0 WHERE state!="+"'"+stateListingPrimaryLeasingContacts+"'";
+           String query2 = "UPDATE testbdspacelogik.datoseditarbuildingcontacts SET estado = 0 WHERE state!="+"'"+stateListingPrimaryLeasingContacts+"' AND NOT IN ID IS NULL";
            stm.executeUpdate(query2);
        }catch(Exception e){}
        sqlclose();
@@ -390,7 +389,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
            }
            String query1 = "UPDATE testbdspacelogik.datoseditarbuildingrsf SET estado = 1 WHERE rsfFloor="+"'"+rsfFloorListingSpaceBuilding+"'";
            stm.executeUpdate(query1);
-           String query2 = "UPDATE testbdspacelogik.datoseditarbuildingrsf SET estado = 0 WHERE rsfFloor!="+"'"+rsfFloorListingSpaceBuilding+"'";
+           String query2 = "UPDATE testbdspacelogik.datoseditarbuildingrsf SET estado = 0 WHERE rsfFloor!="+"'"+rsfFloorListingSpaceBuilding+"' AND NOT IN ID IS NULL";
            stm.executeUpdate(query2);
        }catch(Exception e){}
        sqlclose();
@@ -407,7 +406,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
            }
            String query1 = "UPDATE testbdspacelogik.datoseditarsinglesuite SET estado = 1 WHERE dateAvailable="+"'"+dateAvailableListingSingleSuite+"'";
            stm.executeUpdate(query1);
-           String query2 = "UPDATE testbdspacelogik.datoseditarsinglesuite SET estado = 0 WHERE dateAvailable!="+"'"+dateAvailableListingSingleSuite+"'";
+           String query2 = "UPDATE testbdspacelogik.datoseditarsinglesuite SET estado = 0 WHERE dateAvailable!="+"'"+dateAvailableListingSingleSuite+"' AND NOT IN ID IS NULL";
            stm.executeUpdate(query2);
        }catch(Exception e){}
        sqlclose();
@@ -423,7 +422,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
             }
             String query1 = "UPDATE testbdspacelogik.datoseditarexpensespassedthrough SET estado = 1 WHERE taxes="+"'"+taxesListingExpenses+"'";
             stm.executeUpdate(query1);
-            String query2 = "UPDATE testbdspacelogik.datoseditarexpensespassedthrough SET estado = 0 WHERE taxes!="+"'"+taxesListingExpenses+"'";
+            String query2 = "UPDATE testbdspacelogik.datoseditarexpensespassedthrough SET estado = 0 WHERE taxes!="+"'"+taxesListingExpenses+"' AND NOT IN ID IS NULL";
             stm.executeUpdate(query2);
         }catch(Exception e){}
         sqlclose();

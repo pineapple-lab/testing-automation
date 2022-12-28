@@ -53,37 +53,36 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         Keyboard kb = page.keyboard();
         page.click("text=MY LOGIK");
         page.click("text = My Deal");
-        page.click(".deal-location-selector-container div:nth-of-type(1) input");
+        page.click(".deal-location-option-container:nth-of-type(1) div:nth-of-type(2) input");
         page.focus(".deal-current-location-container input");
         kb.press("Control+Shift+End");
         kb.press("Delete");
         kb.insertText(ubicacionMyDealLeaseTypeLocation);
         kb.press("ArrowDown");
         kb.press("Enter");
-        page.click(".deal-future-location-container div:nth-of-type(1) label:nth-of-type(2) input");
-        page.click(".deal-future-location-container div:nth-of-type(2) label:nth-of-type(2) input");
         page.click(".deal-location-header button");
     }
     public void editarMyDealOfficeSize(){
         sqlconectar();
         page.click("text=MY LOGIK");
         page.click("text = My Deal");
-        page.fill(".deal-current-rsf-container input",rsfMyDealOfficeSize);
-        page.click(".future-employees-specific-headcount-container label input");
-        page.fill(".future-headcount-input",specificHeadCountMyDealOfficeSize);
-        page.click(".growth-adjust-container label:nth-of-type(1) input");
-        page.click(".deal-office-size-header button");
+        page.click(".deal-lease-selector-container div:nth-of-type(1) input");
+        page.fill(".deal-rsf-lease-container input",rsfMyDealOfficeSize);
+        //page.click(".future-employees-specific-headcount-container label input");
+        //page.fill(".future-headcount-input",specificHeadCountMyDealOfficeSize);
+        //page.click(".growth-adjust-container label:nth-of-type(1) input");
+        page.click(".type-container:nth-of-type(1) .deal-lease-container .deal-lease-header button");
     }
     public void editarMyDealOccupancyAndSchedule(){
         Keyboard kb = page.keyboard();
         page.click("text=MY LOGIK");
         page.click("text = My Deal");
-        page.focus(".occupancy-dates-container div:nth-of-type(1) input");
+        page.click(".deal-lease-selector-container div:nth-of-type(1) input");
+        page.focus(".date-dates-container div:nth-of-type(1) input");
         kb.insertText(dateExpirationMydealOccupancyAndSchedule);
-        page.focus(".occupancy-dates-container div:nth-of-type(2) input");
+        page.focus(".date-dates-container div:nth-of-type(2) input");
         kb.insertText(dateLikeOccupyMydealOccupancyAndSchedule);
-        page.click(".minimum-schedule-button-container button:nth-of-type(3)");
-        page.click(".deal-occupancy-size-header button");
+        page.click(".type-container:nth-of-type(2) .deal-date-size-header button");
     }
     public void editarMyPreferencesConstructionQualityDefault(){
         page.click("text=MY LOGIK");

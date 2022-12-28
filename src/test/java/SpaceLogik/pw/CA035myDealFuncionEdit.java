@@ -29,8 +29,7 @@ public class CA035myDealFuncionEdit extends robotBaseSpaceLogik {
         assertions = "text=Changes saved successfully";
         sqlGuardarCasoSiFallaEditarMyDealOfficeSize();
         Assertions.assertTrue(page.isVisible(assertions));
-        Assertions.assertTrue(page.getByLabel("Specific headcount").isChecked());
-        Assertions.assertTrue(page.getByLabel("Adjust by seats").isChecked());
+        Assertions.assertTrue(page.getByLabel("REPLACE").isChecked());
     }
     @Test
     public void CA0353validacionEditOccupancyAndSchedule(){

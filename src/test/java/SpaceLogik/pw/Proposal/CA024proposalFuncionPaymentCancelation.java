@@ -20,7 +20,7 @@ public class CA024proposalFuncionPaymentCancelation extends robotBaseSpaceLogik 
         sqlGuardarCasoSiFallaPaymentCancelationPequeño();
         Assertions.assertTrue(page.isVisible( assertions));
         page.focus(".proposal-calculation-container h3:nth-of-type(2)");
-        assertions = "text="+assertionPenaltyAmount;
+        assertions = "text=$"+assertionPenaltyAmount;
         sqlGuardarCasoSiFallaPaymentCancelationPequeño();
         Assertions.assertTrue(page.isVisible(assertions));
     }
@@ -36,7 +36,7 @@ public class CA024proposalFuncionPaymentCancelation extends robotBaseSpaceLogik 
         sqlGuardarCasoSiFallaPaymentCancelationMediano();
         Assertions.assertTrue(page.isVisible( assertions));
         page.focus(".proposal-calculation-container h3:nth-of-type(2)");
-        assertions = "text="+assertionPenaltyAmount;
+        assertions = "text=$"+assertionPenaltyAmount;
         sqlGuardarCasoSiFallaPaymentCancelationMediano();
         Assertions.assertTrue(page.isVisible(assertions));
     }
@@ -51,7 +51,7 @@ public class CA024proposalFuncionPaymentCancelation extends robotBaseSpaceLogik 
         sqlGuardarCasoSiFallaPaymentCancelationGrande();
         Assertions.assertTrue(page.isVisible( assertions));
         page.focus(".proposal-calculation-container h3:nth-of-type(2)");
-        assertions = "text="+assertionPenaltyAmount;
+        assertions = "text=$"+assertionPenaltyAmount;
         sqlGuardarCasoSiFallaPaymentCancelationGrande();
         Assertions.assertTrue(page.isVisible(assertions));
     }
@@ -66,7 +66,7 @@ public class CA024proposalFuncionPaymentCancelation extends robotBaseSpaceLogik 
         sqlGuardarCasoSiFallaPaymentCancelationMuyGrande();
         Assertions.assertTrue(page.isVisible( assertions));
         page.focus(".proposal-calculation-container h3:nth-of-type(2)");
-        assertions = "text="+assertionPenaltyAmount;
+        assertions = "text=$"+assertionPenaltyAmount;
         sqlGuardarCasoSiFallaPaymentCancelationMuyGrande();
         Assertions.assertTrue(page.isVisible(assertions));
     }

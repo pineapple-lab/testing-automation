@@ -16,23 +16,34 @@ public class CA07validacionProposalExcepcion extends robotBaseSpaceLogik {
     }
     @Test
     public void CA072validacionMensajePropposalDuplicado(){
+        System.out.println("Iniciando caso de prueba...");
         nameProposal = "pruebAutomatizada7-validacionExcepcionPropposalduplicado";
         iniciarVariablesCreacionProposal();
-        login();
-        crearProposal();
-        crearProposal();
-        page.focus("body > div:nth-child(4) > div");
-        Assertions.assertTrue(page.isVisible( "text=Proposal name exists already for this prospect"));
+        System.out.println("El caso CA072 se va a ejecutar "+ejecutar+" veces");
+        for(contador=1;contador<=ejecutar;contador++) {
+            login();
+            crearProposal();
+            crearProposal();
+            page.focus("body > div:nth-child(4) > div");
+            Assertions.assertTrue(page.isVisible("text=Proposal name exists already for this prospect"));
+            System.out.println("El caso CA072 se ejecuto"+contador+"veces");
+        }
     }
     @Test
     public void CA073validacionMensajePropposalDuplicadoArchivado(){
+        System.out.println("Iniciando caso de prueba...");
         nameProposal = "pruebAutomatizada34-validacionExcepcionPropposalDuplicadoArchivado";
         iniciarVariablesCreacionProposal();
+        System.out.println("El caso CA073 se va a ejecutar "+ejecutar+" veces");
+        for(contador=1;contador<=ejecutar;contador++) {
         login();
         crearProposal();
         archivarProposal();
         crearProposal();
         page.focus("body > div:nth-child(4) > div");
         Assertions.assertTrue(page.isVisible( "text=Proposal name exists already for this prospect"));
+        Assertions.assertTrue(page.isVisible("text=Proposal name exists already for this prospect"));
+        System.out.println("El caso CA073 se ejecuto "+contador+" veces");
+        }
     }
 }

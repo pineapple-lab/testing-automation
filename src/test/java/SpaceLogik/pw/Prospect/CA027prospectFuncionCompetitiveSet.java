@@ -12,17 +12,19 @@ public class CA027prospectFuncionCompetitiveSet extends robotBaseSpaceLogik {
     public void CA0271validacionCrearCompetitiveSet(){
         notesCompetitiveSetProspect = "pruebAutomatizada17-validacionCrearCompetitiveSet";
         nameCompanyProspect = "pruebAutomatizada17-validacionCrearCompetitiveSet";
-        login();
         iniciarVariablesProspectFeliz();
         iniciarVariablesCompetitiveSetFeliz();
-        crearProspect();
-        crearCompetitiveSetProspect();
-        page.focus("#root");
-        assertions ="text=dsfdsfdsfdsf";//nameCompanyProspect
-        sqlGuardarCasoSiFallaCrearCompetitiveSet();
-        Assertions.assertTrue(page.isVisible(assertions));
+       System.out.println("El caso CA0271 se va a ejecutar: "+ejecutar+" veces");
+       for (contador=1; contador <= ejecutar; contador++){
+            login();
+            crearProspect();
+            crearCompetitiveSetProspect();
+            page.focus("#root");
+            assertions ="text=nameCompanyProspect";
+            sqlGuardarCasoSiFallaCrearCompetitiveSet();
+            Assertions.assertTrue(page.isVisible(assertions));
+            System.out.println("El caso CA0271 se ejecuto: "+contador+" veces");
+        }
 
     }
-
-
 }

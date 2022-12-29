@@ -1,6 +1,9 @@
 package insumosSpaceLogik;
 
 public class variablesSpaceLogik {
+    //EJECUCION DE CASOS
+    public int contador;
+    public int ejecutar;
     //VALIDACIONES
     public String assertions;
     public String assertionPenaltyAmount;

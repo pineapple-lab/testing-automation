@@ -11,12 +11,14 @@ public class contextoBaseSpaceLogik extends variablesIniciadasSpaceLogik {
 
     @BeforeAll
     static void launchBrowser() {
+        System.out.println("iniciando contexto...");
         playwright = Playwright.create();
         browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false).setSlowMo(1050));
     }
 
     @BeforeEach
     public void createContextAndPage() {
+        System.out.println("iniciando navegador...");
         context = browser.newContext();
         page = context.newPage();
         page.setViewportSize(1280, 768);
@@ -24,10 +26,12 @@ public class contextoBaseSpaceLogik extends variablesIniciadasSpaceLogik {
 
     @AfterEach
     void closeContext() {
+        System.out.println("cerrando navegador...");
         context.close();
     }
     @AfterAll
     static void closeBrowser() {
+        System.out.println("cerrando contexto...");
         playwright.close();
     }
 }

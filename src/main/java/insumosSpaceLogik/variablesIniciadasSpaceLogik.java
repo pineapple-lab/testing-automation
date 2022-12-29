@@ -116,18 +116,21 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
         sqlclose();
     }
     public void iniciarVariablesCreacionProposal(){
+        System.out.println("Iniciando variables...");
         try {
             sqlconectar();
             Statement stm = CN.createStatement();
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoscrearproposal WHERE estado = 0 ORDER BY RAND() LIMIT 1");
             while(rs.next()){
+
+                ejecutar =rs.getInt(rs.findColumn("ejecutar"));
                 building = rs.getString(rs.findColumn("building"));
                 prospect = rs.getString(rs.findColumn("prospect"));
                 program = rs.getString(rs.findColumn("program"));
             }
-            String query1 = "UPDATE testbdspacelogik.datoscrearproposal SET estado = 1 WHERE building="+"'"+building+"'";
+            String query1 = "UPDATE testbdspacelogik.datoscrearproposal SET estado = 1 WHERE program="+"'"+program+"'";
             stm.executeUpdate(query1);
-            String query2 = "UPDATE testbdspacelogik.datoscrearproposal SET estado = 0 WHERE building!="+"'"+program+"'  AND NOT IN ID IS NULL";
+            String query2 = "UPDATE testbdspacelogik.datoscrearproposal SET estado = 0 WHERE program!="+"'"+program+"'  AND NOT IN ID IS NULL";
             stm.executeUpdate(query2);
         }catch(Exception e){}
         sqlclose();

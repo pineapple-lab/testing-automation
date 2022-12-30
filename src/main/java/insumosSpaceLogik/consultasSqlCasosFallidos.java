@@ -211,8 +211,8 @@ public class consultasSqlCasosFallidos extends contextoBaseSpaceLogik{
             sqlconectar();
             try {
                 Statement st = CN.createStatement();
-                String query = "INSERT INTO datoscasosfallidoscrearproposal (`building`,`prospect`,`program`,`fechaDePrueba`) " +
-                        "VALUES("+building+","+prospect+","+program+","+"NOW())";
+                String query = "INSERT INTO datoscasosfallidoscrearproposal (`building`,`prospect`,`program`,`fechaDePrueba`,nameProposal) " +
+                        "VALUES("+building+","+prospect+","+program+","+"NOW(),'"+nameCase+"'"+")";
                 st.executeUpdate(query);
                 System.out.println("Los datos de la prueba fallida se guardaron correctamente");
             }catch (Exception e){e.printStackTrace();}

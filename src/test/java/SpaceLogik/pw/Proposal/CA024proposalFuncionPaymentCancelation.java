@@ -16,6 +16,7 @@ public class CA024proposalFuncionPaymentCancelation extends robotBaseSpaceLogik 
         nameProposal = "pruebAutomatizada2-PaymentCancelationPequeño";
         System.out.println("El caso CA0241 se va a ejecutar "+ejecutar+" veces");
         for(contador=1; contador<=ejecutar;contador++) {
+
             login();
             llenarProposal();
             page.focus("#root");

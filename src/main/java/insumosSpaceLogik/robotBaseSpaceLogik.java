@@ -474,7 +474,7 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.click("text=Proposals");
         page.click("[class=\"default-spacelogik-button\"]");
         page.focus(".new-proposal-modal-container label:nth-of-type(1)");
-        kb.insertText(nameProposal);
+        kb.insertText(nameCase);
         page.selectOption(".new-proposal-modal-container label:nth-of-type(2)", building);
         page.selectOption(".new-proposal-modal-container label:nth-of-type(3)", prospect);
         page.selectOption(".new-proposal-modal-container label:nth-of-type(4)", program);

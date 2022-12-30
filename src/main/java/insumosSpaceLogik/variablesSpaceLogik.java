@@ -4,6 +4,7 @@ public class variablesSpaceLogik {
     //EJECUCION DE CASOS
     public int contador;
     public int ejecutar;
+    public String nameCase;
     //VALIDACIONES
     public String assertions;
     public String assertionPenaltyAmount;

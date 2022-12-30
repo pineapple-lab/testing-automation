@@ -131,6 +131,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
             while(rs.next()){
                 System.out.println("Iniciando variables...");
                 ejecutar =rs.getInt(rs.findColumn("ejecutar"));
+                nameProposal =rs.getString(rs.findColumn("nameProposal"));
                 building = rs.getString(rs.findColumn("building"));
                 prospect = rs.getString(rs.findColumn("prospect"));
                 program = rs.getString(rs.findColumn("program"));

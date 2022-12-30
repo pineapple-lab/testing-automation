@@ -7,14 +7,19 @@ import org.junit.jupiter.api.Test;
 public class CA010listingFuncionEditExpensesInfo extends robotBaseSpaceLogik {
     @Test
     public void CA0101alidacionEditListingExpensesPassedThrough(){
+        System.out.println("Iniciando caso de prueba...");
         iniciarVariablesEditarExpensesPassedThrough();
-        login();
-        navegarListingExpenses();
-        editarListingExpensesPassedThrough();
-        page.focus("#root");
-        assertions="text=Changes saved successfully";
-        sqlGuardarCasoSiFallaEditarExpensesThrough();
-        Assertions.assertTrue(page.isVisible(assertions));
+        System.out.println("El caso CA0101 se va a ejecutar "+ejecutar+" veces");
+        for(contador=1;contador<=ejecutar;contador++) {
+            login();
+            navegarListingExpenses();
+            editarListingExpensesPassedThrough();
+            page.focus("#root");
+            assertions = "text=Changes saved successfully";
+            sqlGuardarCasoSiFallaEditarExpensesThrough();
+            Assertions.assertTrue(page.isVisible(assertions));
+            System.out.println("El caso CA0101 se ejecuto "+contador+" veces");
+        }
     }
     @Test
     public void CA0102validacionEditAdditionalTenantExpenses(){

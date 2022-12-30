@@ -9,27 +9,38 @@ public class CA035myDealFuncionEdit extends robotBaseSpaceLogik {
 
     @Test
     public void CA0351validacionEditLeaseTypeLocation(){
+        System.out.println("Iniciando caso de prueba...");
         iniciarVariablesEditMyDealLeaseTypeLocation();
-        login();
-        editarMyDealLeaseTypeLocation();
-        page.focus("#root");
-        assertions="text=Changes saved successfully";
-        sqlGuardarCasoSiFallaEditarMyDealLeaseTypeLocation();
-        Assertions.assertTrue(page.isVisible(assertions));
-        Assertions.assertTrue(page.getByLabel("NEW").isChecked());
-        Assertions.assertTrue(page.getByLabel("Within 3 mile radius").isChecked());
-        Assertions.assertTrue(page.getByLabel("Another address").isChecked());
+        System.out.println("El caso CA0351 se va a ejecutar "+ejecutar+" veces");
+        for(contador=1;contador<=ejecutar;contador++) {
+            login();
+            editarMyDealLeaseTypeLocation();
+            page.focus("#root");
+            assertions = "text=Changes saved successfully";
+            sqlGuardarCasoSiFallaEditarMyDealLeaseTypeLocation();
+            Assertions.assertTrue(page.isVisible(assertions));
+            Assertions.assertTrue(page.getByLabel("NEW").isChecked());
+            Assertions.assertTrue(page.getByLabel("Within 3 mile radius").isChecked());
+            Assertions.assertTrue(page.getByLabel("Another address").isChecked());
+            System.out.println("El caso CA0351 se ejecuto "+contador+" veces");
+        }
     }
     @Test
     public void CA0352validacionEditOfficeSize(){
+
+        System.out.println("Iniciando caso de prueba...");
         iniciarVariablesEditMyDealOfficeSize();
-        login();
-        editarMyDealOfficeSize();
-        page.focus("#root");
-        assertions = "text=Changes saved successfully";
-        sqlGuardarCasoSiFallaEditarMyDealOfficeSize();
-        Assertions.assertTrue(page.isVisible(assertions));
-        Assertions.assertTrue(page.getByLabel("REPLACE").isChecked());
+        System.out.println("El caso CA0352 se va a ejecutar "+ejecutar+" veces");
+        for(contador=1;contador<=ejecutar;contador++) {
+            login();
+            editarMyDealOfficeSize();
+            page.focus("#root");
+            assertions = "text=Changes saved successfully";
+            sqlGuardarCasoSiFallaEditarMyDealOfficeSize();
+            Assertions.assertTrue(page.isVisible(assertions));
+            Assertions.assertTrue(page.getByLabel("REPLACE").isChecked());
+            System.out.println("El caso CA0352 se ejecuto "+contador+" veces");
+        }
     }
     @Test
     public void CA0353validacionEditOccupancyAndSchedule(){

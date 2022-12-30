@@ -50,33 +50,37 @@ public class CA018programFuncionEdit extends robotBaseSpaceLogik {
     }
     @Test
     public void CA0183validacionEditRoomOptions(){
+        System.out.println("Iniciando caso de prueba...");
         Keyboard kb = page.keyboard();
         iniciarVariablesEditRoom();
         nameProgram = "pruebAutomatizada26-val";
-        login();
-        crearPrograma();
-        page.focus("#root");
-
-        Assertions.assertTrue(page.isVisible("text=Program created successfully"));
-        Assertions.assertTrue(page.isVisible("text=pruebAutomatizada26-val"));
-        page.focus(".my-programs-header input");
-        kb.insertText("pruebAutomatizada26-val");
-        crearRoom();
-        page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=Room created successfully"));
-        guardarRoom();
-        page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=Coat Closet"));
-        Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
-        editarRoomOptions();
-        page.focus("#root");
-        assertions="text="+employeAreaTypesProgram;
-        sqlGuardarCasoSiFallaEditarRoomProgram();
-        Assertions.assertTrue(page.isVisible(assertions));
-        page.focus(".program-room-list-table tbody tr td:nth-of-type(3)");
-        assertions="text="+quantityRoomOptionsProgram;
-        sqlGuardarCasoSiFallaEditarRoomProgram();
-        Assertions.assertTrue(page.isVisible(assertions));
+        System.out.println("El caso CA0183 se va a ejecutar "+ejecutar+" veces");
+        for(contador=1;contador<=ejecutar;contador++) {
+            login();
+            crearPrograma();
+            page.focus("#root");
+            Assertions.assertTrue(page.isVisible("text=Program created successfully"));
+            Assertions.assertTrue(page.isVisible("text=pruebAutomatizada26-val"));
+            page.focus(".my-programs-header input");
+            kb.insertText("pruebAutomatizada26-val");
+            crearRoom();
+            page.focus("#root");
+            Assertions.assertTrue(page.isVisible("text=Room created successfully"));
+            guardarRoom();
+            page.focus("#root");
+            Assertions.assertTrue(page.isVisible("text=Coat Closet"));
+            Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
+            editarRoomOptions();
+            page.focus("#root");
+            assertions = "text=" + employeAreaTypesProgram;
+            sqlGuardarCasoSiFallaEditarRoomProgram();
+            Assertions.assertTrue(page.isVisible(assertions));
+            page.focus(".program-room-list-table tbody tr td:nth-of-type(3)");
+            assertions = "text=" + quantityRoomOptionsProgram;
+            sqlGuardarCasoSiFallaEditarRoomProgram();
+            Assertions.assertTrue(page.isVisible(assertions));
+            System.out.println("El caso CA0183 se ejecuto "+contador+ " veces");
+        }
     }
     @Test
     public void CA0184validacionEditSpacePlan(){
@@ -174,43 +178,48 @@ public class CA018programFuncionEdit extends robotBaseSpaceLogik {
     }
     @Test
     public void CA0188validacionEdicionCompleta(){
+        System.out.println("Iniciando caso de prueba....");
         Keyboard kb = page.keyboard();
         iniciarVariablesEditRoom();
         nameProgram = "pruebAutomatizada31-validacionEdicionCompleta";
         commentsRoomDetails = "pruebAutomatizada31-validacionEdicionCompleta";
-        login();
-        crearPrograma();
-        page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=Program created successfully"));
-        Assertions.assertTrue(page.isVisible("text=pruebAutomatizada31-validacionEdicionCompleta"));
-        page.focus(".my-programs-header input");
-        kb.insertText("pruebAutomatizada31-validacionEdicionCompleta");
-        crearRoom();
-        page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=Room created successfully"));
-        guardarRoom();
-        page.focus(".program-room-list-table-container table");
-        Assertions.assertTrue(page.isVisible("text=Coat Closet"));
-        Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
-        editarRoomOptions();
-        page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=Workstations"));
-        Assertions.assertTrue(page.isVisible("text=50"));
-        editarSpacePlanRoomDetails();
-        page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
-        page.click(".program-room-detail-areas-container button:nth-of-type(1)");
-        page.click(".program-room-detail-areas-container button:nth-of-type(2)");
-        page.focus(".space-plan-comment-container textarea");
-        Assertions.assertTrue(page.isVisible("text=pruebAutomatizada31-validacionEdicionCompleta"));
-        editarConstructionLevelRoomDetails();
-        page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
-        editarUpgradeOptionsRoomDetails();
-        page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
-        editarAlacarteOptionsRoomDetails();
-        page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
+        System.out.println("El caso de prueba CA0188 se va a ejecutar "+ejecutar +" veces");
+        for(contador=1;contador<=ejecutar;contador++) {
+            login();
+            crearPrograma();
+            page.focus("#root");
+            Assertions.assertTrue(page.isVisible("text=Program created successfully"));
+            Assertions.assertTrue(page.isVisible("text=pruebAutomatizada31-validacionEdicionCompleta"));
+            page.focus(".my-programs-header input");
+            kb.insertText("pruebAutomatizada31-validacionEdicionCompleta");
+            crearRoom();
+            page.focus("#root");
+            Assertions.assertTrue(page.isVisible("text=Room created successfully"));
+            guardarRoom();
+            page.focus(".program-room-list-table-container table");
+            Assertions.assertTrue(page.isVisible("text=Coat Closet"));
+            Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
+            editarRoomOptions();
+            page.focus("#root");
+            Assertions.assertTrue(page.isVisible("text=Workstations"));
+            Assertions.assertTrue(page.isVisible("text=50"));
+            editarSpacePlanRoomDetails();
+            page.focus("#root");
+            Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
+            page.click(".program-room-detail-areas-container button:nth-of-type(1)");
+            page.click(".program-room-detail-areas-container button:nth-of-type(2)");
+            page.focus(".space-plan-comment-container textarea");
+            Assertions.assertTrue(page.isVisible("text=pruebAutomatizada31-validacionEdicionCompleta"));
+            editarConstructionLevelRoomDetails();
+            page.focus("#root");
+            Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
+            editarUpgradeOptionsRoomDetails();
+            page.focus("#root");
+            Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
+            editarAlacarteOptionsRoomDetails();
+            page.focus("#root");
+            Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
+            System.out.println("El caso de prueba CA0188 se ejecuto "+contador+" veces");
+        }
     }
 }

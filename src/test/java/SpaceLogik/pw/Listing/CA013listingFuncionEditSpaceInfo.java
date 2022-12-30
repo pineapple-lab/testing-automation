@@ -7,13 +7,18 @@ import org.junit.jupiter.api.Test;
 public class CA013listingFuncionEditSpaceInfo extends robotBaseSpaceLogik {
     @Test
     public void CA0131validacionEditarListingBuildingRsf(){
+        System.out.println("Iniciando caso de prueba...");
         iniciarVariablesEditarBuildingRsf();
-        login();
-        editarListingBuildingRsf();
-        page.focus("#root");
-        assertions = "text=ASDFASDFSF";//Changes saved successfully
-        sqlGuardarCasoSiFallaEditarBuildingRsf();
-        Assertions.assertTrue(page.isVisible(assertions));
+        System.out.println("El caso de preuba CA0131 se va a ejecutar "+ejecutar+" veces");
+        for(contador=1;contador<=ejecutar;contador++) {
+            login();
+            editarListingBuildingRsf();
+            page.focus("#root");
+            assertions = "text=ASDFASDFSF";//Changes saved successfully
+            sqlGuardarCasoSiFallaEditarBuildingRsf();
+            Assertions.assertTrue(page.isVisible(assertions));
+            System.out.println("El caso CA0131 se ejecuto "+contador+" veces");
+        }
     }
     @Test
     public void CA0132validacionCrearSingleSuiteListingSpace(){
@@ -36,20 +41,24 @@ public class CA013listingFuncionEditSpaceInfo extends robotBaseSpaceLogik {
     }
     @Test
     public void CA0134validacionEditSingleSuiteSpace(){
+        System.out.println("Iniciando caso de prueba...");
         suiteDescriptionListingSingleSuite="pruebAutomatizada97";
         suiteNumberListingSpaceBuildin="3";
         iniciarVariablesEditarSingleSuite();
+        System.out.println("El caso de preuba CA0134 se va a ejecutar "+ejecutar+" veces");
+        for(contador=1;contador<=ejecutar;contador++) {
         login();
-        crearListingSingleSuiteSpace();
-        editarListingSingleSuiteSpace();
-        page.focus("#root");
-        assertions="text=Suite edited successfully";
-        sqlGuardarCasoSiFallaEditarBuildingSingleSuite();
-        Assertions.assertTrue(page.isVisible(assertions));
-        page.focus("#root");
-        assertions="text=Changes saved successfully";//
-        sqlGuardarCasoSiFallaEditarBuildingSingleSuite();
-        Assertions.assertTrue(page.isVisible(assertions));
+            crearListingSingleSuiteSpace();
+            editarListingSingleSuiteSpace();
+            page.focus("#root");
+            assertions="text=Suite edited successfully";
+            sqlGuardarCasoSiFallaEditarBuildingSingleSuite();
+            Assertions.assertTrue(page.isVisible(assertions));
+            page.focus("#root");
+            assertions="text=Changes saved successfully";//
+            sqlGuardarCasoSiFallaEditarBuildingSingleSuite();
+            Assertions.assertTrue(page.isVisible(assertions));
+            System.out.println("El caso CA0134 se ejecuto "+contador+" veces");
+        }
     }
-
 }

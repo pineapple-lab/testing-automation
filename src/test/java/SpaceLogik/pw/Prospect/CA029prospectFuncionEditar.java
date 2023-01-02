@@ -11,10 +11,10 @@ public class CA029prospectFuncionEditar extends robotBaseSpaceLogik {
         System.out.println("Iniciando caso de prueba...");
         iniciarVariablesProspectFeliz();
         iniciarVariablesEditGeneralInfoProspect();
-        nameCompanyProspect="pruebAutomatizada20-validacionEditProspectGeneralInfo";
-        nameCompanyEditProspectGeneralInfo="editcompany-pruebAutomatizada20-validacionEditProspectGeneralInfo";
         System.out.println("El caso CA0291 se va a ejecutar: "+ejecutar+" veces");
         for (contador=1; contador <= ejecutar; contador++){
+            nameCase=nameCompanyProspect+".20-validacionEditProspectGeneralInfo.Ejecuciones:"+contador;
+            nameCompanyEditProspectGeneralInfo=nameCase+"edit";
             login();
             crearProspect();
             editarPorspectGeneralInfo();
@@ -34,11 +34,11 @@ public class CA029prospectFuncionEditar extends robotBaseSpaceLogik {
         System.out.println("Iniciando caso de prueba...");
         iniciarVariablesProspectFeliz();
         iniciarVariablesEditManualBrokerFeliz();
-        nameCompanyProspect = "prueabAutomatizada19-validacionEdicionManualInfoBrokerage";
-        firstNameEditBrokerManual = "pruebAutomatizada19-validacionEdicionManualInfoBrokerage";
-        assertions = "text=pruebAutomatizada19-validacionEdicionManualInfoBrokerage";
         System.out.println("El caso CA0292 se va a ejecutar: "+ejecutar+" veces");
         for (contador=1; contador <= ejecutar; contador++){
+            nameCase=nameCompanyProspect+".19-validacionEdicionManualInfoBrokerage.Ejecuciones:"+contador;
+            firstNameEditBrokerManual=nameCase+"edit";
+            assertions="text="+firstNameEditBrokerManual;
             login();
             crearProspect();
             editarManualmenteInfoBrokerage();
@@ -54,24 +54,27 @@ public class CA029prospectFuncionEditar extends robotBaseSpaceLogik {
         iniciarVariablesProspectFeliz();
         iniciarVariablesEditGeneralInfoProspect();
         iniciarVariablesEditManualBrokerFeliz();
-        nameCompanyProspect = "pruebAutomatizada21-validacionEdicionManualInfoBrokerage";
-        firstNameEditBrokerManual = "pruebAutomatizada21-validacionEdicionManualInfoBrokerage";
-        nameCompanyEditProspectGeneralInfo="editcompany-pruebAutomatizada21-validacionEditProspectGeneralInfo";
-        firstNameEditProspectGeneralInfo = "editfirstName-pruebAutomatizada21-validacionEditProspectGeneralInfo";
         System.out.println("El caso CA0293 se va a ejecutar: "+ejecutar+" veces");
         for (contador=1; contador <= ejecutar; contador++){
+            nameCase=nameCompanyProspect+".21-validacionEdicionManualInfoBrokerage.Ejecuciones:"+contador;
+            firstNameEditBrokerManual=nameCase+".firstnameedit";
+            nameCompanyEditProspectGeneralInfo=nameCase+".namecompanyEdit";
+            firstNameEditProspectGeneralInfo=nameCase+".firstNameGeneralInfoEdit";
             login();
             crearProspect();
             page.focus("#root");
-            Assertions.assertTrue(page.isVisible("text=pruebAutomatizada21-validacionEdicionManualInfoBrokerage"));
+            assertions="text="+nameCase;
+            Assertions.assertTrue(page.isVisible(assertions));
             editarPorspectGeneralInfo();
             page.click("text=MY LOGIK");
             page.click("text=Prospects");
             editarManualmenteInfoBrokerage();
             page.focus("#root");
-            Assertions.assertTrue(page.isVisible("text=pruebAutomatizada21-validacionEdicionManualInfoBrokerage"));
-            Assertions.assertTrue(page.isVisible("text=editcompany-pruebAutomatizada21-validacionEditProspectGeneralInfo"));
-            Assertions.assertTrue(page.isVisible("text=editfirstName-pruebAutomatizada21-validacionEditProspectGeneralInfo"));
+            Assertions.assertTrue(page.isVisible(assertions));
+            assertions="text="+nameCompanyEditProspectGeneralInfo;
+            Assertions.assertTrue(page.isVisible(assertions));
+            assertions="text="+firstNameEditProspectGeneralInfo;
+            Assertions.assertTrue(page.isVisible(assertions));
             System.out.println("El caso CA0293 se ejecuto: "+contador+" veces");
         }
     }

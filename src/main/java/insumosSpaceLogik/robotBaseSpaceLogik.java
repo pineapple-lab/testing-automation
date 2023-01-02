@@ -121,7 +121,7 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.click("text=MY LOGIK");
         page.click("text=Prospects");
         page.click(".prospect-list-landlord-button-container > button:nth-of-type(1)");
-        page.fill(".add-prospect-company-container > label:nth-of-type(1)", nameCompanyProspect);
+        page.fill(".add-prospect-company-container > label:nth-of-type(1)", nameCase);
         page.selectOption(".contact-info-container > label:nth-of-type(1)", salutationProspect);
         page.fill(".contact-info-container > label:nth-of-type(2)", firstNameProspect);
         page.fill(".contact-info-container > label:nth-of-type(3)", lastNameProspect);
@@ -260,7 +260,7 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.click(".my-properties-container .my-properties-building-container:last-child>div>div:nth-of-type(2)");
         page.click(".divBuildingDescription > div:nth-of-type(2) > div:nth-of-type(3) > div > div:nth-of-type(2) button:nth-of-type(1)");
         page.selectOption("form > div:nth-of-type(1) select", saludoListingPrimaryLeasingContact);
-        page.fill("form > div:nth-of-type(1) > div:nth-of-type(2) input",firstNameListingPrimaryLeasingContacts);
+        page.fill("form > div:nth-of-type(1) > div:nth-of-type(2) input",nameCase);
         page.fill("form > div:nth-of-type(1) > div:nth-of-type(3) input",lastNameListingPrimaryLeasingContcts);
         page.fill("form > div:nth-of-type(2) > div:nth-of-type(1) input",companyListingPrimaryLeasingContacts);
         page.fill("form > div:nth-of-type(3) > div:nth-of-type(1) input",address1ListingPrimaryLeasingContacts);
@@ -282,7 +282,7 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.click(".my-properties-container .my-properties-building-container:last-child>div>div:nth-of-type(2)");
         page.click(".divBuildingDescription > div:nth-of-type(2) > div:nth-of-type(3) > div > div:nth-of-type(3) button:nth-of-type(1)");
         page.selectOption("form > div:nth-of-type(1) select", saludoListingPrimaryLeasingContact);
-        page.fill("form > div:nth-of-type(1) > div:nth-of-type(2) input",firstNameListingPrimaryLeasingContacts);
+        page.fill("form > div:nth-of-type(1) > div:nth-of-type(2) input",nameCase);
         page.fill("form > div:nth-of-type(1) > div:nth-of-type(3) input",lastNameListingPrimaryLeasingContcts);
         page.fill("form > div:nth-of-type(2) > div:nth-of-type(1) input",companyListingPrimaryLeasingContacts);
         page.fill("form > div:nth-of-type(3) > div:nth-of-type(1) input",address1ListingPrimaryLeasingContacts);
@@ -304,7 +304,7 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.click(".my-properties-container .my-properties-building-container:last-child>div>div:nth-of-type(2)");
         page.click(".divBuildingDescription > div:nth-of-type(2) > div:nth-of-type(3) > div > div:nth-of-type(4) button:nth-of-type(1)");
         page.selectOption("form > div:nth-of-type(1) select", saludoListingPrimaryLeasingContact);
-        page.fill("form > div:nth-of-type(1) > div:nth-of-type(2) input",firstNameListingPrimaryLeasingContacts);
+        page.fill("form > div:nth-of-type(1) > div:nth-of-type(2) input",nameCase);
         page.fill("form > div:nth-of-type(1) > div:nth-of-type(3) input",lastNameListingPrimaryLeasingContcts);
         page.fill("form > div:nth-of-type(2) > div:nth-of-type(1) input",companyListingPrimaryLeasingContacts);
         page.fill("form > div:nth-of-type(3) > div:nth-of-type(1) input",address1ListingPrimaryLeasingContacts);
@@ -326,7 +326,7 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.click(".my-properties-container .my-properties-building-container:last-child>div>div:nth-of-type(2)");
         page.click(".divBuildingDescription > div:nth-of-type(2) > div:nth-of-type(3) > div > div:nth-of-type(5) button:nth-of-type(1)");
         page.selectOption("form > div:nth-of-type(1) select", saludoListingPrimaryLeasingContact);
-        page.fill("form > div:nth-of-type(1) > div:nth-of-type(2) input",firstNameListingPrimaryLeasingContacts);
+        page.fill("form > div:nth-of-type(1) > div:nth-of-type(2) input",nameCase);
         page.fill("form > div:nth-of-type(1) > div:nth-of-type(3) input",lastNameListingPrimaryLeasingContcts);
         page.fill("form > div:nth-of-type(2) > div:nth-of-type(1) input",companyListingPrimaryLeasingContacts);
         page.fill("form > div:nth-of-type(3) > div:nth-of-type(1) input",address1ListingPrimaryLeasingContacts);
@@ -378,7 +378,7 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.click(".suite-edit-status-butttons:nth-of-type(1) label:nth-of-type(1) button");
         page.fill(".divisible-container > div:last-child input",divisibleToListingSingleSuite);
         page.click(".floor-allocation-number-display button");
-        page.fill(".suite-description-label textarea",suiteDescriptionListingSingleSuite);
+        page.fill(".suite-description-label textarea",nameCase);
         page.click(".suite-description-container .building-info-header button");
     }
     public void editarListingFinancialInfoRateUnaSuite(){
@@ -504,7 +504,7 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.click("text=Proposals");
         page.click("[class=\"default-spacelogik-button\"]");
         page.focus(".new-proposal-modal-container label:nth-of-type(1)");
-        kb.insertText(nameProposal);
+        kb.insertText(nameCase);
         page.selectOption(".new-proposal-modal-container label:nth-of-type(2)", building);
         page.selectOption(".new-proposal-modal-container label:nth-of-type(3)", prospect);
         page.selectOption(".new-proposal-modal-container label:nth-of-type(4)", program);
@@ -547,7 +547,7 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.click(".my-programs-header div:nth-of-type(3) button");
         page.click(".container-types div:nth-child(1)");
         page.click(".modal-buttons button:nth-of-type(1)");
-        page.fill(".add-program-modal-info-container > div:nth-of-type(1) input", nameProgram);
+        page.fill(".add-program-modal-info-container > div:nth-of-type(1) input", nameCase);
         page.focus(".add-program-modal-info-container > div:nth-of-type(2) input[type=date]");
         kb.type(dateProgram);
         page.click(".add-program-modal-info-container > div:nth-of-type(3) > div > div:nth-of-type(2) button");
@@ -623,7 +623,7 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.click(".my-programs-header div:nth-of-type(3) button");
         page.click(".modal-buttons button:nth-of-type(1)");
         page.focus(".office-question-info-container input");
-        kb.insertText(nameAutoProgram);
+        kb.insertText(nameCase);
         page.selectOption(".office-question-info-container select",industryAutoProgram);
         page.click(".office-setup-container div:nth-of-type(2) #option-construction-level-3");
         page.click(".office-setup-container .office-question-info-container div:nth-of-type(2) .office-setup-level-selection-container div:nth-of-type(4) button");

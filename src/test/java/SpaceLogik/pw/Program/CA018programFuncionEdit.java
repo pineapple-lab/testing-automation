@@ -53,16 +53,19 @@ public class CA018programFuncionEdit extends robotBaseSpaceLogik {
         System.out.println("Iniciando caso de prueba...");
         Keyboard kb = page.keyboard();
         iniciarVariablesEditRoom();
-        nameProgram = "pruebAutomatizada26-val";
+        iniciarVariablesAutoProgramFeliz();
+        nameProgram = "pruebAutomatizada";
         System.out.println("El caso CA0183 se va a ejecutar "+ejecutar+" veces");
         for(contador=1;contador<=ejecutar;contador++) {
+            nameCase=nameRoomAutoProgram+".26-validacionEditRoomOptions.Ejecuciones:"+contador;
             login();
             crearPrograma();
             page.focus("#root");
             Assertions.assertTrue(page.isVisible("text=Program created successfully"));
-            Assertions.assertTrue(page.isVisible("text=pruebAutomatizada26-val"));
+            assertions="text="+nameCase;
+            Assertions.assertTrue(page.isVisible(assertions));
             page.focus(".my-programs-header input");
-            kb.insertText("pruebAutomatizada26-val");
+            kb.insertText(nameCase);
             crearRoom();
             page.focus("#root");
             Assertions.assertTrue(page.isVisible("text=Room created successfully"));
@@ -181,17 +184,19 @@ public class CA018programFuncionEdit extends robotBaseSpaceLogik {
         System.out.println("Iniciando caso de prueba....");
         Keyboard kb = page.keyboard();
         iniciarVariablesEditRoom();
-        nameProgram = "pruebAutomatizada31-validacionEdicionCompleta";
-        commentsRoomDetails = "pruebAutomatizada31-validacionEdicionCompleta";
+        iniciarVariablesAutoProgramFeliz();
         System.out.println("El caso de prueba CA0188 se va a ejecutar "+ejecutar +" veces");
         for(contador=1;contador<=ejecutar;contador++) {
+            nameCase=nameRoomAutoProgram+".31-validacionEdicionCompleta.Ejecuciones:"+contador;
+            commentsRoomDetails=nameCase;
             login();
             crearPrograma();
             page.focus("#root");
             Assertions.assertTrue(page.isVisible("text=Program created successfully"));
-            Assertions.assertTrue(page.isVisible("text=pruebAutomatizada31-validacionEdicionCompleta"));
+            assertions="text="+nameCase;
+            Assertions.assertTrue(page.isVisible(assertions));
             page.focus(".my-programs-header input");
-            kb.insertText("pruebAutomatizada31-validacionEdicionCompleta");
+            kb.insertText(nameCase);
             crearRoom();
             page.focus("#root");
             Assertions.assertTrue(page.isVisible("text=Room created successfully"));
@@ -209,7 +214,7 @@ public class CA018programFuncionEdit extends robotBaseSpaceLogik {
             page.click(".program-room-detail-areas-container button:nth-of-type(1)");
             page.click(".program-room-detail-areas-container button:nth-of-type(2)");
             page.focus(".space-plan-comment-container textarea");
-            Assertions.assertTrue(page.isVisible("text=pruebAutomatizada31-validacionEdicionCompleta"));
+            Assertions.assertTrue(page.isVisible(assertions));
             editarConstructionLevelRoomDetails();
             page.focus("#root");
             Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));

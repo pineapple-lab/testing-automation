@@ -40,13 +40,13 @@ public class CA012listingFuncionEditGeneralInfo extends robotBaseSpaceLogik {
     @Test
     public void CA0124validacionEditPrimaryLeasingContact(){
         System.out.println("Iniciando caso de prueba...");
-        firstNameListingPrimaryLeasingContacts="pruebAutomatizada94";
         iniciarVariablesEditarBuildingContacts();
         System.out.println("El caso CA0124 se va ejecutar "+ejecutar+" veces");
         for(contador=1;contador<=ejecutar;contador++) {
+            nameCase=firstNameListingPrimaryLeasingContacts+".94validacionEditPrimaryLeasingContact.Ejecuciones:"+contador;
             login();
             editarListingPrimaryLeasingContact();
-            assertions="text=asdfasfasdfdasf";//Changes saved successfully
+            assertions="text=Changes saved successfully";//
             sqlGuardarCasoSiFallaEditarBuildingContacts();
             Assertions.assertTrue(page.isVisible(assertions));
             System.out.println("El caso CA0124 se ejecuto "+contador+" veces");
@@ -55,10 +55,10 @@ public class CA012listingFuncionEditGeneralInfo extends robotBaseSpaceLogik {
     @Test
     public void CA0125validacionEditListingSecondaryLeasingContact(){
         System.out.println("Iniciando caso de prueba...");
-        firstNameListingPrimaryLeasingContacts="pruebAutomatizada95";
         iniciarVariablesEditarBuildingContacts();
         System.out.println("El caso CA0125 se va ejecutar "+ejecutar+" veces");
         for(contador=1;contador<=ejecutar;contador++) {
+            nameCase=firstNameListingPrimaryLeasingContacts+".95validacionEditListingSecondaryLeasingContact.Ejecuciones:"+contador;
             login();
             editarListingSecondaryLeasingContact();
             page.focus("#root");
@@ -71,10 +71,10 @@ public class CA012listingFuncionEditGeneralInfo extends robotBaseSpaceLogik {
     @Test
     public void CA0126validacionEditBuildingOwner(){
         System.out.println("Iniciando caso de prueba...");
-        firstNameListingPrimaryLeasingContacts="pruebAutomatizada96";
         iniciarVariablesEditarBuildingContacts();
         System.out.println("El caso CA0126 se va ejecutar "+ejecutar+" veces");
         for(contador=1;contador<=ejecutar;contador++) {
+            nameCase=firstNameListingPrimaryLeasingContacts+".96validacionEditBuildingOwner.Ejecuciones:"+contador;
             login();
             editarListingBuildingOwner();
             page.focus("#root");
@@ -87,10 +87,10 @@ public class CA012listingFuncionEditGeneralInfo extends robotBaseSpaceLogik {
     @Test
     public void CA0127validacionEditAdditionalLeasingContact(){
         System.out.println("Iniciando caso de prueba...");
-        firstNameListingPrimaryLeasingContacts="pruebAutomatizada97";
         iniciarVariablesEditarBuildingContacts();
         System.out.println("El caso CA0127 se va ejecutar "+ejecutar+" veces");
         for(contador=1;contador<=ejecutar;contador++) {
+            nameCase=firstNameListingPrimaryLeasingContacts+".97validacionEditAdditionalLeasingContact.Ejecuciones:"+contador;
             login();
             editarListingAdditionalLeasingContact();
             assertions="text=Changes saved successfully";
@@ -99,6 +99,4 @@ public class CA012listingFuncionEditGeneralInfo extends robotBaseSpaceLogik {
             System.out.println("El caso CA0127 se ejecuto "+contador+" veces");
         }
     }
-
-
 }

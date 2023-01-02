@@ -9,24 +9,26 @@ public class CA025prospectFuncionActivar extends robotBaseSpaceLogik {
     @Test
     public void CA0251validacionActivarProspect(){
         System.out.print("Iniciando caso de prueba...");
-        nameCompanyProspect = "pruebAutomatizada16-validacionActivarProspect";
+        nameCompanyProspect = "pruebAutomatizada";
         iniciarVariablesProspectFeliz();
         System.out.println("El caso CA0251 se va a ejecutar "+ejecutar+" veces");
         for(contador=1; contador<=ejecutar; contador++) {
+            nameCase=nameCompanyProspect+".16-validacionActivarProspect.Ejecuciones:"+contador;
+            assertions="text="+nameCase;
             login();
             crearProspect();
             page.focus("#root");
-            Assertions.assertTrue(page.isVisible("text=pruebAutomatizada16-validacionActivarProspect"));
+            Assertions.assertTrue(page.isVisible(assertions));
             archivarProspect();
             page.focus("#root");
-            Assertions.assertFalse(page.isVisible("text=pruebAutomatizada16-validacionActivarProspect"));
+            Assertions.assertFalse(page.isVisible(assertions));
             page.click(".prospect-list-landlord-button-container button:nth-of-type(2)");
             page.focus("#root");
-            Assertions.assertTrue(page.isVisible("text=pruebAutomatizada16-validacionActivarProspect"));
+            Assertions.assertTrue(page.isVisible(assertions));
             activarProspect();
             page.click(".prospect-list-landlord-button-container button:nth-of-type(1)");
             page.focus("#root");
-            Assertions.assertTrue(page.isVisible("text=pruebAutomatizada16-validacionActivarProspect"));
+            Assertions.assertTrue(page.isVisible(assertions));
             System.out.println("El caso CA0251 se ejecuto "+contador+" veces");
         }
     }

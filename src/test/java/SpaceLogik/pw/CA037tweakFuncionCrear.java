@@ -11,13 +11,14 @@ public class CA037tweakFuncionCrear extends robotBaseSpaceLogik {
     public void CA0371validacionCrearTweak(){
         System.out.println("Iniciando caso de prueba...");
         Keyboard kb = page.keyboard();
+        iniciarVariablesAutoProgramFeliz();
         iniciarVariablesTweakFeliz();
         iniciarVariablesEditRoom();
-        nameProgram="pruebAutomatizada37-validacionCrearTw";
-        selectProgramTweak="pruebAutomatizada37-validacionCrearTw";
-        programNameTweak="pruebAutomatizada37-validacionCrearTw";
         System.out.println("El caso CA0371 se va a ejecutar "+ejecutar+" veces");
         for(contador=1;contador<=ejecutar;contador++) {
+            nameCase=nameRoomAutoProgram+".37-validacionCrearTweak.Ejecuciones:"+contador;
+            selectProgramTweak=nameCase;
+            programNameTweak=nameCase;
             login();
             crearPrograma();
             page.focus(".my-programs-header input");

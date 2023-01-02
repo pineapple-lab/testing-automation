@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class CA016programFuncionCreateNew extends robotBaseSpaceLogik {
     @Test
     public void CA0161validacionCreateNewProgram(){
-     nameProgram="pruebAutomatizada22-validacionCreateNewProgram";
+     nameProgram=nameRoomAutoProgram+"22-validacionCreateNewProgram";
      login();
      crearPrograma();
      page.focus("#root");

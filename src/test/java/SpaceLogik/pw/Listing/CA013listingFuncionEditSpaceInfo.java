@@ -42,12 +42,12 @@ public class CA013listingFuncionEditSpaceInfo extends robotBaseSpaceLogik {
     @Test
     public void CA0134validacionEditSingleSuiteSpace(){
         System.out.println("Iniciando caso de prueba...");
-        suiteDescriptionListingSingleSuite="pruebAutomatizada97";
-        suiteNumberListingSpaceBuildin="3";
         iniciarVariablesEditarSingleSuite();
         System.out.println("El caso de preuba CA0134 se va a ejecutar "+ejecutar+" veces");
         for(contador=1;contador<=ejecutar;contador++) {
-        login();
+            nameCase=suiteDescriptionListingSingleSuite+".97validacionEditSingleSuiteSpace.Ejecuciones:"+contador;
+            suiteNumberListingSpaceBuildin=String.valueOf(contador);
+            login();
             crearListingSingleSuiteSpace();
             editarListingSingleSuiteSpace();
             page.focus("#root");

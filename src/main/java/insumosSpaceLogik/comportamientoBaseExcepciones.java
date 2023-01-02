@@ -42,7 +42,7 @@ public class comportamientoBaseExcepciones extends consultasSqlCasosFallidos{
         page.click("text=Programs");
         page.click(".my-programs-header div:nth-of-type(3) button");
         page.click(".modal-buttons button:nth-of-type(1)");
-        page.fill(".office-question-info-container input",nameAutoProgram);
+        page.fill(".office-question-info-container input",nameCase);
         page.selectOption(".office-question-info-container select",industryAutoProgram);
         page.click(".office-setup-container div:nth-of-type(2) #option-construction-level-3");
         page.click(".office-setup-container .office-question-info-container div:nth-of-type(2) .office-setup-level-selection-container div:nth-of-type(4) button");
@@ -72,7 +72,7 @@ public class comportamientoBaseExcepciones extends consultasSqlCasosFallidos{
         page.click("text=Programs");
         page.click(".my-programs-header div:nth-of-type(3) button");
         page.click(".modal-buttons button:nth-of-type(1)");
-        page.fill(".office-question-info-container input",nameAutoProgram);
+        page.fill(".office-question-info-container input",nameCase);
         page.selectOption(".office-question-info-container select",industryAutoProgram);
         page.click(".office-setup-container div:nth-of-type(2) #option-construction-level-3");
         page.click(".office-setup-container .office-question-info-container div:nth-of-type(2) .office-setup-level-selection-container div:nth-of-type(4) button");
@@ -110,7 +110,7 @@ public class comportamientoBaseExcepciones extends consultasSqlCasosFallidos{
         page.click("text=MY LOGIK");
         page.click("text=Prospects");
         page.click(".prospect-list-landlord-button-container > button:nth-of-type(1)");
-        page.fill(".add-prospect-company-container > label:nth-of-type(1)", nameCompanyProspect);
+        page.fill(".add-prospect-company-container > label:nth-of-type(1)", nameCase);
         page.selectOption(".contact-info-container > label:nth-of-type(1)", salutationProspect);
         page.fill(".contact-info-container > label:nth-of-type(2)", firstNameProspect);
         page.fill(".contact-info-container > label:nth-of-type(3)", lastNameProspect);
@@ -132,7 +132,7 @@ public class comportamientoBaseExcepciones extends consultasSqlCasosFallidos{
         page.click("text=MY LOGIK");
         page.click("text=Prospects");
         page.click(".prospect-list-landlord-button-container > button:nth-of-type(1)");
-        page.fill(".add-prospect-company-container > label:nth-of-type(1)", nameCompanyProspect);
+        page.fill(".add-prospect-company-container > label:nth-of-type(1)", nameCase);
         page.selectOption(".contact-info-container > label:nth-of-type(1)", salutationProspect);
         page.fill(".contact-info-container > label:nth-of-type(2)", firstNameProspect);
         page.fill(".contact-info-container > label:nth-of-type(3)", lastNameProspect);
@@ -155,7 +155,7 @@ public class comportamientoBaseExcepciones extends consultasSqlCasosFallidos{
         page.click("text=MY LOGIK");
         page.click("text=Prospects");
         page.click(".prospect-list-landlord-button-container > button:nth-of-type(1)");
-        page.fill(".add-prospect-company-container > label:nth-of-type(1)", nameCompanyProspect);
+        page.fill(".add-prospect-company-container > label:nth-of-type(1)", nameCase);
         page.selectOption(".contact-info-container > label:nth-of-type(1)", salutationProspect);
         page.fill(".contact-info-container > label:nth-of-type(3)", lastNameProspect);
         page.fill(".contact-info-container > label:nth-of-type(4)", titleProspect);
@@ -176,7 +176,7 @@ public class comportamientoBaseExcepciones extends consultasSqlCasosFallidos{
         page.click("text=MY LOGIK");
         page.click("text=Prospects");
         page.click(".prospect-list-landlord-button-container > button:nth-of-type(1)");
-        page.fill(".add-prospect-company-container > label:nth-of-type(1)", nameCompanyProspect);
+        page.fill(".add-prospect-company-container > label:nth-of-type(1)", nameCase);
         page.selectOption(".contact-info-container > label:nth-of-type(1)", salutationProspect);
         page.fill(".contact-info-container > label:nth-of-type(2)", firstNameProspect);
         page.fill(".contact-info-container > label:nth-of-type(4)", titleProspect);
@@ -198,7 +198,7 @@ public class comportamientoBaseExcepciones extends consultasSqlCasosFallidos{
         page.click("text=MY LOGIK");
         page.click("text=Prospects");
         page.click(".prospect-list-landlord-button-container > button:nth-of-type(1)");
-        page.fill(".add-prospect-company-container > label:nth-of-type(1)", nameCompanyProspect);
+        page.fill(".add-prospect-company-container > label:nth-of-type(1)", nameCase);
         page.selectOption(".contact-info-container > label:nth-of-type(1)", salutationProspect);
         page.fill(".contact-info-container > label:nth-of-type(2)", firstNameProspect);
         page.fill(".contact-info-container > label:nth-of-type(3)", lastNameProspect);
@@ -218,7 +218,7 @@ public class comportamientoBaseExcepciones extends consultasSqlCasosFallidos{
         page.click("text=MY LOGIK");
         page.click("text=Prospects");
         page.click(".prospect-list-landlord-button-container > button:nth-of-type(1)");
-        page.fill(".add-prospect-company-container > label:nth-of-type(1)", nameCompanyProspect);
+        page.fill(".add-prospect-company-container > label:nth-of-type(1)", nameCase);
         page.selectOption(".contact-info-container > label:nth-of-type(1)", salutationProspect);
         page.fill(".contact-info-container > label:nth-of-type(2)", firstNameProspect);
         page.fill(".contact-info-container > label:nth-of-type(3)", lastNameProspect);
@@ -240,7 +240,7 @@ public class comportamientoBaseExcepciones extends consultasSqlCasosFallidos{
         page.click("text=MY LOGIK");
         page.click("text=Prospects");
         page.click(".prospect-list-landlord-button-container > button:nth-of-type(1)");
-        page.fill(".add-prospect-company-container > label:nth-of-type(1)", nameCompanyProspect);
+        page.fill(".add-prospect-company-container > label:nth-of-type(1)", nameCase);
         page.selectOption(".contact-info-container > label:nth-of-type(1)", salutationProspect);
         page.fill(".contact-info-container > label:nth-of-type(2)", firstNameProspect);
         page.fill(".contact-info-container > label:nth-of-type(3)", lastNameProspect);

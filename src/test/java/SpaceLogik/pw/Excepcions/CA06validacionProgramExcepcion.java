@@ -18,9 +18,9 @@ public class CA06validacionProgramExcepcion extends robotBaseSpaceLogik {
     public void CA062validacionNombreVacioAutoProgramExcepcion(){
         System.out.println("Iniciando caso de prueba...");
         iniciarVariablesAutoProgramFeliz();
-        nameRoomAutoProgram="pruebAutomatizada34-validacionNombreVacioAutoProgramExcepcion";
         System.out.println("El caso de prueba CA062 se va a ejecutar "+ejecutar+" veces");
         for(contador=1;contador<=ejecutar;contador++) {
+            nameRoomAutoProgram = nameRoomAutoProgram+".34-validacionNombreVacioAutoProgramExcepcion"+contador;
             login();
             excepcionAutoProgramNombreVacio();
             page.focus("#root");
@@ -37,14 +37,14 @@ public class CA06validacionProgramExcepcion extends robotBaseSpaceLogik {
         excepcionProgramLevelVacio();
         page.focus("#root");
         Assertions.assertTrue(page.isVisible("text=Construction and furniture levels are required"));
-    }ESTE CASO YA NO APLICA*/
+    }------------------------------------------------------------------------------------------------->ESTE CASO YA NO APLICA*/
     @Test
     public void CA064validacionRoomNameVacionExcepcion(){
         System.out.println("Iniciando caso de prueba...");
         iniciarVariablesAutoProgramFeliz();
-        nameAutoProgram = "pruebAutomatizada36-validacionRoomNameVacionExcepcion";
         System.out.println("El caso de prueba CA064 se va a ejecutar "+ejecutar+" veces");
         for(contador=1;contador<=ejecutar;contador++) {
+            nameCase = nameRoomAutoProgram+".36-validacionRoomNameVacionExcepcion"+contador;
             login();
             excepcionProgramRoomNameVacio();
             page.focus("#root");
@@ -56,10 +56,10 @@ public class CA06validacionProgramExcepcion extends robotBaseSpaceLogik {
     public void CA065validacionAreaListVacioExcepcion(){
         System.out.println("Iniciando caso de prueba...");
         iniciarVariablesAutoProgramFeliz();
-        nameAutoProgram="pruebAutomatizada37-validacionAreaListVacioExcepcion";
-        nameRoomAutoProgram="pruebAutomatizada37-validacionAreaListVacioExcepcion";
         System.out.println("El caso de prueba CA065 se va a ejecutar "+ejecutar+" veces");
         for(contador=1;contador<=ejecutar;contador++) {
+            nameCase = nameRoomAutoProgram+".37-validacionAreaListVacioExcepcion.Ejecuciones:"+contador;
+            nameRoomAutoProgram=nameCase;
             login();
             excepcionProgramAreaListVacio();
             page.focus("#root");

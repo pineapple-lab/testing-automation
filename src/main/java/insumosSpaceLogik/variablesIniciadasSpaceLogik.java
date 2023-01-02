@@ -15,6 +15,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoscrearpaymentcancelationpequeño WHERE estado = 0 ORDER BY RAND() LIMIT 1");
             while(rs.next()){
                 ejecutar =rs.getInt(rs.findColumn("ejecutar"));
+                nameProposal = rs.getString(rs.findColumn("nameProposal"));
                 term = rs.getString(rs.findColumn("term"));
                 startingRate = rs.getString(rs.findColumn("startingRate"));
                 annualIncreases = rs.getString(rs.findColumn("annualIncreases"));
@@ -29,9 +30,9 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
                 prospect = rs.getString(rs.findColumn("prospect"));
                 program = rs.getString(rs.findColumn("program"));
             }
-            String query1 = "UPDATE testbdspacelogik.datoscrearpaymentcancelationpequeño SET estado = 1 WHERE startingRate="+"'"+term+"'";
+            String query1 = "UPDATE testbdspacelogik.datoscrearpaymentcancelationpequeño SET estado = 1 WHERE annualIncreases="+"'"+annualIncreases+"'";
             stm.executeUpdate(query1);
-            String query2 = "UPDATE testbdspacelogik.datoscrearpaymentcancelationpequeño SET estado = 0 WHERE startingRate!="+"'"+term+"'";
+            String query2 = "UPDATE testbdspacelogik.datoscrearpaymentcancelationpequeño SET estado = 0 WHERE annualIncreases!="+"'"+annualIncreases+"'";
             stm.executeUpdate(query2);
         }catch(Exception e){}
         sqlclose();
@@ -44,6 +45,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoscrearpaymentcancelationmediano WHERE estado = 0 ORDER BY RAND() LIMIT 1");
             while(rs.next()){
                 ejecutar =rs.getInt(rs.findColumn("ejecutar"));
+                nameProposal = rs.getString(rs.findColumn("nameProposal"));
                 term = rs.getString(rs.findColumn("term"));
                 startingRate = rs.getString(rs.findColumn("startingRate"));
                 annualIncreases = rs.getString(rs.findColumn("annualIncreases"));
@@ -58,9 +60,9 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
                 prospect = rs.getString(rs.findColumn("prospect"));
                 program = rs.getString(rs.findColumn("program"));
             }
-            String query1 = "UPDATE testbdspacelogik.datoscrearpaymentcancelationmediano SET estado = 1 WHERE startingRate="+"'"+term+"'";
+            String query1 = "UPDATE testbdspacelogik.datoscrearpaymentcancelationmediano SET estado = 1 WHERE term="+"'"+term+"'";
             stm.executeUpdate(query1);
-            String query2 = "UPDATE testbdspacelogik.datoscrearpaymentcancelationmediano SET estado = 0 WHERE startingRate!="+"'"+term+"'";
+            String query2 = "UPDATE testbdspacelogik.datoscrearpaymentcancelationmediano SET estado = 0 WHERE term!="+"'"+term+"'";
             stm.executeUpdate(query2);
         }catch(Exception e){}
         sqlclose();
@@ -73,6 +75,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoscrearpaymentcancelationgrande WHERE estado = 0 ORDER BY RAND() LIMIT 1");
             while(rs.next()){
                 ejecutar =rs.getInt(rs.findColumn("ejecutar"));
+                nameProposal = rs.getString(rs.findColumn("nameProposal"));
                 term = rs.getString(rs.findColumn("term"));
                 startingRate = rs.getString(rs.findColumn("startingRate"));
                 annualIncreases = rs.getString(rs.findColumn("annualIncreases"));
@@ -87,9 +90,9 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
                 prospect = rs.getString(rs.findColumn("prospect"));
                 program = rs.getString(rs.findColumn("program"));
             }
-            String query1 = "UPDATE testbdspacelogik.datoscrearpaymentcancelationgrande SET estado = 1 WHERE startingRate="+"'"+term+"'";
+            String query1 = "UPDATE testbdspacelogik.datoscrearpaymentcancelationgrande SET estado = 1 WHERE term="+"'"+term+"'";
             stm.executeUpdate(query1);
-            String query2 = "UPDATE testbdspacelogik.datoscrearpaymentcancelationgrande SET estado = 0 WHERE startingRate!="+"'"+term+"'";
+            String query2 = "UPDATE testbdspacelogik.datoscrearpaymentcancelationgrande SET estado = 0 WHERE term!="+"'"+term+"'";
             stm.executeUpdate(query2);
         }catch(Exception e){}
         sqlclose();
@@ -102,6 +105,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoscrearpaymentcancelationmuygrande WHERE estado = 0 ORDER BY RAND() LIMIT 1");
             while(rs.next()){
                 ejecutar =rs.getInt(rs.findColumn("ejecutar"));
+                nameProposal = rs.getString(rs.findColumn("nameProposal"));
                 term = rs.getString(rs.findColumn("term"));
                 startingRate = rs.getString(rs.findColumn("startingRate"));
                 annualIncreases = rs.getString(rs.findColumn("annualIncreases"));
@@ -116,9 +120,9 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
                 prospect = rs.getString(rs.findColumn("prospect"));
                 program = rs.getString(rs.findColumn("program"));
             }
-            String query1 = "UPDATE testbdspacelogik.datoscrearpaymentcancelationmuygrande SET estado = 1 WHERE startingRate="+"'"+term+"'";
+            String query1 = "UPDATE testbdspacelogik.datoscrearpaymentcancelationmuygrande SET estado = 1 WHERE annualIncreases="+"'"+annualIncreases+"'";
             stm.executeUpdate(query1);
-            String query2 = "UPDATE testbdspacelogik.datoscrearpaymentcancelationmuygrande SET estado = 0 WHERE startingRate!="+"'"+term+"'";
+            String query2 = "UPDATE testbdspacelogik.datoscrearpaymentcancelationmuygrande SET estado = 0 WHERE annualIncreases!="+"'"+annualIncreases+"'";
             stm.executeUpdate(query2);
         }catch(Exception e){}
         sqlclose();
@@ -151,6 +155,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoscrearprospect WHERE estado = 0 ORDER BY RAND() LIMIT 1");
             while(rs.next()){
                 ejecutar =rs.getInt(rs.findColumn("ejecutar"));
+                nameCompanyProspect = rs.getString(rs.findColumn("nameCompanyProspect"));
                 salutationProspect = rs.getString(rs.findColumn("salutation"));
                 firstNameProspect = rs.getString(rs.findColumn("firstName"));
                 lastNameProspect = rs.getString(rs.findColumn("lastName"));
@@ -397,6 +402,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
            while(rs.next()){
                ejecutar =rs.getInt(rs.findColumn("ejecutar"));
                saludoListingPrimaryLeasingContact = rs.getString(rs.findColumn("salutation"));
+               firstNameListingPrimaryLeasingContacts = rs.getString(rs.findColumn("firstName"));
                lastNameListingPrimaryLeasingContcts = rs.getString(rs.findColumn("lastName"));
                companyListingPrimaryLeasingContacts = rs.getString(rs.findColumn("company"));
                address1ListingPrimaryLeasingContacts = rs.getString(rs.findColumn("address1"));
@@ -439,6 +445,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
            ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoseditarsinglesuite WHERE estado = 0 ORDER BY RAND() LIMIT 1");
            while(rs.next()){
                ejecutar =rs.getInt(rs.findColumn("ejecutar"));
+               suiteDescriptionListingSingleSuite= rs.getString(rs.findColumn("suiteDescriptionListing"));
                dateAvailableListingSingleSuite = rs.getString(rs.findColumn("dateAvailable"));
                dateAvailableEndListingSingleSuite = rs.getString(rs.findColumn("dateAvailableEnd"));
                divisibleToListingSingleSuite = rs.getString(rs.findColumn("divisibleTo"));

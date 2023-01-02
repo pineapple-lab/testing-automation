@@ -27,7 +27,6 @@ public class CA035myDealFuncionEdit extends robotBaseSpaceLogik {
     }
     @Test
     public void CA0352validacionEditOfficeSize(){
-
         System.out.println("Iniciando caso de prueba...");
         iniciarVariablesEditMyDealOfficeSize();
         System.out.println("El caso CA0352 se va a ejecutar "+ejecutar+" veces");

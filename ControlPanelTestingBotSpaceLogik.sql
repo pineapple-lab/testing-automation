@@ -20,37 +20,37 @@
 																									/*testbdspacelogik.datoseditarroomoptions*/
 /*|--------------------AGREGAR CASOS DE PRUEBA------------------------------------|*/				/*testbdspacelogik.datoseditarsinglesuite*/
 /*|*/				 															/*|*/				
-/*|*/					/*PARA CASOS DE 2 CAMPOS*/								/*|*/				
+/*|*/					/*PARA CASOS DE 1 CAMPOS*/								/*|*/				
 /*|*/		INSERT INTO testbdspacelogik.nombredetabla 							/*|*/				
-/*|*/			VALUES("",FALSE);												/*|*/	
+/*|*/			VALUES("",FALSE,1);												/*|*/	
 /*|*/																			/*|*/	
-/*|*/					/*PARA CASOS DE 3 CAMPOS*/								/*|*/	
+/*|*/					/*PARA CASOS DE 2 CAMPOS*/								/*|*/	
 /*|*/		 INSERT INTO testbdspacelogik.nombredetabla 						/*|*/		
-/*|*/			VALUES("","",FALSE);	 										/*|*/
+/*|*/			VALUES("","",FALSE,1);	 										/*|*/
 /*|*/																			/*|*/
-/*|*/					/*PARA CASOS DE 4 CAMPOS*/								/*|*/	
+/*|*/					/*PARA CASOS DE 3 CAMPOS*/								/*|*/	
 /*|*/		INSERT INTO testbdspacelogik.nombredetabla							/*|*/
-/*|*/				VALUES("","","",FALSE);	  									/*|*/
+/*|*/			VALUES("","","",FALSE,1);	  									/*|*/
 /*|*/																			/*|*/
-/*|*/				    /*PARA CASOS DE 5 CAMPOS*/								/*|*/
+/*|*/				    /*PARA CASOS DE 4 CAMPOS*/								/*|*/
 /*|*/		INSERT INTO testbdspacelogik.nombredetabla							/*|*/
-/*|*/				VALUES("","","","",FALSE);									/*|*/
+/*|*/			VALUES("","","","",FALSE,1);									/*|*/
+/*|*/																			/*|*/
+/*|*/					/*PARA CASOS DE 10 CAMPOS*/								/*|*/
+/*|*/		INSERT INTO testbdspacelogik.nombredetabla 							/*|*/
+/*|*/			VALUES("","","","","","","","","","",FALSE,1);					/*|*/
 /*|*/																			/*|*/
 /*|*/					/*PARA CASOS DE 11 CAMPOS*/								/*|*/
-/*|*/		INSERT INTO testbdspacelogik.nombredetabla 							/*|*/
-/*|*/				VALUES("","","","","","","","","","",FALSE);				/*|*/
-/*|*/																			/*|*/
-/*|*/					/*PARA CASOS DE 12 CAMPOS*/								/*|*/
 /*|*/		INSERT INTO testbdspacelogik.nombredetabla							/*|*/
-/*|*/				VALUES("","","","","","","","","","","",FALSE);				/*|*/
+/*|*/			VALUES("","","","","","","","","","","",FALSE,1);				/*|*/
 /*|*/              																/*|*/
+/*|*/					/*PARA CASOS DE 13 CAMPOS*/								/*|*/
+/*|*/		INSERT INTO testbdspacelogik.nombredetabla 							/*|*/
+/*|*/			VALUES("","","","","","","","","","","","","",FALSE,1);	 		/*|*/  
+/*|*/																			/*|*/
 /*|*/					/*PARA CASOS DE 14 CAMPOS*/								/*|*/
 /*|*/		INSERT INTO testbdspacelogik.nombredetabla 							/*|*/
-/*|*/				VALUES("","","","","","","","","","","","","",FALSE);	 	/*|*/  
-/*|*/																			/*|*/
-/*|*/					/*PARA CASOS DE 15 CAMPOS*/								/*|*/
-/*|*/		INSERT INTO testbdspacelogik.nombredetabla 							/*|*/
-/*|*/				VALUES("","","","","","","","","","","","","","",FALSE);	/*|*/
+/*|*/			VALUES("","","","","","","","","","","","","","",FALSE,1);		/*|*/
 /*|-------------------------------------------------------------------------------|*/
 	
 

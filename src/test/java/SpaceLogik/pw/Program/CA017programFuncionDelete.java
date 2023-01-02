@@ -10,19 +10,21 @@ public class CA017programFuncionDelete extends robotBaseSpaceLogik {
 
     @Test
     public void CA0171validacionDeleteProgram(){
+        iniciarVariablesAutoProgramFeliz();
         Keyboard kb = page.keyboard();
-        nameProgram = nameRoomAutoProgram+"23-validacionDeleteProgram";
+        nameCase = nameRoomAutoProgram+"23-validacionDeleteProgram";
+        assertions="text="+nameCase;
         login();
         crearPrograma();
         page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=pruebAutomatizada23-validacionDeleteProgram"));
+        Assertions.assertTrue(page.isVisible(assertions));
         page.focus(".my-programs-header input");
-        kb.insertText("pruebAutomatizada23-validacionDeleteProgram");
+        kb.insertText(nameCase);
         archivarPrograma();
         page.focus("#root");
-        Assertions.assertFalse(page.isVisible("text=pruebAutomatizada23-validacionDeleteProgram"));
+        Assertions.assertFalse(page.isVisible(assertions));
         borrarPrograma();
         page.focus("#root");
-        Assertions.assertFalse(page.isVisible("text=pruebAutomatizada23-validacionDeleteProgram"));
+        Assertions.assertFalse(page.isVisible(assertions));
     }
 }

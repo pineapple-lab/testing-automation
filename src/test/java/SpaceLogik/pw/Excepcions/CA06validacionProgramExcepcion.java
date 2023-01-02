@@ -20,7 +20,7 @@ public class CA06validacionProgramExcepcion extends robotBaseSpaceLogik {
         iniciarVariablesAutoProgramFeliz();
         System.out.println("El caso de prueba CA062 se va a ejecutar "+ejecutar+" veces");
         for(contador=1;contador<=ejecutar;contador++) {
-            nameRoomAutoProgram = nameRoomAutoProgram+".34-validacionNombreVacioAutoProgramExcepcion"+contador;
+            nameRoomAutoProgram = nameRoomAutoProgram+".34-validacionNombreVacioAutoProgramExcepcion.Ejecuciones"+contador;
             login();
             excepcionAutoProgramNombreVacio();
             page.focus("#root");
@@ -44,7 +44,7 @@ public class CA06validacionProgramExcepcion extends robotBaseSpaceLogik {
         iniciarVariablesAutoProgramFeliz();
         System.out.println("El caso de prueba CA064 se va a ejecutar "+ejecutar+" veces");
         for(contador=1;contador<=ejecutar;contador++) {
-            nameCase = nameRoomAutoProgram+".36-validacionRoomNameVacionExcepcion"+contador;
+            nameCase = nameRoomAutoProgram+".36-validacionRoomNameVacionExcepcion.Ejecuciones"+contador;
             login();
             excepcionProgramRoomNameVacio();
             page.focus("#root");

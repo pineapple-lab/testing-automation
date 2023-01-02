@@ -15,7 +15,7 @@ public class CA024proposalFuncionPaymentCancelation extends robotBaseSpaceLogik 
         iniciarVariablesPropposalValoresPequeños();
         System.out.println("El caso CA0241 se va a ejecutar "+ejecutar+" veces");
         for(contador=1; contador<=ejecutar;contador++) {
-            nameCase = nameProposal+".2-PaymentCancelationPequeño.ejecuciones:"+contador;
+            nameCase = nameProposal+".2-PaymentCancelationPequeño.Ejecuciones:"+contador;
             login();
             llenarProposal();
             page.focus("#root");
@@ -35,7 +35,7 @@ public class CA024proposalFuncionPaymentCancelation extends robotBaseSpaceLogik 
         iniciarVariablesPropposalValoresMedianos();
         System.out.println("El caso CA0242 se va ejecutar "+ejecutar+" veces");
         for(contador=1;contador<=ejecutar;contador++) {
-            nameCase = nameProposal+".3-PaymentCancelationMediano.ejecuciones:"+contador;
+            nameCase = nameProposal+".3-PaymentCancelationMediano.Ejecuciones:"+contador;
             login();
             llenarProposal();
             page.focus("#root");
@@ -55,7 +55,7 @@ public class CA024proposalFuncionPaymentCancelation extends robotBaseSpaceLogik 
         iniciarVariablesPropposalValoresGrandes();
         System.out.println("El caso CA0243 se va ejecutar "+ejecutar+" veces");
         for(contador=1;contador<=ejecutar;contador++) {
-        nameCase = nameProposal+".4-PaymentCancelationGrande.ejecuciones:"+contador;
+        nameCase = nameProposal+".4-PaymentCancelationGrande.Ejecuciones:"+contador;
         login();
         llenarProposal();
         page.focus("#root");
@@ -75,7 +75,7 @@ public class CA024proposalFuncionPaymentCancelation extends robotBaseSpaceLogik 
         iniciarVariablesPropposalValoresMuyGrandes();
         System.out.println("El caso CA0245 se va ejecutar "+ejecutar+" veces");
         for(contador=1;contador<=ejecutar;contador++) {
-        nameCase = nameProposal+".5-PaymentCancelationMuyGrande.ejecuciones:"+contador;
+        nameCase = nameProposal+".5-PaymentCancelationMuyGrande.Ejecuciones:"+contador;
         login();
         llenarProposal();
         page.focus("#root");

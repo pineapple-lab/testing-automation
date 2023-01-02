@@ -9,10 +9,11 @@ public class CA023proposalFuncionNuevaVersion extends robotBaseSpaceLogik {
     @Test
     public void CA0231validacionCrearNuevaVersion(){
         System.out.println("Iniciando caso de prueba...");
-        nameProposal = "pruebAutomatizada8-validacionNuevaVersion";
         iniciarVariablesCreacionProposal();
         System.out.println("El caso CA0231 se va a ejecutar "+ejecutar+" veces");
         for(contador=1; contador <= ejecutar ;contador++) {
+            nameCase=nameProposal+".8-validacionNuevaVersion.Ejecuciones:"+contador;
+            assertions="text="+nameCase;
             obtenerFecha();
             login();
             crearProposal();
@@ -24,18 +25,18 @@ public class CA023proposalFuncionNuevaVersion extends robotBaseSpaceLogik {
             page.click("text=BUILDINGS");
             page.click("text=Proposals");
             page.focus("#root");
-            Assertions.assertTrue(page.isVisible("text=pruebAutomatizada8-validacionNuevaVersion (" + formattedDate + " - Revision 1)"));
+            Assertions.assertTrue(page.isVisible(assertions+"(" + formattedDate + " - Revision 1)"));
             System.out.println("El caso CA0231 se ejecuto"+contador+" veces");
         }
     }
     @Test
     public void CA0232validacionPaymentNuevaVersion(){
         System.out.println("Iniciando caso de pruebaa...");
-        nameProposal = "pruebAutomatizada9-validacionPaymentNuevaVersion";
         iniciarVariablesCreacionProposal();
         iniciarVariablesPropposalValoresMedianos();
         System.out.println("El caso CA0232 se va a ejecutar "+ejecutar+" veces");
         for(contador=1;contador<=ejecutar;contador++) {
+            nameCase=nameProposal+"9-validacionPaymentNuevaVersion"+contador;
             login();
             crearProposal();
             llenarProposal();

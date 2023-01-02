@@ -11,14 +11,16 @@ public class CA018programFuncionEdit extends robotBaseSpaceLogik {
 
         @Test
         public void CA0181validacionAddRoom(){
+        iniciarVariablesAutoProgramFeliz();
         Keyboard kb = page.keyboard();
-        nameProgram="pruebAutomatizada24-validacionAddRoom";
+        nameCase=nameRoomAutoProgram+"24-validacionAddRoom";
+        assertions="text="+nameCase;
         login();
         crearPrograma();
         page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=pruebAutomatizada24-validacionAddRoom"));
+        Assertions.assertTrue(page.isVisible(assertions));
         page.focus(".my-programs-header input");
-        kb.insertText("pruebAutomatizada24-validacionAddRoom");
+        kb.insertText(nameCase);
         crearRoom();
         page.focus("#root");
         Assertions.assertTrue(page.isVisible("text=Room created successfully"));

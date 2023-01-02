@@ -225,7 +225,6 @@ public class CA08validacionProspectExcepcion extends robotBaseSpaceLogik {
         System.out.println("Iniciando caso de prueba...");
         iniciarVariablesProspectFeliz();
         iniciarVariablesEditManualBrokerFeliz();
-        nameCompanyProspect="pruebAutomatizada";
         System.out.println("El caso CA0815 se va a ejecutar "+ejecutar+" veces");
         for (contador=1;contador<=ejecutar;contador++) {
             nameCase=nameCompanyProspect+".49-validacionEditBrokerEmailFormatoIncorrectoExcepcion.Ejecuciones:"+contador;
@@ -261,9 +260,9 @@ public class CA08validacionProspectExcepcion extends robotBaseSpaceLogik {
         iniciarVariablesProspectFeliz();
         iniciarVariablesEditManualBrokerFeliz();
         System.out.println("El caso CA0817 se va a ejecutar "+ejecutar+" veces");
-        nameCase=nameCompanyProspect+".51-validacionEditBrokerZipCodeVacioExcepcion.Ejecuciones:"+contador;
-        firstNameEditBrokerManual=nameCase;
         for (contador=1;contador<=ejecutar;contador++) {
+            nameCase=nameCompanyProspect+".51-validacionEditBrokerZipCodeVacioExcepcion.Ejecuciones:"+contador;
+            firstNameEditBrokerManual=nameCase;
             login();
             crearProspect();
             excepcionProspectZipCodeVacioEditBrokerInfo();

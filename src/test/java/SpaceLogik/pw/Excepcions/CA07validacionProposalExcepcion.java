@@ -35,15 +35,15 @@ public class CA07validacionProposalExcepcion extends robotBaseSpaceLogik {
         iniciarVariablesCreacionProposal();
         System.out.println("El caso CA073 se va a ejecutar "+ejecutar+" veces");
         for(contador=1;contador<=ejecutar;contador++) {
-        nameCase=nameProposal+".34-validacionExcepcionPropposalDuplicadoArchivado.Ejecuciones:"+contador;
-        login();
-        crearProposal();
-        archivarProposal();
-        crearProposal();
-        page.focus("body > div:nth-child(4) > div");
-        Assertions.assertTrue(page.isVisible( "text=Proposal name exists already for this prospect"));
-        Assertions.assertTrue(page.isVisible("text=Proposal name exists already for this prospect"));
-        System.out.println("El caso CA073 se ejecuto "+contador+" veces");
+            nameCase=nameProposal+".34-validacionExcepcionPropposalDuplicadoArchivado.Ejecuciones:"+contador;
+            login();
+            crearProposal();
+            archivarProposal();
+            crearProposal();
+            page.focus("body > div:nth-child(4) > div");
+            Assertions.assertTrue(page.isVisible( "text=Proposal name exists already for this prospect"));
+            Assertions.assertTrue(page.isVisible("text=Proposal name exists already for this prospect"));
+            System.out.println("El caso CA073 se ejecuto "+contador+" veces");
         }
     }
 }

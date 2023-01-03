@@ -16,12 +16,12 @@ public class CA021proposalFuncionCrear extends robotBaseSpaceLogik {
             System.out.println("El caso CA0211 se va a ejecutar: "+ejecutar+" veces");
             for (contador=1; contador <= ejecutar; contador++){
                 nameCase = nameProposal+".1validacioncrearProposal.Ejecuciones:"+contador;
-                assertions = "text="+nameCase;
                 login();
                 crearProposal();
                 page.focus(".proposal-list-table-container");
                 sqlGuardarCasoSiFallaCrearProposal();
                 System.out.println("El caso CA0211 se ejecuto: "+contador+" veces");
+                assertions = "text="+nameCase;
                 Assertions.assertTrue(page.isVisible(assertions));
             }
         }

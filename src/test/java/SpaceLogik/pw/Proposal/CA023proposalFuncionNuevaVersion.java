@@ -18,14 +18,14 @@ public class CA023proposalFuncionNuevaVersion extends robotBaseSpaceLogik {
             login();
             crearProposal();
             page.focus("#root");
-            Assertions.assertTrue(page.isVisible("text=pruebAutomatizada8-validacionNuevaVersion"));
+            Assertions.assertTrue(page.isVisible(assertions));
             crearNuevaVersion();
             page.focus("#root");
             Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
             page.click("text=BUILDINGS");
             page.click("text=Proposals");
             page.focus("#root");
-            Assertions.assertTrue(page.isVisible(assertions+"(" + formattedDate + " - Revision 1)"));
+            Assertions.assertTrue(page.isVisible(assertions+" (" + formattedDate + " - Revision 1)"));
             System.out.println("El caso CA0231 se ejecuto"+contador+" veces");
         }
     }
@@ -38,12 +38,12 @@ public class CA023proposalFuncionNuevaVersion extends robotBaseSpaceLogik {
         for(contador=1;contador<=ejecutar;contador++) {
             nameCase=nameProposal+"9-validacionPaymentNuevaVersion"+contador;
             login();
-            crearProposal();
             llenarProposal();
             page.focus("#root");
             Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
             page.focus(".proposal-calculation-container h3:nth-of-type(2)");
-            Assertions.assertTrue(page.isVisible("text=$952,578"));
+            assertions="text="+assertionPenaltyAmount;
+            Assertions.assertTrue(page.isVisible(assertions));
             page.click("text=BUILDINGS");
             page.click("text=Proposals");
             crearNuevaVersion();
@@ -53,7 +53,7 @@ public class CA023proposalFuncionNuevaVersion extends robotBaseSpaceLogik {
             page.click("text=Proposals");
             page.click("tr:last-child .proposal-list-name-column ~ td:last-child div > button:first-child");
             page.focus(".proposal-calculation-container h3:nth-of-type(2)");
-            Assertions.assertTrue(page.isVisible("text=$952,578"));
+            Assertions.assertTrue(page.isVisible(assertions));
             System.out.println("El caso CA0232 se ejecuto"+contador+" veces");
         }
 

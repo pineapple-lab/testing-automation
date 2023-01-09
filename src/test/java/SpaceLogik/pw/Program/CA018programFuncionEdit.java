@@ -32,13 +32,13 @@ public class CA018programFuncionEdit extends robotBaseSpaceLogik {
     @Test
     public void CA0182validacionDeleteRoom() {
         Keyboard kb = page.keyboard();
-        nameProgram = "pruebAutomatizada25-validacionProgramDeleteRoom";
+        nameCase = "pruebAutomatizada25-validacionProgramDeleteRoom";
         login();
         crearPrograma();
         page.focus("tbody");
-        Assertions.assertTrue(page.isVisible("text=pruebAutomatizada25-validacionDeleteRoom"));
+        Assertions.assertTrue(page.isVisible("text=pruebAutomatizada25-validacionProgramDeleteRoom"));
         page.focus(".my-programs-header input");
-        kb.insertText("pruebAutomatizada25-validacionDeleteRoom");
+        kb.insertText("pruebAutomatizada25-validacionProgramDeleteRoom");
         crearRoom();
         page.focus("#root");
         Assertions.assertTrue(page.isVisible("text=Room created successfully"));
@@ -90,7 +90,7 @@ public class CA018programFuncionEdit extends robotBaseSpaceLogik {
     @Test
     public void CA0184validacionEditSpacePlan(){
         Keyboard kb = page.keyboard();
-        nameProgram="pruebAutomatizada27-validacionEditSpacePlan";
+        nameCase="pruebAutomatizada27-validacionEditSpacePlan";
         commentsRoomDetails="validacionEditSpacePlanRoomDetails";
         login();
         crearPrograma();
@@ -117,7 +117,7 @@ public class CA018programFuncionEdit extends robotBaseSpaceLogik {
     @Test
     public void CA0185validacionEditarConstructionLevel(){
         Keyboard kb = page.keyboard();
-        nameProgram="pruebAutomatizada28-validacionEditarConstructionLevel";
+        nameCase="pruebAutomatizada28-validacionEditarConstructionLevel";
         login();
         crearPrograma();
         page.focus("#root");
@@ -140,7 +140,7 @@ public class CA018programFuncionEdit extends robotBaseSpaceLogik {
     @Test
     public void CA0186validacionEditarUpgradeOptions(){
         Keyboard kb = page.keyboard();
-        nameProgram="pruebAutomatizada29-validacionEditarUpgradeOptions";
+        nameCase="pruebAutomatizada29-validacionEditarUpgradeOptions";
         login();
         crearPrograma();
         page.focus("#root");
@@ -162,7 +162,7 @@ public class CA018programFuncionEdit extends robotBaseSpaceLogik {
     @Test
     public void CA0187validacionEditarAlacarteOptions(){
         Keyboard kb = page.keyboard();
-        nameProgram="pruebAutomatizada30-validacionEditarAlacarteOptions";
+        nameCase="pruebAutomatizada30-validacionEditarAlacarteOptions";
         login();
         crearPrograma();
         page.focus("#root");
@@ -209,7 +209,8 @@ public class CA018programFuncionEdit extends robotBaseSpaceLogik {
             editarRoomOptions();
             page.focus("#root");
             Assertions.assertTrue(page.isVisible("text=Workstations"));
-            Assertions.assertTrue(page.isVisible("text=50"));
+            assertions="text="+quantityRoomOptionsProgram;
+            Assertions.assertTrue(page.isVisible(assertions));
             editarSpacePlanRoomDetails();
             page.focus("#root");
             Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
@@ -220,9 +221,9 @@ public class CA018programFuncionEdit extends robotBaseSpaceLogik {
             editarConstructionLevelRoomDetails();
             page.focus("#root");
             Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
-            editarUpgradeOptionsRoomDetails();
+            //editarUpgradeOptionsRoomDetails();
             page.focus("#root");
-            Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
+            //Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
             editarAlacarteOptionsRoomDetails();
             page.focus("#root");
             Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));

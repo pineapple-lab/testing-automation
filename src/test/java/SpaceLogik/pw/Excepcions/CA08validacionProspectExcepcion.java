@@ -231,6 +231,7 @@ public class CA08validacionProspectExcepcion extends robotBaseSpaceLogik {
             firstNameEditBrokerManual=nameCase;
             login();
             crearProspect();
+            emailEditBrokerManual="emailconformatoincorrecto";
             excepcionProspectEmailFormatoIncorrectoEditBrokerInfo();
              page.focus("#root");
              Assertions.assertTrue(page.isVisible("text=Invalid email address"));

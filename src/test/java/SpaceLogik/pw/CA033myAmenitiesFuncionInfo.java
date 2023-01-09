@@ -37,7 +37,7 @@ public class CA033myAmenitiesFuncionInfo extends robotBaseSpaceLogik {
         page.click("text = My Amenities");
         page.click(".amenities-table-container tbody tr:nth-of-type(3) td:nth-of-type(1)");
         page.focus(".building-info-column-amenities");
-        Assertions.assertTrue(page.isVisible("text=FOOD SERVICE / RESTAURANT(S)"));
+        Assertions.assertTrue(page.isVisible("text=FOOD SERVICE / RESTAURANT"));
         Assertions.assertTrue(page.isVisible("text=FEATURES"));
         Assertions.assertTrue(page.isVisible("text=Breakfast"));
         Assertions.assertTrue(page.isVisible("text=Speciality coffee"));

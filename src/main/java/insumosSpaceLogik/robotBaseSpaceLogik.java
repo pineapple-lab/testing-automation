@@ -53,6 +53,7 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         Keyboard kb = page.keyboard();
         page.click("text=MY LOGIK");
         page.click("text = My Deal");
+        page.click(".deal-lease-selector-container > div:nth-of-type(2) input");
         page.click(".deal-location-option-container:nth-of-type(1) div:nth-of-type(2) input");
         page.focus(".deal-current-location-container input");
         kb.press("Control+Shift+End");
@@ -99,8 +100,8 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
     public void editarMyPreferenceFinancialDefaults(){
         page.click("text=MY LOGIK");
         page.click("text = My Preferences");
-        page.click(".number-changer-body:nth-of-type(1) button:nth-of-type(2)");
-        page.click(".number-changer-body:nth-of-type(3) button:nth-of-type(1)");
+        page.click(".number-changer-answer-wrapper > div:nth-of-type(1) button:nth-of-type(2)");
+        page.click(".number-changer-answer-wrapper > div:nth-of-type(2) button:nth-of-type(1)");
         page.click(".tenant-preference-component:nth-of-type(3) .component-title button");
     }
     public void editarMyPreferencesYourIndustry(){
@@ -578,7 +579,7 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.click(".app-sidebar__inner > div > ul > li:nth-of-type(3)");
         page.click("text=Programs");
         page.focus(".my-programs-header input");
-        kb.insertText(nameProgram);
+        kb.insertText(nameCase);
         page.click(".program-list-table-container tr:last-child div button:nth-of-type(1)");
         page.click(".program-room-list-table-container tr:last-child td:nth-of-type(2)");
         page.click(".program-room-header button:nth-of-type(2)");

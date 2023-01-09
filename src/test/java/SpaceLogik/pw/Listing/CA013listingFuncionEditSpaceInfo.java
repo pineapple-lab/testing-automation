@@ -14,7 +14,7 @@ public class CA013listingFuncionEditSpaceInfo extends robotBaseSpaceLogik {
             login();
             editarListingBuildingRsf();
             page.focus("#root");
-            assertions = "text=ASDFASDFSF";//Changes saved successfully
+            assertions = "text=Changes saved successfully";
             sqlGuardarCasoSiFallaEditarBuildingRsf();
             Assertions.assertTrue(page.isVisible(assertions));
             System.out.println("El caso CA0131 se ejecuto "+contador+" veces");

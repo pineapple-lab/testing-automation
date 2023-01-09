@@ -15,7 +15,7 @@ public class CA014programFuncionArchivar extends robotBaseSpaceLogik {
         login();
         crearPrograma();
         page.focus(".my-programs-header input");
-        kb.insertText(assertions);
+        kb.insertText(nameCase);
         archivarPrograma();
         page.focus("#root");
         Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));

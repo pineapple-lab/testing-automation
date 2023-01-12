@@ -19,6 +19,6 @@ public class CA03compareFuncionSave extends robotBaseSpaceLogik {
         Assertions.assertTrue(page.isVisible("text=Comparison saved successfully"));
         abrirCompare();
         page.focus(".building-list-component table");
-        Assertions.assertFalse(page.getByLabel("200 N LaSalle").isChecked());
+        Assertions.assertFalse(page.getByLabel("150 N. Michigan Ave").isChecked());
     }
 }

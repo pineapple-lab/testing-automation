@@ -1,6 +1,7 @@
 package insumosSpaceLogik;
 
 import com.microsoft.playwright.Keyboard;
+import org.junit.jupiter.api.Assertions;
 
 import javax.swing.text.DateFormatter;
 import java.sql.Statement;
@@ -480,11 +481,13 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.selectOption(".new-proposal-modal-container label:nth-of-type(3)", prospect);
         page.selectOption(".new-proposal-modal-container label:nth-of-type(4)", program);
         page.click(".new-proposal-modal-button-container button:nth-of-type(1)");
+        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
     }
     public void archivarProposal() {
         page.click("text=Proposals");
         page.click("tr:last-child .proposal-list-name-column ~ td:last-child div > button:nth-of-type(4)");
         page.click(".proposal-modal-button-container button:nth-of-type(1)");
+        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
     }
     public void eliminarProposal() {
         page.click("text=Proposals");
@@ -608,8 +611,12 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
     }
     public void editarUpgradeOptionsRoomDetails(){
         page.click(".program-room-detail-areas-container button:nth-of-type(3)");
-        page.click(".room-details-construction-component:nth-of-type(2) input");
-        page.click(".room-details-construction-component:nth-of-type(2) .room-details-save-button");
+        page.focus("#root");
+        assertions=".room-details-construction-container > div:nth-of-type(2) input";
+        if(page.isVisible(assertions)==true) {
+            page.click(".room-details-construction-component:nth-of-type(2) input");
+            page.click(".room-details-construction-component:nth-of-type(2) .room-details-save-button");
+        }
     }
     public void editarAlacarteOptionsRoomDetails(){
         page.click(".program-room-detail-areas-container button:nth-of-type(3)");
@@ -680,7 +687,7 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
     }
     public void crearCompareTerm3(){
         Keyboard kb = page.keyboard();
-        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
+        //page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
         page.click("text=Compare");
         page.click(".term-selection-container button:nth-of-type(1)");
         page.focus(".compare-building-list-table tbody tr:nth-of-type(1) input");
@@ -694,10 +701,11 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.focus(".save-comparison-as-modal-input");
         kb.insertText(nameComparison);
         page.click(".button-container button:nth-of-type(1)");
+        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
     }
     public void crearCompareTerm5(){
         Keyboard kb = page.keyboard();
-        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
+        //page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
         page.click("text=Compare");
         page.click(".term-selection-container button:nth-of-type(2)");
         page.focus(".compare-building-list-table tbody tr:nth-of-type(1) input");
@@ -711,10 +719,11 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.focus(".save-comparison-as-modal-input");
         kb.insertText(nameComparison);
         page.click(".button-container button:nth-of-type(1)");
+        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
     }
     public void crearCompareTerm7(){
         Keyboard kb = page.keyboard();
-        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
+        //page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
         page.click("text=Compare");
         page.click(".term-selection-container button:nth-of-type(3)");
         page.click(".compare-building-list-table tbody tr:nth-of-type(1) input");
@@ -727,10 +736,11 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.focus(".save-comparison-as-modal-input");
         kb.insertText(nameComparison);
         page.click(".button-container button:nth-of-type(1)");
+        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
     }
     public void crearCompareTerm10(){
         Keyboard kb = page.keyboard();
-        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
+        //page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
         page.click("text=Compare");
         page.click(".term-selection-container button:nth-of-type(4)");
         page.click(".compare-building-list-table tbody tr:nth-of-type(1) input");
@@ -743,10 +753,11 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.focus(".save-comparison-as-modal-input");
         kb.insertText(nameComparison);
         page.click(".button-container button:nth-of-type(1)");
+        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
     }
     public void crearCompareTerm12(){
         Keyboard kb = page.keyboard();
-        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
+        //page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
         page.click("text=Compare");
         page.click(".term-selection-container button:nth-of-type(5)");
         page.click(".compare-building-list-table tbody tr:nth-of-type(1) input");
@@ -762,7 +773,7 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
     }
     public void crearCompareTerm15(){
         Keyboard kb = page.keyboard();
-        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
+        //page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
         page.click("text=Compare");
         page.click(".term-selection-container button:nth-of-type(6)");
         page.click(".compare-building-list-table tbody tr:nth-of-type(1) input");
@@ -775,18 +786,21 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.focus(".save-comparison-as-modal-input");
         kb.insertText(nameComparison);
         page.click(".button-container button:nth-of-type(1)");
+        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
     }
     public void borrarCompare(){
-        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
+        //page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
         page.click("text=Compare");
         page.click(".compare-buildings-info-header button:nth-of-type(2)");
         page.click(".compare-list-modal-table tbody tr:last-child td:last-child button:nth-of-type(2)");
+        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
     }
     public void abrirCompare(){
-        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
+        //page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
         page.click("text=Compare");
         page.click(".compare-buildings-info-header button:nth-of-type(2)");
         page.click(".compare-list-modal-table tbody tr:last-child td:last-child button:nth-of-type(1)");
+        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
     }
     public void guardarCompare(){
         page.click(".compare-building-list-table tbody tr:nth-of-type(2) input");

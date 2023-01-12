@@ -16,6 +16,7 @@ public class robotBasePeppermint extends contextoBasePeppermint {
     }
 
     public void login(){
+
         Keyboard kb = page.keyboard();
         page.click("mat-toolbar > div:nth-of-type(3) button:nth-of-type(1)");
         page.focus(".bg-primary-contrast form > .mat-card-content app-mat-form-field:nth-of-type(1) input");

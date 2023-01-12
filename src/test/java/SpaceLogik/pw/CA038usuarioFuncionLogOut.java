@@ -11,7 +11,7 @@ public class CA038usuarioFuncionLogOut  extends robotBaseSpaceLogik {
     public void CA0381validacionLogut() {
         login();
         logout();
-        page.focus("#root");
+        page.focus(".LoginForm");
         Assertions.assertTrue(page.isVisible("text=Login"));
         Assertions.assertTrue(page.isVisible("text=LOG IN"));
         Assertions.assertTrue(page.isVisible("text=REGISTER NOW"));

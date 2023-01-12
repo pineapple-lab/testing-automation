@@ -8,7 +8,7 @@ public class comportamientoBaseExcepciones extends consultasSqlCasosFallidos{
         page.click("'LOG IN'");
     }
     public void excepcionProposalNombreVacio(){
-        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
+        //page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
         page.click("text=Proposals");
         page.click("[class=\"default-spacelogik-button\"]");
         page.click(".new-proposal-modal-button-container button:nth-of-type(1)");

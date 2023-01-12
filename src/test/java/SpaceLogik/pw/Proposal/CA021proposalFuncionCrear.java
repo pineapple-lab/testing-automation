@@ -19,9 +19,9 @@ public class CA021proposalFuncionCrear extends robotBaseSpaceLogik {
                 login();
                 crearProposal();
                 page.focus(".proposal-list-table-container");
+                assertions = "text="+nameCase;
                 sqlGuardarCasoSiFallaCrearProposal();
                 System.out.println("El caso CA0211 se ejecuto: "+contador+" veces");
-                assertions = "text="+nameCase;
                 Assertions.assertTrue(page.isVisible(assertions));
             }
         }

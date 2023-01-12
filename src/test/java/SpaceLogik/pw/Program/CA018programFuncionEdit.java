@@ -13,7 +13,7 @@ public class CA018programFuncionEdit extends robotBaseSpaceLogik {
         public void CA0181validacionAddRoom(){
         iniciarVariablesAutoProgramFeliz();
         Keyboard kb = page.keyboard();
-        nameCase=nameRoomAutoProgram+"24-validacionAddRoom";
+        nameCase=nameRoomAutoProgram+".24-validacionAddRoom";
         assertions="text="+nameCase;
         login();
         crearPrograma();
@@ -32,13 +32,15 @@ public class CA018programFuncionEdit extends robotBaseSpaceLogik {
     @Test
     public void CA0182validacionDeleteRoom() {
         Keyboard kb = page.keyboard();
-        nameCase = "pruebAutomatizada25-validacionProgramDeleteRoom";
+        iniciarVariablesAutoProgramFeliz();
+        nameCase = nameRoomAutoProgram+".25-validacionProgramDeleteRoom";
+        assertions="text="+nameCase;
         login();
         crearPrograma();
         page.focus("tbody");
-        Assertions.assertTrue(page.isVisible("text=pruebAutomatizada25-validacionProgramDeleteRoom"));
+        Assertions.assertTrue(page.isVisible(assertions));
         page.focus(".my-programs-header input");
-        kb.insertText("pruebAutomatizada25-validacionProgramDeleteRoom");
+        kb.insertText(nameCase);
         crearRoom();
         page.focus("#root");
         Assertions.assertTrue(page.isVisible("text=Room created successfully"));
@@ -221,9 +223,9 @@ public class CA018programFuncionEdit extends robotBaseSpaceLogik {
             editarConstructionLevelRoomDetails();
             page.focus("#root");
             Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
-            //editarUpgradeOptionsRoomDetails();
+            editarUpgradeOptionsRoomDetails();
             page.focus("#root");
-            //Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
+            Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
             editarAlacarteOptionsRoomDetails();
             page.focus("#root");
             Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));

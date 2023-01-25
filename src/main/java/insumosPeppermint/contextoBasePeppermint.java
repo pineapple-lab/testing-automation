@@ -6,6 +6,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 
+import java.nio.file.Paths;
+
 public class contextoBasePeppermint extends variablesIniciadasPeppermint {
 
     protected static Playwright playwright;
@@ -15,13 +17,15 @@ public class contextoBasePeppermint extends variablesIniciadasPeppermint {
     @BeforeAll
     static void launchBrowser(){
         playwright = Playwright.create();
-        browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false).setSlowMo(1050));
+        browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false).setSlowMo(1200));
+
     }
     @BeforeEach
     public void createContextAndPage(){
         context = browser.newContext();
         page = context.newPage();
         page.setViewportSize(1366, 768);
+
     }
     @AfterEach
     void closeContext(){ context.close(); }

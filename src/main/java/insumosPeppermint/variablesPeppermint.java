@@ -1,9 +1,16 @@
 package insumosPeppermint;
 
 public class variablesPeppermint extends conexionSQLpeppermint{
+    //controlador
+    public int contador;
+    public int ejecutar;
+
     public String assertions;
     public String linkDeNavegacion = "http://localhost:4200/";
 
+    //RUTAS
+    public String pathImage;
+    public String pathVideo;
     //LOGIN
     public String emailLogin = "admin@oluko.com";
     public String passwordLogin = "123123aA";
@@ -17,4 +24,15 @@ public class variablesPeppermint extends conexionSQLpeppermint{
     public String startTimeEventClub;
     public String endTimeEventClub;
     public String fechaGuardada;
+    //CREAR TECHNIQUE
+    public String titleTechnique;
+    public String descriptionTechnique;
+    //CREAR CLUB
+    public String titleClub;
+    public String descriptionClub;
+    public String categoryClub;
+    public String topicClub;
+    public String subtopicClub;
+    public String creatorClub;
+    public String tagClub;
 }

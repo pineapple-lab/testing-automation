@@ -3,13 +3,14 @@ package insumosPeppermint;
 import com.microsoft.playwright.Keyboard;
 import org.junit.jupiter.api.Test;
 
+import java.nio.file.Paths;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class robotBasePeppermint extends contextoBasePeppermint {
+public class robotBasePeppermint extends consultasSQLCasosFallidos {
     public String formattedDate;
     public void iniciarNavegacion(){
         page.navigate(linkDeNavegacion);
@@ -54,5 +55,33 @@ public class robotBasePeppermint extends contextoBasePeppermint {
         page.click(".mat-dialog-actions div:nth-of-type(2) button");
         page.click("app-publish-status-flow button:nth-of-type(3)");
         page.click("mat-dialog-container div:nth-of-type(2) button:nth-of-type(1)");
+    }
+    public void crearClub(){
+        Keyboard kb = page.keyboard();
+        page.click("body app-header mat-toolbar > div:nth-of-type(3) button:nth-of-type(4)");
+        page.click(".cdk-overlay-pane button:nth-of-type(2)");
+        page.click("body app-header mat-toolbar > div:nth-of-type(3) button:nth-of-type(4)");
+        page.click(".cdk-overlay-pane button:nth-of-type(13)");
+        page.click("a:nth-of-type(13)");
+        page.click("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)");
+        page.locator(".image-container:nth-of-type(1) input[type=file]").setInputFiles(Paths.get(pathImage));
+        page.click(".ma-auto button");
+        page.focus(".container > div:nth-of-type(2) app-mat-form-field input");
+        kb.insertText(titleClub);
+        page.click(".container > div:nth-of-type(2) app-generic-selects input");
+        page.click(".cdk-overlay-pane mat-option:nth-of-type("+creatorClub+")");
+        page.focus(".container > div:nth-of-type(3) > div:nth-of-type(1) app-mat-form-field textarea");
+        kb.insertText(descriptionClub);
+        page.click(".container > div:nth-of-type(3) > div:nth-of-type(1) app-mat-chips input");
+        page.click(".cdk-overlay-pane mat-option:nth-of-type("+tagClub+")");
+        page.click(".container > div:nth-of-type(3) > div:nth-of-type(2) app-generic-selects .size-generic-selects > div:nth-of-type(1) mat-form-field");
+        page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type("+categoryClub+")");
+        page.click(".container > div:nth-of-type(3) > div:nth-of-type(2) app-generic-selects .size-generic-selects > div:nth-of-type(2) mat-form-field");
+        page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type("+topicClub+")");
+        page.click(".container > div:nth-of-type(3) > div:nth-of-type(2) app-generic-selects .size-generic-selects > div:nth-of-type(3) mat-form-field");
+        page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type("+subtopicClub+")");
+        page.click("app-admin-top-bar > div button:nth-of-type(3)");
+        page.click("mat-dialog-container > div > div:nth-of-type(2) button");
+
     }
 }

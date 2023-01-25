@@ -11,6 +11,27 @@ import java.util.Date;
 
 public class variablesIniciadasPeppermint extends variablesPeppermint{
 
+
+    public void iniciarVariablesLogin(){
+
+        System.out.println("Iniciando variables...");
+        try {
+            sqlconectar();
+            Statement stm = CN.createStatement();
+            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.datoslogin WHERE estado = 0 ORDER BY RAND() LIMIT 1");
+            while(rs.next()){
+                ejecutar = rs.getInt(rs.findColumn("ejecuciones"));
+                emailLogin =rs.getString(rs.findColumn("userName"));
+                passwordLogin = rs.getString(rs.findColumn("userPassword"));
+            }
+            String query1 = "UPDATE testbdpeppermint.datoslogin SET estado = 1 WHERE userName="+"'"+emailLogin+"'";
+            stm.executeUpdate(query1);
+            String query2 = "UPDATE testbdpeppermint.datoslogin SET estado = 0 WHERE userName!="+"'"+emailLogin+"'";
+            stm.executeUpdate(query2);
+        }catch(Exception e){}
+        sqlclose();
+    }
+
     public void iniciarVariablesEvent() {
         String formattedDate;
         SimpleDateFormat dtf = new SimpleDateFormat("yyyy-MM-dd");
@@ -59,6 +80,54 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
                 }
             }catch (Exception e) {}
         }catch (Exception e) {}
+        sqlclose();
+    }
+
+    public void iniciarVariablesCrearTechnique(){
+        System.out.println("Iniciando variables...");
+        try {
+            sqlconectar();
+            Statement stm = CN.createStatement();
+            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.datoscreartechnique"); /*WHERE estado = 0 ORDER BY RAND() LIMIT 1");*/
+            while(rs.next()){
+                pathImage =rs.getString(rs.findColumn("imagepathTechnique"));
+                pathVideo = rs.getString(rs.findColumn("videopathTechnique"));
+                titleTechnique = rs.getString(rs.findColumn("titleTechnique"));
+                descriptionTechnique = rs.getString(rs.findColumn("descriptionTechnique"));
+
+            }
+            /*String query1 = "UPDATE testbdspacelogik.datoseditarroomoptions SET estado = 1 WHERE sequenceRoomOptions="+"'"+sequenceRoomOptionsProgram+"'";
+            stm.executeUpdate(query1);
+            String query2 = "UPDATE testbdspacelogik.datoseditarroomoptions SET estado = 0 WHERE sequenceRoomOptions!="+"'"+sequenceRoomOptionsProgram+"'";
+            stm.executeUpdate(query2);*/
+        }catch(Exception e){}
+        sqlclose();
+    }
+
+    public void iniciarVariablesCrearClub(){
+        System.out.println("Iniciando variables...");
+        try {
+            sqlconectar();
+            Statement stm = CN.createStatement();
+            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.datoscrearclub WHERE estado = 0 ORDER BY RAND() LIMIT 1");
+            while(rs.next()){
+                ejecutar = rs.getInt(rs.findColumn("ejecuciones"));
+                pathImage =rs.getString(rs.findColumn("pathImage"));
+                titleClub = rs.getString(rs.findColumn("titleClub"));
+                descriptionClub = rs.getString(rs.findColumn("descriptionClub"));
+                creatorClub = rs.getString(rs.findColumn("creatorClub"));
+                tagClub = rs.getString(rs.findColumn("creatorClub"));
+                categoryClub = rs.getString(rs.findColumn("creatorClub"));
+                topicClub = rs.getString(rs.findColumn("creatorClub"));
+                subtopicClub = rs.getString(rs.findColumn("creatorClub"));
+
+
+            }
+            String query1 = "UPDATE testbdpeppermint.datoscrearclub SET estado = 1 WHERE titleClub="+"'"+titleClub+"'";
+            stm.executeUpdate(query1);
+            String query2 = "UPDATE testbdpeppermint.datoscrearclub SET estado = 0 WHERE titleClub!="+"'"+titleClub+"'";
+            stm.executeUpdate(query2);
+        }catch(Exception e){}
         sqlclose();
     }
 }

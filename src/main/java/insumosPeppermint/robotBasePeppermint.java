@@ -26,11 +26,20 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         kb.insertText(passwordLogin);
         page.click(".bg-primary-contrast form > div:nth-of-type(3) button");
     }
+    public void logout(){
+        if(emailLogin.matches("admin@oluko.com")){
+            System.out.println("entre");
+            page.click("body app-header mat-toolbar > div:nth-of-type(3) button:nth-of-type(4)");
+            page.click(".cdk-overlay-pane button:nth-of-type(12)");
+        }else {
+        page.click("body app-header mat-toolbar > div:nth-of-type(3) button:nth-of-type(4)");
+        page.click(".cdk-overlay-pane button:nth-of-type(11)");}
 
+    }
     public void createEvent(){
         Keyboard kb = page.keyboard();
         page.click("body app-header mat-toolbar > div:nth-of-type(3) button:nth-of-type(4)");
-        page.click("#cdk-overlay-1 button:nth-of-type(2)");
+        page.click("#cdk-overlay-1 button:nth-of-type(1)");
         page.click("body app-header mat-toolbar > div:nth-of-type(3) button:nth-of-type(4)");
         page.click("#cdk-overlay-1 button:nth-of-type(13)");
         page.click("app-side-bar a:nth-of-type(3)");
@@ -59,7 +68,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
     public void crearClub(){
         Keyboard kb = page.keyboard();
         page.click("body app-header mat-toolbar > div:nth-of-type(3) button:nth-of-type(4)");
-        page.click(".cdk-overlay-pane button:nth-of-type(2)");
+        page.click(".cdk-overlay-pane button:nth-of-type(1)");
         page.click("body app-header mat-toolbar > div:nth-of-type(3) button:nth-of-type(4)");
         page.click(".cdk-overlay-pane button:nth-of-type(13)");
         page.click("a:nth-of-type(13)");
@@ -74,14 +83,45 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         kb.insertText(descriptionClub);
         page.click(".container > div:nth-of-type(3) > div:nth-of-type(1) app-mat-chips input");
         page.click(".cdk-overlay-pane mat-option:nth-of-type("+tagClub+")");
+        page.click(".container app-generic-selects > div > div > p");
         page.click(".container > div:nth-of-type(3) > div:nth-of-type(2) app-generic-selects .size-generic-selects > div:nth-of-type(1) mat-form-field");
         page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type("+categoryClub+")");
         page.click(".container > div:nth-of-type(3) > div:nth-of-type(2) app-generic-selects .size-generic-selects > div:nth-of-type(2) mat-form-field");
         page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type("+topicClub+")");
-        page.click(".container > div:nth-of-type(3) > div:nth-of-type(2) app-generic-selects .size-generic-selects > div:nth-of-type(3) mat-form-field");
-        page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type("+subtopicClub+")");
+        /*page.click(".container > div:nth-of-type(3) > div:nth-of-type(2) app-generic-selects .size-generic-selects > div:nth-of-type(3) mat-form-field");
+        page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type("+subtopicClub+")");*/
         page.click("app-admin-top-bar > div button:nth-of-type(3)");
         page.click("mat-dialog-container > div > div:nth-of-type(2) button");
 
+    }
+    public void crearLesson(){
+        Keyboard kb = page.keyboard();
+        page.click("body app-header mat-toolbar > div:nth-of-type(3) button:nth-of-type(4)");
+        page.click(".cdk-overlay-pane button:nth-of-type(1)");
+        page.click("body app-header mat-toolbar > div:nth-of-type(3) button:nth-of-type(4)");
+        page.click(".cdk-overlay-pane button:nth-of-type(13)");
+        page.click("a:nth-of-type(4)");
+        page.click("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)");
+        page.click(".container > div:nth-of-type(4) button");
+        page.click("tbody tr:first-child td:first-child label");
+        page.click("app-mat-table > div:nth-of-type(1) > button");
+        page.locator("app-upload-media input[type=file]").setInputFiles(Paths.get(pathImage));
+        page.click(".ma-auto button");
+        page.focus(".container > div:nth-of-type(2) app-mat-form-field input");
+        kb.insertText(titleLesson);
+        page.click(".container > div:nth-of-type(2) app-select-creator input");
+        page.click(".cdk-overlay-pane mat-option:nth-of-type("+creatorLesson+")");
+        page.focus(".container > div:nth-of-type(3) > div:nth-of-type(1) app-mat-form-field textarea");
+        kb.insertText(descriptionLesson);
+        page.click(".container > div:nth-of-type(3) > div:nth-of-type(1) app-mat-chips input");
+        page.click(".cdk-overlay-pane mat-option:nth-of-type("+tagLesson+")");
+        page.click(".container app-generic-selects > div > div > p");
+        page.click(".container > div:nth-of-type(3) > div:nth-of-type(2) app-generic-selects .size-generic-selects > div:nth-of-type(1) mat-form-field");
+        page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type("+categoryLesson+")");
+        page.click(".container > div:nth-of-type(3) > div:nth-of-type(2) app-generic-selects .size-generic-selects > div:nth-of-type(2) mat-form-field");
+        page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type("+topicLesson+")");
+        /*page.click(".container > div:nth-of-type(3) > div:nth-of-type(2) app-generic-selects .size-generic-selects > div:nth-of-type(3) mat-form-field");
+        page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type("+subtopicLesson+")");*/
+        page.click("app-admin-top-bar > div button:nth-of-type(3)");
     }
 }

@@ -16,10 +16,11 @@ public class funcionLogin extends robotBasePeppermint {
     }
     @Test
     public void validacionLogin2(){
+        iniciarEjecuciones();
         System.out.println("Iniciando caso de prueba...");
         System.out.println("El caso CA0321 se va a ejecutar "+ejecutar+" veces");
-        iniciarVariablesLogin();
         for(contador=1;contador<=ejecutar;contador++) {
+            iniciarVariablesLogin();
             iniciarNavegacion();
             login();
             assertions = "text=Login Successfull!";
@@ -28,7 +29,9 @@ public class funcionLogin extends robotBasePeppermint {
             sqlGuardarCasoSiFallaLogin();
             Assertions.assertTrue(page.isVisible(assertions));
             System.out.println("El caso CA0321 se ejecuto "+contador+" veces");
-
+            logout();
         }
     }
+
+
 }

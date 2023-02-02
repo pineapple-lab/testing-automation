@@ -17,7 +17,7 @@ public class contextoBasePeppermint extends variablesIniciadasPeppermint {
     @BeforeAll
     static void launchBrowser(){
         playwright = Playwright.create();
-        browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false).setSlowMo(1200));
+        browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false).setSlowMo(800));
 
     }
     @BeforeEach

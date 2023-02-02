@@ -35,4 +35,13 @@ public class variablesPeppermint extends conexionSQLpeppermint{
     public String subtopicClub;
     public String creatorClub;
     public String tagClub;
+    //CREAR CLUB
+    public String titleLesson;
+    public String descriptionLesson;
+    public String categoryLesson;
+    public String topicLesson;
+    public String subtopicLesson;
+    public String creatorLesson;
+    public String tagLesson;
+
 }

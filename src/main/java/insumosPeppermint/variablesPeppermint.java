@@ -6,7 +6,7 @@ public class variablesPeppermint extends conexionSQLpeppermint{
     public int ejecutar;
 
     public String assertions;
-    public String linkDeNavegacion = "http://localhost:4200/";
+    public String linkDeNavegacion = "https://peppermint-qa.web.app/";
 
     //RUTAS
     public String pathImage;

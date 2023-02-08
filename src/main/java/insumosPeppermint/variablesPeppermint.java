@@ -6,7 +6,7 @@ public class variablesPeppermint extends conexionSQLpeppermint{
     public int ejecutar;
 
     public String assertions;
-    public String linkDeNavegacion = "https://peppermint-qa.web.app/";
+    public String linkDeNavegacion = "http://localhost:4200/";
 
     //RUTAS
     public String pathImage;
@@ -27,6 +27,12 @@ public class variablesPeppermint extends conexionSQLpeppermint{
     //CREAR TECHNIQUE
     public String titleTechnique;
     public String descriptionTechnique;
+    public String creatorTechnique;
+    public String tagTechnique;
+    public String categoryTechnique;
+    public String topicTechnique;
+    public String subTopicTechnique;
+
     //CREAR CLUB
     public String titleClub;
     public String descriptionClub;

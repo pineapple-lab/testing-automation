@@ -11,7 +11,7 @@ import java.util.Date;
 
 public class variablesIniciadasPeppermint extends variablesPeppermint{
 
-    public void iniciarEjecuciones(){
+    public void iniciarEjecucionesLogin(){
         try {
             sqlconectar();
             Statement stm = CN.createStatement();
@@ -92,6 +92,17 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
         }catch (Exception e) {}
         sqlclose();
     }
+    public void iniciarEjecucionTechnique(){
+        try {
+            sqlconectar();
+            Statement stm = CN.createStatement();
+            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.datoscreartechnique WHERE estado = 0 ORDER BY RAND() LIMIT 1");
+            while(rs.next()){
+                ejecutar = rs.getInt(rs.findColumn("ejecuciones"));
+            }
+        }catch(Exception e){}
+        sqlclose();
+    }
     public void iniciarVariablesCrearTechnique(){
         System.out.println("Iniciando variables...");
         try {
@@ -99,17 +110,22 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
             Statement stm = CN.createStatement();
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.datoscreartechnique"); /*WHERE estado = 0 ORDER BY RAND() LIMIT 1");*/
             while(rs.next()){
-                pathImage =rs.getString(rs.findColumn("imagepathTechnique"));
-                pathVideo = rs.getString(rs.findColumn("videopathTechnique"));
-                System.out.println("cargue el video");
+                pathImage =rs.getString(rs.findColumn("pathImage"));
+                pathVideo = rs.getString(rs.findColumn("pathVideo"));
                 titleTechnique = rs.getString(rs.findColumn("titleTechnique"));
                 descriptionTechnique = rs.getString(rs.findColumn("descriptionTechnique"));
+                creatorTechnique = rs.getString(rs.findColumn("creatorTechnique"));
+                tagTechnique = rs.getString(rs.findColumn("tagTechnique"));
+                categoryTechnique = rs.getString(rs.findColumn("categoryTechnique"));
+                topicTechnique = rs.getString(rs.findColumn("topicTechnique"));
+                subTopicTechnique = rs.getString(rs.findColumn("subTopicTechnique"));
 
             }
             /*String query1 = "UPDATE testbdspacelogik.datoseditarroomoptions SET estado = 1 WHERE sequenceRoomOptions="+"'"+sequenceRoomOptionsProgram+"'";
             stm.executeUpdate(query1);
             String query2 = "UPDATE testbdspacelogik.datoseditarroomoptions SET estado = 0 WHERE sequenceRoomOptions!="+"'"+sequenceRoomOptionsProgram+"'";
             stm.executeUpdate(query2);*/
+            sqlclose();
         }catch(Exception e){}
     }
     public void iniciarEjecucionClub(){
@@ -123,7 +139,6 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
         }catch(Exception e){}
         sqlclose();
     }
-
     public void iniciarVariablesCrearClub(){
         System.out.println("Iniciando variables...");
         try {
@@ -140,8 +155,6 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
                 categoryClub = rs.getString(rs.findColumn("categoryClub"));
                 topicClub = rs.getString(rs.findColumn("topicClub"));
                 subtopicClub = rs.getString(rs.findColumn("subtopicClub"));
-
-
             }
             String query1 = "UPDATE testbdpeppermint.datoscrearclub SET estado = 1 WHERE titleClub="+"'"+titleClub+"'";
             stm.executeUpdate(query1);

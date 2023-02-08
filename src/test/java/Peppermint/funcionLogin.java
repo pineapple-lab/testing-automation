@@ -16,7 +16,7 @@ public class funcionLogin extends robotBasePeppermint {
     }
     @Test
     public void validacionLogin2(){
-        iniciarEjecuciones();
+        iniciarEjecucionesLogin();
         System.out.println("Iniciando caso de prueba...");
         System.out.println("El caso CA0321 se va a ejecutar "+ejecutar+" veces");
         for(contador=1;contador<=ejecutar;contador++) {

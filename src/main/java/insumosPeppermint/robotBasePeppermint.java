@@ -1,5 +1,6 @@
 package insumosPeppermint;
 
+import com.microsoft.playwright.FileChooser;
 import com.microsoft.playwright.Keyboard;
 import org.junit.jupiter.api.Test;
 
@@ -13,6 +14,8 @@ import java.util.Date;
 public class robotBasePeppermint extends consultasSQLCasosFallidos {
     public String formattedDate;
     public void iniciarNavegacion(){
+        Keyboard kb = page.keyboard();
+        kb.press("Control+KeyN");
         page.navigate(linkDeNavegacion);
     }
 
@@ -34,6 +37,41 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         }else {
         page.click("body app-header mat-toolbar > div:nth-of-type(3) button:nth-of-type(4)");
         page.click(".cdk-overlay-pane button:nth-of-type(11)");}
+
+    }
+    public void createTechnique(){
+        System.out.println("Creando technique...");
+        Keyboard kb = page.keyboard();
+        if( (page.isVisible("text=Editorial management"))==false) {
+            page.click("text=My Stuff");
+            page.click("text=Dashboard");
+            page.click("text=My Stuff");
+            page.click("text=Admin Area");
+        }
+        page.click("app-side-bar a:nth-of-type(2)");
+        page.click("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)");
+        page.locator("//*[@id=\"video-file\"]").setInputFiles(Paths.get(pathVideo));
+
+        FileChooser fileChooser1 = page.waitForFileChooser(()->{
+            page.locator(".image-container:nth-of-type(1)").click();
+        });
+        fileChooser1.setFiles(Paths.get(pathImage));
+        page.click(".ma-auto button");
+        page.focus("app-movement-form >div>div>div>div:nth-of-type(2) >div:nth-of-type(1) input");
+        kb.insertText(titleTechnique);
+        page.focus("app-movement-form >div>div>div>div:nth-of-type(3) .margin-box app-text-box  div > div:nth-of-type(1)");
+        kb.insertText(descriptionTechnique);
+        page.click(".container > div:nth-of-type(2) app-generic-selects input");
+        page.click(".cdk-overlay-pane mat-option:nth-of-type("+creatorTechnique+")");
+        page.click(".container > div:nth-of-type(3) > div:nth-of-type(1) app-mat-chips input");
+        page.click(".cdk-overlay-pane mat-option:nth-of-type("+tagTechnique+")");
+        page.click(".margin-box  app-generic-selects > div > div > p");
+        page.click(".margin-box app-generic-selects .size-generic-selects .heigth-selects:nth-of-type(1) mat-form-field");
+        page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type("+categoryTechnique+")");
+        page.click(".margin-box app-generic-selects .size-generic-selects .heigth-selects:nth-of-type(2) mat-form-field");
+        page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type("+topicTechnique+")");
+        page.click("app-admin-top-bar > div button:nth-of-type(3)");
+        page.click("mat-dialog-container > div > div:nth-of-type(2) button");
 
     }
     public void createEvent(){

@@ -10,7 +10,7 @@ public class funcionContentTaxonomy extends robotBasePeppermint {
     public void validacionCrearTaxonomy(){
         iniciarNavegacion();
         login();
-        crearCategory();R
+        crearCategory();
     }
 
     public void crearCategory(){

@@ -17,6 +17,7 @@ public class funcionArticleManagment extends robotBasePeppermint {
             login();
         for(contador=1;contador<=ejecutar;contador++) {
             iniciarVariablesCrearArticle();
+            System.out.println("title article: "+titleArticle);
             crearArticulo();
             System.out.println("El caso CA0321 se ejecuto "+contador+" veces");
         }

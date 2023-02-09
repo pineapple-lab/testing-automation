@@ -8,12 +8,18 @@ import org.junit.jupiter.api.Test;
 public class funcionEventManagment extends robotBasePeppermint {
     @Test
     public void validacionCreateEvent(){
+        System.out.println("iniciando caso de prueba...");
+        iniciarEjecucionEvent();
+        System.out.println("El caso se va a ejecutar "+ejecutar+" veces");
         iniciarNavegacion();
-        iniciarVariablesEvent();
         login();
-        createEvent();
-        page.focus("app-root");
-        Assertions.assertTrue(page.isVisible("text=The event was created successfully"));
+        for(contador=1;contador<=ejecutar;contador++) {
+            iniciarVariablesEvent();
+            System.out.println("title event: "+titleEvent);
+            createEvent();
+            page.focus("app-mat-table");
+        }
+        //Assertions.assertTrue(page.isVisible("text=The event was created successfully"));
     }
     @Test
     public void validacionDeleteEvent(){

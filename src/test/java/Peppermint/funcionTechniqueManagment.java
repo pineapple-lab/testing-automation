@@ -29,6 +29,7 @@ public class funcionTechniqueManagment extends robotBasePeppermint {
         login();
         for(contador=1;contador<=ejecutar;contador++) {
         iniciarVariablesCrearTechnique();
+        System.out.println("title technqiue: "+titleTechnique);
         createTechnique();
         page.focus("app-mat-table");
         assertions="text="+titleTechnique;

@@ -22,7 +22,16 @@ public class variablesPeppermint extends conexionSQLpeppermint{
     public String categoryTechnique;
     public String topicTechnique;
     public String subTopicTechnique;
-    //CREAR Lesson
+    //CREAR SEGMENTS
+    public String titleSegments;
+    public String descriptionSegments;
+    public String creatorSegments;
+    public String tagSegments;
+    public String transcriptSegments;
+    public String categorySegments;
+    public String topicSegments;
+    public String subTopicSegments;
+    //CREAR LESSON
     public String titleLesson;
     public String descriptionLesson;
     public String categoryLesson;
@@ -87,8 +96,12 @@ public class variablesPeppermint extends conexionSQLpeppermint{
     public String startTimeEventClub;
     public String endTimeEventClub;
     public String fechaGuardada;
-
-
+    //CREAR TAXONOMY
+    public String titleCategory;
+    public String titleTopic;
+    public String titleSubTopic;
+    //CREAR TAG
+    public String titleTag;
     //CREAR CLUB
     public String titleClub;
     public String descriptionClub;

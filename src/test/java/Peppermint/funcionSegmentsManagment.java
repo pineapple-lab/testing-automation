@@ -1,28 +1,27 @@
 package Peppermint;
 
+import com.microsoft.playwright.FileChooser;
 import com.microsoft.playwright.Keyboard;
 import insumosPeppermint.robotBasePeppermint;
 import org.junit.jupiter.api.Test;
 
-public class funcionContentTaxonomy extends robotBasePeppermint {
+import java.nio.file.Paths;
+
+public class funcionSegmentsManagment extends robotBasePeppermint {
 
     @Test
-    public void validacionCrearTaxonomy(){
+    public void vaidacionCreacionSegment(){
         System.out.println("iniciando caso de prueba...");
-        iniciarEjecucionTaxonomy();
+        iniciarEjecucionSegments();
         System.out.println("El caso se va a ejecutar "+ejecutar+" veces");
         iniciarNavegacion();
         login();
         for(contador=1;contador<=ejecutar;contador++) {
-           iniciarVariablesTaxonomy();
-           System.out.println("title taxonomy: "+titleCategory);
-           crearTaxonomy();
+            iniciarVariablesCrearSegments();
+            System.out.print("title segments: "+titleSegments);
+            crearSegment();
             page.focus("app-mat-table");
-            assertions="text="+titleTechnique;
-            //Assertions.assertTrue(page.isVisible(assertions));
             System.out.println("El caso CA0321 se ejecuto "+contador+" veces");
         }
     }
-
-
 }

@@ -20,6 +20,7 @@ public class funcionClubManagment extends robotBasePeppermint {
         login();
         for(contador=1;contador<=ejecutar;contador++) {
             iniciarVariablesCrearClub();
+            System.out.println("title club: "+titleClub);
             crearClub();
             assertions = "text=The club was created successfully";
             page.waitForSelector("app-informative-notification");

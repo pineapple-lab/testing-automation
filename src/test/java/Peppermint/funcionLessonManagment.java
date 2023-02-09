@@ -17,8 +17,9 @@ public class funcionLessonManagment extends robotBasePeppermint {
         login();
         for(contador=1;contador<=ejecutar;contador++) {
             iniciarVariablesCrearLesson();
+            System.out.println("title lesson: "+titleLesson);
             crearLesson();
-            assertions = "text=The lesson was created successfully";
+            //assertions = "text=The lesson was created successfully";
             page.waitForSelector("app-informative-notification");
             page.focus("app-informative-notification");
             sqlGuardarCasoSiFallaCrearLesson();

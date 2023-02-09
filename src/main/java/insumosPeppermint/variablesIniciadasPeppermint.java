@@ -77,6 +77,42 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
             sqlclose();
         }catch(Exception e){}
     }
+    public void iniciarEjecucionSegments(){
+        try {
+            sqlconectar();
+            Statement stm = CN.createStatement();
+            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.datoscrearsegment WHERE estado = 0 ORDER BY RAND() LIMIT 1");
+            while(rs.next()){
+                ejecutar = rs.getInt(rs.findColumn("ejecuciones"));
+            }
+        }catch(Exception e){}
+        sqlclose();
+    }
+    public void iniciarVariablesCrearSegments(){
+        System.out.println("Iniciando variables...");
+        try {
+            sqlconectar();
+            Statement stm = CN.createStatement();
+            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.datoscrearsegment WHERE estado = 0 ORDER BY RAND() LIMIT 1");
+            while(rs.next()){
+                pathImage =rs.getString(rs.findColumn("pathImage"));
+                pathVideo =rs.getString(rs.findColumn("pathVideo"));
+                titleSegments = rs.getString(rs.findColumn("titleSegments"));
+                descriptionSegments = rs.getString(rs.findColumn("descriptionSegments"));
+                creatorSegments = rs.getString(rs.findColumn("creatorSegments"));
+                tagSegments = rs.getString(rs.findColumn("tagSegments"));
+                transcriptSegments = rs.getString(rs.findColumn("transcriptSegments"));
+                categorySegments = rs.getString(rs.findColumn("categorySegments"));
+                topicSegments = rs.getString(rs.findColumn("topicSegments"));
+                subTopicSegments = rs.getString(rs.findColumn("subtopicSegments"));
+            }
+            String query1 = "UPDATE testbdpeppermint.datoscrearsegment SET estado = 1 WHERE titleSegments="+"'"+titleSegments+"'";
+            stm.executeUpdate(query1);
+            String query2 = "UPDATE testbdpeppermint.datoscrearsegment SET estado = 0 WHERE titleSegments!="+"'"+titleSegments+"'";
+            stm.executeUpdate(query2);
+        }catch(Exception e){}
+        sqlclose();
+    }
     public void iniciarEjecucionLesson(){
         try {
             sqlconectar();
@@ -166,9 +202,9 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
                 maxStudentsGroup = rs.getString(rs.findColumn("maxStudentsGroup"));
                 optimalBuddyGroup = rs.getString(rs.findColumn("optimalBuddyGroupGroup"));
             }
-            String query1 = "UPDATE testbdpeppermint.datoscrearWorkshopCompleto SET estado = 1 WHERE titleArticle="+"'"+titleArticle+"'";
+            String query1 = "UPDATE testbdpeppermint.datoscrearWorkshopCompleto SET estado = 1 WHERE titleWorkshop="+"'"+titleWorkshop+"'";
             stm.executeUpdate(query1);
-            String query2 = "UPDATE testbdpeppermint.datoscrearWorkshopCompleto SET estado = 0 WHERE titleArticle!="+"'"+titleArticle+"'";
+            String query2 = "UPDATE testbdpeppermint.datoscrearWorkshopCompleto SET estado = 0 WHERE titleWorkshop!="+"'"+titleWorkshop+"'";
             stm.executeUpdate(query2);
         }catch(Exception e){}
         sqlclose();
@@ -211,13 +247,19 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
         }catch(Exception e){}
         sqlclose();
     }
-
+    public void iniciarEjecucionEvent(){
+        try {
+            sqlconectar();
+            Statement stm = CN.createStatement();
+            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.datoscrearclubevent WHERE estado = 0 ORDER BY RAND() LIMIT 1");
+            while(rs.next()){
+                ejecutar = rs.getInt(rs.findColumn("ejecuciones"));
+            }
+        }catch(Exception e){}
+        sqlclose();
+    }
     public void iniciarVariablesEvent() {
-        String formattedDate;
-        SimpleDateFormat dtf = new SimpleDateFormat("yyyy-MM-dd");
-        Calendar calendar = Calendar.getInstance();
-        Date dateObj = calendar.getTime();
-        formattedDate = dtf.format(dateObj);
+
         try {
             sqlconectar();
             Statement stm = CN.createStatement();
@@ -228,37 +270,65 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
                 urlZoomEvent = rs.getString(rs.findColumn("ZoomUrlEvent"));
                 descriptionEvent=rs.getString(rs.findColumn("descriptionEvent"));
                 clubEvent=rs.getString(rs.findColumn("clubEvent"));
-                weekEventClub = rs.getString(rs.findColumn("weekEventClub"));
-                dayEventClub = rs.getString(rs.findColumn("dayEventClub"));
-                startTimeEventClub = rs.getString(rs.findColumn("startTimeEventClub"));
-                endTimeEventClub = rs.getString(rs.findColumn("endTimeEventClub"));
-                fechaGuardada = rs.getString(rs.findColumn("fechaGuardada"));
             }
-            LocalDate dateFechaGuardada = LocalDate.parse(fechaGuardada);
-            LocalDate dateFormattedDate = LocalDate.parse(formattedDate);
-            if (dateFechaGuardada.isBefore(dateFormattedDate)) {
-                System.out.println("Actualizando fecha...");
-                int intDayEventClub = Integer.parseInt(dayEventClub);
-                intDayEventClub++;
-                String dayEventClub = String.valueOf(intDayEventClub);
-                try {
-                    System.out.println("entre al segundo try");
-                    Statement st = CN.createStatement();
-                    String query = "UPDATE datoscrearclubevent SET dayEventClub="+"'"+dayEventClub+"'"+",fechaGuardada="+"'"+formattedDate+"'"+"";
-                    st.executeUpdate(query);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+            String query1 = "UPDATE testbdpeppermint.datoscrearclubevent SET estado = 1 WHERE titleEvent="+"'"+titleEvent+"'";
+            stm.executeUpdate(query1);
+            String query2 = "UPDATE testbdpeppermint.datoscrearclubevent SET estado = 0 WHERE titleEvent!="+"'"+titleEvent+"'";
+            stm.executeUpdate(query2);
+        }catch (Exception e) {}
+        sqlclose();
+    }
+    public void iniciarEjecucionTaxonomy(){
+        try {
+            sqlconectar();
+            Statement stm = CN.createStatement();
+            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.datoscreartaxonomy WHERE estado = 0 ORDER BY RAND() LIMIT 1");
+            while(rs.next()){
+                ejecutar = rs.getInt(rs.findColumn("ejecuciones"));
             }
-            try {
-                sqlconectar();
-                Statement stm1 = CN.createStatement();
-                ResultSet rs1 = stm1.executeQuery("SELECT * FROM testbdpeppermint.datoscrearclubevent");
-                while (rs1.next()) {
-                    dayEventClub = rs1.getString(rs.findColumn("dayEventClub"));
-                    System.out.println("Fecha actualizada...");
-                }
-            }catch (Exception e) {}
+        }catch(Exception e){}
+        sqlclose();
+    }
+    public void iniciarVariablesTaxonomy() {
+        try {
+            sqlconectar();
+            Statement stm = CN.createStatement();
+            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.datoscreartaxonomy");
+            while (rs.next()) {
+                titleCategory = rs.getString(rs.findColumn("titleCategory"));
+                titleTopic = rs.getString(rs.findColumn("titleTopic"));
+                titleSubTopic = rs.getString(rs.findColumn("titleSubTopic"));
+            }
+            String query1 = "UPDATE testbdpeppermint.datoscreartaxonomy SET estado = 1 WHERE titleCategory="+"'"+titleCategory+"'";
+            stm.executeUpdate(query1);
+            String query2 = "UPDATE testbdpeppermint.datoscreartaxonomy SET estado = 0 WHERE titleCategory!="+"'"+titleCategory+"'";
+            stm.executeUpdate(query2);
+        }catch (Exception e) {}
+        sqlclose();
+    }
+    public void iniciarEjecucionTag(){
+        try {
+            sqlconectar();
+            Statement stm = CN.createStatement();
+            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.datoscreartag WHERE estado = 0 ORDER BY RAND() LIMIT 1");
+            while(rs.next()){
+                ejecutar = rs.getInt(rs.findColumn("ejecuciones"));
+            }
+        }catch(Exception e){}
+        sqlclose();
+    }
+    public void iniciarVariablesTag() {
+        try {
+            sqlconectar();
+            Statement stm = CN.createStatement();
+            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.datoscreartag");
+            while (rs.next()) {
+                titleTag = rs.getString(rs.findColumn("titleTag"));
+            }
+            String query1 = "UPDATE testbdpeppermint.datoscreartag SET estado = 1 WHERE titleTag="+"'"+titleTag+"'";
+            stm.executeUpdate(query1);
+            String query2 = "UPDATE testbdpeppermint.datoscreartag SET estado = 0 WHERE titleTag!="+"'"+titleTag+"'";
+            stm.executeUpdate(query2);
         }catch (Exception e) {}
         sqlclose();
     }

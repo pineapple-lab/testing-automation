@@ -8,24 +8,18 @@ public class funcionTag extends robotBasePeppermint {
 
     @Test
     public void validacionCrearTag(){
+        System.out.println("Iniciando caso de prueba...");
+        iniciarEjecucionTag();
+        System.out.println("El caso se va a ejecutar "+ejecutar+" veces");
         iniciarNavegacion();
         login();
-        crearTag();
-
+        for(contador=1;contador<=ejecutar;contador++) {
+            iniciarVariablesTag();
+            System.out.println("Title tag: "+titleTag);
+            crearTag();
+            System.out.println("El caso CA0321 se ejecuto "+contador+" veces");
+        }
     }
 
-    public void crearTag(){
-        Keyboard kb = page.keyboard();
-        page.click("body app-header mat-toolbar > div:nth-of-type(3) button:nth-of-type(4)");
-        page.click(".cdk-overlay-pane button:nth-of-type(1)");
-        page.click("body app-header mat-toolbar > div:nth-of-type(3) button:nth-of-type(4)");
-        page.click(".cdk-overlay-pane button:nth-of-type(13)");
-        page.click("mat-nav-list a:nth-of-type(12)");
-        page.click("mat-nav-list a:nth-of-type(8)");
-        page.click("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)");
-        page.focus("mat-dialog-content input");
-        kb.insertText("esto es una prueba");//falta conexion con la base de datos esto esta hardcodeado
-        page.click("mat-dialog-actions button:nth-of-type(2)");
 
-    }
 }

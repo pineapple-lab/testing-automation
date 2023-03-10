@@ -33,7 +33,7 @@ public class variablesSpaceLogik {
     public String baseBuilding;
     public String month;
     public String cost;
-    public String dateOffered = "4-01-2031";//AUMENTAR UN MES-proxima fecha > 5-05-2031
+    public String dateOffered = "5-05-2031";//AUMENTAR UN MES-proxima fecha > 6-05-2031
     public String interestRate;
 
     //ADD PROSPECT
@@ -58,7 +58,7 @@ public class variablesSpaceLogik {
     public String notesCompetitiveSetProspect;
 
     //TRACKING PROSPECT
-    public String dateTrackingProspect = "03-28-2035";
+    public String dateTrackingProspect = "3-28-2035";
     public String subjectTrackingProspect;
     public String commentsTrackingProspect;
     public String followupTrackingProspect  = "01-15-2030";

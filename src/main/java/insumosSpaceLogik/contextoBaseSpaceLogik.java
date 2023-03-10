@@ -13,7 +13,7 @@ public class contextoBaseSpaceLogik extends variablesIniciadasSpaceLogik {
     static void launchBrowser() {
         System.out.println("Iniciando contexto...");
         playwright = Playwright.create();
-        browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false).setSlowMo(1050));
+        browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false).setSlowMo(1));
     }
 
     @BeforeEach

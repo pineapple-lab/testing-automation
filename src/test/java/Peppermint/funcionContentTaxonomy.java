@@ -2,6 +2,7 @@ package Peppermint;
 
 import com.microsoft.playwright.Keyboard;
 import insumosPeppermint.robotBasePeppermint;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class funcionContentTaxonomy extends robotBasePeppermint {
@@ -10,19 +11,26 @@ public class funcionContentTaxonomy extends robotBasePeppermint {
     public void validacionCrearTaxonomy(){
         System.out.println("iniciando caso de prueba...");
         iniciarEjecucionTaxonomy();
-        System.out.println("El caso se va a ejecutar "+ejecutar+" veces");
+        System.out.println("El caso se va a ejecutar "+ejecutar+" veces\n");
         iniciarNavegacion();
         login();
         for(contador=1;contador<=ejecutar;contador++) {
            iniciarVariablesTaxonomy();
-           System.out.println("title taxonomy: "+titleCategory);
+           System.out.println("\ntitle taxonomy: "+titleCategory+"\n");
            crearTaxonomy();
-            page.focus("app-mat-table");
-            assertions="text="+titleTechnique;
+            assertions="text=The category was created successfully";
+            page.focus(".cdk-overlay-container snack-bar-container app-informative-notification");
             //Assertions.assertTrue(page.isVisible(assertions));
-            System.out.println("El caso CA0321 se ejecuto "+contador+" veces");
+            searchingElement=titleCategory;
+            page.waitForSelector("app-paging-search mat-form-field");
+            //buscarContenido();
+            assertions="text="+titleCategory;
+            page.focus("table tbody ");
+            page.reload();
+            page.focus("table tbody");
+            //page.waitForSelector("text="+titleCategory);
+            //Assertions.assertTrue(page.isVisible(assertions));
+            System.out.println("El caso se ejecuto " + contador + " veces\n");
         }
     }
-
-
 }

@@ -10,9 +10,8 @@ public class funcionLogin extends robotBasePeppermint {
     public void validacionLogin(){
         iniciarNavegacion();
         login();
-        page.focus("app-header div:nth-of-type(2) button:nth-of-type(3)");
-        page.focus("app-root");
-        //Assertions.assertTrue(page.isVisible("text=Login Successfull!"));
+        page.focus(".cdk-overlay-container snack-bar-container app-informative-notification");
+        Assertions.assertTrue(page.isVisible("text=Login Successfull!"));
     }
     //@Test
     /*public void validacionLogin2(){

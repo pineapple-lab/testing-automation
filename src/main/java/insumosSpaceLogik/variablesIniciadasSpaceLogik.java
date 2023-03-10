@@ -373,6 +373,23 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
        }catch(Exception e){}
        sqlclose();
    }
+    public void iniciarVariablesListingSingleSuite(){
+        System.out.println("Iniciando variables...");
+        try {
+            sqlconectar();
+            Statement stm = CN.createStatement();
+            ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoscrearsingesuitelisting WHERE estado = 0 ORDER BY RAND() LIMIT 1");
+            while(rs.next()){
+                ejecutar =rs.getInt(rs.findColumn("ejecuciones"));
+                suiteNumberListingSpaceBuildin = rs.getString(rs.findColumn("SuiteNumber"));
+            }
+            String query1 = "UPDATE testbdspacelogik.datoscrearsingesuitelisting SET estado = 1 WHERE SuiteNumber="+"'"+suiteNumberListingSpaceBuildin+"'";
+            stm.executeUpdate(query1);
+            String query2 = "UPDATE testbdspacelogik.datoscrearsingesuitelisting SET estado = 0 WHERE SuiteNumber!="+"'"+suiteNumberListingSpaceBuildin+"'";
+            stm.executeUpdate(query2);
+        }catch(Exception e){}
+        sqlclose();
+    }
    public void iniciarVariablesEditarListingLocationInformation(){
        System.out.println("Iniciando variables...");
        try {

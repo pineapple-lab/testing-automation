@@ -17,8 +17,10 @@ public class CA031prospectFuncionTracking extends robotBaseSpaceLogik {
             subjectTrackingProspect=nameCase;
             assertions="text="+subjectTrackingProspect;
             login();
+            System.out.println("nombre prospect: "+nameCompanyProspect+" "+"ocupancy date: "+ocupancyDateProspect);
             crearProspect();
             crearTrackingProspect();
+            page.waitForSelector("tbody tr:first-child");
             page.focus("#root");
             Assertions.assertTrue(page.isVisible(assertions));
             System.out.println("El caso CA0311 se ejecuto: "+contador+" veces");

@@ -16,28 +16,45 @@ public class CA013listingFuncionEditSpaceInfo extends robotBaseSpaceLogik {
             page.focus("#root");
             assertions = "text=Changes saved successfully";
             sqlGuardarCasoSiFallaEditarBuildingRsf();
+            page.focus(".Toastify__toast-body");
             Assertions.assertTrue(page.isVisible(assertions));
             System.out.println("El caso CA0131 se ejecuto "+contador+" veces");
         }
     }
     @Test
     public void CA0132validacionCrearSingleSuiteListingSpace(){
-        suiteNumberListingSpaceBuildin="4";
-        login();
-        crearListingSingleSuiteSpace();
-        page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=Suite created successfully"));
-        Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
+
+        System.out.println("Iniciando caso de prueba...");
+        iniciarVariablesEditarBuildingRsf();
+        System.out.println("El caso de preuba CA0131 se va a ejecutar "+ejecutar+" veces");
+        for(contador=1;contador<=ejecutar;contador++) {
+            login();
+            iniciarVariablesListingSingleSuite();
+            crearListingSingleSuiteSpace();
+            page.focus("#root");
+            Assertions.assertTrue(page.isVisible("text=Suite created successfully"));
+            Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
+            System.out.println("El caso CA0131 se ejecuto "+contador+" veces");
+        }
     }
     @Test
     public void CA0133validacionEliminarSingleSuiteSpace(){
-        suiteNumberListingSpaceBuildin="131";
-        login();
-        crearListingSingleSuiteSpace();
-        eliminarSingleSuiteSpace();
-        page.focus("#root");
-        Assertions.assertTrue(page.isVisible("text=Suite 131 deleted"));
-        Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
+        System.out.println("Iniciando caso de prueba...");
+        iniciarVariablesEditarBuildingRsf();
+        System.out.println("El caso de prueba se va a ejecutar "+ejecutar+" veces");
+        for(contador=1;contador<=ejecutar;contador++) {
+            login();
+            iniciarVariablesListingSingleSuite();
+            System.out.println(suiteNumberListingSpaceBuildin);
+            crearListingSingleSuiteSpace();
+            eliminarSingleSuiteSpace();
+            assertions = "text= Suite "+suiteNumberListingSpaceBuildin+" deleted";
+            page.focus(".Toastify__toast-body");
+            page.waitForSelector("text=Suite "+suiteNumberListingSpaceBuildin+" deleted");
+            Assertions.assertTrue(page.isVisible(assertions));
+            Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
+            System.out.println("El caso CA0131 se ejecuto "+contador+" veces");
+        }
     }
     @Test
     public void CA0134validacionEditSingleSuiteSpace(){

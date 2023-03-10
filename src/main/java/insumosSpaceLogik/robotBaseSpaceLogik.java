@@ -242,10 +242,10 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
     }
     public void editarListingBuildingCertifications(){
         page.click(".my-properties-container .my-properties-building-container:last-child>div>div:nth-of-type(2)");
-        page.click(".divBuildingDescription > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) div:nth-of-type(2) label:nth-of-type(3) input");
-        page.click(".divBuildingDescription > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) div:nth-of-type(3) label:nth-of-type(2) input");
-        page.click(".divBuildingDescription > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) div:nth-of-type(4) label:nth-of-type(2) input");
-        page.click(".divBuildingDescription > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) .building-info-header button");
+        page.click(".building-info-certifications-container > div:nth-of-type(2) label:nth-of-type(3) input");
+        page.click(".building-info-certifications-container > div:nth-of-type(2) label:nth-of-type(3) input");
+        page.click(".building-info-certifications-container > div:nth-of-type(4) label:nth-of-type(3) input");
+        page.click(".building-info-certifications-container .building-info-header button");
     }
     public void editarListingBuildingDescription(){
         Keyboard kb = page.keyboard();
@@ -255,7 +255,7 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.click(".ButtonSwitch input:nth-of-type(2)");
         page.focus(".building-general-description-container div:nth-of-type(2) textarea");
         kb.insertText(locationBuildingListing);
-        page.click(".divBuildingDescription > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) .building-info-header button");
+        page.click(".building-info-wrapper .building-info-save-button");
     }
     public void editarListingPrimaryLeasingContact(){
         Keyboard kb = page.keyboard();
@@ -473,31 +473,39 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
     }
     public void crearProposal() {
         Keyboard kb = page.keyboard();
+        page.waitForSelector(".app-sidebar__inner > div > ul > li:nth-of-type(4) > ul > li:nth-of-type(5)");
+        if((page.isVisible(".app-sidebar__inner > div > ul > li:nth-of-type(4) > ul > li:nth-of-type(5)"))==false){
+            page.click("text=BUILDINGS");
+        }
         page.click("text=Proposals");
         page.click("[class=\"default-spacelogik-button\"]");
-        page.focus(".new-proposal-modal-container label:nth-of-type(1)");
-        kb.insertText(nameCase);
-        page.selectOption(".new-proposal-modal-container label:nth-of-type(2)", building);
-        page.selectOption(".new-proposal-modal-container label:nth-of-type(3)", prospect);
-        page.selectOption(".new-proposal-modal-container label:nth-of-type(4)", program);
+
+        page.waitForSelector(".new-proposal-modal-container label:nth-of-type(2)");
+        page.selectOption(".new-proposal-modal-container label:nth-of-type(2) .modal-input", prospect);
+        page.waitForSelector(".new-proposal-modal-container label:nth-of-type(3)");
+        page.selectOption(".new-proposal-modal-container label:nth-of-type(3) .modal-input", building);
+        page.waitForSelector(".new-proposal-modal-container label:nth-of-type(4)");
+        page.selectOption(".new-proposal-modal-container label:nth-of-type(4) .modal-input", program);
+        page.click(".new-proposal-modal-container label:nth-of-type(1) input");
+        kb.type(nameCase);
         page.click(".new-proposal-modal-button-container button:nth-of-type(1)");
         page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
     }
     public void archivarProposal() {
         page.click("text=Proposals");
-        page.click("tr:last-child .proposal-list-name-column ~ td:last-child div > button:nth-of-type(4)");
-        page.click(".proposal-modal-button-container button:nth-of-type(1)");
+        page.click("tbody tr:last-child th:last-child button:last-child");
+        page.click(".modal-container button:nth-of-type(1)");
         page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
     }
     public void eliminarProposal() {
         page.click("text=Proposals");
         page.click(".proposal-list-landlord-button-container button:nth-of-type(2)");
-        page.click("tr:last-child .proposal-list-name-column ~ td:last-child div > button:last-child");
+        page.click("tbody tr:last-child th:last-child button:last-child");
         page.click(".proposal-modal-button-container button:nth-of-type(1)");
     }
     public void activarProposal() {
         page.click(".proposal-list-landlord-button-container button:nth-of-type(2)");
-        page.click("tr:last-child .proposal-list-name-column ~ td:last-child div > button:nth-of-type(1)");
+        page.click(".MuiTableBody-root tr:last-child th:last-child button:nth-of-type(1)");
     }
     public void crearNuevaVersion() {
         page.click("tr:last-child .proposal-list-name-column ~ td:last-child div > button:nth-of-type(2)");
@@ -551,7 +559,8 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.click(".my-programs-header div:nth-of-type(3) button");
         page.click(".container-types div:nth-child(1)");
         page.click(".modal-buttons button:nth-of-type(1)");
-        page.fill(".add-program-modal-info-container > div:nth-of-type(1) input", nameCase);
+        page.focus(".add-program-modal-info-container > div:nth-of-type(1) input");
+        kb.type(nameCase);
         page.focus(".add-program-modal-info-container > div:nth-of-type(2) input[type=date]");
         kb.type(dateProgram);
         page.click(".add-program-modal-info-container > div:nth-of-type(3) > div > div:nth-of-type(2) button");
@@ -559,6 +568,7 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.click(".add-program-modal-info-container > div:nth-of-type(5) label:nth-of-type(2) input");
         page.click(".add-program-modal-info-container > div:nth-of-type(6) label:nth-of-type(3) input");
         page.click(".add-program-modal-button-container button:nth-of-type(1)");
+        page.waitForSelector(".Toastify__toast-body");
     }
     public void archivarPrograma(){
         page.click(".program-list-table-container tbody tr:last-child div:last-child button:nth-of-type(3)");
@@ -591,7 +601,9 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
     public void editarRoomOptions() {
         page.click(".program-room-selection-button-container button:nth-of-type(2)");
         page.fill(".sequence-div input", sequenceRoomOptionsProgram);
+        page.waitForSelector(".program-room-selection-container .room-selection-choice-container:nth-of-type(2) .radio-grid-container");
         page.click("[value=\""+employeAreaTypesProgram+"\"]");
+        page.waitForSelector(".program-room-selection-container .room-selection-choice-container:nth-of-type(2) .radio-grid-container");
         page.click("[value=\""+roomSizeProgram+"\"]");
         page.fill(".quantity-input-container input", quantityRoomOptionsProgram);
         page.click(".program-room-selection-header button");
@@ -688,7 +700,7 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
     public void crearCompareTerm3(){
         Keyboard kb = page.keyboard();
         //page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
-        page.click("text=Compare");
+        page.click(".vertical-nav-menu > ul > li:nth-of-type(4) > ul > li:nth-of-type(3) a");
         page.click(".term-selection-container button:nth-of-type(1)");
         page.focus(".compare-building-list-table tbody tr:nth-of-type(1) input");
         page.click(".compare-building-list-table tbody tr:nth-of-type(1) input");
@@ -706,7 +718,7 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
     public void crearCompareTerm5(){
         Keyboard kb = page.keyboard();
         //page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
-        page.click("text=Compare");
+        page.click(".vertical-nav-menu > ul > li:nth-of-type(4) > ul > li:nth-of-type(3) a");
         page.click(".term-selection-container button:nth-of-type(2)");
         page.focus(".compare-building-list-table tbody tr:nth-of-type(1) input");
         page.click(".compare-building-list-table tbody tr:nth-of-type(1) input");
@@ -724,7 +736,7 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
     public void crearCompareTerm7(){
         Keyboard kb = page.keyboard();
         //page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
-        page.click("text=Compare");
+        page.click(".vertical-nav-menu > ul > li:nth-of-type(4) > ul > li:nth-of-type(3) a");
         page.click(".term-selection-container button:nth-of-type(3)");
         page.click(".compare-building-list-table tbody tr:nth-of-type(1) input");
         page.click(".compare-building-list-table tbody tr:nth-of-type(2) input");
@@ -741,7 +753,7 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
     public void crearCompareTerm10(){
         Keyboard kb = page.keyboard();
         //page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
-        page.click("text=Compare");
+        page.click(".vertical-nav-menu > ul > li:nth-of-type(4) > ul > li:nth-of-type(3) a");
         page.click(".term-selection-container button:nth-of-type(4)");
         page.click(".compare-building-list-table tbody tr:nth-of-type(1) input");
         page.click(".compare-building-list-table tbody tr:nth-of-type(2) input");
@@ -753,12 +765,12 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.focus(".save-comparison-as-modal-input");
         kb.insertText(nameComparison);
         page.click(".button-container button:nth-of-type(1)");
-        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
+        //page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
     }
     public void crearCompareTerm12(){
         Keyboard kb = page.keyboard();
         //page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
-        page.click("text=Compare");
+        page.click(".vertical-nav-menu > ul > li:nth-of-type(4) > ul > li:nth-of-type(3) a");
         page.click(".term-selection-container button:nth-of-type(5)");
         page.click(".compare-building-list-table tbody tr:nth-of-type(1) input");
         page.click(".compare-building-list-table tbody tr:nth-of-type(2) input");
@@ -774,7 +786,7 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
     public void crearCompareTerm15(){
         Keyboard kb = page.keyboard();
         //page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
-        page.click("text=Compare");
+        page.click(".vertical-nav-menu > ul > li:nth-of-type(4) > ul > li:nth-of-type(3) a");
         page.click(".term-selection-container button:nth-of-type(6)");
         page.click(".compare-building-list-table tbody tr:nth-of-type(1) input");
         page.click(".compare-building-list-table tbody tr:nth-of-type(2) input");
@@ -790,17 +802,16 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
     }
     public void borrarCompare(){
         //page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
-        page.click("text=Compare");
+        page.click(".vertical-nav-menu > ul > li:nth-of-type(4) > ul > li:nth-of-type(3) a");
         page.click(".compare-buildings-info-header button:nth-of-type(2)");
         page.click(".compare-list-modal-table tbody tr:last-child td:last-child button:nth-of-type(2)");
         page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
     }
     public void abrirCompare(){
-        //page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
-        page.click("text=Compare");
+        page.click(".vertical-nav-menu > ul > li:nth-of-type(4)");
+        page.click(".vertical-nav-menu > ul > li:nth-of-type(4) > ul > li:nth-of-type(3) a");
         page.click(".compare-buildings-info-header button:nth-of-type(2)");
-        page.click(".compare-list-modal-table tbody tr:last-child td:last-child button:nth-of-type(1)");
-        page.click(".app-sidebar__inner > div > ul > li:nth-of-type(4)");
+        page.click(".MuiTableContainer-root tbody tr:last-child th:last-child button:nth-of-type(1)");
     }
     public void guardarCompare(){
         page.click(".compare-building-list-table tbody tr:nth-of-type(2) input");

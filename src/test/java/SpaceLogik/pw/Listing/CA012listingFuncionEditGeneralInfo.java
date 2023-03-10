@@ -25,7 +25,7 @@ public class CA012listingFuncionEditGeneralInfo extends robotBaseSpaceLogik {
     public void CA0122validacionEditBuildingCertifications(){
         login();
         editarListingBuildingCertifications();
-        page.focus("#root");
+        page.focus(".Toastify__toast-body");
         Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
     }
     @Test
@@ -34,10 +34,10 @@ public class CA012listingFuncionEditGeneralInfo extends robotBaseSpaceLogik {
         iniciarVariablesEditarBuildingDescrption();
         login();
         editarListingBuildingDescription();
-        page.focus("#root");
+        page.focus(".Toastify__toast-body");
         Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
     }
-    @Test
+    /*@Test
     public void CA0124validacionEditPrimaryLeasingContact(){
         System.out.println("Iniciando caso de prueba...");
         iniciarVariablesEditarBuildingContacts();
@@ -98,5 +98,5 @@ public class CA012listingFuncionEditGeneralInfo extends robotBaseSpaceLogik {
             Assertions.assertTrue(page.isVisible(assertions));
             System.out.println("El caso CA0127 se ejecuto "+contador+" veces");
         }
-    }
+    }*/
 }

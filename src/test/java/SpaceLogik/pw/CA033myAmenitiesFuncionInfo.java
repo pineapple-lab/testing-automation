@@ -109,10 +109,11 @@ public class CA033myAmenitiesFuncionInfo extends robotBaseSpaceLogik {
     public void CA0337validacionInfoMyAmenitiesHotelLodging(){
         login();
         page.click("text=MY LOGIK");
-        page.click("text = My Amenities");
+        page.click("text=My Amenities");
         page.click(".amenities-table-container tbody tr:nth-of-type(8) td:nth-of-type(1)");
         page.focus(".building-info-column-amenities");
         Assertions.assertTrue(page.isVisible("text=HOTEL / LODGING"));
+        page.focus(".amenities-info-description");
         Assertions.assertTrue(page.isVisible("text=FEATURES"));
         Assertions.assertTrue(page.isVisible("text=Attached hotel"));
         Assertions.assertTrue(page.isVisible("text=Hotel within 1 block"));
@@ -204,6 +205,7 @@ public class CA033myAmenitiesFuncionInfo extends robotBaseSpaceLogik {
         page.click(".amenities-table-container tbody tr:nth-of-type(15) td:nth-of-type(1)");
         page.focus(".building-info-column-amenities");
         Assertions.assertTrue(page.isVisible("text=MANNED SECURITY"));
+        page.focus(".amenities-info-description");
         Assertions.assertTrue(page.isVisible("text=FEATURES"));
         Assertions.assertTrue(page.isVisible("text=24-7 manned security"));
         Assertions.assertTrue(page.isVisible("text=On-line visitor check in app"));

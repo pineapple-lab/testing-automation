@@ -15,7 +15,7 @@ public class CA03compareFuncionSave extends robotBaseSpaceLogik {
         crearCompareTerm10();
         abrirCompare();
         guardarCompare();
-        page.focus("#root");
+        page.focus(".Toastify__toast-body");
         Assertions.assertTrue(page.isVisible("text=Comparison saved successfully"));
         abrirCompare();
         page.focus(".building-list-component table");

@@ -7,7 +7,8 @@ public class variablesPeppermint extends conexionSQLpeppermint{
 
     public String assertions;
     public String linkDeNavegacion = "http://localhost:4200/";
-
+    //SEARCH
+    public String searchingElement;
     //RUTAS
     public String pathImage;
     public String pathVideo;
@@ -50,6 +51,7 @@ public class variablesPeppermint extends conexionSQLpeppermint{
     public String targetAudienceWorkshop;
     public String learningObjectiveWorkshop;
     public String whatDoYouNeed;
+    public String howItWorks;
     public String purposeWorkshop;
     public String skillsWorkshop;
     public String physicalActvityWorkshop;
@@ -91,11 +93,6 @@ public class variablesPeppermint extends conexionSQLpeppermint{
     public String urlZoomEvent;
     public String descriptionEvent;
     public String clubEvent;
-    public String weekEventClub;
-    public String dayEventClub;
-    public String startTimeEventClub;
-    public String endTimeEventClub;
-    public String fechaGuardada;
     //CREAR TAXONOMY
     public String titleCategory;
     public String titleTopic;

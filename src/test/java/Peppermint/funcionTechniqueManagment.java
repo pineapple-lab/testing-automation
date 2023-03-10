@@ -18,23 +18,29 @@ import java.nio.file.Paths;
 import java.security.Key;
 import java.util.function.Consumer;
 
-
+//TO DO>>>>>>>>>>>>>>>>>>>>>>>>>> AGREGAR COMPORTAMIENTO PARA QUE SE MODIFIQUE LA DEADLINE
 public class funcionTechniqueManagment extends robotBasePeppermint {
     @Test
     public void validacionCreateTechnique(){
         System.out.println("iniciando caso de prueba...");
         iniciarEjecucionTechnique();
-        System.out.println("El caso se va a ejecutar "+ejecutar+" veces");
+        System.out.println("El caso se va a ejecutar "+ejecutar+" veces\n");
         iniciarNavegacion();
         login();
         for(contador=1;contador<=ejecutar;contador++) {
-        iniciarVariablesCrearTechnique();
-        System.out.println("title technqiue: "+titleTechnique);
-        createTechnique();
-        page.focus("app-mat-table");
-        assertions="text="+titleTechnique;
-        //Assertions.assertTrue(page.isVisible(assertions));
-        System.out.println("El caso CA0321 se ejecuto "+contador+" veces");
+            iniciarVariablesCrearTechnique();
+            System.out.println("\nTitle technqiue: "+titleTechnique+"\n");
+            createTechnique();
+            assertions="text=The technique was created successfully";
+            page.focus(".cdk-overlay-container snack-bar-container app-informative-notification");
+            //Assertions.assertTrue(page.isVisible(assertions));
+            searchingElement=titleTechnique;
+            page.waitForSelector("app-paging-search mat-form-field");
+            buscarContenido();
+            assertions="text="+titleTechnique;
+            page.focus("table tbody");
+            //Assertions.assertTrue(page.isVisible(assertions));
+            System.out.println("El caso se ejecuto " + contador + " veces\n");
         }
     }
 }

@@ -19,3 +19,6 @@ CHANGE legalFormationLauncha legalFormationLaunch TEXT;/*PARA CAMBIAR EL NOMBRE 
 /*---------------------------------------------------------------------------------------------------------------------*/
 INSERT datosEditarManualmenteBroker(state, city, zipCode) SELECT state, city, zipCode FROM datoscrearprospect; /*PARA COPIAR COLUMNAS DE UNA TABLA A OTRA*/
 
+ALTER TABLE testbdpeppermint.datoscreararticle ADD COLUMN id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL FIRST; /*PARA AGREGAR ID*/
+
+

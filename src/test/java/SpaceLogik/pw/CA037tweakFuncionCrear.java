@@ -19,10 +19,12 @@ public class CA037tweakFuncionCrear extends robotBaseSpaceLogik {
             nameCase=nameRoomAutoProgram+".37-validacionCrearTweak.Ejecuciones:"+contador;
             selectProgramTweak=nameCase;
             programNameTweak=nameCase;
+            System.out.println(nameCase);
             login();
             crearPrograma();
             page.focus(".my-programs-header input");
             kb.insertText(programNameTweak);
+            page.waitForSelector("text="+nameCase);
             crearRoom();
             editarRoomOptions();
             crearTweak();

@@ -12,23 +12,24 @@ public class funcionLessonManagment extends robotBasePeppermint {
     public void vaidacionCrearLesson(){
         System.out.println("Iniciando caso de prueba...");
         iniciarEjecucionLesson();
-        System.out.println("El caso se va a ejecutar "+ejecutar+" veces");
+        System.out.println("El caso se va a ejecutar "+ejecutar+" veces\n");
         iniciarNavegacion();
         login();
         for(contador=1;contador<=ejecutar;contador++) {
             iniciarVariablesCrearLesson();
-            System.out.println("title lesson: "+titleLesson);
+            System.out.println("\nTitle lesson: "+titleLesson+"\n");
             crearLesson();
-            //assertions = "text=The lesson was created successfully";
-            page.waitForSelector("app-informative-notification");
-            page.focus("app-informative-notification");
-            sqlGuardarCasoSiFallaCrearLesson();
+            assertions="text=The lesson was created successfully";
+            page.waitForSelector("text=The lesson was created successfully");
+            page.focus(".cdk-overlay-container snack-bar-container app-informative-notification");
             //Assertions.assertTrue(page.isVisible(assertions));
+            searchingElement=titleLesson;
+            page.waitForSelector("app-paging-search mat-form-field");
+            buscarContenido();
             assertions="text="+titleLesson;
-            page.focus("tbody");
-            sqlGuardarCasoSiFallaCrearLesson();
+            page.focus("table tbody");
             //Assertions.assertTrue(page.isVisible(assertions));
-            System.out.println("El caso CA0321 se ejecuto "+contador+" veces");
+            System.out.println("El caso se ejecuto " + contador + " veces\n");
         }
     }
 }

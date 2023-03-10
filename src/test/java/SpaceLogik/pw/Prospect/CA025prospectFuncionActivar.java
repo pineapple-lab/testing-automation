@@ -17,17 +17,21 @@ public class CA025prospectFuncionActivar extends robotBaseSpaceLogik {
             assertions="text="+nameCase;
             login();
             crearProspect();
-            page.focus("#root");
+            page.focus("tbody td:first-child");
+            page.pause();
             Assertions.assertTrue(page.isVisible(assertions));
             archivarProspect();
-            page.focus("#root");
+            page.waitForSelector(".Toastify__toast-body");
+            page.reload();
+            page.focus("tbody td:first-child");
             Assertions.assertFalse(page.isVisible(assertions));
             page.click(".prospect-list-landlord-button-container button:nth-of-type(2)");
-            page.focus("#root");
+            page.focus("tbody td:first-child");
             Assertions.assertTrue(page.isVisible(assertions));
             activarProspect();
+            page.waitForSelector(".Toastify__toast-body");
             page.click(".prospect-list-landlord-button-container button:nth-of-type(1)");
-            page.focus("#root");
+            page.focus("tbody td:first-child");
             Assertions.assertTrue(page.isVisible(assertions));
             System.out.println("El caso CA0251 se ejecuto "+contador+" veces");
         }

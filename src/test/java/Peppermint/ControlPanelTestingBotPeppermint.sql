@@ -1,6 +1,6 @@
 /*|--------------------INSPECCIONAR TABLAS----------------------------------------|*/ 				/*COPIA EL NOMBRE DE LA TABLA QUE VAS A USAR*/
 /*|*/																			/*|*/ 				/*testbdpeppermint.datoscrearworkshopcompleto*/
-/*|*/		SELECT * FROM testbdpeppermint.nombredetabla;						/*|*/				/*testbdpeppermint.datoscrearclub*/
+/*|*/		SELECT * FROM testbdpeppermint.datoscreartag;						/*|*/				/*testbdpeppermint.datoscrearclub*/
 /*|*/																			/*|*/				/*testbdpeppermint.datoscreararticle*/
 /*|-------------------------------------------------------------------------------|*/				/*testbdpeppermint.datoscrearlesson*/
 																									/*testbdpeppermint.datoscrearsegment*/
@@ -24,19 +24,19 @@
 /*|*/			VALUES("",FALSE,1);												/*|*/	
 /*|*/																			/*|*/	
 /*|*/					/*PARA CASOS DE 2 CAMPOS*/								/*|*/	
-/*|*/		 INSERT INTO testbdpeppermint.nombredetabla 						/*|*/		
-/*|*/			VALUES("","",FALSE,1);	 										/*|*/
+/*|*/		 	 INSERT INTO testbdpeppermint.datoscreartag						/*|*/		
+/*|*/			VALUES("","",FALSE,1);											/*|*/
 /*|*/																			/*|*/
 /*|*/					/*PARA CASOS DE 3 CAMPOS*/								/*|*/	
 /*|*/		INSERT INTO testbdpeppermint.nombredetabla							/*|*/
 /*|*/			VALUES("","","",FALSE,1);	  									/*|*/
 /*|*/																			/*|*/
 /*|*/				    /*PARA CASOS DE 4 CAMPOS*/								/*|*/
-/*|*/		INSERT INTO testbdpeppermint.nombredetabla							/*|*/
+/*|*/		INSERT INTO testbdpeppermint.datoscreartaxonomy						/*|*/
 /*|*/			VALUES("","","","",FALSE,1);									/*|*/
 /*|*/																			/*|*/
 /*|*/					/*PARA CASOS DE 10 CAMPOS*/								/*|*/
-/*|*/		INSERT INTO testbdpeppermint.nombredetabla						/*|*/
+/*|*/		INSERT INTO testbdpeppermint.nombredetabla							/*|*/
 /*|*/			VALUES("","","","","","","","","","",FALSE,1);					/*|*/
 /*|*/																			/*|*/
 /*|*/					/*PARA CASOS DE 11 CAMPOS*/								/*|*/

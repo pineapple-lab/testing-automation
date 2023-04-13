@@ -10,15 +10,14 @@ import java.nio.file.Paths;
 
 public class contextoBasePeppermint extends variablesIniciadasPeppermint {
 
-    protected static Playwright playwright;
-    protected static Browser browser;
-    protected static BrowserContext context;
-    protected static Page page;
+    public static Playwright playwright;
+    public static Browser browser;
+    public static BrowserContext context;
+    public static Page page;
     @BeforeAll
     static void launchBrowser(){
         playwright = Playwright.create();
-        browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false).setSlowMo(1).setChannel("chrome"));//
-
+        browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false).setSlowMo(0.1).setChannel("chrome"));//
 
     }
     @BeforeEach
@@ -26,11 +25,10 @@ public class contextoBasePeppermint extends variablesIniciadasPeppermint {
         context = browser.newContext();
         page = context.newPage();
         page.setViewportSize(1366, 768);
-
     }
     @AfterEach
-    void closeContext(){ context.close(); }
+    public void closeContext(){ context.close(); }
     @AfterAll
-    static void closeBrowser(){ playwright.close();
+    public static void closeBrowser(){ playwright.close();
     }
 }

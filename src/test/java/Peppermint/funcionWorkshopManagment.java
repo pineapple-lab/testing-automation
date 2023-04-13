@@ -4,15 +4,45 @@ import com.microsoft.playwright.FileChooser;
 import com.microsoft.playwright.Keyboard;
 import com.microsoft.playwright.Page;
 import insumosPeppermint.robotBasePeppermint;
+import insumosPeppermint.contextoBasePeppermint;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.nio.file.Paths;
 
 public class funcionWorkshopManagment extends robotBasePeppermint {
-
+    //TO DO>>>>>>>>>>>>>>>>>>>>>>>>>> AGREGAR COMPORTAMIENTO PARA QUE SE MODIFIQUE LA DEADLINE
     @Test
     public void validarCrearWorkshop() {
+        System.out.println("Iniciando caso de prueba...");
+        iniciarEjecucionWorkshop();
+        System.out.println("El caso se va a ejecutar " + ejecutar + " veces\n");
+        iniciarNavegacion();
+        login();
+        for (contador = 1; contador <= ejecutar; contador++) {
+            if (!shouldStopTest) {
+                iniciarVariablesCrearWorkshop();
+                System.out.println("\nTitle workshop: " + titleWorkshop + "\n");
+                crearWorkshop();
+                assertions = "text=The workshop was created successfully";
+                page.setDefaultTimeout(1200000000);
+                page.focus(".cdk-overlay-container snack-bar-container app-informative-notification");
+                //Assertions.assertTrue(page.isVisible(assertions));
+                searchingElement = titleWorkshop;
+                page.waitForSelector("app-paging-search mat-form-field");
+                //buscarContenido();
+                assertions = "text=" + titleWorkshop;
+                page.focus("table tbody");
+                //Assertions.assertTrue(page.isVisible(assertions));
+                System.out.println("El caso se ejecuto " + contador + " veces\n");
+            }else {
+                closeContext();
+            }
+        }
+        closeContext();
+    }
+    @Test
+    public void validacionCreateWorkshopSchedule(){
 
         System.out.println("Iniciando caso de prueba...");
         iniciarEjecucionWorkshop();
@@ -20,20 +50,169 @@ public class funcionWorkshopManagment extends robotBasePeppermint {
         iniciarNavegacion();
         login();
         for (contador = 1; contador <= ejecutar; contador++) {
+            startDateWorkshop = "3/31/2023, 16:00:00";
             iniciarVariablesCrearWorkshop();
             System.out.println("\nTitle workshop: "+titleWorkshop+"\n");
-            crearWorkshop();
+            crearWorkshopSchedule();
             assertions="text=The workshop was created successfully";
+            page.setDefaultTimeout(1200000000);
             page.focus(".cdk-overlay-container snack-bar-container app-informative-notification");
             //Assertions.assertTrue(page.isVisible(assertions));
             searchingElement=titleWorkshop;
             page.waitForSelector("app-paging-search mat-form-field");
-            buscarContenido();
+            //buscarContenido();
             assertions="text="+titleWorkshop;
             page.focus("table tbody");
             //Assertions.assertTrue(page.isVisible(assertions));
             System.out.println("El caso se ejecuto " + contador + " veces\n");
         }
+    }
+
+    public void crearWorkshopSchedule(){
+        System.out.println("Creando Workshop...");
+        Keyboard kb = page.keyboard();
+        if( (page.isVisible("text=Editorial management"))==false) {
+            page.click("text=My Stuff");
+            page.click("text=Contact Us");
+            page.click("text=My Stuff");
+            page.click("text=Admin Area");
+        }
+        page.click("a:nth-of-type(5)");
+        page.click("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)");
+        page.locator(".ng-star-inserted app-upload-image input[type=file]").setInputFiles(Paths.get(pathImage));
+        page.click(".ma-auto button");
+        page.locator("//*[@id=\"video-file\"]").setInputFiles(Paths.get(pathVideo));
+        page.focus(".ng-star-inserted form > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) app-mat-form-field input");
+        kb.insertText(titleWorkshop+" "+contador);
+        page.click(".ng-star-inserted app-select-creator");
+        page.click(".cdk-overlay-pane mat-option:nth-of-type("+creatorWorkshop+")");
+        page.click(".ng-star-inserted form > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) app-text-box quill-editor > div:nth-of-type(2)");
+        kb.insertText(descriptionWorkshop);
+        page.click(".ng-star-inserted .mat-chip-list-wrapper");
+        page.click(".ng-star-inserted form > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) app-text-box quill-editor > div:nth-of-type(2)");
+        page.click(".ng-star-inserted .mat-chip-list-wrapper");
+        page.click(".cdk-overlay-pane mat-option:nth-of-type("+tagWorkshop+")");
+        //page.click(".ng-star-inserted app-generic-selects > div > div > p");
+        page.click(".ng-star-inserted form > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) app-generic-selects .heigth-selects:nth-of-type(1) mat-form-field");
+        page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type("+categoryWorkshop+")");
+        //page.click(".ng-star-inserted form > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) app-generic-selects .heigth-selects:nth-of-type(2) mat-form-field");
+        //page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type("+topicWorkshop+")");
+        page.click(".ng-star-inserted form > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) quill-editor >div:nth-of-type(2)");
+        kb.insertText(targetAudienceWorkshop);
+        page.click(".ng-star-inserted form > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) quill-editor >div:nth-of-type(2)");
+        kb.insertText(learningObjectiveWorkshop);
+        page.click(".ng-star-inserted form > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) quill-editor >div:nth-of-type(2)");
+        kb.insertText(whatDoYouNeed);
+        page.click(".ng-star-inserted form > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(4) quill-editor >div:nth-of-type(2)");
+        kb.insertText(howItWorks);
+        page.click(".ng-star-inserted form > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) app-generic-selects .heigth-selects:nth-of-type(2) mat-form-field");
+        page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type("+topicWorkshop+")");
+        page.click(".ng-star-inserted form > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > mat-form-field:nth-of-type(1)");
+        page.click(".cdk-overlay-container mat-option:nth-of-type("+purposeWorkshop+")");
+        page.click(".ng-star-inserted form > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > mat-form-field:nth-of-type(2)");
+        page.click(".cdk-overlay-container mat-option:nth-of-type("+skillsWorkshop+")");
+        page.click(".ng-star-inserted form > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > mat-form-field:nth-of-type(3)");
+        page.click(".cdk-overlay-container mat-option:nth-of-type("+physicalActvityWorkshop+")");
+        page.click("form > div:nth-of-type(1) button");
+        page.click("form > div:nth-of-type(2) > div:nth-of-type(1) button");
+        page.click("form > div:nth-of-type(2) > div:nth-of-type(2) button");
+        page.click("form > div:nth-of-type(3) > div:nth-of-type(1) button");
+        page.click("form > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) mat-list mat-expansion-panel > div > div > div > div > div:nth-of-type(1)");
+        kb.insertText(questionWorkshop);
+        page.click("form > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) mat-list mat-expansion-panel > div > div > div > div > div:nth-of-type(2)");
+        kb.insertText(answerWorkshop);
+        page.click("form > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) mat-list mat-expansion-panel > div > div > div > div > div:nth-of-type(1)");
+        page.click(".cdk-overlay-container mat-option:nth-of-type("+reviewerWorkshop+")");
+        page.click("form > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) mat-list mat-expansion-panel > div > div > div > div > div:nth-of-type(2)");
+        kb.insertText(reviewWorkshop);
+        page.locator(".ng-star-inserted app-upload-image input[type=file]").setInputFiles(Paths.get(pathImage));
+        page.click(".ma-auto button");
+        page.locator("//*[@id=\"video-file\"]").setInputFiles(Paths.get(pathVideo));
+        page.click("form > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) mat-list app-generic-selects > div input");
+        page.click(".cdk-overlay-container mat-option:nth-of-type("+studentWorkshop+")");
+        page.click("form > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) mat-list textarea");
+        kb.insertText(descriptionWorkshop);
+        page.click("form > div:nth-of-type(3) > div:nth-of-type(2) button:nth-of-type(1)");
+        page.fill("mat-dialog-container input", addLinksWorkshop);
+        page.click("mat-dialog-container div:nth-of-type(2) .material-popup button");
+        page.locator("//*[@id=\"file\"]").setInputFiles(Paths.get(pathImage));
+        page.click("form > div:nth-of-type(1) button");
+        page.click("app-course-outlet-form app-course-lesson-form > button");
+        page.click("app-course-outlet-form app-course-lesson-form > div:nth-of-type(3) button");
+        page.click("mat-dialog-container tbody tr:first-child td:first-child mat-checkbox");
+        page.click("app-mat-table > div:nth-of-type(1) > button");
+        //page.click("app-drag-drop-sorting div:nth-of-type(2) mat-expansion-panel-header");
+        page.click("text=+ Add activities");
+        page.click(".cdk-overlay-container button:nth-of-type(1)");
+        page.click("text=+ Add activities");
+        page.click(".cdk-overlay-container button:nth-of-type(2)");
+        page.click("app-course-lesson-form > div:nth-of-type(2)  > app-drag-drop-sorting  > mat-list > div:nth-of-type(2) > mat-expansion-panel > div >div>div> .ng-star-inserted > div:nth-of-type(4) > div:nth-of-type(2) mat-list > div:nth-of-type(1)");
+        page.click("app-course-lesson-form > div:nth-of-type(2)  > app-drag-drop-sorting  > mat-list > div:nth-of-type(2) > mat-expansion-panel > div >div>div> .ng-star-inserted > div:nth-of-type(4) > div:nth-of-type(2) mat-list > div:nth-of-type(2)");
+        page.click("app-course-lesson-form > div:nth-of-type(2) > app-drag-drop-sorting > mat-list > div:nth-of-type(1)  mat-expansion-panel > div > div > div > div > div:nth-of-type(1) mat-form-field input");
+        kb.insertText(titleZoomWorkshop);
+        page.click("app-course-lesson-form > div:nth-of-type(2) > app-drag-drop-sorting > mat-list > div:nth-of-type(1)  mat-expansion-panel > div > div > div > div > div:nth-of-type(2) > div:nth-of-type(1) mat-form-field input");
+        kb.insertText(deadlineWorkshop);
+        page.click("app-course-lesson-form > div:nth-of-type(2) > app-drag-drop-sorting > mat-list > div:nth-of-type(1)  mat-expansion-panel > div > div > div > div > div:nth-of-type(2) > div:nth-of-type(2) mat-form-field input");
+        page.click(".clock-face__container > div:last-child button");
+        page.click(".clock-face__container > div:last-child button");
+        page.click(".mat-dialog-actions div:nth-of-type(2) button");
+        page.click("app-course-lesson-form > div:nth-of-type(2) > app-drag-drop-sorting > mat-list > div:nth-of-type(1)  mat-expansion-panel > div > div > div > div > div:nth-of-type(2) > div:nth-of-type(3) mat-form-field input");
+        kb.press("ArrowDown");
+        kb.press("Enter");
+        page.click("app-course-lesson-form > div:nth-of-type(2) > app-drag-drop-sorting > mat-list > div:nth-of-type(1)  mat-expansion-panel > div > div > div > div > div:nth-of-type(2) > div:nth-of-type(4) mat-form-field input");
+        kb.insertText("1");
+        page.fill("app-course-lesson-form > div:nth-of-type(2) > app-drag-drop-sorting > mat-list > div:nth-of-type(1)  mat-expansion-panel > div > div > div > div > div:nth-of-type(3) textarea",descriptionZoomWorkshop);
+        page.click("app-course-lesson-form > div:nth-of-type(2) > app-drag-drop-sorting > mat-list > div:nth-of-type(1)  mat-expansion-panel > div > div > div > div > div:nth-of-type(4) input");
+        kb.insertText(zoomUrlWorkshop);
+        page.click("app-course-lesson-form > div:nth-of-type(2) > app-drag-drop-sorting > mat-list > div:nth-of-type(2) > .ng-star-inserted > div > div > div > div > div:nth-of-type(3) input");
+        kb.insertText("2");
+        page.click("app-course-lesson-form > div:nth-of-type(2) > app-drag-drop-sorting > mat-list > div:nth-of-type(2) > .ng-star-inserted > div > div > div > div > div:nth-of-type(4) > div:nth-of-type(2) app-drag-drop-sorting mat-list > div:nth-of-type(1) mat-expansion-panel > div >div>div>div>div:nth-of-type(1) input");
+        kb.insertText(activitiesTitleWorkshop);
+        page.click("app-course-lesson-form > div:nth-of-type(2) > app-drag-drop-sorting > mat-list > div:nth-of-type(2) > .ng-star-inserted > div > div > div > div > div:nth-of-type(4) > div:nth-of-type(2) app-drag-drop-sorting mat-list > div:nth-of-type(1) mat-expansion-panel > div >div>div>div>div:nth-of-type(2) textarea");
+        kb.insertText(activitiesDescriptionWorkshop);
+        page.locator("app-course-lesson-form > div:nth-of-type(2) > app-drag-drop-sorting > mat-list > div:nth-of-type(2) > .ng-star-inserted > div > div > div > div > div:nth-of-type(4) > div:nth-of-type(2) app-drag-drop-sorting mat-list > div:nth-of-type(1) mat-expansion-panel > div >div>div>div input[type=file]").setInputFiles(Paths.get(pathVideo));
+        page.click("app-course-lesson-form > div:nth-of-type(2) > app-drag-drop-sorting > mat-list > div:nth-of-type(2) > .ng-star-inserted > div > div > div > div > div:nth-of-type(4) > div:nth-of-type(2) app-drag-drop-sorting mat-list > div:nth-of-type(2) mat-expansion-panel > div >div>div>div>div:nth-of-type(1) input");
+        kb.insertText(syncUpTitleWorkshop);
+        page.click("app-course-lesson-form > div:nth-of-type(2) > app-drag-drop-sorting > mat-list > div:nth-of-type(2) > .ng-star-inserted > div > div > div > div > div:nth-of-type(4) > div:nth-of-type(2) app-drag-drop-sorting mat-list > div:nth-of-type(2) mat-expansion-panel > div >div>div>div>div:nth-of-type(2) textarea");
+        kb.insertText(syncUpDescriptionWorkshop);
+        page.click("app-course-lesson-form > div:nth-of-type(1) button");
+        page.click("app-course-type-form >div>div>div>div mat-checkbox:nth-of-type(1)");
+        page.click("app-course-type-form >div>div>div>div mat-checkbox:nth-of-type(2)");
+        page.click("app-course-type-form >div>div>div>div mat-checkbox:nth-of-type(3)");
+        page.click("app-course-type-form >div>div>div>div:nth-of-type(2)  mat-expansion-panel > div > div .expansion-body > div:nth-of-type(1) > div:nth-of-type(1) mat-form-field");
+        page.click("mat-calendar tbody tr:last-child td:last-child");
+        page.click("app-course-type-form >div>div>div>div:nth-of-type(2)  mat-expansion-panel > div > div .expansion-body > div:nth-of-type(1) > div:nth-of-type(2) mat-form-field");
+        page.click(".cdk-overlay-pane mat-option:nth-of-type("+instructorSoloWithInstructor+")");
+        page.click("app-course-type-form >div>div>div>div:nth-of-type(2)  mat-expansion-panel > div > div .expansion-body > div:nth-of-type(2) .mat-checkbox-layout ");
+        page.waitForSelector("app-course-type-form >div>div>div>div:nth-of-type(2)  mat-expansion-panel > div > div .expansion-body > div:nth-of-type(2) app-mat-chips");
+        page.click("app-course-type-form >div>div>div>div:nth-of-type(2)  mat-expansion-panel > div > div .expansion-body > div:nth-of-type(2) app-mat-chips");
+        kb.press("ArrowDown");
+        kb.press("Enter");
+        page.click("app-course-type-form >div>div>div>div:nth-of-type(3)  mat-expansion-panel > div > div .expansion-body > div:nth-of-type(1) .padding > div > div:nth-of-type(1) > div:nth-of-type(1) mat-form-field");
+        page.click("mat-calendar tbody tr:last-child td:last-child");
+        page.click("app-course-type-form >div>div>div>div:nth-of-type(3)  mat-expansion-panel > div > div > div > div > div > div > div > div:nth-of-type(1) > div:nth-of-type(2) mat-form-field");
+        page.click(".cdk-overlay-pane mat-option:nth-of-type("+instructorGroupWithInstructor+")");
+        page.click("app-course-type-form >div>div>div>div:nth-of-type(3)  mat-expansion-panel > div > div > div > div > div > div > div > div:nth-of-type(2) .mat-checkbox-layout");
+        page.waitForSelector("app-course-type-form >div>div>div>div:nth-of-type(3)  mat-expansion-panel > div > div > div > div > div > div > div > div:nth-of-type(2) app-mat-chips");
+        page.click("app-course-type-form >div>div>div>div:nth-of-type(3)  mat-expansion-panel > div > div > div > div > div > div > div > div:nth-of-type(2) app-mat-chips");
+        kb.press("ArrowDown");
+        kb.press("Enter");
+        page.click("app-course-type-form >div>div>div>div:nth-of-type(3)  mat-expansion-panel > div > div .expansion-body > div:nth-of-type(1) .padding > div > div:nth-of-type(3) > div:nth-of-type(1) mat-form-field input");
+        kb.insertText(maxStudentsGroupWithInstructor);
+        page.click("app-course-type-form >div>div>div>div:nth-of-type(3)  mat-expansion-panel > div > div .expansion-body > div:nth-of-type(1) .padding > div > div:nth-of-type(3) > div:nth-of-type(2) mat-form-field input");
+        kb.insertText(maxStudentsGroupWithInstructor);
+        page.click("app-course-type-form >div>div>div>div:nth-of-type(4)  mat-expansion-panel > div > div .expansion-body > div:nth-of-type(1) .padding > div > .ng-star-inserted > div:nth-of-type(1) > div:nth-of-type(1) mat-form-field");
+        page.click("mat-calendar tbody tr:last-child td:last-child");
+        page.click("app-course-type-form >div>div>div>div:nth-of-type(4)  mat-expansion-panel > div > div .expansion-body > div:nth-of-type(1) .padding > div > .ng-star-inserted > div:nth-of-type(1) > div:nth-of-type(2) input");
+        kb.insertText(maxStudentsGroup);
+        page.click("app-course-type-form >div>div>div>div:nth-of-type(4)  mat-expansion-panel > div > div .expansion-body > div:nth-of-type(1) .padding > div > .ng-star-inserted > div:nth-of-type(2)  input");
+        kb.insertText(optimalBuddyGroup);
+        page.click("text=Publish");//app-admin-top-bar > div button:nth-of-type(3)
+        page.click("mat-dialog-container mat-option:nth-of-type(2) mat-radio-button");
+        kb.press("Tab");
+        kb.press("Delete");
+        kb.insertText(startDateWorkshop);
+        page.click("mat-dialog-container > div > div:nth-of-type(2) button");
     }
 //"text=The workshop was edited successfully" VALIDACION PARA CUANDO CREE EL CASO PARA VALIDAR EDICION
 }

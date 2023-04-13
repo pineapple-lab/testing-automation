@@ -4,7 +4,9 @@ public class variablesPeppermint extends conexionSQLpeppermint{
     //controlador
     public int contador;
     public int ejecutar;
-
+    public static volatile boolean shouldStopTest;
+    public int idcontent;
+    public String startDateWorkshop;
     public String assertions;
     public String linkDeNavegacion = "http://localhost:4200/";
     //SEARCH
@@ -13,8 +15,8 @@ public class variablesPeppermint extends conexionSQLpeppermint{
     public String pathImage;
     public String pathVideo;
     //LOGIN
-    public String emailLogin = "admin@oluko.com";
-    public String passwordLogin = "123123aA";
+    public String emailLogin = "admin@oluko.com"; //
+    public String passwordLogin= "123123aA";//
     //CREAR TECHNIQUE
     public String titleTechnique;
     public String descriptionTechnique;

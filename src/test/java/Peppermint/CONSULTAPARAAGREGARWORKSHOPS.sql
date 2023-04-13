@@ -1,4 +1,4 @@
-SELECT * FROM testbdpeppermint.datoscrearworkshopcompleto;
+SELECT * FROM testbdpeppermint.datoscrearworkshopcompleto;PRIMARY
 INSERT INTO testbdpeppermint.datoscrearworkshopcompleto
 VALUES("C:\\Users\\PineappleHP3\\Desktop\\dev\\WorkSpaces\\testingAutomation\\src\\test\\java\\Peppermint\\IMAGENPARAPRUEBAS.png","C:\\Users\\PineappleHP3\\Desktop\\dev\\WorkSpaces\\testingAutomation\\src\\test\\java\\Peppermint\\VIDEOPARAPRUEBAS.MP4","prueba Automatizada7","prueba Automatizada","2","2","2","2","2","prueba Automatizada","prueba Automatizada","prueba Automatizada","2","2","2","prueba Automatizada","prueba Automatizada","2","prueba Automatizada","2","prueba Automatizada","www.google.com","prueba Automatizada","50","prueba Automatizada","https://company.zoom.us/j/xxxxx?pwd=zzzzz","prueba Automatizada","prueba Automatizada","prueba Automatizada","prueba Automatizada","2","2","10","10","10","10",FALSE,1);
 
@@ -13,4 +13,8 @@ descriptionProjectWorkshop = "en esta primer tarea aprenderemos a armar un muebl
 activitiesTitleWorkshop = "Cajoneras", activitieDescriptionWorkshop = "en esta primer actividad aprenderemos a colocar las cajoneras de forma totalmente alineada facilmente", syncUpTitleWorkshop = "repaso de la primer actividad", syncUpDescriptionWorkshop = "en este syncup repasaremos todos los conceptos dados en la actividad anterior"
 WHERE titleWorkshop = "prueba Automatizada7";
 
-UPDATE testbdpeppermint.datoscrearworkshopcompleto SET ejecuciones = 1;
+DELETE FROM testbdpeppermint.datoscrearworkshopcompleto WHERE id=10;
+
+UPDATE testbdpeppermint.datoscrearworkshopcompleto SET ejecuciones = '30';
+
+UPDATE testbdpeppermint.datoscrearworkshopcompleto SET pathVideo = "C:\\Users\\PineappleHP3\\Desktop\\dev\\WorkSpaces\\testingAutomation\\src\\test\\java\\Peppermint\\INSUMOSMULTIMEDIA\\VIDEOPARAPRUEBAS.mp4" WHERE id = 2 ;

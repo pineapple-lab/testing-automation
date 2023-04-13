@@ -15,7 +15,7 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
         try {
             sqlconectar();
             Statement stm = CN.createStatement();
-            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.datoslogin WHERE estado = 0 ORDER BY RAND() LIMIT 1");
+            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.configuracion");
             while(rs.next()){
                 ejecutar = rs.getInt(rs.findColumn("ejecuciones"));
             }
@@ -30,14 +30,13 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
             Statement stm = CN.createStatement();
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.datoslogin WHERE estado = 0 ORDER BY RAND() LIMIT 1");
             while(rs.next()){
-                ejecutar = rs.getInt(rs.findColumn("ejecuciones"));
                 emailLogin =rs.getString(rs.findColumn("userName"));
                 passwordLogin = rs.getString(rs.findColumn("userPassword"));
             }
             String query1 = "UPDATE testbdpeppermint.datoslogin SET estado = 1 WHERE userName="+"'"+emailLogin+"'";
             stm.executeUpdate(query1);
-            String query2 = "UPDATE testbdpeppermint.datoslogin SET estado = 0 WHERE userName!="+"'"+emailLogin+"'";
-            stm.executeUpdate(query2);
+            /*String query2 = "UPDATE testbdpeppermint.datoslogin SET estado = 0 WHERE userName!="+"'"+emailLogin+"'";
+            stm.executeUpdate(query2);*/
         }catch(Exception e){}
         sqlclose();
     }
@@ -45,7 +44,7 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
         try {
             sqlconectar();
             Statement stm = CN.createStatement();
-            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.datoscreartechnique WHERE estado = 0 ORDER BY RAND() LIMIT 1");
+            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.configuracion");
             while(rs.next()){
                 ejecutar = rs.getInt(rs.findColumn("ejecuciones"));
             }
@@ -81,7 +80,7 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
         try {
             sqlconectar();
             Statement stm = CN.createStatement();
-            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.datoscrearsegment WHERE estado = 0 ORDER BY RAND() LIMIT 1");
+            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.configuracion");
             while(rs.next()){
                 ejecutar = rs.getInt(rs.findColumn("ejecuciones"));
             }
@@ -117,7 +116,7 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
         try {
             sqlconectar();
             Statement stm = CN.createStatement();
-            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.datoscrearlesson WHERE estado = 0 ORDER BY RAND() LIMIT 1");
+            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.configuracion");
             while(rs.next()){
                 ejecutar = rs.getInt(rs.findColumn("ejecuciones"));
             }
@@ -151,10 +150,11 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
         try {
             sqlconectar();
             Statement stm = CN.createStatement();
-            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.datoscrearWorkshopCompleto WHERE estado = 0 ORDER BY RAND() LIMIT 1");
+            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.configuracion");
             while(rs.next()){
                 ejecutar = rs.getInt(rs.findColumn("ejecuciones"));
             }
+
         }catch(Exception e){}
         sqlclose();
     }
@@ -221,7 +221,7 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
         try {
             sqlconectar();
             Statement stm = CN.createStatement();
-            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.datoscrearArticle WHERE estado = 0 ORDER BY RAND() LIMIT 1");
+            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.configuracion");
             while(rs.next()){
                 ejecutar = rs.getInt(rs.findColumn("ejecuciones"));
             }
@@ -259,7 +259,7 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
         try {
             sqlconectar();
             Statement stm = CN.createStatement();
-            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.datoscrearclubevent WHERE estado = 0 ORDER BY RAND() LIMIT 1");
+            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.configuracion");
             while(rs.next()){
                 ejecutar = rs.getInt(rs.findColumn("ejecuciones"));
             }
@@ -290,7 +290,7 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
         try {
             sqlconectar();
             Statement stm = CN.createStatement();
-            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.datoscreartaxonomy WHERE estado = 0 ORDER BY RAND() LIMIT 1");
+            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.configuracion");
             while(rs.next()){
                 ejecutar = rs.getInt(rs.findColumn("ejecuciones"));
             }
@@ -309,8 +309,8 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
             }
             String query1 = "UPDATE testbdpeppermint.datoscreartaxonomy SET estado = 1 WHERE titleCategory="+"'"+titleCategory+"'";
             stm.executeUpdate(query1);
-            String query2 = "UPDATE testbdpeppermint.datoscreartaxonomy SET estado = 0 WHERE titleCategory!="+"'"+titleCategory+"'";
-            stm.executeUpdate(query2);
+            /*String query2 = "UPDATE testbdpeppermint.datoscreartaxonomy SET estado = 0 WHERE titleCategory!="+"'"+titleCategory+"'";
+            stm.executeUpdate(query2);*/
         }catch (Exception e) {}
         sqlclose();
     }
@@ -318,7 +318,7 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
         try {
             sqlconectar();
             Statement stm = CN.createStatement();
-            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.datoscreartag WHERE estado = 0 ORDER BY RAND() LIMIT 1");
+            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.configuracion");
             while(rs.next()){
                 ejecutar = rs.getInt(rs.findColumn("ejecuciones"));
             }
@@ -331,12 +331,13 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
             Statement stm = CN.createStatement();
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.datoscreartag WHERE estado = 0 ORDER BY RAND() LIMIT 1");
             while (rs.next()) {
+                idcontent =rs.getInt(rs.findColumn("id"));
                 titleTag = rs.getString(rs.findColumn("titleTag"));
             }
-            String query1 = "UPDATE testbdpeppermint.datoscreartag SET estado = 1 WHERE titleTag="+"'"+titleTag+"'";
+            String query1 = "UPDATE testbdpeppermint.datoscreartag SET estado = 1 WHERE id="+"'"+idcontent+"'";
             stm.executeUpdate(query1);
-            String query2 = "UPDATE testbdpeppermint.datoscreartag SET estado = 0 WHERE titleTag!="+"'"+titleTag+"'";
-            stm.executeUpdate(query2);
+            /*String query2 = "UPDATE testbdpeppermint.datoscreartag SET estado = 0 WHERE titleTag!="+"'"+titleTag+"'";
+            stm.executeUpdate(query2);*/
         }catch (Exception e) {}
         sqlclose();
     }
@@ -344,7 +345,7 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
         try {
             sqlconectar();
             Statement stm = CN.createStatement();
-            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.datoscrearclub WHERE estado = 0 ORDER BY RAND() LIMIT 1");
+            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.configuracion");
             while(rs.next()){
                 ejecutar = rs.getInt(rs.findColumn("ejecuciones"));
             }

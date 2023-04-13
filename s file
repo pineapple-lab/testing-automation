@@ -1,0 +1,377 @@
+[33mcommit a1451ab35d80afe08884ff078bf9917237276338[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Thu Apr 13 16:48:03 2023 -0300
+
+    archivo ignore
+
+[33mcommit ba198d141d95435f5cff1aeeb0c951579b82de6f[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Thu Apr 13 16:41:49 2023 -0300
+
+    archivo ignore
+
+[33mcommit 1231deb996bd10e847c606e362842547b76ca69e[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Thu Apr 13 16:33:25 2023 -0300
+
+    ignore
+
+[33mcommit 5b576572d561e298f940fa376ea892411a0ec978[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Thu Apr 13 16:17:09 2023 -0300
+
+    interface y cambios varios
+
+[33mcommit 645039c2ec60913ccfa69b404ed8116bcd974ee4[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Fri Mar 10 12:32:06 2023 -0300
+
+    actualizacion de formulario workshop en peppermint, arreglo de algunos casos de space logik
+
+[33mcommit e3e235363cafe220149251caa2805ac1d53c87eb[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Thu Feb 9 16:05:27 2023 -0300
+
+    creacion de todos los contenidos
+
+[33mcommit 87ea887bebe583184c44404c651617c978493899[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Wed Feb 8 17:50:53 2023 -0300
+
+    workshops + articles
+
+[33mcommit 656a9d20553a3a396c5a2f40925259d498084cfb[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Wed Feb 8 12:34:24 2023 -0300
+
+    logica para poder subir videos
+
+[33mcommit 8f7c5c54a9bfa67bc2389d9fecde9da98e4c8b57[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Fri Feb 3 10:59:31 2023 -0300
+
+    caso taxonomy
+
+[33mcommit 2d2c4c52b724f04aa9f65a5c9840ddb5ee086e3f[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Thu Feb 2 15:19:25 2023 -0300
+
+    creacion de tags
+
+[33mcommit d33b0e75188814ece073699883b3ecd5afe344e5[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Wed Jan 25 14:00:55 2023 -0300
+
+    crear club peppermint
+
+[33mcommit 20313562510067072d206e4b4436b15160f385fd[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Thu Jan 12 12:33:11 2023 -0300
+
+    logica para subir archivos
+
+[33mcommit 85f23a7d8921f525955ff3530d4e7e5c2548cfce[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Mon Jan 9 14:25:16 2023 -0300
+
+    casos de peppermint y fix casos spacelogik
+
+[33mcommit 2572a824d0e446ef8cde7072750c4b3e89a2a827[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Tue Jan 3 17:14:50 2023 -0300
+
+    caso automatizado creacion technique peppermin
+
+[33mcommit ef4b716806580b527d0c67da0ec419ed7c8fa59d[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Mon Jan 2 16:57:11 2023 -0300
+
+    arreglo logica para nombres de casos variables
+
+[33mcommit aa9fccb4d621a2d1df27376a44a56733e00b603a[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Mon Jan 2 16:32:07 2023 -0300
+
+    implementacion de logica para que nombre de pruebas sea variable
+
+[33mcommit b56e207bd55074127b2bc2cf1ea2bcbe676410db[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Fri Dec 30 16:55:51 2022 -0300
+
+    logica para nombre de casos variables
+
+[33mcommit 970223236932a5c38da253d6c6e72688028f6fea[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Fri Dec 30 14:13:03 2022 -0300
+
+    fix caso ca028
+
+[33mcommit af4e0ab5a584cfa35acb2e799bf283cdedcc38ad[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Fri Dec 30 09:21:00 2022 -0300
+
+    se termino de implementar logica para controlar cantidad de ejecuciones de casos desde la base de datos
+
+[33mcommit 0e893c63e625867859da99ed770f961020989a41[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Thu Dec 29 17:00:21 2022 -0300
+
+    se agrego logica para poder controlar desde la base de datos la cantidad de veces que se ejecuta un caso de prueba
+
+[33mcommit 65932c2b4d6398acf291e1973caacc9f1deeb25a[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Thu Dec 29 14:32:29 2022 -0300
+
+    creacion de rama space y prueba sql cantidad ejecuciones
+
+[33mcommit 158642c0ed28d30cd40e9a925b1c0068eba6237f[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Wed Dec 28 17:03:35 2022 -0300
+
+    fix casos de pruebas, creacion de panel de control, finalizacion de agregado de datos a base de datos
+
+[33mcommit 1e1582b93aa3eb6141f9195ec1bc4a674d4dcfd9[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Tue Dec 27 13:45:53 2022 -0300
+
+    finalizacion de conexion con base de datos y primeras consultas sql estandar
+
+[33mcommit 653dce9b8cfef1758a690f6e484058e61858f781[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Mon Dec 26 16:40:27 2022 -0300
+
+    avance implementacion base de datos
+
+[33mcommit 0d195eab0762f347d4b16b892b0735cdfcd44ca2[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Mon Dec 26 14:48:31 2022 -0300
+
+    avance implementacion basededatos
+
+[33mcommit 6f591d8b10d5cbbacb3e2397ecb681e60a878300[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Fri Dec 23 17:08:31 2022 -0300
+
+    avance de implementacion de consultas sql
+
+[33mcommit c9de89b00545c652df602612999a4f5ef0f3a2c0[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Thu Dec 22 17:03:59 2022 -0300
+
+    finalizacion de logica de insercion de datos para casos fallidos y consulta de datos aleatorios para usar en casos de prueba + avance de implementacion de ambas logicas
+
+[33mcommit 081dac1bd1d189f330f5e3cb56786d74f487d9b0[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Wed Dec 21 16:49:32 2022 -0300
+
+    progreso de logica parqa que los datos
+
+[33mcommit 21ca1264b6b914f36959894678a355fd495602d1[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Tue Dec 20 17:41:43 2022 -0300
+
+    insertar datos en bd si el caso falla y traer datos desde la bd para usarlos en pruebas
+
+[33mcommit 050e7339ca115ed36ff9c873499a73b666f88c94[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Fri Dec 16 14:17:16 2022 -0300
+
+    refactorizacion
+
+[33mcommit f61765d42ebde381164c51cb88b67d6392164c26[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Fri Dec 16 12:47:50 2022 -0300
+
+    refactorizacion de casos por cambio en el menu
+
+[33mcommit 3c742c5bf8d2a42d50b1777b5d6f3f2f8d3de651[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Thu Dec 15 16:25:38 2022 -0300
+
+    guardado de datos en bd de casos funcion my deal
+
+[33mcommit 44d9cd1635edad9dcc5e632faa48e9c3fec5e50c[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Thu Dec 15 15:22:13 2022 -0300
+
+    conexion base de datos
+
+[33mcommit 9a49b22b8ce3d337b82f57b8de8c9fa18a63ddd5[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Thu Dec 15 10:57:09 2022 -0300
+
+    cambios my preference
+
+[33mcommit cc42a45b9db1828d8904a39ae008b3f2c7bc36c1[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Wed Dec 14 10:47:36 2022 -0300
+
+    caso login peppermint
+
+[33mcommit bc0493c027fec60eea747276976f47dce2d0abf5[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Tue Dec 13 12:13:14 2022 -0300
+
+    edicion de archivo pom y fix de caso proposal y program
+
+[33mcommit c443dcd673f50b6f7af5cbd70386126dcd616670[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Fri Dec 9 12:09:02 2022 -0300
+
+    arreglos
+
+[33mcommit 99d8031c38b9546a436dd0665ca58a0850a3aa12[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Tue Dec 6 16:21:46 2022 -0300
+
+    cambio nombre autenticacion base a contexto base
+
+[33mcommit ac4373d272574519fee6b6f826ea98b2665d9d77[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Fri Dec 2 14:34:41 2022 -0300
+
+    refactorizacion de nombres
+
+[33mcommit a2a212478f15a59cf1a589ffa66d57fbea4a46d3[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Thu Dec 1 12:34:54 2022 -0300
+
+    refactor de casos
+
+[33mcommit 0d0083af7003e89b50fbfe60c6c387a39ba49aa7[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Thu Dec 1 08:58:38 2022 -0300
+
+    refactor caso delete program y creacion caso
+
+[33mcommit 75406b8f4ad2fea8b6fd349e8cbfe85aaf98174f[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Wed Nov 30 11:42:39 2022 -0300
+
+    caso login peppermint
+
+[33mcommit 4f783d49cff5d5dedbcce776017b87d4b626eb8f[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Tue Nov 29 12:32:41 2022 -0300
+
+    fixeo casos
+
+[33mcommit afd2dc08bd2e0cea190e13becc116841f4f8db20[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Fri Nov 25 16:30:32 2022 -0300
+
+    avance testingautomation funcion listing
+
+[33mcommit 4fb626229a50a22d0ca8253c830db25439b06601[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Thu Nov 24 15:45:18 2022 -0300
+
+    casos listing
+
+[33mcommit 89e3d8aa5b853e6c6cd5a6626ff654dd4d7e28b2[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Wed Nov 23 16:28:22 2022 -0300
+
+    se empezo automatizacion listing
+
+[33mcommit 2fc02e9841a6a3982f19e91fdca97b4cb06a5c28[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Wed Nov 23 10:14:41 2022 -0300
+
+    configuracion carpetas
+
+[33mcommit 0719ae3645800fb854440964cbb8686273358cc5[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Wed Nov 23 10:13:41 2022 -0300
+
+    modificacion carpeta
+
+[33mcommit b534ab39211825e738be7d793e6606a8049065e4[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Wed Nov 23 08:17:41 2022 -0300
+
+    respaldo
+
+[33mcommit 895e25098682a7a17412cdf54b43776a14a5fc8f[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Tue Nov 22 15:48:04 2022 -0300
+
+    casos my preference, my deal y my amenities
+
+[33mcommit ed4e52e93a3fbcbeb6d66ff24decd0604df6e9a3[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Fri Nov 18 10:06:31 2022 -0300
+
+    refactorClasesPeppermint
+
+[33mcommit ad5909f37dcb350eda014051fd9b372edd5873ff[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Thu Nov 17 15:47:58 2022 -0300
+
+    arreglo caso funcion tweak y casos funcion compare
+
+[33mcommit 7e11ea590d862c5bdeb20c24685b2683a5f0b601[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Thu Nov 17 12:31:07 2022 -0300
+
+    se agregan casos de funcion compare
+
+[33mcommit 770c7da50730157055635abd02d9e03af0bcf533[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Wed Nov 16 14:11:00 2022 -0300
+
+    primer caso peppermint
+
+[33mcommit e7c7f47d4d2a1fc702adcc7c6051c9a6653808a0[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Wed Nov 16 13:44:28 2022 -0300
+
+    arreglo de nombres de pruebas
+
+[33mcommit 570fffe10bd21ab49df3ecf7936f669e6f47e868[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Tue Nov 15 16:42:18 2022 -0300
+
+    tutorial de instalacion
+
+[33mcommit 101cb239a49c67716f4ac19b9ca88c00a1b2d713[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Tue Nov 15 16:26:53 2022 -0300
+
+    se agregan casos de excepciones
+
+[33mcommit f4e8b4db3b52d3869218c7ca58623cc11d032bb9[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Tue Nov 15 10:03:55 2022 -0300
+
+    refactorizacion de carpetas y primeras validaciones de excepeciones
+
+[33mcommit f9061bb0b32405d15121f79268b08dc8278023c4[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Mon Nov 14 16:51:05 2022 -0300
+
+    actualizacion caso auto program
+
+[33mcommit bf8c4ff996e5b51544cb40084485831cdacc02d9[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Mon Nov 14 12:27:57 2022 -0300
+
+    se agrega caso automatizado de funcion Tweak
+
+[33mcommit 59a0807b38903c57d0f63bb17cee0fc9ac6d8c36[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Mon Nov 14 10:41:41 2022 -0300
+
+    caso crear search y modificiacion en autoprogram
+
+[33mcommit ea708651dfc97909f53a78357cbde5414b93047d[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Mon Nov 14 09:25:43 2022 -0300
+
+    vcs
+
+[33mcommit b370e8a4dbc54a2a79988d80e5358cedb1f4e05a[m
+Author: fubilla <francisco@pineapple-lab.com>
+Date:   Mon Nov 14 09:09:26 2022 -0300
+
+    first commit

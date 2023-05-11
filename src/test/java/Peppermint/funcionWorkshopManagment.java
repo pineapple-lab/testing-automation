@@ -1,53 +1,37 @@
 package Peppermint;
 
-import com.microsoft.playwright.FileChooser;
-import com.microsoft.playwright.Keyboard;
-import com.microsoft.playwright.Page;
+import com.microsoft.playwright.*;
+import insumosPeppermint.casosDePruebaWorkshop;
 import insumosPeppermint.robotBasePeppermint;
 import insumosPeppermint.contextoBasePeppermint;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.nio.file.Paths;
+import java.util.function.Predicate;
 
-public class funcionWorkshopManagment extends robotBasePeppermint {
-    //TO DO>>>>>>>>>>>>>>>>>>>>>>>>>> AGREGAR COMPORTAMIENTO PARA QUE SE MODIFIQUE LA DEADLINE
+public class funcionWorkshopManagment extends casosDePruebaWorkshop {
     @Test
-    public void validarCrearWorkshop() {
+    public void validacionCrearWorkshop() {
+        iniciarContexto();
+        serverStatus();
         System.out.println("Iniciando caso de prueba...");
         iniciarEjecucionWorkshop();
-        System.out.println("El caso se va a ejecutar " + ejecutar + " veces\n");
+        imprimirCantidadDeEjecuciones();
         iniciarNavegacion();
         login();
-        for (contador = 1; contador <= ejecutar; contador++) {
-            if (!shouldStopTest) {
-                iniciarVariablesCrearWorkshop();
-                System.out.println("\nTitle workshop: " + titleWorkshop + "\n");
-                crearWorkshop();
-                assertions = "text=The workshop was created successfully";
-                page.setDefaultTimeout(1200000000);
-                page.focus(".cdk-overlay-container snack-bar-container app-informative-notification");
-                //Assertions.assertTrue(page.isVisible(assertions));
-                searchingElement = titleWorkshop;
-                page.waitForSelector("app-paging-search mat-form-field");
-                //buscarContenido();
-                assertions = "text=" + titleWorkshop;
-                page.focus("table tbody");
-                //Assertions.assertTrue(page.isVisible(assertions));
-                System.out.println("El caso se ejecuto " + contador + " veces\n");
-            }else {
-                closeContext();
-            }
-        }
-        closeContext();
+        validarCrearWorkshop();
     }
+
     @Test
+
     public void validacionCreateWorkshopSchedule(){
 
         System.out.println("Iniciando caso de prueba...");
         iniciarEjecucionWorkshop();
         System.out.println("El caso se va a ejecutar " + ejecutar + " veces\n");
         iniciarNavegacion();
+
         login();
         for (contador = 1; contador <= ejecutar; contador++) {
             startDateWorkshop = "3/31/2023, 16:00:00";

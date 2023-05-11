@@ -359,7 +359,6 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
             Statement stm = CN.createStatement();
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.datoscrearclub WHERE estado = 0 ORDER BY RAND() LIMIT 1");
             while(rs.next()){
-                ejecutar = rs.getInt(rs.findColumn("ejecuciones"));
                 pathImage =rs.getString(rs.findColumn("pathImage"));
                 titleClub = rs.getString(rs.findColumn("titleClub"));
                 descriptionClub = rs.getString(rs.findColumn("descriptionClub"));

@@ -1,22 +1,39 @@
 package insumosPeppermint;
 
+import java.time.Instant;
+
 public class variablesPeppermint extends conexionSQLpeppermint{
+
     //controlador
     public int contador;
     public int ejecutar;
     public static volatile boolean shouldStopTest;
+    public int posicion;
+    public int contadorRegistro;
+    public String firstName ="pineapple";
+    public String lastName = "user";
+    public String emailRegistro;
+    public String passwordRegistro = "123123aA";
+    public String cardholderName = "Test";
+    public String cardNumber = "4242 4242 4242 4242";
+    public String monthExpired = "424";
+    public String cvv = "424";
+    public String emailGuest;
+    public String inviteGuest;
+    public String inviteGuestEmail;
+    public String inviteGuestEmailLoop;
     public int idcontent;
     public String startDateWorkshop;
     public String assertions;
-    public String linkDeNavegacion = "http://localhost:4200/";
+    public static String linkDeNavegacion;
     //SEARCH
     public String searchingElement;
     //RUTAS
     public String pathImage;
     public String pathVideo;
     //LOGIN
-    public String emailLogin = "admin@oluko.com"; //
-    public String passwordLogin= "123123aA";//
+    public String emailLogin= "admin@oluko.com" ; //= "" //mailsendinviteguest@mailinator.com
+    public String passwordLogin= "123123aA";//= "123123aA"
     //CREAR TECHNIQUE
     public String titleTechnique;
     public String descriptionTechnique;

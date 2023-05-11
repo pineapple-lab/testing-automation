@@ -1,12 +1,16 @@
 package Peppermint;
+import insumosPeppermint.formularioTechnique;
+import insumosPeppermint.formularioWorkshop;
 import javafx.application.Application;
+import javafx.scene.control.ComboBox;
 import javafx.scene.layout.GridPane;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import insumosPeppermint.robotBasePeppermint;
-
+import insumosPeppermint.variablesPeppermint;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
@@ -21,6 +25,8 @@ robotBasePeppermint metodosPeppermint = new robotBasePeppermint();
  @Override
     public void start(Stage stage1){
         GridPane grid = new GridPane();
+        ComboBox<String> comboBox = new ComboBox<>();
+
         grid.setHgap(10);
         grid.setVgap(10);
         Button crearWorkshop = new Button("Crear workshop");
@@ -32,19 +38,34 @@ robotBasePeppermint metodosPeppermint = new robotBasePeppermint();
         Button crearTag = new Button("Crear tag");
         Button crearLesson = new Button("Crear lesson");
         Button crearSegment = new Button("Crear segment");
+        Button crearUsuario = new Button("Crear Usuario");
         Button deneterCasoDePrueba = new Button("Detener");
         TextField ejecucionestf = new TextField("ejecuciones");
-        GridPane.setConstraints(ejecucionestf,2,1);
-        GridPane.setConstraints(deneterCasoDePrueba,3,1);
-        GridPane.setConstraints(crearWorkshop , 2, 2);
-        GridPane.setConstraints(crearArticle , 2, 3);
-        GridPane.setConstraints(crearClub , 2, 4);
-        GridPane.setConstraints(crearTechnique , 2, 5);
-        GridPane.setConstraints(crearClubEvent , 2, 6);
-        GridPane.setConstraints(crearTaxonomy , 2, 7);
-        GridPane.setConstraints(crearTag , 2, 8);
-        GridPane.setConstraints(crearLesson , 2, 9);
-        GridPane.setConstraints(crearSegment , 2, 10);
+        comboBox.getItems().add("DEV");
+        comboBox.getItems().add("QA");
+        comboBox.setValue("Elegir ambiente");
+        comboBox.setOnAction(e->{
+         String seleccion = comboBox.getValue();
+         if (seleccion.equals("DEV")) {
+             variablesPeppermint.linkDeNavegacion="http://localhost:4200/";
+         } else if (seleccion.equals("QA")) {
+             variablesPeppermint.linkDeNavegacion="https://peppermint-qa.web.app/";
+            }
+        });
+        GridPane.setConstraints(comboBox,2,1);
+        GridPane.setConstraints(ejecucionestf,2,2);
+        GridPane.setConstraints(deneterCasoDePrueba,3,2);
+        GridPane.setConstraints(crearWorkshop , 2, 3);
+        GridPane.setConstraints(crearArticle , 2, 4);
+        GridPane.setConstraints(crearClub , 2, 5);
+        GridPane.setConstraints(crearTechnique , 2, 6);
+        GridPane.setConstraints(crearClubEvent , 2, 7);
+        GridPane.setConstraints(crearTaxonomy , 2, 8);
+        GridPane.setConstraints(crearTag , 2, 9);
+        GridPane.setConstraints(crearLesson , 2, 10);
+        GridPane.setConstraints(crearSegment , 2, 11);
+        GridPane.setConstraints(crearUsuario , 2, 12);
+        grid.getChildren().add(comboBox);
         grid.getChildren().add(ejecucionestf);
         grid.getChildren().add(deneterCasoDePrueba);
         grid.getChildren().add(crearWorkshop);
@@ -56,9 +77,10 @@ robotBasePeppermint metodosPeppermint = new robotBasePeppermint();
         grid.getChildren().add(crearTag);
         grid.getChildren().add(crearLesson);
         grid.getChildren().add(crearSegment);
+        grid.getChildren().add(crearUsuario);
         deneterCasoDePrueba.setOnAction(event ->{
             metodosPeppermint.detenerTest();
-            System.out.println("La ejecucion se detendra al final de la iteracion");
+            System.out.println("La ejecucion se detendra al final de la actual iteracion");
         });
         crearWorkshop.setOnAction(e->{
             Thread testtThreadworkshop =  new Thread (()->{
@@ -68,12 +90,12 @@ robotBasePeppermint metodosPeppermint = new robotBasePeppermint();
                     String password = "root";
                     Connection CN = DriverManager.getConnection(url, username, password);
                     String ejecuciones = ejecucionestf.getText();
-                    String insertSql = "INSERT INTO testbdpeppermint.configuracion(`ejecuciones`) VALUES(" + ejecuciones + ")";
+                    String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = "+"'"+ejecuciones+"'";
                     Statement stmt = CN.createStatement();
                     stmt.executeUpdate(insertSql);
                     CN.close();
                     funcionWorkshopManagment test = new funcionWorkshopManagment();
-                    test.validarCrearWorkshop();
+                    test.validacionCrearWorkshop();
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
@@ -92,7 +114,7 @@ robotBasePeppermint metodosPeppermint = new robotBasePeppermint();
                     String password = "root";
                     Connection CN = DriverManager.getConnection(url, username, password);
                     String ejecuciones = ejecucionestf.getText();
-                    String insertSql = "INSERT INTO testbdpeppermint.configuracion(`ejecuciones`) VALUES("+ejecuciones+")";
+                    String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = "+"'"+ejecuciones+"'";
                     Statement stmt = CN.createStatement();
                     stmt.executeUpdate(insertSql);
                     CN.close();
@@ -116,12 +138,12 @@ robotBasePeppermint metodosPeppermint = new robotBasePeppermint();
                     String password = "root";
                     Connection CN = DriverManager.getConnection(url, username, password);
                     String ejecuciones = ejecucionestf.getText();
-                    String insertSql = "INSERT INTO testbdpeppermint.configuracion(`ejecuciones`) VALUES("+ejecuciones+")";
+                    String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = "+"'"+ejecuciones+"'";
                     Statement stmt = CN.createStatement();
                     stmt.executeUpdate(insertSql);
                     CN.close();
                     funcionClubManagment test = new funcionClubManagment();
-                    test.crearClub();
+                    test.vaidacionCrearClub();
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
@@ -140,7 +162,7 @@ robotBasePeppermint metodosPeppermint = new robotBasePeppermint();
                     String password = "root";
                     Connection CN = DriverManager.getConnection(url, username, password);
                     String ejecuciones = ejecucionestf.getText();
-                    String insertSql = "INSERT INTO testbdpeppermint.configuracion(`ejecuciones`) VALUES("+ejecuciones+")";
+                    String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = "+"'"+ejecuciones+"'";
                     Statement stmt = CN.createStatement();
                     stmt.executeUpdate(insertSql);
                     CN.close();
@@ -164,7 +186,7 @@ robotBasePeppermint metodosPeppermint = new robotBasePeppermint();
                     String password = "root";
                     Connection CN = DriverManager.getConnection(url, username, password);
                     String ejecuciones = ejecucionestf.getText();
-                    String insertSql = "INSERT INTO testbdpeppermint.configuracion(`ejecuciones`) VALUES("+ejecuciones+")";
+                    String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = "+"'"+ejecuciones+"'";
                     Statement stmt = CN.createStatement();
                     stmt.executeUpdate(insertSql);
                     CN.close();
@@ -189,7 +211,7 @@ robotBasePeppermint metodosPeppermint = new robotBasePeppermint();
                     String password = "root";
                     Connection CN = DriverManager.getConnection(url, username, password);
                     String ejecuciones = ejecucionestf.getText();
-                    String insertSql = "INSERT INTO testbdpeppermint.configuracion(`ejecuciones`) VALUES("+ejecuciones+")";
+                    String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = "+"'"+ejecuciones+"'";
                     Statement stmt = CN.createStatement();
                     stmt.executeUpdate(insertSql);
                     CN.close();
@@ -213,7 +235,7 @@ robotBasePeppermint metodosPeppermint = new robotBasePeppermint();
                  String password = "root";
                  Connection CN = DriverManager.getConnection(url, username, password);
                  String ejecuciones = ejecucionestf.getText();
-                 String insertSql = "INSERT INTO testbdpeppermint.configuracion(`ejecuciones`) VALUES("+ejecuciones+")";
+                 String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = "+"'"+ejecuciones+"'";
                  Statement stmt = CN.createStatement();
                  stmt.executeUpdate(insertSql);
                  CN.close();
@@ -237,12 +259,12 @@ robotBasePeppermint metodosPeppermint = new robotBasePeppermint();
                  String password = "root";
                  Connection CN = DriverManager.getConnection(url, username, password);
                  String ejecuciones = ejecucionestf.getText();
-                 String insertSql = "INSERT INTO testbdpeppermint.configuracion(`ejecuciones`) VALUES("+ejecuciones+")";
+                 String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = "+"'"+ejecuciones+"'";
                  Statement stmt = CN.createStatement();
                  stmt.executeUpdate(insertSql);
                  CN.close();
                  funcionLessonManagment test = new funcionLessonManagment();
-                 test.crearLesson();
+                 test.vaidacionCrearLesson();
              } catch (Exception ex) {
                  ex.printStackTrace();
              }
@@ -261,12 +283,12 @@ robotBasePeppermint metodosPeppermint = new robotBasePeppermint();
                  String password = "root";
                  Connection CN = DriverManager.getConnection(url, username, password);
                  String ejecuciones = ejecucionestf.getText();
-                 String insertSql = "INSERT INTO testbdpeppermint.configuracion(`ejecuciones`) VALUES("+ejecuciones+")";
+                 String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = "+"'"+ejecuciones+"'";
                  Statement stmt = CN.createStatement();
                  stmt.executeUpdate(insertSql);
                  CN.close();
                  funcionSegmentsManagment test = new funcionSegmentsManagment();
-                 test.crearSegment();
+                 test.vaidacionCreacionSegment();
              } catch (Exception ex) {
                  ex.printStackTrace();
              }
@@ -276,6 +298,30 @@ robotBasePeppermint metodosPeppermint = new robotBasePeppermint();
          }
          metodosPeppermint.iniciarTest();
          testtThreadSegment.start();
+     });
+     crearUsuario.setOnAction(e->{
+         Thread testtThreadCrearUsuario =  new Thread (()->{
+             try {
+                 String url = "jdbc:mysql://localhost:3306/testbdpeppermint?serverTimezone=UTC";
+                 String username = "root";
+                 String password = "root";
+                 Connection CN = DriverManager.getConnection(url, username, password);
+                 String ejecuciones = ejecucionestf.getText();
+                 String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = "+"'"+ejecuciones+"'";
+                 Statement stmt = CN.createStatement();
+                 stmt.executeUpdate(insertSql);
+                 CN.close();
+                 funcionRegistroManagment test = new funcionRegistroManagment();
+                 test.validacionCrearUsuario();
+             } catch (Exception ex) {
+                 ex.printStackTrace();
+             }
+         },"testtThreadSCrearUsuario");
+         if(testtThreadCrearUsuario.isAlive()) {
+             testtThreadCrearUsuario.stop();
+         }
+         metodosPeppermint.iniciarTest();
+         testtThreadCrearUsuario.start();
      });
         Scene scene = new Scene (grid,300, 500);
         stage1.setScene(scene);

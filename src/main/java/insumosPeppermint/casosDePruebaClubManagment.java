@@ -6,6 +6,7 @@ public class casosDePruebaClubManagment extends robotBasePeppermint{
             if (!shouldStopTest) {
                 iniciarVariablesCrearClub();
                 System.out.println("\nSe creara el club: " + titleClub + "\n");
+                printStream.println("\nSe creara el club: " + titleClub + "\n");
                 crearClub();
                 assertions = "text=The club was created successfully";
                 //page.waitForSelector("text=The club was created successfully");
@@ -21,6 +22,7 @@ public class casosDePruebaClubManagment extends robotBasePeppermint{
                 //Assertions.assertTrue(page.isVisible(assertions));
                 //sqlGuardarCasoSiFallaCrearClub();
                 System.out.println("El club se ha creado con exito\n");
+                printStream.println("El club se ha creado con exito\n");
                 imprimirCantidadDeCasosEjecutados();
             } else {
                 closeContext();

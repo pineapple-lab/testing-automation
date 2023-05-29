@@ -10,6 +10,7 @@ public class funcionInviteGuest extends casosDePruebaInviteGuest {
         linkDeNavegacion="http://localhost:4200/";
         serverStatus();
         System.out.println("Iniciando caso de prueba...");
+        printStream.println("Iniciando caso de prueba...");
         iniciarEjecucionArticle();
         imprimirCantidadDeEjecuciones();
         iniciarNavegacion();

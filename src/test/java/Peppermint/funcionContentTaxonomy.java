@@ -13,6 +13,7 @@ public class funcionContentTaxonomy extends casosDePruebaTaxonomy {
         iniciarContexto();
         serverStatus();
         System.out.println("iniciando caso de prueba...");
+        printStream.println("iniciando caso de prueba...");
         iniciarEjecucionTaxonomy();
         imprimirCantidadDeEjecuciones();
         iniciarNavegacion();

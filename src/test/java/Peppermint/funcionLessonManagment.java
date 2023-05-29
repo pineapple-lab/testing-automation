@@ -14,6 +14,7 @@ public class funcionLessonManagment extends casosDePruebaLesson {
         iniciarContexto();
         serverStatus();
         System.out.println("Iniciando caso de prueba...");
+        printStream.println("Iniciando caso de prueba...");
         iniciarEjecucionLesson();
         imprimirCantidadDeEjecuciones();
         iniciarNavegacion();

@@ -7,3 +7,9 @@
 3-Instalar IDE eclipse, IntelliJ IDEA o cualquiera con buena compatibilidad con java
 ----> Link de descarga IntelliJ IDEA: https://www.jetbrains.com/idea/download/#section=windows
 ----> Link de descarga Eclipse: https://www.eclipse.org/downloads/
+
+4-En intelij ir a run -> edit configuration -> seleccionar "bot creator" -> modify option -> seleccionar "add VM option" -> introducir el siguiente codigo:
+--module-path
+C:\Users\PineappleHP3\Desktop\dev\WorkSpaces\libs\javafx-sdk-17.0.6\lib
+--add-modules
+javafx.controls,javafx.fxml

@@ -16,6 +16,7 @@ public class funcionWorkshopManagment extends casosDePruebaWorkshop {
         iniciarContexto();
         serverStatus();
         System.out.println("Iniciando caso de prueba...");
+        printStream.println("Iniciando caso de prueba...");
         iniciarEjecucionWorkshop();
         imprimirCantidadDeEjecuciones();
         iniciarNavegacion();
@@ -72,6 +73,7 @@ public class funcionWorkshopManagment extends casosDePruebaWorkshop {
         page.click(".cdk-overlay-pane mat-option:nth-of-type("+creatorWorkshop+")");
         page.click(".ng-star-inserted form > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) app-text-box quill-editor > div:nth-of-type(2)");
         kb.insertText(descriptionWorkshop);
+
         page.click(".ng-star-inserted .mat-chip-list-wrapper");
         page.click(".ng-star-inserted form > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) app-text-box quill-editor > div:nth-of-type(2)");
         page.click(".ng-star-inserted .mat-chip-list-wrapper");

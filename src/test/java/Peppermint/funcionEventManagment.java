@@ -13,6 +13,7 @@ public class funcionEventManagment extends casosDePruebaEvent {
         iniciarContexto();
         serverStatus();
         System.out.println("iniciando caso de prueba...");
+        printStream.println("iniciando caso de prueba...");
         iniciarEjecucionEvent();
         imprimirCantidadDeEjecuciones();
         iniciarNavegacion();

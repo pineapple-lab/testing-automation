@@ -7,6 +7,7 @@ public class casosDePruebaEvent extends robotBasePeppermint{
         if (!shouldStopTest) {
             iniciarVariablesEvent();
             System.out.println("\nSe creara el event: " + titleEvent + "\n");
+            printStream.println("\nSe creara el event: " + titleEvent + "\n");
             createEvent();
             assertions = "text=The event was created successfully";
             page.focus(".cdk-overlay-container snack-bar-container app-informative-notification");
@@ -18,6 +19,7 @@ public class casosDePruebaEvent extends robotBasePeppermint{
             page.focus("table tbody");
             //Assertions.assertTrue(page.isVisible(assertions));
             System.out.println("El event se ha creado con exito\n");
+            printStream.println("El event se ha creado con exito\n");
             imprimirCantidadDeCasosEjecutados();
         } else {
             closeContext();

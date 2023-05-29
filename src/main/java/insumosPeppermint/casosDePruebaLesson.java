@@ -6,6 +6,7 @@ public class casosDePruebaLesson extends robotBasePeppermint{
             if (!shouldStopTest) {
                 iniciarVariablesCrearLesson();
                 System.out.println("\nSe creara el lesson: " + titleLesson + "\n");
+                printStream.println("\nSe creara el lesson: " + titleLesson + "\n");
                 crearLesson();
                 assertions = "text=The lesson was created successfully";
                 page.waitForSelector("text=The lesson was created successfully");
@@ -18,6 +19,7 @@ public class casosDePruebaLesson extends robotBasePeppermint{
                 page.focus("table tbody");
                 //Assertions.assertTrue(page.isVisible(assertions));
                 System.out.println("El lesson se ha creado con exito\n");
+                printStream.println("El lesson se ha creado con exito\n");
                 imprimirCantidadDeCasosEjecutados();
             } else {
                 closeContext();

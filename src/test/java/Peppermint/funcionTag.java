@@ -13,6 +13,7 @@ public class funcionTag extends casosDePruebaTag {
         iniciarContexto();
         serverStatus();
         System.out.println("Iniciando caso de prueba...");
+        printStream.println("Iniciando caso de prueba...");
         iniciarEjecucionTag();
         imprimirCantidadDeEjecuciones();
         iniciarNavegacion();

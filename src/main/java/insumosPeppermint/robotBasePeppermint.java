@@ -1,5 +1,9 @@
 package insumosPeppermint;
-import com.microsoft.playwright.*;
+
+import com.microsoft.playwright.APIResponse;
+import com.microsoft.playwright.FileChooser;
+import com.microsoft.playwright.Keyboard;
+import com.microsoft.playwright.Page;
 import org.junit.jupiter.api.Test;
 
 import java.nio.file.Paths;
@@ -7,10 +11,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.text.SimpleDateFormat;
 import java.time.Instant;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 
@@ -22,69 +23,82 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
     public void detenerTest(){
     shouldStopTest = true;
 }
-    public void imprimirCantidadDeEjecuciones (){
-        if(ejecutar>1) {
-            System.out.println("El caso se va a ejecutar " + ejecutar + " veces");
-        }else {
-            System.out.println("El caso se va a ejecutar " + ejecutar + " vez");
-        }
-    }
-
-    public void imprimirCantidadDeCasosEjecutados (){
-
-        if(contador>1) {
-            System.out.println("El caso se ejecuto " + contador + " veces");
-        }else {
-            System.out.println("El caso se ejecuto " + contador + " vez");
-        }
-        int ejecucionesRestantes = ejecutar - contador;
-        System.out.println("Ejecuciones restantes: "+ejecucionesRestantes);
-        if(ejecucionesRestantes==0){
-            System.out.println("-----------------------------------------------------------");
-            System.out.println("Fin de la ejecucion");
-        }
-        System.out.println("-----------------------------------------------------------\n");
-    }
-    public void imprimirCantidadDeCasosEjecutadosRegistroInviteguest (){
-
-        if(contadorRegistro>1) {
-            System.out.println("El caso se ejecuto " + contadorRegistro + " veces\n");
-        }else {
-            System.out.println("El caso se ejecuto " + contadorRegistro + " vez\n");
-        }
-        int ejecucionesRestantes = ejecutar - contadorRegistro;
-        System.out.println("Ejecuciones restantes: "+ejecucionesRestantes);
-    }
     public void serverStatus(){
-    APIResponse response = page.request().get(linkDeNavegacion);
-    int statusCode = response.status();
-    assert(response).ok();
-    System.out.println("Server status: "+statusCode);
-    System.out.println("-----------------------------------------------------------");
+        APIResponse response = page.request().get("https://peppermint-development.firebaseapp.com/");
+        int statusCode = response.status();
+        assert(response).ok();
+        System.out.println("Server status: "+statusCode);
+        System.out.println("-----------------------------------------------------------");
+        printStream.println("Server status: "+statusCode);
+        printStream.println("-----------------------------------------------------------");
     }
     public void iniciarContexto(){
         System.out.println("\n-----------------------------------------------------------");
         System.out.println("Iniciando ejecucion....");
         System.out.println("-----------------------------------------------------------");
+        printStream.println("\n-----------------------------------------------------------");
+        printStream.println("Iniciando ejecucion....");
+        printStream.println("-----------------------------------------------------------");
         launchBrowser();
         createContextAndPage();
     }
     public void iniciarNavegacion(){
+        printStream.println("\nAmbiente: "+linkDeNavegacion+"\n");
         System.out.println("\nAmbiente: "+linkDeNavegacion+"\n");
         Keyboard kb = page.keyboard();
         kb.press("Control+KeyN");
         page.navigate(linkDeNavegacion);
     }
-    public void login(){
-        System.out.println("Iniciando login...");
-        System.out.println("El login del usuario "+emailLogin+" se realizo con exito \n");
+    public void imprimirCantidadDeEjecuciones (){
+        if(ejecutar>1) {
+
+            System.out.println("El caso se va a ejecutar " + ejecutar + " veces");
+            printStream.println("El caso se va a ejecutar " + ejecutar + " veces");
+        }else {
+            System.out.println("El caso se va a ejecutar " + ejecutar + " vez");
+            printStream.println("El caso se va a ejecutar " + ejecutar + " vez");
+        }
+    }
+    public void imprimirCantidadDeCasosEjecutados (){
+
+        if(contador>1) {
+            System.out.println("El caso se ejecuto " + contador + " veces");
+            printStream.println("El caso se ejecuto " + contador + " veces");
+        }else {
+            System.out.println("El caso se ejecuto " + contador + " vez");
+            printStream.println("El caso se ejecuto " + contador + " vez");
+        }
+        int ejecucionesRestantes = ejecutar - contador;
+        System.out.println("Ejecuciones restantes: "+ejecucionesRestantes);
+        printStream.println("Ejecuciones restantes: "+ejecucionesRestantes);
+        if(ejecucionesRestantes==0){
+            System.out.println("-----------------------------------------------------------");
+            System.out.println("Fin de la ejecucion");
+            printStream.println("-----------------------------------------------------------");
+            printStream.println("Fin de la ejecucion");
+        }
+        System.out.println("-----------------------------------------------------------\n");
+        printStream.println("-----------------------------------------------------------\n");
+    }
+    public void imprimirCantidadDeCasosEjecutadosRegistroInviteguest (){
+
+        if(contadorRegistro>1) {
+            System.out.println("El caso se ejecuto " + contadorRegistro + " veces\n");
+            printStream.println("El caso se ejecuto " + contadorRegistro + " veces\n");
+        }else {
+            System.out.println("El caso se ejecuto " + contadorRegistro + " vez\n");
+            printStream.println("El caso se ejecuto " + contadorRegistro + " vez\n");
+        }
+        int ejecucionesRestantes = ejecutar - contadorRegistro;
+        System.out.println("Ejecuciones restantes: "+ejecucionesRestantes);
+        printStream.println("Ejecuciones restantes: "+ejecucionesRestantes);
+    }
+    public void buscarContenido(){
         Keyboard kb = page.keyboard();
-        page.click("text=Sign in");
-        page.focus(".bg-primary-contrast form > .mat-card-content app-mat-form-field:nth-of-type(1) input");
-        kb.insertText(emailLogin);
-        page.focus(".bg-primary-contrast form > .mat-card-content app-mat-form-field:nth-of-type(2) input");
-        kb.insertText(passwordLogin);
-        page.click(".bg-primary-contrast form > div:nth-of-type(3) button");
+        page.focus("app-paging-search mat-form-field input");
+        kb.insertText(searchingElement);
+        kb.press("Enter");
+        page.waitForSelector("tbody tr:first-child td:last-child button:last-child");
     }
     public void registrarUsuario(){
         Keyboard kb = page.keyboard();
@@ -134,18 +148,58 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
             ex.printStackTrace();
         }
     }
+    public void guardarEmailsDelLoop(){
+        try {
+            sqlconectar();
+            Statement stm = CN.createStatement();
+            String query1 = "UPDATE testbdpeppermint.inviteguest SET email = "+"'"+inviteGuestEmailLoop+"'"+" WHERE ID="+"'"+posicion+"'";
+            stm.executeUpdate(query1);
+        }catch(Exception e){}
+        sqlclose();
+    }
+    public void guardarEmails(){
+        try {
+
+            sqlconectar();
+            Statement stm = CN.createStatement();
+            String query1 = "UPDATE testbdpeppermint.inviteguest SET email = "+"'"+inviteGuestEmail+"'"+" WHERE ID="+"'"+contador+"'";
+            stm.executeUpdate(query1);
+        }catch(Exception e){}
+        sqlclose();
+    }
+
+    public void traerEmail(){
+        try {
+            sqlconectar();
+            Statement stm = CN.createStatement();
+            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.inviteguest WHERE ID = "+contadorRegistro+"");
+            page.waitForTimeout(6000);
+            while(rs.next()){
+                emailGuest =rs.getString(rs.findColumn("email"));
+            }
+        }catch(Exception e){}
+        sqlclose();
+    }
+    public void login(){
+        System.out.println("Iniciando login...");
+        System.out.println("El login del usuario "+emailLogin+" se realizo con exito \n");
+        printStream.println("Iniciando login...");
+        printStream.println("El login del usuario "+emailLogin+" se realizo con exito \n");
+        Keyboard kb = page.keyboard();
+        page.click("text=Sign in");
+        page.focus(".bg-primary-contrast form > .mat-card-content app-mat-form-field:nth-of-type(1) input");
+        kb.insertText(emailLogin);
+        page.focus(".bg-primary-contrast form > .mat-card-content app-mat-form-field:nth-of-type(2) input");
+        kb.insertText(passwordLogin);
+        page.click(".bg-primary-contrast form > div:nth-of-type(3) button");
+    }
+
     public void logout(){
       page.click("text=My Stuff");
       page.click("text=Sign out");
       page.waitForTimeout(3000);
     }
-    public void buscarContenido(){
-        Keyboard kb = page.keyboard();
-        page.focus("app-paging-search mat-form-field input");
-        kb.insertText(searchingElement);
-        kb.press("Enter");
-        page.waitForSelector("tbody tr:first-child td:last-child button:last-child");
-    }
+
     public void enviarInviteGuest(){
         Keyboard kb = page.keyboard();
         long timeStamp = Instant.now().toEpochMilli();
@@ -156,6 +210,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         page.click("text=Membership");
         page.click("text=Invite guests");
         System.out.println("Enviando invite guest...");
+        printStream.println("Enviando invite guest...");
         page.focus("app-guest-invite mat-card mat-card-content:nth-of-type(2)>div>div:nth-of-type(1)>div:nth-of-type(2) input");
         kb.insertText(inviteGuest);
         page.focus("app-guest-invite mat-card mat-card-content:nth-of-type(2)>div>div:nth-of-type(2)>div:nth-of-type(1) app-mat-form-field:nth-of-type(1) input");
@@ -209,6 +264,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         Page nuevaPestana = pages.get(pages.size() - 1);
         nuevaPestana.bringToFront();
         System.out.println("Registrando invite guest...");
+        printStream.println("Registrando invite guest...");
         nuevaPestana.click("mat-card-content > mat-form-field mat-datepicker-toggle button");
         nuevaPestana.click("mat-calendar tbody tr:nth-of-type(2) td:nth-of-type(3)");
         nuevaPestana.fill("mat-card-content > app-mat-form-field:nth-of-type(2) input","123123aA");
@@ -226,40 +282,10 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         nuevaPestana.close();
         kb.press("Alt+F4");
     }
-    public void guardarEmailsDelLoop(){
-        try {
-            sqlconectar();
-            Statement stm = CN.createStatement();
-            String query1 = "UPDATE testbdpeppermint.inviteguest SET email = "+"'"+inviteGuestEmailLoop+"'"+" WHERE ID="+"'"+posicion+"'";
-            stm.executeUpdate(query1);
-        }catch(Exception e){}
-        sqlclose();
-    }
-    public void guardarEmails(){
-        try {
 
-            sqlconectar();
-            Statement stm = CN.createStatement();
-            String query1 = "UPDATE testbdpeppermint.inviteguest SET email = "+"'"+inviteGuestEmail+"'"+" WHERE ID="+"'"+contador+"'";
-            stm.executeUpdate(query1);
-        }catch(Exception e){}
-        sqlclose();
-    }
-
-    public void traerEmail(){
-        try {
-            sqlconectar();
-            Statement stm = CN.createStatement();
-            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.inviteguest WHERE ID = "+contadorRegistro+"");
-            page.waitForTimeout(6000);
-            while(rs.next()){
-                emailGuest =rs.getString(rs.findColumn("email"));
-            }
-        }catch(Exception e){}
-        sqlclose();
-    }
     public void createTechnique(){
         System.out.println("Creando technique...");
+        printStream.println("Creando technique...");
         Keyboard kb = page.keyboard();
         if( (page.isVisible("text=Editorial management"))==false) {
             page.click("text=My Stuff");
@@ -305,6 +331,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
     }
     public void crearSegment(){
         System.out.println("Creando Segment...");
+        printStream.println("Creando Segment...");
         Keyboard kb = page.keyboard();
         if( (page.isVisible("text=Editorial management"))==false) {
             page.click("text=My Stuff");
@@ -349,6 +376,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
     }
     public void crearLesson(){
         System.out.println("Creando Lesson...");
+        printStream.println("Creando Lesson...");
         Keyboard kb = page.keyboard();
         if( (page.isVisible("text=Editorial management"))==false) {
             page.click("text=My Stuff");
@@ -391,6 +419,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
     }
     public void crearWorkshop(){
             System.out.println("Creando Workshop...");
+            printStream.println("Creando Workshop...");
             Keyboard kb = page.keyboard();
 
             if ((page.isVisible("text=Editorial management")) == false) {
@@ -404,61 +433,61 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
             page.locator(".ng-star-inserted app-upload-image input[type=file]").setInputFiles(Paths.get(pathImage));
             page.click(".ma-auto button");
             page.locator("//*[@id=\"video-file\"]").setInputFiles(Paths.get(pathVideo));
-            page.focus(".ng-star-inserted form > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) app-mat-form-field input");
+            page.focus(".ng-star-inserted > app-course-form > form > div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > app-mat-form-field input");
             kb.insertText(titleWorkshop);
             page.click(".ng-star-inserted app-select-creator");
             page.click(".cdk-overlay-pane mat-option:nth-of-type(" + creatorWorkshop + ")");
-            page.click(".ng-star-inserted form > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) app-text-box quill-editor > div:nth-of-type(2)");
+            page.click(".ng-star-inserted > app-course-form > form > div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > app-text-box quill-editor  > div:nth-of-type(2)");
             kb.insertText(descriptionWorkshop);
             page.click(".ng-star-inserted .mat-chip-list-wrapper");
             page.click(".cdk-overlay-pane mat-option:nth-of-type(" + tagWorkshop + ")");
             //page.click(".ng-star-inserted app-generic-selects > div > div > p");
-            page.click(".ng-star-inserted form > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) app-generic-selects .heigth-selects:nth-of-type(1) mat-form-field");
+            page.click(".ng-star-inserted app-course-form > form > div > div:nth-of-type(2) > div:nth-of-type(1) > app-generic-selects .heigth-selects:nth-of-type(1) mat-form-field");
             page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type(" + categoryWorkshop + ")");
             //page.click(".ng-star-inserted form > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) app-generic-selects .heigth-selects:nth-of-type(2) mat-form-field");
             //page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type("+topicWorkshop+")");
-            page.click(".ng-star-inserted form > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) quill-editor >div:nth-of-type(2)");
+            page.click(".ng-star-inserted app-course-form > form > div > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) quill-editor > div:nth-of-type(2)");
             kb.insertText(targetAudienceWorkshop);
-            page.click(".ng-star-inserted form > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) quill-editor >div:nth-of-type(2)");
+            page.click(".ng-star-inserted app-course-form > form > div > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) quill-editor > div:nth-of-type(2)");
             kb.insertText(learningObjectiveWorkshop);
-            page.click(".ng-star-inserted form > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) quill-editor >div:nth-of-type(2)");
+            page.click(".ng-star-inserted app-course-form > form > div > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(3) quill-editor > div:nth-of-type(2)");
             kb.insertText(whatDoYouNeed);
-            page.click(".ng-star-inserted form > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(4) quill-editor >div:nth-of-type(2)");
+            page.click(".ng-star-inserted app-course-form > form > div > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(4) quill-editor > div:nth-of-type(2)");
             kb.insertText(howItWorks);
-            page.click(".ng-star-inserted form > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) app-generic-selects .heigth-selects:nth-of-type(2) mat-form-field");
+            page.click(".ng-star-inserted app-course-form > form > div > div:nth-of-type(2) > div:nth-of-type(1) > app-generic-selects .heigth-selects:nth-of-type(2) mat-form-field");
             page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type(" + topicWorkshop + ")");
-            page.click(".ng-star-inserted form > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > mat-form-field:nth-of-type(1)");
+            page.click(".ng-star-inserted app-course-form > form > div > div:nth-of-type(3) > div:nth-of-type(2) > mat-form-field:nth-of-type(1)");
             page.click(".cdk-overlay-container mat-option:nth-of-type(" + purposeWorkshop + ")");
-            page.click(".ng-star-inserted form > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > mat-form-field:nth-of-type(2)");
+            page.click(".ng-star-inserted app-course-form > form > div > div:nth-of-type(3) > div:nth-of-type(2) > mat-form-field:nth-of-type(2)");
             page.click(".cdk-overlay-container mat-option:nth-of-type(" + skillsWorkshop + ")");
-            page.click(".ng-star-inserted form > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > mat-form-field:nth-of-type(3)");
+            page.click(".ng-star-inserted app-course-form > form > div > div:nth-of-type(3) > div:nth-of-type(2) > mat-form-field:nth-of-type(3)");
             page.click(".cdk-overlay-container mat-option:nth-of-type(" + physicalActvityWorkshop + ")");
-            page.click("form > div:nth-of-type(1) button");
+            page.click("app-admin-top-bar > div button:nth-of-type(2)");
+            page.click("form > div:nth-of-type(1) > div:nth-of-type(1) button");
+            page.click("form > div:nth-of-type(1) > div:nth-of-type(2) button");
             page.click("form > div:nth-of-type(2) > div:nth-of-type(1) button");
-            page.click("form > div:nth-of-type(2) > div:nth-of-type(2) button");
-            page.click("form > div:nth-of-type(3) > div:nth-of-type(1) button");
-            page.click("form > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) mat-list mat-expansion-panel > div > div > div > div > div:nth-of-type(1)");
+            page.click("form > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) mat-list mat-expansion-panel > div > div > div > div > div:nth-of-type(1)");
             kb.insertText(questionWorkshop);
-            page.click("form > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) mat-list mat-expansion-panel > div > div > div > div > div:nth-of-type(2)");
+            page.click("form > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) mat-list mat-expansion-panel > div > div > div > div > div:nth-of-type(2)");
             kb.insertText(answerWorkshop);
-            page.click("form > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) mat-list mat-expansion-panel > div > div > div > div > div:nth-of-type(1)");
+            page.click("form > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) mat-list mat-expansion-panel > div > div > div > div > div:nth-of-type(1)");
             page.click(".cdk-overlay-container mat-option:nth-of-type(" + reviewerWorkshop + ")");
-            page.click("form > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) mat-list mat-expansion-panel > div > div > div > div > div:nth-of-type(2)");
+            page.click("form > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) mat-list mat-expansion-panel > div > div > div > div > div:nth-of-type(2)");
             kb.insertText(reviewWorkshop);
             page.locator(".ng-star-inserted app-upload-image input[type=file]").setInputFiles(Paths.get(pathImage));
             page.click(".ma-auto button");
             page.locator("//*[@id=\"video-file\"]").setInputFiles(Paths.get(pathVideo));
-            page.click("form > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) mat-list app-generic-selects > div input");
+            page.click("form > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) mat-list mat-expansion-panel > div > div > div > div > div:nth-of-type(2) app-generic-selects > div input");
             page.click(".cdk-overlay-container mat-option:nth-of-type(" + studentWorkshop + ")");
-            page.click("form > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) mat-list textarea");
+            page.click("form > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) mat-list mat-expansion-panel > div > div > div > div > div:nth-of-type(2) textarea");
             kb.insertText(descriptionWorkshop);
-            page.click("form > div:nth-of-type(3) > div:nth-of-type(2) button:nth-of-type(1)");
+            page.click("form > div:nth-of-type(2) > div:nth-of-type(2) button:nth-of-type(1)");
             page.fill("mat-dialog-container input", addLinksWorkshop);
             page.click("mat-dialog-container div:nth-of-type(2) .material-popup button");
             page.locator("//*[@id=\"file\"]").setInputFiles(Paths.get(pathImage));
-            page.click("form > div:nth-of-type(1) button");
+            page.click("app-admin-top-bar > div button:nth-of-type(2)");
             page.click("app-course-outlet-form app-course-lesson-form > button");
-            page.click("app-course-outlet-form app-course-lesson-form > div:nth-of-type(3) button");
+            page.click("app-course-outlet-form app-course-lesson-form > div:nth-of-type(2) button");
             page.click("mat-dialog-container tbody tr:first-child td:first-child mat-checkbox");
             page.click("app-mat-table > div:nth-of-type(1) > button");
             //page.click("app-drag-drop-sorting div:nth-of-type(2) mat-expansion-panel-header");
@@ -466,36 +495,36 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
             page.click(".cdk-overlay-container button:nth-of-type(1)");
             page.click("text=+ Add activities");
             page.click(".cdk-overlay-container button:nth-of-type(2)");
-            page.click("app-course-lesson-form > div:nth-of-type(2)  > app-drag-drop-sorting  > mat-list > div:nth-of-type(2) > mat-expansion-panel > div >div>div> .ng-star-inserted > div:nth-of-type(4) > div:nth-of-type(2) mat-list > div:nth-of-type(1)");
-            page.click("app-course-lesson-form > div:nth-of-type(2)  > app-drag-drop-sorting  > mat-list > div:nth-of-type(2) > mat-expansion-panel > div >div>div> .ng-star-inserted > div:nth-of-type(4) > div:nth-of-type(2) mat-list > div:nth-of-type(2)");
-            page.click("app-course-lesson-form > div:nth-of-type(2) > app-drag-drop-sorting > mat-list > div:nth-of-type(1)  mat-expansion-panel > div > div > div > div > div:nth-of-type(1) mat-form-field input");
+            page.click("app-course-lesson-form > div:nth-of-type(1)  > app-drag-drop-sorting  > mat-list > div:nth-of-type(2) > mat-expansion-panel > div >div>div> .ng-star-inserted > div:nth-of-type(4) > div:nth-of-type(2) mat-list > div:nth-of-type(1)");
+            page.click("app-course-lesson-form > div:nth-of-type(1)  > app-drag-drop-sorting  > mat-list > div:nth-of-type(2) > mat-expansion-panel > div >div>div> .ng-star-inserted > div:nth-of-type(4) > div:nth-of-type(2) mat-list > div:nth-of-type(2)");
+            page.click("app-course-lesson-form > div:nth-of-type(1) > app-drag-drop-sorting > mat-list > div:nth-of-type(1)  mat-expansion-panel > div > div > div > div > div:nth-of-type(1) mat-form-field input");
             kb.insertText(titleZoomWorkshop);
-            page.click("app-course-lesson-form > div:nth-of-type(2) > app-drag-drop-sorting > mat-list > div:nth-of-type(1)  mat-expansion-panel > div > div > div > div > div:nth-of-type(2) > div:nth-of-type(1) mat-form-field input");
+            page.click("app-course-lesson-form > div:nth-of-type(1) > app-drag-drop-sorting > mat-list > div:nth-of-type(1)  mat-expansion-panel > div > div > div > div > div:nth-of-type(2) > div:nth-of-type(1) mat-form-field input");
             kb.insertText(deadlineWorkshop);
-            page.click("app-course-lesson-form > div:nth-of-type(2) > app-drag-drop-sorting > mat-list > div:nth-of-type(1)  mat-expansion-panel > div > div > div > div > div:nth-of-type(2) > div:nth-of-type(2) mat-form-field input");
+            page.click("app-course-lesson-form > div:nth-of-type(1) > app-drag-drop-sorting > mat-list > div:nth-of-type(1)  mat-expansion-panel > div > div > div > div > div:nth-of-type(2) > div:nth-of-type(2) mat-form-field input");
             page.click(".clock-face__container > div:last-child button");
             page.click(".clock-face__container > div:last-child button");
             page.click(".mat-dialog-actions div:nth-of-type(2) button");
-            page.click("app-course-lesson-form > div:nth-of-type(2) > app-drag-drop-sorting > mat-list > div:nth-of-type(1)  mat-expansion-panel > div > div > div > div > div:nth-of-type(2) > div:nth-of-type(3) mat-form-field input");
+            page.click("app-course-lesson-form > div:nth-of-type(1) > app-drag-drop-sorting > mat-list > div:nth-of-type(1)  mat-expansion-panel > div > div > div > div > div:nth-of-type(2) > div:nth-of-type(3) mat-form-field input");
             kb.press("ArrowDown");
             kb.press("Enter");
-            page.click("app-course-lesson-form > div:nth-of-type(2) > app-drag-drop-sorting > mat-list > div:nth-of-type(1)  mat-expansion-panel > div > div > div > div > div:nth-of-type(2) > div:nth-of-type(4) mat-form-field input");
+            page.click("app-course-lesson-form > div:nth-of-type(1) > app-drag-drop-sorting > mat-list > div:nth-of-type(1)  mat-expansion-panel > div > div > div > div > div:nth-of-type(2) > div:nth-of-type(4) mat-form-field input");
             kb.insertText("1");
-            page.fill("app-course-lesson-form > div:nth-of-type(2) > app-drag-drop-sorting > mat-list > div:nth-of-type(1)  mat-expansion-panel > div > div > div > div > div:nth-of-type(3) textarea", descriptionZoomWorkshop);
-            page.click("app-course-lesson-form > div:nth-of-type(2) > app-drag-drop-sorting > mat-list > div:nth-of-type(1)  mat-expansion-panel > div > div > div > div > div:nth-of-type(4) input");
+            page.fill("app-course-lesson-form > div:nth-of-type(1) > app-drag-drop-sorting > mat-list > div:nth-of-type(1)  mat-expansion-panel > div > div > div > div > div:nth-of-type(3) textarea", descriptionZoomWorkshop);
+            page.click("app-course-lesson-form > div:nth-of-type(1) > app-drag-drop-sorting > mat-list > div:nth-of-type(1)  mat-expansion-panel > div > div > div > div > div:nth-of-type(4) input");
             kb.insertText(zoomUrlWorkshop);
-            page.click("app-course-lesson-form > div:nth-of-type(2) > app-drag-drop-sorting > mat-list > div:nth-of-type(2) > .ng-star-inserted > div > div > div > div > div:nth-of-type(3) input");
+            page.click("app-course-lesson-form > div:nth-of-type(1) > app-drag-drop-sorting > mat-list > div:nth-of-type(2) > .ng-star-inserted > div > div > div > div > div:nth-of-type(3) input");
             kb.insertText("2");
-            page.click("app-course-lesson-form > div:nth-of-type(2) > app-drag-drop-sorting > mat-list > div:nth-of-type(2) > .ng-star-inserted > div > div > div > div > div:nth-of-type(4) > div:nth-of-type(2) app-drag-drop-sorting mat-list > div:nth-of-type(1) mat-expansion-panel > div >div>div>div>div:nth-of-type(1) input");
+            page.click("app-course-lesson-form > div:nth-of-type(1) > app-drag-drop-sorting > mat-list > div:nth-of-type(2) > .ng-star-inserted > div > div > div > div > div:nth-of-type(4) > div:nth-of-type(2) app-drag-drop-sorting mat-list > div:nth-of-type(1) mat-expansion-panel > div >div>div>div>div:nth-of-type(1) input");
             kb.insertText(activitiesTitleWorkshop);
-            page.click("app-course-lesson-form > div:nth-of-type(2) > app-drag-drop-sorting > mat-list > div:nth-of-type(2) > .ng-star-inserted > div > div > div > div > div:nth-of-type(4) > div:nth-of-type(2) app-drag-drop-sorting mat-list > div:nth-of-type(1) mat-expansion-panel > div >div>div>div>div:nth-of-type(2) textarea");
+            page.click("app-course-lesson-form > div:nth-of-type(1) > app-drag-drop-sorting > mat-list > div:nth-of-type(2) > .ng-star-inserted > div > div > div > div > div:nth-of-type(4) > div:nth-of-type(2) app-drag-drop-sorting mat-list > div:nth-of-type(1) mat-expansion-panel > div >div>div>div>div:nth-of-type(2) textarea");
             kb.insertText(activitiesDescriptionWorkshop);
-            page.locator("app-course-lesson-form > div:nth-of-type(2) > app-drag-drop-sorting > mat-list > div:nth-of-type(2) > .ng-star-inserted > div > div > div > div > div:nth-of-type(4) > div:nth-of-type(2) app-drag-drop-sorting mat-list > div:nth-of-type(1) mat-expansion-panel > div >div>div>div input[type=file]").setInputFiles(Paths.get(pathVideo));
-            page.click("app-course-lesson-form > div:nth-of-type(2) > app-drag-drop-sorting > mat-list > div:nth-of-type(2) > .ng-star-inserted > div > div > div > div > div:nth-of-type(4) > div:nth-of-type(2) app-drag-drop-sorting mat-list > div:nth-of-type(2) mat-expansion-panel > div >div>div>div>div:nth-of-type(1) input");
+            page.locator("app-course-lesson-form > div:nth-of-type(1) > app-drag-drop-sorting > mat-list > div:nth-of-type(2) > .ng-star-inserted > div > div > div > div > div:nth-of-type(4) > div:nth-of-type(2) app-drag-drop-sorting mat-list > div:nth-of-type(1) mat-expansion-panel > div >div>div>div input[type=file]").setInputFiles(Paths.get(pathVideo));
+            page.click("app-course-lesson-form > div:nth-of-type(1) > app-drag-drop-sorting > mat-list > div:nth-of-type(2) > .ng-star-inserted > div > div > div > div > div:nth-of-type(4) > div:nth-of-type(2) app-drag-drop-sorting mat-list > div:nth-of-type(2) mat-expansion-panel > div >div>div>div>div:nth-of-type(1) input");
             kb.insertText(syncUpTitleWorkshop);
-            page.click("app-course-lesson-form > div:nth-of-type(2) > app-drag-drop-sorting > mat-list > div:nth-of-type(2) > .ng-star-inserted > div > div > div > div > div:nth-of-type(4) > div:nth-of-type(2) app-drag-drop-sorting mat-list > div:nth-of-type(2) mat-expansion-panel > div >div>div>div>div:nth-of-type(2) textarea");
+            page.click("app-course-lesson-form > div:nth-of-type(1) > app-drag-drop-sorting > mat-list > div:nth-of-type(2) > .ng-star-inserted > div > div > div > div > div:nth-of-type(4) > div:nth-of-type(2) app-drag-drop-sorting mat-list > div:nth-of-type(2) mat-expansion-panel > div >div>div>div>div:nth-of-type(2) textarea");
             kb.insertText(syncUpDescriptionWorkshop);
-            page.click("app-course-lesson-form > div:nth-of-type(1) button");
+            page.click("app-admin-top-bar > div button:nth-of-type(2)");
             page.click("app-course-type-form >div>div>div>div mat-checkbox:nth-of-type(1)");
             page.click("app-course-type-form >div>div>div>div mat-checkbox:nth-of-type(2)");
             page.click("app-course-type-form >div>div>div>div mat-checkbox:nth-of-type(3)");
@@ -520,7 +549,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
             page.click("app-course-type-form >div>div>div>div:nth-of-type(3)  mat-expansion-panel > div > div .expansion-body > div:nth-of-type(1) .padding > div > div:nth-of-type(3) > div:nth-of-type(1) mat-form-field input");
             kb.insertText(maxStudentsGroupWithInstructor);
             page.click("app-course-type-form >div>div>div>div:nth-of-type(3)  mat-expansion-panel > div > div .expansion-body > div:nth-of-type(1) .padding > div > div:nth-of-type(3) > div:nth-of-type(2) mat-form-field input");
-            kb.insertText(maxStudentsGroupWithInstructor);
+            kb.insertText(optimalBuddyGroupGroupWithInstructor);
             page.click("app-course-type-form >div>div>div>div:nth-of-type(4)  mat-expansion-panel > div > div .expansion-body > div:nth-of-type(1) .padding > div > .ng-star-inserted > div:nth-of-type(1) > div:nth-of-type(1) mat-form-field");
             page.click("mat-calendar tbody tr:last-child td:last-child");
             page.click("app-course-type-form >div>div>div>div:nth-of-type(4)  mat-expansion-panel > div > div .expansion-body > div:nth-of-type(1) .padding > div > .ng-star-inserted > div:nth-of-type(1) > div:nth-of-type(2) input");
@@ -530,9 +559,25 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
             page.click("text=Publish");//app-admin-top-bar > div button:nth-of-type(3)
             page.click("mat-dialog-container > div > div:nth-of-type(2) button");
         }
+    public void enrollWorkshop(){
+        page.waitForTimeout(10000);
+        page.navigate("http://localhost:4200/content/workshops");//ESTO ES UNA CHANCHADA HAY QUE REFACTORIZARLO
+        page.waitForTimeout(12000);
+        page.waitForSelector("app-all-cards .container > div:nth-of-type(2)");
+        page.click("app-all-cards .container > div:nth-of-type(2)");
+        System.out.println("Enrolando usuario");
+        printStream.println("Enrolando usuario");
+        page.click(".bg-primary-contrast div:nth-of-type(2) > div > mat-card > div > button");
+        page.click(".mat-horizontal-content-container mat-radio-group:nth-of-type(2) mat-radio-button");
+        page.click(".mat-horizontal-content-container > div:nth-of-type(1) > div:nth-of-type(3) > button:nth-of-type(2)");
+        page.click("app-guest-invite > div > div:nth-of-type(2) p");
+        System.out.println("Enroll realizado con exito\n");
+        printStream.println("Enroll realizado con exito\n");
+    }
 
     public void crearArticulo(){
         System.out.println("Creando Articulo...");
+        printStream.println("Creando Articulo...");
         Keyboard kb = page.keyboard();
         if( (page.isVisible("text=Editorial management"))==false) {
             page.click("text=My Stuff");
@@ -544,37 +589,37 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         page.click("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)");
         page.locator(".container:nth-of-type(1) input[type=file]").setInputFiles(Paths.get(pathImage));
         page.click(".ma-auto button");
-        page.focus(".container > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(1) > app-mat-form-field input");
+        page.focus(".container > div:nth-of-type(1) > div:nth-of-type(2) > div > div:nth-of-type(1) > app-mat-form-field input");
         kb.insertText(titleArticle);
-        page.click(".container > div:nth-of-type(2) app-generic-selects");
+        page.click(".container > div:nth-of-type(1) app-generic-selects");
         page.waitForSelector(".cdk-overlay-pane");
         page.click(".cdk-overlay-pane mat-option:nth-of-type("+creatorArticle+")");
-        page.focus(".container > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(1) > app-mat-form-field textarea");
+        page.focus(".container > div:nth-of-type(1) > div:nth-of-type(2) > div > div:nth-of-type(1) > app-mat-form-field textarea");
         kb.insertText(descriptionArticle);
         page.click(".container > div > div:nth-of-type(2) app-mat-chips input");
         page.click(".cdk-overlay-pane mat-option:nth-of-type("+tagArticle+")");
-        page.click(".container > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(1) > app-mat-form-field textarea");
+        page.click(".container > div:nth-of-type(1) > div:nth-of-type(2) > div > div:nth-of-type(1) > app-mat-form-field textarea");
         page.click(".container > div > div:nth-of-type(2) app-mat-chips input");
         page.click(".cdk-overlay-pane mat-option:nth-of-type("+tagArticle+")");
-        page.click(".container > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(1)  > div > app-mat-form-field:nth-of-type(1)");
+        page.click(".container > div:nth-of-type(1) > div:nth-of-type(2) > div > div:nth-of-type(1)  > div > app-mat-form-field:nth-of-type(1)");
         kb.insertText(estimatedReadTime);
         //page.click(".container app-generic-selects > div > div > p");
-        page.click(".container > div:nth-of-type(2) > div:nth-of-type(2) app-generic-selects .size-generic-selects > div:nth-of-type(1) mat-form-field");
+        page.click(".container > div:nth-of-type(1) > div:nth-of-type(2) app-generic-selects .size-generic-selects > div:nth-of-type(1) mat-form-field");
         page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type("+categoryArticle+")");
-        page.click(".container > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(1) > app-mat-form-field textarea");
-        page.click(".container > div:nth-of-type(2) > div:nth-of-type(2) app-generic-selects .size-generic-selects > div:nth-of-type(1) mat-form-field");
+        page.click(".container > div:nth-of-type(1) > div:nth-of-type(2) > div > div:nth-of-type(1) > app-mat-form-field textarea");
+        page.click(".container > div:nth-of-type(1) > div:nth-of-type(2) app-generic-selects .size-generic-selects > div:nth-of-type(1) mat-form-field");
         page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type(1)");
         //kb.press("Enter");
         //page.waitForSelector(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type("+categoryArticle+")");
-        page.click(".container > div:nth-of-type(2) > div:nth-of-type(2) app-generic-selects .size-generic-selects > div:nth-of-type(2) mat-form-field");
+        page.click(".container > div:nth-of-type(1) > div:nth-of-type(2) app-generic-selects .size-generic-selects > div:nth-of-type(2) mat-form-field");
         page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type("+topicArticle+")");
-        page.click(".container > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(1) > app-mat-form-field textarea");
-        page.click(".container > div:nth-of-type(2) > div:nth-of-type(2) app-generic-selects .size-generic-selects > div:nth-of-type(2) mat-form-field");
+        page.click(".container > div:nth-of-type(1) > div:nth-of-type(2) > div > div:nth-of-type(1) > app-mat-form-field textarea");
+        page.click(".container > div:nth-of-type(1) > div:nth-of-type(2) app-generic-selects .size-generic-selects > div:nth-of-type(2) mat-form-field");
         page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type("+topicArticle+")");
         //kb.press("Enter");
         /*page.click(".container > div:nth-of-type(3) > div:nth-of-type(2) app-generic-selects .size-generic-selects > div:nth-of-type(3) mat-form-field");
         page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type("+subtopicClub+")");*/
-        page.click("form button");
+        page.click("app-admin-top-bar > div button:nth-of-type(2)");
         page.click("text=Add text");
         page.click("text=Add title");
         page.click("text=Add image");
@@ -596,6 +641,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
     }
     public void createEvent(){
         System.out.println("Creando Evento...");
+        printStream.println("Creando Evento...");
         Keyboard kb = page.keyboard();
         if( (page.isVisible("text=Editorial management"))==false) {
             page.click("text=My Stuff");
@@ -631,6 +677,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
     }
     public void deleteEvent(){
         System.out.println("Eliminando evento...");
+        printStream.println("Eliminando evento...");
         Keyboard kb = page.keyboard();
         page.focus("app-paging-search input");
         kb.insertText(titleEvent);
@@ -639,6 +686,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
     }
     public void crearTaxonomy(){
         System.out.println("Creando Taxonomy...");
+        printStream.println("Creando Taxonomy...");
         Keyboard kb = page.keyboard();
         if( (page.isVisible("text=Editorial management"))==false) {
             page.click("text=My Stuff");
@@ -661,6 +709,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
     }
     public void crearTag(){
         System.out.println("Creando Tag...");
+        printStream.println("Creando Tag...");
         Keyboard kb = page.keyboard();
         if( (page.isVisible("text=Editorial management"))==false) {
             page.click("text=My Stuff");
@@ -680,10 +729,11 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         page.click("mat-dialog-content mat-form-field");
         kb.press("Enter");
         page.waitForSelector("mat-chip");
-        page.click("text=Save");
+        page.click("mat-dialog-actions button:nth-of-type(2)");
     }
     public void crearClub(){
         System.out.println("Creando club...");
+        printStream.println("Creando club...");
         Keyboard kb = page.keyboard();
         if( (page.isVisible("text=Editorial management"))==false) {
             page.click("text=My Stuff");

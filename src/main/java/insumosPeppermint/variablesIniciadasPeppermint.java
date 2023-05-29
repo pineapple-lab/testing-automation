@@ -25,6 +25,7 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
     public void iniciarVariablesLogin(){
 
         System.out.println("Iniciando variables...");
+        printStream.println("Iniciando variables...");
         try {
             sqlconectar();
             Statement stm = CN.createStatement();
@@ -53,6 +54,7 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
     }
     public void iniciarVariablesCrearTechnique(){
         System.out.println("Iniciando variables...");
+        printStream.println("Iniciando variables...");
         try {
             sqlconectar();
             Statement stm = CN.createStatement();
@@ -89,6 +91,7 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
     }
     public void iniciarVariablesCrearSegments(){
         System.out.println("Iniciando variables...");
+        printStream.println("Iniciando variables...");
         try {
             sqlconectar();
             Statement stm = CN.createStatement();
@@ -125,6 +128,7 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
     }
     public void iniciarVariablesCrearLesson(){
         System.out.println("Iniciando variables...");
+        printStream.println("Iniciando variables...");
         try {
             sqlconectar();
             Statement stm = CN.createStatement();
@@ -160,6 +164,7 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
     }
     public void iniciarVariablesCrearWorkshop(){
         System.out.println("Iniciando variables...");
+        printStream.println("Iniciando variables...");
         try {
             sqlconectar();
             Statement stm = CN.createStatement();
@@ -199,7 +204,7 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
                 instructorSoloWithInstructor = rs.getString(rs.findColumn("instructorSoloWithInstructor"));
                 instructorGroupWithInstructor = rs.getString(rs.findColumn("instructorGroupWithInstructor"));
                 maxStudentsGroupWithInstructor = rs.getString(rs.findColumn("maxStudentsGroupWithInstructor"));
-                optimaBuddyGroupGroupWithInstructor = rs.getString(rs.findColumn("optimaBuddyGroupGroupWithInstructor"));
+                optimalBuddyGroupGroupWithInstructor = rs.getString(rs.findColumn("optimaBuddyGroupGroupWithInstructor"));
                 maxStudentsGroup = rs.getString(rs.findColumn("maxStudentsGroup"));
                 optimalBuddyGroup = rs.getString(rs.findColumn("optimalBuddyGroupGroup"));
 
@@ -217,6 +222,15 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
 
         sqlclose();
     }
+    public void establecerUsuariosEnEstadoCero(){
+        try {
+            sqlconectar();
+            Statement stm = CN.createStatement();
+            String query1 = "UPDATE testbdpeppermint.datoslogin SET estado = 0";
+            stm.executeUpdate(query1);
+        }catch(Exception e){}
+        sqlclose();
+    }
     public void iniciarEjecucionArticle(){
         try {
             sqlconectar();
@@ -230,6 +244,7 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
     }
     public void iniciarVariablesCrearArticle(){
         System.out.println("Iniciando variables article...");
+        printStream.println("Iniciando variables...");
         try {
             sqlconectar();
             Statement stm = CN.createStatement();
@@ -354,6 +369,7 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
     }
     public void iniciarVariablesCrearClub(){
         System.out.println("Iniciando variables...");
+        printStream.println("Iniciando variables...");
         try {
             sqlconectar();
             Statement stm = CN.createStatement();

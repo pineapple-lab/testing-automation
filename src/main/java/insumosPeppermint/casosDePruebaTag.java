@@ -6,6 +6,7 @@ public class casosDePruebaTag extends robotBasePeppermint{
             if (!shouldStopTest) {
                 iniciarVariablesTag();
                 System.out.println("\nSe creara el tag: " + titleTag + "\n");
+                printStream.println("\nSe creara el tag: " + titleTag + "\n");
                 crearTag();
                 assertions = "text=The tag was created successfully";
                 page.focus(".cdk-overlay-container snack-bar-container app-informative-notification");
@@ -17,6 +18,7 @@ public class casosDePruebaTag extends robotBasePeppermint{
                 page.focus("table tbody ");
                 //Assertions.assertTrue(page.isVisible(assertions));
                 System.out.println("La tag se ha creado con exito\n");
+                printStream.println("La tag se ha creado con exito\n");
                 imprimirCantidadDeCasosEjecutados();
             } else {
                 closeContext();

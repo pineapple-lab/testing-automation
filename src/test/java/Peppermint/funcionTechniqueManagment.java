@@ -26,6 +26,7 @@ public class funcionTechniqueManagment extends casosDePruebaTechnique {
         iniciarContexto();
         serverStatus();
         System.out.println("iniciando caso de prueba...");
+        printStream.println("iniciando caso de prueba...");
         iniciarEjecucionTechnique();
         imprimirCantidadDeEjecuciones();
         iniciarNavegacion();

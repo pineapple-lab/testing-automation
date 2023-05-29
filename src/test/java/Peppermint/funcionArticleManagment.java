@@ -15,6 +15,7 @@ public class funcionArticleManagment extends casosDePruebaArticulos {
         iniciarContexto();
         serverStatus();
         System.out.println("Iniciando caso de prueba...");
+        printStream.println("iniciando caso de prueba...");
         iniciarEjecucionArticle();
         imprimirCantidadDeEjecuciones();
         iniciarNavegacion();

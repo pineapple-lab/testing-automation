@@ -5,6 +5,7 @@ public class casosDePruebaTaxonomy extends robotBasePeppermint {
         if (!shouldStopTest) {
             iniciarVariablesTaxonomy();
             System.out.println("\nSe creara la taxonomy: " + titleCategory + "\n");
+            printStream.println("\nSe creara la taxonomy: " + titleCategory + "\n");
             crearTaxonomy();
             assertions = "text=The category was created successfully";
             page.focus(".cdk-overlay-container snack-bar-container app-informative-notification");
@@ -19,6 +20,7 @@ public class casosDePruebaTaxonomy extends robotBasePeppermint {
             //page.waitForSelector("text="+titleCategory);
             //Assertions.assertTrue(page.isVisible(assertions));
             System.out.println("La taxonomy se ha creado con exito\n");
+            printStream.println("La taxonomy se ha creado con exito\n");
             imprimirCantidadDeCasosEjecutados();
         } else {
             closeContext();

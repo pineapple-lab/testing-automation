@@ -18,6 +18,7 @@ public class casosDePruebaRegistro extends robotBasePeppermint{
                     long timeStamp = Instant.now().toEpochMilli();
                     emailRegistro = "pineappleuser"+timeStamp+"@mailinator.com";;
                     System.out.println("\nSe creara el usuario: " +emailRegistro+ "\n");
+                    printStream.println("\nSe creara el usuario: " +emailRegistro+ "\n");
                     if(linkDeNavegacion=="http://localhost:4200/"){
                         linkDeNavegacion="http://localhost:4200/user/plans";
                     }else if(linkDeNavegacion=="https://peppermint-qa.web.app/"){
@@ -29,6 +30,7 @@ public class casosDePruebaRegistro extends robotBasePeppermint{
                     logout();
 
                     System.out.println("El usuario se ha creado con exito\n");
+                    printStream.println("El usuario se ha creado con exito\n");
                     imprimirCantidadDeCasosEjecutados();
                 } else {
                     closeContext();

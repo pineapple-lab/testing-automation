@@ -1,14 +1,21 @@
 package insumosPeppermint;
 
+import java.io.PrintStream;
 import java.time.Instant;
 
 public class variablesPeppermint extends conexionSQLpeppermint{
-
-    //controlador
+    //UTILIDAD
+    public String assertions;
+    public static String linkDeNavegacion;
+    public static volatile PrintStream printStream;
+    public static volatile boolean shouldStopTest;
+    //SEARCH
+    public String searchingElement;
+    //CONTROLADORES
     public int contador;
     public int ejecutar;
-    public static volatile boolean shouldStopTest;
     public int posicion;
+    //REGISTRO
     public int contadorRegistro;
     public String firstName ="pineapple";
     public String lastName = "user";
@@ -18,22 +25,18 @@ public class variablesPeppermint extends conexionSQLpeppermint{
     public String cardNumber = "4242 4242 4242 4242";
     public String monthExpired = "424";
     public String cvv = "424";
+    //INVITE GUEST
     public String emailGuest;
     public String inviteGuest;
     public String inviteGuestEmail;
     public String inviteGuestEmailLoop;
     public int idcontent;
-    public String startDateWorkshop;
-    public String assertions;
-    public static String linkDeNavegacion;
-    //SEARCH
-    public String searchingElement;
     //RUTAS
     public String pathImage;
     public String pathVideo;
     //LOGIN
-    public String emailLogin= "admin@oluko.com" ; //= "" //mailsendinviteguest@mailinator.com
-    public String passwordLogin= "123123aA";//= "123123aA"
+    public String emailLogin= "admin@oluko.com"; //= "" //mailsendinviteguest@mailinator.com //
+    public String passwordLogin= "123123aA";//= "123123aA" //
     //CREAR TECHNIQUE
     public String titleTechnique;
     public String descriptionTechnique;
@@ -92,9 +95,10 @@ public class variablesPeppermint extends conexionSQLpeppermint{
     public String instructorSoloWithInstructor;
     public String instructorGroupWithInstructor;
     public String maxStudentsGroupWithInstructor;
-    public String optimaBuddyGroupGroupWithInstructor;
+    public String optimalBuddyGroupGroupWithInstructor;
     public String maxStudentsGroup;
     public String optimalBuddyGroup;
+    public String startDateWorkshop;
     //CREAR ARTICULO
     public String titleArticle;
     public String descriptionArticle;

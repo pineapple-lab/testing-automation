@@ -6,6 +6,7 @@ public class casosDePruebaSegment extends robotBasePeppermint{
             if (!shouldStopTest) {
                 iniciarVariablesCrearSegments();
                 System.out.print("\nSe creara el segments: " + titleSegments + "\n");
+                printStream.print("\nSe creara el segments: " + titleSegments + "\n");
                 crearSegment();
                 assertions = "text=The segment was created successfully";
                 page.waitForSelector("text=The segment was created successfully");
@@ -18,6 +19,7 @@ public class casosDePruebaSegment extends robotBasePeppermint{
                 page.focus("table tbody");
                 //Assertions.assertTrue(page.isVisible(assertions));
                 System.out.println("El segment se ha creado con exito\n");
+                printStream.println("El segment se ha creado con exito\n");
                 imprimirCantidadDeCasosEjecutados();
             } else {
                 closeContext();

@@ -16,6 +16,7 @@ public class funcionSegmentsManagment extends casosDePruebaSegment {
         iniciarContexto();
         serverStatus();
         System.out.println("iniciando caso de prueba...");
+        printStream.println("iniciando caso de prueba...");
         iniciarEjecucionSegments();
         imprimirCantidadDeEjecuciones();
         iniciarNavegacion();

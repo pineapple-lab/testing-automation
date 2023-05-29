@@ -6,6 +6,7 @@ public class casosDePruebaWorkshop extends robotBasePeppermint{
             if (!shouldStopTest) {
                 iniciarVariablesCrearWorkshop();
                 System.out.println("\nSe creara el workshop: " + titleWorkshop + "\n");
+                printStream.println("\nSe creara el workshop: " + titleWorkshop + "\n");
                 crearWorkshop();
                 assertions = "text=The workshop was created successfully";
                 page.setDefaultTimeout(1200000000);
@@ -18,6 +19,7 @@ public class casosDePruebaWorkshop extends robotBasePeppermint{
                 page.focus("table tbody");
                 //Assertions.assertTrue(page.isVisible(assertions));
                 System.out.println("El workshop se ha creado con exito\n");
+                printStream.println("El workshop se ha creado con exito\n");
                 imprimirCantidadDeCasosEjecutados();
             }else {
                 closeContext();

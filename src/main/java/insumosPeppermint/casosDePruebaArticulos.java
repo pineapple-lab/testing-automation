@@ -6,6 +6,7 @@ public class casosDePruebaArticulos extends robotBasePeppermint{
             if (!shouldStopTest) {
                 iniciarVariablesCrearArticle();
                 System.out.println("\nSe creara el article: " + titleArticle + "\n");
+                printStream.println("\nSe creara el article: " + titleArticle + "\n");
                 crearArticulo();
                 assertions = "text=Techniques added successfully";
                 page.focus(".cdk-overlay-container snack-bar-container app-informative-notification");
@@ -21,6 +22,7 @@ public class casosDePruebaArticulos extends robotBasePeppermint{
                 page.focus("table tbody");
                 //Assertions.assertTrue(page.isVisible(assertions));
                 System.out.println("El article se ha creado con exito\n");
+                printStream.println("El article se ha creado con exito\n");
                 imprimirCantidadDeCasosEjecutados();
             } else {
                 closeContext();

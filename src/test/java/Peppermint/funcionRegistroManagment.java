@@ -9,6 +9,7 @@ public class funcionRegistroManagment extends casosDePruebaRegistro {
         iniciarContexto();
         serverStatus();
         System.out.println("Iniciando caso de prueba...");
+        printStream.println("Iniciando caso de prueba...");
         iniciarEjecucionArticle();
         imprimirCantidadDeEjecuciones();
         validarRegistro();

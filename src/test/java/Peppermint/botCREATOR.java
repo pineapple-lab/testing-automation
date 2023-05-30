@@ -66,6 +66,7 @@ public class botCREATOR extends Application{
         Button deneterCasoDePrueba = new Button("Detener");
         TextField ejecucionestf = new TextField("ejecuciones");
         //ESTILOS
+        //cambio de prueba
         crearWorkshop.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         enrollWorkshop.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         crearArticle.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");

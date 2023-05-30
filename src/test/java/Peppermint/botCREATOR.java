@@ -48,7 +48,7 @@ public class botCREATOR extends Application{
         ComboBox<String> comboBox = new ComboBox<>();
         consoleTextArea.setEditable(false);
         ScrollPane scrollPane = new ScrollPane(consoleTextArea);
-        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
         grid.setHgap(10);
         grid.setVgap(10);
@@ -78,7 +78,6 @@ public class botCREATOR extends Application{
         crearSegment.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         crearUsuario.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         deneterCasoDePrueba.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
-        //consoleTextArea.setStyle("-fx-text-inner-color: #FFFFFF; -fx-control-inner-background:#000000;");
         scrollPane.setStyle(" -fx-text-fill: #FFFFFF; -fx-control-inner-background:#000000;");
         comboBox.setStyle("-fx-background-color: #99D0C2;");
         //POSICIONAMIENTO
@@ -112,7 +111,6 @@ public class botCREATOR extends Application{
         grid.getChildren().add(crearLesson);
         grid.getChildren().add(crearSegment);
         grid.getChildren().add(crearUsuario);
-        //grid.getChildren().add(consoleTextArea);
         grid.getChildren().add(scrollPane);
         comboBox.getItems().add("DEV");
         comboBox.getItems().add("QA");

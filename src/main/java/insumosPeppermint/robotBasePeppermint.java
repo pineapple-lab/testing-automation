@@ -287,7 +287,8 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         System.out.println("Creando technique...");
         printStream.println("Creando technique...");
         Keyboard kb = page.keyboard();
-        if( (page.isVisible("text=Editorial management"))==false) {
+        page.waitForSelector("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)");
+        if( (page.isVisible("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)"))==false) {
             page.click("text=My Stuff");
             page.click("text=Contact Us");
             page.click("text=My Stuff");
@@ -333,7 +334,8 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         System.out.println("Creando Segment...");
         printStream.println("Creando Segment...");
         Keyboard kb = page.keyboard();
-        if( (page.isVisible("text=Editorial management"))==false) {
+        page.waitForSelector("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)");
+        if( (page.isVisible("tapp-mat-table > div:nth-of-type(1) div button:nth-of-type(1)"))==false) {
             page.click("text=My Stuff");
             page.click("text=Contact Us");
             page.click("text=My Stuff");
@@ -378,7 +380,8 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         System.out.println("Creando Lesson...");
         printStream.println("Creando Lesson...");
         Keyboard kb = page.keyboard();
-        if( (page.isVisible("text=Editorial management"))==false) {
+        page.waitForSelector("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)");
+        if( (page.isVisible("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)"))==false) {
             page.click("text=My Stuff");
             page.click("text=Contact Us");
             page.click("text=My Stuff");
@@ -421,8 +424,8 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
             System.out.println("Creando Workshop...");
             printStream.println("Creando Workshop...");
             Keyboard kb = page.keyboard();
-
-            if ((page.isVisible("text=Editorial management")) == false) {
+            page.waitForSelector("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)");
+            if ((page.isVisible("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)")) == false) {
                 page.click("text=My Stuff");
                 page.click("text=Contact Us");
                 page.click("text=My Stuff");
@@ -579,7 +582,8 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         System.out.println("Creando Articulo...");
         printStream.println("Creando Articulo...");
         Keyboard kb = page.keyboard();
-        if( (page.isVisible("text=Editorial management"))==false) {
+        page.waitForSelector("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)");
+        if( (page.isVisible("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)"))==false) {
             page.click("text=My Stuff");
             page.click("text=Contact Us");
             page.click("text=My Stuff");
@@ -643,7 +647,8 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         System.out.println("Creando Evento...");
         printStream.println("Creando Evento...");
         Keyboard kb = page.keyboard();
-        if( (page.isVisible("text=Editorial management"))==false) {
+        page.waitForSelector("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)");
+        if( (page.isVisible("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)"))==false) {
             page.click("text=My Stuff");
             page.click("text=Contact Us");
             page.click("text=My Stuff");
@@ -688,7 +693,8 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         System.out.println("Creando Taxonomy...");
         printStream.println("Creando Taxonomy...");
         Keyboard kb = page.keyboard();
-        if( (page.isVisible("text=Editorial management"))==false) {
+        page.waitForSelector("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)");
+        if( (page.isVisible("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)"))==false) {
             page.click("text=My Stuff");
             page.click("text=Contact Us");
             page.click("text=My Stuff");
@@ -711,7 +717,8 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         System.out.println("Creando Tag...");
         printStream.println("Creando Tag...");
         Keyboard kb = page.keyboard();
-        if( (page.isVisible("text=Editorial management"))==false) {
+        page.waitForSelector("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)");
+        if( (page.isVisible("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)"))==false) {
             page.click("text=My Stuff");
             page.click("text=Contact Us");
             page.click("text=My Stuff");
@@ -735,7 +742,8 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         System.out.println("Creando club...");
         printStream.println("Creando club...");
         Keyboard kb = page.keyboard();
-        if( (page.isVisible("text=Editorial management"))==false) {
+        page.waitForSelector("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)");
+        if( (page.isVisible("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)"))==false) {
             page.click("text=My Stuff");
             page.click("text=Contact Us");
             page.click("text=My Stuff");
@@ -764,6 +772,5 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type("+subtopicClub+")");*/
         page.click("text=Publish");
         page.click("mat-dialog-container > div > div:nth-of-type(2) button");
-
     }
 }

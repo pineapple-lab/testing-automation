@@ -1,63 +1,18 @@
 package Peppermint;
-import insumosPeppermint.formularioTechnique;
-import insumosPeppermint.formularioWorkshop;
-import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.control.*;
-import javafx.scene.control.Button;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.ColumnConstraints;
-import javafx.scene.layout.GridPane;
-import javafx.scene.Scene;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
 import javafx.stage.Stage;
 import insumosPeppermint.robotBasePeppermint;
 import insumosPeppermint.variablesPeppermint;
-import net.bytebuddy.pool.TypePool;
-import org.fusesource.jansi.Ansi;
-
-import java.awt.*;
 import java.io.*;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
-import java.util.ArrayList;
-
-import Peppermint.interfacePropiedadesEstilosYposicionamiento;
-import org.jetbrains.kotlin.psi.CreateByPatternKt;
-import org.jetbrains.kotlin.serialization.js.ast.JsAstProtoBuf;
-
 import static insumosPeppermint.variablesPeppermint.printStream;
 
 
-public class botCREATOR extends interfacePropiedadesEstilosYposicionamiento{
-    enum ExecMethod {
-        CreateWorckshops,
-       ActionEnrollWorkshop,
-        ActionCreateArticle,
-        ActionCreateClub,
-        ActionCreateTechnique,
-        ActionCreateClubEvent,
-        ActionCreateTaxonomy,
-        ActionCreateTag,
-        ActionCreateLesson,
-        ActionCreateSegment,
-        ActionCreateUsuario;
-
-    }
+public class botCREATOR extends interfaceActions{
     robotBasePeppermint metodosPeppermint = new robotBasePeppermint();
     public static void main(String[]args){
-
-
         launch(botCREATOR.class, args);
     }
     private void appendText(String text) {
@@ -134,7 +89,6 @@ public class botCREATOR extends interfacePropiedadesEstilosYposicionamiento{
      }else {
          interfaceThread.start();
      }
-
      ejecutar.setOnAction(e->{
          Thread ejecutar=  new Thread (()->{
              for (int i = 0; i < listaDeEspera.size(); i++) {
@@ -183,192 +137,5 @@ public class botCREATOR extends interfacePropiedadesEstilosYposicionamiento{
              ejecutar.start();
          }
      });
-    }
-    public void actionCrearWorkshop(){
-                try {
-                    String url = "jdbc:mysql://localhost:3306/testbdpeppermint?serverTimezone=UTC";
-                    String username = "root";
-                    String password = "root";
-                    Connection CN = DriverManager.getConnection(url, username, password);
-                    String ejecuciones = ejecucionestf.getText();
-                    String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = "+"'"+ejecuciones+"'";
-                    Statement stmt = CN.createStatement();
-                    stmt.executeUpdate(insertSql);
-                    CN.close();
-                    funcionWorkshopManagment test = new funcionWorkshopManagment();
-                    test.validacionCrearWorkshop();
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-        }
-    public void actionEnrollWorkshop(){
-        try {
-            String url = "jdbc:mysql://localhost:3306/testbdpeppermint?serverTimezone=UTC";
-            String username = "root";
-            String password = "root";
-            Connection CN = DriverManager.getConnection(url, username, password);
-            String ejecuciones = ejecucionestf.getText();
-            String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = "+"'"+ejecuciones+"'";
-            Statement stmt = CN.createStatement();
-            stmt.executeUpdate(insertSql);
-            CN.close();
-            functionWorkshopUser test = new functionWorkshopUser();
-            test.ValidarWorkshopEnrollmente();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
-    public void actionCreateArticle(){
-        try {
-            String url = "jdbc:mysql://localhost:3306/testbdpeppermint?serverTimezone=UTC";
-            String username = "root";
-            String password = "root";
-            Connection CN = DriverManager.getConnection(url, username, password);
-            String ejecuciones = ejecucionestf.getText();
-            String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = "+"'"+ejecuciones+"'";
-            Statement stmt = CN.createStatement();
-            stmt.executeUpdate(insertSql);
-            CN.close();
-            funcionArticleManagment test = new funcionArticleManagment();
-            test.validacionCrearArticle();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
-    public void actionCreateClub(){
-        try {
-            String url = "jdbc:mysql://localhost:3306/testbdpeppermint?serverTimezone=UTC";
-            String username = "root";
-            String password = "root";
-            Connection CN = DriverManager.getConnection(url, username, password);
-            String ejecuciones = ejecucionestf.getText();
-            String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = "+"'"+ejecuciones+"'";
-            Statement stmt = CN.createStatement();
-            stmt.executeUpdate(insertSql);
-            CN.close();
-            funcionClubManagment test = new funcionClubManagment();
-            test.vaidacionCrearClub();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
-    public void actionCreateTechnique(){
-        try {
-            String url = "jdbc:mysql://localhost:3306/testbdpeppermint?serverTimezone=UTC";
-            String username = "root";
-            String password = "root";
-            Connection CN = DriverManager.getConnection(url, username, password);
-            String ejecuciones = ejecucionestf.getText();
-            String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = "+"'"+ejecuciones+"'";
-            Statement stmt = CN.createStatement();
-            stmt.executeUpdate(insertSql);
-            CN.close();
-            funcionTechniqueManagment test = new funcionTechniqueManagment();
-            test.validacionCreateTechnique();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
-    public void actionCreateClubEvent(){
-        try {
-            String url = "jdbc:mysql://localhost:3306/testbdpeppermint?serverTimezone=UTC";
-            String username = "root";
-            String password = "root";
-            Connection CN = DriverManager.getConnection(url, username, password);
-            String ejecuciones = ejecucionestf.getText();
-            String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = "+"'"+ejecuciones+"'";
-            Statement stmt = CN.createStatement();
-            stmt.executeUpdate(insertSql);
-            CN.close();
-            funcionEventManagment test = new funcionEventManagment();
-            test.validacionCreateEvent();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
-    public void actionCreateTaxonomy(){
-        try {
-            String url = "jdbc:mysql://localhost:3306/testbdpeppermint?serverTimezone=UTC";
-            String username = "root";
-            String password = "root";
-            Connection CN = DriverManager.getConnection(url, username, password);
-            String ejecuciones = ejecucionestf.getText();
-            String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = "+"'"+ejecuciones+"'";
-            Statement stmt = CN.createStatement();
-            stmt.executeUpdate(insertSql);
-            CN.close();
-            funcionContentTaxonomy test = new funcionContentTaxonomy();
-            test.validacionCrearTaxonomy();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
-    public void actionCreateTag(){
-        try {
-            String url = "jdbc:mysql://localhost:3306/testbdpeppermint?serverTimezone=UTC";
-            String username = "root";
-            String password = "root";
-            Connection CN = DriverManager.getConnection(url, username, password);
-            String ejecuciones = ejecucionestf.getText();
-            String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = "+"'"+ejecuciones+"'";
-            Statement stmt = CN.createStatement();
-            stmt.executeUpdate(insertSql);
-            CN.close();
-            funcionTag test = new funcionTag();
-            test.validacionCrearTag();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
-    public void actionCreateLesson(){
-        try {
-            String url = "jdbc:mysql://localhost:3306/testbdpeppermint?serverTimezone=UTC";
-            String username = "root";
-            String password = "root";
-            Connection CN = DriverManager.getConnection(url, username, password);
-            String ejecuciones = ejecucionestf.getText();
-            String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = "+"'"+ejecuciones+"'";
-            Statement stmt = CN.createStatement();
-            stmt.executeUpdate(insertSql);
-            CN.close();
-            funcionLessonManagment test = new funcionLessonManagment();
-            test.vaidacionCrearLesson();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
-    public void actionCreateSegment(){
-        try {
-            String url = "jdbc:mysql://localhost:3306/testbdpeppermint?serverTimezone=UTC";
-            String username = "root";
-            String password = "root";
-            Connection CN = DriverManager.getConnection(url, username, password);
-            String ejecuciones = ejecucionestf.getText();
-            String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = "+"'"+ejecuciones+"'";
-            Statement stmt = CN.createStatement();
-            stmt.executeUpdate(insertSql);
-            CN.close();
-            funcionSegmentsManagment test = new funcionSegmentsManagment();
-            test.vaidacionCreacionSegment();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
-    public void actionCreateUsuario(){
-        try {
-            String url = "jdbc:mysql://localhost:3306/testbdpeppermint?serverTimezone=UTC";
-            String username = "root";
-            String password = "root";
-            Connection CN = DriverManager.getConnection(url, username, password);
-            String ejecuciones = ejecucionestf.getText();
-            String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = "+"'"+ejecuciones+"'";
-            Statement stmt = CN.createStatement();
-            stmt.executeUpdate(insertSql);
-            CN.close();
-            funcionRegistroManagment test = new funcionRegistroManagment();
-            test.validacionCrearUsuario();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
     }
 }

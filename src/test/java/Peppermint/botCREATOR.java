@@ -4,9 +4,6 @@ import javafx.stage.Stage;
 import insumosPeppermint.robotBasePeppermint;
 import insumosPeppermint.variablesPeppermint;
 import java.io.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
 import static insumosPeppermint.variablesPeppermint.printStream;
 
 

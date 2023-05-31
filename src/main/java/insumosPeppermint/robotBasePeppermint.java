@@ -16,7 +16,6 @@ import java.util.List;
 
 
 public class robotBasePeppermint extends consultasSQLCasosFallidos {
-
     public void iniciarTest(){
         shouldStopTest = false;
     }
@@ -81,7 +80,6 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         printStream.println("-----------------------------------------------------------\n");
     }
     public void imprimirCantidadDeCasosEjecutadosRegistroInviteguest (){
-
         if(contadorRegistro>1) {
             System.out.println("El caso se ejecuto " + contadorRegistro + " veces\n");
             printStream.println("El caso se ejecuto " + contadorRegistro + " veces\n");
@@ -159,7 +157,6 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
     }
     public void guardarEmails(){
         try {
-
             sqlconectar();
             Statement stm = CN.createStatement();
             String query1 = "UPDATE testbdpeppermint.inviteguest SET email = "+"'"+inviteGuestEmail+"'"+" WHERE ID="+"'"+contador+"'";
@@ -193,13 +190,11 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         kb.insertText(passwordLogin);
         page.click(".bg-primary-contrast form > div:nth-of-type(3) button");
     }
-
     public void logout(){
       page.click("text=My Stuff");
       page.click("text=Sign out");
       page.waitForTimeout(3000);
     }
-
     public void enviarInviteGuest(){
         Keyboard kb = page.keyboard();
         long timeStamp = Instant.now().toEpochMilli();
@@ -282,12 +277,10 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         nuevaPestana.close();
         kb.press("Alt+F4");
     }
-
     public void createTechnique(){
         System.out.println("Creando technique...");
         printStream.println("Creando technique...");
         Keyboard kb = page.keyboard();
-        page.waitForSelector("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)");
         if( (page.isVisible("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)"))==false) {
             page.click("text=My Stuff");
             page.click("text=Contact Us");
@@ -334,7 +327,6 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         System.out.println("Creando Segment...");
         printStream.println("Creando Segment...");
         Keyboard kb = page.keyboard();
-        page.waitForSelector("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)");
         if( (page.isVisible("tapp-mat-table > div:nth-of-type(1) div button:nth-of-type(1)"))==false) {
             page.click("text=My Stuff");
             page.click("text=Contact Us");
@@ -380,7 +372,6 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         System.out.println("Creando Lesson...");
         printStream.println("Creando Lesson...");
         Keyboard kb = page.keyboard();
-        page.waitForSelector("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)");
         if( (page.isVisible("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)"))==false) {
             page.click("text=My Stuff");
             page.click("text=Contact Us");
@@ -424,7 +415,6 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
             System.out.println("Creando Workshop...");
             printStream.println("Creando Workshop...");
             Keyboard kb = page.keyboard();
-            page.waitForSelector("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)");
             if ((page.isVisible("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)")) == false) {
                 page.click("text=My Stuff");
                 page.click("text=Contact Us");
@@ -577,12 +567,10 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         System.out.println("Enroll realizado con exito\n");
         printStream.println("Enroll realizado con exito\n");
     }
-
     public void crearArticulo(){
         System.out.println("Creando Articulo...");
         printStream.println("Creando Articulo...");
         Keyboard kb = page.keyboard();
-        page.waitForSelector("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)");
         if( (page.isVisible("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)"))==false) {
             page.click("text=My Stuff");
             page.click("text=Contact Us");
@@ -647,7 +635,6 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         System.out.println("Creando Evento...");
         printStream.println("Creando Evento...");
         Keyboard kb = page.keyboard();
-        page.waitForSelector("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)");
         if( (page.isVisible("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)"))==false) {
             page.click("text=My Stuff");
             page.click("text=Contact Us");
@@ -693,7 +680,6 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         System.out.println("Creando Taxonomy...");
         printStream.println("Creando Taxonomy...");
         Keyboard kb = page.keyboard();
-        page.waitForSelector("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)");
         if( (page.isVisible("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)"))==false) {
             page.click("text=My Stuff");
             page.click("text=Contact Us");
@@ -717,7 +703,6 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         System.out.println("Creando Tag...");
         printStream.println("Creando Tag...");
         Keyboard kb = page.keyboard();
-        page.waitForSelector("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)");
         if( (page.isVisible("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)"))==false) {
             page.click("text=My Stuff");
             page.click("text=Contact Us");
@@ -742,13 +727,11 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         System.out.println("Creando club...");
         printStream.println("Creando club...");
         Keyboard kb = page.keyboard();
-        page.waitForSelector("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)");
         if( (page.isVisible("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)"))==false) {
             page.click("text=My Stuff");
             page.click("text=Contact Us");
             page.click("text=My Stuff");
             page.click("text=Admin Area");
-
         }
         page.click("text=Club management");
         page.click("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)");

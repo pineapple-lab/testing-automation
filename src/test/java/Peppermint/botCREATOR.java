@@ -5,8 +5,6 @@ import insumosPeppermint.robotBasePeppermint;
 import insumosPeppermint.variablesPeppermint;
 import java.io.*;
 import static insumosPeppermint.variablesPeppermint.printStream;
-
-
 public class botCREATOR extends interfaceActions{
     robotBasePeppermint metodosPeppermint = new robotBasePeppermint();
     public static void main(String[]args){

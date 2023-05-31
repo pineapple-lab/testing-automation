@@ -1,5 +1,8 @@
 package Peppermint;
 import javafx.application.Platform;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 import insumosPeppermint.robotBasePeppermint;
 import insumosPeppermint.variablesPeppermint;
@@ -40,44 +43,87 @@ public class botCREATOR extends interfaceActions{
              System.out.println("La ejecucion se detendra al final de la actual iteracion");
              printStream.println("La ejecucion se detendra al final de la actual iteracion");
          });
+         removerDeLaCola.setOnAction(event ->{
+             actionEliminarDeLaCola();
+         });
          crearWorkshop.setOnAction(e->{
-            listaDeEspera.add(ExecMethod.CreateWorckshops);
+             listaDeEspera.add(ExecMethod.CreateWorkshops);
+                 Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
+                 CheckBox checkBox = new CheckBox("CreateWorkshops");
+                 checkBoxesMap.put(checkBox, elemento);
+                 grid.add(checkBox, 0, listaDeEspera.size()-1);
+
          });
          enrollWorkshop.setOnAction(e->{
-             listaDeEspera.add(ExecMethod.ActionEnrollWorkshop);
+             listaDeEspera.add(ExecMethod.EnrollWorkshop);
+                 Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
+                 CheckBox checkBox = new CheckBox("EnrollWorkshops");
+                 checkBoxesMap.put(checkBox, elemento);
+                 grid.add(checkBox, 0, listaDeEspera.size()-1);
          });
          crearArticle.setOnAction(e->{
-             listaDeEspera.add(ExecMethod.ActionCreateArticle);
+             listaDeEspera.add(ExecMethod.CreateArticle);
+             Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
+             CheckBox checkBox = new CheckBox("CreateArticle");
+             checkBoxesMap.put(checkBox, elemento);
+             grid.add(checkBox, 0, listaDeEspera.size()-1);
          });
          crearClub.setOnAction(e->{
-             listaDeEspera.add(ExecMethod.ActionCreateClub);
+             listaDeEspera.add(ExecMethod.CreateClub);
+             Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
+             CheckBox checkBox = new CheckBox("CreateClub");
+             checkBoxesMap.put(checkBox, elemento);
+             grid.add(checkBox, 0, listaDeEspera.size()-1);
          });
          crearTechnique.setOnAction(e->{
-             listaDeEspera.add(ExecMethod.ActionCreateTechnique);
-
+             listaDeEspera.add(ExecMethod.CreateTechnique);
+             Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
+             CheckBox checkBox = new CheckBox("CreateTechnique");
+             checkBoxesMap.put(checkBox, elemento);
+             grid.add(checkBox, 0, listaDeEspera.size()-1);
          });
          crearClubEvent.setOnAction(e->{
-             listaDeEspera.add(ExecMethod.ActionCreateClubEvent);
-
+             listaDeEspera.add(ExecMethod.CreateClubEvent);
+             Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
+             CheckBox checkBox = new CheckBox("CreateClubEvent");
+             checkBoxesMap.put(checkBox, elemento);
+             grid.add(checkBox, 0, listaDeEspera.size()-1);
          });
          crearTaxonomy.setOnAction(e->{
-             listaDeEspera.add(ExecMethod.ActionCreateTaxonomy);
-
+             listaDeEspera.add(ExecMethod.CreateTaxonomy);
+             Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
+             CheckBox checkBox = new CheckBox("CreateTaxonomy");
+             checkBoxesMap.put(checkBox, elemento);
+             grid.add(checkBox, 0, listaDeEspera.size()-1);
          });
          crearTag.setOnAction(e->{
-             listaDeEspera.add(ExecMethod.ActionCreateTag);
+             listaDeEspera.add(ExecMethod.CreateTag);
+             Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
+             CheckBox checkBox = new CheckBox("CreateTag");
+             checkBoxesMap.put(checkBox, elemento);
+             grid.add(checkBox, 0, listaDeEspera.size()-1);
          });
          crearLesson.setOnAction(e->{
-            listaDeEspera.add(ExecMethod.ActionCreateLesson);
+            listaDeEspera.add(ExecMethod.CreateLesson);
+             Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
+             CheckBox checkBox = new CheckBox("CreateLesson");
+             checkBoxesMap.put(checkBox, elemento);
+             grid.add(checkBox, 0, listaDeEspera.size()-1);
          });
          crearSegment.setOnAction(e->{
-             listaDeEspera.add(ExecMethod.ActionCreateSegment);
+             listaDeEspera.add(ExecMethod.CreateSegment);
+             Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
+             CheckBox checkBox = new CheckBox("CreateSegment");
+             checkBoxesMap.put(checkBox, elemento);
+             grid.add(checkBox, 0, listaDeEspera.size()-1);
          });
          crearUsuario.setOnAction(e->{
-             listaDeEspera.add(ExecMethod.ActionCreateUsuario);
-
+             listaDeEspera.add(ExecMethod.CreateUsuario);
+             Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
+             CheckBox checkBox = new CheckBox("CreateUsuario");
+             checkBoxesMap.put(checkBox, elemento);
+             grid.add(checkBox, 0, listaDeEspera.size()-1);
          });
-
      }, "interfaceThread");
      if(interfaceThread.isAlive()) {
          interfaceThread.stop();
@@ -89,37 +135,37 @@ public class botCREATOR extends interfaceActions{
              for (int i = 0; i < listaDeEspera.size(); i++) {
                  ExecMethod var = listaDeEspera.get(i);
                  switch (var){
-                     case CreateWorckshops:
+                     case CreateWorkshops:
                          actionCrearWorkshop();
                          break;
-                     case ActionEnrollWorkshop:
+                     case EnrollWorkshop:
                          actionEnrollWorkshop();
                          break;
-                     case ActionCreateArticle:
+                     case CreateArticle:
                          actionCreateArticle();
                          break;
-                     case ActionCreateClub:
+                     case CreateClub:
                          actionCreateClub();
                          break;
-                     case ActionCreateTechnique:
+                     case CreateTechnique:
                          actionCreateTechnique();
                          break;
-                     case ActionCreateClubEvent:
+                     case CreateClubEvent:
                          actionCreateClubEvent();
                          break;
-                     case ActionCreateTaxonomy:
+                     case CreateTaxonomy:
                          actionCreateTaxonomy();
                          break;
-                     case ActionCreateTag:
+                     case CreateTag:
                          actionCreateTag();
                          break;
-                     case ActionCreateLesson:
+                     case CreateLesson:
                          actionCreateLesson();
                          break;
-                     case ActionCreateSegment:
+                     case CreateSegment:
                          actionCreateSegment();
                          break;
-                     case ActionCreateUsuario:
+                     case CreateUsuario:
                          actionCreateUsuario();
                          break;
                  }

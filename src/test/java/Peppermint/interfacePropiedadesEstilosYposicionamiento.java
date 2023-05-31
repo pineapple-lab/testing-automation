@@ -29,12 +29,15 @@ public class interfacePropiedadesEstilosYposicionamiento extends interfaceElemen
         crearUsuario.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         deneterCasoDePrueba.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         ejecutar.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
+        removerDeLaCola.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         scrollPane.setStyle(" -fx-text-fill: #FFFFFF; -fx-control-inner-background:#000000;");
         comboBox.setStyle("-fx-background-color: #99D0C2;");
         //POSICIONAMIENTO
         GridPane.setConstraints(comboBox,2,1);
         GridPane.setConstraints(ejecucionestf,2,2);
         GridPane.setConstraints(deneterCasoDePrueba,4,1);
+        GridPane.setConstraints(ejecutar, 4, 2);
+        GridPane.setConstraints(removerDeLaCola, 4, 3);
         GridPane.setConstraints(crearWorkshop , 2, 3);
         GridPane.setConstraints(enrollWorkshop , 2, 4);
         GridPane.setConstraints(crearArticle , 2, 5);
@@ -46,13 +49,13 @@ public class interfacePropiedadesEstilosYposicionamiento extends interfaceElemen
         GridPane.setConstraints(crearLesson , 2, 11);
         GridPane.setConstraints(crearSegment , 2, 12);
         GridPane.setConstraints(crearUsuario , 2, 13);
-        GridPane.setConstraints(ejecutar, 4, 2);
         GridPane.setConstraints(scrollPane,2,14,3,14);
         //AGREGAR ELEMENTOS
         grid.getChildren().add(comboBox);
         grid.getChildren().add(ejecucionestf);
         grid.getChildren().add(deneterCasoDePrueba);
         grid.getChildren().add(ejecutar);
+        grid.getChildren().add(removerDeLaCola);
         grid.getChildren().add(crearWorkshop);
         grid.getChildren().add(enrollWorkshop);
         grid.getChildren().add(crearArticle);

@@ -1,22 +1,28 @@
 package Peppermint;
 
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.RadioButton;
+import org.jetbrains.kotlin.util.Check;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class interfaceActions extends interfacePropiedadesEstilosYposicionamiento {
     enum ExecMethod {
-        CreateWorckshops,
-        ActionEnrollWorkshop,
-        ActionCreateArticle,
-        ActionCreateClub,
-        ActionCreateTechnique,
-        ActionCreateClubEvent,
-        ActionCreateTaxonomy,
-        ActionCreateTag,
-        ActionCreateLesson,
-        ActionCreateSegment,
-        ActionCreateUsuario;
+        CreateWorkshops,
+        EnrollWorkshop,
+        CreateArticle,
+        CreateClub,
+        CreateTechnique,
+        CreateClubEvent,
+        CreateTaxonomy,
+        CreateTag,
+        CreateLesson,
+        CreateSegment,
+        CreateUsuario;
     }
     public void actionCrearWorkshop(){
         try {
@@ -34,6 +40,23 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+    }
+    public void actionEliminarDeLaCola(){
+        List<CheckBox> checkBoxesSeleccionados = new ArrayList<>();
+        for (CheckBox checkBox : checkBoxesMap.keySet()){
+            if (checkBox.isSelected()){
+                checkBoxesSeleccionados.add(checkBox);
+            }
+        }
+        for (CheckBox checkBox : checkBoxesSeleccionados) {
+           Enum elemento = checkBoxesMap.get(checkBox);
+           listaDeEspera.remove(elemento);
+           checkBoxesMap.remove(checkBox);
+           grid.getChildren().remove(checkBox);
+        }
+    }
+    public static void main(String[] args) {
+        launch(args);
     }
     public void actionEnrollWorkshop(){
         try {

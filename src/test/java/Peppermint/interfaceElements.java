@@ -1,5 +1,4 @@
 package Peppermint;
-
 import javafx.application.Application;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
@@ -7,18 +6,21 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
-import javax.swing.*;
-import java.awt.*;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.function.Consumer;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 
 public class interfaceElements extends Application{
     ArrayList<botCREATOR.ExecMethod> listaDeEspera = new ArrayList<>();
     GridPane grid = new GridPane();
     ComboBox<String> comboBox = new ComboBox<>();
+    public Map<CheckBox,Enum> checkBoxesMap = new HashMap<>();
+    Button removerDeLaCola = new Button("Remover de la cola");
+    public int rowIndex;
     TextArea consoleTextArea =  new TextArea();
     ScrollPane scrollPane = new ScrollPane(consoleTextArea);
     Button crearWorkshop = new Button("Crear workshop");

@@ -34,7 +34,7 @@ public class interfacePropiedadesEstilosYposicionamiento extends interfaceElemen
         //POSICIONAMIENTO
         GridPane.setConstraints(comboBox,2,1);
         GridPane.setConstraints(ejecucionestf,2,2);
-        GridPane.setConstraints(deneterCasoDePrueba,4,2);
+        GridPane.setConstraints(deneterCasoDePrueba,4,1);
         GridPane.setConstraints(crearWorkshop , 2, 3);
         GridPane.setConstraints(enrollWorkshop , 2, 4);
         GridPane.setConstraints(crearArticle , 2, 5);
@@ -46,7 +46,7 @@ public class interfacePropiedadesEstilosYposicionamiento extends interfaceElemen
         GridPane.setConstraints(crearLesson , 2, 11);
         GridPane.setConstraints(crearSegment , 2, 12);
         GridPane.setConstraints(crearUsuario , 2, 13);
-        GridPane.setConstraints(ejecutar, 4, 3);
+        GridPane.setConstraints(ejecutar, 4, 2);
         GridPane.setConstraints(scrollPane,2,14,3,14);
         //AGREGAR ELEMENTOS
         grid.getChildren().add(comboBox);

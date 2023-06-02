@@ -105,7 +105,10 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         page.fill("mat-card-content > div > div:nth-of-type(2) app-mat-form-field input",lastName);
         page.fill("mat-card-content > app-mat-form-field:nth-of-type(1) input",emailRegistro);
         page.click("mat-card-content > mat-form-field mat-datepicker-toggle button");
-        page.click("mat-calendar tbody tr:nth-of-type(2) td:nth-of-type(3)");
+        if(page.isEnabled("mat-calendar tbody tr:nth-of-type(2) td:nth-of-type(3)")==false){
+            page.click("mat-calendar tbody tr:nth-of-type(1) td:nth-of-type(2)");
+        }else{ page.click("mat-calendar tbody tr:nth-of-type(2) td:nth-of-type(3)");
+        }
         page.fill("mat-card-content > app-mat-form-field:nth-of-type(2) input",passwordRegistro);
         page.click("text=Sign up with email");
         page.fill("app-payment > div > div > mat-card .wrapper > div > div:nth-of-type(1) app-mat-form-field input",cardholderName);
@@ -164,7 +167,6 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         }catch(Exception e){}
         sqlclose();
     }
-
     public void traerEmail(){
         try {
             sqlconectar();
@@ -179,21 +181,82 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
     }
     public void login(){
         System.out.println("Iniciando login...");
-        System.out.println("El login del usuario "+emailLogin+" se realizo con exito \n");
         printStream.println("Iniciando login...");
-        printStream.println("El login del usuario "+emailLogin+" se realizo con exito \n");
         Keyboard kb = page.keyboard();
-        page.click("text=Sign in");
+        if(page.isVisible(".bg-primary-contrast form > .mat-card-content app-mat-form-field:nth-of-type(2) input")==false) {
+            page.click("text=Sign in");
+        }
         page.focus(".bg-primary-contrast form > .mat-card-content app-mat-form-field:nth-of-type(1) input");
         kb.insertText(emailLogin);
         page.focus(".bg-primary-contrast form > .mat-card-content app-mat-form-field:nth-of-type(2) input");
         kb.insertText(passwordLogin);
         page.click(".bg-primary-contrast form > div:nth-of-type(3) button");
+        System.out.println("El login del usuario "+emailLogin+" se realizo con exito \n");
+        printStream.println("El login del usuario "+emailLogin+" se realizo con exito \n");
     }
     public void logout(){
       page.click("text=My Stuff");
       page.click("text=Sign out");
       page.waitForTimeout(3000);
+    }
+    public void hacerSolicitudDeAmistad(){
+        Keyboard kb = page.keyboard();
+        page.click("text=Begin your Membership");
+        page.fill("mat-card-content > div > div:nth-of-type(1) app-mat-form-field input",firstName);
+        page.fill("mat-card-content > div > div:nth-of-type(2) app-mat-form-field input",lastName);
+        page.fill("mat-card-content > app-mat-form-field:nth-of-type(1) input",emailRegistro);
+        page.click("mat-card-content > mat-form-field mat-datepicker-toggle button");
+        if(page.isEnabled("mat-calendar tbody tr:nth-of-type(2) td:nth-of-type(3)")==false){
+            page.click("mat-calendar tbody tr:nth-of-type(1) td:nth-of-type(2)");
+        }else{ page.click("mat-calendar tbody tr:nth-of-type(2) td:nth-of-type(3)");
+        }
+        page.fill("mat-card-content > app-mat-form-field:nth-of-type(2) input",passwordRegistro);
+        page.click("text=Sign up with email");
+        page.fill("app-payment > div > div > mat-card .wrapper > div > div:nth-of-type(1) app-mat-form-field input",cardholderName);
+        page.waitForSelector("app-payment > div > div > mat-card .wrapper > div > div:nth-of-type(2) > div:nth-of-type(1) iframe");
+        page.waitForSelector("app-payment > div > div > mat-card .wrapper > div > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) input");
+        page.waitForSelector("app-payment > div > div > mat-card .wrapper > div > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) iframe");
+        page.waitForTimeout(1000);
+        page.focus("app-payment > div > div > mat-card .wrapper > div > div:nth-of-type(2) > div:nth-of-type(1) iframe");
+        page.waitForTimeout(1000);
+        kb.insertText(cardNumber);
+        page.focus("app-payment > div > div > mat-card .wrapper > div > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) input");
+        page.waitForTimeout(1000);
+        kb.insertText(monthExpired);
+        page.focus("app-payment > div > div > mat-card .wrapper > div > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) iframe");
+        page.waitForTimeout(2000);
+        kb.insertText(cvv);
+        page.click("text=Pay $15.00");
+        page.click("mat-selection-list > div:nth-of-type(1) mat-radio-button");
+        page.click("text=Continue");
+        page.click("mat-chip-list mat-chip:nth-of-type(1)");
+        page.click("mat-chip-list mat-chip:nth-of-type(2)");
+        page.click("mat-chip-list mat-chip:nth-of-type(3)");
+        page.waitForTimeout(3000);
+        page.click(".mat-horizontal-content-container button:nth-of-type(2)");
+        page.click("app-header > mat-toolbar>div:nth-of-type(3) > div > span > button:nth-of-type(1)");
+        page.click("app-header > mat-toolbar>div:nth-of-type(2) > mat-card-content > mat-form-field > div > div:nth-of-type(1) > div:nth-of-type(4)");
+        kb.type("Friendtest AcceptFriends");
+        kb.press("Enter");
+        System.out.println("Enviando solicitud de amistad");
+        printStream.println("Enviando solicitud de amistad");
+        page.click("app-search-results > div > main > div > mat-tab-group > div app-friends-card button");
+        page.waitForTimeout(2000);
+        logout();
+        printStream.println("Solicitud de amistad enviada");
+    }
+    public void aceptarsolicitudeDeAmistad(){
+        emailLogin= "pineappleuser1684762180394@mailinator.com";
+        login();
+        page.click("app-header > mat-toolbar>div:nth-of-type(3) > div > span > button:nth-of-type(3)");
+        page.waitForTimeout(1000);
+        System.out.println("Aceptando solicitudes de amistad");
+        printStream.println("Aceptando solicitudes de amistad");
+        for(contadorAceptarAmistad=0; contadorAceptarAmistad<ejecutar;contadorAceptarAmistad++) {
+            int contadorInterno= contadorAceptarAmistad+1;
+            page.waitForTimeout(1000);
+            page.click("app-notification > div > div > div:nth-of-type(2) > div:nth-of-type("+contadorInterno+") button:nth-of-type(1)");
+        }
     }
     public void enviarInviteGuest(){
         Keyboard kb = page.keyboard();

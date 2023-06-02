@@ -34,6 +34,7 @@ public class interfaceElements extends Application{
     Button crearLesson = new Button("Crear lesson");
     Button crearSegment = new Button("Crear segment");
     Button crearUsuario = new Button("Crear usuario");
+    Button enviarSolicitudDeAmistad = new Button("Generar amigos");
     Button deneterCasoDePrueba = new Button("Detener");
     Button ejecutar = new Button("Ejecutar");
     TextField ejecucionestf = new TextField("ejecuciones");

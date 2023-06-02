@@ -13,7 +13,7 @@ public class interfacePropiedadesEstilosYposicionamiento extends interfaceElemen
         consoleTextArea.setEditable(false);
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
-        grid.setHgap(10);
+        grid.setHgap(3);
         grid.setVgap(10);
         //ESTILOS
         crearWorkshop.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
@@ -27,6 +27,7 @@ public class interfacePropiedadesEstilosYposicionamiento extends interfaceElemen
         crearLesson.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         crearSegment.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         crearUsuario.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
+        enviarSolicitudDeAmistad.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         deneterCasoDePrueba.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         ejecutar.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         removerDeLaCola.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
@@ -35,9 +36,9 @@ public class interfacePropiedadesEstilosYposicionamiento extends interfaceElemen
         //POSICIONAMIENTO
         GridPane.setConstraints(comboBox,2,1);
         GridPane.setConstraints(ejecucionestf,2,2);
+        GridPane.setConstraints(ejecutar, 3, 1);
         GridPane.setConstraints(deneterCasoDePrueba,4,1);
-        GridPane.setConstraints(ejecutar, 4, 2);
-        GridPane.setConstraints(removerDeLaCola, 4, 3);
+        GridPane.setConstraints(removerDeLaCola, 5, 1);
         GridPane.setConstraints(crearWorkshop , 2, 3);
         GridPane.setConstraints(enrollWorkshop , 2, 4);
         GridPane.setConstraints(crearArticle , 2, 5);
@@ -49,7 +50,8 @@ public class interfacePropiedadesEstilosYposicionamiento extends interfaceElemen
         GridPane.setConstraints(crearLesson , 2, 11);
         GridPane.setConstraints(crearSegment , 2, 12);
         GridPane.setConstraints(crearUsuario , 2, 13);
-        GridPane.setConstraints(scrollPane,2,14,3,14);
+        GridPane.setConstraints(enviarSolicitudDeAmistad , 3, 3);
+        GridPane.setConstraints(scrollPane,1,15,5,15);
         //AGREGAR ELEMENTOS
         grid.getChildren().add(comboBox);
         grid.getChildren().add(ejecucionestf);
@@ -67,11 +69,12 @@ public class interfacePropiedadesEstilosYposicionamiento extends interfaceElemen
         grid.getChildren().add(crearLesson);
         grid.getChildren().add(crearSegment);
         grid.getChildren().add(crearUsuario);
+        grid.getChildren().add(enviarSolicitudDeAmistad);
         grid.getChildren().add(scrollPane);
         comboBox.getItems().add("DEV");
         comboBox.getItems().add("QA");
         comboBox.setValue("Elegir ambiente");
-        Scene scene = new Scene (grid,520, 670);
+        Scene scene = new Scene (grid,490, 670);
         stage.setScene(scene);
         stage.show();
     }

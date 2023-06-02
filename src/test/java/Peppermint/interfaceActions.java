@@ -22,7 +22,8 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
         CreateTag,
         CreateLesson,
         CreateSegment,
-        CreateUsuario;
+        CreateUsuario,
+        SendFriendRequest,
     }
     public void actionCrearWorkshop(){
         try {
@@ -224,6 +225,23 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             CN.close();
             funcionRegistroManagment test = new funcionRegistroManagment();
             test.validacionCrearUsuario();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    public void actionSendFriendRequest(){
+        try {
+            String url = "jdbc:mysql://localhost:3306/testbdpeppermint?serverTimezone=UTC";
+            String username = "root";
+            String password = "root";
+            Connection CN = DriverManager.getConnection(url, username, password);
+            String ejecuciones = ejecucionestf.getText();
+            String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = "+"'"+ejecuciones+"'";
+            Statement stmt = CN.createStatement();
+            stmt.executeUpdate(insertSql);
+            CN.close();
+            funcionFriendRequest test = new funcionFriendRequest();
+            test.validacionEnviarAceptarFriendRequest();
         } catch (Exception ex) {
             ex.printStackTrace();
         }

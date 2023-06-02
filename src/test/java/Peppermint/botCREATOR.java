@@ -124,6 +124,13 @@ public class botCREATOR extends interfaceActions{
              checkBoxesMap.put(checkBox, elemento);
              grid.add(checkBox, 0, listaDeEspera.size()-1);
          });
+         enviarSolicitudDeAmistad.setOnAction(e->{
+             listaDeEspera.add(ExecMethod.SendFriendRequest);
+             Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
+             CheckBox checkBox = new CheckBox("SendFriendRequest");
+             checkBoxesMap.put(checkBox, elemento);
+             grid.add(checkBox, 0, listaDeEspera.size()-1);
+         });
      }, "interfaceThread");
      if(interfaceThread.isAlive()) {
          interfaceThread.stop();
@@ -167,6 +174,9 @@ public class botCREATOR extends interfaceActions{
                          break;
                      case CreateUsuario:
                          actionCreateUsuario();
+                         break;
+                     case SendFriendRequest:
+                         actionSendFriendRequest();
                          break;
                  }
              }

@@ -15,8 +15,10 @@ public class variablesPeppermint extends conexionSQLpeppermint{
     public int contador;
     public int ejecutar;
     public int posicion;
-    //REGISTRO
     public int contadorRegistro;
+    public int contadorAceptarAmistad;
+    //REGISTRO
+
     public String firstName ="pineapple";
     public String lastName = "user";
     public String emailRegistro;

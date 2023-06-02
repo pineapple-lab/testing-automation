@@ -24,7 +24,7 @@ public class interfaceElements extends Application{
     TextArea consoleTextArea =  new TextArea();
     ScrollPane scrollPane = new ScrollPane(consoleTextArea);
     Button crearWorkshop = new Button("Crear workshop");
-    Button enrollWorkshop = new Button("Enroll users workshop");
+    Button enrollWorkshop = new Button("Enroll workshop");
     Button crearArticle = new Button("Crear article");
     Button crearClub = new Button("Crear club");
     Button crearTechnique = new Button("Crear technique");

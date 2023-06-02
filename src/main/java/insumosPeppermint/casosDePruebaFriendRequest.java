@@ -1,7 +1,5 @@
 package insumosPeppermint;
-
 import java.time.Instant;
-
 public class casosDePruebaFriendRequest extends robotBasePeppermint {
     public void validarEnviarFriendRequst() {
         for (contador = 1; contador <= ejecutar; contador++) {

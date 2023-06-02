@@ -1,15 +1,10 @@
 package Peppermint;
-
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.RadioButton;
-import org.jetbrains.kotlin.util.Check;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
 public class interfaceActions extends interfacePropiedadesEstilosYposicionamiento {
     enum ExecMethod {
         CreateWorkshops,

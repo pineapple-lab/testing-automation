@@ -6,7 +6,6 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class interfacePropiedadesEstilosYposicionamiento extends interfaceElements{
-
     @Override
     public void start(Stage stage) {
         //PROPIEDADES

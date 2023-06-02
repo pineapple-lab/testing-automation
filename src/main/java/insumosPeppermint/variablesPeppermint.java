@@ -1,8 +1,5 @@
 package insumosPeppermint;
-
 import java.io.PrintStream;
-import java.time.Instant;
-
 public class variablesPeppermint extends conexionSQLpeppermint{
     //UTILIDAD
     public String assertions;
@@ -18,7 +15,6 @@ public class variablesPeppermint extends conexionSQLpeppermint{
     public int contadorRegistro;
     public int contadorAceptarAmistad;
     //REGISTRO
-
     public String firstName ="pineapple";
     public String lastName = "user";
     public String emailRegistro;
@@ -132,6 +128,4 @@ public class variablesPeppermint extends conexionSQLpeppermint{
     public String subtopicClub;
     public String creatorClub;
     public String tagClub;
-
-
 }

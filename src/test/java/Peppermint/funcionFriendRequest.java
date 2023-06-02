@@ -1,8 +1,6 @@
 package Peppermint;
-
 import insumosPeppermint.casosDePruebaFriendRequest;
 import org.junit.jupiter.api.Test;
-
 public class funcionFriendRequest extends casosDePruebaFriendRequest {
     @Test
     public void validacionEnviarAceptarFriendRequest() {
@@ -14,5 +12,4 @@ public class funcionFriendRequest extends casosDePruebaFriendRequest {
         imprimirCantidadDeEjecuciones();
         validarEnviarFriendRequst();
     }
-
 }

@@ -38,8 +38,6 @@ public class interfaceElements extends Application{
     Button deneterCasoDePrueba = new Button("Detener");
     Button ejecutar = new Button("Ejecutar");
     TextField ejecucionestf = new TextField("ejecuciones");
-
-
     public void start(Stage stage) throws Exception {
 
     }

@@ -1,11 +1,9 @@
 package insumosPeppermint;
-
 import com.microsoft.playwright.APIResponse;
 import com.microsoft.playwright.FileChooser;
 import com.microsoft.playwright.Keyboard;
 import com.microsoft.playwright.Page;
 import org.junit.jupiter.api.Test;
-
 import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,8 +11,6 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.time.Instant;
 import java.util.List;
-
-
 public class robotBasePeppermint extends consultasSQLCasosFallidos {
     public void iniciarTest(){
         shouldStopTest = false;
@@ -50,7 +46,6 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
     }
     public void imprimirCantidadDeEjecuciones (){
         if(ejecutar>1) {
-
             System.out.println("El caso se va a ejecutar " + ejecutar + " veces");
             printStream.println("El caso se va a ejecutar " + ejecutar + " veces");
         }else {
@@ -59,7 +54,6 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         }
     }
     public void imprimirCantidadDeCasosEjecutados (){
-
         if(contador>1) {
             System.out.println("El caso se ejecuto " + contador + " veces");
             printStream.println("El caso se ejecuto " + contador + " veces");

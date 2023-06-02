@@ -1,5 +1,4 @@
 package insumosPeppermint;
-
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
@@ -9,12 +8,6 @@ import javafx.scene.control.Button;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
-
-import java.awt.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
-
 public class formularioSegment extends Stage{
     public formularioSegment(){
         GridPane grid = new GridPane();
@@ -108,4 +101,4 @@ public class formularioSegment extends Stage{
     public static void main(String[]args){
         Application.launch();
     }
-    }
+}

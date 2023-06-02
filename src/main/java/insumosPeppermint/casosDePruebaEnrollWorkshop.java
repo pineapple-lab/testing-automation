@@ -1,7 +1,5 @@
 package insumosPeppermint;
-
 public class casosDePruebaEnrollWorkshop extends robotBasePeppermint {
-
     public void validarEnrollWorkshop(){
         for(contador=1;contador<=ejecutar;contador++) {
             if (!shouldStopTest) {

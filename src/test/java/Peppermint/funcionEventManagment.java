@@ -1,12 +1,6 @@
 package Peppermint;
-
-import com.microsoft.playwright.Keyboard;
-import com.microsoft.playwright.Page;
-import insumosPeppermint.casosDePruebaEvent;
-import insumosPeppermint.robotBasePeppermint;
-import org.junit.jupiter.api.Assertions;
+import insumosPeppermint.casosDePruebaEvent;;
 import org.junit.jupiter.api.Test;
-
 public class funcionEventManagment extends casosDePruebaEvent {
     @Test
     public void validacionCreateEvent() {

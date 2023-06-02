@@ -1,18 +1,13 @@
 package insumosPeppermint;
-
 import javafx.scene.layout.GridPane;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
-import javax.swing.*;
-import java.awt.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
-
 public class formularioLesson extends Stage {
     public formularioLesson(){
         GridPane grid = new GridPane();

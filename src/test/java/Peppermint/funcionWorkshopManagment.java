@@ -1,15 +1,8 @@
 package Peppermint;
-
 import com.microsoft.playwright.*;
 import insumosPeppermint.casosDePruebaWorkshop;
-import insumosPeppermint.robotBasePeppermint;
-import insumosPeppermint.contextoBasePeppermint;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
 import java.nio.file.Paths;
-import java.util.function.Predicate;
-
 public class funcionWorkshopManagment extends casosDePruebaWorkshop {
     @Test
     public void validacionCrearWorkshop() {
@@ -23,16 +16,12 @@ public class funcionWorkshopManagment extends casosDePruebaWorkshop {
         login();
         validarCrearWorkshop();
     }
-
     @Test
-
     public void validacionCreateWorkshopSchedule(){
-
         System.out.println("Iniciando caso de prueba...");
         iniciarEjecucionWorkshop();
         System.out.println("El caso se va a ejecutar " + ejecutar + " veces\n");
         iniciarNavegacion();
-
         login();
         for (contador = 1; contador <= ejecutar; contador++) {
             startDateWorkshop = "3/31/2023, 16:00:00";
@@ -52,7 +41,6 @@ public class funcionWorkshopManagment extends casosDePruebaWorkshop {
             System.out.println("El caso se ejecuto " + contador + " veces\n");
         }
     }
-
     public void crearWorkshopSchedule(){
         System.out.println("Creando Workshop...");
         Keyboard kb = page.keyboard();
@@ -73,7 +61,6 @@ public class funcionWorkshopManagment extends casosDePruebaWorkshop {
         page.click(".cdk-overlay-pane mat-option:nth-of-type("+creatorWorkshop+")");
         page.click(".ng-star-inserted form > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) app-text-box quill-editor > div:nth-of-type(2)");
         kb.insertText(descriptionWorkshop);
-
         page.click(".ng-star-inserted .mat-chip-list-wrapper");
         page.click(".ng-star-inserted form > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) app-text-box quill-editor > div:nth-of-type(2)");
         page.click(".ng-star-inserted .mat-chip-list-wrapper");

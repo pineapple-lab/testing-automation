@@ -1,16 +1,7 @@
 package insumosPeppermint;
-
-import org.junit.jupiter.api.Test;
-
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.Date;
-
 public class variablesIniciadasPeppermint extends variablesPeppermint{
-
     public void iniciarEjecucionesLogin(){
         try {
             sqlconectar();
@@ -23,7 +14,6 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
         sqlclose();
     }
     public void iniciarVariablesLogin(){
-
         System.out.println("Iniciando variables...");
         printStream.println("Iniciando variables...");
         try {
@@ -158,7 +148,6 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
             while(rs.next()){
                 ejecutar = rs.getInt(rs.findColumn("ejecuciones"));
             }
-
         }catch(Exception e){}
         sqlclose();
     }
@@ -207,11 +196,9 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
                 optimalBuddyGroupGroupWithInstructor = rs.getString(rs.findColumn("optimaBuddyGroupGroupWithInstructor"));
                 maxStudentsGroup = rs.getString(rs.findColumn("maxStudentsGroup"));
                 optimalBuddyGroup = rs.getString(rs.findColumn("optimalBuddyGroupGroup"));
-
             }
             ResultSet rs1 = stm.executeQuery("SELECT * FROM testbdpeppermint.datoscrearworkshopcompleto WHERE estado = 0 ORDER BY RAND() LIMIT 1");
             while(rs1.next()){
-
             }
             String query1 = "UPDATE testbdpeppermint.datoscrearworkshopcompleto SET estado = 1 WHERE titleWorkshop="+"'"+titleWorkshop+"'";
             stm.executeUpdate(query1);
@@ -219,7 +206,6 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
             stm.executeUpdate(query2);
         }catch(Exception e){}
         System.out.println("Variables iniciadas");
-
         sqlclose();
     }
     public void establecerUsuariosEnEstadoCero(){
@@ -282,7 +268,6 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
         sqlclose();
     }
     public void iniciarVariablesEvent() {
-
         try {
             sqlconectar();
             Statement stm = CN.createStatement();

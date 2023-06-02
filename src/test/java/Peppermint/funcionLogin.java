@@ -1,10 +1,7 @@
 package Peppermint;
-
-import com.microsoft.playwright.Keyboard;
 import insumosPeppermint.robotBasePeppermint;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
 public class funcionLogin extends robotBasePeppermint {
     @Test
     public void validacionLogin(){
@@ -31,6 +28,4 @@ public class funcionLogin extends robotBasePeppermint {
             logout();
         }*/
     //}
-
-
 }

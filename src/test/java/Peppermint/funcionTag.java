@@ -1,13 +1,7 @@
 package Peppermint;
-
-import com.microsoft.playwright.Keyboard;
 import insumosPeppermint.casosDePruebaTag;
-import insumosPeppermint.robotBasePeppermint;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
 public class funcionTag extends casosDePruebaTag {
-
     @Test
     public void validacionCrearTag() {
         iniciarContexto();

@@ -8,7 +8,6 @@ import javafx.scene.control.Button;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
-
 public class formularioTag extends Stage{
     public formularioTag(){
         GridPane grid = new GridPane();

@@ -1,10 +1,7 @@
 package Peppermint;
-
-
 import insumosPeppermint.robotBasePeppermint;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
 public class funcionHome extends robotBasePeppermint {
     @Test
     public void validacionPaginHome(){

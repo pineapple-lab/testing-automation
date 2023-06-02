@@ -1,7 +1,5 @@
 package insumosPeppermint;
-
 import org.junit.jupiter.api.Assertions;
-
 public class casosDePruebaEvent extends robotBasePeppermint{
     public void validarCrearEvent(){for (contador = 1; contador <= ejecutar; contador++) {
         if (!shouldStopTest) {

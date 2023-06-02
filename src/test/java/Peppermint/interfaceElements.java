@@ -6,14 +6,10 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-
-
 public class interfaceElements extends Application{
     ArrayList<botCREATOR.ExecMethod> listaDeEspera = new ArrayList<>();
     GridPane grid = new GridPane();
@@ -38,7 +34,5 @@ public class interfaceElements extends Application{
     Button deneterCasoDePrueba = new Button("Detener");
     Button ejecutar = new Button("Ejecutar");
     TextField ejecucionestf = new TextField("ejecuciones");
-    public void start(Stage stage) throws Exception {
-
-    }
+    public void start(Stage stage) throws Exception {}
 }

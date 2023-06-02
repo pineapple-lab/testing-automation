@@ -1,25 +1,14 @@
 package insumosPeppermint;
 import javafx.application.Application;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-
-
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import static javax.print.attribute.standard.MediaSizeName.C;
-
 public class botINSERT extends Application {
-
     public static void main(String[]args){
         Application.launch();
     }
-
     @Override
     public void start (Stage stage){ {
         ComboBox <String> comboBox = new ComboBox<>();

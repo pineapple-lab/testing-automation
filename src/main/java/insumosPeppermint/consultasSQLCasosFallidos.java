@@ -1,7 +1,5 @@
 package insumosPeppermint;
-
 import java.sql.Statement;
-
 public class consultasSQLCasosFallidos extends contextoBasePeppermint{
     public void sqlGuardarCasoSiFallaLogin(){
 

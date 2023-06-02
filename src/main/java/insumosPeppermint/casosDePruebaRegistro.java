@@ -1,17 +1,6 @@
 package insumosPeppermint;
-
-import com.microsoft.playwright.Keyboard;
-import org.junit.jupiter.api.Test;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
 import java.time.Instant;
-
 public class casosDePruebaRegistro extends robotBasePeppermint{
-
-
-
     public void validarRegistro(){
             for (contador = 1; contador <= ejecutar; contador++) {
                 if (!shouldStopTest) {
@@ -28,7 +17,6 @@ public class casosDePruebaRegistro extends robotBasePeppermint{
                     registrarUsuario();
                     guardarUsuario();
                     logout();
-
                     System.out.println("El usuario se ha creado con exito\n");
                     printStream.println("El usuario se ha creado con exito\n");
                     imprimirCantidadDeCasosEjecutados();

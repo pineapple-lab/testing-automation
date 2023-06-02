@@ -5,12 +5,9 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
-import javax.swing.*;
-import java.awt.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
-
 public class formularioClubs extends Stage {
     public formularioClubs(){
         GridPane grid = new GridPane();

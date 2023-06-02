@@ -1,17 +1,4 @@
 package insumosPeppermint;
-
-import com.microsoft.playwright.Keyboard;
-import com.microsoft.playwright.Page;
-import com.microsoft.playwright.options.MouseButton;
-import org.junit.jupiter.api.Test;
-
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.util.Date;
-import java.util.List;
-
 public class casosDePruebaInviteGuest extends robotBasePeppermint {
     public void validarEnviarInviteGuest(){
         for (contador = 1; contador <= ejecutar; contador++) {

@@ -1,5 +1,4 @@
 package insumosPeppermint;
-
 public class casosDePruebaTechnique extends robotBasePeppermint{
     public void validarCrearTechnique() {
         for (contador = 1; contador <= ejecutar; contador++) {

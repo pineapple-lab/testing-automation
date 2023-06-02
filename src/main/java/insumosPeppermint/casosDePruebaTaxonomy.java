@@ -1,5 +1,4 @@
 package insumosPeppermint;
-
 public class casosDePruebaTaxonomy extends robotBasePeppermint {
     public void validarCrearTaxonomy(){for (contador = 1; contador <= ejecutar; contador++) {
         if (!shouldStopTest) {
@@ -27,5 +26,4 @@ public class casosDePruebaTaxonomy extends robotBasePeppermint {
         }
     }
         closeContext();}
-
 }

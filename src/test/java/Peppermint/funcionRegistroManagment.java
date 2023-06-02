@@ -1,8 +1,6 @@
 package Peppermint;
-
 import insumosPeppermint.casosDePruebaRegistro;
 import org.junit.jupiter.api.Test;
-
 public class funcionRegistroManagment extends casosDePruebaRegistro {
     @Test
     public void validacionCrearUsuario(){

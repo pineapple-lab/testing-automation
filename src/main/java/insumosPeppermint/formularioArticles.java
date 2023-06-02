@@ -8,9 +8,7 @@ import javafx.scene.control.Button;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
-
 public class formularioArticles extends Stage {
-
     public formularioArticles(){
         GridPane grid = new GridPane();
         grid.setHgap(10);

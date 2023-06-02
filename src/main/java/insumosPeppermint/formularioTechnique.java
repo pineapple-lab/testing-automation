@@ -10,7 +10,6 @@ import javafx.stage.Stage;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
 public class formularioTechnique extends Stage{
-
     public formularioTechnique(){
         GridPane grid = new GridPane();
         grid.setHgap(10);

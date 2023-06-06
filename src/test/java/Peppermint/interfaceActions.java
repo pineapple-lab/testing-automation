@@ -19,6 +19,8 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
         CreateSegment,
         CreateUsuario,
         SendFriendRequest,
+        JoinClub,
+        GenerateInviteGuest,
     }
     public void actionCrearWorkshop(){
         try {
@@ -237,6 +239,40 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             CN.close();
             funcionFriendRequest test = new funcionFriendRequest();
             test.validacionEnviarAceptarFriendRequest();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    public void actionJoinClub(){
+        try {
+            String url = "jdbc:mysql://localhost:3306/testbdpeppermint?serverTimezone=UTC";
+            String username = "root";
+            String password = "root";
+            Connection CN = DriverManager.getConnection(url, username, password);
+            String ejecuciones = ejecucionestf.getText();
+            String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = "+"'"+ejecuciones+"'";
+            Statement stmt = CN.createStatement();
+            stmt.executeUpdate(insertSql);
+            CN.close();
+            funcionClubManagment test = new funcionClubManagment();
+            test.validacionJoinClub();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    public void actionInviteGuest(){
+        try {
+            String url = "jdbc:mysql://localhost:3306/testbdpeppermint?serverTimezone=UTC";
+            String username = "root";
+            String password = "root";
+            Connection CN = DriverManager.getConnection(url, username, password);
+            String ejecuciones = ejecucionestf.getText();
+            String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = "+"'"+ejecuciones+"'";
+            Statement stmt = CN.createStatement();
+            stmt.executeUpdate(insertSql);
+            CN.close();
+            funcionInviteGuest test = new funcionInviteGuest();
+            test.validacionCrearInviteGuest();
         } catch (Exception ex) {
             ex.printStackTrace();
         }

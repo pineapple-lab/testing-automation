@@ -99,9 +99,9 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         page.fill("mat-card-content > div > div:nth-of-type(2) app-mat-form-field input",lastName);
         page.fill("mat-card-content > app-mat-form-field:nth-of-type(1) input",emailRegistro);
         page.click("mat-card-content > mat-form-field mat-datepicker-toggle button");
-        if(page.isEnabled("mat-calendar tbody tr:nth-of-type(2) td:nth-of-type(3)")==false){
+        if(page.isEnabled("mat-calendar tbody tr:nth-of-type(2) td:nth-of-type(1)")==false){
             page.click("mat-calendar tbody tr:nth-of-type(1) td:nth-of-type(2)");
-        }else{ page.click("mat-calendar tbody tr:nth-of-type(2) td:nth-of-type(3)");
+        }else{ page.click("mat-calendar tbody tr:nth-of-type(2) td:nth-of-type(1)");
         }
         page.fill("mat-card-content > app-mat-form-field:nth-of-type(2) input",passwordRegistro);
         page.click("text=Sign up with email");
@@ -318,7 +318,10 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         System.out.println("Registrando invite guest...");
         printStream.println("Registrando invite guest...");
         nuevaPestana.click("mat-card-content > mat-form-field mat-datepicker-toggle button");
-        nuevaPestana.click("mat-calendar tbody tr:nth-of-type(2) td:nth-of-type(3)");
+        if(nuevaPestana.isEnabled("mat-calendar tbody tr:nth-of-type(2) td:nth-of-type(1)")==false){
+            nuevaPestana.click("mat-calendar tbody tr:nth-of-type(1) td:nth-of-type(2)");
+        }else{ nuevaPestana.click("mat-calendar tbody tr:nth-of-type(2) td:nth-of-type(1)");
+        }
         nuevaPestana.fill("mat-card-content > app-mat-form-field:nth-of-type(2) input","123123aA");
         nuevaPestana.click("text=Sign up with email");
         nuevaPestana.click("mat-selection-list > div:nth-of-type(1) mat-radio-button");
@@ -780,7 +783,14 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         page.waitForSelector("mat-chip");
         page.click("mat-dialog-actions button:nth-of-type(2)");
     }
-    public void crearClub(){
+    public void joinClub(){
+        page.waitForTimeout(10000);
+        page.navigate("http://localhost:4200/content/clubs");
+        page.waitForSelector("app-all-cards .container > div:nth-of-type(1)");
+        page.click("app-all-cards .container > div:nth-of-type(1)");
+        page.click("app-club-details > div > div > div:nth-of-type(1) > div > div > div:nth-of-type(2) > button");
+    }
+        public void crearClub(){
         System.out.println("Creando club...");
         printStream.println("Creando club...");
         Keyboard kb = page.keyboard();
@@ -806,6 +816,9 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         //page.click(".container app-generic-selects > div > div > p");
         page.click(".container > div:nth-of-type(3) > div:nth-of-type(2) app-generic-selects .size-generic-selects > div:nth-of-type(1) mat-form-field");
         page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type("+categoryClub+")");
+        page.click(".container > div:nth-of-type(3) > div:nth-of-type(2) app-generic-selects .size-generic-selects > div:nth-of-type(2) mat-form-field");
+        page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type("+topicClub+")");
+        page.focus(".container > div:nth-of-type(3) > div:nth-of-type(1) app-mat-form-field textarea");
         page.click(".container > div:nth-of-type(3) > div:nth-of-type(2) app-generic-selects .size-generic-selects > div:nth-of-type(2) mat-form-field");
         page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type("+topicClub+")");
         /*page.click(".container > div:nth-of-type(3) > div:nth-of-type(2) app-generic-selects .size-generic-selects > div:nth-of-type(3) mat-form-field");

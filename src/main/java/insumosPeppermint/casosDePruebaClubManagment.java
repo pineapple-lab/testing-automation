@@ -29,4 +29,22 @@ public class casosDePruebaClubManagment extends robotBasePeppermint{
         }
         closeContext();
     }
+    public void validarJoinClub(){
+        for (contador = 1; contador <= ejecutar; contador++) {
+            if (!shouldStopTest) {
+                iniciarVaraiblesJoinUserClub();
+                login();
+                System.out.println("\nEnrolando usuario\n");
+                printStream.println("\nEnrolando usuario\n");
+                joinClub();
+                System.out.println("El usuario "+emailLogin+" ha sido enrolado con exito \n");
+                printStream.println("El usuario "+emailLogin+" ha sido enrolado con exito \n");
+                imprimirCantidadDeCasosEjecutados();
+                logout();
+            } else {
+                closeContext();
+            }
+        }
+        closeContext();
+    }
 }

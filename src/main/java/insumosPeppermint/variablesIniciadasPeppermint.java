@@ -376,4 +376,19 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
         }catch(Exception e){}
         sqlclose();
     }
+    public void iniciarVaraiblesJoinUserClub() {
+        System.out.println("Iniciando variables...");
+        printStream.println("Iniciando variables...");
+        try {
+            sqlconectar();
+            Statement stm = CN.createStatement();
+            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.usuariosautomaticos WHERE ¿JoinClub = 0 AND ambiente = 'http://localhost:4200/user/plans' ORDER BY RAND() LIMIT 1");
+            while (rs.next()) {
+                emailLogin = rs.getString(rs.findColumn("emailRegistro"));
+            }
+            String query1 = "UPDATE testbdpeppermint.usuariosautomaticos SET ¿JoinClub = 1 WHERE emailRegistro=" + "'" + emailLogin + "'";
+            stm.executeUpdate(query1);
+        } catch (Exception e) {}
+        sqlclose();
+    }
 }

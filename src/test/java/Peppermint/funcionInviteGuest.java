@@ -5,7 +5,6 @@ public class funcionInviteGuest extends casosDePruebaInviteGuest {
     @Test
     public void validacionCrearInviteGuest() {
         iniciarContexto();
-        linkDeNavegacion="http://localhost:4200/";
         serverStatus();
         System.out.println("Iniciando caso de prueba...");
         printStream.println("Iniciando caso de prueba...");

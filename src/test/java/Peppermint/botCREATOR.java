@@ -129,6 +129,20 @@ public class botCREATOR extends interfaceActions{
              checkBoxesMap.put(checkBox, elemento);
              grid.add(checkBox, 0, listaDeEspera.size()-1);
          });
+         joinClub.setOnAction(e->{
+             listaDeEspera.add(ExecMethod.JoinClub);
+             Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
+             CheckBox checkBox = new CheckBox("JoinClub");
+             checkBoxesMap.put(checkBox, elemento);
+             grid.add(checkBox, 0, listaDeEspera.size()-1);
+         });
+         generarInviteGuest.setOnAction(e->{
+             listaDeEspera.add(ExecMethod.GenerateInviteGuest);
+             Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
+             CheckBox checkBox = new CheckBox("GenerateInviteGuest");
+             checkBoxesMap.put(checkBox, elemento);
+             grid.add(checkBox, 0, listaDeEspera.size()-1);
+         });
      }, "interfaceThread");
      if(interfaceThread.isAlive()) {
          interfaceThread.stop();
@@ -175,6 +189,12 @@ public class botCREATOR extends interfaceActions{
                          break;
                      case SendFriendRequest:
                          actionSendFriendRequest();
+                         break;
+                     case JoinClub:
+                         actionJoinClub();
+                         break;
+                     case GenerateInviteGuest:
+                         actionInviteGuest();
                          break;
                  }
              }

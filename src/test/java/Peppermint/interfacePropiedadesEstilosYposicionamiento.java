@@ -26,6 +26,7 @@ public class interfacePropiedadesEstilosYposicionamiento extends interfaceElemen
         crearUsuario.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         enviarSolicitudDeAmistad.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         joinClub.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
+        generarPostClub.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         deneterCasoDePrueba.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         ejecutar.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         removerDeLaCola.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
@@ -52,6 +53,7 @@ public class interfacePropiedadesEstilosYposicionamiento extends interfaceElemen
         GridPane.setConstraints(enviarSolicitudDeAmistad, 3, 3);
         GridPane.setConstraints(joinClub, 3, 4);
         GridPane.setConstraints(generarInviteGuest, 3, 5);
+        GridPane.setConstraints(generarPostClub, 3, 6);
         GridPane.setConstraints(scrollPane,1,15,5,15);
         //AGREGAR ELEMENTOS
         grid.getChildren().add(comboBox);
@@ -72,6 +74,7 @@ public class interfacePropiedadesEstilosYposicionamiento extends interfaceElemen
         grid.getChildren().add(crearUsuario);
         grid.getChildren().add(enviarSolicitudDeAmistad);
         grid.getChildren().add(joinClub);
+        grid.getChildren().add(generarPostClub);
         grid.getChildren().add(generarInviteGuest);
         grid.getChildren().add(scrollPane);
         comboBox.getItems().add("DEV");

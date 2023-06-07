@@ -11,7 +11,7 @@ public class funcionInviteGuest extends casosDePruebaInviteGuest {
         iniciarEjecucionArticle();
         imprimirCantidadDeEjecuciones();
         iniciarNavegacion();
-        emailLogin="pineAppleUser1683812188407@mailinator.com";
+        emailLogin="pineappleuser1684418510608@mailinator.com";
         login();
         validarEnviarInviteGuest();
     }

@@ -136,6 +136,13 @@ public class botCREATOR extends interfaceActions{
              checkBoxesMap.put(checkBox, elemento);
              grid.add(checkBox, 0, listaDeEspera.size()-1);
          });
+         generarPostClub.setOnAction(e->{
+             listaDeEspera.add(ExecMethod.GeneratePostClub);
+             Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
+             CheckBox checkBox = new CheckBox("GeneratePostClub");
+             checkBoxesMap.put(checkBox, elemento);
+             grid.add(checkBox, 0, listaDeEspera.size()-1);
+         });
          generarInviteGuest.setOnAction(e->{
              listaDeEspera.add(ExecMethod.GenerateInviteGuest);
              Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
@@ -195,6 +202,9 @@ public class botCREATOR extends interfaceActions{
                          break;
                      case GenerateInviteGuest:
                          actionInviteGuest();
+                         break;
+                     case GeneratePostClub:
+                         actionPostClub();
                          break;
                  }
              }

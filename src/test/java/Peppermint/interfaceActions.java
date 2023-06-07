@@ -21,6 +21,7 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
         SendFriendRequest,
         JoinClub,
         GenerateInviteGuest,
+        GeneratePostClub
     }
     public void actionCrearWorkshop(){
         try {
@@ -256,6 +257,23 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             CN.close();
             funcionClubManagment test = new funcionClubManagment();
             test.validacionJoinClub();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    public void actionPostClub(){
+        try {
+            String url = "jdbc:mysql://localhost:3306/testbdpeppermint?serverTimezone=UTC";
+            String username = "root";
+            String password = "root";
+            Connection CN = DriverManager.getConnection(url, username, password);
+            String ejecuciones = ejecucionestf.getText();
+            String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = "+"'"+ejecuciones+"'";
+            Statement stmt = CN.createStatement();
+            stmt.executeUpdate(insertSql);
+            CN.close();
+            funcionClubManagment test = new funcionClubManagment();
+            test.validacionPostClub();
         } catch (Exception ex) {
             ex.printStackTrace();
         }

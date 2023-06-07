@@ -3,6 +3,7 @@ import com.microsoft.playwright.APIResponse;
 import com.microsoft.playwright.FileChooser;
 import com.microsoft.playwright.Keyboard;
 import com.microsoft.playwright.Page;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.nio.file.Paths;
 import java.sql.Connection;
@@ -180,11 +181,19 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         if(page.isVisible(".bg-primary-contrast form > .mat-card-content app-mat-form-field:nth-of-type(2) input")==false) {
             page.click("text=Sign in");
         }
+        page.waitForSelector("text=Login with Google");
+        page.waitForSelector("text=Login with Facebook");
+        page.waitForSelector("text=Login with Email");
+        Assertions.assertTrue(page.isVisible("text=Login with Google"));
+        Assertions.assertTrue(page.isVisible("text=Login with Facebook"));
+        Assertions.assertTrue(page.isVisible("text=Login with Email"));
         page.focus(".bg-primary-contrast form > .mat-card-content app-mat-form-field:nth-of-type(1) input");
         kb.insertText(emailLogin);
         page.focus(".bg-primary-contrast form > .mat-card-content app-mat-form-field:nth-of-type(2) input");
         kb.insertText(passwordLogin);
         page.click(".bg-primary-contrast form > div:nth-of-type(3) button");
+        page.waitForSelector("text=Login Successfull!");
+        Assertions.assertTrue(page.isVisible("text=Login Successfull!"));
         System.out.println("El login del usuario "+emailLogin+" se realizo con exito \n");
         printStream.println("El login del usuario "+emailLogin+" se realizo con exito \n");
     }
@@ -294,7 +303,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
             page.click("text=Send invites");
         }
         page.waitForSelector("text=Guest pass has been sent successfully");
-        page.waitForTimeout(60000);
+        page.waitForTimeout(40000);
     }
     @Test
     public void registrarInviteGuest(){
@@ -382,6 +391,8 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         page.waitForTimeout(1000);
         page.click("text=Publish");
         page.click("mat-dialog-container > div > div:nth-of-type(2) button");
+        page.waitForSelector("text=The technique was created successfully");
+        Assertions.assertTrue(page.isVisible("text=The technique was created successfully"));
     }
     public void crearSegment(){
         System.out.println("Creando Segment...");
@@ -424,9 +435,13 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         page.click("form > div > div > div:nth-of-type(5) > div > button:nth-of-type(1)");
         page.click("tbody tr:first-child td:first-child mat-checkbox");
         page.click("app-mat-table > div:nth-of-type(1) > button:nth-of-type(1)");
+        page.waitForSelector("text=Techniques added successfully");
+        Assertions.assertTrue(page.isVisible("text=Techniques added successfully"));
         page.locator("//*[@id=\"file\"]").setInputFiles(Paths.get(pathImage));
         page.click("text=Publish");
         page.click(".mat-dialog-container div:nth-of-type(2) button");
+        page.waitForSelector("text=The segment was created successfully");
+        Assertions.assertTrue(page.isVisible("text=The segment was created successfully"));
     }
     public void crearLesson(){
         System.out.println("Creando Lesson...");
@@ -443,6 +458,8 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         page.click(".container > div:nth-of-type(4) button");
         page.click("tbody tr:first-child td:first-child label");
         page.click("app-mat-table > div:nth-of-type(1) > button");
+        page.waitForSelector("text=Segments added successfully");
+        Assertions.assertTrue(page.isVisible("text=Segments added successfully"));
         page.locator("app-upload-media input[type=file]").setInputFiles(Paths.get(pathImage));
         page.click(".ma-auto button");
         page.focus(".container > div:nth-of-type(2) app-mat-form-field input");
@@ -470,6 +487,8 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type("+subtopicLesson+")");*/
         page.click("text=Publish");
         page.click(".mat-dialog-container div:nth-of-type(2) button");
+        page.waitForSelector("text=The lesson was created successfully");
+        Assertions.assertTrue(page.isVisible("text=Segments added successfully"));
     }
     public void crearWorkshop(){
             System.out.println("Creando Workshop...");
@@ -543,6 +562,8 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
             page.click("app-course-outlet-form app-course-lesson-form > div:nth-of-type(2) button");
             page.click("mat-dialog-container tbody tr:first-child td:first-child mat-checkbox");
             page.click("app-mat-table > div:nth-of-type(1) > button");
+            page.waitForSelector("text=Lessons added successfully");
+            Assertions.assertTrue(page.isVisible("text=Lessons added successfully"));
             //page.click("app-drag-drop-sorting div:nth-of-type(2) mat-expansion-panel-header");
             page.click("text=+ Add activities");
             page.click(".cdk-overlay-container button:nth-of-type(1)");
@@ -611,6 +632,8 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
             kb.insertText(optimalBuddyGroup);
             page.click("text=Publish");//app-admin-top-bar > div button:nth-of-type(3)
             page.click("mat-dialog-container > div > div:nth-of-type(2) button");
+            page.waitForSelector("text=The workshop was created successfully");
+            Assertions.assertTrue(page.isVisible("text=The workshop was created successfully"));
         }
     public void enrollWorkshop(){
         page.waitForTimeout(10000);
@@ -690,6 +713,8 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         page.locator("//*[@id=\"video-file\"]").setInputFiles(Paths.get(pathVideo));
         page.click("text=Publish");
         page.click("mat-dialog-container > div > div:nth-of-type(2) button");
+        page.waitForSelector("text=The article was created successfully");
+        Assertions.assertTrue(page.isVisible("text=The article was created successfully"));
     }
     public void createEvent(){
         System.out.println("Creando Evento...");
@@ -726,6 +751,8 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         kb.press("Enter");
         page.click("app-admin-top-bar > div button:nth-of-type(2)");
         page.click("mat-dialog-container div:nth-of-type(2) button:nth-of-type(1)");
+        page.waitForSelector("text=The event was created successfully");
+        Assertions.assertTrue(page.isVisible("text=The event was created successfully"));
     }
     public void deleteEvent(){
         System.out.println("Eliminando evento...");
@@ -758,6 +785,8 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         page.click("mat-dialog-content > div:nth-of-type(2) .subTopic mat-form-field");
         kb.insertText(titleSubTopic);
         page.click("text=Save");
+        page.waitForSelector("text=The category was created successfully");
+        Assertions.assertTrue(page.isVisible("text=The category was created successfully"));
     }
     public void crearTag(){
         System.out.println("Creando Tag...");
@@ -782,15 +811,42 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         kb.press("Enter");
         page.waitForSelector("mat-chip");
         page.click("mat-dialog-actions button:nth-of-type(2)");
+        page.waitForSelector("text=The tag was created successfully");
+        Assertions.assertTrue(page.isVisible("text=The tag was created successfully"));
     }
     public void joinClub(){
-        page.waitForTimeout(10000);
-        page.navigate("http://localhost:4200/content/clubs");
-        page.waitForSelector("app-all-cards .container > div:nth-of-type(1)");
-        page.click("app-all-cards .container > div:nth-of-type(1)");
-        page.click("app-club-details > div > div > div:nth-of-type(1) > div > div > div:nth-of-type(2) > button");
+        if(page.isVisible("app-text-editor")==true) {
+            page.waitForSelector("app-text-editor");
+        }
+        if(page.isVisible("text=My workshops")==true) {
+            page.navigate("http://localhost:4200/content/clubs");
+            page.waitForSelector("app-all-cards .container > div:nth-of-type(1)");
+            page.click("app-all-cards .container > div:nth-of-type(1)");
+        }
+        page.click("app-club-details > div > div > div:nth-of-type(1) > div > div > div:nth-of-type(3) > button");
+        page.waitForSelector("text=The club was joined successfully");
+        Assertions.assertTrue(page.isVisible("text=The club was joined successfully"));
     }
-        public void crearClub(){
+    public void crearPostClub(){
+        Keyboard kb = page.keyboard();
+        long timeStamp = Instant.now().toEpochMilli();
+        page.waitForSelector("app-text-editor");
+        if(page.isVisible("text=My workshops")==true) {
+            page.navigate("http://localhost:4200/content/clubs");
+            page.waitForSelector("app-all-cards .container > div:nth-of-type(1)");
+            page.click("app-all-cards .container > div:nth-of-type(1)");
+        }
+        page.waitForSelector("app-club-details > div > div > div:nth-of-type(1) > div > div > div:nth-of-type(3) > button");
+        if(page.isVisible("app-text-editor")==false){
+            joinClub();
+        }
+        System.out.println("\nCreando post\n");
+        printStream.println("\nCreando post\n");
+        page.focus("app-text-editor textarea");
+        kb.insertText(timeStamp + "   :   " + textoParaPublicaciones);
+        page.click("app-text-editor button:nth-of-type(4)");
+    }
+    public void crearClub(){
         System.out.println("Creando club...");
         printStream.println("Creando club...");
         Keyboard kb = page.keyboard();
@@ -825,5 +881,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type("+subtopicClub+")");*/
         page.click("text=Publish");
         page.click("mat-dialog-container > div > div:nth-of-type(2) button");
+        page.waitForSelector("text=The club was created successfully");
+        Assertions.assertTrue(page.isVisible("text=The club was created successfully"));
     }
 }

@@ -33,6 +33,7 @@ public class interfaceElements extends Application{
     Button enviarSolicitudDeAmistad = new Button("Generar amigos");
     Button joinClub = new Button("Join club");
     Button generarInviteGuest = new Button("Generar invite guest");
+    Button generarPostClub = new Button("Generar post club");
     Button deneterCasoDePrueba = new Button("Detener");
     Button ejecutar = new Button("Ejecutar");
     TextField ejecucionestf = new TextField("ejecuciones");

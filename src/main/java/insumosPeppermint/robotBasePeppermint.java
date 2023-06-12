@@ -3,6 +3,7 @@ import com.microsoft.playwright.APIResponse;
 import com.microsoft.playwright.FileChooser;
 import com.microsoft.playwright.Keyboard;
 import com.microsoft.playwright.Page;
+import org.jetbrains.kotlin.serialization.js.ast.JsAstProtoBuf;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.nio.file.Paths;
@@ -261,6 +262,144 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
             page.click("app-notification > div > div > div:nth-of-type(2) > div:nth-of-type("+contadorInterno+") button:nth-of-type(1)");
         }
     }
+    public void guardarBookmark(){
+        Keyboard kb = page.keyboard();
+        emailLogin=emailUserMuchoContenido;
+        login();
+        page.waitForSelector("text=My workshops");
+        page.navigate("http://localhost:4200/content/workshops");
+        for (contador=0; contador<ejecutar;contador++){
+            int contadorInterno = contador+1;
+            page.waitForSelector("app-all-cards .container > div:nth-of-type(2) app-three-dots button");
+            while (page.isVisible("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-three-dots button")==false){
+                kb.press("Control+End");
+            }
+            page.click("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-three-dots button");
+            page.click(".mat-menu-panel button:nth-of-type(1)");
+            page.waitForSelector("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-bookmark-icon > div > mat-icon");
+            Assertions.assertTrue(page.isVisible("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-bookmark-icon > div > mat-icon"));
+        }
+        page.navigate("http://localhost:4200/content/articles");
+        for (contador=0; contador<ejecutar;contador++){
+            int contadorInterno = contador+1;
+            page.waitForSelector("app-all-cards .container > div:nth-of-type(2) app-three-dots button");
+            while (page.isVisible("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-three-dots button")==false){
+                kb.press("Control+End");
+            }
+            page.click("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-three-dots button");
+            page.click(".mat-menu-panel button:nth-of-type(1)");
+            page.waitForSelector("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-bookmark-icon > div > mat-icon");
+            Assertions.assertTrue(page.isVisible("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-bookmark-icon > div > mat-icon"));
+        }
+        page.navigate("http://localhost:4200/content/techniques");
+        for (contador=0; contador <ejecutar;contador++){
+            int contadorInterno = contador+1;
+            page.waitForSelector("app-all-cards .container > div:nth-of-type(2) app-three-dots button");
+            while (page.isVisible("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-three-dots button")==false){
+                kb.press("Control+End");
+            }
+            page.click("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-three-dots button");
+            page.click(".mat-menu-panel button:nth-of-type(1)");
+            page.waitForSelector("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-bookmark-icon > div > mat-icon");
+            Assertions.assertTrue(page.isVisible("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-bookmark-icon > div > mat-icon"));
+        }
+        page.navigate("http://localhost:4200/content/clubs");
+        for (contador=0; contador <ejecutar;contador++){
+            int contadorInterno = contador+1;
+            page.waitForSelector("app-all-cards .container > div:nth-of-type(2) app-three-dots button");
+            while (page.isVisible("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-three-dots button")==false){
+                kb.press("Control+End");
+            }
+            page.click("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-three-dots button");
+            page.click(".mat-menu-panel button:nth-of-type(1)");
+            page.waitForSelector("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-bookmark-icon > div > mat-icon");
+            Assertions.assertTrue(page.isVisible("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-bookmark-icon > div > mat-icon"));
+        }
+        logout();
+    }
+    public void enviarRecomendacion(){
+        Keyboard kb = page.keyboard();
+        emailLogin="pineappleuser1684850047588@mailinator.com";
+        login();
+        page.waitForSelector("text=My workshops");
+        page.navigate("http://localhost:4200/content/workshops");
+        for (contador=0; contador<ejecutar;contador++){
+           int contadorInterno = contador+1;
+            page.waitForSelector("app-all-cards .container > div:nth-of-type(2) app-three-dots button");
+            while (page.isVisible("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-three-dots button")==false){
+                kb.press("Control+End");
+            }
+            page.click("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-three-dots button");
+            page.click(".mat-menu-panel button:nth-of-type(2)");
+            page.waitForSelector("app-bookmark-invitation-popup > div > div:nth-of-type(5) app-mat-recommendation-chips");
+            page.click("app-bookmark-invitation-popup > div > div:nth-of-type(5) app-mat-recommendation-chips");
+            kb.insertText(userSendRecomendation);
+            page.waitForSelector(".cdk-overlay-connected-position-bounding-box .cdk-overlay-pane mat-option:nth-of-type(1)");
+            page.click(".cdk-overlay-connected-position-bounding-box .cdk-overlay-pane mat-option:nth-of-type(1)");
+            page.waitForSelector("app-bookmark-invitation-popup > div > div:nth-of-type(5) mat-chip span b");
+            page.click("app-bookmark-invitation-popup > div > div:nth-of-type(6) button");
+            page.waitForSelector("text=Your recommendation has been successfully sent");
+            Assertions.assertTrue(page.isVisible("text=Your recommendation has been successfully sent"));
+        }
+        page.navigate("http://localhost:4200/content/articles");
+        for (contador=0; contador<ejecutar;contador++){
+            int contadorInterno = contador+1;
+            page.waitForSelector("app-all-cards .container > div:nth-of-type(2) app-three-dots button");
+            while (page.isVisible("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-three-dots button")==false){
+                kb.press("Control+End");
+            }
+            page.click("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-three-dots button");
+            page.click(".mat-menu-panel button:nth-of-type(2)");
+            page.waitForSelector("app-bookmark-invitation-popup > div > div:nth-of-type(5) app-mat-recommendation-chips");
+            page.click("app-bookmark-invitation-popup > div > div:nth-of-type(5) app-mat-recommendation-chips");
+            kb.insertText(userSendRecomendation);
+            page.waitForSelector(".cdk-overlay-connected-position-bounding-box .cdk-overlay-pane mat-option:nth-of-type(1)");
+            page.click(".cdk-overlay-connected-position-bounding-box .cdk-overlay-pane mat-option:nth-of-type(1)");
+            page.waitForSelector("app-bookmark-invitation-popup > div > div:nth-of-type(5) mat-chip span b");
+            page.click("app-bookmark-invitation-popup > div > div:nth-of-type(6) button");
+            page.waitForSelector("text=Your recommendation has been successfully sent");
+            Assertions.assertTrue(page.isVisible("text=Your recommendation has been successfully sent"));
+        }
+        page.navigate("http://localhost:4200/content/techniques");
+        for (contador=0; contador <ejecutar;contador++){
+            int contadorInterno = contador+1;
+            page.waitForSelector("app-all-cards .container > div:nth-of-type(2) app-three-dots button");
+            while (page.isVisible("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-three-dots button")==false){
+                kb.press("Control+End");
+            }
+            page.click("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-three-dots button");
+            page.click(".mat-menu-panel button:nth-of-type(2)");
+            page.waitForSelector("app-bookmark-invitation-popup > div > div:nth-of-type(5) app-mat-recommendation-chips");
+            page.click("app-bookmark-invitation-popup > div > div:nth-of-type(5) app-mat-recommendation-chips");
+            kb.insertText(userSendRecomendation);
+            page.waitForSelector(".cdk-overlay-connected-position-bounding-box .cdk-overlay-pane mat-option:nth-of-type(1)");
+            page.click(".cdk-overlay-connected-position-bounding-box .cdk-overlay-pane mat-option:nth-of-type(1)");
+            page.waitForSelector("app-bookmark-invitation-popup > div > div:nth-of-type(5) mat-chip span b");
+            page.click("app-bookmark-invitation-popup > div > div:nth-of-type(6) button");
+            page.waitForSelector("text=Your recommendation has been successfully sent");
+            Assertions.assertTrue(page.isVisible("text=Your recommendation has been successfully sent"));
+        }
+        page.navigate("http://localhost:4200/content/clubs");
+        for (contador=0; contador <ejecutar;contador++){
+            int contadorInterno = contador+1;
+            page.waitForSelector("app-all-cards .container > div:nth-of-type(2) app-three-dots button");
+            while(page.isVisible("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-three-dots button")==false){
+                kb.press("Control+End");
+            }
+            page.click("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-three-dots button");
+            page.click(".mat-menu-panel button:nth-of-type(2)");
+            page.waitForSelector("app-bookmark-invitation-popup > div > div:nth-of-type(5) app-mat-recommendation-chips");
+            page.click("app-bookmark-invitation-popup > div > div:nth-of-type(5) app-mat-recommendation-chips");
+            kb.insertText(userSendRecomendation);
+            page.waitForSelector(".cdk-overlay-connected-position-bounding-box .cdk-overlay-pane mat-option:nth-of-type(1)");
+            page.click(".cdk-overlay-connected-position-bounding-box .cdk-overlay-pane mat-option:nth-of-type(1)");
+            page.waitForSelector("app-bookmark-invitation-popup > div > div:nth-of-type(5) mat-chip span b");
+            page.click("app-bookmark-invitation-popup > div > div:nth-of-type(6) button");
+            page.waitForSelector("text=Your recommendation has been successfully sent");
+            Assertions.assertTrue(page.isVisible("text=Your recommendation has been successfully sent"));
+        }
+        logout();
+    }
     public void enviarInviteGuest(){
         Keyboard kb = page.keyboard();
         long timeStamp = Instant.now().toEpochMilli();
@@ -272,12 +411,16 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         page.click("text=Invite guests");
         System.out.println("Enviando invite guest...");
         printStream.println("Enviando invite guest...");
+        page.waitForSelector("app-guest-invite mat-card mat-card-content:nth-of-type(2)>div>div:nth-of-type(1)>div:nth-of-type(2) input");
+        page.waitForSelector("app-guest-invite mat-card mat-card-content:nth-of-type(2)>div>div:nth-of-type(2)>div:nth-of-type(1) app-mat-form-field:nth-of-type(1) input");
+        page.waitForSelector("app-guest-invite mat-card mat-card-content:nth-of-type(2)>div>div:nth-of-type(2)>div:nth-of-type(1) app-mat-form-field:nth-of-type(2) input");
+        page.waitForSelector("app-guest-invite mat-card mat-card-content:nth-of-type(2)>div>div:nth-of-type(2)>div:nth-of-type(2) input");
         page.focus("app-guest-invite mat-card mat-card-content:nth-of-type(2)>div>div:nth-of-type(1)>div:nth-of-type(2) input");
         kb.insertText(inviteGuest);
         page.focus("app-guest-invite mat-card mat-card-content:nth-of-type(2)>div>div:nth-of-type(2)>div:nth-of-type(1) app-mat-form-field:nth-of-type(1) input");
         kb.insertText(inviteGuest);
         page.focus("app-guest-invite mat-card mat-card-content:nth-of-type(2)>div>div:nth-of-type(2)>div:nth-of-type(1) app-mat-form-field:nth-of-type(2) input");
-        kb.insertText(inviteGuest);
+        kb.type(inviteGuest);
         page.focus("app-guest-invite mat-card mat-card-content:nth-of-type(2)>div>div:nth-of-type(2)>div:nth-of-type(2) input");
         kb.insertText(inviteGuestEmail);
         guardarEmails();
@@ -332,6 +475,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         }else{ nuevaPestana.click("mat-calendar tbody tr:nth-of-type(2) td:nth-of-type(1)");
         }
         nuevaPestana.fill("mat-card-content > app-mat-form-field:nth-of-type(2) input","123123aA");
+        nuevaPestana.waitForTimeout(900);
         nuevaPestana.click("text=Sign up with email");
         nuevaPestana.click("mat-selection-list > div:nth-of-type(1) mat-radio-button");
         nuevaPestana.click("text=Continue");
@@ -636,7 +780,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
             Assertions.assertTrue(page.isVisible("text=The workshop was created successfully"));
         }
     public void enrollWorkshop(){
-        page.waitForTimeout(10000);
+        page.waitForSelector("text=My workshops");
         page.navigate("http://localhost:4200/content/workshops");//ESTO ES UNA CHANCHADA HAY QUE REFACTORIZARLO
         page.waitForTimeout(12000);
         page.waitForSelector("app-all-cards .container > div:nth-of-type(2)");
@@ -649,6 +793,32 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         page.click("app-guest-invite > div > div:nth-of-type(2) p");
         System.out.println("Enroll realizado con exito\n");
         printStream.println("Enroll realizado con exito\n");
+    }
+    public void unirUsuarioMuchosWorkshop(){
+        Keyboard kb = page.keyboard();
+        emailLogin=emailUserMuchoContenido;
+        login();
+        page.navigate("http://localhost:4200/content/workshops");
+        for (contador=0; contador <ejecutar;contador++){
+            int contadorInterno = contador+2;
+            page.waitForSelector("app-all-cards .container > div:nth-of-type(2) app-three-dots button");
+            while (page.isVisible("app-all-cards .container > div:nth-of-type("+contadorInterno+")")==false){
+                kb.press("Control+End");
+            }
+            page.click("app-all-cards .container > div:nth-of-type("+contadorInterno+")");
+            page.waitForSelector(".bg-primary-contrast div:nth-of-type(2) > div > mat-card > div > button");
+            page.click(".bg-primary-contrast div:nth-of-type(2) > div > mat-card > div > button");
+            page.waitForSelector(".mat-horizontal-content-container mat-radio-group:nth-of-type(1) mat-radio-button");
+            if(page.isVisible(".mat-horizontal-content-container mat-radio-group:nth-of-type(2) mat-radio-button")==true){
+                page.click(".mat-horizontal-content-container mat-radio-group:nth-of-type(2) mat-radio-button");
+            }else {
+                page.click(".mat-horizontal-content-container mat-radio-group:nth-of-type(1) mat-radio-button");
+            }
+            page.click(".mat-horizontal-content-container > div:nth-of-type(1) > div:nth-of-type(3) > button:nth-of-type(2)");
+            page.click("app-guest-invite > div > div:nth-of-type(2) p");
+            page.click("app-breadcrumb ul li:nth-of-type(1) a");
+
+        }
     }
     public void crearArticulo(){
         System.out.println("Creando Articulo...");
@@ -826,6 +996,24 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         page.click("app-club-details > div > div > div:nth-of-type(1) > div > div > div:nth-of-type(3) > button");
         page.waitForSelector("text=The club was joined successfully");
         Assertions.assertTrue(page.isVisible("text=The club was joined successfully"));
+    }
+    public void unirUsuarioMuchosClub(){
+        Keyboard kb = page.keyboard();
+        emailLogin=emailUserMuchoContenido;
+        login();
+        page.navigate("http://localhost:4200/content/clubs");
+        for (contador=0; contador <ejecutar;contador++){
+            int contadorInterno = contador+1;
+            page.waitForSelector("app-all-cards .container > div:nth-of-type(2) app-three-dots button");
+            while(page.isVisible("app-all-cards .container > div:nth-of-type("+contadorInterno+")")==false) {
+                kb.press("Control+End");
+            }
+            page.click("app-all-cards .container > div:nth-of-type("+contadorInterno+")");
+            page.click("app-club-details > div > div > div:nth-of-type(1) > div > div > div:nth-of-type(2) > button");
+            page.waitForSelector("text=The club was joined successfully");
+            Assertions.assertTrue(page.isVisible("text=The club was joined successfully"));
+            page.click("app-breadcrumb ul li:nth-of-type(1) a");
+        }
     }
     public void crearPostClub(){
         Keyboard kb = page.keyboard();

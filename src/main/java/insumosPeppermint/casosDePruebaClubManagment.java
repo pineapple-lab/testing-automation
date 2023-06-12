@@ -53,4 +53,22 @@ public class casosDePruebaClubManagment extends robotBasePeppermint{
         }
         closeContext();
     }
+    public void validacionUnirseMuchosClubs(){
+        if (!shouldStopTest) {
+            if(ejecutar==1) {
+                System.out.println("\nEL usuario se va ha unir a" + ejecutar + " club\n");
+                printStream.println("\nEl usuario se va ha unir a " + ejecutar + " club\n");
+            }else{
+                System.out.println("\nEL usuario se va ha unir a " + ejecutar + " clubs\n");
+                printStream.println("\nEL usuario se va ha unir a " + ejecutar + " clubs\n");
+            }
+            unirUsuarioMuchosClub();
+            System.out.println("El usuario se ha unido correctamente\n"+emailuserSendRecomendation);
+            printStream.println("El usuario se ha unido correctamente\n"+emailuserSendRecomendation);
+            imprimirCantidadDeCasosEjecutados();
+        } else {
+            closeContext();
+        }
+        closeContext();
+    }
 }

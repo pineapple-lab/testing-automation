@@ -1,24 +1,36 @@
 package Peppermint;
 import javafx.application.Application;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 public class interfaceElements extends Application{
+    String ejecuciones;
+    String seleccion;
     ArrayList<botCREATOR.ExecMethod> listaDeEspera = new ArrayList<>();
     GridPane grid = new GridPane();
     ComboBox<String> comboBox = new ComboBox<>();
     public Map<CheckBox,Enum> checkBoxesMap = new HashMap<>();
+    TabPane tabPane = new TabPane();
+    StackPane rootConfigAvanzada = new StackPane();
     Button removerDeLaCola = new Button("Remover de la cola");
     public int rowIndex;
     TextArea consoleTextArea =  new TextArea();
     ScrollPane scrollPane = new ScrollPane(consoleTextArea);
+    Tab tabSendFriendsConfigAvanzada = new Tab("Send Friends");
+    Tab tabSendRecommendationConfigAvanzada = new Tab("Send Recomendations");
+    Label labelEnviarAmigos = new Label("Enviar amigos");
+    TextField introducirUsuarioFriends = new TextField("introducir email");
+    Label labelEnviarRecomendaciones = new Label("Enviar recomendaciones");
+    TextField introducirUsuarioRecomend = new TextField("introducir first name");
     Button crearWorkshop = new Button("Crear workshop");
     Button enrollWorkshop = new Button("Enroll workshop");
     Button crearArticle = new Button("Crear article");
@@ -34,8 +46,16 @@ public class interfaceElements extends Application{
     Button joinClub = new Button("Join club");
     Button generarInviteGuest = new Button("Generar invite guest");
     Button generarPostClub = new Button("Generar post club");
+    Button enviarRecomendaciones = new Button ("Enviar recomendaciones");
+    Button guardarBookmark = new Button ("Guardar bookmark");
+    Button unirMultiplesWorkshop = new Button ("Enroll multi workshops");
+    Button unirMultiplesClub = new Button ("Enroll multi clubs");
+    Button configAvanzadaButton = new Button ("Config avanzada");
     Button deneterCasoDePrueba = new Button("Detener");
+    Button ejecutarSendFriends = new Button("Ejecutar");
+    Button ejecutarSendRecomendations = new Button("Ejecutar");
     Button ejecutar = new Button("Ejecutar");
-    TextField ejecucionestf = new TextField("ejecuciones");
+    TextField ejecucionestf = new TextField("Ejecuciones");
+
     public void start(Stage stage) throws Exception {}
 }

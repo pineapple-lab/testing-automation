@@ -34,4 +34,14 @@ public class funcionClubManagment extends casosDePruebaClubManagment {
         iniciarNavegacion();
         validarPostClub();
     }
+        public void validarMultipleClubJoin(){
+        iniciarContexto();
+        serverStatus();
+        System.out.println("Iniciando caso de prueba...");
+        printStream.println("Iniciando caso de prueba...");
+        iniciarEjecucionArticle();
+        imprimirCantidadDeEjecuciones();
+        iniciarNavegacion();
+        validacionUnirseMuchosClubs();
+    }
 }

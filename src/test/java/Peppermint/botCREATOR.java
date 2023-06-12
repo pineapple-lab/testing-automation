@@ -1,12 +1,18 @@
 package Peppermint;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.CheckBox;
 import javafx.stage.Stage;
 import insumosPeppermint.robotBasePeppermint;
 import insumosPeppermint.variablesPeppermint;
 import java.io.*;
 import static insumosPeppermint.variablesPeppermint.printStream;
+import static insumosPeppermint.variablesPeppermint.*;
+import Peppermint.interfaceConfigAvanzadaPropiedadesEstilosYposicionamiento;
+
 public class botCREATOR extends interfaceActions{
+    interfaceConfigAvanzadaPropiedadesEstilosYposicionamiento configAvanzada = new interfaceConfigAvanzadaPropiedadesEstilosYposicionamiento(ejecuciones,seleccion);
     robotBasePeppermint metodosPeppermint = new robotBasePeppermint();
     public static void main(String[]args){
         launch(botCREATOR.class, args);
@@ -29,7 +35,7 @@ public class botCREATOR extends interfaceActions{
          }));
          printStream.println("Bienvenido, selecciona un ambiente y el numero de ejecuciones para empezar.\n\n");
          comboBox.setOnAction(e->{
-             String seleccion = comboBox.getValue();
+             seleccion = comboBox.getValue();
              if (seleccion.equals("DEV")) {
                  variablesPeppermint.linkDeNavegacion="http://localhost:4200/";
              } else if (seleccion.equals("QA")) {
@@ -50,7 +56,6 @@ public class botCREATOR extends interfaceActions{
                  CheckBox checkBox = new CheckBox("CreateWorkshops");
                  checkBoxesMap.put(checkBox, elemento);
                  grid.add(checkBox, 0, listaDeEspera.size()-1);
-
          });
          enrollWorkshop.setOnAction(e->{
              listaDeEspera.add(ExecMethod.EnrollWorkshop);
@@ -150,6 +155,42 @@ public class botCREATOR extends interfaceActions{
              checkBoxesMap.put(checkBox, elemento);
              grid.add(checkBox, 0, listaDeEspera.size()-1);
          });
+         enviarRecomendaciones.setOnAction(e->{
+             listaDeEspera.add(ExecMethod.EnviarRecomendaciones);
+             Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
+             CheckBox checkBox = new CheckBox("EnviarRecomendaciones");
+             checkBoxesMap.put(checkBox, elemento);
+             grid.add(checkBox, 0, listaDeEspera.size()-1);
+         });
+         guardarBookmark.setOnAction(e->{
+             listaDeEspera.add(ExecMethod.GuardarBookmark);
+             Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
+             CheckBox checkBox = new CheckBox("GuardarBookmark");
+             checkBoxesMap.put(checkBox, elemento);
+             grid.add(checkBox, 0, listaDeEspera.size()-1);
+         });
+         unirMultiplesWorkshop.setOnAction(e->{
+             listaDeEspera.add(ExecMethod.UnirMultiplesWorkshpos);
+             Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
+             CheckBox checkBox = new CheckBox("UnirMultiplesWorkshpos");
+             checkBoxesMap.put(checkBox, elemento);
+             grid.add(checkBox, 0, listaDeEspera.size()-1);
+         });
+         unirMultiplesClub.setOnAction(e->{
+             listaDeEspera.add(ExecMethod.UnirMultiplesClubs);
+             Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
+             CheckBox checkBox = new CheckBox("UnirMultiplesClubs");
+             checkBoxesMap.put(checkBox, elemento);
+             grid.add(checkBox, 0, listaDeEspera.size()-1);
+         });
+         configAvanzadaButton.setOnAction(new EventHandler<ActionEvent>() {
+             @Override
+             public void handle(ActionEvent actionEvent) {
+                Stage configAvanzadaStage = new Stage();
+                configAvanzada.start(configAvanzadaStage);
+                configAvanzadaStage.show();
+             }
+         });
      }, "interfaceThread");
      if(interfaceThread.isAlive()) {
          interfaceThread.stop();
@@ -158,56 +199,7 @@ public class botCREATOR extends interfaceActions{
      }
      ejecutar.setOnAction(e->{
          Thread ejecutar=  new Thread (()->{
-             for (int i = 0; i < listaDeEspera.size(); i++) {
-                 ExecMethod var = listaDeEspera.get(i);
-                 switch (var){
-                     case CreateWorkshops:
-                         actionCrearWorkshop();
-                         break;
-                     case EnrollWorkshop:
-                         actionEnrollWorkshop();
-                         break;
-                     case CreateArticle:
-                         actionCreateArticle();
-                         break;
-                     case CreateClub:
-                         actionCreateClub();
-                         break;
-                     case CreateTechnique:
-                         actionCreateTechnique();
-                         break;
-                     case CreateClubEvent:
-                         actionCreateClubEvent();
-                         break;
-                     case CreateTaxonomy:
-                         actionCreateTaxonomy();
-                         break;
-                     case CreateTag:
-                         actionCreateTag();
-                         break;
-                     case CreateLesson:
-                         actionCreateLesson();
-                         break;
-                     case CreateSegment:
-                         actionCreateSegment();
-                         break;
-                     case CreateUsuario:
-                         actionCreateUsuario();
-                         break;
-                     case SendFriendRequest:
-                         actionSendFriendRequest();
-                         break;
-                     case JoinClub:
-                         actionJoinClub();
-                         break;
-                     case GenerateInviteGuest:
-                         actionInviteGuest();
-                         break;
-                     case GeneratePostClub:
-                         actionPostClub();
-                         break;
-                 }
-             }
+            accion();
          }, "ejecutar");
          if(ejecutar.isAlive()) {
              ejecutar.stop();
@@ -216,5 +208,81 @@ public class botCREATOR extends interfaceActions{
              ejecutar.start();
             }
         });
+     ejecutarSendFriends.setOnAction(e->{
+         Thread ejecutar=  new Thread (()->{
+             actionSendFriendRequest();
+         }, "ejecutar");
+         if(ejecutar.isAlive()) {
+             ejecutar.stop();
+         }else {
+             metodosPeppermint.iniciarTest();
+             ejecutar.start();
+         }
+     });
+
+    }
+    public void accion(){
+        for (int i = 0; i < listaDeEspera.size(); i++) {
+            ExecMethod var = listaDeEspera.get(i);
+            switch (var){
+                case CreateWorkshops:
+                    actionCrearWorkshop();
+                    break;
+                case EnrollWorkshop:
+                    actionEnrollWorkshop();
+                    break;
+                case CreateArticle:
+                    actionCreateArticle();
+                    break;
+                case CreateClub:
+                    actionCreateClub();
+                    break;
+                case CreateTechnique:
+                    actionCreateTechnique();
+                    break;
+                case CreateClubEvent:
+                    actionCreateClubEvent();
+                    break;
+                case CreateTaxonomy:
+                    actionCreateTaxonomy();
+                    break;
+                case CreateTag:
+                    actionCreateTag();
+                    break;
+                case CreateLesson:
+                    actionCreateLesson();
+                    break;
+                case CreateSegment:
+                    actionCreateSegment();
+                    break;
+                case CreateUsuario:
+                    actionCreateUsuario();
+                    break;
+                case SendFriendRequest:
+                    actionSendFriendRequest();
+                    break;
+                case JoinClub:
+                    actionJoinClub();
+                    break;
+                case GenerateInviteGuest:
+                    actionInviteGuest();
+                    break;
+                case GeneratePostClub:
+                    actionPostClub();
+                    break;
+                case EnviarRecomendaciones:
+                    actionSendRecomendation();
+                    break;
+                case GuardarBookmark:
+                    actionSaveBookmark();
+                    break;
+                case UnirMultiplesWorkshpos:
+                    actionEnrollMultiplesWorkshops();
+                    break;
+                case UnirMultiplesClubs:
+                    actionJoinMultiplesClubs();
+                    break;
+            }
+        }
     }
 }

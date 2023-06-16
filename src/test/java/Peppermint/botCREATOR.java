@@ -183,6 +183,13 @@ public class botCREATOR extends interfaceActions{
              checkBoxesMap.put(checkBox, elemento);
              grid.add(checkBox, 0, listaDeEspera.size()-1);
          });
+         recomendarUsuarios.setOnAction(e->{
+             listaDeEspera.add(ExecMethod.RecomendarUsuario);
+             Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
+             CheckBox checkBox = new CheckBox("RecomendarUsuario");
+             checkBoxesMap.put(checkBox, elemento);
+             grid.add(checkBox, 0, listaDeEspera.size()-1);
+         });
          configAvanzadaButton.setOnAction(new EventHandler<ActionEvent>() {
              @Override
              public void handle(ActionEvent actionEvent) {
@@ -219,7 +226,6 @@ public class botCREATOR extends interfaceActions{
              ejecutar.start();
          }
      });
-
     }
     public void accion(){
         for (int i = 0; i < listaDeEspera.size(); i++) {
@@ -281,6 +287,9 @@ public class botCREATOR extends interfaceActions{
                     break;
                 case UnirMultiplesClubs:
                     actionJoinMultiplesClubs();
+                    break;
+                case RecomendarUsuario:
+                    actionRecomendarUsuarios();
                     break;
             }
         }

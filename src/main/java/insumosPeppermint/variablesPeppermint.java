@@ -8,8 +8,11 @@ public class variablesPeppermint extends conexionSQLpeppermint{
     public static volatile boolean shouldStopTest;
     public String textoParaPublicaciones = "Lorem ipsum dolor sit amet consectetur adipiscing elit quisque taciti faucibus facilisis ac, vestibulum viverra venenatis gravida magnis varius fames tortor imperdiet id facilisi phasellus, mollis mi at urna aliquet donec pellentesque est quam volutpat lacinia. Fames leo egestas feugiat nunc lobortis facilisi vehicula cursus mattis, nullam viverra commodo habitasse litora luctus id massa ut hendrerit, quis etiam mus varius a libero velit enim. Urna ullamcorper nulla dui etiam luctus nascetur tincidunt risus aenean himenaeos, egestas vel volutpat leo torquent venenatis et convallis porta varius, pulvinar vestibulum turpis dis montes elementum vitae arcu mauris. Taciti mi erat molestie ridiculus malesuada eu leo habitasse nostra, est sagittis tellus vivamus scelerisque mus integer vel porttitor sed, suscipit donec urna fames ornare phasellus eros interdum. Ac a donec taciti leo senectus rhoncus venenatis";
     public static volatile String userSendRecomendation = "AAAAAusuariorecomendacionpineapple";
+    public String userSendFriends = "Friendtest";
     public static volatile String emailuserSendRecomendation = "pineappleuser1684524360203@mailinator.com";
-    public String emailUserMuchoContenido = "pineappleuser1684496712833@mailinator.com";
+    public String emailRecomendationSending = "pineappleuser1684762180394@mailinator.com";
+    public String emailUserMuchoContenido = "pineappleuser1684762180394@mailinator.com";
+
     //SEARCH
     public String searchingElement;
     //CONTROLADORES

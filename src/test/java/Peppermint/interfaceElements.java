@@ -47,6 +47,7 @@ public class interfaceElements extends Application{
     Button generarInviteGuest = new Button("Generar invite guest");
     Button generarPostClub = new Button("Generar post club");
     Button enviarRecomendaciones = new Button ("Enviar recomendaciones");
+    Button recomendarUsuarios = new Button ("Recomendar usuarios");
     Button guardarBookmark = new Button ("Guardar bookmark");
     Button unirMultiplesWorkshop = new Button ("Enroll multi workshops");
     Button unirMultiplesClub = new Button ("Enroll multi clubs");

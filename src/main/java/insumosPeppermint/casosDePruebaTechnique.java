@@ -5,7 +5,7 @@ public class casosDePruebaTechnique extends robotBasePeppermint{
             if (!shouldStopTest) {
                 iniciarVariablesCrearTechnique();
                 System.out.println("\nSe creara la technqiue: " + titleTechnique + "\n");
-                printStream.println("La taxonomy se ha creado con exito\n");
+                printStream.println("\nSe creara la technqiue: " + titleTechnique + "\n");
                 createTechnique();
                 assertions = "text=The technique was created successfully";
                 page.focus(".cdk-overlay-container snack-bar-container app-informative-notification");

@@ -10,9 +10,9 @@ public class casosDePruebaInviteGuest extends robotBasePeppermint {
         }
         for (contadorRegistro = 1; contadorRegistro <= ejecutar;) {
             if (!shouldStopTest) {
-                page.waitForTimeout(2000);
+                page.waitForTimeout(200);
                 traerEmail();
-                page.waitForTimeout(1000);
+                page.waitForTimeout(900);
                 registrarInviteGuest();
                 System.out.println("El invite guest "+emailGuest+" se ha enviado y creado con exito\n");
                 imprimirCantidadDeCasosEjecutadosRegistroInviteguest();

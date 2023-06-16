@@ -35,6 +35,7 @@ public class interfacePropiedadesEstilosYposicionamiento extends interfaceElemen
         enviarRecomendaciones.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         unirMultiplesWorkshop.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         unirMultiplesClub.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
+        recomendarUsuarios.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         configAvanzadaButton.setStyle("-fx-background-color: transparent; -fx-text-fill: #008A66; -fx-padding: 5 10 5 10;");
         guardarBookmark.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         scrollPane.setStyle(" -fx-text-fill: #FFFFFF; -fx-control-inner-background:#000000;");
@@ -61,9 +62,10 @@ public class interfacePropiedadesEstilosYposicionamiento extends interfaceElemen
         GridPane.setConstraints(generarInviteGuest, 3, 5);
         GridPane.setConstraints(generarPostClub, 3, 6);
         GridPane.setConstraints(enviarRecomendaciones, 3, 7);
-        GridPane.setConstraints(guardarBookmark, 3, 8);
-        GridPane.setConstraints(unirMultiplesWorkshop, 3, 9);
-        GridPane.setConstraints(unirMultiplesClub, 3, 10);
+        GridPane.setConstraints(recomendarUsuarios, 3, 8);
+        GridPane.setConstraints(guardarBookmark, 3, 9);
+        GridPane.setConstraints(unirMultiplesWorkshop, 3, 10);
+        GridPane.setConstraints(unirMultiplesClub, 3, 11);
         GridPane.setConstraints(configAvanzadaButton,5,14);
         GridPane.setConstraints(scrollPane,1,15,7,15);
         //AGREGAR ELEMENTOS
@@ -91,6 +93,7 @@ public class interfacePropiedadesEstilosYposicionamiento extends interfaceElemen
         grid.getChildren().add(guardarBookmark);
         grid.getChildren().add(unirMultiplesClub);
         grid.getChildren().add(unirMultiplesWorkshop);
+        grid.getChildren().add(recomendarUsuarios);
         grid.getChildren().add(configAvanzadaButton);
         grid.getChildren().add(scrollPane);
         comboBox.getItems().add("DEV");

@@ -168,7 +168,6 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
             sqlconectar();
             Statement stm = CN.createStatement();
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.inviteguest WHERE ID = "+contadorRegistro+"");
-            page.waitForTimeout(6000);
             while(rs.next()){
                 emailGuest =rs.getString(rs.findColumn("email"));
             }
@@ -205,6 +204,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
     }
     public void hacerSolicitudDeAmistad(){
         Keyboard kb = page.keyboard();
+        page.waitForSelector("text=Begin your Membership");
         page.click("text=Begin your Membership");
         page.fill("mat-card-content > div > div:nth-of-type(1) app-mat-form-field input",firstName);
         page.fill("mat-card-content > div > div:nth-of-type(2) app-mat-form-field input",lastName);
@@ -231,6 +231,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         page.waitForTimeout(2000);
         kb.insertText(cvv);
         page.click("text=Pay $15.00");
+        page.waitForSelector("text=Continue");
         page.click("mat-selection-list > div:nth-of-type(1) mat-radio-button");
         page.click("text=Continue");
         page.click("mat-chip-list mat-chip:nth-of-type(1)");
@@ -240,7 +241,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         page.click(".mat-horizontal-content-container button:nth-of-type(2)");
         page.click("app-header > mat-toolbar>div:nth-of-type(3) > div > span > button:nth-of-type(1)");
         page.click("app-header > mat-toolbar>div:nth-of-type(2) > mat-card-content > mat-form-field > div > div:nth-of-type(1) > div:nth-of-type(4)");
-        kb.type("Friendtest AcceptFriends");
+        kb.type(userSendFriends);
         kb.press("Enter");
         System.out.println("Enviando solicitud de amistad");
         printStream.println("Enviando solicitud de amistad");
@@ -250,7 +251,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         printStream.println("Solicitud de amistad enviada");
     }
     public void aceptarsolicitudeDeAmistad(){
-        emailLogin= "pineappleuser1684762180394@mailinator.com";
+        emailLogin=emailUserMuchoContenido;
         login();
         page.click("app-header > mat-toolbar>div:nth-of-type(3) > div > span > button:nth-of-type(3)");
         page.waitForTimeout(1000);
@@ -317,9 +318,31 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         }
         logout();
     }
+    public void recomendarUsuarios(){
+        Keyboard kb = page.keyboard();
+        if(page.isVisible("app-profile-description")==false) {
+            page.waitForSelector("text=My workshops");
+        }
+        page.navigate("http://localhost:4200/user/friends");
+        page.waitForSelector(".main-container > div > div:nth-of-type(4) > div > div:nth-of-type("+contador+") mat-card");
+        page.click(".main-container > div > div:nth-of-type(4) > div > div:nth-of-type("+contador+") mat-card");
+        page.waitForSelector("app-profile-description > div:nth-of-type(1) app-three-dots");
+        page.click("app-profile-description > div:nth-of-type(1) app-three-dots");
+        page.waitForSelector(".mat-menu-panel > div > button:nth-of-type(1)");
+        page.waitForSelector(".mat-menu-panel > div > button:nth-of-type(2)");
+        page.click(".mat-menu-panel > div > button:nth-of-type(1)");
+        page.click("app-bookmark-invitation-popup > div > div:nth-of-type(5) app-mat-recommendation-chips");
+        kb.insertText(userSendRecomendation);
+        page.waitForSelector(".cdk-overlay-connected-position-bounding-box .cdk-overlay-pane");
+        kb.press("ArrowDown");
+        kb.press("Enter");
+        page.waitForSelector("app-bookmark-invitation-popup > div > div:nth-of-type(5) app-mat-recommendation-chips mat-chip-list mat-chip");
+        page.click("app-bookmark-invitation-popup > div > div:nth-of-type(6) button");
+        page.waitForSelector("text=Your recommendation has been successfully sent");
+    }
     public void enviarRecomendacion(){
         Keyboard kb = page.keyboard();
-        emailLogin="pineappleuser1684850047588@mailinator.com";
+        emailLogin=emailRecomendationSending;
         login();
         page.waitForSelector("text=My workshops");
         page.navigate("http://localhost:4200/content/workshops");
@@ -340,6 +363,8 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
             page.click("app-bookmark-invitation-popup > div > div:nth-of-type(6) button");
             page.waitForSelector("text=Your recommendation has been successfully sent");
             Assertions.assertTrue(page.isVisible("text=Your recommendation has been successfully sent"));
+            System.out.println("\nRecomendaciones de workshops enviadas: "+contadorInterno+" Recomendaciones faltantes: "+ejecutar);
+            printStream.println("\nRecomendaciones de workshops enviadas: "+contadorInterno+" Recomendaciones faltantes: "+ejecutar);
         }
         page.navigate("http://localhost:4200/content/articles");
         for (contador=0; contador<ejecutar;contador++){
@@ -359,6 +384,8 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
             page.click("app-bookmark-invitation-popup > div > div:nth-of-type(6) button");
             page.waitForSelector("text=Your recommendation has been successfully sent");
             Assertions.assertTrue(page.isVisible("text=Your recommendation has been successfully sent"));
+            System.out.println("\nRecomendaciones de articles enviadas: "+contadorInterno+" Recomendaciones faltantes: "+ejecutar);
+            printStream.println("\nRecomendaciones de articles enviadas: "+contadorInterno+" Recomendaciones faltantes: "+ejecutar);
         }
         page.navigate("http://localhost:4200/content/techniques");
         for (contador=0; contador <ejecutar;contador++){
@@ -378,6 +405,8 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
             page.click("app-bookmark-invitation-popup > div > div:nth-of-type(6) button");
             page.waitForSelector("text=Your recommendation has been successfully sent");
             Assertions.assertTrue(page.isVisible("text=Your recommendation has been successfully sent"));
+            System.out.println("\nRecomendaciones de techniques enviadas: "+contadorInterno+" Recomendaciones faltantes: "+ejecutar);
+            printStream.println("\nRecomendaciones de techniques enviadas: "+contadorInterno+" Recomendaciones faltantes: "+ejecutar);
         }
         page.navigate("http://localhost:4200/content/clubs");
         for (contador=0; contador <ejecutar;contador++){
@@ -397,6 +426,8 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
             page.click("app-bookmark-invitation-popup > div > div:nth-of-type(6) button");
             page.waitForSelector("text=Your recommendation has been successfully sent");
             Assertions.assertTrue(page.isVisible("text=Your recommendation has been successfully sent"));
+            System.out.println("\nRecomendaciones de clubs enviadas: "+contadorInterno+" Recomendaciones faltantes: "+ejecutar);
+            printStream.println("\nRecomendaciones de clubs enviadas: "+contadorInterno+" Recomendaciones faltantes: "+ejecutar);
         }
         logout();
     }
@@ -453,17 +484,18 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         Keyboard kb = page.keyboard();
         inviteGuest = "invite guest";
         page.navigate("https://www.mailinator.com/v4/public/inboxes.jsp");
-        page.waitForTimeout(1000);
+        page.waitForSelector("#inbox_field");
         page.fill("#inbox_field",emailGuest);
-        page.waitForTimeout(1000);
-        kb.press("Enter");
-        page.waitForTimeout(3000);
+        page.waitForTimeout(900);
+        page.click("#inbox_pane > div:nth-of-type(1)>div:nth-of-type(5) button");
+        //page.waitForTimeout(1000);
+        page.waitForSelector(".os-padding table tr:nth-of-type(1) td:has-text('invites')");
         page.click(".os-padding table tr");
-        page.waitForTimeout(1000);
         page.waitForSelector(".wrapper-message-tabs ul li:nth-of-type(5) a");
         page.click(".wrapper-message-tabs ul li:nth-of-type(5) a");
+        page.waitForSelector("#pills-links-content table td:has-text('register') a");
         page.click("#pills-links-content table td:has-text('register') a");
-        page.waitForTimeout(6000);
+        page.waitForTimeout(900);
         List<Page> pages = context.pages();
         Page nuevaPestana = pages.get(pages.size() - 1);
         nuevaPestana.bringToFront();
@@ -482,7 +514,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         nuevaPestana.click("mat-chip-list mat-chip:nth-of-type(1)");
         nuevaPestana.click("mat-chip-list mat-chip:nth-of-type(2)");
         nuevaPestana.click("mat-chip-list mat-chip:nth-of-type(3)");
-        nuevaPestana.waitForTimeout(3000);
+        nuevaPestana.waitForTimeout(900);
         nuevaPestana.click(".mat-horizontal-content-container button:nth-of-type(2)");
         nuevaPestana.click("text=My stuff");
         nuevaPestana.click("text=Sign out");
@@ -860,6 +892,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type("+topicArticle+")");
         page.click(".container > div:nth-of-type(1) > div:nth-of-type(2) > div > div:nth-of-type(1) > app-mat-form-field textarea");
         page.click(".container > div:nth-of-type(1) > div:nth-of-type(2) app-generic-selects .size-generic-selects > div:nth-of-type(2) mat-form-field");
+        page.waitForTimeout(500);
         page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type("+topicArticle+")");
         //kb.press("Enter");
         /*page.click(".container > div:nth-of-type(3) > div:nth-of-type(2) app-generic-selects .size-generic-selects > div:nth-of-type(3) mat-form-field");
@@ -870,12 +903,14 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         page.click("text=Add image");
         page.click("text=Add video");
         page.click("app-drag-drop-sorting mat-list > div:nth-of-type(1) quill-editor > div:nth-of-type(2)");
+        page.waitForTimeout(500);
         kb.insertText(textContent);
         kb.press("Control+Shift+ArrowLeft");
         page.click("quill-editor > div:nth-of-type(1) button:nth-of-type(7)");
         page.click("tbody tr:first-child td:first-child mat-checkbox");
         page.click("app-mat-table > div > button");
         page.click("app-drag-drop-sorting mat-list > div:nth-of-type(2) mat-expansion-panel > div > div  mat-form-field");
+        page.waitForTimeout(500);
         kb.insertText(contentTitle);
         kb.press("Tab");
         page.locator("app-upload-image input[type=file]").setInputFiles(Paths.get(pathImage));
@@ -1013,6 +1048,8 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
             page.waitForSelector("text=The club was joined successfully");
             Assertions.assertTrue(page.isVisible("text=The club was joined successfully"));
             page.click("app-breadcrumb ul li:nth-of-type(1) a");
+            System.out.print("el usuario se ha unido a "+ contadorInterno+" de "+ejecutar+" clubs");
+            printStream.println("el usuario se ha unido a "+ contadorInterno+" de "+ejecutar+" clubs");
         }
     }
     public void crearPostClub(){
@@ -1061,9 +1098,11 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         page.click(".container > div:nth-of-type(3) > div:nth-of-type(2) app-generic-selects .size-generic-selects > div:nth-of-type(1) mat-form-field");
         page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type("+categoryClub+")");
         page.click(".container > div:nth-of-type(3) > div:nth-of-type(2) app-generic-selects .size-generic-selects > div:nth-of-type(2) mat-form-field");
+        page.waitForTimeout(500);
         page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type("+topicClub+")");
-        page.focus(".container > div:nth-of-type(3) > div:nth-of-type(1) app-mat-form-field textarea");
+        page.click(".container > div:nth-of-type(3) > div:nth-of-type(1) app-mat-form-field textarea");
         page.click(".container > div:nth-of-type(3) > div:nth-of-type(2) app-generic-selects .size-generic-selects > div:nth-of-type(2) mat-form-field");
+        page.waitForTimeout(500);
         page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type("+topicClub+")");
         /*page.click(".container > div:nth-of-type(3) > div:nth-of-type(2) app-generic-selects .size-generic-selects > div:nth-of-type(3) mat-form-field");
         page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type("+subtopicClub+")");*/

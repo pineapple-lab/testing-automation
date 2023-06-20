@@ -28,14 +28,12 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
         UnirMultiplesClubs,
         GuardarBookmark,
     }
-
     public void actionCrearWorkshop() {
         try {
             String url = "jdbc:mysql://localhost:3306/testbdpeppermint?serverTimezone=UTC";
             String username = "root";
             String password = "root";
             Connection CN = DriverManager.getConnection(url, username, password);
-            ejecuciones = ejecucionestf.getText();
             String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = " + "'" + ejecuciones + "'";
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
@@ -46,7 +44,6 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             ex.printStackTrace();
         }
     }
-
     public void actionEliminarDeLaCola() {
         List<CheckBox> checkBoxesSeleccionados = new ArrayList<>();
         for (CheckBox checkBox : checkBoxesMap.keySet()) {
@@ -61,18 +58,15 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             grid.getChildren().remove(checkBox);
         }
     }
-
     public static void main(String[] args) {
         launch(args);
     }
-
     public void actionEnrollWorkshop() {
         try {
             String url = "jdbc:mysql://localhost:3306/testbdpeppermint?serverTimezone=UTC";
             String username = "root";
             String password = "root";
             Connection CN = DriverManager.getConnection(url, username, password);
-            ejecuciones = ejecucionestf.getText();
             String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = " + "'" + ejecuciones + "'";
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
@@ -83,14 +77,12 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             ex.printStackTrace();
         }
     }
-
     public void actionCreateArticle() {
         try {
             String url = "jdbc:mysql://localhost:3306/testbdpeppermint?serverTimezone=UTC";
             String username = "root";
             String password = "root";
             Connection CN = DriverManager.getConnection(url, username, password);
-            ejecuciones = ejecucionestf.getText();
             String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = " + "'" + ejecuciones + "'";
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
@@ -101,14 +93,12 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             ex.printStackTrace();
         }
     }
-
     public void actionCreateClub() {
         try {
             String url = "jdbc:mysql://localhost:3306/testbdpeppermint?serverTimezone=UTC";
             String username = "root";
             String password = "root";
             Connection CN = DriverManager.getConnection(url, username, password);
-            ejecuciones = ejecucionestf.getText();
             String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = " + "'" + ejecuciones + "'";
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
@@ -119,14 +109,12 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             ex.printStackTrace();
         }
     }
-
     public void actionCreateTechnique() {
         try {
             String url = "jdbc:mysql://localhost:3306/testbdpeppermint?serverTimezone=UTC";
             String username = "root";
             String password = "root";
             Connection CN = DriverManager.getConnection(url, username, password);
-            ejecuciones = ejecucionestf.getText();
             String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = " + "'" + ejecuciones + "'";
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
@@ -137,14 +125,12 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             ex.printStackTrace();
         }
     }
-
     public void actionCreateClubEvent() {
         try {
             String url = "jdbc:mysql://localhost:3306/testbdpeppermint?serverTimezone=UTC";
             String username = "root";
             String password = "root";
             Connection CN = DriverManager.getConnection(url, username, password);
-            ejecuciones = ejecucionestf.getText();
             String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = " + "'" + ejecuciones + "'";
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
@@ -155,14 +141,12 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             ex.printStackTrace();
         }
     }
-
     public void actionCreateTaxonomy() {
         try {
             String url = "jdbc:mysql://localhost:3306/testbdpeppermint?serverTimezone=UTC";
             String username = "root";
             String password = "root";
             Connection CN = DriverManager.getConnection(url, username, password);
-            ejecuciones = ejecucionestf.getText();
             String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = " + "'" + ejecuciones + "'";
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
@@ -173,14 +157,12 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             ex.printStackTrace();
         }
     }
-
     public void actionCreateTag() {
         try {
             String url = "jdbc:mysql://localhost:3306/testbdpeppermint?serverTimezone=UTC";
             String username = "root";
             String password = "root";
             Connection CN = DriverManager.getConnection(url, username, password);
-            ejecuciones = ejecucionestf.getText();
             String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = " + "'" + ejecuciones + "'";
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
@@ -191,14 +173,12 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             ex.printStackTrace();
         }
     }
-
     public void actionCreateLesson() {
         try {
             String url = "jdbc:mysql://localhost:3306/testbdpeppermint?serverTimezone=UTC";
             String username = "root";
             String password = "root";
             Connection CN = DriverManager.getConnection(url, username, password);
-            ejecuciones = ejecucionestf.getText();
             String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = " + "'" + ejecuciones + "'";
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
@@ -209,14 +189,12 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             ex.printStackTrace();
         }
     }
-
     public void actionCreateSegment() {
         try {
             String url = "jdbc:mysql://localhost:3306/testbdpeppermint?serverTimezone=UTC";
             String username = "root";
             String password = "root";
             Connection CN = DriverManager.getConnection(url, username, password);
-            ejecuciones = ejecucionestf.getText();
             String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = " + "'" + ejecuciones + "'";
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
@@ -227,14 +205,12 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             ex.printStackTrace();
         }
     }
-
     public void actionCreateUsuario() {
         try {
             String url = "jdbc:mysql://localhost:3306/testbdpeppermint?serverTimezone=UTC";
             String username = "root";
             String password = "root";
             Connection CN = DriverManager.getConnection(url, username, password);
-            ejecuciones = ejecucionestf.getText();
             String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = " + "'" + ejecuciones + "'";
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
@@ -245,14 +221,12 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             ex.printStackTrace();
         }
     }
-
     public void actionSendFriendRequest() {
         try {
             String url = "jdbc:mysql://localhost:3306/testbdpeppermint?serverTimezone=UTC";
             String username = "root";
             String password = "root";
             Connection CN = DriverManager.getConnection(url, username, password);
-            ejecuciones = ejecucionestf.getText();
             String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = " + "'" + ejecuciones + "'";
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
@@ -263,14 +237,12 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             ex.printStackTrace();
         }
     }
-
     public void actionJoinClub() {
         try {
             String url = "jdbc:mysql://localhost:3306/testbdpeppermint?serverTimezone=UTC";
             String username = "root";
             String password = "root";
             Connection CN = DriverManager.getConnection(url, username, password);
-            ejecuciones = ejecucionestf.getText();
             String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = " + "'" + ejecuciones + "'";
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
@@ -281,14 +253,12 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             ex.printStackTrace();
         }
     }
-
     public void actionPostClub() {
         try {
             String url = "jdbc:mysql://localhost:3306/testbdpeppermint?serverTimezone=UTC";
             String username = "root";
             String password = "root";
             Connection CN = DriverManager.getConnection(url, username, password);
-            ejecuciones = ejecucionestf.getText();
             String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = " + "'" + ejecuciones + "'";
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
@@ -299,14 +269,12 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             ex.printStackTrace();
         }
     }
-
     public void actionInviteGuest() {
         try {
             String url = "jdbc:mysql://localhost:3306/testbdpeppermint?serverTimezone=UTC";
             String username = "root";
             String password = "root";
             Connection CN = DriverManager.getConnection(url, username, password);
-            ejecuciones = ejecucionestf.getText();
             String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = " + "'" + ejecuciones + "'";
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
@@ -317,14 +285,12 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             ex.printStackTrace();
         }
     }
-
     public void actionSendRecomendation() {
         try {
             String url = "jdbc:mysql://localhost:3306/testbdpeppermint?serverTimezone=UTC";
             String username = "root";
             String password = "root";
             Connection CN = DriverManager.getConnection(url, username, password);
-            ejecuciones = ejecucionestf.getText();
             String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = " + "'" + ejecuciones + "'";
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
@@ -335,14 +301,12 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             ex.printStackTrace();
         }
     }
-
     public void actionEnrollMultiplesWorkshops() {
         try {
             String url = "jdbc:mysql://localhost:3306/testbdpeppermint?serverTimezone=UTC";
             String username = "root";
             String password = "root";
             Connection CN = DriverManager.getConnection(url, username, password);
-            ejecuciones = ejecucionestf.getText();
             String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = " + "'" + ejecuciones + "'";
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
@@ -353,14 +317,12 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             ex.printStackTrace();
         }
     }
-
     public void actionJoinMultiplesClubs() {
         try {
             String url = "jdbc:mysql://localhost:3306/testbdpeppermint?serverTimezone=UTC";
             String username = "root";
             String password = "root";
             Connection CN = DriverManager.getConnection(url, username, password);
-            ejecuciones = ejecucionestf.getText();
             String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = " + "'" + ejecuciones + "'";
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
@@ -371,14 +333,12 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             ex.printStackTrace();
         }
     }
-
     public void actionSaveBookmark() {
         try {
             String url = "jdbc:mysql://localhost:3306/testbdpeppermint?serverTimezone=UTC";
             String username = "root";
             String password = "root";
             Connection CN = DriverManager.getConnection(url, username, password);
-            ejecuciones = ejecucionestf.getText();
             String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = " + "'" + ejecuciones + "'";
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
@@ -389,14 +349,12 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             ex.printStackTrace();
         }
     }
-
     public void actionRecomendarUsuarios() {
         try {
             String url = "jdbc:mysql://localhost:3306/testbdpeppermint?serverTimezone=UTC";
             String username = "root";
             String password = "root";
             Connection CN = DriverManager.getConnection(url, username, password);
-            ejecuciones = ejecucionestf.getText();
             String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = " + "'" + ejecuciones + "'";
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);

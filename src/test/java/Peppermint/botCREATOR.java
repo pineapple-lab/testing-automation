@@ -8,11 +8,9 @@ import insumosPeppermint.robotBasePeppermint;
 import insumosPeppermint.variablesPeppermint;
 import java.io.*;
 import static insumosPeppermint.variablesPeppermint.printStream;
-import static insumosPeppermint.variablesPeppermint.*;
-import Peppermint.interfaceConfigAvanzadaPropiedadesEstilosYposicionamiento;
 
 public class botCREATOR extends interfaceActions{
-    interfaceConfigAvanzadaPropiedadesEstilosYposicionamiento configAvanzada = new interfaceConfigAvanzadaPropiedadesEstilosYposicionamiento(ejecuciones,seleccion);
+
     robotBasePeppermint metodosPeppermint = new robotBasePeppermint();
     public static void main(String[]args){
         launch(botCREATOR.class, args);
@@ -134,6 +132,15 @@ public class botCREATOR extends interfaceActions{
              checkBoxesMap.put(checkBox, elemento);
              grid.add(checkBox, 0, listaDeEspera.size()-1);
          });
+         enviarSolicitudDeAmistad.setOnMousePressed( event -> {
+             if (event.isSecondaryButtonDown()){
+                 ejecuciones=ejecucionestf.getText();
+                 configuracionAvanzadaSendFriends configAvanzada = new configuracionAvanzadaSendFriends(ejecuciones,seleccion);
+                 Stage configAvanzadaStage = new Stage();
+                 configAvanzada.start(configAvanzadaStage);
+                 configAvanzadaStage.show();
+             }
+         });
          joinClub.setOnAction(e->{
              listaDeEspera.add(ExecMethod.JoinClub);
              Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
@@ -161,6 +168,15 @@ public class botCREATOR extends interfaceActions{
              CheckBox checkBox = new CheckBox("EnviarRecomendaciones");
              checkBoxesMap.put(checkBox, elemento);
              grid.add(checkBox, 0, listaDeEspera.size()-1);
+         });
+         enviarRecomendaciones.setOnMousePressed( event -> {
+             if (event.isSecondaryButtonDown()){
+                 ejecuciones=ejecucionestf.getText();
+                 configuracionAvanzadaSendRecomendaciones configAvanzada = new configuracionAvanzadaSendRecomendaciones(ejecuciones,seleccion);
+                 Stage configAvanzadaStage = new Stage();
+                 configAvanzada.start(configAvanzadaStage);
+                 configAvanzadaStage.show();
+             }
          });
          guardarBookmark.setOnAction(e->{
              listaDeEspera.add(ExecMethod.GuardarBookmark);
@@ -190,14 +206,6 @@ public class botCREATOR extends interfaceActions{
              checkBoxesMap.put(checkBox, elemento);
              grid.add(checkBox, 0, listaDeEspera.size()-1);
          });
-         configAvanzadaButton.setOnAction(new EventHandler<ActionEvent>() {
-             @Override
-             public void handle(ActionEvent actionEvent) {
-                Stage configAvanzadaStage = new Stage();
-                configAvanzada.start(configAvanzadaStage);
-                configAvanzadaStage.show();
-             }
-         });
      }, "interfaceThread");
      if(interfaceThread.isAlive()) {
          interfaceThread.stop();
@@ -206,6 +214,7 @@ public class botCREATOR extends interfaceActions{
      }
      ejecutar.setOnAction(e->{
          Thread ejecutar=  new Thread (()->{
+             ejecuciones = ejecucionestf.getText();
             accion();
          }, "ejecutar");
          if(ejecutar.isAlive()) {
@@ -215,17 +224,6 @@ public class botCREATOR extends interfaceActions{
              ejecutar.start();
             }
         });
-     ejecutarSendFriends.setOnAction(e->{
-         Thread ejecutar=  new Thread (()->{
-             actionSendFriendRequest();
-         }, "ejecutar");
-         if(ejecutar.isAlive()) {
-             ejecutar.stop();
-         }else {
-             metodosPeppermint.iniciarTest();
-             ejecutar.start();
-         }
-     });
     }
     public void accion(){
         for (int i = 0; i < listaDeEspera.size(); i++) {

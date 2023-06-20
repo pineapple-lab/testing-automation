@@ -19,7 +19,6 @@ public class casosDePruebaRecommendation extends robotBasePeppermint {
         }
         closeContext();
     }
-
     public void validarEnviarRecomendacionDeUsuario() {
         for (contador = 1; contador <= ejecutar; contador++) {
             if (!shouldStopTest) {

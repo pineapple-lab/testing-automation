@@ -27,10 +27,16 @@ public class interfaceElements extends Application{
     ScrollPane scrollPane = new ScrollPane(consoleTextArea);
     Tab tabSendFriendsConfigAvanzada = new Tab("Send Friends");
     Tab tabSendRecommendationConfigAvanzada = new Tab("Send Recomendations");
-    Label labelEnviarAmigos = new Label("Enviar amigos");
-    TextField introducirUsuarioFriends = new TextField("introducir email");
+    Label labelEmailAceptarAmigos = new Label("Aceptar amigos");
+    TextField emailAceptarFriends = new TextField("introducir email");
+
+    Label labelUserSendFriends = new Label("Enviar amigos");
+    TextField userSendFriends = new TextField("introducir first name");
     Label labelEnviarRecomendaciones = new Label("Enviar recomendaciones");
-    TextField introducirUsuarioRecomend = new TextField("introducir first name");
+    CheckBox checkBoxEditarEmisor = new CheckBox("Editar emisor");
+    TextField introducirUsuarioRecomend = new TextField("First name");
+    Label labelEmisorRecomendaciones = new Label("Emisor de recomendaciones");
+    TextField introducirEmisorRecomendaciones = new TextField("Email");
     Button crearWorkshop = new Button("Crear workshop");
     Button enrollWorkshop = new Button("Enroll workshop");
     Button crearArticle = new Button("Crear article");
@@ -51,7 +57,6 @@ public class interfaceElements extends Application{
     Button guardarBookmark = new Button ("Guardar bookmark");
     Button unirMultiplesWorkshop = new Button ("Enroll multi workshops");
     Button unirMultiplesClub = new Button ("Enroll multi clubs");
-    Button configAvanzadaButton = new Button ("Config avanzada");
     Button deneterCasoDePrueba = new Button("Detener");
     Button ejecutarSendFriends = new Button("Ejecutar");
     Button ejecutarSendRecomendations = new Button("Ejecutar");

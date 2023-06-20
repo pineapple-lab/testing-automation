@@ -251,7 +251,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         printStream.println("Solicitud de amistad enviada");
     }
     public void aceptarsolicitudeDeAmistad(){
-        emailLogin=emailUserMuchoContenido;
+        emailLogin=emailAceptarSolicitudesDeAmistad;
         login();
         page.click("app-header > mat-toolbar>div:nth-of-type(3) > div > span > button:nth-of-type(3)");
         page.waitForTimeout(1000);

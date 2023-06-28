@@ -10,7 +10,7 @@ public class casosDePruebaInviteGuest extends robotBasePeppermint {
         }
         for (contadorRegistro = 1; contadorRegistro <= ejecutar;) {
             if (!shouldStopTest) {
-                page.waitForTimeout(200);
+                page.waitForTimeout(500);
                 traerEmail();
                 page.waitForTimeout(900);
                 registrarInviteGuest();

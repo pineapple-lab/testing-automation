@@ -11,7 +11,7 @@ public class funcionInviteGuest extends casosDePruebaInviteGuest {
         iniciarEjecucionArticle();
         imprimirCantidadDeEjecuciones();
         iniciarNavegacion();
-        emailLogin=emailUserMuchoContenido;
+        emailLogin=userEmailLoginInviteGuest;
         login();
         validarEnviarInviteGuest();
     }

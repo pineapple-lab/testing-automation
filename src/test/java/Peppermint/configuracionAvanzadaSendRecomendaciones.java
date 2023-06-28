@@ -4,7 +4,6 @@ import insumosPeppermint.robotBasePeppermint;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import insumosPeppermint.variablesPeppermint;
 
 import static insumosPeppermint.variablesPeppermint.*;
 

@@ -7,7 +7,7 @@ public class variablesPeppermint extends conexionSQLpeppermint{
     public static volatile PrintStream printStream;
     public static volatile boolean shouldStopTest;
     public String textoParaPublicaciones = "Lorem ipsum dolor sit amet consectetur adipiscing elit quisque taciti faucibus facilisis ac, vestibulum viverra venenatis gravida magnis varius fames tortor imperdiet id facilisi phasellus, mollis mi at urna aliquet donec pellentesque est quam volutpat lacinia. Fames leo egestas feugiat nunc lobortis facilisi vehicula cursus mattis, nullam viverra commodo habitasse litora luctus id massa ut hendrerit, quis etiam mus varius a libero velit enim. Urna ullamcorper nulla dui etiam luctus nascetur tincidunt risus aenean himenaeos, egestas vel volutpat leo torquent venenatis et convallis porta varius, pulvinar vestibulum turpis dis montes elementum vitae arcu mauris. Taciti mi erat molestie ridiculus malesuada eu leo habitasse nostra, est sagittis tellus vivamus scelerisque mus integer vel porttitor sed, suscipit donec urna fames ornare phasellus eros interdum. Ac a donec taciti leo senectus rhoncus venenatis";
-    public static volatile String userSendRecomendation = "AAAAAusuariorecomendacionpineapple";
+    public static  String userSendRecomendation;
     public static  String userSendFriends = "Friendtest";
     public static  String emailuserSendRecomendation = "pineappleuser1684524360203@mailinator.com";//variable para mensajes
     public static String emailRecomendationSending = "pineappleuser1684524360203@mailinator.com";
@@ -15,6 +15,11 @@ public class variablesPeppermint extends conexionSQLpeppermint{
     public static volatile String emailAceptarSolicitudesDeAmistad = "pineappleuser1684762180394@mailinator.com";
     //SEARCH
     public String searchingElement;
+    public static volatile boolean configuracionavanzadaTitleWorkshop = false;
+    public static volatile boolean     configuracionAvanzadaMaxGroupWithInstructor = false;
+    public static volatile boolean configuracionAvanzadaOptimalGroupWithInstructor = false;
+    public static volatile boolean configuracionAvanzadaMaxStudenGroup = false;
+    public static volatile boolean   configuracionAvanzadaOptimalStudenGroup = false;
     //CONTROLADORES
     public int contador;
     public int ejecutar;
@@ -22,15 +27,17 @@ public class variablesPeppermint extends conexionSQLpeppermint{
     public int contadorRegistro;
     public int contadorAceptarAmistad;
     //REGISTRO
-    public String firstName ="pineapple";
-    public String lastName = "user";
-    public String emailRegistro;
-    public String passwordRegistro = "123123aA";
+    public static boolean configuracionRegistroAvanzado = false;
+    public static String firstName ="pineapple";
+    public static String lastName = "user";
+    public static String emailRegistro;
+    public static String passwordRegistro = "123123aA";
     public String cardholderName = "Test";
     public String cardNumber = "4242 4242 4242 4242";
     public String monthExpired = "424";
     public String cvv = "424";
     //INVITE GUEST
+    public static String userEmailLoginInviteGuest;
     public String emailGuest;
     public String inviteGuest;
     public String inviteGuestEmail;
@@ -68,7 +75,7 @@ public class variablesPeppermint extends conexionSQLpeppermint{
     public String creatorLesson;
     public String tagLesson;
     //CREAR WORKSHOP
-    public String titleWorkshop;
+    public static String titleWorkshop;
     public String descriptionWorkshop;
     public String creatorWorkshop;
     public String tagWorkshop;
@@ -99,10 +106,10 @@ public class variablesPeppermint extends conexionSQLpeppermint{
     public String syncUpDescriptionWorkshop;
     public String instructorSoloWithInstructor;
     public String instructorGroupWithInstructor;
-    public String maxStudentsGroupWithInstructor;
-    public String optimalBuddyGroupGroupWithInstructor;
-    public String maxStudentsGroup;
-    public String optimalBuddyGroup;
+    public static String maxStudentsGroupWithInstructor;
+    public static String optimalBuddyGroupGroupWithInstructor;
+    public static String maxStudentsGroup;
+    public static String optimalBuddyGroup;
     public String startDateWorkshop;
     //CREAR ARTICULO
     public String titleArticle;

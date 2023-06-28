@@ -19,12 +19,12 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
         try {
             sqlconectar();
             Statement stm = CN.createStatement();
-            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.datoslogin WHERE estado = 0 ORDER BY RAND() LIMIT 1");
+            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.usuariosautomaticos WHERE EnUso = 0 ORDER BY RAND() LIMIT 1");
             while(rs.next()){
-                emailLogin =rs.getString(rs.findColumn("userName"));
-                passwordLogin = rs.getString(rs.findColumn("userPassword"));
+                emailLogin =rs.getString(rs.findColumn("emailRegistro"));
+                passwordLogin = "123123aA";
             }
-            String query1 = "UPDATE testbdpeppermint.datoslogin SET estado = 1 WHERE userName="+"'"+emailLogin+"'";
+            String query1 = "UPDATE testbdpeppermint.usuariosautomaticos SET EnUso = 1 WHERE emailRegistro="+"'"+emailLogin+"'";
             stm.executeUpdate(query1);
             /*String query2 = "UPDATE testbdpeppermint.datoslogin SET estado = 0 WHERE userName!="+"'"+emailLogin+"'";
             stm.executeUpdate(query2);*/
@@ -159,21 +159,45 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
             Statement stm = CN.createStatement();
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.datoscrearworkshopcompleto WHERE estado = 0 ORDER BY RAND() LIMIT 1");
             while(rs.next()){
+                if(configuracionavanzadaTitleWorkshop == true){
+
+                }else {
+                    titleWorkshop = rs.getString(rs.findColumn("titleWorkshop"));
+                }
+                if(configuracionAvanzadaOptimalGroupWithInstructor == true){
+
+                }else {
+                    optimalBuddyGroupGroupWithInstructor = rs.getString(rs.findColumn("optimaBuddyGroupGroupWithInstructor"));
+                }
+                if(configuracionAvanzadaMaxGroupWithInstructor == true){
+
+                }else {
+                    maxStudentsGroupWithInstructor = rs.getString(rs.findColumn("maxStudentsGroupWithInstructor"));
+                }
+                if(configuracionAvanzadaOptimalStudenGroup == true){
+
+                }else {
+                    optimalBuddyGroup = rs.getString(rs.findColumn("optimalBuddyGroupGroup"));
+                }
+                if(configuracionAvanzadaMaxStudenGroup == true){
+
+                }else {
+                    maxStudentsGroup = rs.getString(rs.findColumn("maxStudentsGroup"));
+                }
                 pathImage =rs.getString(rs.findColumn("pathImage"));
                 pathVideo =rs.getString(rs.findColumn("pathVideo"));
-                titleWorkshop = rs.getString(rs.findColumn("titleWorkshop"));
                 descriptionWorkshop = rs.getString(rs.findColumn("descriptionWorkshop"));
                 creatorWorkshop = rs.getString(rs.findColumn("creatorWorkshop"));
                 tagWorkshop = rs.getString(rs.findColumn("tagWorkshop"));
                 categoryWorkshop = rs.getString(rs.findColumn("categoryWorkshop"));
+                skillsWorkshop = rs.getString(rs.findColumn("skillsWorkshop"));
                 topicWorkshop = rs.getString(rs.findColumn("topicWorkshop"));
                 subTopicWorkshop = rs.getString(rs.findColumn("subTopicWorkshop"));
-                targetAudienceWorkshop =rs.getString(rs.findColumn("targetAudienceWorkshop"));
-                learningObjectiveWorkshop =rs.getString(rs.findColumn("learningObjectivesWorkshop"));
+                targetAudienceWorkshop = rs.getString(rs.findColumn("targetAudienceWorkshop"));
+                learningObjectiveWorkshop = rs.getString(rs.findColumn("learningObjectivesWorkshop"));
                 whatDoYouNeed = rs.getString(rs.findColumn("whatDoYouNeed"));
                 howItWorks = rs.getString(rs.findColumn("howItWorks"));
                 purposeWorkshop = rs.getString(rs.findColumn("purposeWorkshop"));
-                skillsWorkshop = rs.getString(rs.findColumn("skillsWorkshop"));
                 physicalActvityWorkshop = rs.getString(rs.findColumn("pysicalActivityWorkshop"));
                 questionWorkshop = rs.getString(rs.findColumn("questionWorkshop"));
                 answerWorkshop = rs.getString(rs.findColumn("answerWorkshop"));
@@ -185,17 +209,13 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
                 titleZoomWorkshop = rs.getString(rs.findColumn("titleZoomWorkshop"));
                 deadlineWorkshop = rs.getString(rs.findColumn("deadlineWorkshop"));
                 descriptionZoomWorkshop = rs.getString(rs.findColumn("descriptionZoomWorkshop"));
-                zoomUrlWorkshop =rs.getString(rs.findColumn("zoomUrlWorkshop"));
-                activitiesTitleWorkshop =rs.getString(rs.findColumn("activitiesTItleWorkshop"));
+                zoomUrlWorkshop = rs.getString(rs.findColumn("zoomUrlWorkshop"));
+                activitiesTitleWorkshop = rs.getString(rs.findColumn("activitiesTItleWorkshop"));
                 activitiesDescriptionWorkshop = rs.getString(rs.findColumn("activitieDescriptionWorkshop"));
                 syncUpTitleWorkshop = rs.getString(rs.findColumn("syncUpTitleWorkshop"));
                 syncUpDescriptionWorkshop = rs.getString(rs.findColumn("syncUpDescriptionWorkshop"));
                 instructorSoloWithInstructor = rs.getString(rs.findColumn("instructorSoloWithInstructor"));
                 instructorGroupWithInstructor = rs.getString(rs.findColumn("instructorGroupWithInstructor"));
-                maxStudentsGroupWithInstructor = rs.getString(rs.findColumn("maxStudentsGroupWithInstructor"));
-                optimalBuddyGroupGroupWithInstructor = rs.getString(rs.findColumn("optimaBuddyGroupGroupWithInstructor"));
-                maxStudentsGroup = rs.getString(rs.findColumn("maxStudentsGroup"));
-                optimalBuddyGroup = rs.getString(rs.findColumn("optimalBuddyGroupGroup"));
             }
             ResultSet rs1 = stm.executeQuery("SELECT * FROM testbdpeppermint.datoscrearworkshopcompleto WHERE estado = 0 ORDER BY RAND() LIMIT 1");
             while(rs1.next()){

@@ -171,6 +171,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
             while(rs.next()){
                 emailGuest =rs.getString(rs.findColumn("email"));
             }
+            System.out.println("dentro del metodo traer email: "+emailGuest);
         }catch(Exception e){}
         sqlclose();
     }
@@ -345,7 +346,10 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         emailLogin=emailRecomendationSending;
         login();
         page.waitForSelector("text=My workshops");
-        page.navigate("http://localhost:4200/content/workshops");
+        if(linkDeNavegacion=="https://peppermint-qa.web.app/"){
+         page.navigate("https://peppermint-qa.web.app/content/workshops");
+        }else{page.navigate("http://localhost:4200/content/workshops");
+        }
         for (contador=0; contador<ejecutar;contador++){
            int contadorInterno = contador+1;
             page.waitForSelector("app-all-cards .container > div:nth-of-type(2) app-three-dots button");
@@ -366,7 +370,10 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
             System.out.println("\nRecomendaciones de workshops enviadas: "+contadorInterno+" Recomendaciones faltantes: "+ejecutar);
             printStream.println("\nRecomendaciones de workshops enviadas: "+contadorInterno+" Recomendaciones faltantes: "+ejecutar);
         }
-        page.navigate("http://localhost:4200/content/articles");
+        if(linkDeNavegacion=="https://peppermint-qa.web.app/"){
+            page.navigate("https://peppermint-qa.web.app/content/articles");
+        }else{page.navigate("http://localhost:4200/content/articles");
+        }
         for (contador=0; contador<ejecutar;contador++){
             int contadorInterno = contador+1;
             page.waitForSelector("app-all-cards .container > div:nth-of-type(2) app-three-dots button");
@@ -387,7 +394,10 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
             System.out.println("\nRecomendaciones de articles enviadas: "+contadorInterno+" Recomendaciones faltantes: "+ejecutar);
             printStream.println("\nRecomendaciones de articles enviadas: "+contadorInterno+" Recomendaciones faltantes: "+ejecutar);
         }
-        page.navigate("http://localhost:4200/content/techniques");
+        if(linkDeNavegacion=="https://peppermint-qa.web.app/"){
+            page.navigate("https://peppermint-qa.web.app/content/techniques");
+        }else{page.navigate("http://localhost:4200/content/techniques");
+        }
         for (contador=0; contador <ejecutar;contador++){
             int contadorInterno = contador+1;
             page.waitForSelector("app-all-cards .container > div:nth-of-type(2) app-three-dots button");
@@ -408,7 +418,10 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
             System.out.println("\nRecomendaciones de techniques enviadas: "+contadorInterno+" Recomendaciones faltantes: "+ejecutar);
             printStream.println("\nRecomendaciones de techniques enviadas: "+contadorInterno+" Recomendaciones faltantes: "+ejecutar);
         }
-        page.navigate("http://localhost:4200/content/clubs");
+        if(linkDeNavegacion=="https://peppermint-qa.web.app/"){
+            page.navigate("https://peppermint-qa.web.app/content/clubs");
+        }else{ page.navigate("http://localhost:4200/content/clubs");
+        }
         for (contador=0; contador <ejecutar;contador++){
             int contadorInterno = contador+1;
             page.waitForSelector("app-all-cards .container > div:nth-of-type(2) app-three-dots button");
@@ -485,8 +498,9 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         inviteGuest = "invite guest";
         page.navigate("https://www.mailinator.com/v4/public/inboxes.jsp");
         page.waitForSelector("#inbox_field");
+        page.waitForTimeout(700);
         page.fill("#inbox_field",emailGuest);
-        page.waitForTimeout(900);
+        page.waitForTimeout(700);
         page.click("#inbox_pane > div:nth-of-type(1)>div:nth-of-type(5) button");
         //page.waitForTimeout(1000);
         page.waitForSelector(".os-padding table tr:nth-of-type(1) td:has-text('invites')");
@@ -507,7 +521,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         }else{ nuevaPestana.click("mat-calendar tbody tr:nth-of-type(2) td:nth-of-type(1)");
         }
         nuevaPestana.fill("mat-card-content > app-mat-form-field:nth-of-type(2) input","123123aA");
-        nuevaPestana.waitForTimeout(900);
+        nuevaPestana.waitForTimeout(999);
         nuevaPestana.click("text=Sign up with email");
         nuevaPestana.click("mat-selection-list > div:nth-of-type(1) mat-radio-button");
         nuevaPestana.click("text=Continue");

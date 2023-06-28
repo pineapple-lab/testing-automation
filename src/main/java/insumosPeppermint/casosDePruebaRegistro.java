@@ -5,7 +5,9 @@ public class casosDePruebaRegistro extends robotBasePeppermint{
             for (contador = 1; contador <= ejecutar; contador++) {
                 if (!shouldStopTest) {
                     long timeStamp = Instant.now().toEpochMilli();
-                    emailRegistro = "pineappleuser"+timeStamp+"@mailinator.com";;
+                    if(configuracionRegistroAvanzado==false) {
+                        emailRegistro = "pineappleuser" + timeStamp + "@mailinator.com";
+                    }
                     System.out.println("\nSe creara el usuario: " +emailRegistro+ "\n");
                     printStream.println("\nSe creara el usuario: " +emailRegistro+ "\n");
                     if(linkDeNavegacion=="http://localhost:4200/"){

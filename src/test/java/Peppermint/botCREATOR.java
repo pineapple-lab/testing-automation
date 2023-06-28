@@ -62,6 +62,15 @@ public class botCREATOR extends interfaceActions{
                  checkBoxesMap.put(checkBox, elemento);
                  grid.add(checkBox, 0, listaDeEspera.size()-1);
          });
+         crearWorkshop.setOnMousePressed( event -> {
+             if (event.isSecondaryButtonDown()){
+                 ejecuciones=ejecucionestf.getText();
+                 configuracionAvanzadaCrearWorkshops configAvanzada = new configuracionAvanzadaCrearWorkshops(ejecuciones,seleccion);
+                 Stage configAvanzadaStage = new Stage();
+                 configAvanzada.start(configAvanzadaStage);
+                 configAvanzadaStage.show();
+             }
+         });
          crearArticle.setOnAction(e->{
              listaDeEspera.add(ExecMethod.CreateArticle);
              Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
@@ -125,6 +134,18 @@ public class botCREATOR extends interfaceActions{
              checkBoxesMap.put(checkBox, elemento);
              grid.add(checkBox, 0, listaDeEspera.size()-1);
          });
+         crearUsuario.setOnMousePressed( event -> {
+             if (event.isSecondaryButtonDown()){
+                 ejecuciones=ejecucionestf.getText();
+                variablesPeppermint.firstName ="pineapple";
+                variablesPeppermint.lastName = "user";
+                variablesPeppermint.passwordRegistro = "123123aA";
+                 configuracionAvanzadaRegistro configAvanzada = new configuracionAvanzadaRegistro(ejecuciones,seleccion);
+                 Stage configAvanzadaStage = new Stage();
+                 configAvanzada.start(configAvanzadaStage);
+                 configAvanzadaStage.show();
+             }
+         });
          enviarSolicitudDeAmistad.setOnAction(e->{
              listaDeEspera.add(ExecMethod.SendFriendRequest);
              Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
@@ -159,13 +180,25 @@ public class botCREATOR extends interfaceActions{
              listaDeEspera.add(ExecMethod.GenerateInviteGuest);
              Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
              CheckBox checkBox = new CheckBox("GenerateInviteGuest");
+             variablesPeppermint.userEmailLoginInviteGuest="pineAppleUser1683738718947@mailinator.com";
              checkBoxesMap.put(checkBox, elemento);
              grid.add(checkBox, 0, listaDeEspera.size()-1);
+         });
+         generarInviteGuest.setOnMousePressed( event -> {
+             if (event.isSecondaryButtonDown()){
+                 ejecuciones=ejecucionestf.getText();
+                 configuracionAvanzadaEnviarInviteGuest configAvanzada = new configuracionAvanzadaEnviarInviteGuest(ejecuciones,seleccion);
+                 Stage configAvanzadaStage = new Stage();
+                 configAvanzada.start(configAvanzadaStage);
+                 configAvanzadaStage.show();
+             }
          });
          enviarRecomendaciones.setOnAction(e->{
              listaDeEspera.add(ExecMethod.EnviarRecomendaciones);
              Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
              CheckBox checkBox = new CheckBox("EnviarRecomendaciones");
+             variablesPeppermint.userSendRecomendation ="AAAAAusuariorecomendacionpineapple";
+             variablesPeppermint.emailRecomendationSending="pineAppleUser1683738718947@mailinator.com";
              checkBoxesMap.put(checkBox, elemento);
              grid.add(checkBox, 0, listaDeEspera.size()-1);
          });

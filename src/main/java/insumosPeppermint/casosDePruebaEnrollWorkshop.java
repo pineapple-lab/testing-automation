@@ -33,4 +33,34 @@ public class casosDePruebaEnrollWorkshop extends robotBasePeppermint {
         }
         closeContext();
     }
+    public void validarEnviarActivity(){
+        subirimagenovideo=true;
+        for (contador = 1; contador <= ejecutar; contador++) {
+            if (!shouldStopTest) {
+                iniciarVariablesEnviarActivity();
+                login();
+                completarAssigmentActivity();
+                logout();
+                System.out.println("El workshop se ha creado con exito\n");
+                printStream.println("El workshop se ha creado con exito\n");
+                imprimirCantidadDeCasosEjecutados();
+            }else {
+                closeContext();
+            }
+        }
+        closeContext();
+    }
+    public void validarResponderActivity(){
+        subirimagenovideo=true;
+            if (!shouldStopTest) {
+                iniciarVariablesEnviarActivity();
+                login();
+                responderAssigmentActivity();
+                logout();
+                imprimirCantidadDeCasosEjecutados();
+            }else {
+                closeContext();
+            }
+        closeContext();
+    }
 }

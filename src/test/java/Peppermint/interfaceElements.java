@@ -28,7 +28,6 @@ public class interfaceElements extends Application{
     public int rowIndex;
     TextArea consoleTextArea =  new TextArea();
     ScrollPane scrollPane = new ScrollPane(consoleTextArea);
-
    //CREAR WORKSHOP
     Button crearWorkshop = new Button("Crear workshop");
     Tab tabConfiguracionAvanzadaWorkshops = new Tab("Configuracion avanzada Workshops");
@@ -45,7 +44,16 @@ public class interfaceElements extends Application{
     TextField textFieldMaxStudentsGroup = new TextField("Maximo de estudiantes");
     TextField textFieldOptimalBuddyGroup = new TextField("Estudiantes optimos");
     Button ejecutarWorkshopAvanzado = new Button("Ejecutar");
+    //ENROLL WORKSHOP
     Button enrollWorkshop = new Button("Enroll workshop");
+    Button unirMultiplesWorkshop = new Button ("Enroll multi workshops");
+    Tab tabEnrollMultiWorkshopAvanzado = new Tab("Enroll multiworkshop avanzado");
+    Label labelEmailEnrollMultiWorkshopAvanzado = new Label("Email");
+    TextField textFieldEmailEnrollMultiWorkshopAvanzado = new TextField("Email");
+    Button buttonEjecutarEnrollMultiWorkshopAvanzado = new Button("Ejecutar");
+
+    Button buttonEjecutarEnviarActivity = new Button("Completar activity");
+    Button buttonEjecutarResponderActivity = new Button("Responder activity");
     Button crearArticle = new Button("Crear article");
     Button crearClub = new Button("Crear club");
     Button crearTechnique = new Button("Crear technique");
@@ -76,10 +84,15 @@ public class interfaceElements extends Application{
     Button ejecutarSendFriends = new Button("Ejecutar");
     //CLUB
     Button joinClub = new Button("Join club");
+    Button unirMultiplesClub = new Button ("Enroll multi clubs");
+    Tab tabEnrollMultiClubAvanzado = new Tab("Enroll multiclub avanzado");
+    Label labelEmailEnrollMultiClubAvanzado = new Label("Email");
+    TextField textFieldEmailEnrollMultiClubAvanzado = new TextField("Email");
+    Button buttonEjecutarEnrollMultiClubAvanzado = new Button("Ejecutar");
     //INVITE GUEST
     Tab tabConfiguracionAvanzadaInviteGuest = new Tab("Configuracion avanzada invite guest");
     Button generarInviteGuest = new Button("Generar invite guest");
-    Label  labelEnviarInviteGuest = new Label("Introducir email");
+    Label labelEnviarInviteGuest = new Label("Introducir email");
     TextField textFieldEmailInviteGuestAvanzado = new TextField("email");
     Button ejecutarInviteGuestAvanzado = new Button ("Ejecutar");
     //POST CLUB
@@ -94,9 +107,12 @@ public class interfaceElements extends Application{
     Button ejecutarSendRecomendations = new Button("Ejecutar");
     //RECOMENDAR USUARIOS
     Button recomendarUsuarios = new Button ("Recomendar usuarios");
+    //BOOKMARK
     Button guardarBookmark = new Button ("Guardar bookmark");
-    Button unirMultiplesWorkshop = new Button ("Enroll multi workshops");
-    Button unirMultiplesClub = new Button ("Enroll multi clubs");
+    Tab tabMultiBookmark = new Tab("Bookmark avanzado");
+    Label labelMultiBookmark = new Label("Email");
+    TextField textFieldEmailMultiBookmark = new TextField("Email");
+    Button buttonEjecutarMultiBookmark = new Button("Ejecutar");
     Button deneterCasoDePrueba = new Button("Detener");
     Button ejecutar = new Button("Ejecutar");
     TextField ejecucionestf = new TextField("Ejecuciones");

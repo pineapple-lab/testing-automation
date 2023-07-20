@@ -23,4 +23,24 @@ public class functionWorkshopUser extends casosDePruebaEnrollWorkshop {
             iniciarNavegacion();
             validacionUnirseMuchosWorkshops();
     }
+    public void validacionEnviarActivity(){
+        iniciarContexto();
+        serverStatus();
+        System.out.println("Iniciando caso de prueba...");
+        printStream.println("Iniciando caso de prueba...");
+        iniciarEjecucionArticle();
+        imprimirCantidadDeEjecuciones();
+        iniciarNavegacion();
+        validarEnviarActivity();
+    }
+    public void validacionResponderActivity(){
+        iniciarContexto();
+        serverStatus();
+        System.out.println("Iniciando caso de prueba...");
+        printStream.println("Iniciando caso de prueba...");
+        iniciarEjecucionArticle();
+        imprimirCantidadDeEjecuciones();
+        iniciarNavegacion();
+        validarResponderActivity();
+    }
 }

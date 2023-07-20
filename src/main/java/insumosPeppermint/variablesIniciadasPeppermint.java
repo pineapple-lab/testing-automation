@@ -228,6 +228,24 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
         System.out.println("Variables iniciadas");
         sqlclose();
     }
+    public void iniciarVariablesEnviarActivity(){
+        System.out.println("Iniciando variables...");
+        printStream.println("Iniciando variables...");
+        try {
+            sqlconectar();
+            Statement stm = CN.createStatement();
+            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.datoslogin WHERE estado = 0 AND id <="+ejecutar+" ORDER BY RAND() LIMIT 1 ");
+            while(rs.next()){
+                emailLogin = rs.getString(rs.findColumn("userName"));
+                pathImage = rs.getString(rs.findColumn("pathImage"));
+                pathVideo = rs.getString(rs.findColumn("pathVideo"));
+                passwordLogin = "123123aA";
+            }
+            String query1 = "UPDATE testbdpeppermint.datoslogin SET estado = 1 WHERE userName="+"'"+emailLogin+"'";
+            stm.executeUpdate(query1);
+        }catch(Exception e){}
+        sqlclose();
+    }
     public void establecerUsuariosEnEstadoCero(){
         try {
             sqlconectar();

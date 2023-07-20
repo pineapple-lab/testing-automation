@@ -36,6 +36,8 @@ public class interfacePropiedadesEstilosYposicionamiento extends interfaceElemen
         unirMultiplesWorkshop.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         unirMultiplesClub.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         recomendarUsuarios.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
+        buttonEjecutarEnviarActivity.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
+        buttonEjecutarResponderActivity.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         guardarBookmark.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         scrollPane.setStyle(" -fx-text-fill: #FFFFFF; -fx-control-inner-background:#000000;");
         comboBox.setStyle("-fx-background-color: #99D0C2;");
@@ -65,6 +67,8 @@ public class interfacePropiedadesEstilosYposicionamiento extends interfaceElemen
         GridPane.setConstraints(guardarBookmark, 3, 9);
         GridPane.setConstraints(unirMultiplesWorkshop, 3, 10);
         GridPane.setConstraints(unirMultiplesClub, 3, 11);
+        GridPane.setConstraints(buttonEjecutarEnviarActivity, 3, 12);
+        GridPane.setConstraints(buttonEjecutarResponderActivity, 3, 13);
         GridPane.setConstraints(scrollPane,1,15,7,15);
         //AGREGAR ELEMENTOS
         grid.getChildren().add(comboBox);
@@ -91,6 +95,8 @@ public class interfacePropiedadesEstilosYposicionamiento extends interfaceElemen
         grid.getChildren().add(guardarBookmark);
         grid.getChildren().add(unirMultiplesClub);
         grid.getChildren().add(unirMultiplesWorkshop);
+        grid.getChildren().add(buttonEjecutarEnviarActivity);
+        grid.getChildren().add(buttonEjecutarResponderActivity);
         grid.getChildren().add(recomendarUsuarios);
         grid.getChildren().add(scrollPane);
         comboBox.getItems().add("DEV");

@@ -7,6 +7,8 @@ import javafx.stage.Stage;
 import insumosPeppermint.robotBasePeppermint;
 import insumosPeppermint.variablesPeppermint;
 import java.io.*;
+
+import static insumosPeppermint.variablesPeppermint.emailUserUnirMultiplesClub;
 import static insumosPeppermint.variablesPeppermint.printStream;
 
 public class botCREATOR extends interfaceActions{
@@ -215,27 +217,71 @@ public class botCREATOR extends interfaceActions{
              listaDeEspera.add(ExecMethod.GuardarBookmark);
              Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
              CheckBox checkBox = new CheckBox("GuardarBookmark");
+             variablesPeppermint.emailUserBookmark="pineAppleUser1683738718947@mailinator.com";
              checkBoxesMap.put(checkBox, elemento);
              grid.add(checkBox, 0, listaDeEspera.size()-1);
+         });
+         guardarBookmark.setOnMousePressed( event -> {
+             if (event.isSecondaryButtonDown()){
+                 ejecuciones=ejecucionestf.getText();
+                 configuracionAvanzadaBookmark configAvanzada = new configuracionAvanzadaBookmark(ejecuciones,seleccion);
+                 Stage configAvanzadaStage = new Stage();
+                 configAvanzada.start(configAvanzadaStage);
+                 configAvanzadaStage.show();
+             }
          });
          unirMultiplesWorkshop.setOnAction(e->{
              listaDeEspera.add(ExecMethod.UnirMultiplesWorkshpos);
              Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
              CheckBox checkBox = new CheckBox("UnirMultiplesWorkshpos");
+             variablesPeppermint.emailUserEnrollMultiplesWorkshops = "pineAppleUser1683738718947@mailinator.com";
              checkBoxesMap.put(checkBox, elemento);
              grid.add(checkBox, 0, listaDeEspera.size()-1);
+         });
+         unirMultiplesWorkshop.setOnMousePressed( event -> {
+             if (event.isSecondaryButtonDown()){
+                 ejecuciones=ejecucionestf.getText();
+                 configuracionAvanzadaEnrollWorkshop configAvanzada = new configuracionAvanzadaEnrollWorkshop(ejecuciones,seleccion);
+                 Stage configAvanzadaStage = new Stage();
+                 configAvanzada.start(configAvanzadaStage);
+                 configAvanzadaStage.show();
+             }
          });
          unirMultiplesClub.setOnAction(e->{
              listaDeEspera.add(ExecMethod.UnirMultiplesClubs);
              Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
              CheckBox checkBox = new CheckBox("UnirMultiplesClubs");
+             emailUserUnirMultiplesClub="pineAppleUser1683738718947@mailinator.com";
              checkBoxesMap.put(checkBox, elemento);
              grid.add(checkBox, 0, listaDeEspera.size()-1);
+         });
+         unirMultiplesClub.setOnMousePressed( event -> {
+             if (event.isSecondaryButtonDown()){
+                 ejecuciones=ejecucionestf.getText();
+                 configuracionAvanzadaEnrollClub configAvanzada = new configuracionAvanzadaEnrollClub(ejecuciones,seleccion);
+                 Stage configAvanzadaStage = new Stage();
+                 configAvanzada.start(configAvanzadaStage);
+                 configAvanzadaStage.show();
+             }
          });
          recomendarUsuarios.setOnAction(e->{
              listaDeEspera.add(ExecMethod.RecomendarUsuario);
              Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
              CheckBox checkBox = new CheckBox("RecomendarUsuario");
+             checkBoxesMap.put(checkBox, elemento);
+             grid.add(checkBox, 0, listaDeEspera.size()-1);
+         });
+         buttonEjecutarEnviarActivity.setOnAction(e->{
+             listaDeEspera.add(ExecMethod.EnviarActivity);
+             Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
+             CheckBox checkBox = new CheckBox("EnviarActivity");
+             checkBoxesMap.put(checkBox, elemento);
+             grid.add(checkBox, 0, listaDeEspera.size()-1);
+         });
+         buttonEjecutarResponderActivity.setOnAction(e->{
+             listaDeEspera.add(ExecMethod.ResponderActivity);
+             Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
+             CheckBox checkBox = new CheckBox("ResponderActivity");
              checkBoxesMap.put(checkBox, elemento);
              grid.add(checkBox, 0, listaDeEspera.size()-1);
          });
@@ -321,6 +367,12 @@ public class botCREATOR extends interfaceActions{
                     break;
                 case RecomendarUsuario:
                     actionRecomendarUsuarios();
+                    break;
+                case EnviarActivity:
+                    actionEnviarActivity();
+                    break;
+                case ResponderActivity:
+                    actionResponderActivity();
                     break;
             }
         }

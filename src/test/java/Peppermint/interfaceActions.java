@@ -27,6 +27,8 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
         UnirMultiplesWorkshpos,
         UnirMultiplesClubs,
         GuardarBookmark,
+        EnviarActivity,
+        ResponderActivity
     }
     public void actionCrearWorkshop() {
         try {
@@ -361,6 +363,38 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             CN.close();
             funcionSendRecomendation test = new funcionSendRecomendation();
             test.validacionEnviarRecomendacionDeUsuario();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    public void actionEnviarActivity() {
+        try {
+            String url = "jdbc:mysql://localhost:3306/testbdpeppermint?serverTimezone=UTC";
+            String username = "root";
+            String password = "root";
+            Connection CN = DriverManager.getConnection(url, username, password);
+            String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = " + "'" + ejecuciones + "'";
+            Statement stmt = CN.createStatement();
+            stmt.executeUpdate(insertSql);
+            CN.close();
+            functionWorkshopUser test = new functionWorkshopUser();
+            test.validacionEnviarActivity();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    public void actionResponderActivity() {
+        try {
+            String url = "jdbc:mysql://localhost:3306/testbdpeppermint?serverTimezone=UTC";
+            String username = "root";
+            String password = "root";
+            Connection CN = DriverManager.getConnection(url, username, password);
+            String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = " + "'" + ejecuciones + "'";
+            Statement stmt = CN.createStatement();
+            stmt.executeUpdate(insertSql);
+            CN.close();
+            functionWorkshopUser test = new functionWorkshopUser();
+            test.validacionResponderActivity();
         } catch (Exception ex) {
             ex.printStackTrace();
         }

@@ -49,7 +49,8 @@ public class variablesPeppermint extends conexionSQLpeppermint{
     public String pathImage;
     public String pathVideo;
     //LOGIN
-    public static String emailLogin= "admin@oluko.com"; //= "" //mailsendinviteguest@mailinator.com //
+    public static String emailUserAdmin= "admin@oluko.com";
+    public static volatile String emailLogin= "admin@oluko.com"; //= "" //mailsendinviteguest@mailinator.com //
     public String passwordLogin= "123123aA";//= "123123aA" //
     //CREAR TECHNIQUE
     public String titleTechnique;
@@ -114,6 +115,7 @@ public class variablesPeppermint extends conexionSQLpeppermint{
     public static String optimalBuddyGroup;
     public String startDateWorkshop;
     public static String emailUserEnrollMultiplesWorkshops;
+    public static String enrollModality ="groupwithinstructor";
     //CREAR ARTICULO
     public String titleArticle;
     public String descriptionArticle;

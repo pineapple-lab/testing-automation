@@ -6,7 +6,6 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import static insumosPeppermint.variablesPeppermint.*;
-import static insumosPeppermint.variablesPeppermint.configuracionAvanzadaOptimalStudenGroup;
 
 public class configuracionAvanzadaEnrollWorkshop extends interfaceActions{
     robotBasePeppermint metodosPeppermint = new robotBasePeppermint();
@@ -15,24 +14,24 @@ public class configuracionAvanzadaEnrollWorkshop extends interfaceActions{
         this.seleccion = seleccionAvanzada;
     }
     @Override
-    public void start(Stage stageEnrollMultiWorkshopAvanzado) {
-        stageEnrollMultiWorkshopAvanzado.setTitle("Configuracion avanzada enroll workshop");
-        GridPane gridPaneEnrolLMultiWorkshopAvanzado = new GridPane();
-        gridPaneEnrolLMultiWorkshopAvanzado.setVgap(10);
-        gridPaneEnrolLMultiWorkshopAvanzado.setHgap(10);
-        gridPaneEnrolLMultiWorkshopAvanzado.add(labelEmailEnrollMultiWorkshopAvanzado,2,1);
-        gridPaneEnrolLMultiWorkshopAvanzado.add(textFieldEmailEnrollMultiWorkshopAvanzado,2,2);
-        gridPaneEnrolLMultiWorkshopAvanzado.add(buttonEjecutarEnrollMultiWorkshopAvanzado,5,5);
-        tabEnrollMultiWorkshopAvanzado.setContent(gridPaneEnrolLMultiWorkshopAvanzado);
-        tabPane.getTabs().addAll(tabEnrollMultiWorkshopAvanzado);
+    public void start(Stage stageEnrollWorkshopAvanzado) {
+        stageEnrollWorkshopAvanzado.setTitle("Configuracion avanzada enroll workshop");
+        GridPane gridPaneEnrolLWorkshopAvanzado = new GridPane();
+        gridPaneEnrolLWorkshopAvanzado.setVgap(10);
+        gridPaneEnrolLWorkshopAvanzado.setHgap(10);
+        gridPaneEnrolLWorkshopAvanzado.add(labelModalityEnrollWorkshopAvanzado,2,1);
+        gridPaneEnrolLWorkshopAvanzado.add(textFieldModalityEnrollWorkshopAvanzado,2,2);
+        gridPaneEnrolLWorkshopAvanzado.add(buttonEjecutarEnrollWorkshopAvanzado,5,5);
+        tabEnrollWorkshopAvanzado.setContent(gridPaneEnrolLWorkshopAvanzado);
+        tabPane.getTabs().addAll(tabEnrollWorkshopAvanzado);
         rootConfigAvanzada.getChildren().add(tabPane);
         Scene sceneConfigAvanzada = new Scene(rootConfigAvanzada,450,350);
-        stageEnrollMultiWorkshopAvanzado.setScene(sceneConfigAvanzada);
-
-        buttonEjecutarEnrollMultiWorkshopAvanzado.setOnAction(e->{
+        stageEnrollWorkshopAvanzado.setScene(sceneConfigAvanzada);
+        buttonEjecutarEnrollWorkshopAvanzado.setOnAction(e->{
             Thread ejecutar=  new Thread (()->{
-                emailUserEnrollMultiplesWorkshops=textFieldEmailEnrollMultiWorkshopAvanzado.getText();
-                actionEnrollMultiplesWorkshops();
+                enrollModality=textFieldModalityEnrollWorkshopAvanzado.getText();
+                actionEnrollWorkshop();
+                enrollModality="groupwithinstructor";
             }, "ejecutar");
             if(ejecutar.isAlive()) {
                 ejecutar.stop();
@@ -43,3 +42,4 @@ public class configuracionAvanzadaEnrollWorkshop extends interfaceActions{
         });
     }
 }
+

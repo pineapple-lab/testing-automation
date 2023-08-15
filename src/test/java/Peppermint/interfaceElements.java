@@ -51,7 +51,10 @@ public class interfaceElements extends Application{
     Label labelEmailEnrollMultiWorkshopAvanzado = new Label("Email");
     TextField textFieldEmailEnrollMultiWorkshopAvanzado = new TextField("Email");
     Button buttonEjecutarEnrollMultiWorkshopAvanzado = new Button("Ejecutar");
-
+    Tab tabEnrollWorkshopAvanzado = new Tab("Enroll workshop avanzado");
+    Label labelModalityEnrollWorkshopAvanzado = new Label("Modality");
+    TextField textFieldModalityEnrollWorkshopAvanzado = new TextField("Modality");
+    Button buttonEjecutarEnrollWorkshopAvanzado = new Button("Ejecutar");
     Button buttonEjecutarEnviarActivity = new Button("Completar activity");
     Button buttonEjecutarResponderActivity = new Button("Responder activity");
     Button crearArticle = new Button("Crear article");

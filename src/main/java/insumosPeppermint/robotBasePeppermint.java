@@ -1,9 +1,16 @@
 package insumosPeppermint;
+import com.google.inject.spi.PrivateElements;
 import com.microsoft.playwright.APIResponse;
 import com.microsoft.playwright.FileChooser;
 import com.microsoft.playwright.Keyboard;
 import com.microsoft.playwright.Page;
+import kotlin.reflect.jvm.internal.impl.descriptors.Visibilities;
 import org.jetbrains.kotlin.serialization.js.ast.JsAstProtoBuf;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.nodes.Node;
+import org.jsoup.select.Elements;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.nio.file.Paths;
@@ -12,8 +19,10 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.time.Instant;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 public class robotBasePeppermint extends consultasSQLCasosFallidos {
     public void iniciarTest(){
@@ -42,7 +51,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         createContextAndPage();
     }
     public void iniciarNavegacion(){
-        printStream.println("\nAmbiente: "+linkDeNavegacion+"\n");
+        //printStream.println("\nAmbiente: "+linkDeNavegacion+"\n");
         System.out.println("\nAmbiente: "+linkDeNavegacion+"\n");
         Keyboard kb = page.keyboard();
         kb.press("Control+KeyN");
@@ -99,30 +108,30 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
     public void registrarUsuario(){
         int ln;
         Keyboard kb = page.keyboard();
-        String[] listaNombres = {"Juan", "María", "Carlos", "Ana", "Luis", "Laura", "Pedro", "Sofía", "Diego", "Valentina",
-                "José", "Camila", "Miguel", "Isabella", "Fernando", "Lucía", "Alejandro", "Julia", "Ricardo", "Emma",
+        String[] listaNombres = {"Juan", "María", "Carlos", "Ana", "Luis", "Laura", "Pedro", "Sofia", "Diego", "Valentina",
+                "Jose", "Camila", "Miguel", "Isabella", "Fernando", "Lucia", "Alejandro", "Julia", "Ricardo", "Emma",
                 "Andrés", "Paula", "Esteban", "Martina", "Felipe", "Valeria", "Jorge", "Gabriela", "Gustavo", "Mariana",
-                "Raúl", "Renata", "Sergio", "Jimena", "Ignacio", "Natalia", "Hugo", "Adriana", "Pablo", "Daniela",
-                "Ángel", "Patricia", "Emilio", "Carmen", "Roberto", "Rosa", "Alberto", "Clara", "Benjamín", "Elena",
-                "Guillermo", "Mercedes", "Rafael", "Beatriz", "Samuel", "Silvia", "Víctor", "Julieta", "Javier", "Carolina",
-                "Manuel", "Marina", "Rogelio", "Juana", "Enrique", "Vanesa", "Federico", "Francisca", "Mario", "Inés",
-                "Simón", "Constanza", "César", "Lorena", "Oscar", "Alicia", "Bruno", "Gabriela", "Eduardo", "Catalina",
-                "Nicolás", "Agustina", "Héctor", "Antonella", "Tomás", "Clarisa", "Álvaro", "Diana", "Francisco", "Anaís",
-                "Sebastián", "Bianca", "Daniel", "Florencia", "Maximiliano", "Pamela", "Marcos", "Luciana"};
+                "Raul", "Renata", "Sergio", "Jimena", "Ignacio", "Natalia", "Hugo", "Adriana", "Pablo", "Daniela",
+                "Angel", "Patricia", "Emilio", "Carmen", "Roberto", "Rosa", "Alberto", "Clara", "Benjamin", "Elena",
+                "Guillermo", "Mercedes", "Rafael", "Beatriz", "Samuel", "Silvia", "Victor", "Julieta", "Javier", "Carolina",
+                "Manuel", "Marina", "Rogelio", "Juana", "Enrique", "Vanesa", "Federico", "Francisca", "Mario", "Ines",
+                "Simon", "Constanza", "Cesar", "Lorena", "Oscar", "Alicia", "Bruno", "Gabriela", "Eduardo", "Catalina",
+                "Nicolas", "Agustina", "Hector", "Antonella", "Tomas", "Clarisa", "Alvaro", "Diana", "Francisco", "Anais",
+                "Sebastian", "Bianca", "Daniel", "Florencia", "Maximiliano", "Pamela", "Marcos", "Luciana"};
         Random rand = new Random();
             int index1 = rand.nextInt(listaNombres.length);
             firstName = listaNombres[index1];
         String[] listaApellidos = {
-                "González", "Rodríguez", "Gómez", "Fernández", "López", "Martínez", "Pérez", "García", "Sánchez", "Romero",
-                "Torres", "Ramírez", "Hernández", "Ruiz", "Jiménez", "Díaz", "Moreno", "Álvarez", "Muñoz", "Gutiérrez",
-                "Vargas", "Castaño", "Ortega", "Silva", "Núñez", "Molina", "Castro", "Rojas", "Medina", "Cruz",
-                "Navarro", "Cabrera", "Vargas", "Mendoza", "Soto", "Guerrero", "Ortiz", "Delgado", "Ríos", "Chávez",
-                "Mejía", "Vega", "Ávila", "Acosta", "Miranda", "Fuentes", "Campos", "Correa", "Estrada", "Gallardo",
-                "Velasco", "Montoya", "Peña", "Rivas", "Quintero", "Barrera", "Peña", "Cortés", "Aguirre", "Blanco",
+                "Gonzalez", "Rodríguez", "Gomez", "Fernandez", "Lopez", "Martinez", "Perez", "García", "Sanchez", "Romero",
+                "Torres", "Ramirez", "Hernandez", "Ruiz", "Jimenez", "Diaz", "Moreno", "Alvarez", "Munioz", "Gutierrez",
+                "Vargas", "Castanio", "Ortega", "Silva", "Nuniez", "Molina", "Castro", "Rojas", "Medina", "Cruz",
+                "Navarro", "Cabrera", "Vargas", "Mendoza", "Soto", "Guerrero", "Ortiz", "Delgado", "Rios", "Chavez",
+                "Mejia", "Vega", "Avila", "Acosta", "Miranda", "Fuentes", "Campos", "Correa", "Estrada", "Gallardo",
+                "Velasco", "Montoya", "Penia", "Rivas", "Quintero", "Barrera", "Penia", "Cortés", "Aguirre", "Blanco",
                 "Padilla", "Arroyo", "Ramos", "Salas", "Santos", "Arias", "Zamora", "Valencia", "Soler", "Peralta",
                 "Rocha", "Del Valle", "Salazar", "Esquivel", "Rubio", "Calderón", "Rosales", "Urbina", "Luna", "Escobar",
-                "Vera", "Orozco", "Villalobos", "Duarte", "Ochoa", "Zúñiga", "Rangel", "Aranda", "Vidal", "Barajas",
-                "Saucedo", "Becerra", "Cervantes", "Velázquez", "Landa", "Gallardo", "Carranza", "Carrillo", "Lara", "Del Río"
+                "Vera", "Orozco", "Villalobos", "Duarte", "Ochoa", "Zuniga", "Rangel", "Aranda", "Vidal", "Barajas",
+                "Saucedo", "Becerra", "Cervantes", "Velazquez", "Landa", "Gallardo", "Carranza", "Carrillo", "Lara", "Del Rio"
         };
         Random random = new Random();
         int index2 = random.nextInt(listaApellidos.length);
@@ -131,10 +140,14 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         if(configuracionRegistroAvanzado==false) {
             emailRegistro = firstName+lastName+timeStamp+"@mailinator.com";
         }
+        System.out.println("\nSe creara el usuario: " +emailRegistro+ "\n");
+        printStream.println("\nSe creara el usuario: " +emailRegistro+ "\n");
         page.click("text=Begin your Membership");
-        page.waitForSelector("app-menu-header button:nth-of-type(5)");
-        page.fill("mat-card-content > div > div:nth-of-type(1) app-mat-form-field input",firstName);
-        page.fill("mat-card-content > div > div:nth-of-type(2) app-mat-form-field input",lastName);
+        page.waitForSelector("text=More");
+        page.focus("mat-card-content > div > div:nth-of-type(1) app-mat-form-field input");
+        kb.type(firstName);
+        page.focus("mat-card-content > div > div:nth-of-type(2) app-mat-form-field input");
+        kb.type(lastName);
         page.fill("mat-card-content > app-mat-form-field:nth-of-type(1) input",emailRegistro);
         page.click("mat-card-content > mat-form-field mat-datepicker-toggle button");
         if(page.isEnabled("mat-calendar tbody tr:nth-of-type(2) td:nth-of-type(1)")==false){
@@ -214,7 +227,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
     }
     public void login(){
         System.out.println("Iniciando login...");
-        printStream.println("Iniciando login...");
+        //printStream.println("Iniciando login...");
         Keyboard kb = page.keyboard();
         if(page.isVisible(".bg-primary-contrast form > .mat-card-content app-mat-form-field:nth-of-type(2) input")==false) {
             page.click("text=Sign in");
@@ -233,7 +246,30 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         page.waitForSelector("text=Login Successfull!");
         Assertions.assertTrue(page.isVisible("text=Login Successfull!"));
         System.out.println("El login del usuario "+emailLogin+" se realizo con exito \n");
-        printStream.println("El login del usuario "+emailLogin+" se realizo con exito \n");
+        //printStream.println("El login del usuario "+emailLogin+" se realizo con exito \n");
+    }
+    public void loginAdmin(){
+        System.out.println("Iniciando login...");
+        //printStream.println("Iniciando login...");
+        Keyboard kb = page.keyboard();
+        if(page.isVisible(".bg-primary-contrast form > .mat-card-content app-mat-form-field:nth-of-type(2) input")==false) {
+            page.click("text=Sign in");
+        }
+        page.waitForSelector("text=Login with Google");
+        page.waitForSelector("text=Login with Facebook");
+        page.waitForSelector("text=Login with Email");
+        Assertions.assertTrue(page.isVisible("text=Login with Google"));
+        Assertions.assertTrue(page.isVisible("text=Login with Facebook"));
+        Assertions.assertTrue(page.isVisible("text=Login with Email"));
+        page.focus(".bg-primary-contrast form > .mat-card-content app-mat-form-field:nth-of-type(1) input");
+        kb.insertText(emailUserAdmin);
+        page.focus(".bg-primary-contrast form > .mat-card-content app-mat-form-field:nth-of-type(2) input");
+        kb.insertText(passwordLogin);
+        page.click(".bg-primary-contrast form > div:nth-of-type(3) button");
+        page.waitForSelector("text=Login Successfull!");
+        Assertions.assertTrue(page.isVisible("text=Login Successfull!"));
+        System.out.println("El login del usuario "+emailLogin+" se realizo con exito \n");
+        //printStream.println("El login del usuario "+emailLogin+" se realizo con exito \n");
     }
     public void logout(){
       page.click("text=My Stuff");
@@ -862,7 +898,19 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         page.waitForSelector("text=The workshop was created successfully");
         Assertions.assertTrue(page.isVisible("text=The workshop was created successfully"));
         }
+
     public void enrollWorkshop(){
+        Elements elements1;
+        Elements elements2;
+        String idRadiowithgroup="";
+        String idRadiogroup="";
+        String idRadiosolo ="";
+        enum expected{
+            solo,
+            groupwithinstructor,
+            group
+        }
+        expected var = expected.valueOf(enrollModality);
         page.waitForSelector("text=My workshops");
         page.navigate("http://localhost:4200/content/workshops");//ESTO ES UNA CHANCHADA HAY QUE REFACTORIZARLO
         page.waitForTimeout(12000);
@@ -870,9 +918,51 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         page.click("app-all-cards .container > div:nth-of-type(2)");
         System.out.println("Enrolando usuario");
         printStream.println("Enrolando usuario");
-        page.click(".bg-primary-contrast div:nth-of-type(2) > div > mat-card > div > button");
-        page.click(".mat-horizontal-content-container mat-radio-group:nth-of-type(2) mat-radio-button");
-        page.click(".mat-horizontal-content-container > div:nth-of-type(1) > div:nth-of-type(3) > button:nth-of-type(2)");
+        page.click("app-overview-tab-view > div > div:nth-of-type(2) > div:nth-of-type(1) > div > mat-card > div > button");
+        page.waitForSelector("mat-card > div:nth-of-type(2) > .div-ledby");
+        String innerHTML= page.innerHTML(".mat-horizontal-content-container");
+        Document doc = Jsoup.parse(innerHTML);
+        String condicion32="mat-radio-group > mat-card";
+        Elements elementsCard  = doc.select(condicion32);
+        Node GroupWithInstructor;
+        Node Solo;
+        Node Group;
+        for (Element element : elementsCard) {
+            boolean led = element.childNode(1).childNodes().size() == 2;
+            boolean left = element.childNode(2).childNodes().size() == 5;
+            if(led && left) {
+                GroupWithInstructor = element.childNode(2).childNode(3);
+                Element group = (Element) GroupWithInstructor;
+                Elements radioButtons = group.select(".mat-radio-button");
+                idRadiowithgroup = radioButtons.attr("id");
+            }
+
+            if(led && !left){
+                Solo = element.childNode(2).childNode(2);
+                Element group = (Element) Solo;
+                Elements radioButtons = group.select(".mat-radio-button");
+                idRadiosolo= radioButtons.attr("id");
+            }
+
+            if(!led && left){
+                Group = element.childNode(2).childNode(3);
+                Element group = (Element) Group;
+                Elements radioButtons = group.select(".mat-radio-button");
+                idRadiogroup= radioButtons.attr("id");
+            }
+
+        }
+        switch (var){
+            case solo://
+                page.click("#"+idRadiosolo);
+                break;
+            case groupwithinstructor:
+                        page.click("#"+idRadiowithgroup);
+                break;
+            case group:
+                page.click("#"+idRadiogroup);
+        }
+        page.click("mat-stepper > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3)> button:nth-of-type(2)");
         page.click("app-guest-invite > div > div:nth-of-type(2) p");
         System.out.println("Enroll realizado con exito\n");
         printStream.println("Enroll realizado con exito\n");

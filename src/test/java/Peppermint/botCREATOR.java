@@ -57,6 +57,15 @@ public class botCREATOR extends interfaceActions{
                  checkBoxesMap.put(checkBox, elemento);
                  grid.add(checkBox, 0, listaDeEspera.size()-1);
          });
+         crearWorkshop.setOnMousePressed( event -> {
+             if (event.isSecondaryButtonDown()){
+                 ejecuciones=ejecucionestf.getText();
+                 configuracionAvanzadaCrearWorkshops configAvanzada = new configuracionAvanzadaCrearWorkshops(ejecuciones,seleccion);
+                 Stage configAvanzadaStage = new Stage();
+                 configAvanzada.start(configAvanzadaStage);
+                 configAvanzadaStage.show();
+             }
+         });
          enrollWorkshop.setOnAction(e->{
              listaDeEspera.add(ExecMethod.EnrollWorkshop);
                  Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
@@ -64,10 +73,10 @@ public class botCREATOR extends interfaceActions{
                  checkBoxesMap.put(checkBox, elemento);
                  grid.add(checkBox, 0, listaDeEspera.size()-1);
          });
-         crearWorkshop.setOnMousePressed( event -> {
+         enrollWorkshop.setOnMousePressed( event -> {
              if (event.isSecondaryButtonDown()){
                  ejecuciones=ejecucionestf.getText();
-                 configuracionAvanzadaCrearWorkshops configAvanzada = new configuracionAvanzadaCrearWorkshops(ejecuciones,seleccion);
+                 configuracionAvanzadaEnrollWorkshop configAvanzada = new configuracionAvanzadaEnrollWorkshop(ejecuciones,seleccion);
                  Stage configAvanzadaStage = new Stage();
                  configAvanzada.start(configAvanzadaStage);
                  configAvanzadaStage.show();
@@ -241,7 +250,7 @@ public class botCREATOR extends interfaceActions{
          unirMultiplesWorkshop.setOnMousePressed( event -> {
              if (event.isSecondaryButtonDown()){
                  ejecuciones=ejecucionestf.getText();
-                 configuracionAvanzadaEnrollWorkshop configAvanzada = new configuracionAvanzadaEnrollWorkshop(ejecuciones,seleccion);
+                 configuracionAvanzadaEnrollMultiWorkshop configAvanzada = new configuracionAvanzadaEnrollMultiWorkshop(ejecuciones,seleccion);
                  Stage configAvanzadaStage = new Stage();
                  configAvanzada.start(configAvanzadaStage);
                  configAvanzadaStage.show();

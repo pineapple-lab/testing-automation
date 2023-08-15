@@ -11,7 +11,7 @@ public class funcionTag extends casosDePruebaTag {
         iniciarEjecucionTag();
         imprimirCantidadDeEjecuciones();
         iniciarNavegacion();
-        login();
+        loginAdmin();
         validarCrearTag();
     }
 }

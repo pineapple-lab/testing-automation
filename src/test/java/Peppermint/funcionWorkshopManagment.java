@@ -13,7 +13,7 @@ public class funcionWorkshopManagment extends casosDePruebaWorkshop {
         iniciarEjecucionWorkshop();
         imprimirCantidadDeEjecuciones();
         iniciarNavegacion();
-        login();
+        loginAdmin();
         validarCrearWorkshop();
     }
     @Test
@@ -22,7 +22,7 @@ public class funcionWorkshopManagment extends casosDePruebaWorkshop {
         iniciarEjecucionWorkshop();
         System.out.println("El caso se va a ejecutar " + ejecutar + " veces\n");
         iniciarNavegacion();
-        login();
+        loginAdmin();
         for (contador = 1; contador <= ejecutar; contador++) {
             startDateWorkshop = "3/31/2023, 16:00:00";
             iniciarVariablesCrearWorkshop();

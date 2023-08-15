@@ -11,7 +11,7 @@ public class funcionClubManagment extends casosDePruebaClubManagment {
         iniciarEjecucionClub();
         imprimirCantidadDeEjecuciones();
         iniciarNavegacion();
-        login();
+        loginAdmin();
         validarCrearClub();
     }
     public void validacionJoinClub(){

@@ -11,7 +11,7 @@ public class funcionLessonManagment extends casosDePruebaLesson {
         iniciarEjecucionLesson();
         imprimirCantidadDeEjecuciones();
         iniciarNavegacion();
-        login();
+        loginAdmin();
         validarCrearLesson();
     }
 }

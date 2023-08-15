@@ -11,7 +11,7 @@ public class funcionContentTaxonomy extends casosDePruebaTaxonomy {
         iniciarEjecucionTaxonomy();
         imprimirCantidadDeEjecuciones();
         iniciarNavegacion();
-        login();
+        loginAdmin();
         validarCrearTaxonomy();
     }
 }

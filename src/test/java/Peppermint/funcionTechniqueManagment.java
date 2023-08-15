@@ -11,7 +11,7 @@ public class funcionTechniqueManagment extends casosDePruebaTechnique {
         iniciarEjecucionTechnique();
         imprimirCantidadDeEjecuciones();
         iniciarNavegacion();
-        login();
+        loginAdmin();
         validarCrearTechnique();
     }
 }

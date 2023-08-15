@@ -11,7 +11,7 @@ public class funcionEventManagment extends casosDePruebaEvent {
         iniciarEjecucionEvent();
         imprimirCantidadDeEjecuciones();
         iniciarNavegacion();
-        login();
+        loginAdmin();
         validarCrearEvent();
     }
         /*@Test

@@ -11,7 +11,7 @@ public class funcionSegmentsManagment extends casosDePruebaSegment {
         iniciarEjecucionSegments();
         imprimirCantidadDeEjecuciones();
         iniciarNavegacion();
-        login();
+        loginAdmin();
         validarCrearSegment();
     }
 }

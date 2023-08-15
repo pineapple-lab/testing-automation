@@ -15,7 +15,7 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
     }
     public void iniciarVariablesLogin(){
         System.out.println("Iniciando variables...");
-        printStream.println("Iniciando variables...");
+        //printStream.println("Iniciando variables...");
         try {
             sqlconectar();
             Statement stm = CN.createStatement();
@@ -234,7 +234,7 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
         try {
             sqlconectar();
             Statement stm = CN.createStatement();
-            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.datoslogin WHERE estado = 0 AND id <="+ejecutar+" ORDER BY RAND() LIMIT 1 ");
+            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.datoslogin WHERE estado = 0 AND id <="+ejecutar+"");
             while(rs.next()){
                 emailLogin = rs.getString(rs.findColumn("userName"));
                 pathImage = rs.getString(rs.findColumn("pathImage"));

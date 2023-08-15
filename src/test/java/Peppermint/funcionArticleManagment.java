@@ -11,7 +11,7 @@ public class funcionArticleManagment extends casosDePruebaArticulos {
         iniciarEjecucionArticle();
         imprimirCantidadDeEjecuciones();
         iniciarNavegacion();
-        login();
+        loginAdmin();
         validarCrearArticulo();
     }
 }

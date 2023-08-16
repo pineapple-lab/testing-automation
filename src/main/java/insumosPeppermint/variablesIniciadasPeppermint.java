@@ -19,12 +19,30 @@ public class variablesIniciadasPeppermint extends variablesPeppermint{
         try {
             sqlconectar();
             Statement stm = CN.createStatement();
-            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.usuariosautomaticos WHERE EnUso = 0 ORDER BY RAND() LIMIT 1");
+            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.usuariosautomaticos WHERE EnUso = 0 and ambiente = '"+linkDeNavegacion+"' ORDER BY RAND() LIMIT 1");
             while(rs.next()){
                 emailLogin =rs.getString(rs.findColumn("emailRegistro"));
                 passwordLogin = "123123aA";
             }
             String query1 = "UPDATE testbdpeppermint.usuariosautomaticos SET EnUso = 1 WHERE emailRegistro="+"'"+emailLogin+"'";
+            stm.executeUpdate(query1);
+            /*String query2 = "UPDATE testbdpeppermint.datoslogin SET estado = 0 WHERE userName!="+"'"+emailLogin+"'";
+            stm.executeUpdate(query2);*/
+        }catch(Exception e){}
+        sqlclose();
+    }
+    public void iniciarVariablesLoginBorrarUsuarios(){
+        System.out.println("Iniciando variables...");
+        //printStream.println("Iniciando variables...");
+        try {
+            sqlconectar();
+            Statement stm = CN.createStatement();
+            ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.usuariosautomaticos WHERE revisado = 0 AND ambiente = 'http://localhost:4200/user/plans' ORDER BY RAND() LIMIT 1");
+            while(rs.next()){
+                emailLogin =rs.getString(rs.findColumn("emailRegistro"));
+                idUsuario = rs.getString(rs.findColumn("id"));
+            }
+            String query1 = "UPDATE testbdpeppermint.usuariosautomaticos SET revisado = 1 WHERE emailRegistro="+"'"+emailLogin+"'";
             stm.executeUpdate(query1);
             /*String query2 = "UPDATE testbdpeppermint.datoslogin SET estado = 0 WHERE userName!="+"'"+emailLogin+"'";
             stm.executeUpdate(query2);*/

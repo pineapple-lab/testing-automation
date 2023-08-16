@@ -50,8 +50,9 @@ public class variablesPeppermint extends conexionSQLpeppermint{
     public String pathVideo;
     //LOGIN
     public static String emailUserAdmin= "admin@oluko.com";
-    public static volatile String emailLogin= "admin@oluko.com"; //= "" //mailsendinviteguest@mailinator.com //
-    public String passwordLogin= "123123aA";//= "123123aA" //
+    public static volatile String emailLogin= "admin@oluko.com";
+    public String passwordLogin= "123123aA";
+    public String idUsuario;
     //CREAR TECHNIQUE
     public String titleTechnique;
     public String descriptionTechnique;

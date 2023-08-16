@@ -913,7 +913,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         expected var = expected.valueOf(enrollModality);
         page.waitForSelector("text=My workshops");
         page.navigate("http://localhost:4200/content/workshops");//ESTO ES UNA CHANCHADA HAY QUE REFACTORIZARLO
-        page.waitForTimeout(12000);
+        page.waitForTimeout(9000);
         page.waitForSelector("app-all-cards .container > div:nth-of-type(2)");
         page.click("app-all-cards .container > div:nth-of-type(2)");
         System.out.println("Enrolando usuario");
@@ -921,9 +921,10 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         page.click("app-overview-tab-view > div > div:nth-of-type(2) > div:nth-of-type(1) > div > mat-card > div > button");
         page.waitForSelector("mat-card > div:nth-of-type(2) > .div-ledby");
         String innerHTML= page.innerHTML(".mat-horizontal-content-container");
+        page.waitForTimeout(2000);
         Document doc = Jsoup.parse(innerHTML);
-        String condicion32="mat-radio-group > mat-card";
-        Elements elementsCard  = doc.select(condicion32);
+        String matradiogroup="mat-radio-group > mat-card";
+        Elements elementsCard  = doc.select(matradiogroup);
         Node GroupWithInstructor;
         Node Solo;
         Node Group;
@@ -936,21 +937,18 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
                 Elements radioButtons = group.select(".mat-radio-button");
                 idRadiowithgroup = radioButtons.attr("id");
             }
-
             if(led && !left){
                 Solo = element.childNode(2).childNode(2);
                 Element group = (Element) Solo;
                 Elements radioButtons = group.select(".mat-radio-button");
                 idRadiosolo= radioButtons.attr("id");
             }
-
             if(!led && left){
                 Group = element.childNode(2).childNode(3);
                 Element group = (Element) Group;
                 Elements radioButtons = group.select(".mat-radio-button");
                 idRadiogroup= radioButtons.attr("id");
             }
-
         }
         switch (var){
             case solo://
@@ -961,6 +959,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
                 break;
             case group:
                 page.click("#"+idRadiogroup);
+                break;
         }
         page.click("mat-stepper > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3)> button:nth-of-type(2)");
         page.click("app-guest-invite > div > div:nth-of-type(2) p");

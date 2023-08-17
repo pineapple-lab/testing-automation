@@ -19,11 +19,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.time.Instant;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
-import java.util.Set;
-
 public class robotBasePeppermint extends consultasSQLCasosFallidos {
     public void iniciarTest(){
         shouldStopTest = false;
@@ -106,7 +103,6 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         page.waitForSelector("tbody tr:first-child td:last-child button:last-child");
     }
     public void registrarUsuario(){
-        int ln;
         Keyboard kb = page.keyboard();
         String[] listaNombres = {"Juan", "María", "Carlos", "Ana", "Luis", "Laura", "Pedro", "Sofia", "Diego", "Valentina",
                 "Jose", "Camila", "Miguel", "Isabella", "Fernando", "Lucia", "Alejandro", "Julia", "Ricardo", "Emma",
@@ -150,11 +146,11 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         kb.type(lastName);
         page.fill("mat-card-content > app-mat-form-field:nth-of-type(1) input",emailRegistro);
         page.click("mat-card-content > mat-form-field mat-datepicker-toggle button");
-        if(page.isEnabled("mat-calendar tbody tr:nth-of-type(2) td:nth-of-type(1)")==false){
-            page.click("mat-calendar tbody tr:nth-of-type(1) td:nth-of-type(2)");
-        }else{ page.click("mat-calendar tbody tr:nth-of-type(2) td:nth-of-type(1)");
+        if(page.isEnabled("mat-calendar tbody tr:nth-of-type(2) td:nth-of-type(2)")==false){
+            page.click("mat-calendar tbody tr:nth-of-type(3) td:nth-of-type(3)");
+        }else {
+            page.click("mat-calendar tbody tr:nth-of-type(2) td:nth-of-type(4)");
         }
-
         page.fill("mat-card-content > app-mat-form-field:nth-of-type(2) input",passwordRegistro);
         page.click("text=Sign up with email");
         page.fill("app-payment > div > div > mat-card .wrapper > div > div:nth-of-type(1) app-mat-form-field input",cardholderName);
@@ -191,7 +187,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
             CN.close();
-        } catch (Exception ex) {
+        }catch(Exception ex) {
             ex.printStackTrace();
         }
     }
@@ -394,7 +390,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
     }
     public void recomendarUsuarios(){
         Keyboard kb = page.keyboard();
-        if(page.isVisible("app-profile-description")==false) {
+        if(page.isVisible("app-profile-description")==false){
             page.waitForSelector("text=My workshops");
         }
         page.navigate("http://localhost:4200/user/friends");
@@ -421,7 +417,8 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         page.waitForSelector("text=My workshops");
         if(linkDeNavegacion=="https://peppermint-qa.web.app/"){
          page.navigate("https://peppermint-qa.web.app/content/workshops");
-        }else{page.navigate("http://localhost:4200/content/workshops");
+        }else {
+            page.navigate("http://localhost:4200/content/workshops");
         }
         for (contador=0; contador<ejecutar;contador++){
            int contadorInterno = contador+1;
@@ -445,7 +442,8 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         }
         if(linkDeNavegacion=="https://peppermint-qa.web.app/"){
             page.navigate("https://peppermint-qa.web.app/content/articles");
-        }else{page.navigate("http://localhost:4200/content/articles");
+        }else {
+            page.navigate("http://localhost:4200/content/articles");
         }
         for (contador=0; contador<ejecutar;contador++){
             int contadorInterno = contador+1;
@@ -469,7 +467,8 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         }
         if(linkDeNavegacion=="https://peppermint-qa.web.app/"){
             page.navigate("https://peppermint-qa.web.app/content/techniques");
-        }else{page.navigate("http://localhost:4200/content/techniques");
+        }else {
+            page.navigate("http://localhost:4200/content/techniques");
         }
         for (contador=0; contador <ejecutar;contador++){
             int contadorInterno = contador+1;
@@ -493,7 +492,8 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         }
         if(linkDeNavegacion=="https://peppermint-qa.web.app/"){
             page.navigate("https://peppermint-qa.web.app/content/clubs");
-        }else{ page.navigate("http://localhost:4200/content/clubs");
+        }else {
+            page.navigate("http://localhost:4200/content/clubs");
         }
         for (contador=0; contador <ejecutar;contador++){
             int contadorInterno = contador+1;
@@ -565,7 +565,6 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         page.waitForSelector("text=Guest pass has been sent successfully");
         page.waitForTimeout(40000);
     }
-    @Test
     public void registrarInviteGuest(){
         Keyboard kb = page.keyboard();
         inviteGuest = "invite guest";
@@ -591,7 +590,8 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         nuevaPestana.click("mat-card-content > mat-form-field mat-datepicker-toggle button");
         if(nuevaPestana.isEnabled("mat-calendar tbody tr:nth-of-type(2) td:nth-of-type(1)")==false){
             nuevaPestana.click("mat-calendar tbody tr:nth-of-type(1) td:nth-of-type(2)");
-        }else{ nuevaPestana.click("mat-calendar tbody tr:nth-of-type(2) td:nth-of-type(1)");
+        }else{
+            nuevaPestana.click("mat-calendar tbody tr:nth-of-type(2) td:nth-of-type(1)");
         }
         nuevaPestana.fill("mat-card-content > app-mat-form-field:nth-of-type(2) input","123123aA");
         nuevaPestana.waitForTimeout(999);
@@ -898,7 +898,6 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         page.waitForSelector("text=The workshop was created successfully");
         Assertions.assertTrue(page.isVisible("text=The workshop was created successfully"));
         }
-
     public void enrollWorkshop(){
         Elements elements1;
         Elements elements2;

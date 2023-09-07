@@ -30,10 +30,11 @@ public class configuracionAvanzadaRegistro extends interfaceActions{
         gridPaneCrearUsuario.add(checkBoxEmailAvanzado,2,4);
         gridPaneCrearUsuario.add(textFieldEmailAvanzado,3,4);
         gridPaneCrearUsuario.add(ejecutarRegistroAvanzado,6,6);
+        ejecutarRegistroAvanzado.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         tabRegistrarUsuarioConfigAvanzada.setContent(gridPaneCrearUsuario);
         tabPane.getTabs().add(tabRegistrarUsuarioConfigAvanzada);
         rootConfigAvanzada.getChildren().add(tabPane);
-        Scene configAvanzada = new Scene(rootConfigAvanzada,450,350);
+        Scene configAvanzada = new Scene(rootConfigAvanzada,310,230);
         stageCrearUsuarioConfigAvanzada.setScene(configAvanzada);
         textFieldFirstNameAvanzado.setVisible(false);
         textFieldLastNameAvanzado.setVisible(false);

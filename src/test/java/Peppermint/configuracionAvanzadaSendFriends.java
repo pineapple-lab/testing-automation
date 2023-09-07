@@ -22,10 +22,11 @@ public class configuracionAvanzadaSendFriends extends interfaceActions{
         gridPaneEnviarAmigos.add(labelEmailAceptarAmigos,1,2);
         gridPaneEnviarAmigos.add(emailAceptarFriends,3,2);
         gridPaneEnviarAmigos.add(ejecutarSendFriends,10,5);
+        ejecutarSendFriends.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         tabSendFriendsConfigAvanzada.setContent(gridPaneEnviarAmigos);
         tabPane.getTabs().addAll(tabSendFriendsConfigAvanzada);
         rootConfigAvanzada.getChildren().add(tabPane);
-        Scene configAvanzadaScene = new Scene(rootConfigAvanzada,400,300);
+        Scene configAvanzadaScene = new Scene(rootConfigAvanzada,330,180);
         configAvanzadaSendFriendsStage.setScene(configAvanzadaScene);
         ejecutarSendFriends.setOnAction(e->{
             Thread ejecutar=  new Thread (()->{

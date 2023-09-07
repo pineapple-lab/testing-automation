@@ -28,7 +28,13 @@ public class interfaceElements extends Application{
     public int rowIndex;
     TextArea consoleTextArea =  new TextArea();
     ScrollPane scrollPane = new ScrollPane(consoleTextArea);
-   //CREAR WORKSHOP
+    //Cuadros de ayuda
+    Button ayuda = new Button ("?");
+    Dialog<String> dialog = new Dialog<>();
+    TextArea cuadroDeAyudas = new TextArea();
+    //VALIDAR DOMINIOS
+    Button validarDominios = new Button("Validar Dominios");
+    //CREAR WORKSHOP
     Button crearWorkshop = new Button("Crear workshop");
     Tab tabConfiguracionAvanzadaWorkshops = new Tab("Configuracion avanzada Workshops");
     CheckBox checkBoxEditarTituloWorkshops = new CheckBox("Editar titulo");

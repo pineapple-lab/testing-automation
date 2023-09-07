@@ -32,6 +32,7 @@ public class configuracionAvanzadaCrearWorkshops extends interfaceActions{
         gridPaneCrearWorkshopAvanzado.add(checkBoxEditarEstudiantesOptimosModalidadGroupSinInstructor,1,8);
         gridPaneCrearWorkshopAvanzado.add(textFieldOptimalBuddyGroup,3,8);
         gridPaneCrearWorkshopAvanzado.add(ejecutarWorkshopAvanzado,9,10);
+        ejecutarWorkshopAvanzado.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         tabConfiguracionAvanzadaWorkshops.setContent(gridPaneCrearWorkshopAvanzado);
         tabPane.getTabs().addAll(tabConfiguracionAvanzadaWorkshops);
         rootConfigAvanzada.getChildren().add(tabPane);

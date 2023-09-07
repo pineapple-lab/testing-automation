@@ -11,27 +11,16 @@ public class limpiarBaseDeDatos extends robotBasePeppermint {
     @Test
     public void limpiarUserBD(){
         Keyboard kb = page.keyboard();
-        int userBorrados= 0;
-        ejecutar=502;
-        linkDeNavegacion="http://localhost:4200/";
-        iniciarNavegacion();
+        ejecutar=94;
+        linkDeNavegacion="http://localhost:4200/user/plans";
+
         for(contador=0; contador<=ejecutar;contador++){
+            iniciarNavegacion();
             iniciarVariablesLoginBorrarUsuarios();
-            login();
-            if(page.isVisible("text=Invalid username/email or password")){
-                try {
-                    sqlconectar();
-                    Statement stm = CN.createStatement();
-                    stm.executeUpdate("DELETE FROM testbdpeppermint.usuariosautomaticos WHERE id= '"+idUsuario+"'");
-                    System.out.println("Usuario borrado:");
-                    System.out.println("id: "+idUsuario);
-                    System.out.println("Email: "+emailLogin);
-                    userBorrados++;
-                } catch (Exception e) {
-                    sqlclose();
-                }
-                System.out.println("Cantidad borrados: "+userBorrados+"\n");
+            if(login()){
+                continue;
             }
+            System.out.println("ejecuciones:"+contador+"\\"+ejecutar+"\n");
             page.waitForSelector("text= My workshops");
             page.waitForTimeout(1000);
             if (page.isVisible("mat-dialog-container > app-expired-popup")) {

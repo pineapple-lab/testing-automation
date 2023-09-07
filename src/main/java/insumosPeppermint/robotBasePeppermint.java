@@ -1,9 +1,6 @@
 package insumosPeppermint;
 import com.google.inject.spi.PrivateElements;
-import com.microsoft.playwright.APIResponse;
-import com.microsoft.playwright.FileChooser;
-import com.microsoft.playwright.Keyboard;
-import com.microsoft.playwright.Page;
+import com.microsoft.playwright.*;
 import kotlin.reflect.jvm.internal.impl.descriptors.Visibilities;
 import org.jetbrains.kotlin.serialization.js.ast.JsAstProtoBuf;
 import org.jsoup.Jsoup;
@@ -12,16 +9,20 @@ import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 import org.jsoup.select.Elements;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Random;
-public class robotBasePeppermint extends consultasSQLCasosFallidos {
+import java.util.concurrent.TimeoutException;
+
+public class robotBasePeppermint extends assertions {
     public void iniciarTest(){
         shouldStopTest = false;
     }
@@ -29,7 +30,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
     shouldStopTest = true;
 }
     public void serverStatus(){
-        APIResponse response = page.request().get("https://peppermint-development.firebaseapp.com/");
+        APIResponse response = page.request().post("https://peppermint-development.firebaseapp.com/");
         int statusCode = response.status();
         assert(response).ok();
         System.out.println("Server status: "+statusCode);
@@ -102,11 +103,48 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         kb.press("Enter");
         page.waitForSelector("tbody tr:first-child td:last-child button:last-child");
     }
+    public void validarDominios(){
+            String[] listaSubDominios = {"gmail", "yahoo", "outlook"
+            };
+            Random rand = new Random();
+            int index1 = rand.nextInt(listaSubDominios.length);
+            subDominio = listaSubDominios[index1];
+            String[] listaDominioNivelSuperior = {
+                    "com", "net", "org", "gov", "edu", "mil", "int", "eu", "biz", "info",
+                    "coop", "aero", "museum", "name", "pro", "tel", "mobi", "asia", "cat", "jobs",
+                    "post", "travel", "xxx", "moe", "io", "cc", "tv", "fm", "am", "me", "bz", "la",
+                    "sh", "cx", "gs", "ms", "nu", "tk", "to", "ws", "nf", "pw", "hm", "ac", "ag", "ai",
+                    "as", "bb", "bm", "bs", "ca", "co", "dm", "do", "gd", "gl", "gp", "gt", "hn", "ht",
+                    "jm", "kn", "ky", "lc", "mq", "ms", "ni", "pa", "pr", "pm", "sx", "sv", "tc", "tt",
+                    "us", "vc", "vg", "vi", "ai", "au", "ck", "fj", "fm", "gu", "ki", "mh", "mp", "nc",
+                    "nf", "nr", "nu", "nz", "pf", "pg", "pn", "pw", "sb", "tk", "tl", "to", "tv", "vu",
+                    "wf", "ws", "af", "bd", "bt", "in", "lk", "np", "pk", "ir", "iq", "jo", "kw", "lb",
+                    "om", "ps", "qa", "sa", "sy", "tr", "ae", "ye", "cn", "hk", "jp", "kp", "kr", "mn",
+                    "tw", "vn", "as", "ck", "nu", "tk", "ws", "fm", "mh", "pw", "to", "tv", "wf", "ws",
+                    "au", "fj", "nc", "nz", "sb", "vu", "wf", "ws", "cy", "ge", "am", "az", "bh", "cy",
+                    "ge", "iq", "ir", "il", "jo", "kw", "lb", "om", "ps", "qa", "sa", "sy", "tr", "ae",
+                    "ye", "at", "be", "bg", "ch", "cz", "de", "dk", "ee", "es", "fi", "fr", "gr", "hr",
+                    "hu", "ie", "is", "it", "li", "lt", "lu", "lv", "mc", "md", "me", "mk", "mt", "nl",
+                    "no", "pl", "pt", "ro", "rs", "ru", "se", "si", "sk", "ua", "uk"
+            };
+            Random random = new Random();
+            int index2 = random.nextInt(listaDominioNivelSuperior.length);
+            dominioNivelSuperior = listaDominioNivelSuperior[index2];
+            emailRegistro = "testDominios@" + subDominio + "." + dominioNivelSuperior;
+            page.click("text=Join Now");
+            page.click("text=Begin your Membership");
+            page.waitForSelector("text=More");
+            page.fill("mat-card-content > app-mat-form-field:nth-of-type(1) input", emailRegistro);
+            if (page.isVisible("text=Invalid email.")) {
+                System.out.println("no se acepto el dominio:" + emailRegistro);
+                System.exit(0);
+            }
+        }
     public void registrarUsuario(){
         Keyboard kb = page.keyboard();
-        String[] listaNombres = {"Juan", "María", "Carlos", "Ana", "Luis", "Laura", "Pedro", "Sofia", "Diego", "Valentina",
+        String[] listaNombres = {"Juan", "Maria", "Carlos", "Ana", "Luis", "Laura", "Pedro", "Sofia", "Diego", "Valentina",
                 "Jose", "Camila", "Miguel", "Isabella", "Fernando", "Lucia", "Alejandro", "Julia", "Ricardo", "Emma",
-                "Andrés", "Paula", "Esteban", "Martina", "Felipe", "Valeria", "Jorge", "Gabriela", "Gustavo", "Mariana",
+                "Andres", "Paula", "Esteban", "Martina", "Felipe", "Valeria", "Jorge", "Gabriela", "Gustavo", "Mariana",
                 "Raul", "Renata", "Sergio", "Jimena", "Ignacio", "Natalia", "Hugo", "Adriana", "Pablo", "Daniela",
                 "Angel", "Patricia", "Emilio", "Carmen", "Roberto", "Rosa", "Alberto", "Clara", "Benjamin", "Elena",
                 "Guillermo", "Mercedes", "Rafael", "Beatriz", "Samuel", "Silvia", "Victor", "Julieta", "Javier", "Carolina",
@@ -118,16 +156,16 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
             int index1 = rand.nextInt(listaNombres.length);
             firstName = listaNombres[index1];
         String[] listaApellidos = {
-                "Gonzalez", "Rodríguez", "Gomez", "Fernandez", "Lopez", "Martinez", "Perez", "García", "Sanchez", "Romero",
+                "Gonzalez", "Rodríguez", "Gomez", "Fernandez", "Lopez", "Martinez", "Perez", "Garcia", "Sanchez", "Romero",
                 "Torres", "Ramirez", "Hernandez", "Ruiz", "Jimenez", "Diaz", "Moreno", "Alvarez", "Munioz", "Gutierrez",
                 "Vargas", "Castanio", "Ortega", "Silva", "Nuniez", "Molina", "Castro", "Rojas", "Medina", "Cruz",
                 "Navarro", "Cabrera", "Vargas", "Mendoza", "Soto", "Guerrero", "Ortiz", "Delgado", "Rios", "Chavez",
                 "Mejia", "Vega", "Avila", "Acosta", "Miranda", "Fuentes", "Campos", "Correa", "Estrada", "Gallardo",
-                "Velasco", "Montoya", "Penia", "Rivas", "Quintero", "Barrera", "Penia", "Cortés", "Aguirre", "Blanco",
+                "Velasco", "Montoya", "Penia", "Rivas", "Quintero", "Barrera", "Penia", "Cortes", "Aguirre", "Blanco",
                 "Padilla", "Arroyo", "Ramos", "Salas", "Santos", "Arias", "Zamora", "Valencia", "Soler", "Peralta",
-                "Rocha", "Del Valle", "Salazar", "Esquivel", "Rubio", "Calderón", "Rosales", "Urbina", "Luna", "Escobar",
+                "Rocha", "DelValle", "Salazar", "Esquivel", "Rubio", "Calderon", "Rosales", "Urbina", "Luna", "Escobar",
                 "Vera", "Orozco", "Villalobos", "Duarte", "Ochoa", "Zuniga", "Rangel", "Aranda", "Vidal", "Barajas",
-                "Saucedo", "Becerra", "Cervantes", "Velazquez", "Landa", "Gallardo", "Carranza", "Carrillo", "Lara", "Del Rio"
+                "Saucedo", "Becerra", "Cervantes", "Velazquez", "Landa", "Gallardo", "Carranza", "Carrillo", "Lara", "DelRio"
         };
         Random random = new Random();
         int index2 = random.nextInt(listaApellidos.length);
@@ -136,8 +174,10 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         if(configuracionRegistroAvanzado==false) {
             emailRegistro = firstName+lastName+timeStamp+"@mailinator.com";
         }
+        guardarUsuario();
         System.out.println("\nSe creara el usuario: " +emailRegistro+ "\n");
         printStream.println("\nSe creara el usuario: " +emailRegistro+ "\n");
+        page.click("text=Join Now");
         page.click("text=Begin your Membership");
         page.waitForSelector("text=More");
         page.focus("mat-card-content > div > div:nth-of-type(1) app-mat-form-field input");
@@ -146,11 +186,14 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         kb.type(lastName);
         page.fill("mat-card-content > app-mat-form-field:nth-of-type(1) input",emailRegistro);
         page.click("mat-card-content > mat-form-field mat-datepicker-toggle button");
-        if(page.isEnabled("mat-calendar tbody tr:nth-of-type(2) td:nth-of-type(2)")==false){
-            page.click("mat-calendar tbody tr:nth-of-type(3) td:nth-of-type(3)");
-        }else {
-            page.click("mat-calendar tbody tr:nth-of-type(2) td:nth-of-type(4)");
-        }
+        page.click("mat-calendar mat-calendar-header > div > div > button:nth-of-type(1)");
+        page.click("mat-calendar mat-calendar-header > div > div > button:nth-of-type(2)");
+        page.waitForSelector("mat-calendar tbody > tr:last-child > td:nth-of-type(2)");
+        page.click("mat-calendar tbody > tr:last-child > td:nth-of-type(2)");
+        page.waitForSelector("mat-calendar tbody > tr:nth-of-type(2) > td:first-child");
+        page.click("mat-calendar tbody > tr:nth-of-type(2) > td:first-child");
+        page.waitForSelector("mat-calendar tbody > tr:first-child > td:nth-of-type(4)");
+        page.click("mat-calendar tbody > tr:first-child > td:nth-of-type(4)");
         page.fill("mat-card-content > app-mat-form-field:nth-of-type(2) input",passwordRegistro);
         page.click("text=Sign up with email");
         page.fill("app-payment > div > div > mat-card .wrapper > div > div:nth-of-type(1) app-mat-form-field input",cardholderName);
@@ -217,15 +260,15 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
             while(rs.next()){
                 emailGuest =rs.getString(rs.findColumn("email"));
             }
-            System.out.println("dentro del metodo traer email: "+emailGuest);
-        }catch(Exception e){}
+        }catch(Exception e){
+        }
         sqlclose();
     }
-    public void login(){
+    public boolean login() {
         System.out.println("Iniciando login...");
         //printStream.println("Iniciando login...");
         Keyboard kb = page.keyboard();
-        if(page.isVisible(".bg-primary-contrast form > .mat-card-content app-mat-form-field:nth-of-type(2) input")==false) {
+        if (page.isVisible(".bg-primary-contrast form > .mat-card-content app-mat-form-field:nth-of-type(2) input") == false) {
             page.click("text=Sign in");
         }
         page.waitForSelector("text=Login with Google");
@@ -239,11 +282,35 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         page.focus(".bg-primary-contrast form > .mat-card-content app-mat-form-field:nth-of-type(2) input");
         kb.insertText(passwordLogin);
         page.click(".bg-primary-contrast form > div:nth-of-type(3) button");
-        page.waitForSelector("text=Login Successfull!");
-        Assertions.assertTrue(page.isVisible("text=Login Successfull!"));
-        System.out.println("El login del usuario "+emailLogin+" se realizo con exito \n");
+        page.waitForTimeout(1000);
+        if(page.isVisible("text=Invalid username/email or password")){
+            try {
+                sqlconectar();
+                Statement stm = CN.createStatement();
+                stm.executeUpdate("DELETE FROM testbdpeppermint.usuariosautomaticos WHERE id= '"+idUsuario+"'");
+                System.out.println("Usuario borrado:");
+                System.out.println("id: "+idUsuario);
+                System.out.println("Email: "+emailLogin);
+                userBorrados++;
+            } catch (Exception e) {
+                sqlclose();
+            }
+            System.out.println("Cantidad borrados: "+userBorrados+"\n");
+            return true;
+        }
+        while (true) {
+            try {
+                page.waitForSelector("text=Login Successfull!");
+                Assertions.assertTrue(page.isVisible("text=Login Successfull!"));
+                break;
+            } catch (PlaywrightException e) {
+            }
+        }
+        System.out.println("El login del usuario " + emailLogin + " se realizo con exito \n");
+        return false;
         //printStream.println("El login del usuario "+emailLogin+" se realizo con exito \n");
     }
+
     public void loginAdmin(){
         System.out.println("Iniciando login...");
         //printStream.println("Iniciando login...");
@@ -264,7 +331,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         page.click(".bg-primary-contrast form > div:nth-of-type(3) button");
         page.waitForSelector("text=Login Successfull!");
         Assertions.assertTrue(page.isVisible("text=Login Successfull!"));
-        System.out.println("El login del usuario "+emailLogin+" se realizo con exito \n");
+        System.out.println("El login del usuario "+emailUserAdmin+" se realizo con exito \n");
         //printStream.println("El login del usuario "+emailLogin+" se realizo con exito \n");
     }
     public void logout(){
@@ -274,6 +341,40 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
     }
     public void hacerSolicitudDeAmistad(){
         Keyboard kb = page.keyboard();
+        String[] listaNombres = {"Juan", "Maria", "Carlos", "Ana", "Luis", "Laura", "Pedro", "Sofia", "Diego", "Valentina",
+                "Jose", "Camila", "Miguel", "Isabella", "Fernando", "Lucia", "Alejandro", "Julia", "Ricardo", "Emma",
+                "Andrés", "Paula", "Esteban", "Martina", "Felipe", "Valeria", "Jorge", "Gabriela", "Gustavo", "Mariana",
+                "Raul", "Renata", "Sergio", "Jimena", "Ignacio", "Natalia", "Hugo", "Adriana", "Pablo", "Daniela",
+                "Angel", "Patricia", "Emilio", "Carmen", "Roberto", "Rosa", "Alberto", "Clara", "Benjamin", "Elena",
+                "Guillermo", "Mercedes", "Rafael", "Beatriz", "Samuel", "Silvia", "Victor", "Julieta", "Javier", "Carolina",
+                "Manuel", "Marina", "Rogelio", "Juana", "Enrique", "Vanesa", "Federico", "Francisca", "Mario", "Ines",
+                "Simon", "Constanza", "Cesar", "Lorena", "Oscar", "Alicia", "Bruno", "Gabriela", "Eduardo", "Catalina",
+                "Nicolas", "Agustina", "Hector", "Antonella", "Tomas", "Clarisa", "Alvaro", "Diana", "Francisco", "Anais",
+                "Sebastian", "Bianca", "Daniel", "Florencia", "Maximiliano", "Pamela", "Marcos", "Luciana"};
+        Random rand = new Random();
+        int index1 = rand.nextInt(listaNombres.length);
+        firstName = listaNombres[index1];
+        String[] listaApellidos = {
+                "Gonzalez", "Rodríguez", "Gomez", "Fernandez", "Lopez", "Martinez", "Perez", "García", "Sanchez", "Romero",
+                "Torres", "Ramirez", "Hernandez", "Ruiz", "Jimenez", "Diaz", "Moreno", "Alvarez", "Munioz", "Gutierrez",
+                "Vargas", "Castanio", "Ortega", "Silva", "Nuniez", "Molina", "Castro", "Rojas", "Medina", "Cruz",
+                "Navarro", "Cabrera", "Vargas", "Mendoza", "Soto", "Guerrero", "Ortiz", "Delgado", "Rios", "Chavez",
+                "Mejia", "Vega", "Avila", "Acosta", "Miranda", "Fuentes", "Campos", "Correa", "Estrada", "Gallardo",
+                "Velasco", "Montoya", "Penia", "Rivas", "Quintero", "Barrera", "Penia", "Cortés", "Aguirre", "Blanco",
+                "Padilla", "Arroyo", "Ramos", "Salas", "Santos", "Arias", "Zamora", "Valencia", "Soler", "Peralta",
+                "Rocha", "Del Valle", "Salazar", "Esquivel", "Rubio", "Calderón", "Rosales", "Urbina", "Luna", "Escobar",
+                "Vera", "Orozco", "Villalobos", "Duarte", "Ochoa", "Zuniga", "Rangel", "Aranda", "Vidal", "Barajas",
+                "Saucedo", "Becerra", "Cervantes", "Velazquez", "Landa", "Gallardo", "Carranza", "Carrillo", "Lara", "Del Rio"
+        };
+        Random random = new Random();
+        int index2 = random.nextInt(listaApellidos.length);
+        lastName= listaApellidos[index2];
+        long timeStamp = Instant.now().toEpochMilli();
+        if(configuracionRegistroAvanzado==false) {
+            emailRegistro = firstName+lastName+timeStamp+"@mailinator.com";
+        }
+        System.out.println("\nSe creara el usuario: " +emailRegistro+ "\n");
+        printStream.println("\nSe creara el usuario: " +emailRegistro+ "\n");
         page.waitForSelector("text=Begin your Membership");
         page.click("text=Begin your Membership");
         page.fill("mat-card-content > div > div:nth-of-type(1) app-mat-form-field input",firstName);
@@ -338,50 +439,83 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         emailLogin=emailUserBookmark;
         login();
         page.waitForSelector("text=My workshops");
-        page.navigate("http://localhost:4200/content/workshops");
+        page.navigate("https://peppermint-development.web.app/content/workshops");
         for (contador=0; contador<ejecutar;contador++){
             int contadorInterno = contador+1;
             page.waitForSelector("app-all-cards .container > div:nth-of-type(2) app-three-dots button");
+            page.focus("app-all-cards .container > div:nth-of-type(2)");
+            do{
+                page.focus("app-all-cards .container > div:nth-of-type("+contadorInterno+")");
+                System.out.println("contador"+contadorInterno);
+                contadorInterno++;
+                System.out.println("contador"+contadorInterno);
+            }while(page.isVisible("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-bookmark-icon > div > mat-icon")==true);
             while (page.isVisible("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-three-dots button")==false){
                 kb.press("Control+End");
             }
+            page.waitForSelector("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-three-dots button");
             page.click("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-three-dots button");
+            page.waitForSelector(".mat-menu-panel button:nth-of-type(1)");
             page.click(".mat-menu-panel button:nth-of-type(1)");
             page.waitForSelector("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-bookmark-icon > div > mat-icon");
             Assertions.assertTrue(page.isVisible("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-bookmark-icon > div > mat-icon"));
         }
-        page.navigate("http://localhost:4200/content/articles");
+        page.navigate("https://peppermint-development.web.app/content/articles");
         for (contador=0; contador<ejecutar;contador++){
             int contadorInterno = contador+1;
             page.waitForSelector("app-all-cards .container > div:nth-of-type(2) app-three-dots button");
+            page.focus("app-all-cards .container > div:nth-of-type(2)");
+            do{
+                page.focus("app-all-cards .container > div:nth-of-type("+contadorInterno+")");
+                System.out.println("contador"+contadorInterno);
+                contadorInterno++;
+            }while(page.isVisible("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-bookmark-icon > div > mat-icon")==true);
             while (page.isVisible("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-three-dots button")==false){
                 kb.press("Control+End");
             }
+            page.waitForSelector("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-three-dots button");
             page.click("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-three-dots button");
+            page.waitForSelector(".mat-menu-panel button:nth-of-type(1)");
             page.click(".mat-menu-panel button:nth-of-type(1)");
             page.waitForSelector("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-bookmark-icon > div > mat-icon");
             Assertions.assertTrue(page.isVisible("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-bookmark-icon > div > mat-icon"));
         }
-        page.navigate("http://localhost:4200/content/techniques");
+        page.navigate("https://peppermint-development.web.app/content/videos");
         for (contador=0; contador <ejecutar;contador++){
             int contadorInterno = contador+1;
             page.waitForSelector("app-all-cards .container > div:nth-of-type(2) app-three-dots button");
+            page.focus("app-all-cards .container > div:nth-of-type(2)");
+            do{
+                page.focus("app-all-cards .container > div:nth-of-type("+contadorInterno+")");
+                System.out.println("contador"+contadorInterno);
+                contadorInterno++;
+            }while(page.isVisible("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-bookmark-icon > div > mat-icon")==true);
             while (page.isVisible("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-three-dots button")==false){
                 kb.press("Control+End");
             }
+            page.waitForSelector("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-three-dots button");
             page.click("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-three-dots button");
+            page.waitForSelector(".mat-menu-panel button:nth-of-type(1)");
             page.click(".mat-menu-panel button:nth-of-type(1)");
             page.waitForSelector("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-bookmark-icon > div > mat-icon");
             Assertions.assertTrue(page.isVisible("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-bookmark-icon > div > mat-icon"));
         }
-        page.navigate("http://localhost:4200/content/clubs");
+        page.navigate("https://peppermint-development.web.app/content/clubs");
         for (contador=0; contador <ejecutar;contador++){
             int contadorInterno = contador+1;
             page.waitForSelector("app-all-cards .container > div:nth-of-type(2) app-three-dots button");
+            page.focus("app-all-cards .container > div:nth-of-type(2)");
+            do{
+                page.focus("app-all-cards .container > div:nth-of-type("+contadorInterno+")");
+                System.out.println("contador"+contadorInterno);
+                contadorInterno++;
+            }while(page.isVisible("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-bookmark-icon > div > mat-icon")==true);
             while (page.isVisible("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-three-dots button")==false){
                 kb.press("Control+End");
             }
+            page.waitForSelector("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-three-dots button");
             page.click("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-three-dots button");
+            page.waitForSelector(".mat-menu-panel button:nth-of-type(1)");
             page.click(".mat-menu-panel button:nth-of-type(1)");
             page.waitForSelector("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-bookmark-icon > div > mat-icon");
             Assertions.assertTrue(page.isVisible("app-all-cards .container > div:nth-of-type("+contadorInterno+") app-bookmark-icon > div > mat-icon"));
@@ -393,17 +527,18 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         if(page.isVisible("app-profile-description")==false){
             page.waitForSelector("text=My workshops");
         }
-        page.navigate("http://localhost:4200/user/friends");
-        page.waitForSelector(".main-container > div > div:nth-of-type(4) > div > div:nth-of-type("+contador+") mat-card");
-        page.click(".main-container > div > div:nth-of-type(4) > div > div:nth-of-type("+contador+") mat-card");
+        page.navigate("https://peppermint-development.web.app/user/friends");
+        page.waitForSelector(".main-container > div > div:nth-of-type(3) > div > div:nth-of-type("+contador+") mat-card");
+        page.click(".main-container > div > div:nth-of-type(3) > div > div:nth-of-type("+contador+") mat-card");
         page.waitForSelector("app-profile-description > div:nth-of-type(1) app-three-dots");
         page.click("app-profile-description > div:nth-of-type(1) app-three-dots");
         page.waitForSelector(".mat-menu-panel > div > button:nth-of-type(1)");
         page.waitForSelector(".mat-menu-panel > div > button:nth-of-type(2)");
         page.click(".mat-menu-panel > div > button:nth-of-type(1)");
         page.click("app-bookmark-invitation-popup > div > div:nth-of-type(5) app-mat-recommendation-chips");
+        userSendRecomendation="AAAAAAusuariorecomendacionpineapple";
         kb.insertText(userSendRecomendation);
-        page.waitForSelector(".cdk-overlay-connected-position-bounding-box .cdk-overlay-pane");
+        page.waitForSelector(".cdk-overlay-connected-position-bounding-box .cdk-overlay-pane mat-option:nth-of-type(1)");
         kb.press("ArrowDown");
         kb.press("Enter");
         page.waitForSelector("app-bookmark-invitation-popup > div > div:nth-of-type(5) app-mat-recommendation-chips mat-chip-list mat-chip");
@@ -412,13 +547,12 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
     }
     public void enviarRecomendacion(){
         Keyboard kb = page.keyboard();
-        emailLogin=emailRecomendationSending;
-        login();
+
         page.waitForSelector("text=My workshops");
         if(linkDeNavegacion=="https://peppermint-qa.web.app/"){
          page.navigate("https://peppermint-qa.web.app/content/workshops");
         }else {
-            page.navigate("http://localhost:4200/content/workshops");
+            page.navigate("https://peppermint-development.web.app/content/workshops");
         }
         for (contador=0; contador<ejecutar;contador++){
            int contadorInterno = contador+1;
@@ -443,7 +577,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         if(linkDeNavegacion=="https://peppermint-qa.web.app/"){
             page.navigate("https://peppermint-qa.web.app/content/articles");
         }else {
-            page.navigate("http://localhost:4200/content/articles");
+            page.navigate("https://peppermint-development.web.app/content/articles");
         }
         for (contador=0; contador<ejecutar;contador++){
             int contadorInterno = contador+1;
@@ -468,7 +602,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         if(linkDeNavegacion=="https://peppermint-qa.web.app/"){
             page.navigate("https://peppermint-qa.web.app/content/techniques");
         }else {
-            page.navigate("http://localhost:4200/content/techniques");
+            page.navigate("https://peppermint-development.web.app/content/techniques");
         }
         for (contador=0; contador <ejecutar;contador++){
             int contadorInterno = contador+1;
@@ -493,7 +627,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         if(linkDeNavegacion=="https://peppermint-qa.web.app/"){
             page.navigate("https://peppermint-qa.web.app/content/clubs");
         }else {
-            page.navigate("http://localhost:4200/content/clubs");
+            page.navigate("https://peppermint-development.web.app/content/clubs");
         }
         for (contador=0; contador <ejecutar;contador++){
             int contadorInterno = contador+1;
@@ -519,9 +653,39 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
     }
     public void enviarInviteGuest(){
         Keyboard kb = page.keyboard();
+        String[] listaNombres = {"Juan", "Maria", "Carlos", "Ana", "Luis", "Laura", "Pedro", "Sofia", "Diego", "Valentina",
+                "Jose", "Camila", "Miguel", "Isabella", "Fernando", "Lucia", "Alejandro", "Julia", "Ricardo", "Emma",
+                "Andrés", "Paula", "Esteban", "Martina", "Felipe", "Valeria", "Jorge", "Gabriela", "Gustavo", "Mariana",
+                "Raul", "Renata", "Sergio", "Jimena", "Ignacio", "Natalia", "Hugo", "Adriana", "Pablo", "Daniela",
+                "Angel", "Patricia", "Emilio", "Carmen", "Roberto", "Rosa", "Alberto", "Clara", "Benjamin", "Elena",
+                "Guillermo", "Mercedes", "Rafael", "Beatriz", "Samuel", "Silvia", "Victor", "Julieta", "Javier", "Carolina",
+                "Manuel", "Marina", "Rogelio", "Juana", "Enrique", "Vanesa", "Federico", "Francisca", "Mario", "Ines",
+                "Simon", "Constanza", "Cesar", "Lorena", "Oscar", "Alicia", "Bruno", "Gabriela", "Eduardo", "Catalina",
+                "Nicolas", "Agustina", "Hector", "Antonella", "Tomas", "Clarisa", "Alvaro", "Diana", "Francisco", "Anais",
+                "Sebastian", "Bianca", "Daniel", "Florencia", "Maximiliano", "Pamela", "Marcos", "Luciana"};
+        Random rand = new Random();
+        int index1 = rand.nextInt(listaNombres.length);
+        firstName = listaNombres[index1];
+        String[] listaApellidos = {
+                "Gonzalez", "Rodríguez", "Gomez", "Fernandez", "Lopez", "Martinez", "Perez", "García", "Sanchez", "Romero",
+                "Torres", "Ramirez", "Hernandez", "Ruiz", "Jimenez", "Diaz", "Moreno", "Alvarez", "Munioz", "Gutierrez",
+                "Vargas", "Castanio", "Ortega", "Silva", "Nuniez", "Molina", "Castro", "Rojas", "Medina", "Cruz",
+                "Navarro", "Cabrera", "Vargas", "Mendoza", "Soto", "Guerrero", "Ortiz", "Delgado", "Rios", "Chavez",
+                "Mejia", "Vega", "Avila", "Acosta", "Miranda", "Fuentes", "Campos", "Correa", "Estrada", "Gallardo",
+                "Velasco", "Montoya", "Penia", "Rivas", "Quintero", "Barrera", "Penia", "Cortés", "Aguirre", "Blanco",
+                "Padilla", "Arroyo", "Ramos", "Salas", "Santos", "Arias", "Zamora", "Valencia", "Soler", "Peralta",
+                "Rocha", "Del Valle", "Salazar", "Esquivel", "Rubio", "Calderón", "Rosales", "Urbina", "Luna", "Escobar",
+                "Vera", "Orozco", "Villalobos", "Duarte", "Ochoa", "Zuniga", "Rangel", "Aranda", "Vidal", "Barajas",
+                "Saucedo", "Becerra", "Cervantes", "Velazquez", "Landa", "Gallardo", "Carranza", "Carrillo", "Lara", "Del Rio"
+        };
+        Random random = new Random();
+        int index2 = random.nextInt(listaApellidos.length);
+        lastName= listaApellidos[index2];
         long timeStamp = Instant.now().toEpochMilli();
-        inviteGuest="inviteguest";
-        inviteGuestEmail ="inviteguest"+contador+timeStamp+"@mailinator.com";
+        if(configuracionRegistroAvanzado==false) {
+            inviteGuestEmail  = firstName+lastName+"_inviteGuest"+contador+"_"+timeStamp+"@mailinator.com";
+        }
+
         page.click("text=My Stuff");
         page.click("text=Account Settings");
         page.click("text=Membership");
@@ -533,28 +697,60 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         page.waitForSelector("app-guest-invite mat-card mat-card-content:nth-of-type(2)>div>div:nth-of-type(2)>div:nth-of-type(1) app-mat-form-field:nth-of-type(2) input");
         page.waitForSelector("app-guest-invite mat-card mat-card-content:nth-of-type(2)>div>div:nth-of-type(2)>div:nth-of-type(2) input");
         page.focus("app-guest-invite mat-card mat-card-content:nth-of-type(2)>div>div:nth-of-type(1)>div:nth-of-type(2) input");
-        kb.insertText(inviteGuest);
+        kb.insertText("inviteGuest");
         page.focus("app-guest-invite mat-card mat-card-content:nth-of-type(2)>div>div:nth-of-type(2)>div:nth-of-type(1) app-mat-form-field:nth-of-type(1) input");
-        kb.insertText(inviteGuest);
+        kb.insertText(firstName);
         page.focus("app-guest-invite mat-card mat-card-content:nth-of-type(2)>div>div:nth-of-type(2)>div:nth-of-type(1) app-mat-form-field:nth-of-type(2) input");
-        kb.type(inviteGuest);
+        kb.type(lastName);
         page.focus("app-guest-invite mat-card mat-card-content:nth-of-type(2)>div>div:nth-of-type(2)>div:nth-of-type(2) input");
         kb.insertText(inviteGuestEmail);
+        kb.press("Tab");
         guardarEmails();
         if(ejecutar>1){
             for(contador =1;contador<ejecutar;contador++) {
+                String[] listaNombresLoop = {"Juan", "Maria", "Carlos", "Ana", "Luis", "Laura", "Pedro", "Sofia", "Diego", "Valentina",
+                        "Jose", "Camila", "Miguel", "Isabella", "Fernando", "Lucia", "Alejandro", "Julia", "Ricardo", "Emma",
+                        "Andrés", "Paula", "Esteban", "Martina", "Felipe", "Valeria", "Jorge", "Gabriela", "Gustavo", "Mariana",
+                        "Raul", "Renata", "Sergio", "Jimena", "Ignacio", "Natalia", "Hugo", "Adriana", "Pablo", "Daniela",
+                        "Angel", "Patricia", "Emilio", "Carmen", "Roberto", "Rosa", "Alberto", "Clara", "Benjamin", "Elena",
+                        "Guillermo", "Mercedes", "Rafael", "Beatriz", "Samuel", "Silvia", "Victor", "Julieta", "Javier", "Carolina",
+                        "Manuel", "Marina", "Rogelio", "Juana", "Enrique", "Vanesa", "Federico", "Francisca", "Mario", "Ines",
+                        "Simon", "Constanza", "Cesar", "Lorena", "Oscar", "Alicia", "Bruno", "Gabriela", "Eduardo", "Catalina",
+                        "Nicolas", "Agustina", "Hector", "Antonella", "Tomas", "Clarisa", "Alvaro", "Diana", "Francisco", "Anais",
+                        "Sebastian", "Bianca", "Daniel", "Florencia", "Maximiliano", "Pamela", "Marcos", "Luciana"};
+                Random randLoop = new Random();
+                int index1Loop = randLoop.nextInt(listaNombresLoop.length);
+                firstName = listaNombres[index1Loop];
+                String[] listaApellidosLoop = {
+                        "Gonzalez", "Rodríguez", "Gomez", "Fernandez", "Lopez", "Martinez", "Perez", "García", "Sanchez", "Romero",
+                        "Torres", "Ramirez", "Hernandez", "Ruiz", "Jimenez", "Diaz", "Moreno", "Alvarez", "Munioz", "Gutierrez",
+                        "Vargas", "Castanio", "Ortega", "Silva", "Nuniez", "Molina", "Castro", "Rojas", "Medina", "Cruz",
+                        "Navarro", "Cabrera", "Vargas", "Mendoza", "Soto", "Guerrero", "Ortiz", "Delgado", "Rios", "Chavez",
+                        "Mejia", "Vega", "Avila", "Acosta", "Miranda", "Fuentes", "Campos", "Correa", "Estrada", "Gallardo",
+                        "Velasco", "Montoya", "Penia", "Rivas", "Quintero", "Barrera", "Penia", "Cortés", "Aguirre", "Blanco",
+                        "Padilla", "Arroyo", "Ramos", "Salas", "Santos", "Arias", "Zamora", "Valencia", "Soler", "Peralta",
+                        "Rocha", "Del Valle", "Salazar", "Esquivel", "Rubio", "Calderón", "Rosales", "Urbina", "Luna", "Escobar",
+                        "Vera", "Orozco", "Villalobos", "Duarte", "Ochoa", "Zuniga", "Rangel", "Aranda", "Vidal", "Barajas",
+                        "Saucedo", "Becerra", "Cervantes", "Velazquez", "Landa", "Gallardo", "Carranza", "Carrillo", "Lara", "Del Rio"
+                };
+                Random randomLoop = new Random();
+                int index2Loop = randomLoop.nextInt(listaApellidosLoop.length);
+                lastName= listaApellidos[index2Loop];
                 long timeStampLoop = Instant.now().toEpochMilli();
-                inviteGuestEmailLoop ="inviteguest"+contador+timeStampLoop+"@mailinator.com";
+                if(configuracionRegistroAvanzado==false) {
+                    inviteGuestEmailLoop  = firstName+lastName+"_inviteGuest"+contador+"_"+timeStampLoop+"@mailinator.com";
+                }
                 posicion=contador+1;
                 page.click("text=Add another");
                 page.focus("app-guest-invite mat-card mat-card-content:nth-of-type(2)>div:nth-of-type("+posicion+")>div:nth-of-type(1)>div:nth-of-type(2) input");
-                kb.insertText(inviteGuest);
+                kb.insertText("inviteguest");
                 page.focus("app-guest-invite mat-card mat-card-content:nth-of-type(2)>div:nth-of-type("+posicion+")>div:nth-of-type(2)>div:nth-of-type(1) app-mat-form-field:nth-of-type(1) input");
-                kb.insertText(inviteGuest);
+                kb.insertText(firstName);
                 page.focus("app-guest-invite mat-card mat-card-content:nth-of-type(2)>div:nth-of-type("+posicion+")>div:nth-of-type(2)>div:nth-of-type(1) app-mat-form-field:nth-of-type(2) input");
-                kb.insertText(inviteGuest);
+                kb.insertText(lastName);
                 page.focus("app-guest-invite mat-card mat-card-content:nth-of-type(2)>div:nth-of-type("+posicion+")>div:nth-of-type(2)>div:nth-of-type(2) input");
                 kb.insertText(inviteGuestEmailLoop);
+                kb.press("Tab");
                 guardarEmailsDelLoop();
             }
         }
@@ -567,6 +763,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
     }
     public void registrarInviteGuest(){
         Keyboard kb = page.keyboard();
+
         inviteGuest = "invite guest";
         page.navigate("https://www.mailinator.com/v4/public/inboxes.jsp");
         page.waitForSelector("#inbox_field");
@@ -588,11 +785,14 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         System.out.println("Registrando invite guest...");
         printStream.println("Registrando invite guest...");
         nuevaPestana.click("mat-card-content > mat-form-field mat-datepicker-toggle button");
-        if(nuevaPestana.isEnabled("mat-calendar tbody tr:nth-of-type(2) td:nth-of-type(1)")==false){
-            nuevaPestana.click("mat-calendar tbody tr:nth-of-type(1) td:nth-of-type(2)");
-        }else{
-            nuevaPestana.click("mat-calendar tbody tr:nth-of-type(2) td:nth-of-type(1)");
-        }
+        nuevaPestana.click("mat-calendar mat-calendar-header > div > div > button:nth-of-type(1)");
+        nuevaPestana.click("mat-calendar mat-calendar-header > div > div > button:nth-of-type(2)");
+        nuevaPestana.waitForSelector("mat-calendar tbody > tr:last-child > td:nth-of-type(2)");
+        nuevaPestana.click("mat-calendar tbody > tr:last-child > td:nth-of-type(2)");
+        nuevaPestana.waitForSelector("mat-calendar tbody > tr:nth-of-type(2) > td:first-child");
+        nuevaPestana.click("mat-calendar tbody > tr:nth-of-type(2) > td:first-child");
+        nuevaPestana.waitForSelector("mat-calendar tbody > tr:first-child > td:nth-of-type(4)");
+        nuevaPestana.click("mat-calendar tbody > tr:first-child > td:nth-of-type(4)");
         nuevaPestana.fill("mat-card-content > app-mat-form-field:nth-of-type(2) input","123123aA");
         nuevaPestana.waitForTimeout(999);
         nuevaPestana.click("text=Sign up with email");
@@ -661,7 +861,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         System.out.println("Creando Segment...");
         printStream.println("Creando Segment...");
         Keyboard kb = page.keyboard();
-        if( (page.isVisible("tapp-mat-table > div:nth-of-type(1) div button:nth-of-type(1)"))==false) {
+        if( (page.isVisible("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)"))==false) {
             page.click("text=My Stuff");
             page.click("text=Contact Us");
             page.click("text=My Stuff");
@@ -751,9 +951,9 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         page.click("text=Publish");
         page.click(".mat-dialog-container div:nth-of-type(2) button");
         page.waitForSelector("text=The lesson was created successfully");
-        Assertions.assertTrue(page.isVisible("text=Segments added successfully"));
+        Assertions.assertTrue(page.isVisible("text=The lesson was created successfully"));
     }
-    public void crearWorkshop(){
+    public void crearWorkshop() {
         System.out.println("Creando Workshop...");
         printStream.println("Creando Workshop...");
         Keyboard kb = page.keyboard();
@@ -765,6 +965,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         }
         page.click("a:nth-of-type(5)");
         page.click("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)");
+        page.waitForSelector(".ng-star-inserted app-course-form > form > div > div:nth-of-type(2) > div:nth-of-type(1) > app-generic-selects .heigth-selects:nth-of-type(1) mat-form-field");
         page.locator(".ng-star-inserted app-upload-image input[type=file]").setInputFiles(Paths.get(pathImage));
         page.click(".ma-auto button");
         page.locator("//*[@id=\"video-file\"]").setInputFiles(Paths.get(pathVideo));
@@ -779,8 +980,17 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         //page.click(".ng-star-inserted app-generic-selects > div > div > p");
         page.click(".ng-star-inserted app-course-form > form > div > div:nth-of-type(2) > div:nth-of-type(1) > app-generic-selects .heigth-selects:nth-of-type(1) mat-form-field");
         page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type(" + categoryWorkshop + ")");
-        //page.click(".ng-star-inserted form > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) app-generic-selects .heigth-selects:nth-of-type(2) mat-form-field");
-        //page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type("+topicWorkshop+")");
+        page.click(".ng-star-inserted app-course-form > form > div > div:nth-of-type(2) > div:nth-of-type(1) > app-generic-selects .heigth-selects:nth-of-type(2) mat-form-field");
+        page.waitForTimeout(100);
+        while (true) {
+            try {
+                page.waitForSelector(".cdk-overlay-container > div > div");
+                Assertions.assertTrue(page.isVisible(".cdk-overlay-container > div > div"));
+                break;
+            } catch (PlaywrightException e) {
+            }
+        }
+        page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type(" + topicWorkshop + ")");
         page.click(".ng-star-inserted app-course-form > form > div > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) quill-editor > div:nth-of-type(2)");
         kb.insertText(targetAudienceWorkshop);
         page.click(".ng-star-inserted app-course-form > form > div > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) quill-editor > div:nth-of-type(2)");
@@ -789,8 +999,6 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         kb.insertText(whatDoYouNeed);
         page.click(".ng-star-inserted app-course-form > form > div > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(4) quill-editor > div:nth-of-type(2)");
         kb.insertText(howItWorks);
-        page.click(".ng-star-inserted app-course-form > form > div > div:nth-of-type(2) > div:nth-of-type(1) > app-generic-selects .heigth-selects:nth-of-type(2) mat-form-field");
-        page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type(" + topicWorkshop + ")");
         page.click(".ng-star-inserted app-course-form > form > div > div:nth-of-type(3) > div:nth-of-type(2) > mat-form-field:nth-of-type(1)");
         page.click(".cdk-overlay-container mat-option:nth-of-type(" + purposeWorkshop + ")");
         page.click(".ng-star-inserted app-course-form > form > div > div:nth-of-type(3) > div:nth-of-type(2) > mat-form-field:nth-of-type(2)");
@@ -798,6 +1006,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         page.click(".ng-star-inserted app-course-form > form > div > div:nth-of-type(3) > div:nth-of-type(2) > mat-form-field:nth-of-type(3)");
         page.click(".cdk-overlay-container mat-option:nth-of-type(" + physicalActvityWorkshop + ")");
         page.click("app-admin-top-bar > div button:nth-of-type(2)");
+        page.waitForSelector("app-breadcrumb > ul > li:nth-of-type(3)");
         page.click("form > div:nth-of-type(1) > div:nth-of-type(1) button");
         page.click("form > div:nth-of-type(1) > div:nth-of-type(2) button");
         page.click("form > div:nth-of-type(2) > div:nth-of-type(1) button");
@@ -866,7 +1075,12 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         page.click("app-course-type-form >div>div>div>div mat-checkbox:nth-of-type(2)");
         page.click("app-course-type-form >div>div>div>div mat-checkbox:nth-of-type(3)");
         page.click("app-course-type-form >div>div>div>div:nth-of-type(2)  mat-expansion-panel > div > div .expansion-body > div:nth-of-type(1) > div:nth-of-type(1) mat-form-field");
-        page.click("mat-calendar tbody tr:last-child td:last-child");
+        if (page.isEnabled("mat-calendar tbody tr:last-child td:nth-last-child(2)")) {
+            page.click("mat-calendar tbody tr:last-child td:last-child");
+        } else if (page.isDisabled("mat-calendar tbody tr:last-child td:nth-last-child(2)")) {
+            page.click("mat-calendar > mat-calendar-header > div > div > button:nth-of-type(3)");
+            page.click("mat-calendar tbody tr:last-child td:last-child");
+        }
         page.click("app-course-type-form >div>div>div>div:nth-of-type(2)  mat-expansion-panel > div > div .expansion-body > div:nth-of-type(1) > div:nth-of-type(2) mat-form-field");
         page.click(".cdk-overlay-pane mat-option:nth-of-type(" + instructorSoloWithInstructor + ")");
         page.click("app-course-type-form >div>div>div>div:nth-of-type(2)  mat-expansion-panel > div > div .expansion-body > div:nth-of-type(2) .mat-checkbox-layout ");
@@ -875,7 +1089,12 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         kb.press("ArrowDown");
         kb.press("Enter");
         page.click("app-course-type-form >div>div>div>div:nth-of-type(3)  mat-expansion-panel > div > div .expansion-body > div:nth-of-type(1) .padding > div > div:nth-of-type(1) > div:nth-of-type(1) mat-form-field");
-        page.click("mat-calendar tbody tr:last-child td:last-child");
+        if (page.isEnabled("mat-calendar tbody tr:last-child td:nth-last-child(2)")) {
+            page.click("mat-calendar tbody tr:last-child td:last-child");
+        } else if (page.isDisabled("mat-calendar tbody tr:last-child td:nth-last-child(2)")) {
+            page.click("mat-calendar > mat-calendar-header > div > div > button:nth-of-type(3)");
+            page.click("mat-calendar tbody tr:last-child td:last-child");
+        }
         page.click("app-course-type-form >div>div>div>div:nth-of-type(3)  mat-expansion-panel > div > div > div > div > div > div > div > div:nth-of-type(1) > div:nth-of-type(2) mat-form-field");
         page.click(".cdk-overlay-pane mat-option:nth-of-type(" + instructorGroupWithInstructor + ")");
         page.click("app-course-type-form >div>div>div>div:nth-of-type(3)  mat-expansion-panel > div > div > div > div > div > div > div > div:nth-of-type(2) .mat-checkbox-layout");
@@ -888,7 +1107,12 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         page.click("app-course-type-form >div>div>div>div:nth-of-type(3)  mat-expansion-panel > div > div .expansion-body > div:nth-of-type(1) .padding > div > div:nth-of-type(3) > div:nth-of-type(2) mat-form-field input");
         kb.insertText(optimalBuddyGroupGroupWithInstructor);
         page.click("app-course-type-form >div>div>div>div:nth-of-type(4)  mat-expansion-panel > div > div .expansion-body > div:nth-of-type(1) .padding > div > .ng-star-inserted > div:nth-of-type(1) > div:nth-of-type(1) mat-form-field");
-        page.click("mat-calendar tbody tr:last-child td:last-child");
+        if (page.isEnabled("mat-calendar tbody tr:last-child td:nth-last-child(2)")) {
+            page.click("mat-calendar tbody tr:last-child td:last-child");
+        } else if (page.isDisabled("mat-calendar tbody tr:last-child td:nth-last-child(2)")) {
+            page.click("mat-calendar > mat-calendar-header > div > div > button:nth-of-type(3)");
+            page.click("mat-calendar tbody tr:last-child td:last-child");
+        }
         page.click("app-course-type-form >div>div>div>div:nth-of-type(4)  mat-expansion-panel > div > div .expansion-body > div:nth-of-type(1) .padding > div > .ng-star-inserted > div:nth-of-type(1) > div:nth-of-type(2) input");
         kb.insertText(maxStudentsGroup);
         page.click("app-course-type-form >div>div>div>div:nth-of-type(4)  mat-expansion-panel > div > div .expansion-body > div:nth-of-type(1) .padding > div > .ng-star-inserted > div:nth-of-type(2)  input");
@@ -898,6 +1122,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         page.waitForSelector("text=The workshop was created successfully");
         Assertions.assertTrue(page.isVisible("text=The workshop was created successfully"));
         }
+
     public void enrollWorkshop(){
         Elements elements1;
         Elements elements2;
@@ -911,14 +1136,22 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         }
         expected var = expected.valueOf(enrollModality);
         page.waitForSelector("text=My workshops");
-        page.navigate("http://localhost:4200/content/workshops");//ESTO ES UNA CHANCHADA HAY QUE REFACTORIZARLO
-        page.waitForTimeout(9000);
-        page.waitForSelector("app-all-cards .container > div:nth-of-type(2)");
+        assertionsHeader();
+        assertionsDashboard();
+        assertionsPopupsDashboard();
+        if(linkDeNavegacion == "https://peppermint-development.web.app/user/plans/") {
+            page.navigate("https://peppermint-development.web.app/workshops");
+        } else if(linkDeNavegacion=="https://peppermint-qa.web.app/user/plans/"){
+            page.navigate("https://peppermint-qa.web.app/content/workshops");
+        }
+        assertionsAllWorkshop();
         page.click("app-all-cards .container > div:nth-of-type(2)");
         System.out.println("Enrolando usuario");
         printStream.println("Enrolando usuario");
+        assertionsInsideWorkshop();
         page.click("app-overview-tab-view > div > div:nth-of-type(2) > div:nth-of-type(1) > div > mat-card > div > button");
         page.waitForSelector("mat-card > div:nth-of-type(2) > .div-ledby");
+        assertionsPopUpModalitysPaso1();
         String innerHTML= page.innerHTML(".mat-horizontal-content-container");
         page.waitForTimeout(2000);
         Document doc = Jsoup.parse(innerHTML);
@@ -961,6 +1194,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
                 break;
         }
         page.click("mat-stepper > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3)> button:nth-of-type(2)");
+        assertionsPopUpModalitysPaso2();
         page.click("app-guest-invite > div > div:nth-of-type(2) p");
         System.out.println("Enroll realizado con exito\n");
         printStream.println("Enroll realizado con exito\n");
@@ -1020,7 +1254,13 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         Keyboard kb = page.keyboard();
         emailLogin=emailUserEnrollMultiplesWorkshops;
         login();
-        page.navigate("http://localhost:4200/content/workshops");
+        if(linkDeNavegacion=="http://localhost:4200/user/plans"){
+            page.navigate("http://localhost:4200/content/workshops");
+        } else if (linkDeNavegacion=="https://peppermint-development.web.app/user/plans/") {
+            page.navigate("https://peppermint-development.web.app/content/workshops");
+        } else if (linkDeNavegacion=="https://peppermint-qa.web.app/user/plans/") {
+            page.navigate("https://peppermint-qa.web.app/content/workshops");
+        }
         for (contador=0; contador <ejecutar;contador++){
             int contadorInterno = contador+2;
             page.waitForSelector("app-all-cards .container > div:nth-of-type(2) app-three-dots button");
@@ -1028,8 +1268,8 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
                 kb.press("Control+End");
             }
             page.click("app-all-cards .container > div:nth-of-type("+contadorInterno+")");
-            page.waitForSelector(".bg-primary-contrast div:nth-of-type(2) > div > mat-card > div > button");
-            page.click(".bg-primary-contrast div:nth-of-type(2) > div > mat-card > div > button");
+            page.waitForSelector("app-overview-tab-view > div > div:nth-of-type(2) > div:nth-of-type(1) > div > mat-card > div > button");
+            page.click("app-overview-tab-view > div > div:nth-of-type(2) > div:nth-of-type(1) > div > mat-card > div > button");
             page.waitForSelector(".mat-horizontal-content-container mat-radio-group:nth-of-type(1) mat-radio-button");
             if(page.isVisible(".mat-horizontal-content-container mat-radio-group:nth-of-type(2) mat-radio-button")==true){
                 page.click(".mat-horizontal-content-container mat-radio-group:nth-of-type(2) mat-radio-button");
@@ -1091,6 +1331,10 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         page.click("text=Add title");
         page.click("text=Add image");
         page.click("text=Add video");
+        page.waitForSelector("mat-list > div:nth-of-type(1)");
+        page.waitForSelector("mat-list > div:nth-of-type(2)");
+        page.waitForSelector("mat-list > div:nth-of-type(3)");
+        page.waitForSelector("mat-list > div:nth-of-type(4)");
         page.click("app-drag-drop-sorting mat-list > div:nth-of-type(1) quill-editor > div:nth-of-type(2)");
         page.waitForTimeout(500);
         kb.insertText(textContent);
@@ -1134,12 +1378,25 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         page.click("app-events-form > div > div > div:nth-of-type(2) mat-chip-list input");
         page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type("+clubEvent+")");
         page.click("app-events-form > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) button");
-        page.click(".mat-calendar-content tbody > tr:last-child > td:last-child");
-        page.click("ngx-mat-timepicker tbody tr:nth-of-type(3) td:first-child button");
-        page.click("ngx-mat-datetime-content div:nth-of-type(2) button");
+        if(page.isEnabled(".mat-calendar-content tbody > tr:last-child > td:nth-last-child(2)")){
+            page.click(".mat-calendar-content tbody > tr:last-child > td:last-child");
+            page.click("ngx-mat-timepicker tbody tr:nth-of-type(3) td:first-child button");
+            page.click("ngx-mat-datetime-content div:nth-of-type(2) button");
+        }else if(page.isDisabled(".mat-calendar-content tbody > tr:last-child > td:nth-last-child(2)")){
+            page.click("ngx-mat-calendar > ngx-mat-calendar-header > div > div > button:nth-of-type(3)");
+            page.click(".mat-calendar-content tbody > tr:last-child > td:last-child");
+            page.click("ngx-mat-timepicker tbody tr:nth-of-type(3) td:first-child button");
+            page.click("ngx-mat-datetime-content div:nth-of-type(2) button");
+        }
         page.click("app-events-form > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) button");
-        page.click(".mat-calendar-content tbody > tr:last-child > td:last-child");
-        page.click("ngx-mat-datetime-content div:nth-of-type(2) button");
+        if(page.isEnabled(".mat-calendar-content tbody > tr:last-child > td:nth-last-child(2)")){
+            page.click(".mat-calendar-content tbody > tr:last-child > td:last-child");
+            page.click("ngx-mat-datetime-content div:nth-of-type(2) button");
+        }else if(page.isDisabled(".mat-calendar-content tbody > tr:last-child > td:nth-last-child(2)")){
+            page.click("ngx-mat-calendar > ngx-mat-calendar-header > div > div > button:nth-of-type(3)");
+            page.click(".mat-calendar-content tbody > tr:last-child > td:last-child");
+            page.click("ngx-mat-datetime-content div:nth-of-type(2) button");
+        }
         page.click("app-events-form > div > div > .btn-radius-secondary > div:nth-of-type(2) > div:nth-of-type(3) > mat-form-field");
         kb.press("ArrowDown");
         kb.press("Enter");
@@ -1209,12 +1466,12 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         Assertions.assertTrue(page.isVisible("text=The tag was created successfully"));
     }
     public void joinClub(){
-        page.waitForSelector("text=My workshops");
+        page.waitForTimeout(2000);
         if(page.isVisible("app-text-editor")==true) {
             page.waitForSelector("app-text-editor");
         }
         if(page.isVisible("text=My workshops")==true) {
-            page.navigate("http://localhost:4200/content/clubs");
+            page.navigate("https://peppermint-development.web.app/content/clubs");
             page.waitForSelector("app-all-cards .container > div:nth-of-type(1)");
             page.click("app-all-cards .container > div:nth-of-type(1)");
         }
@@ -1232,7 +1489,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         Keyboard kb = page.keyboard();
         emailLogin=emailUserUnirMultiplesClub;
         login();
-        page.navigate("http://localhost:4200/content/clubs");
+        page.navigate("https://peppermint-development.web.app/content/clubs");
         for (contador=0; contador <ejecutar;contador++){
             int contadorInterno = contador+1;
             page.waitForSelector("app-all-cards .container > div:nth-of-type(2) app-three-dots button");
@@ -1251,13 +1508,14 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
     public void crearPostClub(){
         Keyboard kb = page.keyboard();
         long timeStamp = Instant.now().toEpochMilli();
+        page.waitForTimeout(6000);
         page.waitForSelector("app-text-editor");
         if(page.isVisible("text=My workshops")==true) {
-            page.navigate("http://localhost:4200/content/clubs");
+            page.navigate("https://peppermint-development.web.app/content/clubs");
             page.waitForSelector("app-all-cards .container > div:nth-of-type(1)");
             page.click("app-all-cards .container > div:nth-of-type(1)");
         }
-        page.waitForSelector("app-club-details > div > div > div:nth-of-type(1) > div > div > div:nth-of-type(3) > button");
+        page.waitForSelector("app-club-details > div > div > div:nth-of-type(1) > div > div > div:nth-of-type(1)");
         if(page.isVisible("app-text-editor")==false){
             joinClub();
         }
@@ -1265,7 +1523,7 @@ public class robotBasePeppermint extends consultasSQLCasosFallidos {
         printStream.println("\nCreando post\n");
         page.focus("app-text-editor textarea");
         kb.insertText(timeStamp + "   :   " + textoParaPublicaciones);
-        page.click("app-text-editor button:nth-of-type(4)");
+        page.click("app-text-editor > div > div > div:nth-of-type(2) > div > button");
     }
     public void crearClub(){
         System.out.println("Creando club...");

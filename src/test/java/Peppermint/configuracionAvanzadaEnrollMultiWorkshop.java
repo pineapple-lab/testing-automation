@@ -22,10 +22,11 @@ public class configuracionAvanzadaEnrollMultiWorkshop extends interfaceActions{
         gridPaneEnrolLMultiWorkshopAvanzado.add(labelEmailEnrollMultiWorkshopAvanzado,2,1);
         gridPaneEnrolLMultiWorkshopAvanzado.add(textFieldEmailEnrollMultiWorkshopAvanzado,2,2);
         gridPaneEnrolLMultiWorkshopAvanzado.add(buttonEjecutarEnrollMultiWorkshopAvanzado,5,5);
+        buttonEjecutarEnrollMultiWorkshopAvanzado.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         tabEnrollMultiWorkshopAvanzado.setContent(gridPaneEnrolLMultiWorkshopAvanzado);
         tabPane.getTabs().addAll(tabEnrollMultiWorkshopAvanzado);
         rootConfigAvanzada.getChildren().add(tabPane);
-        Scene sceneConfigAvanzada = new Scene(rootConfigAvanzada,450,350);
+        Scene sceneConfigAvanzada = new Scene(rootConfigAvanzada,270,170);
         stageEnrollMultiWorkshopAvanzado.setScene(sceneConfigAvanzada);
         buttonEjecutarEnrollMultiWorkshopAvanzado.setOnAction(e->{
             Thread ejecutar=  new Thread (()->{

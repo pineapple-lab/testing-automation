@@ -39,8 +39,7 @@ public class casosDePruebaClubManagment extends robotBasePeppermint{
         closeContext();
     }
     public void validarPostClub(){
-        emailLogin="pineappleuser1683896595768@mailinator.com";
-        login();
+
         for (contador = 1; contador <= ejecutar; contador++) {
             if (!shouldStopTest) {
                 crearPostClub();

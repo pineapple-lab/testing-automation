@@ -11,7 +11,6 @@ public class casosDePruebaRegistro extends robotBasePeppermint{
                     }
                     iniciarNavegacion();
                     registrarUsuario();
-                    guardarUsuario();
                     logout();
                     System.out.println("El usuario se ha creado con exito\n");
                     printStream.println("El usuario se ha creado con exito\n");

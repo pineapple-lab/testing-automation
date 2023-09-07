@@ -8,8 +8,7 @@ import insumosPeppermint.robotBasePeppermint;
 import insumosPeppermint.variablesPeppermint;
 import java.io.*;
 
-import static insumosPeppermint.variablesPeppermint.emailUserUnirMultiplesClub;
-import static insumosPeppermint.variablesPeppermint.printStream;
+import static insumosPeppermint.variablesPeppermint.*;
 
 public class botCREATOR extends interfaceActions{
 
@@ -37,9 +36,11 @@ public class botCREATOR extends interfaceActions{
          comboBox.setOnAction(e->{
              seleccion = comboBox.getValue();
              if (seleccion.equals("DEV")) {
-                 variablesPeppermint.linkDeNavegacion="http://localhost:4200/";
+                 variablesPeppermint.linkDeNavegacion="https://peppermint-development.web.app/user/plans/";
              } else if (seleccion.equals("QA")) {
-                 variablesPeppermint.linkDeNavegacion="https://peppermint-qa.web.app/";
+                 variablesPeppermint.linkDeNavegacion="https://peppermint-qa.web.app/user/plans/";
+             }else if (seleccion.equals("Local")) {
+                 variablesPeppermint.linkDeNavegacion="http://localhost:4200/user/plans";
              }
          });
          deneterCasoDePrueba.setOnAction(event ->{
@@ -49,6 +50,13 @@ public class botCREATOR extends interfaceActions{
          });
          removerDeLaCola.setOnAction(event ->{
              actionEliminarDeLaCola();
+         });
+         validarDominios.setOnAction(e->{
+             listaDeEspera.add(ExecMethod.ValidarDominio);
+             Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
+             CheckBox checkBox = new CheckBox("ValidarDominio");
+             checkBoxesMap.put(checkBox, elemento);
+             grid.add(checkBox, 0, listaDeEspera.size()-1);
          });
          crearWorkshop.setOnAction(e->{
              listaDeEspera.add(ExecMethod.CreateWorkshops);
@@ -208,8 +216,8 @@ public class botCREATOR extends interfaceActions{
              listaDeEspera.add(ExecMethod.EnviarRecomendaciones);
              Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
              CheckBox checkBox = new CheckBox("EnviarRecomendaciones");
-             variablesPeppermint.userSendRecomendation ="AAAAAusuariorecomendacionpineapple";
-             variablesPeppermint.emailRecomendationSending="pineAppleUser1683738718947@mailinator.com";
+             variablesPeppermint.userSendRecomendation ="AAAAAAusuariorecomendacionpineapple";
+             variablesPeppermint.emailRecomendationSending="pineappleuser1685718024380@mailinator.com";
              checkBoxesMap.put(checkBox, elemento);
              grid.add(checkBox, 0, listaDeEspera.size()-1);
          });
@@ -226,7 +234,7 @@ public class botCREATOR extends interfaceActions{
              listaDeEspera.add(ExecMethod.GuardarBookmark);
              Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
              CheckBox checkBox = new CheckBox("GuardarBookmark");
-             variablesPeppermint.emailUserBookmark="pineAppleUser1683738718947@mailinator.com";
+             variablesPeppermint.emailUserBookmark="pineappleuser1685718024380@mailinator.com";
              checkBoxesMap.put(checkBox, elemento);
              grid.add(checkBox, 0, listaDeEspera.size()-1);
          });
@@ -243,7 +251,7 @@ public class botCREATOR extends interfaceActions{
              listaDeEspera.add(ExecMethod.UnirMultiplesWorkshpos);
              Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
              CheckBox checkBox = new CheckBox("UnirMultiplesWorkshpos");
-             variablesPeppermint.emailUserEnrollMultiplesWorkshops = "pineAppleUser1683738718947@mailinator.com";
+             variablesPeppermint.emailUserEnrollMultiplesWorkshops = "pineappleuser1686586295370@mailinator.com";
              checkBoxesMap.put(checkBox, elemento);
              grid.add(checkBox, 0, listaDeEspera.size()-1);
          });
@@ -293,6 +301,9 @@ public class botCREATOR extends interfaceActions{
              CheckBox checkBox = new CheckBox("ResponderActivity");
              checkBoxesMap.put(checkBox, elemento);
              grid.add(checkBox, 0, listaDeEspera.size()-1);
+         });
+         ayuda.setOnAction(e->{
+             dialog.show();
          });
      }, "interfaceThread");
      if(interfaceThread.isAlive()) {
@@ -382,6 +393,9 @@ public class botCREATOR extends interfaceActions{
                     break;
                 case ResponderActivity:
                     actionResponderActivity();
+                    break;
+                case ValidarDominio:
+                    actionValidarDominios();
                     break;
             }
         }

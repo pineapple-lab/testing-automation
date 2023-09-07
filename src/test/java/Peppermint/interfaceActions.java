@@ -28,7 +28,8 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
         UnirMultiplesClubs,
         GuardarBookmark,
         EnviarActivity,
-        ResponderActivity
+        ResponderActivity,
+        ValidarDominio
     }
     public void actionCrearWorkshop() {
         try {
@@ -395,6 +396,22 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             CN.close();
             functionWorkshopUser test = new functionWorkshopUser();
             test.validacionResponderActivity();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    public void actionValidarDominios() {
+        try {
+            String url = "jdbc:mysql://localhost:3306/testbdpeppermint?serverTimezone=UTC";
+            String username = "root";
+            String password = "root";
+            Connection CN = DriverManager.getConnection(url, username, password);
+            String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = " + "'" + ejecuciones + "'";
+            Statement stmt = CN.createStatement();
+            stmt.executeUpdate(insertSql);
+            CN.close();
+            mailDominioValidation test = new mailDominioValidation();
+            test.validacionDominios();
         } catch (Exception ex) {
             ex.printStackTrace();
         }

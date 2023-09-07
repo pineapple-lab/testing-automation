@@ -22,10 +22,11 @@ public class configuracionAvanzadaBookmark extends interfaceActions {
         gridPaneConfiguracionAvanzadaBookmark.add(labelMultiBookmark,2,1);
         gridPaneConfiguracionAvanzadaBookmark.add(textFieldEmailMultiBookmark,2,2);
         gridPaneConfiguracionAvanzadaBookmark.add(buttonEjecutarMultiBookmark,5,5);
+        buttonEjecutarMultiBookmark.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         tabMultiBookmark.setContent(gridPaneConfiguracionAvanzadaBookmark);
         tabPane.getTabs().addAll(tabMultiBookmark);
         rootConfigAvanzada.getChildren().add(tabPane);
-        Scene configuracionAvanzada = new Scene(rootConfigAvanzada,450,350);
+        Scene configuracionAvanzada = new Scene(rootConfigAvanzada,265,170);
         stageConfigurcionAvanzadaBookmark.setScene(configuracionAvanzada);
         buttonEjecutarMultiBookmark.setOnAction(e->{
             Thread ejecutar=  new Thread (()->{

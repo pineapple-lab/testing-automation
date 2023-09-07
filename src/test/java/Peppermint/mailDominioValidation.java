@@ -1,18 +1,18 @@
 package Peppermint;
-import insumosPeppermint.casosDePruebaInviteGuest;
+
+import insumosPeppermint.casosDePruebaValidarDominios;
 import org.junit.jupiter.api.Test;
-public class funcionInviteGuest extends casosDePruebaInviteGuest {
+
+public class mailDominioValidation extends casosDePruebaValidarDominios {
     @Test
-    public void validacionCrearInviteGuest() {
+    public void validacionDominios(){
         iniciarContexto();
         serverStatus();
         System.out.println("Iniciando caso de prueba...");
         printStream.println("Iniciando caso de prueba...");
-        iniciarEjecucionArticle();
+        iniciarEjecucionTag();
         imprimirCantidadDeEjecuciones();
         iniciarNavegacion();
-        iniciarVariablesLogin();
-        login();
-        validarEnviarInviteGuest();
+        validarDominio();
     }
 }

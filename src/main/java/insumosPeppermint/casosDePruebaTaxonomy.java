@@ -1,6 +1,7 @@
 package insumosPeppermint;
 public class casosDePruebaTaxonomy extends robotBasePeppermint {
-    public void validarCrearTaxonomy(){for (contador = 1; contador <= ejecutar; contador++) {
+    public void validarCrearTaxonomy(){
+        for (contador = 1; contador <= ejecutar; contador++) {
         if (!shouldStopTest) {
             iniciarVariablesTaxonomy();
             System.out.println("\nSe creara la taxonomy: " + titleCategory + "\n");
@@ -25,5 +26,6 @@ public class casosDePruebaTaxonomy extends robotBasePeppermint {
             closeContext();
         }
     }
-        closeContext();}
+        closeContext();
+    }
 }

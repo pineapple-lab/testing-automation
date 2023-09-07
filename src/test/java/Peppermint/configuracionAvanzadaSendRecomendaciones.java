@@ -23,10 +23,11 @@ public class configuracionAvanzadaSendRecomendaciones extends interfaceActions{
         gridPaneEnviarRecomendaciones.add(checkBoxEditarEmisor, 1,2);
         gridPaneEnviarRecomendaciones.add(introducirEmisorRecomendaciones,3,2);
         gridPaneEnviarRecomendaciones.add(ejecutarSendRecomendations,8,5);
+        ejecutarSendRecomendations.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         tabSendRecommendationConfigAvanzada.setContent(gridPaneEnviarRecomendaciones);
         tabPane.getTabs().addAll(tabSendRecommendationConfigAvanzada);
         rootConfigAvanzada.getChildren().add(tabPane);
-        Scene configAvanzadaScene = new Scene(rootConfigAvanzada,400,300);
+        Scene configAvanzadaScene = new Scene(rootConfigAvanzada,370,170);
         configAvanzadaSendFriendsStage.setScene(configAvanzadaScene);
         introducirEmisorRecomendaciones.setVisible(false);
         checkBoxEditarEmisor.setOnAction(actionEvent -> {

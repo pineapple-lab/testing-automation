@@ -19,10 +19,11 @@ public class configuracionAvanzadaEnviarInviteGuest extends interfaceActions {
         gridPaneEnviarInviteGuest.add(labelEnviarInviteGuest, 1, 2);
         gridPaneEnviarInviteGuest.add(textFieldEmailInviteGuestAvanzado, 2, 2);
         gridPaneEnviarInviteGuest.add(ejecutarInviteGuestAvanzado, 5, 5);
+        ejecutarInviteGuestAvanzado.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         tabConfiguracionAvanzadaInviteGuest.setContent(gridPaneEnviarInviteGuest);
         tabPane.getTabs().addAll(tabConfiguracionAvanzadaInviteGuest);
         rootConfigAvanzada.getChildren().add(tabPane);
-        Scene configAvanzadaScene = new Scene(rootConfigAvanzada, 450, 350);
+        Scene configAvanzadaScene = new Scene(rootConfigAvanzada, 310, 150);
         stageConfigAvanzadaSendGuest.setScene(configAvanzadaScene);
         ejecutarInviteGuestAvanzado.setOnAction(e -> {
             Thread ejecutar = new Thread(() -> {

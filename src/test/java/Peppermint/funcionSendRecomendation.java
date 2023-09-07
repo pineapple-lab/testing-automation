@@ -12,7 +12,10 @@ public class funcionSendRecomendation extends casosDePruebaRecommendation {
         iniciarEjecucionArticle();
         imprimirCantidadDeEjecuciones();
         iniciarNavegacion();
+        emailLogin = emailRecomendationSending;
+        login();
         validarRecomendaciones();
+
     }
     public void validacionEnviarRecomendacionDeUsuario(){
         iniciarContexto();
@@ -22,7 +25,7 @@ public class funcionSendRecomendation extends casosDePruebaRecommendation {
         iniciarEjecucionArticle();
         imprimirCantidadDeEjecuciones();
         iniciarNavegacion();
-        emailLogin="pineappleuser1684762180394@mailinator.com";
+        emailLogin="pineappleuser1685718024380@mailinator.com";
         login();
         validarEnviarRecomendacionDeUsuario();
     }

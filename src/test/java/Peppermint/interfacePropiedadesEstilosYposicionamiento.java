@@ -1,5 +1,6 @@
 package Peppermint;
 import javafx.scene.Scene;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -36,11 +37,16 @@ public class interfacePropiedadesEstilosYposicionamiento extends interfaceElemen
         unirMultiplesWorkshop.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         unirMultiplesClub.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         recomendarUsuarios.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
+        validarDominios.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         buttonEjecutarEnviarActivity.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         buttonEjecutarResponderActivity.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         guardarBookmark.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         scrollPane.setStyle(" -fx-text-fill: #FFFFFF; -fx-control-inner-background:#000000;");
         comboBox.setStyle("-fx-background-color: #99D0C2;");
+        ayuda.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
+        guardarBookmark.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
+        cuadroDeAyudas.setEditable(false);
+        cuadroDeAyudas.setText(" INSTRUCCIONES BASICAS DE USO: \n 1-Seleccionar el ambiente en el campo 'seleccionar ambiente' \n 2-Introducir cantidad de ejecuciones en el campo 'ejecuciones' \n 3-Hacer click en una funcion o en varias, por ejemplo 'crear workshop' \n 4-Presionar 'ejecutar' \n\n EN CASO DE AGREGAR POR ERROR UNA FUNCION A LA COLA DE EJECUCION: \n 1-Click en el checkbox de la funcion \n 2-Click en remover de la cola \n\n COMO EJECUTAR LAS CONFIGURACIONES AVANZADAS \n 1-Seleccionar el ambiente \n 2-Introducir cantidad de ejecuciones \n 3-Hacer CLICK DERECHO sobre la funcion a ejecutar \n 4-En la ventana emergente introducir los datos deseados \n 5-Hacer click en el boton 'ejecutar' de la ventana emergente");
         //POSICIONAMIENTO
         GridPane.setConstraints(comboBox,2,1);
         GridPane.setConstraints(ejecucionestf,2,2);
@@ -69,7 +75,9 @@ public class interfacePropiedadesEstilosYposicionamiento extends interfaceElemen
         GridPane.setConstraints(unirMultiplesClub, 3, 11);
         GridPane.setConstraints(buttonEjecutarEnviarActivity, 3, 12);
         GridPane.setConstraints(buttonEjecutarResponderActivity, 3, 13);
+        GridPane.setConstraints(validarDominios, 4, 3);
         GridPane.setConstraints(scrollPane,1,15,7,15);
+        GridPane.setConstraints(ayuda,5,13);
         //AGREGAR ELEMENTOS
         grid.getChildren().add(comboBox);
         grid.getChildren().add(ejecucionestf);
@@ -97,10 +105,15 @@ public class interfacePropiedadesEstilosYposicionamiento extends interfaceElemen
         grid.getChildren().add(unirMultiplesWorkshop);
         grid.getChildren().add(buttonEjecutarEnviarActivity);
         grid.getChildren().add(buttonEjecutarResponderActivity);
+        grid.getChildren().add(validarDominios);
         grid.getChildren().add(recomendarUsuarios);
         grid.getChildren().add(scrollPane);
+        grid.getChildren().add(ayuda);
+        dialog.getDialogPane().setContent(cuadroDeAyudas);
+        dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK);
         comboBox.getItems().add("DEV");
         comboBox.getItems().add("QA");
+        comboBox.getItems().add("Local");
         comboBox.setValue("Elegir ambiente");
         Scene scene = new Scene (grid,490, 670);
         stage.setScene(scene);

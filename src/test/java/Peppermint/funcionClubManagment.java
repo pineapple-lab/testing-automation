@@ -32,6 +32,8 @@ public class funcionClubManagment extends casosDePruebaClubManagment {
         iniciarEjecucionClub();
         imprimirCantidadDeEjecuciones();
         iniciarNavegacion();
+        iniciarVariablesLogin();
+        login();
         validarPostClub();
     }
         public void validarMultipleClubJoin(){

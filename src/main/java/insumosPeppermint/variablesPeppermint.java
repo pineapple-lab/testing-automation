@@ -11,10 +11,10 @@ public class variablesPeppermint extends conexionSQLpeppermint{
     public String textoParaPublicaciones = "Lorem ipsum dolor sit amet consectetur adipiscing elit quisque taciti faucibus facilisis ac, vestibulum viverra venenatis gravida magnis varius fames tortor imperdiet id facilisi phasellus, mollis mi at urna aliquet donec pellentesque est quam volutpat lacinia. Fames leo egestas feugiat nunc lobortis facilisi vehicula cursus mattis, nullam viverra commodo habitasse litora luctus id massa ut hendrerit, quis etiam mus varius a libero velit enim. Urna ullamcorper nulla dui etiam luctus nascetur tincidunt risus aenean himenaeos, egestas vel volutpat leo torquent venenatis et convallis porta varius, pulvinar vestibulum turpis dis montes elementum vitae arcu mauris. Taciti mi erat molestie ridiculus malesuada eu leo habitasse nostra, est sagittis tellus vivamus scelerisque mus integer vel porttitor sed, suscipit donec urna fames ornare phasellus eros interdum. Ac a donec taciti leo senectus rhoncus venenatis";
     public static  String userSendRecomendation;
     public static  String userSendFriends = "Friendtest";
-    public static  String emailuserSendRecomendation = "pineappleuser1684524360203@mailinator.com";//variable para mensajes
-    public static String emailRecomendationSending = "pineappleuser1684524360203@mailinator.com";
+    public static  String emailuserSendRecomendation = "pineappleuser1685719252540@mailinator.com";//variable para mensajes
+    public static String emailRecomendationSending;
     public static String emailUserBookmark;
-    public static volatile String emailAceptarSolicitudesDeAmistad = "pineappleuser1684762180394@mailinator.com";
+    public static volatile String emailAceptarSolicitudesDeAmistad = "pineappleuser1685719170306@mailinator.com";
     //SEARCH
     public String searchingElement;
     public static volatile boolean configuracionavanzadaTitleWorkshop = false;
@@ -28,6 +28,10 @@ public class variablesPeppermint extends conexionSQLpeppermint{
     public int posicion;
     public int contadorRegistro;
     public int contadorAceptarAmistad;
+    public int userBorrados= 0;
+    //VALIDARDOMINIOS
+    public String subDominio;
+    public String dominioNivelSuperior;
     //REGISTRO
     public static boolean configuracionRegistroAvanzado = false;
     public static String firstName;
@@ -50,7 +54,7 @@ public class variablesPeppermint extends conexionSQLpeppermint{
     public String pathVideo;
     //LOGIN
     public static String emailUserAdmin= "admin@oluko.com";
-    public static volatile String emailLogin= "admin@oluko.com";
+    public static volatile String emailLogin;//= "JulietaSanchez1692213580092@mailinator.com"
     public String passwordLogin= "123123aA";
     public String idUsuario;
     //CREAR TECHNIQUE

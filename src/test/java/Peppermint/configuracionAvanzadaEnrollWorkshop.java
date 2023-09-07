@@ -2,6 +2,7 @@ package Peppermint;
 
 import insumosPeppermint.robotBasePeppermint;
 import javafx.scene.Scene;
+import javafx.scene.control.ButtonType;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
@@ -21,12 +22,22 @@ public class configuracionAvanzadaEnrollWorkshop extends interfaceActions{
         gridPaneEnrolLWorkshopAvanzado.setHgap(10);
         gridPaneEnrolLWorkshopAvanzado.add(labelModalityEnrollWorkshopAvanzado,2,1);
         gridPaneEnrolLWorkshopAvanzado.add(textFieldModalityEnrollWorkshopAvanzado,2,2);
-        gridPaneEnrolLWorkshopAvanzado.add(buttonEjecutarEnrollWorkshopAvanzado,5,5);
+        gridPaneEnrolLWorkshopAvanzado.add(buttonEjecutarEnrollWorkshopAvanzado,2,5);
+        gridPaneEnrolLWorkshopAvanzado.add(ayuda,5,5);
+        cuadroDeAyudas.setEditable(false);
+        cuadroDeAyudas.setText("PARA ELEGIR UNA MODALITY ESPECIFICA PARA QUE SE ENROLEN LOS O EL USUARIO \n 1-Introducir en 'modality' una de las tres siguientes opciones: 'solo', 'groupwithinstructor' o 'group' \n 2-Luego de introducir solo una de estas opciones presionar 'ejecutar'");
+        ayuda.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
+        buttonEjecutarEnrollWorkshopAvanzado.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         tabEnrollWorkshopAvanzado.setContent(gridPaneEnrolLWorkshopAvanzado);
         tabPane.getTabs().addAll(tabEnrollWorkshopAvanzado);
         rootConfigAvanzada.getChildren().add(tabPane);
-        Scene sceneConfigAvanzada = new Scene(rootConfigAvanzada,450,350);
+        dialog.getDialogPane().setContent(cuadroDeAyudas);
+        dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK);
+        Scene sceneConfigAvanzada = new Scene(rootConfigAvanzada,247,205);
         stageEnrollWorkshopAvanzado.setScene(sceneConfigAvanzada);
+        ayuda.setOnAction(e->{
+            dialog.show();
+        });
         buttonEjecutarEnrollWorkshopAvanzado.setOnAction(e->{
             Thread ejecutar=  new Thread (()->{
                 enrollModality=textFieldModalityEnrollWorkshopAvanzado.getText();

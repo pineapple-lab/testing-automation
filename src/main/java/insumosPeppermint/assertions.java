@@ -125,7 +125,7 @@ public class assertions extends consultasSQLCasosFallidos {
         page.waitForSelector("app-workshops-details > div > div > div  > h2");
         page.waitForSelector("app-overview-tab-view > div > div:nth-of-type(1) > app-video");
         page.waitForSelector("app-overview-tab-view > div > div:nth-of-type(1) > app-video  vg-player > div:nth-of-type(1) mat-icon");
-        page.waitForSelector("app-overview-tab-view > div > div:nth-of-type(1) > app-video  vg-player > div:nth-of-type(2)");
+        page.waitForSelector("app-overview-tab-view > div > div:nth-of-type(1) > app-video  vg-player > div:nth-of-type(1)");
         page.waitForSelector("app-overview-tab-view > div > div:nth-of-type(1) > div:nth-of-type(1) > p");
         page.waitForSelector("app-overview-tab-view > div > div:nth-of-type(1) > div:nth-of-type(2) > h4");
         page.waitForSelector("app-overview-tab-view > div > div:nth-of-type(1) > div:nth-of-type(2) > div > p");

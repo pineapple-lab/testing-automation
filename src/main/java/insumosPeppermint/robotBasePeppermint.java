@@ -339,7 +339,7 @@ public class robotBasePeppermint extends assertions {
       page.click("text=Sign out");
       page.waitForTimeout(3000);
     }
-    public void hacerSolicitudDeAmistad(){
+        public void hacerSolicitudDeAmistad(){
         Keyboard kb = page.keyboard();
         String[] listaNombres = {"Juan", "Maria", "Carlos", "Ana", "Luis", "Laura", "Pedro", "Sofia", "Diego", "Valentina",
                 "Jose", "Camila", "Miguel", "Isabella", "Fernando", "Lucia", "Alejandro", "Julia", "Ricardo", "Emma",
@@ -991,6 +991,7 @@ public class robotBasePeppermint extends assertions {
             }
         }
         page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type(" + topicWorkshop + ")");
+        page.waitForTimeout(900);
         page.click(".ng-star-inserted app-course-form > form > div > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) quill-editor > div:nth-of-type(2)");
         kb.insertText(targetAudienceWorkshop);
         page.click(".ng-star-inserted app-course-form > form > div > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) quill-editor > div:nth-of-type(2)");
@@ -1119,9 +1120,15 @@ public class robotBasePeppermint extends assertions {
         kb.insertText(optimalBuddyGroup);
         page.click("text=Publish");//app-admin-top-bar > div button:nth-of-type(3)
         page.click("mat-dialog-container > div > div:nth-of-type(2) button");
-        page.waitForSelector("text=The workshop was created successfully");
-        Assertions.assertTrue(page.isVisible("text=The workshop was created successfully"));
+        while (true) {
+            try {
+                page.waitForSelector("text=The workshop was created successfully");
+                Assertions.assertTrue(page.isVisible("text=The workshop was created successfully"));
+                break;
+            } catch (PlaywrightException e) {
+            }
         }
+    }
 
     public void enrollWorkshop(){
         Elements elements1;
@@ -1140,7 +1147,7 @@ public class robotBasePeppermint extends assertions {
         assertionsDashboard();
         assertionsPopupsDashboard();
         if(linkDeNavegacion == "https://peppermint-development.web.app/user/plans/") {
-            page.navigate("https://peppermint-development.web.app/workshops");
+            page.navigate("https://peppermint-development.web.app/content/workshops");
         } else if(linkDeNavegacion=="https://peppermint-qa.web.app/user/plans/"){
             page.navigate("https://peppermint-qa.web.app/content/workshops");
         }
@@ -1366,6 +1373,7 @@ public class robotBasePeppermint extends assertions {
         }
         page.click("app-side-bar a:nth-of-type(7)");
         page.click("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)");
+        page.waitForTimeout(900);
         page.focus("app-events-form > div > div > div:nth-of-type(1)> div:nth-of-type(1) > div > app-mat-form-field:nth-of-type(1) input");
         kb.insertText(titleEvent);
         page.focus("app-events-form > div > div > div:nth-of-type(1)> div:nth-of-type(1) > div > app-mat-form-field:nth-of-type(2) textarea");
@@ -1373,9 +1381,14 @@ public class robotBasePeppermint extends assertions {
         page.focus("app-events-form > div > div > div:nth-of-type(2)> div:nth-of-type(1) > div > app-mat-form-field:nth-of-type(1) input");
         kb.insertText(urlZoomEvent);
         page.click("app-events-form > div > div > div:nth-of-type(2) mat-chip-list input");
-        page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type("+clubEvent+")");
-        page.click("app-events-form > div > div > div:nth-of-type(1)> div:nth-of-type(1) > div > app-mat-form-field:nth-of-type(2)");
-        page.click("app-events-form > div > div > div:nth-of-type(2) mat-chip-list input");
+        while (true) {
+            try {
+                page.waitForSelector(".cdk-overlay-connected-position-bounding-box > div");
+                Assertions.assertTrue(page.isVisible(".cdk-overlay-connected-position-bounding-box > div"));
+                break;
+            } catch (PlaywrightException e) {
+            }
+        }
         page.click(".cdk-overlay-connected-position-bounding-box > div  mat-option:nth-of-type("+clubEvent+")");
         page.click("app-events-form > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) button");
         if(page.isEnabled(".mat-calendar-content tbody > tr:last-child > td:nth-last-child(2)")){

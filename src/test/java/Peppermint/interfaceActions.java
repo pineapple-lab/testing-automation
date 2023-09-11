@@ -29,7 +29,8 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
         GuardarBookmark,
         EnviarActivity,
         ResponderActivity,
-        ValidarDominio
+        ValidarDominio,
+        SuiteBasica,
     }
     public void actionCrearWorkshop() {
         try {

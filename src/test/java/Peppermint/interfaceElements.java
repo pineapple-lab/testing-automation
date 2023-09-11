@@ -28,6 +28,7 @@ public class interfaceElements extends Application{
     public int rowIndex;
     TextArea consoleTextArea =  new TextArea();
     ScrollPane scrollPane = new ScrollPane(consoleTextArea);
+    Button suiteBasica = new Button("Suite Basica");
     //Cuadros de ayuda
     Button ayuda = new Button ("?");
     Dialog<String> dialog = new Dialog<>();

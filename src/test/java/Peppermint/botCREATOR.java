@@ -51,6 +51,13 @@ public class botCREATOR extends interfaceActions{
          removerDeLaCola.setOnAction(event ->{
              actionEliminarDeLaCola();
          });
+         suiteBasica.setOnAction(e->{
+             listaDeEspera.add(ExecMethod.SuiteBasica);
+             Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
+             CheckBox checkBox = new CheckBox("SuiteBasica");
+             checkBoxesMap.put(checkBox, elemento);
+             grid.add(checkBox, 0, listaDeEspera.size()-1);
+         });
          validarDominios.setOnAction(e->{
              listaDeEspera.add(ExecMethod.ValidarDominio);
              Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
@@ -397,6 +404,25 @@ public class botCREATOR extends interfaceActions{
                 case ValidarDominio:
                     actionValidarDominios();
                     break;
+                case SuiteBasica:
+                    actionCrearWorkshop();
+                    actionCreateArticle();
+                    actionCreateClub();
+                    actionCreateTechnique();
+                    actionCreateClubEvent();
+                    actionCreateLesson();
+                    actionCreateSegment();
+                    actionCreateUsuario();
+                    actionEnrollWorkshop();
+                    actionSendFriendRequest();
+                    actionJoinClub();
+                    actionInviteGuest();
+                    actionPostClub();
+                    actionSendRecomendation();
+                    actionSaveBookmark();
+                    actionRecomendarUsuarios();
+                    break;
+
             }
         }
     }

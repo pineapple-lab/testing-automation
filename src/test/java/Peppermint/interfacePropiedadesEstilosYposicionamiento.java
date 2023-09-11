@@ -41,6 +41,7 @@ public class interfacePropiedadesEstilosYposicionamiento extends interfaceElemen
         buttonEjecutarEnviarActivity.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         buttonEjecutarResponderActivity.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         guardarBookmark.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
+        suiteBasica.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         scrollPane.setStyle(" -fx-text-fill: #FFFFFF; -fx-control-inner-background:#000000;");
         comboBox.setStyle("-fx-background-color: #99D0C2;");
         ayuda.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
@@ -76,6 +77,7 @@ public class interfacePropiedadesEstilosYposicionamiento extends interfaceElemen
         GridPane.setConstraints(buttonEjecutarEnviarActivity, 3, 12);
         GridPane.setConstraints(buttonEjecutarResponderActivity, 3, 13);
         GridPane.setConstraints(validarDominios, 4, 3);
+        GridPane.setConstraints(suiteBasica,5,3);
         GridPane.setConstraints(scrollPane,1,15,7,15);
         GridPane.setConstraints(ayuda,5,13);
         //AGREGAR ELEMENTOS
@@ -107,6 +109,7 @@ public class interfacePropiedadesEstilosYposicionamiento extends interfaceElemen
         grid.getChildren().add(buttonEjecutarResponderActivity);
         grid.getChildren().add(validarDominios);
         grid.getChildren().add(recomendarUsuarios);
+        grid.getChildren().add(suiteBasica);
         grid.getChildren().add(scrollPane);
         grid.getChildren().add(ayuda);
         dialog.getDialogPane().setContent(cuadroDeAyudas);

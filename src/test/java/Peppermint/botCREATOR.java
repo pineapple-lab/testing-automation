@@ -4,7 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.CheckBox;
 import javafx.stage.Stage;
-import insumosPeppermint.robotBasePeppermint;
+import insumosPeppermint.methodsPeppermint;
 import insumosPeppermint.variablesPeppermint;
 import java.io.*;
 
@@ -12,7 +12,7 @@ import static insumosPeppermint.variablesPeppermint.*;
 
 public class botCREATOR extends interfaceActions{
 
-    robotBasePeppermint metodosPeppermint = new robotBasePeppermint();
+    methodsPeppermint metodosPeppermint = new methodsPeppermint();
     public static void main(String[]args){
         launch(botCREATOR.class, args);
     }
@@ -36,11 +36,11 @@ public class botCREATOR extends interfaceActions{
          comboBox.setOnAction(e->{
              seleccion = comboBox.getValue();
              if (seleccion.equals("DEV")) {
-                 variablesPeppermint.linkDeNavegacion="https://peppermint-development.web.app/user/plans/";
+                 variablesPeppermint.linkNavigation="https://peppermint-development.web.app/auth/login";
              } else if (seleccion.equals("QA")) {
-                 variablesPeppermint.linkDeNavegacion="https://peppermint-qa.web.app/user/plans/";
+                 variablesPeppermint.linkNavigation="https://peppermint-qa.web.app/auth/login";
              }else if (seleccion.equals("Local")) {
-                 variablesPeppermint.linkDeNavegacion="http://localhost:4200/user/plans";
+                 variablesPeppermint.linkNavigation="http://localhost:4200/auth/login";
              }
          });
          deneterCasoDePrueba.setOnAction(event ->{
@@ -55,6 +55,15 @@ public class botCREATOR extends interfaceActions{
              listaDeEspera.add(ExecMethod.SuiteBasica);
              Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
              CheckBox checkBox = new CheckBox("SuiteBasica");
+             variablesPeppermint.userSendRecomendation ="AAAAAAusuariorecomendacionpineapple";
+             variablesPeppermint.userSendRecomendationQA ="Paula Gomez";
+             variablesPeppermint.emailRecomendationSending="pineappleuser1685718024380@mailinator.com";
+             variablesPeppermint.emailRecomendationSendingQA="LauraPadilla1693506039635@mailinator.com";
+             variablesPeppermint.emailUserBookmark="pineappleuser1685718024380@mailinator.com";
+             variablesPeppermint.emailUserBookmarkQA="LauraPadilla1693506039635@mailinator.com";
+             variablesPeppermint.emailUserEnrollMultiplesWorkshops = "pineappleuser1686586295370@mailinator.com";
+             emailUserUnirMultiplesClub="pineAppleUser1683738718947@mailinator.com";
+             variablesPeppermint.userEmailLoginInviteGuest="pineAppleUser1683738718947@mailinator.com";
              checkBoxesMap.put(checkBox, elemento);
              grid.add(checkBox, 0, listaDeEspera.size()-1);
          });
@@ -163,9 +172,9 @@ public class botCREATOR extends interfaceActions{
          crearUsuario.setOnMousePressed( event -> {
              if (event.isSecondaryButtonDown()){
                  ejecuciones=ejecucionestf.getText();
-                variablesPeppermint.firstName ="pineapple";
-                variablesPeppermint.lastName = "user";
-                variablesPeppermint.passwordRegistro = "123123aA";
+                 variablesPeppermint.firstName ="pineapple";
+                 variablesPeppermint.lastName = "user";
+                 variablesPeppermint.passwordRegister = "123123aA";
                  configuracionAvanzadaRegistro configAvanzada = new configuracionAvanzadaRegistro(ejecuciones,seleccion);
                  Stage configAvanzadaStage = new Stage();
                  configAvanzada.start(configAvanzadaStage);
@@ -206,7 +215,6 @@ public class botCREATOR extends interfaceActions{
              listaDeEspera.add(ExecMethod.GenerateInviteGuest);
              Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
              CheckBox checkBox = new CheckBox("GenerateInviteGuest");
-             variablesPeppermint.userEmailLoginInviteGuest="pineAppleUser1683738718947@mailinator.com";
              checkBoxesMap.put(checkBox, elemento);
              grid.add(checkBox, 0, listaDeEspera.size()-1);
          });
@@ -224,7 +232,9 @@ public class botCREATOR extends interfaceActions{
              Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
              CheckBox checkBox = new CheckBox("EnviarRecomendaciones");
              variablesPeppermint.userSendRecomendation ="AAAAAAusuariorecomendacionpineapple";
+             variablesPeppermint.userSendRecomendationQA ="Paula Gomez";
              variablesPeppermint.emailRecomendationSending="pineappleuser1685718024380@mailinator.com";
+             variablesPeppermint.emailRecomendationSendingQA="LauraPadilla1693506039635@mailinator.com";
              checkBoxesMap.put(checkBox, elemento);
              grid.add(checkBox, 0, listaDeEspera.size()-1);
          });
@@ -242,6 +252,7 @@ public class botCREATOR extends interfaceActions{
              Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
              CheckBox checkBox = new CheckBox("GuardarBookmark");
              variablesPeppermint.emailUserBookmark="pineappleuser1685718024380@mailinator.com";
+             variablesPeppermint.emailUserBookmarkQA="LauraPadilla1693506039635@mailinator.com";
              checkBoxesMap.put(checkBox, elemento);
              grid.add(checkBox, 0, listaDeEspera.size()-1);
          });
@@ -295,14 +306,21 @@ public class botCREATOR extends interfaceActions{
              checkBoxesMap.put(checkBox, elemento);
              grid.add(checkBox, 0, listaDeEspera.size()-1);
          });
-         buttonEjecutarEnviarActivity.setOnAction(e->{
+         likePost.setOnAction(e->{
+             listaDeEspera.add(ExecMethod.LikePost);
+             Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
+             CheckBox checkBox = new CheckBox("LikePost");
+             checkBoxesMap.put(checkBox, elemento);
+             grid.add(checkBox, 0, listaDeEspera.size()-1);
+         });
+         buttonexecuteEnviarActivity.setOnAction(e->{
              listaDeEspera.add(ExecMethod.EnviarActivity);
              Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
              CheckBox checkBox = new CheckBox("EnviarActivity");
              checkBoxesMap.put(checkBox, elemento);
              grid.add(checkBox, 0, listaDeEspera.size()-1);
          });
-         buttonEjecutarResponderActivity.setOnAction(e->{
+         buttonexecuteResponderActivity.setOnAction(e->{
              listaDeEspera.add(ExecMethod.ResponderActivity);
              Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
              CheckBox checkBox = new CheckBox("ResponderActivity");
@@ -318,16 +336,16 @@ public class botCREATOR extends interfaceActions{
      }else {
          interfaceThread.start();
      }
-     ejecutar.setOnAction(e->{
-         Thread ejecutar=  new Thread (()->{
+     execute.setOnAction(e->{
+         Thread execute=  new Thread (()->{
              ejecuciones = ejecucionestf.getText();
             accion();
-         }, "ejecutar");
-         if(ejecutar.isAlive()) {
-             ejecutar.stop();
+         }, "execute");
+         if(execute.isAlive()) {
+             execute.stop();
          }else {
              metodosPeppermint.iniciarTest();
-             ejecutar.start();
+             execute.start();
             }
         });
     }
@@ -404,6 +422,9 @@ public class botCREATOR extends interfaceActions{
                 case ValidarDominio:
                     actionValidarDominios();
                     break;
+                case LikePost:
+                    actionLikePost();
+                    break;
                 case SuiteBasica:
                     actionCrearWorkshop();
                     actionCreateArticle();
@@ -422,7 +443,6 @@ public class botCREATOR extends interfaceActions{
                     actionSaveBookmark();
                     actionRecomendarUsuarios();
                     break;
-
             }
         }
     }

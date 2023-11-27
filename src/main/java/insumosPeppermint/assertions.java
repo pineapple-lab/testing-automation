@@ -1,15 +1,15 @@
 package insumosPeppermint;
-import insumosPeppermint.robotBasePeppermint;
+import insumosPeppermint.methodsPeppermint;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.sql.Statement;
 
 
-public class assertions extends consultasSQLCasosFallidos {
+public class assertions extends queriesSQLcasesFailed {
     @Test
     public void iniciarPeppermintScaner(){
-        linkDeNavegacion="http://localhost:4200/";
+        linkNavigation="http://localhost:4200/";
         emailLogin="pineappleuser1687208170027@mailinator.com";
         passwordLogin="123123aA";
         //iniciarNavegacion();
@@ -26,7 +26,8 @@ public class assertions extends consultasSQLCasosFallidos {
         page.waitForSelector("app-header > mat-toolbar > div:nth-of-type(3) > div > button:nth-of-type(1)");
     }
     public void assertionsDashboard(){
-
+        System.out.println("Comprobando elementos del dashboard");
+        printStream.println("Comprobando elementos del dashboard");
         //Titulo dashboard
         page.waitForSelector("app-user-dashboards > div > div > div:nth-of-type(1) > h1");
         //Titulo slider de workshops
@@ -48,38 +49,25 @@ public class assertions extends consultasSQLCasosFallidos {
         if(page.isVisible("app-user-dashboards > div > div > div:nth-of-type(2) > div > div > div > app-slider > div > div:nth-of-type(2) app-workshop-card > mat-card > div:nth-of-type(1) > div:nth-of-type(2) mat-progress-bar")==true){
             //Barra de progreso workshop
             page.waitForSelector("app-user-dashboards > div > div > div:nth-of-type(2) > div > div > div > app-slider > div > div:nth-of-type(2) app-workshop-card > mat-card > div:nth-of-type(1) > div:nth-of-type(2) mat-progress-bar");
-            //Boton go to workshop
-            page.waitForSelector("app-user-dashboards > div > div > div:nth-of-type(2) > div > div > div > app-slider > div > div:nth-of-type(2) app-workshop-card > mat-card > div:nth-of-type(1) > div:nth-of-type(3) >  button");
-            //Three dots button
-            page.waitForSelector("app-user-dashboards > div > div > div:nth-of-type(2) > div > div > div > app-slider > div > div:nth-of-type(2) app-workshop-card > mat-card > div:nth-of-type(1) > div:nth-of-type(3) >  div app-three-dots");
-            //Imagen slider workshop
-            page.waitForSelector("app-user-dashboards > div > div > div:nth-of-type(2) > div > div > div > app-slider > div > div:nth-of-type(2) app-workshop-card > mat-card img");
-            //Slider workshop
-            page.waitForSelector("app-user-dashboards > div > div > div:nth-of-type(2) > div > div > div > app-slider > div > div:nth-of-type(2) app-workshop-card > mat-card");
-        }else if(!page.isVisible("app-user-dashboards > div > div > div:nth-of-type(2) > div > div > div > app-slider > div > div:nth-of-type(2) app-workshop-card > mat-card > div:nth-of-type(1) > div:nth-of-type(2) mat-progress-bar")){
-            System.out.println("email sin how to peppermint:"+emailLogin);
-            int userBorrados = 0;
-            try {
-                sqlconectar();
-                Statement stm = CN.createStatement();
-                stm.executeUpdate("DELETE FROM testbdpeppermint.usuariosautomaticos WHERE id= '"+idUsuario+"'");
-                System.out.println("Usuario borrado:");
-                System.out.println("id: "+idUsuario);
-                System.out.println("Email: "+emailLogin);
-                userBorrados++;
-            } catch (Exception e) {
-                sqlclose();
-            }
-            System.out.println("Cantidad borrados: "+userBorrados+"\n");
         }
+        //Boton go to workshop
+        //page.waitForSelector("app-user-dashboards > div > div > div:nth-of-type(2) > div > div > div > app-slider > div > div:nth-of-type(2) app-workshop-card > mat-card > div:nth-of-type(1) > div:nth-of-type(2) >  button");
+        //Three dots button
+        page.waitForSelector("app-user-dashboards > div > div > div:nth-of-type(2) > div > div > div > app-slider > div > div:nth-of-type(2) app-workshop-card > mat-card > div:nth-of-type(1) > div:nth-of-type(3) >  div app-three-dots");
+        //Imagen slider workshop
+        page.waitForSelector("app-user-dashboards > div > div > div:nth-of-type(2) > div > div > div > app-slider > div > div:nth-of-type(2) app-workshop-card > mat-card img");
+        //Slider workshop
+        page.waitForSelector("app-user-dashboards > div > div > div:nth-of-type(2) > div > div > div > app-slider > div > div:nth-of-type(2) app-workshop-card > mat-card");
         //Text area dashboard
-        page.waitForSelector("app-user-dashboards > div > div > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) .bg-primary-darker > div:nth-of-type(1) textarea");
+        page.waitForSelector("app-user-dashboards > div > div > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) .bg-primary-darker > div:nth-of-type(1) quill-editor");
         //Boton grabar video
         page.waitForSelector("app-user-dashboards > div > div > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) .bg-primary-darker > div:nth-of-type(2) > button:nth-of-type(1)");
         //Boton grabar audio
         page.waitForSelector("app-user-dashboards > div > div > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) .bg-primary-darker > div:nth-of-type(2) > button:nth-of-type(2)");
         //Boton subir archivos
         page.waitForSelector("app-user-dashboards > div > div > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) .bg-primary-darker > div:nth-of-type(2) > button:nth-of-type(3)");
+        //Boton agregar link
+        page.waitForSelector("app-user-dashboards > div > div > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) .bg-primary-darker > div:nth-of-type(2) > button:nth-of-type(4)");
     }
     public void assertionsPopupsDashboard(){
         //scan popup grabar video
@@ -100,6 +88,8 @@ public class assertions extends consultasSQLCasosFallidos {
         page.waitForSelector("mat-dialog-container > app-record-audio > mat-card > mat-card-title mat-icon");
         page.waitForSelector("mat-dialog-container > app-record-audio > mat-card > mat-card-content > app-audio");
         page.waitForSelector("mat-dialog-container > app-record-audio > mat-card > mat-card-actions > button");
+        page.click("mat-dialog-container > app-record-audio > mat-card > mat-card-title mat-icon");
+
     }
     public void assertionsAllWorkshop(){
         page.waitForSelector("app-editorial-workshop > h1");
@@ -169,7 +159,7 @@ public class assertions extends consultasSQLCasosFallidos {
         page.waitForSelector("app-overview-tab-view > div > div:nth-of-type(2) > div:nth-of-type(3) > h3");
         page.waitForSelector("app-overview-tab-view > div > div:nth-of-type(2) > div:nth-of-type(3) > app-creator");
         page.waitForSelector("app-overview-tab-view > div > div:nth-of-type(2) > div:nth-of-type(3) > app-creator > mat-card > app-avatar");
-        page.waitForSelector("app-overview-tab-view > div > div:nth-of-type(2) > div:nth-of-type(3) > app-creator > mat-card > app-avatar > div > h3");
+        page.waitForSelector("app-overview-tab-view > div > div:nth-of-type(2) > div:nth-of-type(3) > app-creator > mat-card > app-avatar");
         page.waitForSelector("app-overview-tab-view > div > div:nth-of-type(2) > div:nth-of-type(3) > app-creator > mat-card > p:nth-of-type(1)");
     }
     public void assertionsPopUpModalitysPaso1(){
@@ -196,6 +186,37 @@ public class assertions extends consultasSQLCasosFallidos {
         page.waitForSelector("mat-dialog-container  mat-stepper > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > app-guest-invite > div > div:nth-of-type(2) > div button:nth-of-type(1)");
         page.waitForSelector("mat-dialog-container  mat-stepper > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > app-guest-invite > div > div:nth-of-type(2) > div button:nth-of-type(2)");
         page.waitForSelector("mat-dialog-container  mat-stepper > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > app-guest-invite > div > div:nth-of-type(2) > div > p");
-
+    }
+    public void assertionAllArticle(){
+        page.waitForSelector("app-editorial-article > h1");
+        page.waitForSelector("app-articles > div > div:nth-of-type(1) > h2");
+        page.waitForSelector("app-articles > div > div:nth-of-type(2) > app-all-cards");
+        page.waitForSelector("app-all-cards > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1)");
+        page.waitForSelector("app-all-cards > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > app-article-card > mat-card > div:nth-of-type(1) > div > div");
+        page.waitForSelector("app-all-cards > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > app-article-card > mat-card > div:nth-of-type(1) img");
+        page.waitForSelector("app-all-cards > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > app-article-card > mat-card > div:nth-of-type(2) > mat-card-title:nth-of-type(1)");
+        page.waitForSelector("app-all-cards > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > app-article-card > mat-card > div:nth-of-type(2) > mat-card-title:nth-of-type(2)");
+        page.waitForSelector("app-all-cards > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > app-article-card > mat-card > div:nth-of-type(2) > div:nth-of-type(1) > i");
+        page.waitForSelector("app-all-cards > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > app-article-card > mat-card > div:nth-of-type(2) > div:nth-of-type(2) > p");
+    }
+    public void assertionAllTechnique(){
+        page.waitForSelector("app-editorial-technique > h1");
+        page.waitForSelector("app-techniques > div > div:nth-of-type(1) > h2");
+        page.waitForSelector("app-techniques > div > div:nth-of-type(2) > app-all-cards");
+        page.waitForSelector("app-all-cards > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1)");
+        page.waitForSelector("app-all-cards > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > app-technique-card > mat-card > div:nth-of-type(1) > div > div");
+        page.waitForSelector("app-all-cards > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > app-technique-card > mat-card > div:nth-of-type(1) img");
+        page.waitForSelector("app-all-cards > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > app-technique-card > mat-card > div:nth-of-type(2) > h4:nth-of-type(1)");
+        page.waitForSelector("app-all-cards > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > app-technique-card > mat-card > div:nth-of-type(2) > h4:nth-of-type(2)");
+        page.waitForSelector("app-all-cards > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > app-technique-card > mat-card > div:nth-of-type(2) > div > span");
+    }
+    public void assertionAlLClub(){
+        page.waitForSelector("app-editorial-clubs > h1");
+        page.waitForSelector("app-clubs > div > div:nth-of-type(1) > h2");
+        page.waitForSelector("app-clubs > div > div:nth-of-type(2) > app-all-cards");
+        page.waitForSelector("app-all-cards > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1)");
+        page.waitForSelector("app-all-cards > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > app-club-card > mat-card > div:nth-of-type(1) app-three-dots");
+        page.waitForSelector("app-all-cards > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > app-club-card > mat-card > div:nth-of-type(2) > h4 > b");
+        page.waitForSelector("app-all-cards > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > app-club-card > mat-card > div:nth-of-type(3) > h4");
     }
 }

@@ -1,6 +1,6 @@
 package Peppermint;
 
-import insumosPeppermint.robotBasePeppermint;
+import insumosPeppermint.methodsPeppermint;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 import static insumosPeppermint.variablesPeppermint.*;
 
 public class configuracionAvanzadaEnrollMultiWorkshop extends interfaceActions{
-    robotBasePeppermint metodosPeppermint = new robotBasePeppermint();
+    methodsPeppermint metodosPeppermint = new methodsPeppermint();
     public configuracionAvanzadaEnrollMultiWorkshop(String ejecucionesAvanzadas , String seleccionAvanzada){
         this.ejecuciones = ejecucionesAvanzadas;
         this.seleccion = seleccionAvanzada;
@@ -21,23 +21,23 @@ public class configuracionAvanzadaEnrollMultiWorkshop extends interfaceActions{
         gridPaneEnrolLMultiWorkshopAvanzado.setHgap(10);
         gridPaneEnrolLMultiWorkshopAvanzado.add(labelEmailEnrollMultiWorkshopAvanzado,2,1);
         gridPaneEnrolLMultiWorkshopAvanzado.add(textFieldEmailEnrollMultiWorkshopAvanzado,2,2);
-        gridPaneEnrolLMultiWorkshopAvanzado.add(buttonEjecutarEnrollMultiWorkshopAvanzado,5,5);
-        buttonEjecutarEnrollMultiWorkshopAvanzado.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
+        gridPaneEnrolLMultiWorkshopAvanzado.add(buttonexecuteEnrollMultiWorkshopAvanzado,5,5);
+        buttonexecuteEnrollMultiWorkshopAvanzado.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         tabEnrollMultiWorkshopAvanzado.setContent(gridPaneEnrolLMultiWorkshopAvanzado);
         tabPane.getTabs().addAll(tabEnrollMultiWorkshopAvanzado);
         rootConfigAvanzada.getChildren().add(tabPane);
         Scene sceneConfigAvanzada = new Scene(rootConfigAvanzada,270,170);
         stageEnrollMultiWorkshopAvanzado.setScene(sceneConfigAvanzada);
-        buttonEjecutarEnrollMultiWorkshopAvanzado.setOnAction(e->{
-            Thread ejecutar=  new Thread (()->{
+        buttonexecuteEnrollMultiWorkshopAvanzado.setOnAction(e->{
+            Thread execute=  new Thread (()->{
                 emailUserEnrollMultiplesWorkshops=textFieldEmailEnrollMultiWorkshopAvanzado.getText();
                 actionEnrollMultiplesWorkshops();
-            }, "ejecutar");
-            if(ejecutar.isAlive()) {
-                ejecutar.stop();
+            }, "execute");
+            if(execute.isAlive()) {
+                execute.stop();
             }else {
                 metodosPeppermint.iniciarTest();
-                ejecutar.start();
+                execute.start();
             }
         });
     }

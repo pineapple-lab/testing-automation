@@ -1,6 +1,6 @@
 package Peppermint;
 
-import insumosPeppermint.robotBasePeppermint;
+import insumosPeppermint.methodsPeppermint;
 import insumosPeppermint.variablesPeppermint;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 import static insumosPeppermint.variablesPeppermint.*;
 
 public class configuracionAvanzadaCrearWorkshops extends interfaceActions{
-    robotBasePeppermint metodosPeppermint = new robotBasePeppermint();
+    methodsPeppermint metodosPeppermint = new methodsPeppermint();
     public configuracionAvanzadaCrearWorkshops(String ejecucionesAvanzadas , String seleccionAvanzada){
         this.ejecuciones = ejecucionesAvanzadas;
         this.seleccion = seleccionAvanzada;
@@ -31,8 +31,8 @@ public class configuracionAvanzadaCrearWorkshops extends interfaceActions{
         gridPaneCrearWorkshopAvanzado.add(textFieldMaxStudentsGroup,3,7);
         gridPaneCrearWorkshopAvanzado.add(checkBoxEditarEstudiantesOptimosModalidadGroupSinInstructor,1,8);
         gridPaneCrearWorkshopAvanzado.add(textFieldOptimalBuddyGroup,3,8);
-        gridPaneCrearWorkshopAvanzado.add(ejecutarWorkshopAvanzado,9,10);
-        ejecutarWorkshopAvanzado.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
+        gridPaneCrearWorkshopAvanzado.add(executeWorkshopAvanzado,9,10);
+        executeWorkshopAvanzado.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         tabConfiguracionAvanzadaWorkshops.setContent(gridPaneCrearWorkshopAvanzado);
         tabPane.getTabs().addAll(tabConfiguracionAvanzadaWorkshops);
         rootConfigAvanzada.getChildren().add(tabPane);
@@ -78,35 +78,35 @@ public class configuracionAvanzadaCrearWorkshops extends interfaceActions{
                 textFieldOptimalBuddyGroup.setVisible(false);
             }
         });
-        ejecutarWorkshopAvanzado.setOnAction(e->{
-            Thread ejecutar=  new Thread (()->{
+        executeWorkshopAvanzado.setOnAction(e->{
+            Thread execute=  new Thread (()->{
                 if (checkBoxEditarTituloWorkshops.isSelected()){
                     titleWorkshop = textFieldEditarTituloWorkshops.getText();
-                    configuracionavanzadaTitleWorkshop = true;
+                    advancedConfigurationTitleWorkshop = true;
                 }
                 if (checkBoxEditarEstudiantesMaximosModalidadGroupWithInstructor.isSelected()){
                     maxStudentsGroupWithInstructor = textFieldMaxStudentsGroupWithInstructor.getText();
-                    configuracionAvanzadaMaxGroupWithInstructor = true;
+                    advancedConfigurationMaxGroupWithInstructor = true;
                 }
                 if (checkBoxEditarEstudiantesOptimosModalidadGroupWithInstructor.isSelected()){
                     optimalBuddyGroupGroupWithInstructor = textFieldOptimalBuddyGroupGroupWithInstructor.getText();
-                    configuracionAvanzadaOptimalGroupWithInstructor = true;
+                    advancedConfigurationMaxGroupWithInstructor = true;
                 }
                 if (checkBoxEditarEstudiantesMaximosModalidadGroupSinInstructor.isSelected()){
                     maxStudentsGroup = textFieldMaxStudentsGroup.getText();
-                    configuracionAvanzadaMaxStudenGroup = true;
+                    advancedConfigurationMaxStudenGroup = true;
                 }
                 if (checkBoxEditarEstudiantesOptimosModalidadGroupSinInstructor.isSelected()){
                     optimalBuddyGroup= textFieldOptimalBuddyGroup.getText();
-                    configuracionAvanzadaOptimalStudenGroup = true;
+                    advancedConfigurationOptimalStudenGroup = true;
                 }
                 actionCrearWorkshop();
-            }, "ejecutar");
-            if(ejecutar.isAlive()) {
-                ejecutar.stop();
+            }, "execute");
+            if(execute.isAlive()) {
+                execute.stop();
             }else {
                 metodosPeppermint.iniciarTest();
-                ejecutar.start();
+                execute.start();
             }
         });
     }

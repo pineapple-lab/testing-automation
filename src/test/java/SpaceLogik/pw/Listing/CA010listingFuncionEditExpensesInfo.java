@@ -9,8 +9,8 @@ public class CA010listingFuncionEditExpensesInfo extends robotBaseSpaceLogik {
     public void CA0101alidacionEditListingExpensesPassedThrough(){
         System.out.println("Iniciando caso de prueba...");
         iniciarVariablesEditarExpensesPassedThrough();
-        System.out.println("El caso CA0101 se va a ejecutar "+ejecutar+" veces");
-        for(contador=1;contador<=ejecutar;contador++) {
+        System.out.println("El caso CA0101 se va a execute "+execute+" veces");
+        for(counter=1;counter<=execute;counter++) {
             login();
             navegarListingExpenses();
             editarListingExpensesPassedThrough();
@@ -18,7 +18,7 @@ public class CA010listingFuncionEditExpensesInfo extends robotBaseSpaceLogik {
             assertions = "text=Changes saved successfully";
             sqlGuardarCasoSiFallaEditarExpensesThrough();
             Assertions.assertTrue(page.isVisible(assertions));
-            System.out.println("El caso CA0101 se ejecuto "+contador+" veces");
+            System.out.println("El caso CA0101 se ejecuto "+counter+" veces");
         }
     }
     @Test

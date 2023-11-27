@@ -11,8 +11,8 @@ public class CA035myDealFuncionEdit extends robotBaseSpaceLogik {
     public void CA0351validacionEditLeaseTypeLocation(){
         System.out.println("Iniciando caso de prueba...");
         iniciarVariablesEditMyDealLeaseTypeLocation();
-        System.out.println("El caso CA0351 se va a ejecutar "+ejecutar+" veces");
-        for(contador=1;contador<=ejecutar;contador++) {
+        System.out.println("El caso CA0351 se va a execute "+execute+" veces");
+        for(counter=1;counter<=execute;counter++) {
             login();
             editarMyDealLeaseTypeLocation();
             page.focus("#root");
@@ -22,15 +22,15 @@ public class CA035myDealFuncionEdit extends robotBaseSpaceLogik {
             Assertions.assertTrue(page.getByLabel("NEW").isChecked());
             Assertions.assertTrue(page.getByLabel("Within 3 mile radius").isChecked());
             Assertions.assertTrue(page.getByLabel("Another address").isChecked());
-            System.out.println("El caso CA0351 se ejecuto "+contador+" veces");
+            System.out.println("El caso CA0351 se ejecuto "+counter+" veces");
         }
     }
     @Test
     public void CA0352validacionEditOfficeSize(){
         System.out.println("Iniciando caso de prueba...");
         iniciarVariablesEditMyDealOfficeSize();
-        System.out.println("El caso CA0352 se va a ejecutar "+ejecutar+" veces");
-        for(contador=1;contador<=ejecutar;contador++) {
+        System.out.println("El caso CA0352 se va a execute "+execute+" veces");
+        for(counter=1;counter<=execute;counter++) {
             login();
             editarMyDealOfficeSize();
             page.focus("#root");
@@ -38,7 +38,7 @@ public class CA035myDealFuncionEdit extends robotBaseSpaceLogik {
             sqlGuardarCasoSiFallaEditarMyDealOfficeSize();
             Assertions.assertTrue(page.isVisible(assertions));
             Assertions.assertTrue(page.getByLabel("REPLACE").isChecked());
-            System.out.println("El caso CA0352 se ejecuto "+contador+" veces");
+            System.out.println("El caso CA0352 se ejecuto "+counter+" veces");
         }
     }
     @Test

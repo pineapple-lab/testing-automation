@@ -10,27 +10,27 @@ public class CA08validacionProspectExcepcion extends robotBaseSpaceLogik {
     public void CA081validacionCompanyNameVacioExcepcion(){
         System.out.println("Iniciando caso de prueba...");
         iniciarVariablesProspectFeliz();
-        System.out.println("El caso CA081 se va a ejecutar"+ejecutar+"veces");
-        for (contador=1;contador<=ejecutar;contador++) {
+        System.out.println("El caso CA081 se va a execute"+execute+"veces");
+        for (counter=1;counter<=execute;counter++) {
             login();
             excepcionProspectCompanyNamevacio();
             page.focus("#root");
             Assertions.assertTrue(page.isVisible("text=Prospect name is required"));
-            System.out.println("El caso CA081 se ejecuto "+contador+" veces");
+            System.out.println("El caso CA081 se ejecuto "+counter+" veces");
         }
     }
     @Test
     public void CA082validacionEmailVacioExepcion(){
         System.out.println("Iniciando caso de prueba...");
         iniciarVariablesProspectFeliz();
-        System.out.println("El caso CA082 se va a ejecutar "+ejecutar+" veces");
-        for (contador=1;contador<=ejecutar;contador++) {
-            nameCase=nameCompanyProspect+".36-validacionEmailVacioExcepcion.Ejecuciones:"+contador;
+        System.out.println("El caso CA082 se va a execute "+execute+" veces");
+        for (counter=1;counter<=execute;counter++) {
+            nameCase=nameCompanyProspect+".36-validacionEmailVacioExcepcion.Ejecuciones:"+counter;
             login();
             excepcionProspectEmailVacio();
             page.focus("#root");
             Assertions.assertTrue(page.isVisible("text=Contact email is required"));
-            System.out.println("El caso CA082 se ejecuto "+contador+" veces");
+            System.out.println("El caso CA082 se ejecuto "+counter+" veces");
         }
     }
     @Test
@@ -38,84 +38,84 @@ public class CA08validacionProspectExcepcion extends robotBaseSpaceLogik {
         System.out.println("Iniciando caso de prueba...");
         iniciarVariablesProspectFeliz();
         emailProspect="pruebaExcepcion";
-        System.out.println("El caso CA083 se va a ejecutar "+ejecutar+" veces");
-        for (contador=1;contador<=ejecutar;contador++) {
-            nameCase=nameCompanyProspect+".37-validacionFormatoIncorrectoExcepcion.Ejecuciones:"+contador;
+        System.out.println("El caso CA083 se va a execute "+execute+" veces");
+        for (counter=1;counter<=execute;counter++) {
+            nameCase=nameCompanyProspect+".37-validacionFormatoIncorrectoExcepcion.Ejecuciones:"+counter;
             login();
             excepcionProspectFormatoEmailIncorrecto();
             page.focus("#root");
             Assertions.assertTrue(page.isVisible("text=Invalid email address"));
-            System.out.println("El caso CA083 se ejecuto "+contador+" veces");
+            System.out.println("El caso CA083 se ejecuto "+counter+" veces");
         }
     }
     @Test
     public void CA084validacionFirstNameVacioExcepcion(){
         System.out.println("Iniciando caso de prueba...");
         iniciarVariablesProspectFeliz();
-        System.out.println("El caso CA084 se va a ejecutar "+ejecutar+" veces");
-        for (contador=1;contador<=ejecutar;contador++) {
-            nameCase=nameCompanyProspect+".38-validacionFirstnameVacioExcepcion.Ejecuciones:"+contador;
+        System.out.println("El caso CA084 se va a execute "+execute+" veces");
+        for (counter=1;counter<=execute;counter++) {
+            nameCase=nameCompanyProspect+".38-validacionFirstnameVacioExcepcion.Ejecuciones:"+counter;
             login();
             excepcionProspectFirstNameVacio();
             page.focus("#root");
             Assertions.assertTrue(page.isVisible("text=Contact first name is required"));
-            System.out.println("El caso CA084 se ejecuto "+contador+" veces");
+            System.out.println("El caso CA084 se ejecuto "+counter+" veces");
         }
     }
     @Test
     public void CA085validacionLastNameVacioExcepcion(){
         System.out.println("Iniciando caso de prueba...");
         iniciarVariablesProspectFeliz();
-        System.out.println("El caso CA085 se va a ejecutar "+ejecutar+" veces");
-        for (contador=1;contador<=ejecutar;contador++) {
-            nameCase=nameCompanyProspect+".39-validacionLastNameVacioExcepcion.Ejecuciones:"+contador;
+        System.out.println("El caso CA085 se va a execute "+execute+" veces");
+        for (counter=1;counter<=execute;counter++) {
+            nameCase=nameCompanyProspect+".39-validacionLastNameVacioExcepcion.Ejecuciones:"+counter;
             login();
             excepcionProspectLastNameVacio();
             page.focus("#root");
             Assertions.assertTrue(page.isVisible("text=Contact last name is required"));
-            System.out.println("El caso CA085 se ejecuto "+contador+" veces");
+            System.out.println("El caso CA085 se ejecuto "+counter+" veces");
         }
     }
     @Test
     public void CA086validacionCityVacioExcepcion(){
         System.out.println("Iniciando caso de prueba...");
         iniciarVariablesProspectFeliz();
-        System.out.println("El caso CA086 se va a ejecutar "+ejecutar+" veces");
-        for (contador=1;contador<=ejecutar;contador++) {
-            nameCase=nameCompanyProspect+".40-validacionCityVacioExcpecion.Ejecuciones:"+contador;
+        System.out.println("El caso CA086 se va a execute "+execute+" veces");
+        for (counter=1;counter<=execute;counter++) {
+            nameCase=nameCompanyProspect+".40-validacionCityVacioExcpecion.Ejecuciones:"+counter;
             login();
             excepcionProspectCityVacio();
             page.focus("#root");
             Assertions.assertTrue(page.isVisible("text=Invalid city"));
-            System.out.println("El caso CA086 se ejecuto "+contador+" veces");
+            System.out.println("El caso CA086 se ejecuto "+counter+" veces");
         }
     }
     @Test
     public void CA087validacionZipCodeVacioExcepcion(){
         System.out.println("Iniciando caso de prueba...");
         iniciarVariablesProspectFeliz();
-        System.out.println("El caso CA087 se va a ejecutar "+ejecutar+" veces");
-        for (contador=1;contador<=ejecutar;contador++) {
-            nameCase=nameCompanyProspect+".41-validacionZipCodeVacioExcepcion.Ejecuciones:"+contador;
+        System.out.println("El caso CA087 se va a execute "+execute+" veces");
+        for (counter=1;counter<=execute;counter++) {
+            nameCase=nameCompanyProspect+".41-validacionZipCodeVacioExcepcion.Ejecuciones:"+counter;
             login();
             excepcionProspectZipCodeVacio();
             page.focus("#root");
             Assertions.assertTrue(page.isVisible("text=Invalid zipcode"));
-            System.out.println("El caso CA087 se ejecuto "+contador+" veces");
+            System.out.println("El caso CA087 se ejecuto "+counter+" veces");
         }
     }
     @Test
     public void CA088validacionIndustryVacioExcepcion(){
         System.out.println("Iniciando caso de prueba...");
         iniciarVariablesProspectFeliz();
-        System.out.println("El caso CA088 se va a ejecutar "+ejecutar+" veces");
-        for (contador=1;contador<=ejecutar;contador++) {
-            nameCase=nameCompanyProspect+".42-validacionIndustryVacioExcepcion.Ejecuciones:"+contador;
+        System.out.println("El caso CA088 se va a execute "+execute+" veces");
+        for (counter=1;counter<=execute;counter++) {
+            nameCase=nameCompanyProspect+".42-validacionIndustryVacioExcepcion.Ejecuciones:"+counter;
             login();
             excepcionProspectIndustryVacio();
             page.focus("#root");
             Assertions.assertTrue(page.isVisible("text=Industry not exists"));
-            System.out.println("El caso CA088 se ejecuto "+contador+" veces");
+            System.out.println("El caso CA088 se ejecuto "+counter+" veces");
         }
     }
     @Test
@@ -123,16 +123,16 @@ public class CA08validacionProspectExcepcion extends robotBaseSpaceLogik {
         System.out.println("Iniciando caso de prueba...");
         iniciarVariablesProspectFeliz();
         iniciarVariablesCompetitiveSetFeliz();
-        System.out.println("El caso CA089 se va a ejecutar "+ejecutar+" veces");
-        for (contador=1;contador<=ejecutar;contador++) {
-            nameCase=nameCompanyProspect+".43-validacionCompetitiveSetBuildingVacioExcepcion.Ejecuciones:"+contador;
+        System.out.println("El caso CA089 se va a execute "+execute+" veces");
+        for (counter=1;counter<=execute;counter++) {
+            nameCase=nameCompanyProspect+".43-validacionCompetitiveSetBuildingVacioExcepcion.Ejecuciones:"+counter;
             notesCompetitiveSetProspect=nameCase;
             login();
             crearProspect();
             excepcionProspectCompetitiveSetBuildingVacio();
             page.focus("#root");
             Assertions.assertTrue(page.isVisible("text=Building can't be empty"));
-            System.out.println("El caso CA089 se ejecuto "+contador+" veces");
+            System.out.println("El caso CA089 se ejecuto "+counter+" veces");
         }
     }
     @Test
@@ -140,15 +140,15 @@ public class CA08validacionProspectExcepcion extends robotBaseSpaceLogik {
         System.out.println("Iniciando caso de prueba...");
         iniciarVariablesProspectFeliz();
         iniciarVariablesTrackingFeliz();
-        System.out.println("El caso CA0810 se va a ejecutar "+ejecutar+" veces");
-        for (contador=1;contador<=ejecutar;contador++) {
-            nameCase=nameCompanyProspect+".44-validacionTrackingSubjectVacio.Ejecuciones:"+contador;
+        System.out.println("El caso CA0810 se va a execute "+execute+" veces");
+        for (counter=1;counter<=execute;counter++) {
+            nameCase=nameCompanyProspect+".44-validacionTrackingSubjectVacio.Ejecuciones:"+counter;
             login();
             crearProspect();
             excepcionProspectTrackingSubjectVacio();
             page.focus("#root");
             Assertions.assertTrue(page.isVisible("text=Tracking subject is required"));
-            System.out.println("El caso CA0810 se ejecuto "+contador+" veces");
+            System.out.println("El caso CA0810 se ejecuto "+counter+" veces");
         }
     }
     @Test
@@ -158,16 +158,16 @@ public class CA08validacionProspectExcepcion extends robotBaseSpaceLogik {
         iniciarVariablesTrackingFeliz();
         nameCompanyProspect="pruebAutomatizada";
         subjectTrackingProspect="pruebAutomatizada45-validacionTrackingDateSubjectVacio";
-        System.out.println("El caso CA0811 se va a ejecutar "+ejecutar+" veces");
-        for (contador=1;contador<=ejecutar;contador++) {
-            nameCase=nameCompanyProspect+".45-validacionTrackingDateSubjectVacio.Ejecuciones:"+contador;
+        System.out.println("El caso CA0811 se va a execute "+execute+" veces");
+        for (counter=1;counter<=execute;counter++) {
+            nameCase=nameCompanyProspect+".45-validacionTrackingDateSubjectVacio.Ejecuciones:"+counter;
             subjectTrackingProspect=nameCase;
             login();
             crearProspect();
             excepcionProspectDateSubjectVacio();
             page.focus("#root");
             Assertions.assertTrue(page.isVisible("text=Tracking date is required"));
-            System.out.println("El caso CA0811 se ejecuto "+contador+" veces");
+            System.out.println("El caso CA0811 se ejecuto "+counter+" veces");
         }
     }
     @Test
@@ -175,15 +175,15 @@ public class CA08validacionProspectExcepcion extends robotBaseSpaceLogik {
         System.out.println("Iniciando caso de prueba...");
         iniciarVariablesProspectFeliz();
         iniciarVariablesEditManualBrokerFeliz();
-        System.out.println("El caso CA0812 se va a ejecutar "+ejecutar+" veces");
-        for (contador=1;contador<=ejecutar;contador++) {
-            nameCase=nameCompanyProspect+".46-validacionEditBrokerFirstNameVacioExcepcion.Ejecuciones:"+contador;
+        System.out.println("El caso CA0812 se va a execute "+execute+" veces");
+        for (counter=1;counter<=execute;counter++) {
+            nameCase=nameCompanyProspect+".46-validacionEditBrokerFirstNameVacioExcepcion.Ejecuciones:"+counter;
             login();
             crearProspect();
             excepcionProspectFirstNameVacioEditBrokerInfo();
             page.focus("#root");
             Assertions.assertTrue(page.isVisible("text=First name is required"));
-            System.out.println("El caso CA0812 se ejecuto "+contador+" veces");
+            System.out.println("El caso CA0812 se ejecuto "+counter+" veces");
         }
     }
     @Test
@@ -191,16 +191,16 @@ public class CA08validacionProspectExcepcion extends robotBaseSpaceLogik {
         System.out.println("Iniciando caso de prueba...");
         iniciarVariablesProspectFeliz();
         iniciarVariablesEditManualBrokerFeliz();
-        System.out.println("El caso CA0813 se va a ejecutar "+ejecutar+" veces");
-        for (contador=1;contador<=ejecutar;contador++) {
-            nameCase=nameCompanyProspect+".47-validacionEditBrokerLastNameVacioExcepcion.Ejecuciones:"+contador;
+        System.out.println("El caso CA0813 se va a execute "+execute+" veces");
+        for (counter=1;counter<=execute;counter++) {
+            nameCase=nameCompanyProspect+".47-validacionEditBrokerLastNameVacioExcepcion.Ejecuciones:"+counter;
             firstNameEditBrokerManual=nameCase;
             login();
             crearProspect();
             excepcionProspectLastNameVacioEditBrokerInfo();
             page.focus("#root");
             Assertions.assertTrue(page.isVisible("text=Last name is required"));
-            System.out.println("El caso CA0813 se ejecuto "+contador+" veces");
+            System.out.println("El caso CA0813 se ejecuto "+counter+" veces");
         }
     }
     @Test
@@ -208,16 +208,16 @@ public class CA08validacionProspectExcepcion extends robotBaseSpaceLogik {
         System.out.println("Iniciando caso de prueba...");
         iniciarVariablesProspectFeliz();
         iniciarVariablesEditManualBrokerFeliz();
-        System.out.println("El caso CA0814 se va a ejecutar "+ejecutar+" veces");
-        for (contador=1;contador<=ejecutar;contador++) {
-            nameCase=nameCompanyProspect+".48-validacionEditBrokerLastNameVacioExcepcion.Ejecuciones:"+contador;
+        System.out.println("El caso CA0814 se va a execute "+execute+" veces");
+        for (counter=1;counter<=execute;counter++) {
+            nameCase=nameCompanyProspect+".48-validacionEditBrokerLastNameVacioExcepcion.Ejecuciones:"+counter;
             firstNameEditBrokerManual=nameCase;
             login();
             crearProspect();
             excepcionProspectEmailVacioEditBrokerInfo();
             page.focus("#root");
             Assertions.assertTrue(page.isVisible("text=Email is required"));
-            System.out.println("El caso CA0814 se ejecuto "+contador+" veces");
+            System.out.println("El caso CA0814 se ejecuto "+counter+" veces");
         }
     }
     @Test
@@ -225,9 +225,9 @@ public class CA08validacionProspectExcepcion extends robotBaseSpaceLogik {
         System.out.println("Iniciando caso de prueba...");
         iniciarVariablesProspectFeliz();
         iniciarVariablesEditManualBrokerFeliz();
-        System.out.println("El caso CA0815 se va a ejecutar "+ejecutar+" veces");
-        for (contador=1;contador<=ejecutar;contador++) {
-            nameCase=nameCompanyProspect+".49-validacionEditBrokerEmailFormatoIncorrectoExcepcion.Ejecuciones:"+contador;
+        System.out.println("El caso CA0815 se va a execute "+execute+" veces");
+        for (counter=1;counter<=execute;counter++) {
+            nameCase=nameCompanyProspect+".49-validacionEditBrokerEmailFormatoIncorrectoExcepcion.Ejecuciones:"+counter;
             firstNameEditBrokerManual=nameCase;
             login();
             crearProspect();
@@ -235,7 +235,7 @@ public class CA08validacionProspectExcepcion extends robotBaseSpaceLogik {
             excepcionProspectEmailFormatoIncorrectoEditBrokerInfo();
              page.focus("#root");
              Assertions.assertTrue(page.isVisible("text=Invalid email address"));
-            System.out.println("El caso CA0815 se ejecuto "+contador+" veces");
+            System.out.println("El caso CA0815 se ejecuto "+counter+" veces");
         }
     }
     @Test
@@ -243,16 +243,16 @@ public class CA08validacionProspectExcepcion extends robotBaseSpaceLogik {
         System.out.println("Iniciando caso de prueba...");
         iniciarVariablesProspectFeliz();
         iniciarVariablesEditManualBrokerFeliz();
-        System.out.println("El caso CA0816 se va a ejecutar "+ejecutar+" veces");
-        for (contador=1;contador<=ejecutar;contador++) {
-            nameCase=nameCompanyProspect+".50-validacionEditBrokerCityVacioExcepcion.Ejecuciones:"+contador;
+        System.out.println("El caso CA0816 se va a execute "+execute+" veces");
+        for (counter=1;counter<=execute;counter++) {
+            nameCase=nameCompanyProspect+".50-validacionEditBrokerCityVacioExcepcion.Ejecuciones:"+counter;
             firstNameEditBrokerManual=nameCase;
             login();
             crearProspect();
             excepcionProspectCityVacionEditBrokerInfo();
             page.focus("#root");
             Assertions.assertTrue(page.isVisible("text=Invalid city"));
-            System.out.println("El caso CA0816 se ejecuto "+contador+" veces");
+            System.out.println("El caso CA0816 se ejecuto "+counter+" veces");
         }
     }
     @Test
@@ -260,16 +260,16 @@ public class CA08validacionProspectExcepcion extends robotBaseSpaceLogik {
         System.out.println("Iniciando caso de prueba...");
         iniciarVariablesProspectFeliz();
         iniciarVariablesEditManualBrokerFeliz();
-        System.out.println("El caso CA0817 se va a ejecutar "+ejecutar+" veces");
-        for (contador=1;contador<=ejecutar;contador++) {
-            nameCase=nameCompanyProspect+".51-validacionEditBrokerZipCodeVacioExcepcion.Ejecuciones:"+contador;
+        System.out.println("El caso CA0817 se va a execute "+execute+" veces");
+        for (counter=1;counter<=execute;counter++) {
+            nameCase=nameCompanyProspect+".51-validacionEditBrokerZipCodeVacioExcepcion.Ejecuciones:"+counter;
             firstNameEditBrokerManual=nameCase;
             login();
             crearProspect();
             excepcionProspectZipCodeVacioEditBrokerInfo();
             page.focus("#root");
             Assertions.assertTrue(page.isVisible("text=Invalid zipcode"));
-            System.out.println("El caso CA0817 se ejecuto "+contador+" veces");
+            System.out.println("El caso CA0817 se ejecuto "+counter+" veces");
         }
     }
 }

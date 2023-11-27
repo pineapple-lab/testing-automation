@@ -1,13 +1,13 @@
 package Peppermint;
 
-import insumosPeppermint.robotBasePeppermint;
+import insumosPeppermint.methodsPeppermint;
 import insumosPeppermint.variablesPeppermint;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class configuracionAvanzadaBookmark extends interfaceActions {
-    robotBasePeppermint metodosPeppermint = new robotBasePeppermint();
+    methodsPeppermint metodosPeppermint = new methodsPeppermint();
     public configuracionAvanzadaBookmark(String ejecucionesAvanzadas, String seleccionAvanzada) {
         this.ejecuciones = ejecucionesAvanzadas;
         this.seleccion = seleccionAvanzada;
@@ -21,23 +21,23 @@ public class configuracionAvanzadaBookmark extends interfaceActions {
         gridPaneConfiguracionAvanzadaBookmark.setHgap(10);
         gridPaneConfiguracionAvanzadaBookmark.add(labelMultiBookmark,2,1);
         gridPaneConfiguracionAvanzadaBookmark.add(textFieldEmailMultiBookmark,2,2);
-        gridPaneConfiguracionAvanzadaBookmark.add(buttonEjecutarMultiBookmark,5,5);
-        buttonEjecutarMultiBookmark.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
+        gridPaneConfiguracionAvanzadaBookmark.add(buttonexecuteMultiBookmark,5,5);
+        buttonexecuteMultiBookmark.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         tabMultiBookmark.setContent(gridPaneConfiguracionAvanzadaBookmark);
         tabPane.getTabs().addAll(tabMultiBookmark);
         rootConfigAvanzada.getChildren().add(tabPane);
         Scene configuracionAvanzada = new Scene(rootConfigAvanzada,265,170);
         stageConfigurcionAvanzadaBookmark.setScene(configuracionAvanzada);
-        buttonEjecutarMultiBookmark.setOnAction(e->{
-            Thread ejecutar=  new Thread (()->{
+        buttonexecuteMultiBookmark.setOnAction(e->{
+            Thread execute=  new Thread (()->{
                 variablesPeppermint.emailUserBookmark=textFieldEmailMultiBookmark.getText();
                 actionSaveBookmark();
-            }, "ejecutar");
-            if(ejecutar.isAlive()) {
-                ejecutar.stop();
+            }, "execute");
+            if(execute.isAlive()) {
+                execute.stop();
             }else {
                 metodosPeppermint.iniciarTest();
-                ejecutar.start();
+                execute.start();
             }
         });
     }

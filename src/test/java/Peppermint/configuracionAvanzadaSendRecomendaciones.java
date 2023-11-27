@@ -1,6 +1,6 @@
 package Peppermint;
 
-import insumosPeppermint.robotBasePeppermint;
+import insumosPeppermint.methodsPeppermint;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 import static insumosPeppermint.variablesPeppermint.*;
 
 public class configuracionAvanzadaSendRecomendaciones extends interfaceActions{
-    robotBasePeppermint metodosPeppermint = new robotBasePeppermint();
+    methodsPeppermint metodosPeppermint = new methodsPeppermint();
     public configuracionAvanzadaSendRecomendaciones(String ejecucionesAvanzadas , String seleccionAvanzada){
         this.ejecuciones = ejecucionesAvanzadas;
         this.seleccion = seleccionAvanzada;
@@ -22,8 +22,8 @@ public class configuracionAvanzadaSendRecomendaciones extends interfaceActions{
         gridPaneEnviarRecomendaciones.add(introducirUsuarioRecomend,3,1);
         gridPaneEnviarRecomendaciones.add(checkBoxEditarEmisor, 1,2);
         gridPaneEnviarRecomendaciones.add(introducirEmisorRecomendaciones,3,2);
-        gridPaneEnviarRecomendaciones.add(ejecutarSendRecomendations,8,5);
-        ejecutarSendRecomendations.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
+        gridPaneEnviarRecomendaciones.add(executeSendRecomendations,8,5);
+        executeSendRecomendations.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         tabSendRecommendationConfigAvanzada.setContent(gridPaneEnviarRecomendaciones);
         tabPane.getTabs().addAll(tabSendRecommendationConfigAvanzada);
         rootConfigAvanzada.getChildren().add(tabPane);
@@ -37,8 +37,8 @@ public class configuracionAvanzadaSendRecomendaciones extends interfaceActions{
                 introducirEmisorRecomendaciones.setVisible(false);
             }
         });
-        ejecutarSendRecomendations.setOnAction(e->{
-            Thread ejecutar=  new Thread (()->{
+        executeSendRecomendations.setOnAction(e->{
+            Thread execute=  new Thread (()->{
                 if (checkBoxEditarEmisor.isSelected()){
                     emailRecomendationSending = introducirEmisorRecomendaciones.getText();
                     emailuserSendRecomendation = emailRecomendationSending;
@@ -47,12 +47,12 @@ public class configuracionAvanzadaSendRecomendaciones extends interfaceActions{
                 }
                 userSendRecomendation = introducirUsuarioRecomend.getText();
                 actionSendRecomendation();
-            }, "ejecutar");
-            if(ejecutar.isAlive()) {
-                ejecutar.stop();
+            }, "execute");
+            if(execute.isAlive()) {
+                execute.stop();
             }else {
                 metodosPeppermint.iniciarTest();
-                ejecutar.start();
+                execute.start();
             }
         });
     }

@@ -13,9 +13,9 @@ public class CA015programFuncionAutoProgram extends robotBaseSpaceLogik {
     public void CA0151validacionCrearAutoProgram(){
         System.out.println("Iniciando caso de prueba...");
         iniciarVariablesAutoProgramFeliz();
-        System.out.println("El caso CA0151 se va a ejecutar "+ejecutar+" veces");
-        for(contador=1;contador<=ejecutar;contador++) {
-            nameCase=nameRoomAutoProgram+".32-validacionCrearAutoProgram.Ejecuciones:"+contador;
+        System.out.println("El caso CA0151 se va a execute "+execute+" veces");
+        for(counter=1;counter<=execute;counter++) {
+            nameCase=nameRoomAutoProgram+".32-validacionCrearAutoProgram.Ejecuciones:"+counter;
             login();
             crearAutoProgram();
             page.focus("#root");
@@ -31,7 +31,7 @@ public class CA015programFuncionAutoProgram extends robotBaseSpaceLogik {
             page.focus("#root");
             sqlGuardarCasoSiFallaCrearAutoProgram();
             assertTrue(page.isVisible(assertions));
-            System.out.println("El caso CA0151 se ejecuto " +contador+" veces");
+            System.out.println("El caso CA0151 se ejecuto " +counter+" veces");
         }
     }
 }

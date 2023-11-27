@@ -11,9 +11,9 @@ public class CA025prospectFuncionActivar extends robotBaseSpaceLogik {
         System.out.print("Iniciando caso de prueba...");
         nameCompanyProspect = "pruebAutomatizada";
         iniciarVariablesProspectFeliz();
-        System.out.println("El caso CA0251 se va a ejecutar "+ejecutar+" veces");
-        for(contador=1; contador<=ejecutar; contador++) {
-            nameCase=nameCompanyProspect+".16-validacionActivarProspect.Ejecuciones:"+contador;
+        System.out.println("El caso CA0251 se va a execute "+execute+" veces");
+        for(counter=1; counter<=execute; counter++) {
+            nameCase=nameCompanyProspect+".16-validacionActivarProspect.Ejecuciones:"+counter;
             assertions="text="+nameCase;
             login();
             crearProspect();
@@ -33,7 +33,7 @@ public class CA025prospectFuncionActivar extends robotBaseSpaceLogik {
             page.click(".prospect-list-landlord-button-container button:nth-of-type(1)");
             page.focus("tbody td:first-child");
             Assertions.assertTrue(page.isVisible(assertions));
-            System.out.println("El caso CA0251 se ejecuto "+contador+" veces");
+            System.out.println("El caso CA0251 se ejecuto "+counter+" veces");
         }
     }
 }

@@ -1,13 +1,13 @@
 package Peppermint;
 
-import insumosPeppermint.robotBasePeppermint;
+import insumosPeppermint.methodsPeppermint;
 import insumosPeppermint.variablesPeppermint;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class configuracionAvanzadaSendFriends extends interfaceActions{
-    robotBasePeppermint metodosPeppermint = new robotBasePeppermint();
+    methodsPeppermint metodosPeppermint = new methodsPeppermint();
     public configuracionAvanzadaSendFriends(String ejecucionesAvanzadas , String seleccionAvanzada){
         this.ejecuciones = ejecucionesAvanzadas;
         this.seleccion = seleccionAvanzada;
@@ -21,24 +21,24 @@ public class configuracionAvanzadaSendFriends extends interfaceActions{
         gridPaneEnviarAmigos.add(userSendFriends,3,1);
         gridPaneEnviarAmigos.add(labelEmailAceptarAmigos,1,2);
         gridPaneEnviarAmigos.add(emailAceptarFriends,3,2);
-        gridPaneEnviarAmigos.add(ejecutarSendFriends,10,5);
-        ejecutarSendFriends.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
+        gridPaneEnviarAmigos.add(executeSendFriends,10,5);
+        executeSendFriends.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         tabSendFriendsConfigAvanzada.setContent(gridPaneEnviarAmigos);
         tabPane.getTabs().addAll(tabSendFriendsConfigAvanzada);
         rootConfigAvanzada.getChildren().add(tabPane);
         Scene configAvanzadaScene = new Scene(rootConfigAvanzada,330,180);
         configAvanzadaSendFriendsStage.setScene(configAvanzadaScene);
-        ejecutarSendFriends.setOnAction(e->{
-            Thread ejecutar=  new Thread (()->{
-                variablesPeppermint.emailAceptarSolicitudesDeAmistad = emailAceptarFriends.getText();
+        executeSendFriends.setOnAction(e->{
+            Thread execute=  new Thread (()->{
+                variablesPeppermint.emailAcceptFriendRequests = emailAceptarFriends.getText();
                 variablesPeppermint.userSendFriends=userSendFriends.getText();
                 actionSendFriendRequest();
-            }, "ejecutar");
-            if(ejecutar.isAlive()) {
-                ejecutar.stop();
+            }, "execute");
+            if(execute.isAlive()) {
+                execute.stop();
             }else {
                 metodosPeppermint.iniciarTest();
-                ejecutar.start();
+                execute.start();
             }
         });
     }

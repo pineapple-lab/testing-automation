@@ -11,9 +11,9 @@ public class CA031prospectFuncionTracking extends robotBaseSpaceLogik {
         System.out.println("Iniciando caso de prueba...");
         iniciarVariablesTrackingFeliz();
         iniciarVariablesProspectFeliz();
-        System.out.println("El caso CA0311 se va a ejecutar: "+ejecutar+" veces");
-        for (contador=1; contador <= ejecutar; contador++){
-            nameCase=nameCompanyProspect+".18-validacionCrearTracking.Ejecuciones:"+contador;
+        System.out.println("El caso CA0311 se va a execute: "+execute+" veces");
+        for (counter=1; counter <= execute; counter++){
+            nameCase=nameCompanyProspect+".18-validacionCrearTracking.Ejecuciones:"+counter;
             subjectTrackingProspect=nameCase;
             assertions="text="+subjectTrackingProspect;
             login();
@@ -23,7 +23,7 @@ public class CA031prospectFuncionTracking extends robotBaseSpaceLogik {
             page.waitForSelector("tbody tr:first-child");
             page.focus("#root");
             Assertions.assertTrue(page.isVisible(assertions));
-            System.out.println("El caso CA0311 se ejecuto: "+contador+" veces");
+            System.out.println("El caso CA0311 se ejecuto: "+counter+" veces");
         }
     }
 }

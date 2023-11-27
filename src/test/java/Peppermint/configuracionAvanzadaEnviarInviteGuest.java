@@ -1,12 +1,12 @@
 package Peppermint;
 
-import insumosPeppermint.robotBasePeppermint;
+import insumosPeppermint.methodsPeppermint;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import insumosPeppermint.variablesPeppermint;
 public class configuracionAvanzadaEnviarInviteGuest extends interfaceActions {
-    robotBasePeppermint metodosPeppermint = new robotBasePeppermint();
+    methodsPeppermint metodosPeppermint = new methodsPeppermint();
     public configuracionAvanzadaEnviarInviteGuest(String ejecucionesAvanzadas, String seleccionAvanzada) {
         this.ejecuciones = ejecucionesAvanzadas;
         this.seleccion = seleccionAvanzada;
@@ -18,23 +18,23 @@ public class configuracionAvanzadaEnviarInviteGuest extends interfaceActions {
         gridPaneEnviarInviteGuest.setVgap(10);
         gridPaneEnviarInviteGuest.add(labelEnviarInviteGuest, 1, 2);
         gridPaneEnviarInviteGuest.add(textFieldEmailInviteGuestAvanzado, 2, 2);
-        gridPaneEnviarInviteGuest.add(ejecutarInviteGuestAvanzado, 5, 5);
-        ejecutarInviteGuestAvanzado.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
+        gridPaneEnviarInviteGuest.add(executeInviteGuestAvanzado, 5, 5);
+        executeInviteGuestAvanzado.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         tabConfiguracionAvanzadaInviteGuest.setContent(gridPaneEnviarInviteGuest);
         tabPane.getTabs().addAll(tabConfiguracionAvanzadaInviteGuest);
         rootConfigAvanzada.getChildren().add(tabPane);
         Scene configAvanzadaScene = new Scene(rootConfigAvanzada, 310, 150);
         stageConfigAvanzadaSendGuest.setScene(configAvanzadaScene);
-        ejecutarInviteGuestAvanzado.setOnAction(e -> {
-            Thread ejecutar = new Thread(() -> {
+        executeInviteGuestAvanzado.setOnAction(e -> {
+            Thread execute = new Thread(() -> {
                 variablesPeppermint.userEmailLoginInviteGuest = textFieldEmailInviteGuestAvanzado.getText();
                 actionInviteGuest();
-            }, "ejecutar");
-            if (ejecutar.isAlive()) {
-                ejecutar.stop();
+            }, "execute");
+            if (execute.isAlive()) {
+                execute.stop();
             } else {
                 metodosPeppermint.iniciarTest();
-                ejecutar.start();
+                execute.start();
             }
         });
     }

@@ -14,9 +14,9 @@ public class CA037tweakFuncionCrear extends robotBaseSpaceLogik {
         iniciarVariablesAutoProgramFeliz();
         iniciarVariablesTweakFeliz();
         iniciarVariablesEditRoom();
-        System.out.println("El caso CA0371 se va a ejecutar "+ejecutar+" veces");
-        for(contador=1;contador<=ejecutar;contador++) {
-            nameCase=nameRoomAutoProgram+".37-validacionCrearTweak.Ejecuciones:"+contador;
+        System.out.println("El caso CA0371 se va a execute "+execute+" veces");
+        for(counter=1;counter<=execute;counter++) {
+            nameCase=nameRoomAutoProgram+".37-validacionCrearTweak.Ejecuciones:"+counter;
             selectProgramTweak=nameCase;
             programNameTweak=nameCase;
             System.out.println(nameCase);
@@ -32,7 +32,7 @@ public class CA037tweakFuncionCrear extends robotBaseSpaceLogik {
             assertions = "text=Changes saved successfully";//
             sqlGuardarCasoSiFallaCrearTweak();
             Assertions.assertTrue(page.isVisible(assertions));
-            System.out.println("El caso CA0371 se ejecuto "+contador+" veces");
+            System.out.println("El caso CA0371 se ejecuto "+counter+" veces");
         }
     }
 }

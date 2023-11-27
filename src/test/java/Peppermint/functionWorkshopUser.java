@@ -1,46 +1,46 @@
 package Peppermint;
-import insumosPeppermint.casosDePruebaEnrollWorkshop;
+import insumosPeppermint.testCasesEnrollWorkshop;
 import org.junit.jupiter.api.Test;
-public class functionWorkshopUser extends casosDePruebaEnrollWorkshop {
+public class functionWorkshopUser extends testCasesEnrollWorkshop {
     @Test
-    public void ValidarWorkshopEnrollmente(){
-        iniciarContexto();
+    public void validateWorkshopEnrollmente(){
+        startContext();
         serverStatus();
         System.out.println("Iniciando caso de prueba...");
         printStream.println("Iniciando caso de prueba...");
-        iniciarEjecucionWorkshop();
-        imprimirCantidadDeEjecuciones();
-        iniciarNavegacion();
+        startExecutionWorkshop();
+        printNumberExecutions();
+        startNavigation();
         validarEnrollWorkshop();
     }
-    public void validarMultipleWorkshopEnrollment(){
-            iniciarContexto();
+    public void validateMultipleWorkshopEnrollment(){
+            startContext();
             serverStatus();
             System.out.println("Iniciando caso de prueba...");
             printStream.println("Iniciando caso de prueba...");
-            iniciarEjecucionArticle();
-            imprimirCantidadDeEjecuciones();
-            iniciarNavegacion();
+            startExecutionArticle();
+            printNumberExecutions();
+            startNavigation();
             validacionUnirseMuchosWorkshops();
     }
-    public void validacionEnviarActivity(){
-        iniciarContexto();
+    public void validateSendActivity(){
+        startContext();
         serverStatus();
         System.out.println("Iniciando caso de prueba...");
         printStream.println("Iniciando caso de prueba...");
-        iniciarEjecucionArticle();
-        imprimirCantidadDeEjecuciones();
-        iniciarNavegacion();
+        startExecutionArticle();
+        printNumberExecutions();
+        startNavigation();
         validarEnviarActivity();
     }
-    public void validacionResponderActivity(){
-        iniciarContexto();
+    public void validationReplyActivity(){
+        startContext();
         serverStatus();
         System.out.println("Iniciando caso de prueba...");
         printStream.println("Iniciando caso de prueba...");
-        iniciarEjecucionArticle();
-        imprimirCantidadDeEjecuciones();
-        iniciarNavegacion();
+        startExecutionArticle();
+        printNumberExecutions();
+        startNavigation();
         validarResponderActivity();
     }
 }

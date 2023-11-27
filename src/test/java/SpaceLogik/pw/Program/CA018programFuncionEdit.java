@@ -59,9 +59,9 @@ public class CA018programFuncionEdit extends robotBaseSpaceLogik {
         iniciarVariablesEditRoom();
         iniciarVariablesAutoProgramFeliz();
         nameProgram = "pruebAutomatizada";
-        System.out.println("El caso CA0183 se va a ejecutar "+ejecutar+" veces");
-        for(contador=1;contador<=ejecutar;contador++) {
-            nameCase=nameRoomAutoProgram+".26-validacionEditRoomOptions.Ejecuciones:"+contador;
+        System.out.println("El caso CA0183 se va a execute "+execute+" veces");
+        for(counter=1;counter<=execute;counter++) {
+            nameCase=nameRoomAutoProgram+".26-validacionEditRoomOptions.Ejecuciones:"+counter;
             login();
             crearPrograma();
             page.focus("#root");
@@ -86,7 +86,7 @@ public class CA018programFuncionEdit extends robotBaseSpaceLogik {
             assertions = "text=" + quantityRoomOptionsProgram;
             sqlGuardarCasoSiFallaEditarRoomProgram();
             Assertions.assertTrue(page.isVisible(assertions));
-            System.out.println("El caso CA0183 se ejecuto "+contador+ " veces");
+            System.out.println("El caso CA0183 se ejecuto "+counter+ " veces");
         }
     }
     @Test
@@ -189,9 +189,9 @@ public class CA018programFuncionEdit extends robotBaseSpaceLogik {
         Keyboard kb = page.keyboard();
         iniciarVariablesEditRoom();
         iniciarVariablesAutoProgramFeliz();
-        System.out.println("El caso de prueba CA0188 se va a ejecutar "+ejecutar +" veces");
-        for(contador=1;contador<=ejecutar;contador++) {
-            nameCase=nameRoomAutoProgram+".31-validacionEdicionCompleta.Ejecuciones:"+contador;
+        System.out.println("El caso de prueba CA0188 se va a execute "+execute +" veces");
+        for(counter=1;counter<=execute;counter++) {
+            nameCase=nameRoomAutoProgram+".31-validacionEdicionCompleta.Ejecuciones:"+counter;
             commentsRoomDetails=nameCase;
             login();
             crearPrograma();
@@ -229,7 +229,7 @@ public class CA018programFuncionEdit extends robotBaseSpaceLogik {
             editarAlacarteOptionsRoomDetails();
             page.focus("#root");
             Assertions.assertTrue(page.isVisible("text=Changes saved successfully"));
-            System.out.println("El caso de prueba CA0188 se ejecuto "+contador+" veces");
+            System.out.println("El caso de prueba CA0188 se ejecuto "+counter+" veces");
         }
     }
 }

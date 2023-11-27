@@ -14,7 +14,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
             Statement stm = CN.createStatement();
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoscrearpaymentcancelationpequeño WHERE estado = 0 ORDER BY RAND() LIMIT 1");
             while(rs.next()){
-                ejecutar =rs.getInt(rs.findColumn("ejecutar"));
+                execute =rs.getInt(rs.findColumn("execute"));
                 nameProposal = rs.getString(rs.findColumn("nameProposal"));
                 term = rs.getString(rs.findColumn("term"));
                 startingRate = rs.getString(rs.findColumn("startingRate"));
@@ -44,7 +44,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
             Statement stm = CN.createStatement();
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoscrearpaymentcancelationmediano WHERE estado = 0 ORDER BY RAND() LIMIT 1");
             while(rs.next()){
-                ejecutar =rs.getInt(rs.findColumn("ejecutar"));
+                execute =rs.getInt(rs.findColumn("execute"));
                 nameProposal = rs.getString(rs.findColumn("nameProposal"));
                 term = rs.getString(rs.findColumn("term"));
                 startingRate = rs.getString(rs.findColumn("startingRate"));
@@ -74,7 +74,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
             Statement stm = CN.createStatement();
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoscrearpaymentcancelationgrande WHERE estado = 0 ORDER BY RAND() LIMIT 1");
             while(rs.next()){
-                ejecutar =rs.getInt(rs.findColumn("ejecutar"));
+                execute =rs.getInt(rs.findColumn("execute"));
                 nameProposal = rs.getString(rs.findColumn("nameProposal"));
                 term = rs.getString(rs.findColumn("term"));
                 startingRate = rs.getString(rs.findColumn("startingRate"));
@@ -104,7 +104,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
             Statement stm = CN.createStatement();
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoscrearpaymentcancelationmuygrande WHERE estado = 0 ORDER BY RAND() LIMIT 1");
             while(rs.next()){
-                ejecutar =rs.getInt(rs.findColumn("ejecutar"));
+                execute =rs.getInt(rs.findColumn("execute"));
                 nameProposal = rs.getString(rs.findColumn("nameProposal"));
                 term = rs.getString(rs.findColumn("term"));
                 startingRate = rs.getString(rs.findColumn("startingRate"));
@@ -134,7 +134,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoscrearproposal WHERE estado = 0 ORDER BY RAND() LIMIT 1");
             while(rs.next()){
                 System.out.println("Iniciando variables...");
-                ejecutar =rs.getInt(rs.findColumn("ejecutar"));
+                execute =rs.getInt(rs.findColumn("execute"));
                 nameProposal =rs.getString(rs.findColumn("nameProposal"));
                 building = rs.getString(rs.findColumn("building"));
                 prospect = rs.getString(rs.findColumn("prospect"));
@@ -154,7 +154,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
             Statement stm = CN.createStatement();
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoscrearprospect WHERE estado = 0 ORDER BY RAND() LIMIT 1");
             while(rs.next()){
-                ejecutar =rs.getInt(rs.findColumn("ejecutar"));
+                execute =rs.getInt(rs.findColumn("execute"));
                 nameCompanyProspect = rs.getString(rs.findColumn("nameCompanyProspect"));
                 salutationProspect = rs.getString(rs.findColumn("salutation"));
                 firstNameProspect = rs.getString(rs.findColumn("firstName"));
@@ -184,8 +184,8 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
         companyRegistro = "pruebaAutomatizada13";
         titleRegistro = "pruebAutomatizada13";
         mailRegistro = "pruebAutomatizada13@gmail.com";
-        passwordRegistro = "pruebAutomatizada13*";
-        verifyPasswordRegistro = "pruebAutomatizada13*";
+        passwordRegister = "pruebAutomatizada13*";
+        verifypasswordRegister = "pruebAutomatizada13*";
    }
    public void iniciarVariablesCompetitiveSetFeliz(){
        System.out.println("Iniciando variables...");
@@ -194,7 +194,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
            Statement stm = CN.createStatement();
            ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoscrearcompetitiveset WHERE estado = 0 ORDER BY RAND() LIMIT 1");
            while(rs.next()){
-               ejecutar =rs.getInt(rs.findColumn("ejecutar"));
+               execute =rs.getInt(rs.findColumn("execute"));
                buildingCompetitiveSetProspect = rs.getString(rs.findColumn("building"));
            }
            String query1 = "UPDATE testbdspacelogik.datoscrearcompetitiveset SET estado = 1 WHERE building="+"'"+buildingCompetitiveSetProspect+"'";
@@ -214,7 +214,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
            Statement stm = CN.createStatement();
            ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoseditarmanualmentebroker WHERE estado = 0 ORDER BY RAND() LIMIT 1");
            while(rs.next()){
-               ejecutar =rs.getInt(rs.findColumn("ejecutar"));
+               execute =rs.getInt(rs.findColumn("execute"));
                salutationEditBrokerManual = rs.getString(rs.findColumn("salutation"));
                lastNameEditBrokerManual = rs.getString(rs.findColumn("lastName"));
                address1EditBrokerManual = rs.getString(rs.findColumn("adress1"));
@@ -241,7 +241,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
             Statement stm = CN.createStatement();
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoseditargeneralinfoprospect WHERE estado = 0 ORDER BY RAND() LIMIT 1");
             while(rs.next()){
-                ejecutar =rs.getInt(rs.findColumn("ejecutar"));
+                execute =rs.getInt(rs.findColumn("execute"));
                 salutationEditProspectGeneralInfo = rs.getString(rs.findColumn("salutation"));
                 firstNameEditProspectGeneralInfo = rs.getString(rs.findColumn("firstName"));
                 lastNameEditProspectGeneralInfo = rs.getString(rs.findColumn("lastName"));
@@ -271,7 +271,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
             Statement stm = CN.createStatement();
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoseditarroomoptions WHERE estado = 0 ORDER BY RAND() LIMIT 1");
             while(rs.next()){
-                ejecutar =rs.getInt(rs.findColumn("ejecutar"));
+                execute =rs.getInt(rs.findColumn("execute"));
                 sequenceRoomOptionsProgram = rs.getString(rs.findColumn("sequenceRoomOptions"));
                 employeAreaTypesProgram = rs.getString(rs.findColumn("employeAreaTypes"));
                 roomSizeProgram = rs.getString(rs.findColumn("roomSize"));
@@ -291,7 +291,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
             Statement stm = CN.createStatement();
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoscrearautoprogram WHERE estado = 0 ORDER BY RAND() LIMIT 1");
             while(rs.next()){
-                ejecutar =rs.getInt(rs.findColumn("ejecutar"));
+                execute =rs.getInt(rs.findColumn("execute"));
                 nameRoomAutoProgram = rs.getString(rs.findColumn("nameRoomAutoProgram"));
                 industryAutoProgram = rs.getString(rs.findColumn("industry"));
                 quantityAutoProgram = rs.getString(rs.findColumn("quantity"));
@@ -310,7 +310,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
             Statement stm = CN.createStatement();
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoscrearlaunch WHERE estado = 0 ORDER BY RAND() LIMIT 1");
             while(rs.next()){
-                ejecutar =rs.getInt(rs.findColumn("ejecutar"));
+                execute =rs.getInt(rs.findColumn("execute"));
                 legalFormationLaunch = rs.getString(rs.findColumn("legalFormationLaunch"));
                 bussinesSinceLaunch = rs.getString(rs.findColumn("bussinesSinceLaunch"));
             }
@@ -328,7 +328,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
            Statement stm = CN.createStatement();
            ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoscreartweak WHERE estado = 0 ORDER BY RAND() LIMIT 1");
            while(rs.next()){
-               ejecutar =rs.getInt(rs.findColumn("ejecutar"));
+               execute =rs.getInt(rs.findColumn("execute"));
                sizeTweak = rs.getString(rs.findColumn("size"));
                qtyTweak = rs.getString(rs.findColumn("quantity"));
            }
@@ -346,7 +346,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
            Statement stm = CN.createStatement();
            ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoseditarmydealleasetypelocation WHERE estado = 0 ORDER BY RAND() LIMIT 1");
            while(rs.next()){
-               ejecutar =rs.getInt(rs.findColumn("ejecutar"));
+               execute =rs.getInt(rs.findColumn("execute"));
                ubicacionMyDealLeaseTypeLocation = rs.getString(rs.findColumn("ubication"));
            }
            String query1 = "UPDATE testbdspacelogik.datoseditarmydealleasetypelocation SET estado = 1 WHERE ubication="+"'"+ubicacionMyDealLeaseTypeLocation+"'";
@@ -363,7 +363,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
            Statement stm = CN.createStatement();
            ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoseditarmydealofficesize WHERE estado = 0 ORDER BY RAND() LIMIT 1");
            while(rs.next()){
-               ejecutar =rs.getInt(rs.findColumn("ejecutar"));
+               execute =rs.getInt(rs.findColumn("execute"));
                rsfMyDealOfficeSize = rs.getString(rs.findColumn("rsfOficeSize"));
            }
            String query1 = "UPDATE testbdspacelogik.datoseditarmydealofficesize SET estado = 1 WHERE rsfOficeSize="+"'"+rsfMyDealOfficeSize+"'";
@@ -380,7 +380,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
             Statement stm = CN.createStatement();
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoscrearsingesuitelisting WHERE estado = 0 ORDER BY RAND() LIMIT 1");
             while(rs.next()){
-                ejecutar =rs.getInt(rs.findColumn("ejecuciones"));
+                execute =rs.getInt(rs.findColumn("ejecuciones"));
                 suiteNumberListingSpaceBuildin = rs.getString(rs.findColumn("SuiteNumber"));
             }
             String query1 = "UPDATE testbdspacelogik.datoscrearsingesuitelisting SET estado = 1 WHERE SuiteNumber="+"'"+suiteNumberListingSpaceBuildin+"'";
@@ -397,7 +397,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
            Statement stm = CN.createStatement();
            ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoseditarlistinglocationinformation WHERE estado = 0 ORDER BY RAND() LIMIT 1");
            while(rs.next()){
-               ejecutar =rs.getInt(rs.findColumn("ejecutar"));
+               execute =rs.getInt(rs.findColumn("execute"));
                yearBuiltListingLocationInformation = rs.getString(rs.findColumn("yearBuilt"));
                totalBuildingRsfListingLocationInformation = rs.getString(rs.findColumn("totalBuildingRsf"));
                numberOfStoriesListingLocationInformation = rs.getString(rs.findColumn("numberOfStories"));
@@ -417,7 +417,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
            Statement stm = CN.createStatement();
            ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoseditarbuildingcontacts WHERE estado = 0 ORDER BY RAND() LIMIT 1");
            while(rs.next()){
-               ejecutar =rs.getInt(rs.findColumn("ejecutar"));
+               execute =rs.getInt(rs.findColumn("execute"));
                saludoListingPrimaryLeasingContact = rs.getString(rs.findColumn("salutation"));
                firstNameListingPrimaryLeasingContacts = rs.getString(rs.findColumn("firstName"));
                lastNameListingPrimaryLeasingContcts = rs.getString(rs.findColumn("lastName"));
@@ -444,7 +444,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
            Statement stm = CN.createStatement();
            ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoseditarbuildingrsf WHERE estado = 0 ORDER BY RAND() LIMIT 1");
            while(rs.next()){
-               ejecutar =rs.getInt(rs.findColumn("ejecutar"));
+               execute =rs.getInt(rs.findColumn("execute"));
                rsfFloorListingSpaceBuilding = rs.getString(rs.findColumn("rsfFloor"));
            }
            String query1 = "UPDATE testbdspacelogik.datoseditarbuildingrsf SET estado = 1 WHERE rsfFloor="+"'"+rsfFloorListingSpaceBuilding+"'";
@@ -461,7 +461,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
            Statement stm = CN.createStatement();
            ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoseditarsinglesuite WHERE estado = 0 ORDER BY RAND() LIMIT 1");
            while(rs.next()){
-               ejecutar =rs.getInt(rs.findColumn("ejecutar"));
+               execute =rs.getInt(rs.findColumn("execute"));
                suiteDescriptionListingSingleSuite= rs.getString(rs.findColumn("suiteDescriptionListing"));
                dateAvailableListingSingleSuite = rs.getString(rs.findColumn("dateAvailable"));
                dateAvailableEndListingSingleSuite = rs.getString(rs.findColumn("dateAvailableEnd"));
@@ -481,7 +481,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
             Statement stm = CN.createStatement();
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoseditarexpensespassedthrough WHERE estado = 0 ORDER BY RAND() LIMIT 1");
             while(rs.next()){
-                ejecutar =rs.getInt(rs.findColumn("ejecutar"));
+                execute =rs.getInt(rs.findColumn("execute"));
                 taxesListingExpenses = rs.getString(rs.findColumn("taxes"));
                 expensesListingExpenses = rs.getString(rs.findColumn("expenses"));
             }

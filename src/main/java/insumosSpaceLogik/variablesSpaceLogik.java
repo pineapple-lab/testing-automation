@@ -2,8 +2,8 @@ package insumosSpaceLogik;
 
 public class variablesSpaceLogik {
     //EJECUCION DE CASOS
-    public int contador;
-    public int ejecutar;
+    public int counter;
+    public int execute;
     public String nameCase;
     //VALIDACIONES
     public String assertions;
@@ -14,8 +14,8 @@ public class variablesSpaceLogik {
     public String companyRegistro;
     public String titleRegistro;
     public String mailRegistro;
-    public String passwordRegistro;
-    public String verifyPasswordRegistro;
+    public String passwordRegister;
+    public String verifypasswordRegister;
     public String formattedDate;
 
     //CREARPROPOSAL

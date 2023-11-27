@@ -33,8 +33,8 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         //campo mail
         page.fill(".register-form > div:nth-child(1) > div:nth-child(7) input[type=text]", mailRegistro);
         page.click("#checkTenant");
-        page.fill(".register-form > div:nth-child(3) > div:nth-child(3) input[type=password]", passwordRegistro);
-        page.fill(".register-form > div:nth-child(3) > div:nth-child(4) input[type=password]", verifyPasswordRegistro);
+        page.fill(".register-form > div:nth-child(3) > div:nth-child(3) input[type=password]", passwordRegister);
+        page.fill(".register-form > div:nth-child(3) > div:nth-child(4) input[type=password]", verifypasswordRegister);
         page.click("#tosCheckBox");
         page.click(".ModalDiv > input[type=button]");
         page.click("text=REGISTER");

@@ -10,9 +10,9 @@ public class CA026prospectFuncionArchivar extends robotBaseSpaceLogik {
     public void CA0261validacionArchivarProspect(){
         System.out.println("Iniciando caso de prueba...");
         iniciarVariablesProspectFeliz();
-        System.out.println("El caso CA0261 se va a ejecutar: "+ejecutar+" veces");
-        for (contador=1; contador <= ejecutar; contador++){
-            nameCase=nameCompanyProspect+".14-validacionArchivarProspect.Ejecuciones:"+contador;
+        System.out.println("El caso CA0261 se va a execute: "+execute+" veces");
+        for (counter=1; counter <= execute; counter++){
+            nameCase=nameCompanyProspect+".14-validacionArchivarProspect.Ejecuciones:"+counter;
             assertions="text="+nameCase;
             login();
             crearProspect();
@@ -22,7 +22,7 @@ public class CA026prospectFuncionArchivar extends robotBaseSpaceLogik {
             page.click(".prospect-list-landlord-button-container button:nth-of-type(2)");
             page.focus(".prospect-list-landlord-table");
             Assertions.assertTrue(page.isVisible(assertions));
-            System.out.println("El caso CA0261 se ejecuto: "+contador+" veces");
+            System.out.println("El caso CA0261 se ejecuto: "+counter+" veces");
         }
     }
 }

@@ -1,10 +1,10 @@
 package insumosPeppermint;
 import org.junit.jupiter.api.Assertions;
-public class casosDePruebaEvent extends robotBasePeppermint{
+public class casosDePruebaEvent extends methodsPeppermint{
     public void validarCrearEvent(){
-        for (contador = 1; contador <= ejecutar; contador++) {
+        for (counter = 1; counter <= execute; counter++) {
         if (!shouldStopTest) {
-            iniciarVariablesEvent();
+            startVariablesEvent();
             System.out.println("\nSe creara el event: " + titleEvent + "\n");
             printStream.println("\nSe creara el event: " + titleEvent + "\n");
             createEvent();
@@ -19,7 +19,7 @@ public class casosDePruebaEvent extends robotBasePeppermint{
             //Assertions.assertTrue(page.isVisible(assertions));
             System.out.println("El event se ha creado con exito\n");
             printStream.println("El event se ha creado con exito\n");
-            imprimirCantidadDeCasosEjecutados();
+            printNumberCasesExecuted();
         } else {
             closeContext();
         }

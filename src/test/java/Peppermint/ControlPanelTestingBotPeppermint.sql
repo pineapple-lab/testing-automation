@@ -7,14 +7,14 @@
 																									/*testbdpeppermint.datoscreartag*/
 /*|--------------------CONFIGURAR EJECUCION---------------------------------------------------|*/	/*testbdpeppermint.datoscreartaxonomy*/
 /*|*/																						/*|*/	/*testbdpeppermint.datoscreartechnique*/
-/*|*/			/*SETEA EN 0 LOS DATOS QUE QUERES EJECUTAR*/								/*|*/	/*testbdpeppermint.datoslogin*/
+/*|*/			/*SETEA EN 0 LOS DATOS QUE QUERES execute*/								/*|*/	/*testbdpeppermint.datoslogin*/
 /*|*/		UPDATE testbdpeppermint.nombredetabla SET estado = '0' WHERE id ='';			/*|*/	
 /*|*/																						/*|*/	
-/*|*/		/*SETEA EN 1 LOS DATOS QUE NO QUERES EJECUTAR*/									/*|*/	
+/*|*/		/*SETEA EN 1 LOS DATOS QUE NO QUERES execute*/									/*|*/
 /*|*/		UPDATE testbdpeppermint.nombredetabla SET estado = '1' WHERE id !='';			/*|*/	
 /*|*/																						/*|*/	
 /*|*/			/*SETEAR CANTIDAD DE EJECUCIONES*/											/*|*/		
-/*|*/		UPDATE testbdpeppermint.nombredetabla SET ejecutar = '' WHERE id = '';			/*|*/	
+/*|*/		UPDATE testbdpeppermint.nombredetabla SET execute = '' WHERE id = '';			/*|*/
 /*|-------------------------------------------------------------------------------------------|*/
 
 /*|--------------------AGREGAR CASOS DE PRUEBA------------------------------------|*/				

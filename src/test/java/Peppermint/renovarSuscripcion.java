@@ -1,20 +1,20 @@
 package Peppermint;
 
 import com.microsoft.playwright.Keyboard;
-import insumosPeppermint.robotBasePeppermint;
+import insumosPeppermint.methodsPeppermint;
 import org.junit.jupiter.api.Test;
 
-public class renovarSuscripcion extends robotBasePeppermint {
+public class renovarSuscripcion extends methodsPeppermint {
     @Test
     public void iniciarRenovacion(){
-        ejecutar=400;
-        linkDeNavegacion="http://localhost:4200/";
+        execute=400;
+        linkNavigation="http://localhost:4200/";
 
         Keyboard kb = page.keyboard();
         //iniciarContexto();
-        iniciarNavegacion();
-        for(contador = 0; contador <= ejecutar; ejecutar++){
-            //iniciarVariablesLogin();
+        startNavigation();
+        for(counter = 0; counter <= execute; execute++){
+            //startVariablesLogin();
             emailLogin="pineappleuser1683738560616@mailinator.com";
             login();
             page.waitForSelector("text= My workshops");

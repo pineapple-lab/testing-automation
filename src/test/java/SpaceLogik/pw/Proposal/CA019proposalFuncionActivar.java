@@ -13,9 +13,9 @@ public class CA019proposalFuncionActivar extends robotBaseSpaceLogik {
         System.out.println("Iniciando caso de prueba...");
         login();
         iniciarVariablesCreacionProposal();
-        System.out.println("El caso CA0191 se va a ejecutar "+ejecutar+" veces");
-        for(contador=1;contador<=ejecutar;contador++) {
-            nameCase=nameProposal+".16-validacionActivarProposal.Ejecuciones:"+contador;
+        System.out.println("El caso CA0191 se va a execute "+execute+" veces");
+        for(counter=1;counter<=execute;counter++) {
+            nameCase=nameProposal+".16-validacionActivarProposal.Ejecuciones:"+counter;
             assertions="text="+nameCase;
             crearProposal();
             page.waitForSelector(".MuiTableBody-root tr");
@@ -42,7 +42,7 @@ public class CA019proposalFuncionActivar extends robotBaseSpaceLogik {
             page.click(".proposal-list-landlord-button-container div > button:nth-of-type(1)");
             page.focus(".MuiTableBody-root tr");
             Assertions.assertTrue(page.isVisible(assertions));
-            System.out.println("El caso CA0191 se ejecuto "+contador+" veces");
+            System.out.println("El caso CA0191 se ejecuto "+counter+" veces");
         }
     }
 }

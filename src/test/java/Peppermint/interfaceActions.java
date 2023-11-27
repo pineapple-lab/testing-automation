@@ -5,6 +5,9 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import static insumosPeppermint.variablesPeppermint.printStream;
+
 public class interfaceActions extends interfacePropiedadesEstilosYposicionamiento {
     enum ExecMethod {
         CreateWorkshops,
@@ -31,6 +34,7 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
         ResponderActivity,
         ValidarDominio,
         SuiteBasica,
+        LikePost
     }
     public void actionCrearWorkshop() {
         try {
@@ -42,8 +46,9 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
             CN.close();
-            funcionWorkshopManagment test = new funcionWorkshopManagment();
-            test.validacionCrearWorkshop();
+            printStream.println("Creando workshop");
+            functionWorkshopManagment test = new functionWorkshopManagment();
+            test.validationCreateWorkshop();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -75,8 +80,10 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
             CN.close();
+            printStream.println("iniciando Enroll workshop");
+            System.out.println("iniciando Enroll workshop");
             functionWorkshopUser test = new functionWorkshopUser();
-            test.ValidarWorkshopEnrollmente();
+            test.validateWorkshopEnrollmente();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -91,8 +98,10 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
             CN.close();
-            funcionArticleManagment test = new funcionArticleManagment();
-            test.validacionCrearArticle();
+            printStream.println("Creando articulo");
+            System.out.println("Creando articulo");
+            functionArticleManagment test = new functionArticleManagment();
+            test.validationCreateArticle();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -107,8 +116,10 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
             CN.close();
-            funcionClubManagment test = new funcionClubManagment();
-            test.vaidacionCrearClub();
+            printStream.println("Creando club");
+            System.out.println("Creando club");
+            functionClubManagment test = new functionClubManagment();
+            test.validationCreateClub();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -123,8 +134,10 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
             CN.close();
-            funcionTechniqueManagment test = new funcionTechniqueManagment();
-            test.validacionCreateTechnique();
+            printStream.println("Creando technique");
+            System.out.println("Creando technique");
+            functionTechniqueManagment test = new functionTechniqueManagment();
+            test.validationCreateTechnique();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -139,8 +152,10 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
             CN.close();
-            funcionEventManagment test = new funcionEventManagment();
-            test.validacionCreateEvent();
+            printStream.println("Creando club event");
+            System.out.println("Creando club event");
+            functionEventManagment test = new functionEventManagment();
+            test.validationCreateEvent();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -155,8 +170,8 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
             CN.close();
-            funcionContentTaxonomy test = new funcionContentTaxonomy();
-            test.validacionCrearTaxonomy();
+            functionContentTaxonomy test = new functionContentTaxonomy();
+            test.validationCreateTaxonomy();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -171,8 +186,8 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
             CN.close();
-            funcionTag test = new funcionTag();
-            test.validacionCrearTag();
+            functionTag test = new functionTag();
+            test.validationCreateTag();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -187,8 +202,10 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
             CN.close();
-            funcionLessonManagment test = new funcionLessonManagment();
-            test.vaidacionCrearLesson();
+            printStream.println("Creando lesson");
+            System.out.println("Creando lesson");
+            functionLessonManagment test = new functionLessonManagment();
+            test.validationCreateLesson();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -203,8 +220,10 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
             CN.close();
-            funcionSegmentsManagment test = new funcionSegmentsManagment();
-            test.vaidacionCreacionSegment();
+            printStream.println("Creando segment");
+            System.out.println("Creando segment");
+            functionSegmentsManagment test = new functionSegmentsManagment();
+            test.validationCreateSegment();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -219,8 +238,10 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
             CN.close();
-            funcionRegistroManagment test = new funcionRegistroManagment();
-            test.validacionCrearUsuario();
+            printStream.println("Creando usuario");
+            System.out.println("Creando usuario");
+            functionRegistryManagment test = new functionRegistryManagment();
+            test.validationCreateUser();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -235,8 +256,10 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
             CN.close();
-            funcionFriendRequest test = new funcionFriendRequest();
-            test.validacionEnviarAceptarFriendRequest();
+            printStream.println("Enviando solicitud de amistad");
+            System.out.println("Enviando solicitud de amistad");
+            functionFriendRequest test = new functionFriendRequest();
+            test.validationSendAcceptFriendRequest();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -251,8 +274,10 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
             CN.close();
-            funcionClubManagment test = new funcionClubManagment();
-            test.validacionJoinClub();
+            printStream.println("Uniendo a club");
+            System.out.println("Uniendo a club");
+            functionClubManagment test = new functionClubManagment();
+            test.validationJoinClub();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -267,8 +292,26 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
             CN.close();
-            funcionClubManagment test = new funcionClubManagment();
-            test.validacionPostClub();
+            printStream.println("\nCreando post club");
+            System.out.println("\nCreando post club");
+            functionClubManagment test = new functionClubManagment();
+            test.validationPostClub();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    public void actionLikePost() {
+        try {
+            String url = "jdbc:mysql://localhost:3306/testbdpeppermint?serverTimezone=UTC";
+            String username = "root";
+            String password = "root";
+            Connection CN = DriverManager.getConnection(url, username, password);
+            String insertSql = "UPDATE testbdpeppermint.configuracion SET ejecuciones = " + "'" + ejecuciones + "'";
+            Statement stmt = CN.createStatement();
+            stmt.executeUpdate(insertSql);
+            CN.close();
+            functionLike test = new functionLike();
+            test.validationLikePost();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -283,8 +326,10 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
             CN.close();
-            funcionInviteGuest test = new funcionInviteGuest();
-            test.validacionCrearInviteGuest();
+            printStream.println("Creando invite guest");
+            System.out.println("Creando invite guest");
+            functionInviteGuest test = new functionInviteGuest();
+            test.validationCreateInviteGuest();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -299,8 +344,10 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
             CN.close();
-            funcionSendRecomendation test = new funcionSendRecomendation();
-            test.validacionSendRecomendation();
+            printStream.println("Enviando recomendacion");
+            System.out.println("Enviando recomendacion");
+            functionSendRecomendation test = new functionSendRecomendation();
+            test.validationSendRecomendation();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -316,7 +363,7 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             stmt.executeUpdate(insertSql);
             CN.close();
             functionWorkshopUser test = new functionWorkshopUser();
-            test.validarMultipleWorkshopEnrollment();
+            test.validateMultipleWorkshopEnrollment();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -331,8 +378,8 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
             CN.close();
-            funcionClubManagment test = new funcionClubManagment();
-            test.validarMultipleClubJoin();
+            functionClubManagment test = new functionClubManagment();
+            test.validationMultipleClubJoin();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -347,8 +394,10 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
             CN.close();
-            funcionBookmark test = new funcionBookmark();
-            test.validarGuardarBookmark();
+            printStream.println("Guardando bookmark");
+            System.out.println("Guardando bookmark");
+            functionBookmark test = new functionBookmark();
+            test.validationSaveBookmark();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -363,8 +412,10 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
             CN.close();
-            funcionSendRecomendation test = new funcionSendRecomendation();
-            test.validacionEnviarRecomendacionDeUsuario();
+            printStream.println("Recomendando usuario");
+            System.out.println("Recomendando usuario");
+            functionSendRecomendation test = new functionSendRecomendation();
+            test.validationSendUserRecommendation();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -380,7 +431,7 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             stmt.executeUpdate(insertSql);
             CN.close();
             functionWorkshopUser test = new functionWorkshopUser();
-            test.validacionEnviarActivity();
+            test.validateSendActivity();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -396,7 +447,7 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             stmt.executeUpdate(insertSql);
             CN.close();
             functionWorkshopUser test = new functionWorkshopUser();
-            test.validacionResponderActivity();
+            test.validationReplyActivity();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -411,8 +462,8 @@ public class interfaceActions extends interfacePropiedadesEstilosYposicionamient
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
             CN.close();
-            mailDominioValidation test = new mailDominioValidation();
-            test.validacionDominios();
+            mailDomainValidation test = new mailDomainValidation();
+            test.validationDomains();
         } catch (Exception ex) {
             ex.printStackTrace();
         }

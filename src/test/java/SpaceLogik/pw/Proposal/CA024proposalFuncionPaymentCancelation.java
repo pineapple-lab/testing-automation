@@ -13,9 +13,9 @@ public class CA024proposalFuncionPaymentCancelation extends robotBaseSpaceLogik 
     public void CA0241PaymentCancelationPequeño() {
         System.out.println("Iniciando caso de prueba...");
         iniciarVariablesPropposalValoresPequeños();
-        System.out.println("El caso CA0241 se va a ejecutar "+ejecutar+" veces");
-        for(contador=1; contador<=ejecutar;contador++) {
-            nameCase = nameProposal+".2-PaymentCancelationPequeño.Ejecuciones:"+contador;
+        System.out.println("El caso CA0241 se va a execute "+execute+" veces");
+        for(counter=1; counter<=execute;counter++) {
+            nameCase = nameProposal+".2-PaymentCancelationPequeño.Ejecuciones:"+counter;
             login();
             llenarProposal();
             page.focus("#root");
@@ -26,16 +26,16 @@ public class CA024proposalFuncionPaymentCancelation extends robotBaseSpaceLogik 
             assertions = "text=$"+ assertionPenaltyAmount;
             sqlGuardarCasoSiFallaPaymentCancelationPequeño();
             Assertions.assertTrue(page.isVisible(assertions));
-            System.out.println("El caso CA0241 se ejecuto "+contador+" veces");
+            System.out.println("El caso CA0241 se ejecuto "+counter+" veces");
         }
     }
     @Test
     public void CA0242PaymentCancelationMediano() {
         System.out.println("Iniciando caso de prueba...");
         iniciarVariablesPropposalValoresMedianos();
-        System.out.println("El caso CA0242 se va ejecutar "+ejecutar+" veces");
-        for(contador=1;contador<=ejecutar;contador++) {
-            nameCase = nameProposal+".3-PaymentCancelationMediano.Ejecuciones:"+contador;
+        System.out.println("El caso CA0242 se va execute "+execute+" veces");
+        for(counter=1;counter<=execute;counter++) {
+            nameCase = nameProposal+".3-PaymentCancelationMediano.Ejecuciones:"+counter;
             login();
             llenarProposal();
             page.focus("#root");
@@ -46,16 +46,16 @@ public class CA024proposalFuncionPaymentCancelation extends robotBaseSpaceLogik 
             assertions = "text=$"+assertionPenaltyAmount;
             sqlGuardarCasoSiFallaPaymentCancelationMediano();
             Assertions.assertTrue(page.isVisible(assertions));
-            System.out.println("El caso CA0242 se ejecuto "+contador+" veces");
+            System.out.println("El caso CA0242 se ejecuto "+counter+" veces");
         }
     }
     @Test
     public void CA0243PaymentCancelationGrande() {
         System.out.println("Iniciando caso de prueba...");
         iniciarVariablesPropposalValoresGrandes();
-        System.out.println("El caso CA0243 se va ejecutar "+ejecutar+" veces");
-        for(contador=1;contador<=ejecutar;contador++) {
-        nameCase = nameProposal+".4-PaymentCancelationGrande.Ejecuciones:"+contador;
+        System.out.println("El caso CA0243 se va execute "+execute+" veces");
+        for(counter=1;counter<=execute;counter++) {
+        nameCase = nameProposal+".4-PaymentCancelationGrande.Ejecuciones:"+counter;
         login();
         llenarProposal();
         page.focus("#root");
@@ -66,16 +66,16 @@ public class CA024proposalFuncionPaymentCancelation extends robotBaseSpaceLogik 
         assertions = "text=$"+assertionPenaltyAmount;//
         sqlGuardarCasoSiFallaPaymentCancelationGrande();
         Assertions.assertTrue(page.isVisible(assertions));
-        System.out.println("El caso CA0243 se ejecuto "+contador+" veces");
+        System.out.println("El caso CA0243 se ejecuto "+counter+" veces");
         }
     }
     @Test
     public void CA0245PaymentCancelationMuyGrande() {
         System.out.println("Iniciando caso de prueba...");
         iniciarVariablesPropposalValoresMuyGrandes();
-        System.out.println("El caso CA0245 se va ejecutar "+ejecutar+" veces");
-        for(contador=1;contador<=ejecutar;contador++) {
-        nameCase = nameProposal+".5-PaymentCancelationMuyGrande.Ejecuciones:"+contador;
+        System.out.println("El caso CA0245 se va execute "+execute+" veces");
+        for(counter=1;counter<=execute;counter++) {
+        nameCase = nameProposal+".5-PaymentCancelationMuyGrande.Ejecuciones:"+counter;
         login();
         llenarProposal();
         page.focus("#root");
@@ -86,7 +86,7 @@ public class CA024proposalFuncionPaymentCancelation extends robotBaseSpaceLogik 
         assertions = "text=$"+assertionPenaltyAmount;//
         sqlGuardarCasoSiFallaPaymentCancelationMuyGrande();
         Assertions.assertTrue(page.isVisible(assertions));
-        System.out.println("El caso CA0245 se ejecuto "+contador+" veces");
+        System.out.println("El caso CA0245 se ejecuto "+counter+" veces");
         }
     }
     /*@Test

@@ -30,7 +30,7 @@ public class interfacePropiedadesEstilosYposicionamiento extends interfaceElemen
         joinClub.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         generarPostClub.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         deneterCasoDePrueba.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
-        ejecutar.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
+        execute.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         removerDeLaCola.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         generarInviteGuest.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         enviarRecomendaciones.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
@@ -38,20 +38,21 @@ public class interfacePropiedadesEstilosYposicionamiento extends interfaceElemen
         unirMultiplesClub.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         recomendarUsuarios.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         validarDominios.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
-        buttonEjecutarEnviarActivity.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
-        buttonEjecutarResponderActivity.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
+        buttonexecuteEnviarActivity.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
+        buttonexecuteResponderActivity.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         guardarBookmark.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
+        likePost.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         suiteBasica.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         scrollPane.setStyle(" -fx-text-fill: #FFFFFF; -fx-control-inner-background:#000000;");
         comboBox.setStyle("-fx-background-color: #99D0C2;");
         ayuda.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         guardarBookmark.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         cuadroDeAyudas.setEditable(false);
-        cuadroDeAyudas.setText(" INSTRUCCIONES BASICAS DE USO: \n 1-Seleccionar el ambiente en el campo 'seleccionar ambiente' \n 2-Introducir cantidad de ejecuciones en el campo 'ejecuciones' \n 3-Hacer click en una funcion o en varias, por ejemplo 'crear workshop' \n 4-Presionar 'ejecutar' \n\n EN CASO DE AGREGAR POR ERROR UNA FUNCION A LA COLA DE EJECUCION: \n 1-Click en el checkbox de la funcion \n 2-Click en remover de la cola \n\n COMO EJECUTAR LAS CONFIGURACIONES AVANZADAS \n 1-Seleccionar el ambiente \n 2-Introducir cantidad de ejecuciones \n 3-Hacer CLICK DERECHO sobre la funcion a ejecutar \n 4-En la ventana emergente introducir los datos deseados \n 5-Hacer click en el boton 'ejecutar' de la ventana emergente");
-        //POSICIONAMIENTO
+        cuadroDeAyudas.setText(" INSTRUCCIONES BASICAS DE USO: \n 1-Seleccionar el ambiente en el campo 'seleccionar ambiente' \n 2-Introducir cantidad de ejecuciones en el campo 'ejecuciones' \n 3-Hacer click en una funcion o en varias, por ejemplo 'crear workshop' \n 4-Presionar 'execute' \n\n EN CASO DE AGREGAR POR ERROR UNA FUNCION A LA COLA DE EJECUCION: \n 1-Click en el checkbox de la funcion \n 2-Click en remover de la cola \n\n COMO execute LAS CONFIGURACIONES AVANZADAS \n 1-Seleccionar el ambiente \n 2-Introducir cantidad de ejecuciones \n 3-Hacer CLICK DERECHO sobre la funcion a execute \n 4-En la ventana emergente introducir los datos deseados \n 5-Hacer click en el boton 'execute' de la ventana emergente");
+        //positionAMIENTO
         GridPane.setConstraints(comboBox,2,1);
         GridPane.setConstraints(ejecucionestf,2,2);
-        GridPane.setConstraints(ejecutar, 3, 1);
+        GridPane.setConstraints(execute, 3, 1);
         GridPane.setConstraints(deneterCasoDePrueba,4,1);
         GridPane.setConstraints(removerDeLaCola, 5, 1);
         GridPane.setConstraints(crearWorkshop, 2, 3);
@@ -74,9 +75,10 @@ public class interfacePropiedadesEstilosYposicionamiento extends interfaceElemen
         GridPane.setConstraints(guardarBookmark, 3, 9);
         GridPane.setConstraints(unirMultiplesWorkshop, 3, 10);
         GridPane.setConstraints(unirMultiplesClub, 3, 11);
-        GridPane.setConstraints(buttonEjecutarEnviarActivity, 3, 12);
-        GridPane.setConstraints(buttonEjecutarResponderActivity, 3, 13);
+        GridPane.setConstraints(buttonexecuteEnviarActivity, 3, 12);
+        GridPane.setConstraints(buttonexecuteResponderActivity, 3, 13);
         GridPane.setConstraints(validarDominios, 4, 3);
+        GridPane.setConstraints(likePost,4,4);
         GridPane.setConstraints(suiteBasica,5,3);
         GridPane.setConstraints(scrollPane,1,15,7,15);
         GridPane.setConstraints(ayuda,5,13);
@@ -84,7 +86,7 @@ public class interfacePropiedadesEstilosYposicionamiento extends interfaceElemen
         grid.getChildren().add(comboBox);
         grid.getChildren().add(ejecucionestf);
         grid.getChildren().add(deneterCasoDePrueba);
-        grid.getChildren().add(ejecutar);
+        grid.getChildren().add(execute);
         grid.getChildren().add(removerDeLaCola);
         grid.getChildren().add(crearWorkshop);
         grid.getChildren().add(enrollWorkshop);
@@ -105,10 +107,11 @@ public class interfacePropiedadesEstilosYposicionamiento extends interfaceElemen
         grid.getChildren().add(guardarBookmark);
         grid.getChildren().add(unirMultiplesClub);
         grid.getChildren().add(unirMultiplesWorkshop);
-        grid.getChildren().add(buttonEjecutarEnviarActivity);
-        grid.getChildren().add(buttonEjecutarResponderActivity);
+        grid.getChildren().add(buttonexecuteEnviarActivity);
+        grid.getChildren().add(buttonexecuteResponderActivity);
         grid.getChildren().add(validarDominios);
         grid.getChildren().add(recomendarUsuarios);
+        grid.getChildren().add(likePost);
         grid.getChildren().add(suiteBasica);
         grid.getChildren().add(scrollPane);
         grid.getChildren().add(ayuda);

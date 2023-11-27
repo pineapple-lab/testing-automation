@@ -1,6 +1,6 @@
 package Peppermint;
 
-import insumosPeppermint.robotBasePeppermint;
+import insumosPeppermint.methodsPeppermint;
 import javafx.scene.Scene;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.GridPane;
@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 import static insumosPeppermint.variablesPeppermint.*;
 
 public class configuracionAvanzadaEnrollWorkshop extends interfaceActions{
-    robotBasePeppermint metodosPeppermint = new robotBasePeppermint();
+    methodsPeppermint metodosPeppermint = new methodsPeppermint();
     public configuracionAvanzadaEnrollWorkshop(String ejecucionesAvanzadas , String seleccionAvanzada){
         this.ejecuciones = ejecucionesAvanzadas;
         this.seleccion = seleccionAvanzada;
@@ -22,12 +22,12 @@ public class configuracionAvanzadaEnrollWorkshop extends interfaceActions{
         gridPaneEnrolLWorkshopAvanzado.setHgap(10);
         gridPaneEnrolLWorkshopAvanzado.add(labelModalityEnrollWorkshopAvanzado,2,1);
         gridPaneEnrolLWorkshopAvanzado.add(textFieldModalityEnrollWorkshopAvanzado,2,2);
-        gridPaneEnrolLWorkshopAvanzado.add(buttonEjecutarEnrollWorkshopAvanzado,2,5);
+        gridPaneEnrolLWorkshopAvanzado.add(buttonexecuteEnrollWorkshopAvanzado,2,5);
         gridPaneEnrolLWorkshopAvanzado.add(ayuda,5,5);
         cuadroDeAyudas.setEditable(false);
-        cuadroDeAyudas.setText("PARA ELEGIR UNA MODALITY ESPECIFICA PARA QUE SE ENROLEN LOS O EL USUARIO \n 1-Introducir en 'modality' una de las tres siguientes opciones: 'solo', 'groupwithinstructor' o 'group' \n 2-Luego de introducir solo una de estas opciones presionar 'ejecutar'");
+        cuadroDeAyudas.setText("PARA ELEGIR UNA MODALITY ESPECIFICA PARA QUE SE ENROLEN LOS O EL USUARIO \n 1-Introducir en 'modality' una de las tres siguientes opciones: 'solo', 'groupwithinstructor' o 'group' \n 2-Luego de introducir solo una de estas opciones presionar 'execute'");
         ayuda.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
-        buttonEjecutarEnrollWorkshopAvanzado.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
+        buttonexecuteEnrollWorkshopAvanzado.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         tabEnrollWorkshopAvanzado.setContent(gridPaneEnrolLWorkshopAvanzado);
         tabPane.getTabs().addAll(tabEnrollWorkshopAvanzado);
         rootConfigAvanzada.getChildren().add(tabPane);
@@ -38,17 +38,17 @@ public class configuracionAvanzadaEnrollWorkshop extends interfaceActions{
         ayuda.setOnAction(e->{
             dialog.show();
         });
-        buttonEjecutarEnrollWorkshopAvanzado.setOnAction(e->{
-            Thread ejecutar=  new Thread (()->{
+        buttonexecuteEnrollWorkshopAvanzado.setOnAction(e->{
+            Thread execute=  new Thread (()->{
                 enrollModality=textFieldModalityEnrollWorkshopAvanzado.getText();
                 actionEnrollWorkshop();
                 enrollModality="groupwithinstructor";
-            }, "ejecutar");
-            if(ejecutar.isAlive()) {
-                ejecutar.stop();
+            }, "execute");
+            if(execute.isAlive()) {
+                execute.stop();
             }else {
                 metodosPeppermint.iniciarTest();
-                ejecutar.start();
+                execute.start();
             }
         });
     }

@@ -50,20 +50,20 @@ public class interfaceElements extends Application{
     Label labelModalidadGrupoSinInstructor = new Label("Modalidad grupo sin instructor");
     TextField textFieldMaxStudentsGroup = new TextField("Maximo de estudiantes");
     TextField textFieldOptimalBuddyGroup = new TextField("Estudiantes optimos");
-    Button ejecutarWorkshopAvanzado = new Button("Ejecutar");
+    Button executeWorkshopAvanzado = new Button("execute");
     //ENROLL WORKSHOP
     Button enrollWorkshop = new Button("Enroll workshop");
     Button unirMultiplesWorkshop = new Button ("Enroll multi workshops");
     Tab tabEnrollMultiWorkshopAvanzado = new Tab("Enroll multiworkshop avanzado");
     Label labelEmailEnrollMultiWorkshopAvanzado = new Label("Email");
     TextField textFieldEmailEnrollMultiWorkshopAvanzado = new TextField("Email");
-    Button buttonEjecutarEnrollMultiWorkshopAvanzado = new Button("Ejecutar");
+    Button buttonexecuteEnrollMultiWorkshopAvanzado = new Button("execute");
     Tab tabEnrollWorkshopAvanzado = new Tab("Enroll workshop avanzado");
     Label labelModalityEnrollWorkshopAvanzado = new Label("Modality");
     TextField textFieldModalityEnrollWorkshopAvanzado = new TextField("Modality");
-    Button buttonEjecutarEnrollWorkshopAvanzado = new Button("Ejecutar");
-    Button buttonEjecutarEnviarActivity = new Button("Completar activity");
-    Button buttonEjecutarResponderActivity = new Button("Responder activity");
+    Button buttonexecuteEnrollWorkshopAvanzado = new Button("execute");
+    Button buttonexecuteEnviarActivity = new Button("Completar activity");
+    Button buttonexecuteResponderActivity = new Button("Responder activity");
     Button crearArticle = new Button("Crear article");
     Button crearClub = new Button("Crear club");
     Button crearTechnique = new Button("Crear technique");
@@ -75,7 +75,7 @@ public class interfaceElements extends Application{
     //REGISTRAR USUARIOS
     Button crearUsuario = new Button("Crear usuario");
     Tab tabRegistrarUsuarioConfigAvanzada = new Tab("Crear usuario configuracion avanzada");
-    Button ejecutarRegistroAvanzado  = new Button("ejectuar");
+    Button executeRegistroAvanzado  = new Button("ejectuar");
     CheckBox checkboxFirstNameAvanzado = new CheckBox("First name");
     CheckBox checkboxLastNameAvanzado = new CheckBox("Last name");
     CheckBox checkBoxEmailAvanzado = new CheckBox("Email");
@@ -91,22 +91,23 @@ public class interfaceElements extends Application{
     TextField emailAceptarFriends = new TextField("introducir email");
     Label labelUserSendFriends = new Label("Enviar amigos");
     TextField userSendFriends = new TextField("introducir first name");
-    Button ejecutarSendFriends = new Button("Ejecutar");
+    Button executeSendFriends = new Button("execute");
     //CLUB
     Button joinClub = new Button("Join club");
     Button unirMultiplesClub = new Button ("Enroll multi clubs");
     Tab tabEnrollMultiClubAvanzado = new Tab("Enroll multiclub avanzado");
     Label labelEmailEnrollMultiClubAvanzado = new Label("Email");
     TextField textFieldEmailEnrollMultiClubAvanzado = new TextField("Email");
-    Button buttonEjecutarEnrollMultiClubAvanzado = new Button("Ejecutar");
+    Button buttonexecuteEnrollMultiClubAvanzado = new Button("execute");
     //INVITE GUEST
     Tab tabConfiguracionAvanzadaInviteGuest = new Tab("Configuracion avanzada invite guest");
     Button generarInviteGuest = new Button("Generar invite guest");
     Label labelEnviarInviteGuest = new Label("Introducir email");
     TextField textFieldEmailInviteGuestAvanzado = new TextField("email");
-    Button ejecutarInviteGuestAvanzado = new Button ("Ejecutar");
+    Button executeInviteGuestAvanzado = new Button ("execute");
     //POST CLUB
     Button generarPostClub = new Button("Generar post club");
+    Button likePost = new Button("Like post");
     //RECOMENDACIONES
     Tab tabSendRecommendationConfigAvanzada = new Tab("Send Recomendations");
     Button enviarRecomendaciones = new Button ("Enviar recomendaciones");
@@ -114,7 +115,7 @@ public class interfaceElements extends Application{
     CheckBox checkBoxEditarEmisor = new CheckBox("Editar emisor");
     TextField introducirUsuarioRecomend = new TextField("First name");
     TextField introducirEmisorRecomendaciones = new TextField("Email");
-    Button ejecutarSendRecomendations = new Button("Ejecutar");
+    Button executeSendRecomendations = new Button("execute");
     //RECOMENDAR USUARIOS
     Button recomendarUsuarios = new Button ("Recomendar usuarios");
     //BOOKMARK
@@ -122,9 +123,9 @@ public class interfaceElements extends Application{
     Tab tabMultiBookmark = new Tab("Bookmark avanzado");
     Label labelMultiBookmark = new Label("Email");
     TextField textFieldEmailMultiBookmark = new TextField("Email");
-    Button buttonEjecutarMultiBookmark = new Button("Ejecutar");
+    Button buttonexecuteMultiBookmark = new Button("execute");
     Button deneterCasoDePrueba = new Button("Detener");
-    Button ejecutar = new Button("Ejecutar");
+    Button execute = new Button("execute");
     TextField ejecucionestf = new TextField("Ejecuciones");
 
     public void start(Stage stage) throws Exception {}

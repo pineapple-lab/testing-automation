@@ -1,6 +1,6 @@
 package Peppermint;
 
-import insumosPeppermint.robotBasePeppermint;
+import insumosPeppermint.methodsPeppermint;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -9,7 +9,7 @@ import static insumosPeppermint.variablesPeppermint.*;
 
 public class configuracionAvanzadaRegistro extends interfaceActions{
 
-    robotBasePeppermint metodosPeppermint = new robotBasePeppermint();
+    methodsPeppermint metodosPeppermint = new methodsPeppermint();
     public configuracionAvanzadaRegistro(String ejecucionesAvanzadas , String seleccionAvanzada){
         this.ejecuciones = ejecucionesAvanzadas;
         this.seleccion = seleccionAvanzada;
@@ -29,8 +29,8 @@ public class configuracionAvanzadaRegistro extends interfaceActions{
         gridPaneCrearUsuario.add(textFieldPasswordAvanzado,3,3);
         gridPaneCrearUsuario.add(checkBoxEmailAvanzado,2,4);
         gridPaneCrearUsuario.add(textFieldEmailAvanzado,3,4);
-        gridPaneCrearUsuario.add(ejecutarRegistroAvanzado,6,6);
-        ejecutarRegistroAvanzado.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
+        gridPaneCrearUsuario.add(executeRegistroAvanzado,6,6);
+        executeRegistroAvanzado.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         tabRegistrarUsuarioConfigAvanzada.setContent(gridPaneCrearUsuario);
         tabPane.getTabs().add(tabRegistrarUsuarioConfigAvanzada);
         rootConfigAvanzada.getChildren().add(tabPane);
@@ -66,11 +66,11 @@ public class configuracionAvanzadaRegistro extends interfaceActions{
                 textFieldEmailAvanzado.setVisible(true);
             }else {
                 textFieldEmailAvanzado.setVisible(false);
-                configuracionRegistroAvanzado = false;
+                configurationAdvancedRegistration = false;
             }
         });
-        ejecutarRegistroAvanzado.setOnAction(e->{
-            Thread ejecutar=  new Thread (()->{
+        executeRegistroAvanzado.setOnAction(e->{
+            Thread execute=  new Thread (()->{
                 if (checkboxFirstNameAvanzado.isSelected()){
                     firstName = textFieldFirstNameAvanzado.getText();
                 }else {
@@ -82,21 +82,21 @@ public class configuracionAvanzadaRegistro extends interfaceActions{
                     lastName="user";
                 }
                 if (checkBoxPasswordAvanzado.isSelected()){
-                    passwordRegistro = textFieldPasswordAvanzado.getText();
+                    passwordRegister = textFieldPasswordAvanzado.getText();
                 }else {
-                    passwordRegistro="123123aA";
+                    passwordRegister="123123aA";
                 }
                 if (checkBoxEmailAvanzado.isSelected()){
-                    emailRegistro = textFieldEmailAvanzado.getText();
-                    configuracionRegistroAvanzado = true;
+                    emailRegister = textFieldEmailAvanzado.getText();
+                    configurationAdvancedRegistration = true;
                 }
                 actionCreateUsuario();
-            }, "ejecutar");
-            if(ejecutar.isAlive()) {
-                ejecutar.stop();
+            }, "execute");
+            if(execute.isAlive()) {
+                execute.stop();
             }else {
                 metodosPeppermint.iniciarTest();
-                ejecutar.start();
+                execute.start();
             }
         });
     }

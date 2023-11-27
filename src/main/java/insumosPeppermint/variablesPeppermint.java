@@ -1,43 +1,46 @@
 package insumosPeppermint;
 import java.io.PrintStream;
-public class variablesPeppermint extends conexionSQLpeppermint{
+public class variablesPeppermint extends connectionSQLpeppermint{
     //UTILIDAD
     public String assertions;
-    public static String linkDeNavegacion;
+    public static String linkNavigation;
     public static volatile PrintStream printStream;
     public static volatile boolean shouldStopTest;
 
-    public boolean subirimagenovideo;
+    public boolean uploadImageVideo;
     public String textoParaPublicaciones = "Lorem ipsum dolor sit amet consectetur adipiscing elit quisque taciti faucibus facilisis ac, vestibulum viverra venenatis gravida magnis varius fames tortor imperdiet id facilisi phasellus, mollis mi at urna aliquet donec pellentesque est quam volutpat lacinia. Fames leo egestas feugiat nunc lobortis facilisi vehicula cursus mattis, nullam viverra commodo habitasse litora luctus id massa ut hendrerit, quis etiam mus varius a libero velit enim. Urna ullamcorper nulla dui etiam luctus nascetur tincidunt risus aenean himenaeos, egestas vel volutpat leo torquent venenatis et convallis porta varius, pulvinar vestibulum turpis dis montes elementum vitae arcu mauris. Taciti mi erat molestie ridiculus malesuada eu leo habitasse nostra, est sagittis tellus vivamus scelerisque mus integer vel porttitor sed, suscipit donec urna fames ornare phasellus eros interdum. Ac a donec taciti leo senectus rhoncus venenatis";
     public static  String userSendRecomendation;
+    public static  String userSendRecomendationQA;
     public static  String userSendFriends = "Friendtest";
     public static  String emailuserSendRecomendation = "pineappleuser1685719252540@mailinator.com";//variable para mensajes
     public static String emailRecomendationSending;
+    public static String emailRecomendationSendingQA;
     public static String emailUserBookmark;
-    public static volatile String emailAceptarSolicitudesDeAmistad = "pineappleuser1685719170306@mailinator.com";
+    public static String emailUserBookmarkQA;
+    public static volatile String emailAcceptFriendRequests = "pineappleuser1684762180394@mailinator.com";
     //SEARCH
     public String searchingElement;
-    public static volatile boolean configuracionavanzadaTitleWorkshop = false;
-    public static volatile boolean     configuracionAvanzadaMaxGroupWithInstructor = false;
-    public static volatile boolean configuracionAvanzadaOptimalGroupWithInstructor = false;
-    public static volatile boolean configuracionAvanzadaMaxStudenGroup = false;
-    public static volatile boolean   configuracionAvanzadaOptimalStudenGroup = false;
+    public static volatile boolean advancedConfigurationTitleWorkshop = false;
+    public static volatile boolean advancedConfigurationMaxGroupWithInstructor = false;
+    public static volatile boolean advancedConfigurationOptimalGroupWithInstructor = false;
+    public static volatile boolean advancedConfigurationMaxStudenGroup = false;
+    public static volatile boolean advancedConfigurationOptimalStudenGroup = false;
     //CONTROLADORES
-    public int contador;
-    public int ejecutar;
-    public int posicion;
-    public int contadorRegistro;
-    public int contadorAceptarAmistad;
-    public int userBorrados= 0;
+    public int counter;
+    public int execute;
+    public int position;
+    public int counterRegister;
+    public int counterAcceptFriendship;
+    public int userDeleted= 0;
     //VALIDARDOMINIOS
-    public String subDominio;
-    public String dominioNivelSuperior;
+    public String subDomain;
+    public String domainTopLevel;
     //REGISTRO
-    public static boolean configuracionRegistroAvanzado = false;
+    public static boolean configurationAdvancedRegistration = false;
     public static String firstName;
     public static String lastName;
-    public static String emailRegistro;
-    public static String passwordRegistro = "123123aA";
+    public static String emailRegister;
+    public static String passwordRegister = "123123aA";
     public String cardholderName = "Test";
     public String cardNumber = "4242 4242 4242 4242";
     public String monthExpired = "424";
@@ -54,6 +57,7 @@ public class variablesPeppermint extends conexionSQLpeppermint{
     public String pathVideo;
     //LOGIN
     public static String emailUserAdmin= "admin@oluko.com";
+    public static String emailUserAdminQA= "danielmendoza001@mailinator.com";
     public static volatile String emailLogin;//= "JulietaSanchez1692213580092@mailinator.com"
     public String passwordLogin= "123123aA";
     public String idUsuario;

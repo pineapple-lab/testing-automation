@@ -10,9 +10,9 @@ public class CA023proposalFuncionNuevaVersion extends robotBaseSpaceLogik {
     public void CA0231validacionCrearNuevaVersion(){
         System.out.println("Iniciando caso de prueba...");
         iniciarVariablesCreacionProposal();
-        System.out.println("El caso CA0231 se va a ejecutar "+ejecutar+" veces");
-        for(contador=1; contador <= ejecutar ;contador++) {
-            nameCase=nameProposal+".8-validacionNuevaVersion.Ejecuciones:"+contador;
+        System.out.println("El caso CA0231 se va a execute "+execute+" veces");
+        for(counter=1; counter <= execute ;counter++) {
+            nameCase=nameProposal+".8-validacionNuevaVersion.Ejecuciones:"+counter;
             assertions="text="+nameCase;
             obtenerFecha();
             login();
@@ -26,7 +26,7 @@ public class CA023proposalFuncionNuevaVersion extends robotBaseSpaceLogik {
             page.click("text=Proposals");
             page.focus("#root");
             Assertions.assertTrue(page.isVisible(assertions+" (" + formattedDate + " - Revision 1)"));
-            System.out.println("El caso CA0231 se ejecuto"+contador+" veces");
+            System.out.println("El caso CA0231 se ejecuto"+counter+" veces");
         }
     }
     @Test
@@ -34,9 +34,9 @@ public class CA023proposalFuncionNuevaVersion extends robotBaseSpaceLogik {
         System.out.println("Iniciando caso de pruebaa...");
         iniciarVariablesCreacionProposal();
         iniciarVariablesPropposalValoresMedianos();
-        System.out.println("El caso CA0232 se va a ejecutar "+ejecutar+" veces");
-        for(contador=1;contador<=ejecutar;contador++) {
-            nameCase=nameProposal+"9-validacionPaymentNuevaVersion"+contador;
+        System.out.println("El caso CA0232 se va a execute "+execute+" veces");
+        for(counter=1;counter<=execute;counter++) {
+            nameCase=nameProposal+"9-validacionPaymentNuevaVersion"+counter;
             login();
             llenarProposal();
             page.focus("#root");
@@ -54,7 +54,7 @@ public class CA023proposalFuncionNuevaVersion extends robotBaseSpaceLogik {
             page.click("tr:last-child .proposal-list-name-column ~ td:last-child div > button:first-child");
             page.focus(".proposal-calculation-container h3:nth-of-type(2)");
             Assertions.assertTrue(page.isVisible(assertions));
-            System.out.println("El caso CA0232 se ejecuto"+contador+" veces");
+            System.out.println("El caso CA0232 se ejecuto"+counter+" veces");
         }
 
     }

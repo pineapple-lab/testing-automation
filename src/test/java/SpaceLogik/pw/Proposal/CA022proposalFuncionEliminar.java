@@ -9,9 +9,9 @@ public class CA022proposalFuncionEliminar extends robotBaseSpaceLogik {
     public void CA0221validacionProposalDelete001(){
         System.out.println("Iniciando caso de prueba...");
         iniciarVariablesCreacionProposal();
-        System.out.println("El caso CA0221 se va a ejecutar "+ejecutar+" veces");
-        for(contador=1;contador<=ejecutar;contador++) {
-            nameCase=nameProposal+".11-validacionProposalDelete.Ejecuciones:"+contador;
+        System.out.println("El caso CA0221 se va a execute "+execute+" veces");
+        for(counter=1;counter<=execute;counter++) {
+            nameCase=nameProposal+".11-validacionProposalDelete.Ejecuciones:"+counter;
             assertions="text="+nameCase;
             login();
             crearProposal();
@@ -22,7 +22,7 @@ public class CA022proposalFuncionEliminar extends robotBaseSpaceLogik {
             eliminarProposal();
             page.focus(".proposal-list-table-container");
             Assertions.assertFalse(page.isVisible(assertions));
-            System.out.println("El caso CA0221 se ejecuto "+contador+" veces");
+            System.out.println("El caso CA0221 se ejecuto "+counter+" veces");
         }
     }
 }

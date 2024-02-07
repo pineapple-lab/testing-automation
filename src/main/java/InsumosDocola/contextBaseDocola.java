@@ -23,7 +23,14 @@ public class contextBaseDocola extends variablesDocola {
         page.setViewportSize(1920, 1080);
     }
     @AfterEach
-    public void closeContext(){ context.close();}
+    public void closeContext(){
+        context.close();
+        System.out.println("\n-----------------------------------------------------------");
+        System.out.println("Fin de la ejecucion....");
+        System.out.println("-----------------------------------------------------------");
+        printStream.println("\n-----------------------------------------------------------");
+        printStream.println("Fin de la ejecucion....");
+        printStream.println("-----------------------------------------------------------");}
     @AfterAll
     public static void closeBrowser(){ playwright.close();
     }

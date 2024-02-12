@@ -1,28 +1,28 @@
 package InsumosDocola;
 
-public class waitingsDocola extends contextBaseDocola{
 
+public class waitingsDocola extends contextBaseDocola{
+    componentsDocola selector = new componentsDocola();
     public void waitingJoinsSelectorStep1(int rol){
-        page.waitForSelector("app-register mat-stepper > div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > app-form-block-input:nth-of-type(1) mat-form-field input");
-        page.waitForSelector("app-register mat-stepper > div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > app-form-block-input:nth-of-type(2) mat-form-field input");
-        page.waitForSelector("app-register mat-stepper > div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > app-form-block-input mat-form-field input");
-        page.waitForSelector("app-register mat-stepper > div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > mat-card:nth-of-type("+rol+")");
-        page.waitForSelector("mat-stepper > div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > button");
+        page.waitForSelector(selector.firstNameRegister);
+        page.waitForSelector(selector.lastNameRegister);
+        page.waitForSelector(selector.emailRegister);
+        page.waitForSelector(selector.rolRegister(rol));
     }
     public void waitingJoinSelectorStep2(){
-        page.waitForSelector("mat-stepper > div > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > app-form-block-input:nth-of-type(1) input");
-        page.waitForSelector("mat-stepper > div > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > app-form-block-input:nth-of-type(2) input");
+        page.waitForSelector(selector.passwordRegister);
+        page.waitForSelector(selector.passwordConfirmationRegister);
     }
     public void waitingJoinSelectorStep3(){
-        page.waitForSelector("mat-stepper > div > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) mat-checkbox input");
-        page.waitForSelector("mat-stepper > div > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) re-captcha > div > div > iframe");
+        page.waitForSelector(selector.termsAndConditionsRegister);
+        page.waitForSelector(selector.captchaRegister);
     }
     public void waitingOnboardingSelectorContentProviderStep1(){
-        page.waitForSelector(".registration-type-padding app-form-block-input:nth-of-type(1) input");
-        page.waitForSelector(".registration-type-padding app-form-block-input:nth-of-type(2) input");
-        page.waitForSelector(".registration-type-padding button");
+        page.waitForSelector(selector.companyNameClinicianOnboarding);
+        page.waitForSelector(selector.webSiteClinicianOnboarding);
+        page.waitForSelector(selector.nextButtonClinicianOnboardingStep1);
     }
     public void waitingOnboardingSelectorContentProviderStep2(){
-        page.waitForSelector(".registration-type-padding > div > div:nth-of-type(2) > div:nth-of-type(2) > span");
+        page.waitForSelector(selector.skipForNowVerifyPhone);
     }
 }

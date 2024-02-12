@@ -27,7 +27,7 @@ public class interfaceElements extends Application {
     ScrollPane scrollPane = new ScrollPane(consoleTextArea);
     Button deneterCasoDePrueba = new Button("Detener");
     Button execute = new Button("Ejecutar");
-    TextField tfExecute = new TextField("Cantidad de ejecuciones");
+    TextField tfExecute = new TextField();
     Button removerDeLaCola = new Button("Remover de la cola");
     Button createUser = new Button("Crear usuario");
     Button validationsLogin = new Button("Login");

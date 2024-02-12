@@ -11,10 +11,11 @@ import javafx.stage.Stage;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import static InsumosDocola.variablesDocola.*;
+import static insumosPeppermint.variablesPeppermint.printStream;
 
 
 public class botCreator extends Docola.interfaceActions {
-    methodsDocola meotodsDocola = new methodsDocola();
+    methodsDocola methods= new methodsDocola();
     public static void main(String[] args) {
         launch(botCreator.class, args);
     }
@@ -65,6 +66,11 @@ public class botCreator extends Docola.interfaceActions {
             interfaceThread.start();
         }
         removerDeLaCola.setOnAction(event ->{
+            methods.detenerTest();
+            System.out.println("La ejecucion se detendra al final de la actual iteracion");
+            printStream.println("La ejecucion se detendra al final de la actual iteracion");
+        });
+        deneterCasoDePrueba.setOnAction(event ->{
             actionEliminarDeLaCola();
         });
         execute.setOnAction(e -> {
@@ -76,7 +82,7 @@ public class botCreator extends Docola.interfaceActions {
             if (execute.isAlive()) {
                 execute.stop();
             } else {
-                meotodsDocola.iniciarTest();
+                methods.iniciarTest();
                 execute.start();
             }
         });

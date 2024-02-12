@@ -198,7 +198,7 @@ public class methodsPeppermint extends assertions {
             page.waitForSelector("app-payment > div > div > mat-card .wrapper > div:nth-of-type(1) > div > div:nth-of-type(2) > div:nth-of-type(1) input");
             page.waitForSelector("app-payment > div > div > mat-card .wrapper > div:nth-of-type(1) > div > div:nth-of-type(2) > div:nth-of-type(2) input");
             page.waitForTimeout(1000);
-            page.focus("app-payment > div > div > mat-card .wrapper > div:nth-of-type(1) > div > div:nth-of-type(1) > div > div > input");
+            page.focus("-paymentapp > div > div > mat-card .wrapper > div:nth-of-type(1) > div > div:nth-of-type(1) > div > div > input");
             page.waitForTimeout(1000);
             kb.insertText(cardNumber);
             page.focus("app-payment > div > div > mat-card .wrapper > div:nth-of-type(1) > div > div:nth-of-type(2) > div:nth-of-type(1) input");

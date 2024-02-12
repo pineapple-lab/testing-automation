@@ -46,7 +46,9 @@ public class interfacePositions extends interfaceElements{
         setupGridConstraints();
         addElementsTabCreator();
         addElementsTabValidations();
-        setStyles();
+        setColors();
+        setHover();
+        setPlaceHolder();
     }
     private void setupGridConstraints(){
         GridPane.setConstraints(execute, 3, 1);
@@ -76,14 +78,27 @@ public class interfacePositions extends interfaceElements{
         gridValidations.getChildren().add(validationsLogin);
         gridValidations.getChildren().add(validationsRegister);
     }
-    private void setStyles(){
+    private void setColors(){
         execute.setStyle("-fx-background-color: #298dcc;");
         deneterCasoDePrueba.setStyle("-fx-background-color: #298dcc;");
         comboBox.setStyle("-fx-base: #298dcc");//;
+        removerDeLaCola.setStyle("-fx-background-color:#298dcc;");
         scrollPane.setStyle("-fx-control-inner-background:#000000;");
         createUser.setStyle("-fx-background-color:#298dcc;");
         validationsLogin.setStyle("-fx-background-color:#298dcc;");
         validationsRegister.setStyle("-fx-background-color:#298dcc;");
-        removerDeLaCola.setStyle("-fx-background-color:#298dcc;");
+    }
+    public void setHover(){
+        execute.setOnMouseEntered(e -> execute.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
+        execute.setOnMouseExited(e -> execute.setStyle("-fx-background-color: #298dcc;"));
+        deneterCasoDePrueba.setOnMouseEntered(e -> deneterCasoDePrueba.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
+        deneterCasoDePrueba.setOnMouseExited(e -> deneterCasoDePrueba.setStyle("-fx-background-color: #298dcc;"));
+        removerDeLaCola.setOnMouseEntered(e -> removerDeLaCola.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
+        removerDeLaCola.setOnMouseExited(e -> removerDeLaCola.setStyle("-fx-background-color: #298dcc;"));
+        createUser.setOnMouseEntered(e -> createUser.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
+        createUser.setOnMouseExited(e -> createUser.setStyle("-fx-background-color: #298dcc;"));
+    }
+    public void setPlaceHolder(){
+        tfExecute.setPromptText("Cantidad de ejecuciones");
     }
 }

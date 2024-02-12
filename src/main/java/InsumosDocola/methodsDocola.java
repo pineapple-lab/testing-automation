@@ -1,4 +1,5 @@
 package InsumosDocola;
+import com.microsoft.playwright.Keyboard;
 import com.microsoft.playwright.PlaywrightException;
 import org.junit.jupiter.api.Assertions;
 import java.sql.Connection;
@@ -6,7 +7,9 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 import java.time.Instant;
 import java.util.Random;
+import InsumosDocola.componentsDocola;
 public class methodsDocola extends contextBaseDocola{
+    componentsDocola selector = new componentsDocola();
     waitingsDocola waitings = new waitingsDocola();
     public void startContext(){
         System.out.println("\n-----------------------------------------------------------");
@@ -91,24 +94,25 @@ public class methodsDocola extends contextBaseDocola{
         //if(configurationAdvancedRegistration==false) {
             emailRegister = firstName+lastName+timeStamp+"@gmail.com";
         //}
+                 Keyboard kb = page.keyboard();
         System.out.println("Se creara el usuario:"+emailRegister);
-        page.click("text=Sign up free");
-        page.click(".border-primary > div > button:nth-of-type(3)");
+        page.click(selector.singUp);
+        page.click(selector.continueWithEmail);
         page.waitForTimeout(1000);
-        page.fill("app-register mat-stepper > div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > app-form-block-input:nth-of-type(1) mat-form-field input", firstName);
         waitings.waitingJoinsSelectorStep1(rol);
-        page.fill("app-register mat-stepper > div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > app-form-block-input:nth-of-type(2) mat-form-field input", lastName);
-        page.fill("app-register mat-stepper > div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > app-form-block-input mat-form-field input", emailRegister);
-        page.click("app-register mat-stepper > div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > mat-card:nth-of-type("+rol+")");
-        page.click("mat-stepper > div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > button");
+        page.fill(selector.firstNameRegister,firstName);
+        page.fill(selector.lastNameRegister, lastName);
+        page.fill(selector.emailRegister, emailRegister);
+        page.click(selector.rolRegister(rol));
+        page.click(selector.nextButtonRegisterStep1);
         waitings.waitingJoinSelectorStep2();
-        page.fill("mat-stepper > div > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > app-form-block-input:nth-of-type(1) input","123123aA-");
-        page.fill("mat-stepper > div > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > app-form-block-input:nth-of-type(2) input","123123aA-");
-        page.click("mat-stepper > div > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div > button");
+        page.fill(selector.passwordRegister,"123123aA-");
+        page.fill(selector.passwordConfirmationRegister,"123123aA-");
+        page.click(selector.nextButtonRegisterStep2);
         waitings.waitingJoinSelectorStep3();
-        page.click("mat-stepper > div > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) mat-checkbox input");
-        page.click("mat-stepper > div > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) re-captcha > div > div > iframe");
-        page.click("mat-stepper > div > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > div > button");
+        page.click(selector.termsAndConditionsRegister);
+        page.click(selector.captchaRegister);
+        page.click(selector.nextButtonRegisterStep3);
         while (true) {
             try {
                 page.waitForSelector("text=Login successful");
@@ -121,7 +125,6 @@ public class methodsDocola extends contextBaseDocola{
             }
             System.out.println(joinRol);
             if(joinRol.equals("Content provider")){
-                System.out.println("entre");
                 onboardingContentProvider();
             }
         }
@@ -155,10 +158,10 @@ public class methodsDocola extends contextBaseDocola{
      nombreEmpresa = listaEmpresas[index1];
      webSite=nombreEmpresa+".com";
      waitings.waitingOnboardingSelectorContentProviderStep1();
-     page.fill(".registration-type-padding app-form-block-input:nth-of-type(1) input",nombreEmpresa);
-     page.fill(".registration-type-padding app-form-block-input:nth-of-type(2) input",webSite);
-     page.click(".registration-type-padding button");
+     page.fill(selector.companyNameClinicianOnboarding,nombreEmpresa);
+     page.fill(selector.webSiteClinicianOnboarding,webSite);
+     page.click(selector.nextButtonClinicianOnboardingStep1);
      waitings.waitingOnboardingSelectorContentProviderStep2();
-     page.click(".registration-type-padding > div > div:nth-of-type(2) > div:nth-of-type(2) > span");
+     page.click(selector.skipForNowVerifyPhone);
     }
 }

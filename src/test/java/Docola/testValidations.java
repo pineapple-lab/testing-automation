@@ -1,52 +1,50 @@
 package Docola;
 
+import InsumosDocola.creationMethodsDocola;
 import InsumosDocola.methodsDocola;
 import InsumosDocola.validationsDocola;
 import org.junit.jupiter.api.Test;
-public class testValidations extends methodsDocola {
+public class testValidations extends creationMethodsDocola {
     validationsDocola validations = new validationsDocola();
+    methodsDocola methods = new methodsDocola();
+    public void startContextAndNavigation(){
+        methods.startContext();
+        methods.startNavigation();
+    }
     @Test
     public void validationFirstNameRegister(){
-        startContext();
-        startNavigation();
+        startContextAndNavigation();
         validations.validationsRegisterFirstName();
     }
     @Test
     public void validationLastNameRegister(){
-        startContext();
-        startNavigation();
+        startContextAndNavigation();
         validations.validationsRegisterLastName();
     }
     @Test
     public void validationEmailRegister(){
-        startContext();
-        startNavigation();
+        startContextAndNavigation();
         validations.validationsRegisterEmail();
     }
     @Test
     public void validationPasswordRegister(){
-        startContext();
-        startNavigation();
+        startContextAndNavigation();
         validations.validationsRegisterPassword();
     }
     public void validationConfirmPasswordRegister(){
-        startContext();
-        startNavigation();
+        startContextAndNavigation();
         validations.validationsRegisterConfirmPassword();
     }
     public void validationConditionsPassword(){
-        startContext();
-        startNavigation();
+        startContextAndNavigation();
         validations.validationsRegisterPasswordConditions();
     }
     public void validationTermsAndConditions(){
-        startContext();
-        startNavigation();
+        startContextAndNavigation();
         validations.validationTermsAndConditions();
     }
     public void validationCaptcha(){
-        startContext();
-        startNavigation();
+        startContextAndNavigation();
         validations.validationCaptcha();
     }
 }

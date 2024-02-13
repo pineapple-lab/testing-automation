@@ -28,9 +28,9 @@ public class contextBaseDocola extends variablesDocola {
         System.out.println("\n-----------------------------------------------------------");
         System.out.println("Fin de la ejecucion....");
         System.out.println("-----------------------------------------------------------");
-        printStream.println("\n-----------------------------------------------------------");
+        /*printStream.println("\n-----------------------------------------------------------");
         printStream.println("Fin de la ejecucion....");
-        printStream.println("-----------------------------------------------------------");}
+        printStream.println("-----------------------------------------------------------");*/}
     @AfterAll
     public static void closeBrowser(){ playwright.close();
     }

@@ -1,13 +1,9 @@
 package Docola;
-import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.SplitPane;
 import javafx.scene.control.Tab;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 public class interfacePositions extends interfaceElements{
     Tab tbcreator = new Tab("Creator");
@@ -57,8 +53,8 @@ public class interfacePositions extends interfaceElements{
         GridPane.setConstraints(removerDeLaCola, 5, 1);
         GridPane.setConstraints(comboBox,2,1);
         GridPane.setConstraints(createUser, 2, 3);
-        GridPane.setConstraints(validationsLogin, 2, 3);
-        GridPane.setConstraints(validationsRegister, 2, 4);
+        GridPane.setConstraints(validationsFirstNameRegister, 2, 3);
+        GridPane.setConstraints(validationsLastNameRegister, 2, 4);
         comboBox.getItems().add("DEV");
         comboBox.getItems().add("QA");
         comboBox.getItems().add("Local");
@@ -75,8 +71,8 @@ public class interfacePositions extends interfaceElements{
         gridCreator.getChildren().add(createUser);
     }
     private void addElementsTabValidations(){
-        gridValidations.getChildren().add(validationsLogin);
-        gridValidations.getChildren().add(validationsRegister);
+        gridValidations.getChildren().add(validationsFirstNameRegister);
+        gridValidations.getChildren().add(validationsLastNameRegister);
     }
     private void setColors(){
         execute.setStyle("-fx-background-color: #298dcc;");
@@ -85,10 +81,11 @@ public class interfacePositions extends interfaceElements{
         removerDeLaCola.setStyle("-fx-background-color:#298dcc;");
         scrollPane.setStyle("-fx-control-inner-background:#000000;");
         createUser.setStyle("-fx-background-color:#298dcc;");
-        validationsLogin.setStyle("-fx-background-color:#298dcc;");
-        validationsRegister.setStyle("-fx-background-color:#298dcc;");
+        validationsFirstNameRegister.setStyle("-fx-background-color:#298dcc;");
+        validationsLastNameRegister.setStyle("-fx-background-color:#298dcc;");
     }
     public void setHover(){
+        //create buttons
         execute.setOnMouseEntered(e -> execute.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
         execute.setOnMouseExited(e -> execute.setStyle("-fx-background-color: #298dcc;"));
         deneterCasoDePrueba.setOnMouseEntered(e -> deneterCasoDePrueba.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
@@ -97,6 +94,12 @@ public class interfacePositions extends interfaceElements{
         removerDeLaCola.setOnMouseExited(e -> removerDeLaCola.setStyle("-fx-background-color: #298dcc;"));
         createUser.setOnMouseEntered(e -> createUser.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
         createUser.setOnMouseExited(e -> createUser.setStyle("-fx-background-color: #298dcc;"));
+        //validation buttons
+        validationsFirstNameRegister.setOnMouseEntered(e -> validationsFirstNameRegister.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
+        validationsFirstNameRegister.setOnMouseExited(e -> validationsFirstNameRegister.setStyle("-fx-background-color: #298dcc;"));
+        validationsLastNameRegister.setOnMouseEntered(e -> validationsLastNameRegister.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
+        validationsLastNameRegister.setOnMouseExited(e -> validationsLastNameRegister.setStyle("-fx-background-color: #298dcc;"));
+
     }
     public void setPlaceHolder(){
         tfExecute.setPromptText("Cantidad de ejecuciones");

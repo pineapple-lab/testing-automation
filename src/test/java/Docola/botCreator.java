@@ -1,19 +1,13 @@
 package Docola;
 import InsumosDocola.variablesDocola;
 import InsumosDocola.methodsDocola;
-import Peppermint.configuracionAvanzadaEnrollClub;
-import insumosPeppermint.methodsPeppermint;
 import javafx.application.Platform;
-import javafx.geometry.Orientation;
 import javafx.scene.control.CheckBox;
 import javafx.stage.Stage;
-
 import java.io.OutputStream;
 import java.io.PrintStream;
 import static InsumosDocola.variablesDocola.*;
 import static insumosPeppermint.variablesPeppermint.printStream;
-
-
 public class botCreator extends Docola.interfaceActions {
     methodsDocola methods= new methodsDocola();
     public static void main(String[] args) {
@@ -59,20 +53,34 @@ public class botCreator extends Docola.interfaceActions {
                     configAvanzadaStage.show();
                 }
             });
+            validationsFirstNameRegister.setOnAction(e->{
+                listaDeEspera.add(ExecMethod.validationFirstNameRegister);
+                Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
+                CheckBox checkBox = new CheckBox("validationFirstNameRegister");
+                checkBoxesMap.put(checkBox, elemento);
+                gridCola.add(checkBox, 0, listaDeEspera.size()-1);
+            });
+            validationsLastNameRegister.setOnAction(e->{
+                listaDeEspera.add(ExecMethod.validationLastNameRegister);
+                Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
+                CheckBox checkBox = new CheckBox("validationLastNameRegister");
+                checkBoxesMap.put(checkBox, elemento);
+                gridCola.add(checkBox, 0, listaDeEspera.size()-1);
+            });
+            /*deneterCasoDePrueba.setOnAction(event ->{
+                methods.detenerTest();
+                System.out.println("La ejecucion se detendra al final de la actual iteracion");
+                printStream.println("La ejecucion se detendra al final de la actual iteracion");
+            });*/
+            removerDeLaCola.setOnAction(event ->{
+                actionEliminarDeLaCola();
+            });
         }, "interfaceThread");
         if(interfaceThread.isAlive()) {
             interfaceThread.stop();
         }else {
             interfaceThread.start();
         }
-        removerDeLaCola.setOnAction(event ->{
-            methods.detenerTest();
-            System.out.println("La ejecucion se detendra al final de la actual iteracion");
-            printStream.println("La ejecucion se detendra al final de la actual iteracion");
-        });
-        deneterCasoDePrueba.setOnAction(event ->{
-            actionEliminarDeLaCola();
-        });
         execute.setOnAction(e -> {
             System.out.println(linkNavigation);
             Thread execute = new Thread(() -> {
@@ -91,9 +99,14 @@ public class botCreator extends Docola.interfaceActions {
         for (int i = 0; i < listaDeEspera.size(); i++) {
             interfaceActions.ExecMethod var = listaDeEspera.get(i);
             switch (var) {
-
                 case CreateUser:
                     actionJoin();
+                    break;
+                case validationFirstNameRegister:
+                    actionValidationFirstNameRegister();
+                    break;
+                case validationLastNameRegister:
+                    actionValidationLastNameRegister();
                     break;
             }
         }

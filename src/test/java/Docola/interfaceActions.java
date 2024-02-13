@@ -1,17 +1,12 @@
 package Docola;
-
 import javafx.scene.control.CheckBox;
-
 import java.util.ArrayList;
 import java.util.List;
-
 public class interfaceActions extends interfacePositions{
     enum ExecMethod {
         CreateUser,
-    }
-    public void actionJoin() {
-        functionJoin test = new functionJoin();
-        test.validationRegister();
+        validationFirstNameRegister,
+        validationLastNameRegister
     }
     public void actionEliminarDeLaCola() {
         List<CheckBox> checkBoxesSeleccionados = new ArrayList<>();
@@ -26,5 +21,19 @@ public class interfaceActions extends interfacePositions{
             checkBoxesMap.remove(checkBox);
             gridCola.getChildren().remove(checkBox);
         }
+    }
+   //create actions
+    public void actionJoin() {
+        functionJoin test = new functionJoin();
+        test.validationRegister();
+    }
+    //validation actions
+    public void actionValidationFirstNameRegister() {
+        testValidations test = new testValidations();
+        test.validationFirstNameRegister();
+    }
+    public void actionValidationLastNameRegister() {
+        testValidations test = new testValidations();
+        test.validationLastNameRegister();
     }
 }

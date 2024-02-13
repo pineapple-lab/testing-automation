@@ -1,15 +1,12 @@
 package Docola;
-import Peppermint.interfaceActions;
 import javafx.application.Application;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
 public class interfaceElements extends Application {
     String seleccion;
     ArrayList<botCreator.ExecMethod> listaDeEspera = new ArrayList<>();
@@ -30,9 +27,7 @@ public class interfaceElements extends Application {
     TextField tfExecute = new TextField();
     Button removerDeLaCola = new Button("Remover de la cola");
     Button createUser = new Button("Crear usuario");
-    Button validationsLogin = new Button("Login");
-    Button validationsRegister = new Button("Registro");
-
+    Button validationsFirstNameRegister = new Button("First name");
+    Button validationsLastNameRegister = new Button("Last name");
     public void start(Stage stage) throws Exception {}
-
 }

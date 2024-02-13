@@ -7,7 +7,6 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 import java.time.Instant;
 import java.util.Random;
-import InsumosDocola.componentsDocola;
 public class methodsDocola extends contextBaseDocola{
     componentsDocola selector = new componentsDocola();
     waitingsDocola waitings = new waitingsDocola();
@@ -15,9 +14,9 @@ public class methodsDocola extends contextBaseDocola{
         System.out.println("\n-----------------------------------------------------------");
         System.out.println("Iniciando ejecucion....");
         System.out.println("-----------------------------------------------------------");
-        printStream.println("\n-----------------------------------------------------------");
+        /*printStream.println("\n-----------------------------------------------------------");
         printStream.println("Iniciando ejecucion....");
-        printStream.println("-----------------------------------------------------------");
+        printStream.println("-----------------------------------------------------------");*/
         launchBrowser();
         createContextAndPage();
     }
@@ -27,41 +26,7 @@ public class methodsDocola extends contextBaseDocola{
     public void detenerTest(){
         shouldStopTest = true;
     }
-    public void saveUser(){
-        try {
-            String url = "jdbc:mysql://localhost:3306/testbddocola?serverTimezone=UTC";
-            String username = "root";
-            String password = "root";
-            Connection CN = DriverManager.getConnection(url, username, password);
-            String insertSql = "INSERT INTO users (`emailUser`) " +
-                    "VALUES('"+emailRegister+"')";
-            Statement stmt = CN.createStatement();
-            stmt.executeUpdate(insertSql);
-            CN.close();
-        }catch(Exception ex) {
-            ex.printStackTrace();
-        }
-    }
-    public void startNavigation(){
-        page.navigate(linkNavigation);
-    }
-    public void joinNow(){
-        for (contador = 1; contador <= ejecuciones; contador++) {
-            if (!shouldStopTest) {
-        if (joinRol == null) {
-            joinRol="Clinician";
-        }
-        switch(joinRol){
-            case "Patient":
-                rol=1;
-                break;
-            case "Clinician":
-                rol=2;
-                break;
-            case "Content provider":
-                rol=3;
-                break;
-        }
+    public String generarEmail(){
         String[] listaNombres = {"Juan", "Maria", "Carlos", "Ana", "Luis", "Laura", "Pedro", "Sofia", "Diego", "Valentina",
                 "Jose", "Camila", "Miguel", "Isabella", "Fernando", "Lucia", "Alejandro", "Julia", "Ricardo", "Emma",
                 "Andres", "Paula", "Esteban", "Martina", "Felipe", "Valeria", "Jorge", "Gabriela", "Gustavo", "Mariana",
@@ -92,9 +57,87 @@ public class methodsDocola extends contextBaseDocola{
         lastName= listaApellidos[index2];
         long timeStamp = Instant.now().toEpochMilli();
         //if(configurationAdvancedRegistration==false) {
-            emailRegister = firstName+lastName+timeStamp+"@gmail.com";
+        emailRegister = firstName+lastName+timeStamp+"@gmail.com";
+        return emailRegister;
+    }
+    public String generarFirstName(){
+        String[] listaNombres = {"Juan", "Maria", "Carlos", "Ana", "Luis", "Laura", "Pedro", "Sofia", "Diego", "Valentina",
+                "Jose", "Camila", "Miguel", "Isabella", "Fernando", "Lucia", "Alejandro", "Julia", "Ricardo", "Emma",
+                "Andres", "Paula", "Esteban", "Martina", "Felipe", "Valeria", "Jorge", "Gabriela", "Gustavo", "Mariana",
+                "Raul", "Renata", "Sergio", "Jimena", "Ignacio", "Natalia", "Hugo", "Adriana", "Pablo", "Daniela",
+                "Angel", "Patricia", "Emilio", "Carmen", "Roberto", "Rosa", "Alberto", "Clara", "Benjamin", "Elena",
+                "Guillermo", "Mercedes", "Rafael", "Beatriz", "Samuel", "Silvia", "Victor", "Julieta", "Javier", "Carolina",
+                "Manuel", "Marina", "Rogelio", "Juana", "Enrique", "Vanesa", "Federico", "Francisca", "Mario", "Ines",
+                "Simon", "Constanza", "Cesar", "Lorena", "Oscar", "Alicia", "Bruno", "Gabriela", "Eduardo", "Catalina",
+                "Nicolas", "Agustina", "Hector", "Antonella", "Tomas", "Clarisa", "Alvaro", "Diana", "Francisco", "Anais",
+                "Sebastian", "Bianca", "Daniel", "Florencia", "Maximiliano", "Pamela", "Marcos", "Luciana"};
+        Random rand = new Random();
+        int index1 = rand.nextInt(listaNombres.length);
+        firstName = listaNombres[index1];
+        return firstName;
+    }
+    public String generarLastName(){
+        String[] listaApellidos = {
+                "Gonzalez", "Rodriguez", "Gomez", "Fernandez", "Lopez", "Martinez", "Perez", "Garcia", "Sanchez", "Romero",
+                "Torres", "Ramirez", "Hernandez", "Ruiz", "Jimenez", "Diaz", "Moreno", "Alvarez", "Munioz", "Gutierrez",
+                "Vargas", "Castanio", "Ortega", "Silva", "Nuniez", "Molina", "Castro", "Rojas", "Medina", "Cruz",
+                "Navarro", "Cabrera", "Vargas", "Mendoza", "Soto", "Guerrero", "Ortiz", "Delgado", "Rios", "Chavez",
+                "Mejia", "Vega", "Avila", "Acosta", "Miranda", "Fuentes", "Campos", "Correa", "Estrada", "Gallardo",
+                "Velasco", "Montoya", "Penia", "Rivas", "Quintero", "Barrera", "Penia", "Cortes", "Aguirre", "Blanco",
+                "Padilla", "Arroyo", "Ramos", "Salas", "Santos", "Arias", "Zamora", "Valencia", "Soler", "Peralta",
+                "Rocha", "DelValle", "Salazar", "Esquivel", "Rubio", "Calderon", "Rosales", "Urbina", "Luna", "Escobar",
+                "Vera", "Orozco", "Villalobos", "Duarte", "Ochoa", "Zuniga", "Rangel", "Aranda", "Vidal", "Barajas",
+                "Saucedo", "Becerra", "Cervantes", "Velazquez", "Landa", "Gallardo", "Carranza", "Carrillo", "Lara", "DelRio"
+        };
+        Random random = new Random();
+        int index2 = random.nextInt(listaApellidos.length);
+        lastName= listaApellidos[index2];
+        return lastName;
+    }
+    public void saveUser(){
+        try {
+            String url = "jdbc:mysql://localhost:3306/testbddocola?serverTimezone=UTC";
+            String username = "root";
+            String password = "root";
+            Connection CN = DriverManager.getConnection(url, username, password);
+            String insertSql = "INSERT INTO users (`emailUser`) " +
+                    "VALUES('"+emailRegister+"')";
+            Statement stmt = CN.createStatement();
+            stmt.executeUpdate(insertSql);
+            CN.close();
+        }catch(Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    public int asignarRol(){
+        if (joinRol == null) {
+            joinRol="Clinician";
+        }
+        switch(joinRol){
+            case "Patient":
+                rol=1;
+                break;
+            case "Clinician":
+                rol=2;
+                break;
+            case "Content provider":
+                rol=3;
+                break;
+        }
+      return rol;
+    }
+    public void startNavigation(){
+        page.navigate(linkNavigation);
+    }
+    public void joinNow(){
+        for (contador = 1; contador <= ejecuciones; contador++) {
+            if (!shouldStopTest) {
+        asignarRol();
+        generarEmail();
+        generarFirstName();
+        generarLastName();
         //}
-                 Keyboard kb = page.keyboard();
+        Keyboard kb = page.keyboard();
         System.out.println("Se creara el usuario:"+emailRegister);
         page.click(selector.singUp);
         page.click(selector.continueWithEmail);

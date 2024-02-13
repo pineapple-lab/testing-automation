@@ -43,7 +43,7 @@ public class configuracionAvanzadaJoin extends interfaceElements {
             if(execute.isAlive()) {
                 execute.stop();
             }else {
-                mDocola.iniciarTest();
+                mDocola.startTest();
                 execute.start();
             }
         });

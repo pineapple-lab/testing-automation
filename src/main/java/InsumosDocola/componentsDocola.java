@@ -13,6 +13,9 @@ public class componentsDocola extends variablesDocola{
     }
     public String nextButtonRegisterStep1 = "mat-stepper > div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > button";
     public String passwordRegister = "mat-stepper > div > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > app-form-block-input:nth-of-type(1) input";
+    public String passwordConditionSelector(int passwordCondition){
+        return "app-password-verification > div > div:nth-of-type("+passwordCondition+")";
+    }
     public String passwordConfirmationRegister = "mat-stepper > div > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > app-form-block-input:nth-of-type(2) input";
     public String nextButtonRegisterStep2 = "mat-stepper > div > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div > button";
     public String termsAndConditionsRegister = "mat-stepper > div > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) mat-checkbox input";

@@ -38,11 +38,11 @@ public class botCreator extends Docola.interfaceActions {
                 }
             });
             createUser.setOnAction(e->{
-                listaDeEspera.add(ExecMethod.CreateUser);
-                Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
+                waitingList.add(ExecMethod.CreateUser);
+                Enum elemento = waitingList.get(waitingList.size()-1);
                 CheckBox checkBox = new CheckBox("CreateUser");
                 checkBoxesMap.put(checkBox, elemento);
-                gridCola.add(checkBox, 0, listaDeEspera.size()-1);
+                gridCola.add(checkBox, 0, waitingList.size()-1);
             });
             createUser.setOnMousePressed( event -> {
                 if (event.isSecondaryButtonDown()){
@@ -54,25 +54,67 @@ public class botCreator extends Docola.interfaceActions {
                 }
             });
             validationsFirstNameRegister.setOnAction(e->{
-                listaDeEspera.add(ExecMethod.validationFirstNameRegister);
-                Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
+                waitingList.add(ExecMethod.validationFirstNameRegister);
+                Enum elemento = waitingList.get(waitingList.size()-1);
                 CheckBox checkBox = new CheckBox("validationFirstNameRegister");
                 checkBoxesMap.put(checkBox, elemento);
-                gridCola.add(checkBox, 0, listaDeEspera.size()-1);
+                gridCola.add(checkBox, 0, waitingList.size()-1);
             });
             validationsLastNameRegister.setOnAction(e->{
-                listaDeEspera.add(ExecMethod.validationLastNameRegister);
-                Enum elemento = listaDeEspera.get(listaDeEspera.size()-1);
+                waitingList.add(ExecMethod.validationLastNameRegister);
+                Enum elemento = waitingList.get(waitingList.size()-1);
                 CheckBox checkBox = new CheckBox("validationLastNameRegister");
                 checkBoxesMap.put(checkBox, elemento);
-                gridCola.add(checkBox, 0, listaDeEspera.size()-1);
+                gridCola.add(checkBox, 0, waitingList.size()-1);
             });
-            /*deneterCasoDePrueba.setOnAction(event ->{
-                methods.detenerTest();
+            validationsEmailRegister.setOnAction(e->{
+                waitingList.add(ExecMethod.validationEmailRegister);
+                Enum elemento = waitingList.get(waitingList.size()-1);
+                CheckBox checkBox = new CheckBox("validationEmailRegister");
+                checkBoxesMap.put(checkBox, elemento);
+                gridCola.add(checkBox, 0, waitingList.size()-1);
+            });
+            validationsPasswordRegister.setOnAction(e->{
+                waitingList.add(ExecMethod.validationPasswordRegister);
+                Enum elemento = waitingList.get(waitingList.size()-1);
+                CheckBox checkBox = new CheckBox("validationPasswordRegister");
+                checkBoxesMap.put(checkBox, elemento);
+                gridCola.add(checkBox, 0, waitingList.size()-1);
+            });
+            validationsConfirmPasswordRegister.setOnAction(e->{
+                waitingList.add(ExecMethod.validationConfirmPasswordRegister);
+                Enum elemento = waitingList.get(waitingList.size()-1);
+                CheckBox checkBox = new CheckBox("validationConfirmPasswordRegister");
+                checkBoxesMap.put(checkBox, elemento);
+                gridCola.add(checkBox, 0, waitingList.size()-1);
+            });
+            validationsConditionsPasswordRegister.setOnAction(e->{
+                waitingList.add(ExecMethod.validationConditionsPasswordRegister);
+                Enum elemento = waitingList.get(waitingList.size()-1);
+                CheckBox checkBox = new CheckBox("validationConditionPasswordRegister");
+                checkBoxesMap.put(checkBox, elemento);
+                gridCola.add(checkBox, 0, waitingList.size()-1);
+            });
+            validationsTermsAndConditionsRegister.setOnAction(e->{
+                waitingList.add(ExecMethod.validationTermsAndConditionsRegister);
+                Enum elemento = waitingList.get(waitingList.size()-1);
+                CheckBox checkBox = new CheckBox("validationTermsAndConditionsRegister");
+                checkBoxesMap.put(checkBox, elemento);
+                gridCola.add(checkBox, 0, waitingList.size()-1);
+            });
+            validationsCaptchaRegister.setOnAction(e->{
+                waitingList.add(ExecMethod.validationCaptchaRegister);
+                Enum elemento = waitingList.get(waitingList.size()-1);
+                CheckBox checkBox = new CheckBox("validationCaptchaRegister");
+                checkBoxesMap.put(checkBox, elemento);
+                gridCola.add(checkBox, 0, waitingList.size()-1);
+            });
+            stopTestCase.setOnAction(event ->{
+                methods.stopTest();
                 System.out.println("La ejecucion se detendra al final de la actual iteracion");
                 printStream.println("La ejecucion se detendra al final de la actual iteracion");
-            });*/
-            removerDeLaCola.setOnAction(event ->{
+            });
+            removeQueue.setOnAction(event ->{
                 actionEliminarDeLaCola();
             });
         }, "interfaceThread");
@@ -90,14 +132,14 @@ public class botCreator extends Docola.interfaceActions {
             if (execute.isAlive()) {
                 execute.stop();
             } else {
-                methods.iniciarTest();
+                methods.startTest();
                 execute.start();
             }
         });
     }
     public void accion () {
-        for (int i = 0; i < listaDeEspera.size(); i++) {
-            interfaceActions.ExecMethod var = listaDeEspera.get(i);
+        for (int i = 0; i < waitingList.size(); i++) {
+            interfaceActions.ExecMethod var = waitingList.get(i);
             switch (var) {
                 case CreateUser:
                     actionJoin();
@@ -107,6 +149,24 @@ public class botCreator extends Docola.interfaceActions {
                     break;
                 case validationLastNameRegister:
                     actionValidationLastNameRegister();
+                    break;
+                case validationEmailRegister:
+                    actionValidationEmailRegister();
+                    break;
+                case validationPasswordRegister:
+                    actionValidationPasswordRegister();
+                    break;
+                case validationConfirmPasswordRegister:
+                    actionValidationConfirmPasswordRegister();
+                    break;
+                case validationConditionsPasswordRegister:
+                    actionValidationConditionsPasswordRegister();
+                    break;
+                case validationTermsAndConditionsRegister:
+                    actionValidationTermsAndConditionsRegister();
+                    break;
+                case validationCaptchaRegister:
+                    actionValidationCaptchaRegister();
                     break;
             }
         }

@@ -9,12 +9,44 @@ public class testValidations extends methodsDocola {
     public void validationFirstNameRegister(){
         startContext();
         startNavigation();
-        validations.validationsLoginFirstName();
+        validations.validationsRegisterFirstName();
     }
     @Test
     public void validationLastNameRegister(){
         startContext();
         startNavigation();
-        validations.validationsLoginLastName();
+        validations.validationsRegisterLastName();
+    }
+    @Test
+    public void validationEmailRegister(){
+        startContext();
+        startNavigation();
+        validations.validationsRegisterEmail();
+    }
+    @Test
+    public void validationPasswordRegister(){
+        startContext();
+        startNavigation();
+        validations.validationsRegisterPassword();
+    }
+    public void validationConfirmPasswordRegister(){
+        startContext();
+        startNavigation();
+        validations.validationsRegisterConfirmPassword();
+    }
+    public void validationConditionsPassword(){
+        startContext();
+        startNavigation();
+        validations.validationsRegisterPasswordConditions();
+    }
+    public void validationTermsAndConditions(){
+        startContext();
+        startNavigation();
+        validations.validationTermsAndConditions();
+    }
+    public void validationCaptcha(){
+        startContext();
+        startNavigation();
+        validations.validationCaptcha();
     }
 }

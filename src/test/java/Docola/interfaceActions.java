@@ -6,7 +6,13 @@ public class interfaceActions extends interfacePositions{
     enum ExecMethod {
         CreateUser,
         validationFirstNameRegister,
-        validationLastNameRegister
+        validationLastNameRegister,
+        validationEmailRegister,
+        validationPasswordRegister,
+        validationConfirmPasswordRegister,
+        validationConditionsPasswordRegister,
+        validationTermsAndConditionsRegister,
+        validationCaptchaRegister
     }
     public void actionEliminarDeLaCola() {
         List<CheckBox> checkBoxesSeleccionados = new ArrayList<>();
@@ -17,7 +23,7 @@ public class interfaceActions extends interfacePositions{
         }
         for (CheckBox checkBox : checkBoxesSeleccionados) {
             Enum elemento = checkBoxesMap.get(checkBox);
-            listaDeEspera.remove(elemento);
+            waitingList.remove(elemento);
             checkBoxesMap.remove(checkBox);
             gridCola.getChildren().remove(checkBox);
         }
@@ -35,5 +41,29 @@ public class interfaceActions extends interfacePositions{
     public void actionValidationLastNameRegister() {
         testValidations test = new testValidations();
         test.validationLastNameRegister();
+    }
+    public void actionValidationEmailRegister() {
+        testValidations test = new testValidations();
+        test.validationEmailRegister();
+    }
+    public void actionValidationPasswordRegister() {
+        testValidations test = new testValidations();
+        test.validationPasswordRegister();
+    }
+    public void actionValidationConfirmPasswordRegister() {
+        testValidations test = new testValidations();
+        test.validationConfirmPasswordRegister();
+    }
+    public void actionValidationConditionsPasswordRegister() {
+        testValidations test = new testValidations();
+        test.validationConditionsPassword();
+    }
+    public void actionValidationTermsAndConditionsRegister() {
+        testValidations test = new testValidations();
+        test.validationTermsAndConditions();
+    }
+    public void actionValidationCaptchaRegister() {
+        testValidations test = new testValidations();
+        test.validationCaptcha();
     }
 }

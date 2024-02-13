@@ -9,25 +9,34 @@ import java.util.HashMap;
 import java.util.Map;
 public class interfaceElements extends Application {
     String seleccion;
-    ArrayList<botCreator.ExecMethod> listaDeEspera = new ArrayList<>();
+    ArrayList<botCreator.ExecMethod> waitingList = new ArrayList<>();
     GridPane gridCreator = new GridPane();
-    GridPane gridValidations = new GridPane();
+    GridPane gridValidationsRegister = new GridPane();
     GridPane gridHeader = new GridPane();
     GridPane gridCola = new GridPane();
     SplitPane splitMain = new SplitPane();
     ComboBox<String> comboBox = new ComboBox<>();
     public Map<CheckBox,Enum> checkBoxesMap = new HashMap<>();
     TabPane tabPane = new TabPane();
+    Tab tbcreator = new Tab("Creator");
+    Tab tbValidationsRegister = new Tab("Validations register");
+    Tab tbValidationsLogin = new Tab ("Validations login");
     SplitPane splitPane = new SplitPane();
     StackPane rootConfigAvanzada = new StackPane();
     TextArea consoleTextArea =  new TextArea();
     ScrollPane scrollPane = new ScrollPane(consoleTextArea);
-    Button deneterCasoDePrueba = new Button("Detener");
+    Button stopTestCase = new Button("Detener");
     Button execute = new Button("Ejecutar");
     TextField tfExecute = new TextField();
-    Button removerDeLaCola = new Button("Remover de la cola");
+    Button removeQueue = new Button("Remover de la cola");
     Button createUser = new Button("Crear usuario");
     Button validationsFirstNameRegister = new Button("First name");
     Button validationsLastNameRegister = new Button("Last name");
+    Button validationsEmailRegister = new Button("Email");
+    Button validationsPasswordRegister = new Button("Password");
+    Button validationsConfirmPasswordRegister = new Button("Confirm password");
+    Button validationsConditionsPasswordRegister = new Button("Conditions password");
+    Button validationsTermsAndConditionsRegister = new Button("Terms and conditions");
+    Button validationsCaptchaRegister = new Button("Captcha");
     public void start(Stage stage) throws Exception {}
 }

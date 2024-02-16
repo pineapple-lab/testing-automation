@@ -1,8 +1,11 @@
 package InsumosDocola;
-
-
-public class waitingsDocola extends contextBaseDocola{
-    selectorsDocola selector = new selectorsDocola();
+public class WaitingsDocola extends ContextBaseDocola{
+    SelectorsDocola selector = new SelectorsDocola();
+    public void waitingLoginSelectors(){
+        page.waitForSelector(selector.loginEmail);
+        page.waitForSelector(selector.loginPassword);
+        page.waitForSelector(selector.loginButton);
+    }
     public void waitingLoginSelectorIncorrectCredentials(){
         page.waitForSelector(selector.loginIncorrectCredentials);
     }

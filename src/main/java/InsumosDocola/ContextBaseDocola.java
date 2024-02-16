@@ -6,7 +6,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 
-public class contextBaseDocola extends variablesDocola {
+public class ContextBaseDocola extends VariablesDocola {
     public static Playwright playwright;
     public static Browser browser;
     public static BrowserContext context;

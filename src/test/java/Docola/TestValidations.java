@@ -1,76 +1,72 @@
 package Docola;
 
-import InsumosDocola.creationMethodsDocola;
-import InsumosDocola.methodsDocola;
-import InsumosDocola.validationsDocola;
+import InsumosDocola.MethodsCreationDocola;
+import InsumosDocola.MethodsDocola;
+import InsumosDocola.ValidationsDocola;
 import org.junit.jupiter.api.Test;
-public class testValidations extends creationMethodsDocola {
-    validationsDocola validations = new validationsDocola();
-    methodsDocola methods = new methodsDocola();
-    public void startContextAndNavigation(){
-        methods.startContext();
-        methods.startNavigation();
-    }
+public class TestValidations extends MethodsCreationDocola {
+    ValidationsDocola validations = new ValidationsDocola();
+    MethodsDocola methods = new MethodsDocola();
     //SERVICE VALIDATION LOGIN
     @Test
     public void validationPasswordIncorrectLogin(){
-        startContextAndNavigation();
+        methods.startContextAndNavigation();
         validations.validationLoginPasswordIncorrect();
     }
     @Test
     public void validationEmailIncorrectLogin(){
-        startContextAndNavigation();
+        methods.startContextAndNavigation();
         validations.validationLoginEmailIncorrect();
     }
     @Test
     public void validationEmailEmptyLogin(){
-        startContextAndNavigation();
+        methods.startContextAndNavigation();
         validations.validationLoginEmailEmpty();
     }
     @Test
     public void validationPasswordEmptyLogin(){
-        startContextAndNavigation();
+        methods.startContextAndNavigation();
         validations.validationLoginPasswordEmpty();
     }
     //SERVICE VALIDATION REGISTER
     @Test
     public void validationFirstNameRegister(){
-        startContextAndNavigation();
+        methods.startContextAndNavigation();
         validations.validationRegisterFirstName();
     }
     @Test
     public void validationLastNameRegister(){
-        startContextAndNavigation();
+        methods.startContextAndNavigation();
         validations.validationRegisterLastName();
     }
     @Test
     public void validationEmailRegister(){
-        startContextAndNavigation();
+        methods.startContextAndNavigation();
         validations.validationRegisterEmail();
     }
     @Test
     public void validationPasswordRegister(){
-        startContextAndNavigation();
+        methods.startContextAndNavigation();
         validations.validationRegisterPassword();
     }
     @Test
     public void validationConfirmPasswordRegister(){
-        startContextAndNavigation();
+        methods.startContextAndNavigation();
         validations.validationRegisterConfirmPassword();
     }
     @Test
     public void validationConditionsPassword(){
-        startContextAndNavigation();
+        methods.startContextAndNavigation();
         validations.validationRegisterPasswordConditions();
     }
     @Test
     public void validationTermsAndConditions(){
-        startContextAndNavigation();
+        methods.startContextAndNavigation();
         validations.validationTermsAndConditions();
     }
     @Test
     public void validationCaptcha(){
-        startContextAndNavigation();
+        methods.startContextAndNavigation();
         validations.validationCaptcha();
     }
 }

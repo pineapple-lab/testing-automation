@@ -1,23 +1,25 @@
 package InsumosDocola;
 import com.microsoft.playwright.PlaywrightException;
 import org.junit.jupiter.api.Assertions;
-public class creationMethodsDocola extends contextBaseDocola{
-    selectorsDocola selector = new selectorsDocola();
-    waitingsDocola waitings = new waitingsDocola();
-    queriesDocola queries = new queriesDocola();
-    generatorDocola trigger = new generatorDocola();
+public class MethodsCreationDocola extends ContextBaseDocola{
+    SelectorsDocola selector = new SelectorsDocola();
+    WaitingsDocola waitings = new WaitingsDocola();
+    QueriesDocola queries = new QueriesDocola();
+    GeneratorDocola trigger = new GeneratorDocola();
+    GeneratorDocola.EmailInfo emailInfo = trigger.generateEmail();
+    MethodsDocola methods = new MethodsDocola();
     public void joinNow(){
         for (contador = 1; contador <= ejecuciones; contador++) {
         if (!shouldStopTest) {
-        email = trigger.generateEmail();
         rol = trigger.generateRol();
+        email=emailInfo.getEmail();
         System.out.println("Se creara el usuario:"+email);
         page.click(selector.singUp);
         page.click(selector.continueWithEmail);
         page.waitForTimeout(1000);
         waitings.waitingJoinsSelectorStep1(rol);
-        page.fill(selector.registerFirstName, trigger.generateFirstName());
-        page.fill(selector.registerLastName, trigger.generateLastName());
+        page.fill(selector.registerFirstName, emailInfo.getFirstName());
+        page.fill(selector.registerLastName, emailInfo.getLastName());
         page.fill(selector.email, trigger.email);
         page.click(selector.rolRegister(rol));
         page.click(selector.registerNextButtonStep1);
@@ -33,18 +35,20 @@ public class creationMethodsDocola extends contextBaseDocola{
             try {
                 page.waitForSelector("text=Login successful");
                 Assertions.assertTrue(page.isVisible("text=Login successful"));
+                queries.saveUser(email);
                 break;
             } catch (PlaywrightException e) {}
         }
-            } else {
-                closeContext();
-            }
+
             System.out.println(joinRol);
             if(joinRol.equals("Content provider")){
                 onboardingContentProvider();
             }
+            methods.signOut();
+        } else {
+            closeContext();
+            }
         }
-        queries.saveUser();
         closeContext();
     }
     public void onboardingContentProvider(){
@@ -56,4 +60,10 @@ public class creationMethodsDocola extends contextBaseDocola{
      waitings.waitingOnboardingSelectorContentProviderStep2();
      page.click(selector.VerifyPhoneSkipForNow);
     }
+    public void newContent(){
+        joinRol = "Content provider";
+        methods.login(queries.getEmailUser(joinRol));
+        page.waitForTimeout(60000);
+    }
+    
 }

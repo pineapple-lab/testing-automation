@@ -2,10 +2,9 @@ package Docola;
 import javafx.geometry.Orientation;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.Tab;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-public class interfacePositions extends interfaceElements{
+public class InterfacePositions extends InterfaceElements{
     @Override
     public void start(Stage stage){
         setupUIElements();
@@ -59,6 +58,7 @@ public class interfacePositions extends interfaceElements{
         GridPane.setConstraints(comboBox,2,1);
         //Create buttons
         GridPane.setConstraints(createUser, 2, 3);
+        GridPane.setConstraints(newContent, 2, 4);
         //Validation login tab positions
         GridPane.setConstraints(validationsLoginEmailIncorrect, 2, 3);
         GridPane.setConstraints(validationsLoginPasswordIncorrect, 2, 4);
@@ -87,6 +87,7 @@ public class interfacePositions extends interfaceElements{
     }
     private void addElementsGridCreator(){
         gridCreator.getChildren().add(createUser);
+        gridCreator.getChildren().add(newContent);
     }
     private void addElementsGridValidationsLogin(){
         gridValidationsLogin.getChildren().add(validationsLoginEmailIncorrect);
@@ -113,6 +114,7 @@ public class interfacePositions extends interfaceElements{
         scrollPane.setStyle("-fx-control-inner-background:#000000;");
         //Create buttons
         createUser.setStyle("-fx-background-color:#298dcc;");
+        newContent.setStyle("-fx-background-color:#298dcc;");
         //Validations LOGIN buttons
         validationsLoginEmailIncorrect.setStyle("-fx-background-color:#298dcc;");
         validationsLoginPasswordIncorrect.setStyle("-fx-background-color:#298dcc;");
@@ -141,6 +143,8 @@ public class interfacePositions extends interfaceElements{
         //Create buttons
         createUser.setOnMouseEntered(e -> createUser.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
         createUser.setOnMouseExited(e -> createUser.setStyle("-fx-background-color: #298dcc;"));
+        newContent.setOnMouseEntered(e -> newContent.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
+        newContent.setOnMouseExited(e -> newContent.setStyle("-fx-background-color: #298dcc;"));
         //validation LOGIN buttons
         validationsLoginEmailIncorrect.setOnMouseEntered(e -> validationsLoginEmailIncorrect.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
         validationsLoginEmailIncorrect.setOnMouseExited(e -> validationsLoginEmailIncorrect.setStyle("-fx-background-color: #298dcc;"));

@@ -7,9 +7,9 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-public class interfaceElements extends Application {
+public class InterfaceElements extends Application {
     String seleccion;
-    ArrayList<botCreator.ExecMethod> waitingList = new ArrayList<>();
+    ArrayList<BotDocola.ExecMethod> waitingList = new ArrayList<>();
     GridPane gridCreator = new GridPane();
     GridPane gridValidationsRegister = new GridPane();
     GridPane gridValidationsLogin = new GridPane();
@@ -33,9 +33,10 @@ public class interfaceElements extends Application {
     Button removeQueue = new Button("Remover de la cola");
     //create buttons
     Button createUser = new Button("Crear usuario");
+    Button newContent = new Button("New content");
+    //validation LOGIN buttons
     Button validationsLoginEmailIncorrect = new Button("Email incorrecto");
     Button validationsLoginPasswordIncorrect = new Button("Password incorrecto");
-    //validation LOGIN buttons
     Button validationsLoginEmailEmpty = new Button("Email vacio");
     Button validationsLoginPasswordEmpty = new Button("Password vacia");
     //validation REGISTER buttons

@@ -3,40 +3,14 @@ package InsumosDocola;
 import java.time.Instant;
 import java.util.Random;
 
-public class generatorDocola extends contextBaseDocola{
-    public String generateEmail(){
-        String[] listNames = {"Juan", "Maria", "Carlos", "Ana", "Luis", "Laura", "Pedro", "Sofia", "Diego", "Valentina",
-                "Jose", "Camila", "Miguel", "Isabella", "Fernando", "Lucia", "Alejandro", "Julia", "Ricardo", "Emma",
-                "Andres", "Paula", "Esteban", "Martina", "Felipe", "Valeria", "Jorge", "Gabriela", "Gustavo", "Mariana",
-                "Raul", "Renata", "Sergio", "Jimena", "Ignacio", "Natalia", "Hugo", "Adriana", "Pablo", "Daniela",
-                "Angel", "Patricia", "Emilio", "Carmen", "Roberto", "Rosa", "Alberto", "Clara", "Benjamin", "Elena",
-                "Guillermo", "Mercedes", "Rafael", "Beatriz", "Samuel", "Silvia", "Victor", "Julieta", "Javier", "Carolina",
-                "Manuel", "Marina", "Rogelio", "Juana", "Enrique", "Vanesa", "Federico", "Francisca", "Mario", "Ines",
-                "Simon", "Constanza", "Cesar", "Lorena", "Oscar", "Alicia", "Bruno", "Gabriela", "Eduardo", "Catalina",
-                "Nicolas", "Agustina", "Hector", "Antonella", "Tomas", "Clarisa", "Alvaro", "Diana", "Francisco", "Anais",
-                "Sebastian", "Bianca", "Daniel", "Florencia", "Maximiliano", "Pamela", "Marcos", "Luciana"};
-        Random rand = new Random();
-        int index1 = rand.nextInt(listNames.length);
-        firstName = listNames[index1];
-        String[] listSurnames = {
-                "Gonzalez", "Rodriguez", "Gomez", "Fernandez", "Lopez", "Martinez", "Perez", "Garcia", "Sanchez", "Romero",
-                "Torres", "Ramirez", "Hernandez", "Ruiz", "Jimenez", "Diaz", "Moreno", "Alvarez", "Munioz", "Gutierrez",
-                "Vargas", "Castanio", "Ortega", "Silva", "Nuniez", "Molina", "Castro", "Rojas", "Medina", "Cruz",
-                "Navarro", "Cabrera", "Vargas", "Mendoza", "Soto", "Guerrero", "Ortiz", "Delgado", "Rios", "Chavez",
-                "Mejia", "Vega", "Avila", "Acosta", "Miranda", "Fuentes", "Campos", "Correa", "Estrada", "Gallardo",
-                "Velasco", "Montoya", "Penia", "Rivas", "Quintero", "Barrera", "Penia", "Cortes", "Aguirre", "Blanco",
-                "Padilla", "Arroyo", "Ramos", "Salas", "Santos", "Arias", "Zamora", "Valencia", "Soler", "Peralta",
-                "Rocha", "DelValle", "Salazar", "Esquivel", "Rubio", "Calderon", "Rosales", "Urbina", "Luna", "Escobar",
-                "Vera", "Orozco", "Villalobos", "Duarte", "Ochoa", "Zuniga", "Rangel", "Aranda", "Vidal", "Barajas",
-                "Saucedo", "Becerra", "Cervantes", "Velazquez", "Landa", "Gallardo", "Carranza", "Carrillo", "Lara", "DelRio"
-        };
-        Random random = new Random();
-        int index2 = random.nextInt(listSurnames.length);
-        lastName= listSurnames[index2];
+public class GeneratorDocola extends ContextBaseDocola{
+    public EmailInfo generateEmail(){
+        generateFirstName();
+        generateLastName();
         long timeStamp = Instant.now().toEpochMilli();
         //if(configurationAdvancedRegistration==false) {
         email = firstName+lastName+timeStamp+"@gmail.com";
-        return email;
+        return new EmailInfo(email, firstName, lastName);
     }
     public String generateFirstName(){
         String[] listNames = {"Juan", "Maria", "Carlos", "Ana", "Luis", "Laura", "Pedro", "Sofia", "Diego", "Valentina",
@@ -114,5 +88,24 @@ public class generatorDocola extends contextBaseDocola{
         int index1 = rand.nextInt(companyList.length);
         companyName = companyList[index1];
         return companyName;
+    }
+    class EmailInfo {
+        private String email;
+        private String firstName;
+        private String lastName;
+        public EmailInfo(String email, String firstName, String lastName) {
+            this.email = email;
+            this.firstName = firstName;
+            this.lastName = lastName;
+        }
+        public String getEmail() {
+            return email;
+        }
+        public String getFirstName() {
+            return firstName;
+        }
+        public String getLastName() {
+            return lastName;
+        }
     }
 }

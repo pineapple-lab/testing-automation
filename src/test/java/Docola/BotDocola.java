@@ -1,17 +1,17 @@
 package Docola;
-import InsumosDocola.variablesDocola;
-import InsumosDocola.methodsDocola;
+import InsumosDocola.VariablesDocola;
+import InsumosDocola.MethodsDocola;
 import javafx.application.Platform;
 import javafx.scene.control.CheckBox;
 import javafx.stage.Stage;
 import java.io.OutputStream;
 import java.io.PrintStream;
-import static InsumosDocola.variablesDocola.*;
+import static InsumosDocola.VariablesDocola.*;
 import static insumosPeppermint.variablesPeppermint.printStream;
-public class botCreator extends Docola.interfaceActions {
-    methodsDocola methods= new methodsDocola();
+public class BotDocola extends Docola.InterfaceActions {
+    MethodsDocola methods= new MethodsDocola();
     public static void main(String[] args) {
-        launch(botCreator.class, args);
+        launch(BotDocola.class, args);
     }
 
     private void appendText(String text) {
@@ -42,11 +42,18 @@ public class botCreator extends Docola.interfaceActions {
             createUser.setOnMousePressed( event -> {
                 if (event.isSecondaryButtonDown()){
                     ejecuciones=Integer.parseInt(tfExecute.getText());
-                    configuracionAvanzadaJoin configAvanzada = new configuracionAvanzadaJoin(String.valueOf(ejecuciones),seleccion);
+                    ConfiguracionAvanzadaJoin configAvanzada = new ConfiguracionAvanzadaJoin(String.valueOf(ejecuciones),seleccion);
                     Stage configAvanzadaStage = new Stage();
                     configAvanzada.start(configAvanzadaStage);
                     configAvanzadaStage.show();
                 }
+            });
+            newContent.setOnAction(e->{
+                waitingList.add(ExecMethod.NEW_CONTENT);
+                Enum elemento = waitingList.get(waitingList.size()-1);
+                CheckBox checkBox = new CheckBox("NEW_CONTENT");
+                checkBoxesMap.put(checkBox, elemento);
+                gridCola.add(checkBox, 0, waitingList.size()-1);
             });
             //validation LOGIN buttons
             validationsLoginEmailIncorrect.setOnAction(e->{
@@ -138,7 +145,7 @@ public class botCreator extends Docola.interfaceActions {
             comboBox.setOnAction(e -> {
                 seleccion = comboBox.getValue();
                 if (seleccion.equals("Local")) {
-                    variablesDocola.linkNavigation = "http://localhost:4200/";
+                    VariablesDocola.linkNavigation = "http://localhost:4200/";
                 }
             });
             stopTestCase.setOnAction(event ->{
@@ -171,11 +178,14 @@ public class botCreator extends Docola.interfaceActions {
     }
     public void accion () {
         for (int i = 0; i < waitingList.size(); i++) {
-            interfaceActions.ExecMethod var = waitingList.get(i);
+            InterfaceActions.ExecMethod var = waitingList.get(i);
             switch (var) {
                 //CASE CREATION
                 case CreateUser:
                     actionJoin();
+                    break;
+                case NEW_CONTENT:
+                    actionNewContent();
                     break;
                 case validationEmailIncorrectLogin:
                     actionValidationEmailIncorrectLogin();

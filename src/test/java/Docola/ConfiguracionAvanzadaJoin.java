@@ -1,20 +1,20 @@
 package Docola;
-import InsumosDocola.methodsDocola;
-import InsumosDocola.variablesDocola;
+import InsumosDocola.MethodsDocola;
+import InsumosDocola.VariablesDocola;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import Docola.interfaceActions;
-public class configuracionAvanzadaJoin extends interfaceElements {
+
+public class ConfiguracionAvanzadaJoin extends InterfaceElements {
     Label labelRol = new Label ("rol");
     TextField tfRol = new TextField("introducir rol");
     Button btnRol = new Button("Ejecutar");
     Tab tbjoinRol = new Tab();
-    methodsDocola mDocola = new methodsDocola();
-    variablesDocola vDocola = new variablesDocola();
-    interfaceActions iActions = new interfaceActions();
-    public configuracionAvanzadaJoin(String ejecucionesAvanzadas , String seleccionAvanzada){
+    MethodsDocola mDocola = new MethodsDocola();
+    VariablesDocola vDocola = new VariablesDocola();
+    InterfaceActions iActions = new InterfaceActions();
+    public ConfiguracionAvanzadaJoin(String ejecucionesAvanzadas , String seleccionAvanzada){
 
         this.vDocola.ejecuciones = Integer.parseInt(ejecucionesAvanzadas);
         this.seleccion = seleccionAvanzada;
@@ -29,6 +29,8 @@ public class configuracionAvanzadaJoin extends interfaceElements {
         gridPaneJoin.add(tfRol,2,2);
         gridPaneJoin.add(btnRol,5,5);
         btnRol.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #5bb346;");
+        btnRol.setOnMouseEntered(e -> btnRol.setStyle("-fx-background-color: #6ec957; -fx-text-fill: white;"));
+        btnRol.setOnMouseExited(e -> btnRol.setStyle("-fx-background-color: #5bb346;"));
         tbjoinRol.setContent(gridPaneJoin);
         tabPane.getTabs().addAll(tbjoinRol);
         rootConfigAvanzada.getChildren().add(tabPane);
@@ -36,7 +38,7 @@ public class configuracionAvanzadaJoin extends interfaceElements {
         stageJoin.setScene(sceneConfigAvanzada);
         btnRol.setOnAction(e->{
             Thread execute=  new Thread (()->{
-              variablesDocola.joinRol = tfRol.getText();
+              VariablesDocola.joinRol = tfRol.getText();
               System.out.println(vDocola.joinRol);
               iActions.actionJoin();
             }, "execute");

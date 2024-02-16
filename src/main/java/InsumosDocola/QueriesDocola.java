@@ -3,8 +3,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-
-public class queriesDocola extends contextBaseDocola{
+public class QueriesDocola extends ContextBaseDocola{
     Connection CN;
     Statement stm;
     ResultSet rs;
@@ -18,11 +17,11 @@ public class queriesDocola extends contextBaseDocola{
             ex.printStackTrace();
         }
     }
-    public void saveUser(){
+    public void saveUser(String email){
         try {
             connectDatabase();
-            String insertSql = "INSERT INTO users (`emailUser`) " +
-                    "VALUES('"+email+"')";
+            String insertSql = "INSERT INTO users (`emailUser`,`rol`) " +
+                    "VALUES('"+email+"','"+joinRol+"')";
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
             CN.close();
@@ -30,11 +29,15 @@ public class queriesDocola extends contextBaseDocola{
             ex.printStackTrace();
         }
     }
-    public String getEmailUser(){
+    public String getEmailUser(String joinRol){
         try {
+            if(joinRol == null){
+                joinRol = "Clinician";
+            }
+            System.out.println(joinRol);
             connectDatabase();
             stm=CN.createStatement();
-            rs = stm.executeQuery("SELECT * FROM testbddocola.users ORDER BY RAND() LIMIT 1");
+            rs = stm.executeQuery("SELECT * FROM testbddocola.users WHERE rol = '"+joinRol+"' ORDER BY RAND() LIMIT 1");
             while(rs.next()) {
                 email = rs.getString(rs.findColumn("emailUser"));
             }

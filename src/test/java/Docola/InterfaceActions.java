@@ -2,13 +2,17 @@ package Docola;
 import javafx.scene.control.CheckBox;
 import java.util.ArrayList;
 import java.util.List;
-public class interfaceActions extends interfacePositions{
+public class InterfaceActions extends InterfacePositions{
     enum ExecMethod {
+        //CREATE
         CreateUser,
+        NEW_CONTENT,
+        //Validations LOGIN
         validationEmailIncorrectLogin,
         validationPasswordIncorrectLogin,
         validationEmailEmptyLogin,
         validationPasswordEmptyLogin,
+        //Validations REGISTER
         validationFirstNameRegister,
         validationLastNameRegister,
         validationEmailRegister,
@@ -34,57 +38,61 @@ public class interfaceActions extends interfacePositions{
     }
    //create actions
     public void actionJoin() {
-        functionJoin test = new functionJoin();
+        FunctionJoin test = new FunctionJoin();
         test.validationRegister();
+    }
+    public void actionNewContent() {
+        FunctionCreateContent test = new FunctionCreateContent();
+        test.serviceNewContent();
     }
     ////validation login actions
     public void actionValidationEmailIncorrectLogin() {
-        testValidations test = new testValidations();
+        TestValidations test = new TestValidations();
         test.validationEmailIncorrectLogin();
     }
     public void actionValidationPasswordIncorrectLogin() {
-        testValidations test = new testValidations();
+        TestValidations test = new TestValidations();
         test.validationPasswordIncorrectLogin();
     }
     public void actionValidationEmailEmptyLogin() {
-        testValidations test = new testValidations();
+        TestValidations test = new TestValidations();
         test.validationEmailEmptyLogin();
     }
     public void actionValidationPasswordEmptyLogin() {
-        testValidations test = new testValidations();
+        TestValidations test = new TestValidations();
         test.validationPasswordEmptyLogin();
     }
     //validation register actions
     public void actionValidationFirstNameRegister() {
-        testValidations test = new testValidations();
+        TestValidations test = new TestValidations();
         test.validationFirstNameRegister();
     }
     public void actionValidationLastNameRegister() {
-        testValidations test = new testValidations();
+        TestValidations test = new TestValidations();
         test.validationLastNameRegister();
     }
     public void actionValidationEmailRegister() {
-        testValidations test = new testValidations();
+        TestValidations test = new TestValidations();
         test.validationEmailRegister();
     }
     public void actionValidationPasswordRegister() {
-        testValidations test = new testValidations();
+        TestValidations test = new TestValidations();
         test.validationPasswordRegister();
     }
     public void actionValidationConfirmPasswordRegister() {
-        testValidations test = new testValidations();
+        TestValidations test = new TestValidations();
         test.validationConfirmPasswordRegister();
     }
     public void actionValidationConditionsPasswordRegister() {
-        testValidations test = new testValidations();
+        TestValidations test = new TestValidations();
         test.validationConditionsPassword();
     }
     public void actionValidationTermsAndConditionsRegister() {
-        testValidations test = new testValidations();
+        TestValidations test = new TestValidations();
         test.validationTermsAndConditions();
     }
     public void actionValidationCaptchaRegister() {
-        testValidations test = new testValidations();
+        TestValidations test = new TestValidations();
         test.validationCaptcha();
     }
 }

@@ -1,9 +1,6 @@
 package InsumosDocola;
-
 import java.io.PrintStream;
-
-public class variablesDocola {
-
+public class VariablesDocola {
    public static volatile PrintStream printStream;
    public static volatile boolean shouldStopTest;
    public static volatile String linkNavigation;

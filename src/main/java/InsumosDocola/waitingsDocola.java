@@ -2,27 +2,30 @@ package InsumosDocola;
 
 
 public class waitingsDocola extends contextBaseDocola{
-    componentsDocola selector = new componentsDocola();
+    selectorsDocola selector = new selectorsDocola();
+    public void waitingLoginSelectorIncorrectCredentials(){
+        page.waitForSelector(selector.loginIncorrectCredentials);
+    }
     public void waitingJoinsSelectorStep1(int rol){
-        page.waitForSelector(selector.firstNameRegister);
-        page.waitForSelector(selector.lastNameRegister);
-        page.waitForSelector(selector.emailRegister);
+        page.waitForSelector(selector.registerFirstName);
+        page.waitForSelector(selector.registerLastName);
+        page.waitForSelector(selector.email);
         page.waitForSelector(selector.rolRegister(rol));
     }
     public void waitingJoinSelectorStep2(){
-        page.waitForSelector(selector.passwordRegister);
-        page.waitForSelector(selector.passwordConfirmationRegister);
+        page.waitForSelector(selector.registerPassword);
+        page.waitForSelector(selector.registerPasswordConfirmation);
     }
     public void waitingJoinSelectorStep3(){
-        page.waitForSelector(selector.termsAndConditionsRegister);
-        page.waitForSelector(selector.captchaRegister);
+        page.waitForSelector(selector.registerTermsAndConditions);
+        page.waitForSelector(selector.registerCaptchat);
     }
     public void waitingOnboardingSelectorContentProviderStep1(){
-        page.waitForSelector(selector.companyNameClinicianOnboarding);
-        page.waitForSelector(selector.webSiteClinicianOnboarding);
-        page.waitForSelector(selector.nextButtonClinicianOnboardingStep1);
+        page.waitForSelector(selector.onboardingClinicianCompanyName);
+        page.waitForSelector(selector.clinicianOnboardingWebSite);
+        page.waitForSelector(selector.onboardingClinicianNextButtonStep1);
     }
     public void waitingOnboardingSelectorContentProviderStep2(){
-        page.waitForSelector(selector.skipForNowVerifyPhone);
+        page.waitForSelector(selector.VerifyPhoneSkipForNow);
     }
 }

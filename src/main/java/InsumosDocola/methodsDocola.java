@@ -1,7 +1,8 @@
 package InsumosDocola;
 
 public class methodsDocola extends contextBaseDocola{
-    componentsDocola selector = new componentsDocola();
+    selectorsDocola selector = new selectorsDocola();
+    queriesDocola queries = new queriesDocola();
     public void startContext(){
         System.out.println("\n-----------------------------------------------------------");
         System.out.println("Iniciando ejecucion....");
@@ -21,27 +22,36 @@ public class methodsDocola extends contextBaseDocola{
     public void startNavigation(){
         page.navigate(linkNavigation);
     }
+    public void goToLogin(){
+        page.click("text=Login");
+    }
     public void goToRegisterForm(){
         page.click(selector.singUp);
         page.click(selector.continueWithEmail);
     }
-    public void completeFirstNameRegister(String firstName){
-        page.fill(selector.firstNameRegister,firstName);
+    public void completeloginEmail(){
+        page.fill(selector.loginEmail,queries.getEmailUser());
+    }
+    public void completeloginPassword(){
+        page.fill(selector.loginPassword, password);
+    }
+    public void completeregisterFirstName(String firstName){
+        page.fill(selector.registerFirstName,firstName);
 
     }
     public void completeLastNameARegister(String lastName){
-        page.fill(selector.lastNameRegister,lastName);
+        page.fill(selector.registerLastName,lastName);
     }
-    public void completeEmailRegister(String emailRegister){
-        page.fill(selector.emailRegister, emailRegister);
+    public void completeemail(String email){
+        page.fill(selector.email, email);
     }
-    public void completeFirstStepRegister(String firstName, String lastName, String emailRegister){
-        page.fill(selector.firstNameRegister,firstName);
-        page.fill(selector.lastNameRegister,lastName);
-        page.fill(selector.emailRegister,emailRegister);
+    public void completeFirstStepRegister(String firstName, String lastName, String email){
+        page.fill(selector.registerFirstName,firstName);
+        page.fill(selector.registerLastName,lastName);
+        page.fill(selector.email,email);
     }
     public void completeSecondStepRegister(){
-        page.fill(selector.passwordRegister,password);
-        page.fill(selector.passwordConfirmationRegister,password);
+        page.fill(selector.registerPassword,password);
+        page.fill(selector.registerPasswordConfirmation,password);
     }
 }

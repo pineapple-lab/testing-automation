@@ -11,38 +11,64 @@ public class testValidations extends creationMethodsDocola {
         methods.startContext();
         methods.startNavigation();
     }
+    //SERVICE VALIDATION LOGIN
+    @Test
+    public void validationPasswordIncorrectLogin(){
+        startContextAndNavigation();
+        validations.validationLoginPasswordIncorrect();
+    }
+    @Test
+    public void validationEmailIncorrectLogin(){
+        startContextAndNavigation();
+        validations.validationLoginEmailIncorrect();
+    }
+    @Test
+    public void validationEmailEmptyLogin(){
+        startContextAndNavigation();
+        validations.validationLoginEmailEmpty();
+    }
+    @Test
+    public void validationPasswordEmptyLogin(){
+        startContextAndNavigation();
+        validations.validationLoginPasswordEmpty();
+    }
+    //SERVICE VALIDATION REGISTER
     @Test
     public void validationFirstNameRegister(){
         startContextAndNavigation();
-        validations.validationsRegisterFirstName();
+        validations.validationRegisterFirstName();
     }
     @Test
     public void validationLastNameRegister(){
         startContextAndNavigation();
-        validations.validationsRegisterLastName();
+        validations.validationRegisterLastName();
     }
     @Test
     public void validationEmailRegister(){
         startContextAndNavigation();
-        validations.validationsRegisterEmail();
+        validations.validationRegisterEmail();
     }
     @Test
     public void validationPasswordRegister(){
         startContextAndNavigation();
-        validations.validationsRegisterPassword();
+        validations.validationRegisterPassword();
     }
+    @Test
     public void validationConfirmPasswordRegister(){
         startContextAndNavigation();
-        validations.validationsRegisterConfirmPassword();
+        validations.validationRegisterConfirmPassword();
     }
+    @Test
     public void validationConditionsPassword(){
         startContextAndNavigation();
-        validations.validationsRegisterPasswordConditions();
+        validations.validationRegisterPasswordConditions();
     }
+    @Test
     public void validationTermsAndConditions(){
         startContextAndNavigation();
         validations.validationTermsAndConditions();
     }
+    @Test
     public void validationCaptcha(){
         startContextAndNavigation();
         validations.validationCaptcha();

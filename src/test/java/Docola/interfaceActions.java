@@ -5,6 +5,10 @@ import java.util.List;
 public class interfaceActions extends interfacePositions{
     enum ExecMethod {
         CreateUser,
+        validationEmailIncorrectLogin,
+        validationPasswordIncorrectLogin,
+        validationEmailEmptyLogin,
+        validationPasswordEmptyLogin,
         validationFirstNameRegister,
         validationLastNameRegister,
         validationEmailRegister,
@@ -33,7 +37,24 @@ public class interfaceActions extends interfacePositions{
         functionJoin test = new functionJoin();
         test.validationRegister();
     }
-    //validation actions
+    ////validation login actions
+    public void actionValidationEmailIncorrectLogin() {
+        testValidations test = new testValidations();
+        test.validationEmailIncorrectLogin();
+    }
+    public void actionValidationPasswordIncorrectLogin() {
+        testValidations test = new testValidations();
+        test.validationPasswordIncorrectLogin();
+    }
+    public void actionValidationEmailEmptyLogin() {
+        testValidations test = new testValidations();
+        test.validationEmailEmptyLogin();
+    }
+    public void actionValidationPasswordEmptyLogin() {
+        testValidations test = new testValidations();
+        test.validationPasswordEmptyLogin();
+    }
+    //validation register actions
     public void actionValidationFirstNameRegister() {
         testValidations test = new testValidations();
         test.validationFirstNameRegister();

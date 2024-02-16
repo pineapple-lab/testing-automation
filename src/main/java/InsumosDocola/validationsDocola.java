@@ -1,86 +1,134 @@
 package InsumosDocola;
 import com.microsoft.playwright.Keyboard;
+import org.junit.jupiter.api.Assertions;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 public class validationsDocola extends contextBaseDocola{
-    componentsDocola selector = new componentsDocola();
+    selectorsDocola selector = new selectorsDocola();
     waitingsDocola waiting = new waitingsDocola();
     generatorDocola trigger = new generatorDocola();
     methodsDocola methods = new methodsDocola();
-
-    public void validationsRegisterFirstName(){
+    //METHODS VALIDATIONS LOGIN
+    public void validationLoginEmailIncorrect(){
+        for (contador = 1; contador <= ejecuciones; contador++) {
+            if (!shouldStopTest) {
+                methods.goToLogin();
+                email = "esteEmailNoexiste@mailinator.com";
+                page.fill(selector.email,email);
+                methods.completeloginPassword();
+                waiting.waitingLoginSelectorIncorrectCredentials();
+                Assertions.assertTrue(page.isVisible(selector.loginIncorrectCredentials));
+            }
+        }
+        closeContext();
+    }
+    public void validationLoginPasswordIncorrect(){
+        for (contador = 1; contador <= ejecuciones; contador++) {
+            if (!shouldStopTest) {
+                methods.goToLogin();
+                methods.completeloginEmail();
+                password = "EstePasswordNoExiste";
+                methods.completeloginPassword();
+                waiting.waitingLoginSelectorIncorrectCredentials();
+                Assertions.assertTrue(page.isVisible(selector.loginIncorrectCredentials));
+            }
+        }
+        closeContext();
+    }
+    public void validationLoginEmailEmpty(){
+        for (contador = 1; contador <= ejecuciones; contador++) {
+            if (!shouldStopTest) {
+                methods.goToLogin();
+                methods.completeloginPassword();
+                assertThat(page.locator(selector.loginButton)).isDisabled();
+            }
+        }
+        closeContext();
+    }
+    public void validationLoginPasswordEmpty(){
+        for (contador = 1; contador <= ejecuciones; contador++) {
+            if (!shouldStopTest) {
+                methods.goToLogin();
+                methods.completeloginEmail();
+                assertThat(page.locator(selector.loginButton)).isDisabled();
+            }
+        }
+        closeContext();
+    }
+    //METHODS VALIDATIONS REGISTER
+    public void validationRegisterFirstName(){
         for (contador = 1; contador <= ejecuciones; contador++) {
             if (!shouldStopTest) {
             methods.goToRegisterForm();
             waiting.waitingJoinsSelectorStep1(trigger.generateRol());
             methods.completeLastNameARegister(trigger.generateLastName());
-            methods.completeEmailRegister(trigger.generateEmail());
-            assertThat(page.locator(selector.nextButtonRegisterStep1)).isDisabled();
+            methods.completeemail(trigger.generateEmail());
+            assertThat(page.locator(selector.registerNextButtonStep1)).isDisabled();
             }
         }
         closeContext();
     }
-    public void validationsRegisterLastName(){
+    public void validationRegisterLastName(){
         for (contador = 1; contador <= ejecuciones; contador++) {
             if (!shouldStopTest) {
                 methods.goToRegisterForm();
                 waiting.waitingJoinsSelectorStep1(trigger.generateRol());
-                methods.completeFirstNameRegister(trigger.generateFirstName());
-                methods.completeEmailRegister(trigger.generateEmail());
-                assertThat(page.locator(selector.nextButtonRegisterStep1)).isDisabled();
+                methods.completeregisterFirstName(trigger.generateFirstName());
+                methods.completeemail(trigger.generateEmail());
+                assertThat(page.locator(selector.registerNextButtonStep1)).isDisabled();
             }
         }
         closeContext();
     }
-    public void validationsRegisterEmail(){
+    public void validationRegisterEmail(){
         for (contador = 1; contador <= ejecuciones; contador++) {
             if (!shouldStopTest) {
                 methods.goToRegisterForm();
                 waiting.waitingJoinsSelectorStep1(trigger.generateRol());
-                methods.completeFirstNameRegister(trigger.generateFirstName());
+                methods.completeregisterFirstName(trigger.generateFirstName());
                 methods.completeLastNameARegister(trigger.generateLastName());
-                assertThat(page.locator(selector.nextButtonRegisterStep1)).isDisabled();
+                assertThat(page.locator(selector.registerNextButtonStep1)).isDisabled();
             }
         }
         closeContext();
     }
-    public void validationsRegisterPassword(){
+    public void validationRegisterPassword(){
         for (contador = 1; contador <= ejecuciones; contador++) {
             if (!shouldStopTest) {
                 methods.goToRegisterForm();
                 waiting.waitingJoinsSelectorStep1(trigger.generateRol());
                 methods.completeFirstStepRegister(trigger.generateFirstName(),trigger.generateLastName(),trigger.generateEmail());
-                page.click(selector.nextButtonRegisterStep1);
+                page.click(selector.registerNextButtonStep1);
                 waiting.waitingJoinSelectorStep2();
-                page.fill(selector.passwordConfirmationRegister,password);
-                assertThat(page.locator(selector.nextButtonRegisterStep2)).isDisabled();
+                page.fill(selector.registerPasswordConfirmation,password);
+                assertThat(page.locator(selector.registerNextButtonStep2)).isDisabled();
             }
         }
         closeContext();
     }
-    public void validationsRegisterConfirmPassword(){
+    public void validationRegisterConfirmPassword(){
         for (contador = 1; contador <= ejecuciones; contador++) {
             if (!shouldStopTest) {
                 methods.goToRegisterForm();
                 waiting.waitingJoinsSelectorStep1(trigger.generateRol());
                 methods.completeFirstStepRegister(trigger.generateFirstName(),trigger.generateLastName(),trigger.generateEmail());
-                page.click(selector.nextButtonRegisterStep1);
+                page.click(selector.registerNextButtonStep1);
                 waiting.waitingJoinSelectorStep2();
-                page.fill(selector.passwordRegister,password);
-                assertThat(page.locator(selector.nextButtonRegisterStep2)).isDisabled();
+                page.fill(selector.registerPassword,password);
+                assertThat(page.locator(selector.registerNextButtonStep2)).isDisabled();
             }
         }
         closeContext();
     }
-    public void validationsRegisterPasswordConditions(){
+    public void validationRegisterPasswordConditions(){
         Keyboard kb = page.keyboard();
         for (contador = 1; contador <= ejecuciones; contador++) {
             if (!shouldStopTest) {
                     methods.goToRegisterForm();
                     waiting.waitingJoinsSelectorStep1(trigger.generateRol());
                     methods.completeFirstStepRegister(trigger.generateFirstName(),trigger.generateLastName(),trigger.generateEmail());
-                    page.click(selector.nextButtonRegisterStep1);
+                    page.click(selector.registerNextButtonStep1);
                     waiting.waitingJoinSelectorStep2();
                 for(passwordCondition=1; passwordCondition <=5;passwordCondition++ ) {
                     switch (passwordCondition){
@@ -105,18 +153,18 @@ public class validationsDocola extends contextBaseDocola{
                             confirmPassword="123123bB-";
                             break;
                     }
-                    page.fill(selector.passwordRegister, password);
-                    page.fill(selector.passwordConfirmationRegister, confirmPassword);
+                    page.fill(selector.registerPassword, password);
+                    page.fill(selector.registerPasswordConfirmation, confirmPassword);
                     String color = page.evaluate("() => { return window.getComputedStyle(document.querySelector('"+selector.passwordConditionSelector(passwordCondition)+"')).color; }").toString();
                     if (color.equals("rgb(255, 0, 0)")) {
                         System.out.println("La condicion "+passwordCondition+" se valida correctamente");
                     } else {
                         System.out.println("La condicion "+passwordCondition+" no se esta validando correctamente.");
                     }
-                    page.focus(selector.passwordRegister);
+                    page.focus(selector.registerPassword);
                     kb.press("Control+Shift+ArrowLeft");
                     kb.press("Delete");
-                    page.focus(selector.passwordConfirmationRegister);
+                    page.focus(selector.registerPasswordConfirmation);
                     kb.press("Control+Shift+ArrowLeft");
                     kb.press("Delete");
                 }
@@ -130,12 +178,12 @@ public class validationsDocola extends contextBaseDocola{
                 methods.goToRegisterForm();
                 waiting.waitingJoinsSelectorStep1(trigger.generateRol());
                 methods.completeFirstStepRegister(trigger.generateFirstName(),trigger.generateLastName(),trigger.generateEmail());
-                page.click(selector.nextButtonRegisterStep1);
+                page.click(selector.registerNextButtonStep1);
                 waiting.waitingJoinSelectorStep2();
                 methods.completeSecondStepRegister();
-                page.click(selector.nextButtonRegisterStep2);
-                page.click(selector.captchaRegister);
-                assertThat(page.locator(selector.nextButtonRegisterStep3)).isDisabled();
+                page.click(selector.registerNextButtonStep2);
+                page.click(selector.registerCaptchat);
+                assertThat(page.locator(selector.registerNextButtonStep3)).isDisabled();
             }
         }
         closeContext();
@@ -146,12 +194,12 @@ public class validationsDocola extends contextBaseDocola{
                 methods.goToRegisterForm();
                 waiting.waitingJoinsSelectorStep1(trigger.generateRol());
                 methods.completeFirstStepRegister(trigger.generateFirstName(),trigger.generateLastName(),trigger.generateEmail());
-                page.click(selector.nextButtonRegisterStep1);
+                page.click(selector.registerNextButtonStep1);
                 waiting.waitingJoinSelectorStep2();
                 methods.completeSecondStepRegister();
-                page.click(selector.nextButtonRegisterStep2);
-                page.click(selector.termsAndConditionsRegister);
-                assertThat(page.locator(selector.nextButtonRegisterStep3)).isDisabled();
+                page.click(selector.registerNextButtonStep2);
+                page.click(selector.registerTermsAndConditions);
+                assertThat(page.locator(selector.registerNextButtonStep3)).isDisabled();
             }
         }
         closeContext();

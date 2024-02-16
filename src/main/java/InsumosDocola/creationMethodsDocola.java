@@ -2,33 +2,33 @@ package InsumosDocola;
 import com.microsoft.playwright.PlaywrightException;
 import org.junit.jupiter.api.Assertions;
 public class creationMethodsDocola extends contextBaseDocola{
-    componentsDocola selector = new componentsDocola();
+    selectorsDocola selector = new selectorsDocola();
     waitingsDocola waitings = new waitingsDocola();
-    generatorDocola trigger = new generatorDocola();
     queriesDocola queries = new queriesDocola();
+    generatorDocola trigger = new generatorDocola();
     public void joinNow(){
         for (contador = 1; contador <= ejecuciones; contador++) {
         if (!shouldStopTest) {
-        emailRegister = trigger.generateEmail();
+        email = trigger.generateEmail();
         rol = trigger.generateRol();
-        System.out.println("Se creara el usuario:"+emailRegister);
+        System.out.println("Se creara el usuario:"+email);
         page.click(selector.singUp);
         page.click(selector.continueWithEmail);
         page.waitForTimeout(1000);
         waitings.waitingJoinsSelectorStep1(rol);
-        page.fill(selector.firstNameRegister, trigger.generateFirstName());
-        page.fill(selector.lastNameRegister, trigger.generateLastName());
-        page.fill(selector.emailRegister, trigger.emailRegister);
+        page.fill(selector.registerFirstName, trigger.generateFirstName());
+        page.fill(selector.registerLastName, trigger.generateLastName());
+        page.fill(selector.email, trigger.email);
         page.click(selector.rolRegister(rol));
-        page.click(selector.nextButtonRegisterStep1);
+        page.click(selector.registerNextButtonStep1);
         waitings.waitingJoinSelectorStep2();
-        page.fill(selector.passwordRegister,password);
-        page.fill(selector.passwordConfirmationRegister,password);
-        page.click(selector.nextButtonRegisterStep2);
+        page.fill(selector.registerPassword,password);
+        page.fill(selector.registerPasswordConfirmation,password);
+        page.click(selector.registerNextButtonStep2);
         waitings.waitingJoinSelectorStep3();
-        page.click(selector.termsAndConditionsRegister);
-        page.click(selector.captchaRegister);
-        page.click(selector.nextButtonRegisterStep3);
+        page.click(selector.registerTermsAndConditions);
+        page.click(selector.registerCaptchat);
+        page.click(selector.registerNextButtonStep3);
         while (true) {
             try {
                 page.waitForSelector("text=Login successful");
@@ -50,10 +50,10 @@ public class creationMethodsDocola extends contextBaseDocola{
     public void onboardingContentProvider(){
      webSite=companyName+".com";
      waitings.waitingOnboardingSelectorContentProviderStep1();
-     page.fill(selector.companyNameClinicianOnboarding,trigger.generateCompanyName());
-     page.fill(selector.webSiteClinicianOnboarding,webSite);
-     page.click(selector.nextButtonClinicianOnboardingStep1);
+     page.fill(selector.onboardingClinicianCompanyName,trigger.generateCompanyName());
+     page.fill(selector.clinicianOnboardingWebSite,webSite);
+     page.click(selector.onboardingClinicianNextButtonStep1);
      waitings.waitingOnboardingSelectorContentProviderStep2();
-     page.click(selector.skipForNowVerifyPhone);
+     page.click(selector.VerifyPhoneSkipForNow);
     }
 }

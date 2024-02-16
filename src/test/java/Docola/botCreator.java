@@ -31,12 +31,7 @@ public class botCreator extends Docola.interfaceActions {
                 }
             }));
             printStream.println("Bienvenido, selecciona un ambiente y el numero de ejecuciones para empezar.\n\n");
-            comboBox.setOnAction(e -> {
-                seleccion = comboBox.getValue();
-                if (seleccion.equals("Local")) {
-                    variablesDocola.linkNavigation = "http://localhost:4200/";
-                }
-            });
+            //CREATOR buttons
             createUser.setOnAction(e->{
                 waitingList.add(ExecMethod.CreateUser);
                 Enum elemento = waitingList.get(waitingList.size()-1);
@@ -53,6 +48,36 @@ public class botCreator extends Docola.interfaceActions {
                     configAvanzadaStage.show();
                 }
             });
+            //validation LOGIN buttons
+            validationsLoginEmailIncorrect.setOnAction(e->{
+                waitingList.add(ExecMethod.validationEmailIncorrectLogin);
+                Enum elemento = waitingList.get(waitingList.size()-1);
+                CheckBox checkBox = new CheckBox("validationEmailIncorrectLogin");
+                checkBoxesMap.put(checkBox, elemento);
+                gridCola.add(checkBox, 0, waitingList.size()-1);
+            });
+            validationsLoginPasswordIncorrect.setOnAction(e->{
+                waitingList.add(ExecMethod.validationPasswordIncorrectLogin);
+                Enum elemento = waitingList.get(waitingList.size()-1);
+                CheckBox checkBox = new CheckBox("validationPasswordIncorrectLogin");
+                checkBoxesMap.put(checkBox, elemento);
+                gridCola.add(checkBox, 0, waitingList.size()-1);
+            });
+            validationsLoginEmailEmpty.setOnAction(e->{
+                waitingList.add(ExecMethod.validationEmailEmptyLogin);
+                Enum elemento = waitingList.get(waitingList.size()-1);
+                CheckBox checkBox = new CheckBox("validationEmailEmptyLogin");
+                checkBoxesMap.put(checkBox, elemento);
+                gridCola.add(checkBox, 0, waitingList.size()-1);
+            });
+            validationsLoginPasswordEmpty.setOnAction(e->{
+                waitingList.add(ExecMethod.validationPasswordEmptyLogin);
+                Enum elemento = waitingList.get(waitingList.size()-1);
+                CheckBox checkBox = new CheckBox("validationPasswordEmptyLogin");
+                checkBoxesMap.put(checkBox, elemento);
+                gridCola.add(checkBox, 0, waitingList.size()-1);
+            });
+            //validation REGISTER buttons
             validationsFirstNameRegister.setOnAction(e->{
                 waitingList.add(ExecMethod.validationFirstNameRegister);
                 Enum elemento = waitingList.get(waitingList.size()-1);
@@ -109,6 +134,13 @@ public class botCreator extends Docola.interfaceActions {
                 checkBoxesMap.put(checkBox, elemento);
                 gridCola.add(checkBox, 0, waitingList.size()-1);
             });
+            //HEADER
+            comboBox.setOnAction(e -> {
+                seleccion = comboBox.getValue();
+                if (seleccion.equals("Local")) {
+                    variablesDocola.linkNavigation = "http://localhost:4200/";
+                }
+            });
             stopTestCase.setOnAction(event ->{
                 methods.stopTest();
                 System.out.println("La ejecucion se detendra al final de la actual iteracion");
@@ -141,9 +173,25 @@ public class botCreator extends Docola.interfaceActions {
         for (int i = 0; i < waitingList.size(); i++) {
             interfaceActions.ExecMethod var = waitingList.get(i);
             switch (var) {
+                //CASE CREATION
                 case CreateUser:
                     actionJoin();
                     break;
+                case validationEmailIncorrectLogin:
+                    actionValidationEmailIncorrectLogin();
+                    break;
+                    //CASE VALIDATIONS
+                //CASE VALIDATIONS LOGIN
+                case validationPasswordIncorrectLogin:
+                    actionValidationPasswordIncorrectLogin();
+                    break;
+                case validationEmailEmptyLogin:
+                    actionValidationEmailEmptyLogin();
+                    break;
+                case validationPasswordEmptyLogin:
+                    actionValidationPasswordEmptyLogin();
+                    break;
+                    //CASE VALIDATIONS REGISTER
                 case validationFirstNameRegister:
                     actionValidationFirstNameRegister();
                     break;

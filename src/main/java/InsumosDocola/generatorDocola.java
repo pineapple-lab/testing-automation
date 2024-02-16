@@ -35,8 +35,8 @@ public class generatorDocola extends contextBaseDocola{
         lastName= listSurnames[index2];
         long timeStamp = Instant.now().toEpochMilli();
         //if(configurationAdvancedRegistration==false) {
-        emailRegister = firstName+lastName+timeStamp+"@gmail.com";
-        return emailRegister;
+        email = firstName+lastName+timeStamp+"@gmail.com";
+        return email;
     }
     public String generateFirstName(){
         String[] listNames = {"Juan", "Maria", "Carlos", "Ana", "Luis", "Laura", "Pedro", "Sofia", "Diego", "Valentina",

@@ -9,7 +9,7 @@ public class interfacePositions extends interfaceElements{
     @Override
     public void start(Stage stage){
         setupUIElements();
-        tabPane.getTabs().addAll(tbcreator,tbValidationsRegister);
+        tabPane.getTabs().addAll(tbcreator,tbValidationsLogin,tbValidationsRegister);
         splitPane.getItems().addAll(gridHeader, tabPane, scrollPane);
         splitMain.getItems().addAll(gridCola, splitPane);
         Scene scene = new Scene (splitMain,550, 670);
@@ -22,6 +22,8 @@ public class interfacePositions extends interfaceElements{
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
         gridCreator.setHgap(3);
         gridCreator.setVgap(10);
+        gridValidationsLogin.setHgap(3);
+        gridValidationsLogin.setVgap(10);
         gridValidationsRegister.setHgap(3);
         gridValidationsRegister.setVgap(10);
         gridHeader.setHgap(3);
@@ -36,8 +38,9 @@ public class interfacePositions extends interfaceElements{
         gridCola.setMaxWidth(100);
         addElementsGridHeader();
         setupGridConstraints();
-        addElementsTabCreator();
-        addElementsTabValidationsRegister();
+        addElementsGridCreator();
+        addElementsGridValidationsLogin();
+        addElementsGridValidationsRegister();
         addGridToTabs();
         setColors();
         setHover();
@@ -45,6 +48,7 @@ public class interfacePositions extends interfaceElements{
     }
     public void addGridToTabs(){
         tbcreator.setContent(gridCreator);
+        tbValidationsLogin.setContent(gridValidationsLogin);
         tbValidationsRegister.setContent(gridValidationsRegister);
     }
     private void setupGridConstraints(){
@@ -55,7 +59,12 @@ public class interfacePositions extends interfaceElements{
         GridPane.setConstraints(comboBox,2,1);
         //Create buttons
         GridPane.setConstraints(createUser, 2, 3);
-        //Validation buttons
+        //Validation login tab positions
+        GridPane.setConstraints(validationsLoginEmailIncorrect, 2, 3);
+        GridPane.setConstraints(validationsLoginPasswordIncorrect, 2, 4);
+        GridPane.setConstraints(validationsLoginEmailEmpty, 2, 5);
+        GridPane.setConstraints(validationsLoginPasswordEmpty, 2, 6);
+        //Validation register tab position
         GridPane.setConstraints(validationsFirstNameRegister, 2, 3);
         GridPane.setConstraints(validationsLastNameRegister, 2, 4);
         GridPane.setConstraints(validationsEmailRegister, 2, 5);
@@ -76,10 +85,16 @@ public class interfacePositions extends interfaceElements{
         gridHeader.getChildren().add(removeQueue);
         gridHeader.getChildren().add(comboBox);
     }
-    private void addElementsTabCreator(){
+    private void addElementsGridCreator(){
         gridCreator.getChildren().add(createUser);
     }
-    private void addElementsTabValidationsRegister(){
+    private void addElementsGridValidationsLogin(){
+        gridValidationsLogin.getChildren().add(validationsLoginEmailIncorrect);
+        gridValidationsLogin.getChildren().add(validationsLoginPasswordIncorrect);
+        gridValidationsLogin.getChildren().add(validationsLoginEmailEmpty);
+        gridValidationsLogin.getChildren().add(validationsLoginPasswordEmpty);
+    }
+    private void addElementsGridValidationsRegister(){
         gridValidationsRegister.getChildren().add(validationsFirstNameRegister);
         gridValidationsRegister.getChildren().add(validationsLastNameRegister);
         gridValidationsRegister.getChildren().add(validationsEmailRegister);
@@ -90,6 +105,7 @@ public class interfacePositions extends interfaceElements{
         gridValidationsRegister.getChildren().add(validationsCaptchaRegister);
     }
     private void setColors(){
+        //HEADER buttons
         execute.setStyle("-fx-background-color: #298dcc;");
         stopTestCase.setStyle("-fx-background-color: #298dcc;");
         comboBox.setStyle("-fx-base: #298dcc");//;
@@ -97,7 +113,12 @@ public class interfacePositions extends interfaceElements{
         scrollPane.setStyle("-fx-control-inner-background:#000000;");
         //Create buttons
         createUser.setStyle("-fx-background-color:#298dcc;");
-        //Validations buttons
+        //Validations LOGIN buttons
+        validationsLoginEmailIncorrect.setStyle("-fx-background-color:#298dcc;");
+        validationsLoginPasswordIncorrect.setStyle("-fx-background-color:#298dcc;");
+        validationsLoginEmailEmpty.setStyle("-fx-background-color:#298dcc;");
+        validationsLoginPasswordEmpty.setStyle("-fx-background-color:#298dcc;");
+        //Validations REGISTER buttons
         validationsFirstNameRegister.setStyle("-fx-background-color:#298dcc;");
         validationsLastNameRegister.setStyle("-fx-background-color:#298dcc;");
         validationsEmailRegister.setStyle("-fx-background-color:#298dcc;");
@@ -106,8 +127,11 @@ public class interfacePositions extends interfaceElements{
         validationsConditionsPasswordRegister.setStyle("-fx-background-color:#298dcc;");
         validationsTermsAndConditionsRegister.setStyle("-fx-background-color:#298dcc;");
         validationsCaptchaRegister.setStyle("-fx-background-color:#298dcc;");
+        validationsCaptchaRegister.setStyle("-fx-background-color:#298dcc;");
+
     }
     public void setHover(){
+        //HEADER buttons
         execute.setOnMouseEntered(e -> execute.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
         execute.setOnMouseExited(e -> execute.setStyle("-fx-background-color: #298dcc;"));
         stopTestCase.setOnMouseEntered(e -> stopTestCase.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
@@ -117,7 +141,16 @@ public class interfacePositions extends interfaceElements{
         //Create buttons
         createUser.setOnMouseEntered(e -> createUser.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
         createUser.setOnMouseExited(e -> createUser.setStyle("-fx-background-color: #298dcc;"));
-        //validation buttons
+        //validation LOGIN buttons
+        validationsLoginEmailIncorrect.setOnMouseEntered(e -> validationsLoginEmailIncorrect.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
+        validationsLoginEmailIncorrect.setOnMouseExited(e -> validationsLoginEmailIncorrect.setStyle("-fx-background-color: #298dcc;"));
+        validationsLoginPasswordIncorrect.setOnMouseEntered(e -> validationsLoginPasswordIncorrect.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
+        validationsLoginPasswordIncorrect.setOnMouseExited(e -> validationsLoginPasswordIncorrect.setStyle("-fx-background-color: #298dcc;"));
+        validationsLoginEmailEmpty.setOnMouseEntered(e -> validationsLoginEmailEmpty.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
+        validationsLoginEmailEmpty.setOnMouseExited(e -> validationsLoginEmailEmpty.setStyle("-fx-background-color: #298dcc;"));
+        validationsLoginPasswordEmpty.setOnMouseEntered(e -> validationsLoginPasswordEmpty.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
+        validationsLoginPasswordEmpty.setOnMouseExited(e -> validationsLoginPasswordEmpty.setStyle("-fx-background-color: #298dcc;"));
+        //validation REGISTER buttons
         validationsFirstNameRegister.setOnMouseEntered(e -> validationsFirstNameRegister.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
         validationsFirstNameRegister.setOnMouseExited(e -> validationsFirstNameRegister.setStyle("-fx-background-color: #298dcc;"));
         validationsLastNameRegister.setOnMouseEntered(e -> validationsLastNameRegister.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));

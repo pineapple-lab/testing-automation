@@ -12,7 +12,7 @@ public class variablesDocola {
    //REGISTER
    String firstName;
    String lastName;
-   String emailRegister;
+   String email;
    public static String joinRol;
    public int rol;
    public int passwordCondition;

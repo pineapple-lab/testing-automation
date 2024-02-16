@@ -5,22 +5,22 @@ import java.util.List;
 public class InterfaceActions extends InterfacePositions{
     enum ExecMethod {
         //CREATE
-        CreateUser,
+        CREATE_USER,
         NEW_CONTENT,
         //Validations LOGIN
-        validationEmailIncorrectLogin,
-        validationPasswordIncorrectLogin,
-        validationEmailEmptyLogin,
-        validationPasswordEmptyLogin,
+        VALIDATION_EMAIL_INCORRECT_LOGIN,
+        VALIDATION_PASSWORD_INCORRECT_LOGIN,
+        VALIDATION_EMAIL_EMPTY_LOGIN,
+        VALIDATION_PASSWORD_EMPTY_LOGIN,
         //Validations REGISTER
-        validationFirstNameRegister,
-        validationLastNameRegister,
-        validationEmailRegister,
-        validationPasswordRegister,
-        validationConfirmPasswordRegister,
-        validationConditionsPasswordRegister,
-        validationTermsAndConditionsRegister,
-        validationCaptchaRegister
+        VALIDATION_FIRST_NAME_REGISTER,
+        VALIDATION_LAST_NAME_REGISTER,
+        VALIDATION_EMAIL_REGISTER,
+        VALIDATION_PASSWORD_REGISTER,
+        VALIDATION_CONFIRM_PASSWORD_REGISTER,
+        VALIDATION_CONDITIONS_PASSWORD_REGISTER,
+        VALIDATION_TERMS_AND_CONDITIONS_REGISTER,
+        VALIDATION_CAPTCHA_REGISTER
     }
     public void actionEliminarDeLaCola() {
         List<CheckBox> checkBoxesSeleccionados = new ArrayList<>();
@@ -39,7 +39,7 @@ public class InterfaceActions extends InterfacePositions{
    //create actions
     public void actionJoin() {
         FunctionJoin test = new FunctionJoin();
-        test.validationRegister();
+        test.serviceValidationRegister();
     }
     public void actionNewContent() {
         FunctionCreateContent test = new FunctionCreateContent();
@@ -48,51 +48,51 @@ public class InterfaceActions extends InterfacePositions{
     ////validation login actions
     public void actionValidationEmailIncorrectLogin() {
         TestValidations test = new TestValidations();
-        test.validationEmailIncorrectLogin();
+        test.serviceValidationEmailIncorrectLogin();
     }
     public void actionValidationPasswordIncorrectLogin() {
         TestValidations test = new TestValidations();
-        test.validationPasswordIncorrectLogin();
+        test.serviceValidationPasswordIncorrectLogin();
     }
     public void actionValidationEmailEmptyLogin() {
         TestValidations test = new TestValidations();
-        test.validationEmailEmptyLogin();
+        test.serviceValidationEmailEmptyLogin();
     }
     public void actionValidationPasswordEmptyLogin() {
         TestValidations test = new TestValidations();
-        test.validationPasswordEmptyLogin();
+        test.serviceValidationPasswordEmptyLogin();
     }
     //validation register actions
     public void actionValidationFirstNameRegister() {
         TestValidations test = new TestValidations();
-        test.validationFirstNameRegister();
+        test.serviceValidationFirstNameRegister();
     }
     public void actionValidationLastNameRegister() {
         TestValidations test = new TestValidations();
-        test.validationLastNameRegister();
+        test.serviceValidationLastNameRegister();
     }
     public void actionValidationEmailRegister() {
         TestValidations test = new TestValidations();
-        test.validationEmailRegister();
+        test.serviceValidationEmailRegister();
     }
     public void actionValidationPasswordRegister() {
         TestValidations test = new TestValidations();
-        test.validationPasswordRegister();
+        test.serviceValidationPasswordRegister();
     }
     public void actionValidationConfirmPasswordRegister() {
         TestValidations test = new TestValidations();
-        test.validationConfirmPasswordRegister();
+        test.serviceValidationConfirmPasswordRegister();
     }
     public void actionValidationConditionsPasswordRegister() {
         TestValidations test = new TestValidations();
-        test.validationConditionsPassword();
+        test.serviceValidationConditionsPassword();
     }
     public void actionValidationTermsAndConditionsRegister() {
         TestValidations test = new TestValidations();
-        test.validationTermsAndConditions();
+        test.serviceValidationTermsAndConditions();
     }
     public void actionValidationCaptchaRegister() {
         TestValidations test = new TestValidations();
-        test.validationCaptcha();
+        test.serviceValidationCaptcha();
     }
 }

@@ -1,13 +1,16 @@
 package InsumosDocola;
 public class SelectorsDocola extends VariablesDocola{
     //SELECTORS CLASS AND COMPONENTS
-    public String header = "app-header > ";
     public String form = "form > ";
     public String appRegister = "app-register ";
     public String matStepper = "mat-stepper > ";
     public String registrationTypePadding= ".registration-type-padding ";
     //SELECTORS WARNING
     public String loginIncorrectCredentials = "text=invalid_user_or_password";
+    //SELECTORS HEADER
+    public String appHeader = "app-header > ";
+    public String divHeaderButtons = appHeader+"div > div:nth-of-type(1) > ";
+    public String myCoursesButton = appHeader+divHeaderButtons+"button:nth-of-type(2)";
     //SELECTORS LOGIN
     public String formLogin = "form > div:nth-of-type(2) > div:nth-of-type(2) > ";
     public String loginEmail = formLogin+"app-form-block-input:nth-of-type(1) input";
@@ -48,5 +51,5 @@ public class SelectorsDocola extends VariablesDocola{
     public String onboardingClinicianNextButtonStep1 = registrationTypePadding+"button";
     public String VerifyPhoneSkipForNow = registrationTypePadding+"div > div:nth-of-type(2) > div:nth-of-type(2) > span";
     //SELECT PROFILE MENU
-    public String menuProfile = header+"div > div:nth-of-type(2) > div";
+    public String menuProfile = appHeader+"div > div:nth-of-type(2) > div";
 }

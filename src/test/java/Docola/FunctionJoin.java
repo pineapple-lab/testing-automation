@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 public class FunctionJoin extends MethodsCreationDocola {
     MethodsDocola methods = new MethodsDocola();
     @Test
-    public void validationRegister(){
+    public void serviceValidationRegister(){
         methods.startContextAndNavigation();
         joinNow();
     }

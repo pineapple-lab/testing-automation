@@ -33,9 +33,9 @@ public class BotDocola extends Docola.InterfaceActions {
             printStream.println("Bienvenido, selecciona un ambiente y el numero de ejecuciones para empezar.\n\n");
             //CREATOR buttons
             createUser.setOnAction(e->{
-                waitingList.add(ExecMethod.CreateUser);
+                waitingList.add(ExecMethod.CREATE_USER);
                 Enum elemento = waitingList.get(waitingList.size()-1);
-                CheckBox checkBox = new CheckBox("CreateUser");
+                CheckBox checkBox = new CheckBox("CREATE_USER");
                 checkBoxesMap.put(checkBox, elemento);
                 gridCola.add(checkBox, 0, waitingList.size()-1);
             });
@@ -57,87 +57,87 @@ public class BotDocola extends Docola.InterfaceActions {
             });
             //validation LOGIN buttons
             validationsLoginEmailIncorrect.setOnAction(e->{
-                waitingList.add(ExecMethod.validationEmailIncorrectLogin);
+                waitingList.add(ExecMethod.VALIDATION_EMAIL_INCORRECT_LOGIN);
                 Enum elemento = waitingList.get(waitingList.size()-1);
-                CheckBox checkBox = new CheckBox("validationEmailIncorrectLogin");
+                CheckBox checkBox = new CheckBox("VALIDATION_EMAIL_INCORRECT_LOGIN");
                 checkBoxesMap.put(checkBox, elemento);
                 gridCola.add(checkBox, 0, waitingList.size()-1);
             });
             validationsLoginPasswordIncorrect.setOnAction(e->{
-                waitingList.add(ExecMethod.validationPasswordIncorrectLogin);
+                waitingList.add(ExecMethod.VALIDATION_PASSWORD_INCORRECT_LOGIN);
                 Enum elemento = waitingList.get(waitingList.size()-1);
-                CheckBox checkBox = new CheckBox("validationPasswordIncorrectLogin");
+                CheckBox checkBox = new CheckBox("VALIDATION_PASSWORD_INCORRECT_LOGIN");
                 checkBoxesMap.put(checkBox, elemento);
                 gridCola.add(checkBox, 0, waitingList.size()-1);
             });
             validationsLoginEmailEmpty.setOnAction(e->{
-                waitingList.add(ExecMethod.validationEmailEmptyLogin);
+                waitingList.add(ExecMethod.VALIDATION_EMAIL_EMPTY_LOGIN);
                 Enum elemento = waitingList.get(waitingList.size()-1);
-                CheckBox checkBox = new CheckBox("validationEmailEmptyLogin");
+                CheckBox checkBox = new CheckBox("VALIDATION_EMAIL_EMPTY_LOGIN");
                 checkBoxesMap.put(checkBox, elemento);
                 gridCola.add(checkBox, 0, waitingList.size()-1);
             });
             validationsLoginPasswordEmpty.setOnAction(e->{
-                waitingList.add(ExecMethod.validationPasswordEmptyLogin);
+                waitingList.add(ExecMethod.VALIDATION_PASSWORD_EMPTY_LOGIN);
                 Enum elemento = waitingList.get(waitingList.size()-1);
-                CheckBox checkBox = new CheckBox("validationPasswordEmptyLogin");
+                CheckBox checkBox = new CheckBox("VALIDATION_PASSWORD_EMPTY_LOGIN");
                 checkBoxesMap.put(checkBox, elemento);
                 gridCola.add(checkBox, 0, waitingList.size()-1);
             });
             //validation REGISTER buttons
             validationsFirstNameRegister.setOnAction(e->{
-                waitingList.add(ExecMethod.validationFirstNameRegister);
+                waitingList.add(ExecMethod.VALIDATION_FIRST_NAME_REGISTER);
                 Enum elemento = waitingList.get(waitingList.size()-1);
-                CheckBox checkBox = new CheckBox("validationFirstNameRegister");
+                CheckBox checkBox = new CheckBox("VALIDATION_FIRST_NAME_REGISTER");
                 checkBoxesMap.put(checkBox, elemento);
                 gridCola.add(checkBox, 0, waitingList.size()-1);
             });
             validationsLastNameRegister.setOnAction(e->{
-                waitingList.add(ExecMethod.validationLastNameRegister);
+                waitingList.add(ExecMethod.VALIDATION_LAST_NAME_REGISTER);
                 Enum elemento = waitingList.get(waitingList.size()-1);
-                CheckBox checkBox = new CheckBox("validationLastNameRegister");
+                CheckBox checkBox = new CheckBox("VALIDATION_LAST_NAME_REGISTER");
                 checkBoxesMap.put(checkBox, elemento);
                 gridCola.add(checkBox, 0, waitingList.size()-1);
             });
             validationsEmailRegister.setOnAction(e->{
-                waitingList.add(ExecMethod.validationEmailRegister);
+                waitingList.add(ExecMethod.VALIDATION_EMAIL_REGISTER);
                 Enum elemento = waitingList.get(waitingList.size()-1);
-                CheckBox checkBox = new CheckBox("validationEmailRegister");
+                CheckBox checkBox = new CheckBox("VALIDATION_EMAIL_REGISTER");
                 checkBoxesMap.put(checkBox, elemento);
                 gridCola.add(checkBox, 0, waitingList.size()-1);
             });
             validationsPasswordRegister.setOnAction(e->{
-                waitingList.add(ExecMethod.validationPasswordRegister);
+                waitingList.add(ExecMethod.VALIDATION_PASSWORD_REGISTER);
                 Enum elemento = waitingList.get(waitingList.size()-1);
-                CheckBox checkBox = new CheckBox("validationPasswordRegister");
+                CheckBox checkBox = new CheckBox("VALIDATION_PASSWORD_REGISTER");
                 checkBoxesMap.put(checkBox, elemento);
                 gridCola.add(checkBox, 0, waitingList.size()-1);
             });
             validationsConfirmPasswordRegister.setOnAction(e->{
-                waitingList.add(ExecMethod.validationConfirmPasswordRegister);
+                waitingList.add(ExecMethod.VALIDATION_CONFIRM_PASSWORD_REGISTER);
                 Enum elemento = waitingList.get(waitingList.size()-1);
-                CheckBox checkBox = new CheckBox("validationConfirmPasswordRegister");
+                CheckBox checkBox = new CheckBox("VALIDATION_CONFIRM_PASSWORD_REGISTER");
                 checkBoxesMap.put(checkBox, elemento);
                 gridCola.add(checkBox, 0, waitingList.size()-1);
             });
             validationsConditionsPasswordRegister.setOnAction(e->{
-                waitingList.add(ExecMethod.validationConditionsPasswordRegister);
+                waitingList.add(ExecMethod.VALIDATION_CONDITIONS_PASSWORD_REGISTER);
                 Enum elemento = waitingList.get(waitingList.size()-1);
-                CheckBox checkBox = new CheckBox("validationConditionPasswordRegister");
+                CheckBox checkBox = new CheckBox("VALIDATION_CONDITIONS_PASSWORD_REGISTER");
                 checkBoxesMap.put(checkBox, elemento);
                 gridCola.add(checkBox, 0, waitingList.size()-1);
             });
             validationsTermsAndConditionsRegister.setOnAction(e->{
-                waitingList.add(ExecMethod.validationTermsAndConditionsRegister);
+                waitingList.add(ExecMethod.VALIDATION_TERMS_AND_CONDITIONS_REGISTER);
                 Enum elemento = waitingList.get(waitingList.size()-1);
-                CheckBox checkBox = new CheckBox("validationTermsAndConditionsRegister");
+                CheckBox checkBox = new CheckBox("VALIDATION_TERMS_AND_CONDITIONS_REGISTER");
                 checkBoxesMap.put(checkBox, elemento);
                 gridCola.add(checkBox, 0, waitingList.size()-1);
             });
             validationsCaptchaRegister.setOnAction(e->{
-                waitingList.add(ExecMethod.validationCaptchaRegister);
+                waitingList.add(ExecMethod.VALIDATION_CAPTCHA_REGISTER);
                 Enum elemento = waitingList.get(waitingList.size()-1);
-                CheckBox checkBox = new CheckBox("validationCaptchaRegister");
+                CheckBox checkBox = new CheckBox("VALIDATION_CAPTCHA_REGISTER");
                 checkBoxesMap.put(checkBox, elemento);
                 gridCola.add(checkBox, 0, waitingList.size()-1);
             });
@@ -181,49 +181,49 @@ public class BotDocola extends Docola.InterfaceActions {
             InterfaceActions.ExecMethod var = waitingList.get(i);
             switch (var) {
                 //CASE CREATION
-                case CreateUser:
+                case CREATE_USER:
                     actionJoin();
                     break;
                 case NEW_CONTENT:
                     actionNewContent();
                     break;
-                case validationEmailIncorrectLogin:
+                case VALIDATION_EMAIL_INCORRECT_LOGIN:
                     actionValidationEmailIncorrectLogin();
                     break;
                     //CASE VALIDATIONS
                 //CASE VALIDATIONS LOGIN
-                case validationPasswordIncorrectLogin:
+                case VALIDATION_PASSWORD_INCORRECT_LOGIN:
                     actionValidationPasswordIncorrectLogin();
                     break;
-                case validationEmailEmptyLogin:
+                case VALIDATION_EMAIL_EMPTY_LOGIN:
                     actionValidationEmailEmptyLogin();
                     break;
-                case validationPasswordEmptyLogin:
+                case VALIDATION_PASSWORD_EMPTY_LOGIN:
                     actionValidationPasswordEmptyLogin();
                     break;
                     //CASE VALIDATIONS REGISTER
-                case validationFirstNameRegister:
+                case VALIDATION_FIRST_NAME_REGISTER:
                     actionValidationFirstNameRegister();
                     break;
-                case validationLastNameRegister:
+                case VALIDATION_LAST_NAME_REGISTER:
                     actionValidationLastNameRegister();
                     break;
-                case validationEmailRegister:
+                case VALIDATION_EMAIL_REGISTER:
                     actionValidationEmailRegister();
                     break;
-                case validationPasswordRegister:
+                case VALIDATION_PASSWORD_REGISTER:
                     actionValidationPasswordRegister();
                     break;
-                case validationConfirmPasswordRegister:
+                case VALIDATION_CONFIRM_PASSWORD_REGISTER:
                     actionValidationConfirmPasswordRegister();
                     break;
-                case validationConditionsPasswordRegister:
+                case VALIDATION_CONDITIONS_PASSWORD_REGISTER:
                     actionValidationConditionsPasswordRegister();
                     break;
-                case validationTermsAndConditionsRegister:
+                case VALIDATION_TERMS_AND_CONDITIONS_REGISTER:
                     actionValidationTermsAndConditionsRegister();
                     break;
-                case validationCaptchaRegister:
+                case VALIDATION_CAPTCHA_REGISTER:
                     actionValidationCaptchaRegister();
                     break;
             }

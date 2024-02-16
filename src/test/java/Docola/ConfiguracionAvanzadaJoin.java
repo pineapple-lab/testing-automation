@@ -39,7 +39,6 @@ public class ConfiguracionAvanzadaJoin extends InterfaceElements {
         btnRol.setOnAction(e->{
             Thread execute=  new Thread (()->{
               VariablesDocola.joinRol = tfRol.getText();
-              System.out.println(vDocola.joinRol);
               iActions.actionJoin();
             }, "execute");
             if(execute.isAlive()) {

@@ -9,63 +9,63 @@ public class TestValidations extends MethodsCreationDocola {
     MethodsDocola methods = new MethodsDocola();
     //SERVICE VALIDATION LOGIN
     @Test
-    public void validationPasswordIncorrectLogin(){
+    public void serviceValidationPasswordIncorrectLogin(){
         methods.startContextAndNavigation();
         validations.validationLoginPasswordIncorrect();
     }
     @Test
-    public void validationEmailIncorrectLogin(){
+    public void serviceValidationEmailIncorrectLogin(){
         methods.startContextAndNavigation();
         validations.validationLoginEmailIncorrect();
     }
     @Test
-    public void validationEmailEmptyLogin(){
+    public void serviceValidationEmailEmptyLogin(){
         methods.startContextAndNavigation();
         validations.validationLoginEmailEmpty();
     }
     @Test
-    public void validationPasswordEmptyLogin(){
+    public void serviceValidationPasswordEmptyLogin(){
         methods.startContextAndNavigation();
         validations.validationLoginPasswordEmpty();
     }
     //SERVICE VALIDATION REGISTER
     @Test
-    public void validationFirstNameRegister(){
+    public void serviceValidationFirstNameRegister(){
         methods.startContextAndNavigation();
         validations.validationRegisterFirstName();
     }
     @Test
-    public void validationLastNameRegister(){
+    public void serviceValidationLastNameRegister(){
         methods.startContextAndNavigation();
         validations.validationRegisterLastName();
     }
     @Test
-    public void validationEmailRegister(){
+    public void serviceValidationEmailRegister(){
         methods.startContextAndNavigation();
         validations.validationRegisterEmail();
     }
     @Test
-    public void validationPasswordRegister(){
+    public void serviceValidationPasswordRegister(){
         methods.startContextAndNavigation();
         validations.validationRegisterPassword();
     }
     @Test
-    public void validationConfirmPasswordRegister(){
+    public void serviceValidationConfirmPasswordRegister(){
         methods.startContextAndNavigation();
         validations.validationRegisterConfirmPassword();
     }
     @Test
-    public void validationConditionsPassword(){
+    public void serviceValidationConditionsPassword(){
         methods.startContextAndNavigation();
         validations.validationRegisterPasswordConditions();
     }
     @Test
-    public void validationTermsAndConditions(){
+    public void serviceValidationTermsAndConditions(){
         methods.startContextAndNavigation();
         validations.validationTermsAndConditions();
     }
     @Test
-    public void validationCaptcha(){
+    public void serviceValidationCaptcha(){
         methods.startContextAndNavigation();
         validations.validationCaptcha();
     }

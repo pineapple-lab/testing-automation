@@ -42,7 +42,7 @@ public class BotDocola extends Docola.InterfaceActions {
             createUser.setOnMousePressed( event -> {
                 if (event.isSecondaryButtonDown()){
                     ejecuciones=Integer.parseInt(tfExecute.getText());
-                    ConfiguracionAvanzadaJoin configAvanzada = new ConfiguracionAvanzadaJoin(String.valueOf(ejecuciones),seleccion);
+                    AdvancedSettingJoin configAvanzada = new AdvancedSettingJoin(String.valueOf(ejecuciones),seleccion);
                     Stage configAvanzadaStage = new Stage();
                     configAvanzada.start(configAvanzadaStage);
                     configAvanzadaStage.show();
@@ -54,6 +54,15 @@ public class BotDocola extends Docola.InterfaceActions {
                 CheckBox checkBox = new CheckBox("NEW_CONTENT");
                 checkBoxesMap.put(checkBox, elemento);
                 gridCola.add(checkBox, 0, waitingList.size()-1);
+            });
+            newContent.setOnMousePressed( event -> {
+                if (event.isSecondaryButtonDown()){
+                    ejecuciones=Integer.parseInt(tfExecute.getText());
+                    AdvancedSettingContentCreator configAvanzada = new AdvancedSettingContentCreator(String.valueOf(ejecuciones),seleccion);
+                    Stage configAvanzadaStage = new Stage();
+                    configAvanzada.start(configAvanzadaStage);
+                    configAvanzadaStage.show();
+                }
             });
             //validation LOGIN buttons
             validationsLoginEmailIncorrect.setOnAction(e->{

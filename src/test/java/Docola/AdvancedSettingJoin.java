@@ -6,15 +6,15 @@ import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class ConfiguracionAvanzadaJoin extends InterfaceElements {
+public class AdvancedSettingJoin extends InterfaceElements {
     Label labelRol = new Label ("rol");
-    TextField tfRol = new TextField("introducir rol");
-    Button btnRol = new Button("Ejecutar");
+    TextField tfRol = new TextField();
+    Button settingAdvancedExecute = new Button("Ejecutar");
     Tab tbjoinRol = new Tab();
     MethodsDocola mDocola = new MethodsDocola();
     VariablesDocola vDocola = new VariablesDocola();
     InterfaceActions iActions = new InterfaceActions();
-    public ConfiguracionAvanzadaJoin(String ejecucionesAvanzadas , String seleccionAvanzada){
+    public AdvancedSettingJoin(String ejecucionesAvanzadas , String seleccionAvanzada){
 
         this.vDocola.ejecuciones = Integer.parseInt(ejecucionesAvanzadas);
         this.seleccion = seleccionAvanzada;
@@ -27,16 +27,17 @@ public class ConfiguracionAvanzadaJoin extends InterfaceElements {
         gridPaneJoin.setHgap(10);
         gridPaneJoin.add(labelRol,2,1);
         gridPaneJoin.add(tfRol,2,2);
-        gridPaneJoin.add(btnRol,5,5);
-        btnRol.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #5bb346;");
-        btnRol.setOnMouseEntered(e -> btnRol.setStyle("-fx-background-color: #6ec957; -fx-text-fill: white;"));
-        btnRol.setOnMouseExited(e -> btnRol.setStyle("-fx-background-color: #5bb346;"));
+        gridPaneJoin.add(settingAdvancedExecute,5,5);
+        settingAdvancedExecute.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #5bb346;");
+        settingAdvancedExecute.setOnMouseEntered(e -> settingAdvancedExecute.setStyle("-fx-background-color: #6ec957; -fx-text-fill: white;"));
+        settingAdvancedExecute.setOnMouseExited(e -> settingAdvancedExecute.setStyle("-fx-background-color: #5bb346;"));
+        tfRol.setPromptText("Introducir rol");
         tbjoinRol.setContent(gridPaneJoin);
         tabPane.getTabs().addAll(tbjoinRol);
         rootConfigAvanzada.getChildren().add(tabPane);
         Scene sceneConfigAvanzada = new Scene(rootConfigAvanzada,270,170);
         stageJoin.setScene(sceneConfigAvanzada);
-        btnRol.setOnAction(e->{
+        settingAdvancedExecute.setOnAction(e->{
             Thread execute=  new Thread (()->{
               VariablesDocola.joinRol = tfRol.getText();
               iActions.actionJoin();

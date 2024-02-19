@@ -5,13 +5,13 @@ public class MethodsCreationDocola extends ContextBaseDocola{
     SelectorsDocola selector = new SelectorsDocola();
     WaitingsDocola waitings = new WaitingsDocola();
     QueriesDocola queries = new QueriesDocola();
-    GeneratorDocola trigger = new GeneratorDocola();
-    GeneratorDocola.EmailInfo emailInfo = trigger.generateEmail();
+    GeneratorDocola generate = new GeneratorDocola();
+    GeneratorDocola.EmailInfo emailInfo = generate.generateEmail();
     MethodsDocola methods = new MethodsDocola();
     public void joinNow(){
         for (contador = 1; contador <= ejecuciones; contador++) {
         if (!shouldStopTest) {
-        rol = trigger.generateRol();
+        rol = generate.generateRol();
         email=emailInfo.getEmail();
         System.out.println("Se creara el usuario:"+email);
         page.click(selector.singUp);
@@ -20,7 +20,7 @@ public class MethodsCreationDocola extends ContextBaseDocola{
         waitings.waitingJoinsSelectorStep1(rol);
         page.fill(selector.registerFirstName, emailInfo.getFirstName());
         page.fill(selector.registerLastName, emailInfo.getLastName());
-        page.fill(selector.email, trigger.email);
+        page.fill(selector.email, generate.email);
         page.click(selector.rolRegister(rol));
         page.click(selector.registerNextButtonStep1);
         waitings.waitingJoinSelectorStep2();
@@ -54,7 +54,7 @@ public class MethodsCreationDocola extends ContextBaseDocola{
     public void onboardingContentProvider(){
      webSite=companyName+".com";
      waitings.waitingOnboardingSelectorContentProviderStep1();
-     page.fill(selector.onboardingClinicianCompanyName,trigger.generateCompanyName());
+     page.fill(selector.onboardingClinicianCompanyName,generate.generateCompanyName());
      page.fill(selector.clinicianOnboardingWebSite,webSite);
      page.click(selector.onboardingClinicianNextButtonStep1);
      waitings.waitingOnboardingSelectorContentProviderStep2();
@@ -63,7 +63,6 @@ public class MethodsCreationDocola extends ContextBaseDocola{
     public void newContent(){
         joinRol = "Content provider";
         methods.login(queries.getEmailUser(joinRol));
-        page.waitForTimeout(60000);
+        methods.goToContentCreateForm();
     }
-    
 }

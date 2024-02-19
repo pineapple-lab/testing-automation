@@ -18,4 +18,7 @@ public class VariablesDocola {
    //ONBOARDING CLINICIAN
    public String companyName;
    public String webSite;
+   //CREATE CONTENT
+   public static String typeContent;
+   public int typeContentPosition;
 }

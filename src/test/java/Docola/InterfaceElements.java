@@ -34,6 +34,7 @@ public class InterfaceElements extends Application {
     //create buttons
     Button createUser = new Button("Crear usuario");
     Button newContent = new Button("New content");
+
     //validation LOGIN buttons
     Button validationsLoginEmailIncorrect = new Button("Email incorrecto");
     Button validationsLoginPasswordIncorrect = new Button("Password incorrecto");

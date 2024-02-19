@@ -1,8 +1,6 @@
 package InsumosDocola;
-
 import java.time.Instant;
 import java.util.Random;
-
 public class GeneratorDocola extends ContextBaseDocola{
     public EmailInfo generateEmail(){
         generateFirstName();
@@ -61,6 +59,32 @@ public class GeneratorDocola extends ContextBaseDocola{
                     break;
         }
         return rol;
+    }
+    public int generateTypeContent(){
+
+        if (typeContent == null) {
+            typeContent="Upload file";
+        }switch (typeContent) {
+            case "Upload file":
+                typeContentPosition= 1;
+                break;
+            case "Capture video":
+                typeContentPosition = 2;
+                break;
+            case "Import web content":
+                typeContentPosition = 3;
+                break;
+            case "Create a quiz":
+                typeContentPosition = 4;
+                break;
+            case "Create a survey":
+                typeContentPosition = 5;
+                break;
+            case "VR":
+                typeContentPosition = 6;
+                break;
+        }
+        return typeContentPosition;
     }
     public String generateCompanyName(){
         String[] companyList = {"Industrias Sol", "MegaCorp", "InnovaTech", "Global Enterprises", "Emprendedores Unidos",

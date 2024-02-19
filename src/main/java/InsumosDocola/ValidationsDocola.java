@@ -7,8 +7,8 @@ import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertTha
 public class ValidationsDocola extends ContextBaseDocola{
     SelectorsDocola selector = new SelectorsDocola();
     WaitingsDocola waiting = new WaitingsDocola();
-    GeneratorDocola trigger = new GeneratorDocola();
-    GeneratorDocola.EmailInfo emailInfo = trigger.generateEmail();
+    GeneratorDocola generate = new GeneratorDocola();
+    GeneratorDocola.EmailInfo emailInfo = generate.generateEmail();
     MethodsDocola methods = new MethodsDocola();
     //METHODS VALIDATIONS LOGIN
     public void validationLoginEmailIncorrect(){
@@ -66,8 +66,8 @@ public class ValidationsDocola extends ContextBaseDocola{
         for (contador = 1; contador <= ejecuciones; contador++) {
             if (!shouldStopTest) {
             methods.goToRegisterForm();
-            waiting.waitingJoinsSelectorStep1(trigger.generateRol());
-            methods.completeLastNameARegister(trigger.generateLastName());
+            waiting.waitingJoinsSelectorStep1(generate.generateRol());
+            methods.completeLastNameARegister(generate.generateLastName());
             methods.completeemail(emailInfo.getEmail());
             assertThat(page.locator(selector.registerNextButtonStep1)).isDisabled();
             }
@@ -78,8 +78,8 @@ public class ValidationsDocola extends ContextBaseDocola{
         for (contador = 1; contador <= ejecuciones; contador++) {
             if (!shouldStopTest) {
                 methods.goToRegisterForm();
-                waiting.waitingJoinsSelectorStep1(trigger.generateRol());
-                methods.completeregisterFirstName(trigger.generateFirstName());
+                waiting.waitingJoinsSelectorStep1(generate.generateRol());
+                methods.completeregisterFirstName(generate.generateFirstName());
                 methods.completeemail(emailInfo.getEmail());
                 assertThat(page.locator(selector.registerNextButtonStep1)).isDisabled();
             }
@@ -90,9 +90,9 @@ public class ValidationsDocola extends ContextBaseDocola{
         for (contador = 1; contador <= ejecuciones; contador++) {
             if (!shouldStopTest) {
                 methods.goToRegisterForm();
-                waiting.waitingJoinsSelectorStep1(trigger.generateRol());
-                methods.completeregisterFirstName(trigger.generateFirstName());
-                methods.completeLastNameARegister(trigger.generateLastName());
+                waiting.waitingJoinsSelectorStep1(generate.generateRol());
+                methods.completeregisterFirstName(generate.generateFirstName());
+                methods.completeLastNameARegister(generate.generateLastName());
                 assertThat(page.locator(selector.registerNextButtonStep1)).isDisabled();
             }
         }
@@ -102,8 +102,8 @@ public class ValidationsDocola extends ContextBaseDocola{
         for (contador = 1; contador <= ejecuciones; contador++) {
             if (!shouldStopTest) {
                 methods.goToRegisterForm();
-                waiting.waitingJoinsSelectorStep1(trigger.generateRol());
-                methods.completeFirstStepRegister(trigger.generateFirstName(),trigger.generateLastName(),emailInfo.getEmail());
+                waiting.waitingJoinsSelectorStep1(generate.generateRol());
+                methods.completeFirstStepRegister(generate.generateFirstName(),generate.generateLastName(),emailInfo.getEmail());
                 page.click(selector.registerNextButtonStep1);
                 waiting.waitingJoinSelectorStep2();
                 page.fill(selector.registerPasswordConfirmation,password);
@@ -116,8 +116,8 @@ public class ValidationsDocola extends ContextBaseDocola{
         for (contador = 1; contador <= ejecuciones; contador++) {
             if (!shouldStopTest) {
                 methods.goToRegisterForm();
-                waiting.waitingJoinsSelectorStep1(trigger.generateRol());
-                methods.completeFirstStepRegister(trigger.generateFirstName(),trigger.generateLastName(),emailInfo.getEmail());
+                waiting.waitingJoinsSelectorStep1(generate.generateRol());
+                methods.completeFirstStepRegister(generate.generateFirstName(),generate.generateLastName(),emailInfo.getEmail());
                 page.click(selector.registerNextButtonStep1);
                 waiting.waitingJoinSelectorStep2();
                 page.fill(selector.registerPassword,password);
@@ -131,8 +131,8 @@ public class ValidationsDocola extends ContextBaseDocola{
         for (contador = 1; contador <= ejecuciones; contador++) {
             if (!shouldStopTest) {
                     methods.goToRegisterForm();
-                    waiting.waitingJoinsSelectorStep1(trigger.generateRol());
-                    methods.completeFirstStepRegister(trigger.generateFirstName(),trigger.generateLastName(),emailInfo.getEmail());
+                    waiting.waitingJoinsSelectorStep1(generate.generateRol());
+                    methods.completeFirstStepRegister(generate.generateFirstName(),generate.generateLastName(),emailInfo.getEmail());
                     page.click(selector.registerNextButtonStep1);
                     waiting.waitingJoinSelectorStep2();
                 for(passwordCondition=1; passwordCondition <=5;passwordCondition++ ) {
@@ -181,7 +181,7 @@ public class ValidationsDocola extends ContextBaseDocola{
         for (contador = 1; contador <= ejecuciones; contador++) {
             if (!shouldStopTest) {
                 methods.goToRegisterForm();
-                waiting.waitingJoinsSelectorStep1(trigger.generateRol());
+                waiting.waitingJoinsSelectorStep1(generate.generateRol());
                 methods.completeFirstStepRegister(emailInfo.getFirstName(),emailInfo.getLastName(),emailInfo.getEmail());
                 page.click(selector.registerNextButtonStep1);
                 waiting.waitingJoinSelectorStep2();
@@ -197,7 +197,7 @@ public class ValidationsDocola extends ContextBaseDocola{
         for (contador = 1; contador <= ejecuciones; contador++) {
             if (!shouldStopTest) {
                 methods.goToRegisterForm();
-                waiting.waitingJoinsSelectorStep1(trigger.generateRol());
+                waiting.waitingJoinsSelectorStep1(generate.generateRol());
                 methods.completeFirstStepRegister(emailInfo.getFirstName(),emailInfo.getLastName(),emailInfo.getEmail());
                 page.click(selector.registerNextButtonStep1);
                 waiting.waitingJoinSelectorStep2();

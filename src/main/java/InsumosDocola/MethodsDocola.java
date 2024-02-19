@@ -3,6 +3,7 @@ import com.microsoft.playwright.ElementHandle;
 public class MethodsDocola extends ContextBaseDocola{
     SelectorsDocola selector = new SelectorsDocola();
     QueriesDocola queries = new QueriesDocola();
+    GeneratorDocola generate = new GeneratorDocola();
     public void startContext(){
         System.out.println("\n-----------------------------------------------------------");
         System.out.println("Iniciando ejecucion....");
@@ -69,5 +70,10 @@ public class MethodsDocola extends ContextBaseDocola{
     public void completeSecondStepRegister(){
         page.fill(selector.registerPassword,password);
         page.fill(selector.registerPasswordConfirmation,password);
+    }
+    public void goToContentCreateForm(){
+        page.click(selector.headerMyCoursesButton);
+        page.click(selector.createNewContentButton);
+        page.click(selector.createContent(generate.generateTypeContent()));
     }
 }

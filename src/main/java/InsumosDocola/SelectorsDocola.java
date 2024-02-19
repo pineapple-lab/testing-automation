@@ -5,12 +5,13 @@ public class SelectorsDocola extends VariablesDocola{
     public String appRegister = "app-register ";
     public String matStepper = "mat-stepper > ";
     public String registrationTypePadding= ".registration-type-padding ";
+    public String appSelectContent = "app-select-content > ";
     //SELECTORS WARNING
     public String loginIncorrectCredentials = "text=invalid_user_or_password";
     //SELECTORS HEADER
     public String appHeader = "app-header > ";
-    public String divHeaderButtons = appHeader+"div > div:nth-of-type(1) > ";
-    public String myCoursesButton = appHeader+divHeaderButtons+"button:nth-of-type(2)";
+    public String headerDivButtons = appHeader+"div > div:nth-of-type(1) > button:nth-of-type";
+    public String headerMyCoursesButton = headerDivButtons+"(2)";
     //SELECTORS LOGIN
     public String formLogin = "form > div:nth-of-type(2) > div:nth-of-type(2) > ";
     public String loginEmail = formLogin+"app-form-block-input:nth-of-type(1) input";
@@ -52,4 +53,23 @@ public class SelectorsDocola extends VariablesDocola{
     public String VerifyPhoneSkipForNow = registrationTypePadding+"div > div:nth-of-type(2) > div:nth-of-type(2) > span";
     //SELECT PROFILE MENU
     public String menuProfile = appHeader+"div > div:nth-of-type(2) > div";
+    //SELECT CONTENT CREATOR COMPNENTS
+    public String createNewContentButton = "text= Upload / create new content";
+    public String selectDivAllContentsCreator = appSelectContent+"div > div:nth-of-type";
+    public String createContent(int contentTypePosition){
+        return selectDivAllContentsCreator+"("+contentTypePosition+")";
+    }
+    //SELECT CONTENT FILE CREATOR COMPONENTS
+    public String contentTitle = "";
+    public String contentDescription = "";
+    public String contentUploadFile = "";
+    public String contentButtonContinue = "";
+    public String contentConfigurationCMECE = "";
+    public String contentConfigurationMarketPlace = "";
+    public String contentPircingContentForFree = "";
+    public String contentPircingLifetimePurchase = "";
+    public String contentPircingMonthlyPrice = "";
+    public String contentPircingYearlyPrice = "";
+    public String contentThumbnailUploadFile = "";
+    public String contentThumbnailUnsplash = "";
 }

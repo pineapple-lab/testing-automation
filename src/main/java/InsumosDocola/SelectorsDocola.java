@@ -60,10 +60,11 @@ public class SelectorsDocola extends VariablesDocola{
         return selectDivAllContentsCreator+"("+contentTypePosition+")";
     }
     //SELECT CONTENT FILE CREATOR COMPONENTS
-    public String contentTitle = "";
-    public String contentDescription = "";
-    public String contentUploadFile = "";
-    public String contentButtonContinue = "";
+    public String selectGenericInputsContentCreator = "app-details-and-file-step > div > div:nth-of-type";
+    public String contentTitle = selectGenericInputsContentCreator+"(1) input";
+    public String contentDescription = selectGenericInputsContentCreator+"(2) textarea";
+    public String contentUploadFile = selectGenericInputsContentCreator+"(3) input";
+    public String contentButtonContinue = form+"div:nth-of-type(3) > button";
     public String contentConfigurationCMECE = "";
     public String contentConfigurationMarketPlace = "";
     public String contentPircingContentForFree = "";

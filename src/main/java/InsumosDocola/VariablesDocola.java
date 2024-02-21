@@ -5,6 +5,7 @@ public class VariablesDocola {
    public static volatile boolean shouldStopTest;
    public static volatile String linkNavigation;
    public static int ejecuciones;
+   public String pathImage = "C:\\Users\\PineappleHP3\\Desktop\\dev\\WorkSpaces\\testingAutomation\\src\\test\\java\\Peppermint\\INSUMOSMULTIMEDIA\\IMAGENPARAPRUEBASWORKSHOP1.jpg";
    public int contador;
    //REGISTER
    String firstName;

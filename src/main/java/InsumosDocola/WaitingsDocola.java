@@ -31,4 +31,10 @@ public class WaitingsDocola extends ContextBaseDocola{
     public void waitingOnboardingSelectorContentProviderStep2(){
         page.waitForSelector(selector.VerifyPhoneSkipForNow);
     }
+    public void waitingCreateUploadFileSelectorsStep1(){
+        page.waitForSelector(selector.contentTitle);
+        page.waitForSelector(selector.contentDescription);
+        //page.waitForSelector(selector.contentUploadFile);
+        page.waitForSelector(selector.contentButtonContinue);
+    }
 }

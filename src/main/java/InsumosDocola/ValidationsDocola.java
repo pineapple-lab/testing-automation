@@ -17,8 +17,9 @@ public class ValidationsDocola extends ContextBaseDocola{
                 methods.goToLogin();
                 waiting.waitingLoginSelectors();
                 email = "esteEmailNoexiste@mailinator.com";
-                page.fill(selector.email,email);
+                page.fill(selector.loginEmail,email);
                 methods.completeloginPassword();
+                page.click(selector.loginButton);
                 waiting.waitingLoginSelectorIncorrectCredentials();
                 Assertions.assertTrue(page.isVisible(selector.loginIncorrectCredentials));
             }
@@ -32,7 +33,8 @@ public class ValidationsDocola extends ContextBaseDocola{
                 waiting.waitingLoginSelectors();
                 methods.completeloginEmail();
                 password = "EstePasswordNoExiste";
-                methods.completeloginPassword();
+                page.fill(selector.loginPassword,password);
+                page.click(selector.loginButton);
                 waiting.waitingLoginSelectorIncorrectCredentials();
                 Assertions.assertTrue(page.isVisible(selector.loginIncorrectCredentials));
             }

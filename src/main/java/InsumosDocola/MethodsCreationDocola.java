@@ -1,6 +1,9 @@
 package InsumosDocola;
 import com.microsoft.playwright.PlaywrightException;
 import org.junit.jupiter.api.Assertions;
+
+import java.nio.file.Paths;
+
 public class MethodsCreationDocola extends ContextBaseDocola{
     SelectorsDocola selector = new SelectorsDocola();
     WaitingsDocola waitings = new WaitingsDocola();
@@ -64,5 +67,35 @@ public class MethodsCreationDocola extends ContextBaseDocola{
         joinRol = "Content provider";
         methods.login(queries.getEmailUser(joinRol));
         methods.goToContentCreateForm();
+
+        if (typeContent == null) {
+            typeContent="Upload file";
+        }switch (typeContent) {
+            case "Upload file":
+                waitings.waitingCreateUploadFileSelectorsStep1();
+                newContentUploadFile();
+                break;
+            case "Capture video":
+                typeContentPosition = 2;
+                break;
+            case "Import web content":
+                typeContentPosition = 3;
+                break;
+            case "Create a quiz":
+                typeContentPosition = 4;
+                break;
+            case "Create a survey":
+                typeContentPosition = 5;
+                break;
+            case "VR":
+                typeContentPosition = 6;
+                break;
+        }
+    }
+    public void newContentUploadFile(){
+        page.fill(selector.contentTitle, "test");
+        page.fill(selector.contentDescription, "test");
+        page.locator(selector.contentUploadFile).setInputFiles(Paths.get(pathImage));
+        page.click(selector.contentButtonContinue);
     }
 }

@@ -51,6 +51,7 @@ public class MethodsDocola extends ContextBaseDocola{
         page.fill(selector.loginEmail,queries.getEmailUser(joinRol));
     }
     public void completeloginPassword(){
+        System.out.println(password);
         page.fill(selector.loginPassword, password);
     }
     public void completeregisterFirstName(String firstName){

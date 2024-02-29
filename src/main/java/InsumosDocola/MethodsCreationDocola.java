@@ -67,35 +67,29 @@ public class MethodsCreationDocola extends ContextBaseDocola{
         joinRol = "Content provider";
         methods.login(queries.getEmailUser(joinRol));
         methods.goToContentCreateForm();
-
         if (typeContent == null) {
             typeContent="Upload file";
         }switch (typeContent) {
             case "Upload file":
                 waitings.waitingCreateUploadFileSelectorsStep1();
-                newContentUploadFile();
+                methods.completeContentUploadFile();
                 break;
             case "Capture video":
                 typeContentPosition = 2;
                 break;
-            case "Import web content":
-                typeContentPosition = 3;
+            case "Web content":
+                waitings.waitingCreateUploadFileSelectorsStep1();
+                methods.completeContentImportWebContent();
                 break;
-            case "Create a quiz":
-                typeContentPosition = 4;
+            case "Quiz":
+                methods.completeContentQuiz();
                 break;
-            case "Create a survey":
-                typeContentPosition = 5;
+            case "Survey":
+                methods.completeContentSurvey();
                 break;
             case "VR":
                 typeContentPosition = 6;
                 break;
         }
-    }
-    public void newContentUploadFile(){
-        page.fill(selector.contentTitle, "test");
-        page.fill(selector.contentDescription, "test");
-        page.locator(selector.contentUploadFile).setInputFiles(Paths.get(pathImage));
-        page.click(selector.contentButtonContinue);
     }
 }

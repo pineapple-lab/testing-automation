@@ -71,13 +71,13 @@ public class GeneratorDocola extends ContextBaseDocola{
             case "Capture video":
                 typeContentPosition = 2;
                 break;
-            case "Import web content":
+            case "Web content":
                 typeContentPosition = 3;
                 break;
-            case "Create a quiz":
+            case "Quiz":
                 typeContentPosition = 4;
                 break;
-            case "Create a survey":
+            case "Survey":
                 typeContentPosition = 5;
                 break;
             case "VR":

@@ -1,5 +1,8 @@
 package InsumosDocola;
 import com.microsoft.playwright.ElementHandle;
+
+import java.nio.file.Paths;
+
 public class MethodsDocola extends ContextBaseDocola{
     SelectorsDocola selector = new SelectorsDocola();
     QueriesDocola queries = new QueriesDocola();
@@ -76,5 +79,62 @@ public class MethodsDocola extends ContextBaseDocola{
         page.click(selector.headerMyCoursesButton);
         page.click(selector.createNewContentButton);
         page.click(selector.createContent(generate.generateTypeContent()));
+    }
+    public void completeContentUploadFile(){
+        page.fill(selector.contentTitle, "test");
+        page.fill(selector.contentDescription, "test");
+        page.locator(selector.contentUpload).setInputFiles(Paths.get(pathImage));
+        page.click(selector.contentButtonContinue);
+    }
+    public void completeContentImportWebContent(){
+        page.fill(selector.contentTitle, "test");
+        page.fill(selector.contentDescription, "test");
+        page.fill(selector.contentUpload,"https://www.youtube.com/embed/myDW_WPRHq0?si=bdkGE69WDFZXf7cj");
+        page.click(selector.contentButtonContinue);
+    }
+    public void completeContentQuiz(){
+        page.fill(selector.contentTitle, "test");
+        page.fill(selector.contentDescription, "test");
+        page.click(selector.contentAddQuestionsQuiz);
+        if(typeQuestion == 0){
+            typeQuestion=1;
+        }
+        page.waitForSelector(selector.contentTypeQuestionQuiz(typeQuestion));
+        page.click(selector.contentTypeQuestionQuiz(typeQuestion));
+        switch (typeQuestion) {
+            case 1:
+                completeContentQuestionTrueOrFalse();
+                break;
+            /*case 2:
+                break;
+            case 3:
+                break;*/
+        }
+        page.waitForTimeout(6000);
+        page.click(selector.contentButtonContinue);
+    }
+    public void completeContentSurvey(){
+        page.fill(selector.contentTitle, "test");
+        page.fill(selector.contentDescription, "test");
+        page.click(selector.contentAddQuestionsQuiz);
+        if(typeQuestion == 0){
+            typeQuestion=1;
+        }
+        page.waitForSelector(selector.contentTypeQuestionQuiz(typeQuestion));
+        page.click(selector.contentTypeQuestionQuiz(typeQuestion));
+        switch (typeQuestion) {
+            case 1:
+               completeContentQuestionTrueOrFalse();
+                break;
+            /*case 2:
+                break;
+            case 3:
+                break;*/
+        }
+        page.waitForTimeout(6000);
+        page.click(selector.contentButtonContinue);
+    }
+    public void completeContentQuestionTrueOrFalse (){
+        page.fill(selector.writeaQuestionQuiz, "test");
     }
 }

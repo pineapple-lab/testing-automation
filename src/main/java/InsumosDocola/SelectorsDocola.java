@@ -59,12 +59,20 @@ public class SelectorsDocola extends VariablesDocola{
     public String createContent(int contentTypePosition){
         return selectDivAllContentsCreator+"("+contentTypePosition+")";
     }
-    //SELECT CONTENT FILE CREATOR COMPONENTS
+    //SELECT CONTENT COMPONENTS
     public String selectGenericInputsContentCreator = "app-details-and-file-step > div > div:nth-of-type";
+    public String selectGenericTypeQuestion = ".cdk-overlay-pane> div > div > button:nth-of-type";
+    public String selectGenericQuizCardQuestion = "app-quiz-question > div > div:nth-of-type(1) > ";
     public String contentTitle = selectGenericInputsContentCreator+"(1) input";
     public String contentDescription = selectGenericInputsContentCreator+"(2) textarea";
-    public String contentUploadFile = selectGenericInputsContentCreator+"(3) input";
+    public String contentUpload = selectGenericInputsContentCreator+"(3) input";
+    public String contentAddQuestionsQuiz = selectGenericInputsContentCreator+"(3) > div:nth-of-type(2)";
+    public String contentTypeQuestionQuiz(int typeQuestion){
+        return selectGenericTypeQuestion+"("+typeQuestion+")";
+    }
+    public String writeaQuestionQuiz = selectGenericQuizCardQuestion+"mat-form-field input";
     public String contentButtonContinue = form+"div:nth-of-type(3) > button";
+
     public String contentConfigurationCMECE = "";
     public String contentConfigurationMarketPlace = "";
     public String contentPircingContentForFree = "";

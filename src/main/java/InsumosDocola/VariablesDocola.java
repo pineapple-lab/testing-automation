@@ -21,5 +21,6 @@ public class VariablesDocola {
    public String webSite;
    //CREATE CONTENT
    public static String typeContent;
+   public static int typeQuestion = 0;
    public int typeContentPosition;
 }

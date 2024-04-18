@@ -37,4 +37,25 @@ public class WaitingsDocola extends ContextBaseDocola{
         //page.waitForSelector(selector.contentUploadFile);
         page.waitForSelector(selector.contentButtonContinue);
     }
+    public void waitingConfigurationStepSelector() {
+        page.waitForSelector(selector.contentTagICD10Type);
+        //page.waitForSelector(selector.contentConfigurationMarketPlace);
+        //page.waitForSelector(selector.contentButtonContinue);
+    }
+    public void waitingPricingStepSelector(){
+        page.waitForSelector(selector.contentPricingMonthlyPrice);
+        page.waitForSelector(selector.contentPricingYearlyPrice);
+        page.waitForSelector(selector.contentButtonContinue);
+    }
+    public void waitingThumbnailStepSelector(){
+        page.waitForSelector(selector.contentThumbnailUnsplash);
+        page.waitForSelector(selector.contentThumbnailUploadFile);
+    }
+    public void waitingUnshplashPopUpSelectors (){
+        page.waitForSelector(selector.contentUnsplashCategorie);
+        //page.waitForSelector(selector.contentUnsplashSelectButton);
+    }
+    public void waitingUnsplashPhotos(){
+        page.waitForSelector(selector.contentUnsplashPhoto);
+    }
 }

@@ -20,8 +20,8 @@ public class QueriesDocola extends ContextBaseDocola{
     public void saveUser(String email){
         try {
             connectDatabase();
-            String insertSql = "INSERT INTO users (`emailUser`,`rol`) " +
-                    "VALUES('"+email+"','"+joinRol+"')";
+            String insertSql = "INSERT INTO users (`emailUser`,`rol`,`ambiente`) " +
+                    "VALUES('"+email+"','"+joinRol+"','"+linkNavigation+"')";
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
             CN.close();
@@ -35,9 +35,15 @@ public class QueriesDocola extends ContextBaseDocola{
                 joinRol = "Clinician";
             }
             System.out.println(joinRol);
+            System.out.println(linkNavigation);
             connectDatabase();
             stm=CN.createStatement();
-            rs = stm.executeQuery("SELECT * FROM testbddocola.users WHERE rol = '"+joinRol+"' ORDER BY RAND() LIMIT 1");
+            if(linkNavigation=="http://localhost:4200/") {
+                rs = stm.executeQuery("SELECT * FROM testbddocola.users WHERE rol = '" + joinRol + "' and ambiente = '"+linkNavigation+"' ORDER BY RAND() LIMIT 1");
+            }
+            if(linkNavigation=="https://docola-sandbox-759b0.web.app/"){
+                rs = stm.executeQuery("SELECT * FROM testbddocola.users WHERE rol = '" + joinRol + "' and ambiente = '"+linkNavigation+"' ORDER BY RAND() LIMIT 1");
+            }
             while(rs.next()) {
                 email = rs.getString(rs.findColumn("emailUser"));
             }

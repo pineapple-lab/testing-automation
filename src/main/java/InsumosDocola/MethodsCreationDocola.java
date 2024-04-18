@@ -12,7 +12,7 @@ public class MethodsCreationDocola extends ContextBaseDocola{
     GeneratorDocola.EmailInfo emailInfo = generate.generateEmail();
     MethodsDocola methods = new MethodsDocola();
     public void joinNow(){
-        for (contador = 1; contador <= ejecuciones; contador++) {
+        for (contador = 1; contador <= Integer.parseInt(ejecuciones); contador++) {
         if (!shouldStopTest) {
         rol = generate.generateRol();
         email=emailInfo.getEmail();
@@ -66,30 +66,39 @@ public class MethodsCreationDocola extends ContextBaseDocola{
     public void newContent(){
         joinRol = "Content provider";
         methods.login(queries.getEmailUser(joinRol));
-        methods.goToContentCreateForm();
-        if (typeContent == null) {
-            typeContent="Upload file";
-        }switch (typeContent) {
-            case "Upload file":
-                waitings.waitingCreateUploadFileSelectorsStep1();
-                methods.completeContentUploadFile();
-                break;
-            case "Capture video":
-                typeContentPosition = 2;
-                break;
-            case "Web content":
-                waitings.waitingCreateUploadFileSelectorsStep1();
-                methods.completeContentImportWebContent();
-                break;
-            case "Quiz":
-                methods.completeContentQuiz();
-                break;
-            case "Survey":
-                methods.completeContentSurvey();
-                break;
-            case "VR":
-                typeContentPosition = 6;
-                break;
+        for(contador= 1;contador<=generate.generateExecutions();contador++ ) {
+            methods.goToContentCreateForm();
+            if (typeContent == null) {
+                typeContent = "Upload file";
+            }
+            switch (typeContent) {
+                case "Upload file":
+                    waitings.waitingCreateUploadFileSelectorsStep1();
+                    methods.completeContentUploadFile();
+                    break;
+                case "Capture video":
+                    typeContentPosition = 2;
+                    break;
+                case "Web content":
+                    waitings.waitingCreateUploadFileSelectorsStep1();
+                    methods.completeContentImportWebContent();
+                    break;
+                case "Quiz":
+                    methods.completeContentQuiz();
+                    break;
+                case "Survey":
+                    methods.completeContentSurvey();
+                    break;
+                case "VR":
+                    typeContentPosition = 6;
+                    break;
+            }
+            methods.completeConfigurationStep();
+            methods.completePricingStep();
+            methods.completeThumbnailStep();
+            page.click(selector.contentPublishButton);
+            page.waitForTimeout(3000);
+            System.out.println(contador+"/"+generate.generateExecutions());
         }
     }
 }

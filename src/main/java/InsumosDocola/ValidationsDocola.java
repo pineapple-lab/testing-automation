@@ -1,9 +1,7 @@
 package InsumosDocola;
 import com.microsoft.playwright.Keyboard;
 import org.junit.jupiter.api.Assertions;
-
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
-
 public class ValidationsDocola extends ContextBaseDocola{
     SelectorsDocola selector = new SelectorsDocola();
     WaitingsDocola waiting = new WaitingsDocola();
@@ -12,7 +10,7 @@ public class ValidationsDocola extends ContextBaseDocola{
     MethodsDocola methods = new MethodsDocola();
     //METHODS VALIDATIONS LOGIN
     public void validationLoginEmailIncorrect(){
-        for (contador = 1; contador <= ejecuciones; contador++) {
+        for (contador = 1; contador <= generate.generateExecutions(); contador++) {
             if (!shouldStopTest) {
                 methods.goToLogin();
                 waiting.waitingLoginSelectors();
@@ -27,7 +25,7 @@ public class ValidationsDocola extends ContextBaseDocola{
         closeContext();
     }
     public void validationLoginPasswordIncorrect(){
-        for (contador = 1; contador <= ejecuciones; contador++) {
+        for (contador = 1; contador <= generate.generateExecutions(); contador++) {
             if (!shouldStopTest) {
                 methods.goToLogin();
                 waiting.waitingLoginSelectors();
@@ -42,7 +40,7 @@ public class ValidationsDocola extends ContextBaseDocola{
         closeContext();
     }
     public void validationLoginEmailEmpty(){
-        for (contador = 1; contador <= ejecuciones; contador++) {
+        for (contador = 1; contador <= generate.generateExecutions(); contador++) {
             if (!shouldStopTest) {
                 methods.goToLogin();
                 waiting.waitingLoginSelectors();
@@ -53,7 +51,7 @@ public class ValidationsDocola extends ContextBaseDocola{
         closeContext();
     }
     public void validationLoginPasswordEmpty(){
-        for (contador = 1; contador <= ejecuciones; contador++) {
+        for (contador = 1; contador <= generate.generateExecutions(); contador++) {
             if (!shouldStopTest) {
                 methods.goToLogin();
                 waiting.waitingLoginSelectors();
@@ -65,7 +63,7 @@ public class ValidationsDocola extends ContextBaseDocola{
     }
     //METHODS VALIDATIONS REGISTER
     public void validationRegisterFirstName(){
-        for (contador = 1; contador <= ejecuciones; contador++) {
+        for (contador = 1; contador <= generate.generateExecutions(); contador++) {
             if (!shouldStopTest) {
             methods.goToRegisterForm();
             waiting.waitingJoinsSelectorStep1(generate.generateRol());
@@ -77,7 +75,7 @@ public class ValidationsDocola extends ContextBaseDocola{
         closeContext();
     }
     public void validationRegisterLastName(){
-        for (contador = 1; contador <= ejecuciones; contador++) {
+        for (contador = 1; contador <= generate.generateExecutions(); contador++) {
             if (!shouldStopTest) {
                 methods.goToRegisterForm();
                 waiting.waitingJoinsSelectorStep1(generate.generateRol());
@@ -89,7 +87,7 @@ public class ValidationsDocola extends ContextBaseDocola{
         closeContext();
     }
     public void validationRegisterEmail(){
-        for (contador = 1; contador <= ejecuciones; contador++) {
+        for (contador = 1; contador <= generate.generateExecutions(); contador++) {
             if (!shouldStopTest) {
                 methods.goToRegisterForm();
                 waiting.waitingJoinsSelectorStep1(generate.generateRol());
@@ -101,7 +99,7 @@ public class ValidationsDocola extends ContextBaseDocola{
         closeContext();
     }
     public void validationRegisterPassword(){
-        for (contador = 1; contador <= ejecuciones; contador++) {
+        for (contador = 1; contador <= generate.generateExecutions(); contador++) {
             if (!shouldStopTest) {
                 methods.goToRegisterForm();
                 waiting.waitingJoinsSelectorStep1(generate.generateRol());
@@ -115,7 +113,7 @@ public class ValidationsDocola extends ContextBaseDocola{
         closeContext();
     }
     public void validationRegisterConfirmPassword(){
-        for (contador = 1; contador <= ejecuciones; contador++) {
+        for (contador = 1; contador <= generate.generateExecutions(); contador++) {
             if (!shouldStopTest) {
                 methods.goToRegisterForm();
                 waiting.waitingJoinsSelectorStep1(generate.generateRol());
@@ -130,7 +128,7 @@ public class ValidationsDocola extends ContextBaseDocola{
     }
     public void validationRegisterPasswordConditions(){
         Keyboard kb = page.keyboard();
-        for (contador = 1; contador <= ejecuciones; contador++) {
+        for (contador = 1; contador <= generate.generateExecutions(); contador++) {
             if (!shouldStopTest) {
                     methods.goToRegisterForm();
                     waiting.waitingJoinsSelectorStep1(generate.generateRol());
@@ -180,7 +178,7 @@ public class ValidationsDocola extends ContextBaseDocola{
         closeContext();
     }
     public void validationTermsAndConditions(){
-        for (contador = 1; contador <= ejecuciones; contador++) {
+        for (contador = 1; contador <= generate.generateExecutions(); contador++) {
             if (!shouldStopTest) {
                 methods.goToRegisterForm();
                 waiting.waitingJoinsSelectorStep1(generate.generateRol());
@@ -196,7 +194,7 @@ public class ValidationsDocola extends ContextBaseDocola{
         closeContext();
     }
     public void validationCaptcha(){
-        for (contador = 1; contador <= ejecuciones; contador++) {
+        for (contador = 1; contador <= Integer.parseInt(ejecuciones); contador++) {
             if (!shouldStopTest) {
                 methods.goToRegisterForm();
                 waiting.waitingJoinsSelectorStep1(generate.generateRol());

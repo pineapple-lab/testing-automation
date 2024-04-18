@@ -11,5 +11,7 @@ public class FunctionCreateContent extends MethodsCreationDocola {
     public void serviceNewContent(){
         methods.startContextAndNavigation();
         create.newContent();
+        closeContext();
+        closeBrowser();
     }
 }

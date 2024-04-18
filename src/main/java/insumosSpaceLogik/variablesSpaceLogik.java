@@ -8,6 +8,8 @@ public class variablesSpaceLogik {
     //VALIDACIONES
     public String assertions;
     public String assertionPenaltyAmount;
+    //LOGIN
+    public String emailLogin;
     //REGISTRO
     public String firstNameRegistro;
     public String lastNameRegistro;

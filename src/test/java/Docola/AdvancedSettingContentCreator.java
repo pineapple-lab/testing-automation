@@ -10,6 +10,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
+import static InsumosDocola.VariablesDocola.ejecuciones;
+
 public class AdvancedSettingContentCreator extends InterfaceElements {
     Label labelTypeContent = new Label ("Tipo de contenido");
     TextField tfTypeContent = new TextField();
@@ -20,7 +22,7 @@ public class AdvancedSettingContentCreator extends InterfaceElements {
     InterfaceActions iActions = new InterfaceActions();
     public AdvancedSettingContentCreator(String ejecucionesAvanzadas , String seleccionAvanzada){
 
-        this.vDocola.ejecuciones = Integer.parseInt(ejecucionesAvanzadas);
+        this.vDocola.ejecuciones = ejecucionesAvanzadas;
         this.seleccion = seleccionAvanzada;
     }
     @Override

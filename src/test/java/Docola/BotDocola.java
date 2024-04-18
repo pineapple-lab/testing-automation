@@ -41,8 +41,8 @@ public class BotDocola extends Docola.InterfaceActions {
             });
             createUser.setOnMousePressed( event -> {
                 if (event.isSecondaryButtonDown()){
-                    ejecuciones=Integer.parseInt(tfExecute.getText());
-                    AdvancedSettingJoin configAvanzada = new AdvancedSettingJoin(String.valueOf(ejecuciones),seleccion);
+                    ejecuciones=tfExecute.getText();
+                    AdvancedSettingJoin configAvanzada = new AdvancedSettingJoin(ejecuciones,seleccion);
                     Stage configAvanzadaStage = new Stage();
                     configAvanzada.start(configAvanzadaStage);
                     configAvanzadaStage.show();
@@ -57,8 +57,8 @@ public class BotDocola extends Docola.InterfaceActions {
             });
             newContent.setOnMousePressed( event -> {
                 if (event.isSecondaryButtonDown()){
-                    ejecuciones=Integer.parseInt(tfExecute.getText());
-                    AdvancedSettingContentCreator configAvanzada = new AdvancedSettingContentCreator(String.valueOf(ejecuciones),seleccion);
+                    ejecuciones=tfExecute.getText();
+                    AdvancedSettingContentCreator configAvanzada = new AdvancedSettingContentCreator(ejecuciones,seleccion);
                     Stage configAvanzadaStage = new Stage();
                     configAvanzada.start(configAvanzadaStage);
                     configAvanzadaStage.show();
@@ -156,6 +156,9 @@ public class BotDocola extends Docola.InterfaceActions {
                 if (seleccion.equals("Local")) {
                     VariablesDocola.linkNavigation = "http://localhost:4200/";
                 }
+                if (seleccion.equals("DEV")) {
+                    VariablesDocola.linkNavigation = "https://docola-sandbox-759b0.web.app/";
+                }
             });
             stopTestCase.setOnAction(event ->{
                 methods.stopTest();
@@ -174,7 +177,7 @@ public class BotDocola extends Docola.InterfaceActions {
         execute.setOnAction(e -> {
             System.out.println(linkNavigation);
             Thread execute = new Thread(() -> {
-                ejecuciones =  Integer.parseInt(tfExecute.getText());
+                ejecuciones = tfExecute.getText();
                 accion();
                 }, "execute");
             if (execute.isAlive()) {

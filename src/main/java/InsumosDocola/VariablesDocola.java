@@ -4,7 +4,7 @@ public class VariablesDocola {
    public static volatile PrintStream printStream;
    public static volatile boolean shouldStopTest;
    public static volatile String linkNavigation;
-   public static int ejecuciones;
+   public static String ejecuciones;
    public String pathImage = "C:\\Users\\PineappleHP3\\Desktop\\dev\\WorkSpaces\\testingAutomation\\src\\test\\java\\Peppermint\\INSUMOSMULTIMEDIA\\IMAGENPARAPRUEBASWORKSHOP1.jpg";
    public int contador;
    //REGISTER
@@ -23,4 +23,5 @@ public class VariablesDocola {
    public static String typeContent;
    public static int typeQuestion = 0;
    public int typeContentPosition;
+   public String uploadFileName;
 }

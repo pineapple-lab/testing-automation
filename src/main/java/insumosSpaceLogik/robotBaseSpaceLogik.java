@@ -4,13 +4,17 @@ import com.microsoft.playwright.Keyboard;
 import org.junit.jupiter.api.Assertions;
 
 import javax.swing.text.DateFormatter;
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Random;
 
 public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
     public void obtenerFecha() {
@@ -20,6 +24,63 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         formattedDate = dtf.format(dateObj);
     }
     public void registrarse() {
+        String[] listNames = {"Juan", "Maria", "Carlos", "Ana", "Luis", "Laura", "Pedro", "Sofia", "Diego", "Valentina",
+                "Jose", "Camila", "Miguel", "Isabella", "Fernando", "Lucia", "Alejandro", "Julia", "Ricardo", "Emma",
+                "Andres", "Paula", "Esteban", "Martina", "Felipe", "Valeria", "Jorge", "Gabriela", "Gustavo", "Mariana",
+                "Raul", "Renata", "Sergio", "Jimena", "Ignacio", "Natalia", "Hugo", "Adriana", "Pablo", "Daniela",
+                "Angel", "Patricia", "Emilio", "Carmen", "Roberto", "Rosa", "Alberto", "Clara", "Benjamin", "Elena",
+                "Guillermo", "Mercedes", "Rafael", "Beatriz", "Samuel", "Silvia", "Victor", "Julieta", "Javier", "Carolina",
+                "Manuel", "Marina", "Rogelio", "Juana", "Enrique", "Vanesa", "Federico", "Francisca", "Mario", "Ines",
+                "Simon", "Constanza", "Cesar", "Lorena", "Oscar", "Alicia", "Bruno", "Gabriela", "Eduardo", "Catalina",
+                "Nicolas", "Agustina", "Hector", "Antonella", "Tomas", "Clarisa", "Alvaro", "Diana", "Francisco", "Anais",
+                "Sebastian", "Bianca", "Daniel", "Florencia", "Maximiliano", "Pamela", "Marcos", "Luciana"};
+        Random rand = new Random();
+        int index1 = rand.nextInt(listNames.length);
+        firstNameRegistro = listNames[index1];
+
+        String[] listSurnames = {
+                "Gonzalez", "Rodriguez", "Gomez", "Fernandez", "Lopez", "Martinez", "Perez", "Garcia", "Sanchez", "Romero",
+                "Torres", "Ramirez", "Hernandez", "Ruiz", "Jimenez", "Diaz", "Moreno", "Alvarez", "Munioz", "Gutierrez",
+                "Vargas", "Castanio", "Ortega", "Silva", "Nuniez", "Molina", "Castro", "Rojas", "Medina", "Cruz",
+                "Navarro", "Cabrera", "Vargas", "Mendoza", "Soto", "Guerrero", "Ortiz", "Delgado", "Rios", "Chavez",
+                "Mejia", "Vega", "Avila", "Acosta", "Miranda", "Fuentes", "Campos", "Correa", "Estrada", "Gallardo",
+                "Velasco", "Montoya", "Penia", "Rivas", "Quintero", "Barrera", "Penia", "Cortes", "Aguirre", "Blanco",
+                "Padilla", "Arroyo", "Ramos", "Salas", "Santos", "Arias", "Zamora", "Valencia", "Soler", "Peralta",
+                "Rocha", "DelValle", "Salazar", "Esquivel", "Rubio", "Calderon", "Rosales", "Urbina", "Luna", "Escobar",
+                "Vera", "Orozco", "Villalobos", "Duarte", "Ochoa", "Zuniga", "Rangel", "Aranda", "Vidal", "Barajas",
+                "Saucedo", "Becerra", "Cervantes", "Velazquez", "Landa", "Gallardo", "Carranza", "Carrillo", "Lara", "DelRio"
+        };
+        Random random = new Random();
+        int index2 = random.nextInt(listSurnames.length);
+        lastNameRegistro= listSurnames[index2];
+
+        String[] companyList = {"Industrias Sol", "MegaCorp", "InnovaTech", "Global Enterprises", "Emprendedores Unidos",
+                "NexGen Solutions", "TechWorks", "Futura Innovación", "Excelencia Empresarial", "Alpha Enterprises",
+                "Vanguardia Empresarial", "EcoSoluciones", "Visionary Group", "Sunrise Industries", "Pioneer Solutions",
+                "NextLevel Ventures", "EcoTech Industries", "Infinite Innovations", "Starlight Corporation", "Omega Solutions",
+                "Prime Enterprises", "Synergy Solutions", "Trinity Technologies", "Dynamic Innovations", "Horizon Enterprises",
+                "Innovatech Systems", "Strategic Solutions", "Eagle Enterprises", "Summit Corporation", "Apex Solutions",
+                "Quantum Innovations", "BlueSky Enterprises", "Phoenix Corporation", "Sunset Solutions", "FutureTech Ventures",
+                "Optimal Solutions", "New Horizons Corporation", "Vertex Innovations", "Polaris Enterprises", "TechFusion",
+                "InnoVest Corporation", "Elite Enterprises", "EcoTech Solutions", "Infinite Enterprises", "Visionary Ventures",
+                "Synergy Innovations", "Innovatech Corporation", "Dynamic Enterprises", "NexGen Ventures", "Prime Innovations",
+                "Trinity Enterprises", "Starlight Solutions", "Horizon Ventures", "Quantum Enterprises", "Eagle Innovations",
+                "Apex Corporation", "Sunrise Ventures", "BlueSky Innovations", "FutureTech Solutions", "New Horizons Ventures",
+                "Polaris Corporation", "TechFusion Innovations", "InnoVest Solutions", "Elite Corporation", "EcoTech Ventures",
+                "Visionary Enterprises", "Synergy Corporation", "Dynamic Ventures", "NexGen Innovations", "Prime Enterprises",
+                "Trinity Solutions", "Starlight Ventures", "Horizon Innovations", "Quantum Corporation", "Eagle Solutions",
+                "Apex Ventures", "Sunrise Innovations", "BlueSky Enterprises", "FutureTech Corporation", "New Horizons Solutions",
+                "Polaris Ventures", "TechFusion Innovations", "InnoVest Enterprises", "Elite Innovations", "EcoTech Corporation",
+                "Visionary Solutions", "Synergy Ventures", "Dynamic Innovations", "NexGen Enterprises", "Prime Corporation",
+                "Trinity Ventures", "Starlight Innovations", "Horizon Enterprises", "Quantum Ventures", "Eagle Corporation",
+                "Apex Solutions", "Sunrise Innovations", "BlueSky Enterprises", "FutureTech Ventures", "New Horizons Solutions",
+                "Polaris Corporation", "TechFusion Innovations", "InnoVest Solutions", "Elite Corporation", "EcoTech Ventures"};
+        Random rand3 = new Random();
+        int index3 = rand3.nextInt(companyList.length);
+        companyRegistro = companyList[index3];
+        titleRegistro = companyList[index3];
+        long timeStamp = Instant.now().toEpochMilli();
+        mailRegistro=firstNameRegistro+lastNameRegistro+timeStamp+"@pineapple-lab.com";
         page.navigate("https://space-logic.web.app/react/login");
         page.click("text=REGISTER NOW");
         //campo firstname
@@ -33,21 +94,70 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         //campo mail
         page.fill(".register-form > div:nth-child(1) > div:nth-child(7) input[type=text]", mailRegistro);
         page.click("#checkTenant");
-        page.fill(".register-form > div:nth-child(3) > div:nth-child(3) input[type=password]", passwordRegister);
-        page.fill(".register-form > div:nth-child(3) > div:nth-child(4) input[type=password]", verifypasswordRegister);
+        page.fill(".register-form > div:nth-child(3) > div:nth-child(3) input[type=password]", "123123aA-");
+        page.fill(".register-form > div:nth-child(3) > div:nth-child(4) input[type=password]", "123123aA-");
         page.click("#tosCheckBox");
-        page.click(".ModalDiv > input[type=button]");
-        page.click("text=REGISTER");
+        page.waitForTimeout(2000);
+        page.click("form > div:nth-of-type(3) > div:nth-of-type(3) input:nth-of-type(1)");
+        page.click("text=Okay");
+        page.navigate("https://spacelogikdemolegacy.eastus.cloudapp.azure.com/Login.aspx");
+        page.fill("form > div:nth-of-type(3) input","admin");
+        page.fill("form > div:nth-of-type(4) input","Pickle30");
+        page.click("form > div:nth-of-type(5) a");
+        page.waitForTimeout(1000);
+        page.navigate("https://spacelogikdemolegacy.eastus.cloudapp.azure.com/SecurityUsersApprovals.aspx");
+        page.waitForTimeout(3000);
+        page.fill(".container > div > div:nth-of-type(1) > div input",mailRegistro);
+        page.click(".col-sm-8  > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > div:nth-of-type(1) > div > div:nth-of-type(4) > div:nth-of-type(2) > div > div > div:nth-of-type(1)");
+        page.click(".container > div > div:nth-of-type(2) > div >.panel-body > div > div > div > div:nth-of-type(7) > button:nth-of-type(1)");
+        page.click(".modal > .modal-dialog > .modal-content > .panel > .confirm-popup > div:nth-of-type(2) button:nth-of-type(2)");
+        saveUser();
+        page.waitForTimeout(3000);
     }
-    static public void login() {
-        page.navigate("https://space-logic.web.app/react/login");
-        page.fill("#txtMail", "admin");
-        page.fill("#txtPassword", "Pickle30");
-        page.click("'LOG IN'");
+    Statement stm;
+    ResultSet rs;
+    public void saveUser(){
+        try {
+            sqlconectar();
+            String insertSql = "INSERT INTO users (`email`) " +
+                    "VALUES('"+mailRegistro+"')";
+            Statement stmt = CN.createStatement();
+            stmt.executeUpdate(insertSql);
+            CN.close();
+        }catch(Exception ex) {
+            ex.printStackTrace();
+        }
     }
+
+    public void getEmailUser(){
+        try {
+            sqlconectar();
+            stm=CN.createStatement();
+            rs = stm.executeQuery("SELECT * FROM testbdspacelogik.users ORDER BY RAND() LIMIT 1");
+
+            while(rs.next()) {
+                emailLogin = rs.getString(rs.findColumn("email"));
+            }
+            CN.close();
+        }catch(Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    public void login() {
+        getEmailUser();
+        page.navigate("https://space-logic.web.app/login");
+        page.fill("#txtMail", emailLogin);
+        page.fill("#txtPassword", "123123aA-");
+        page.waitForTimeout(2000);
+        page.click("'LOGIN'");
+        page.waitForTimeout(3000);
+    }
+
     public void logout(){
         page.click(".btn-group");
+        page.waitForTimeout(1000);
         page.click(".dropdown-menu-header div:nth-of-type(2) .widget-content-wrapper button");
+        page.waitForTimeout(1000);
     }
     public void editarMyDealLeaseTypeLocation(){
         sqlconectar();

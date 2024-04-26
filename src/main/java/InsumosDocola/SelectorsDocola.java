@@ -65,10 +65,13 @@ public class SelectorsDocola extends VariablesDocola{
     //SELECT CONTENT CREATOR COMPNENTS
     public String createNewResourceButton = "text= New";
     public String selectGenericResourceType = appSelectResource+"div > div > div:nth-of-type";
-    public String createNewContentButton = selectGenericResourceType+"(1) > span";
-    public String selectDivAllContentsCreator = appSelectContent+"div > div > div:nth-of-type";
-    public String createContent(int contentTypePosition){
-        return selectDivAllContentsCreator+"("+contentTypePosition+")";
+    public String createNewContentButton(int typeContent){
+        return selectGenericResourceType+"("+typeContent+") > span";
+    }
+
+    public String selectDivAllResourceCreator = appSelectContent+"div > div > div:nth-of-type";
+    public String createResource(int resourceTypePosition){
+        return selectDivAllResourceCreator+"("+resourceTypePosition+")";
     }
     //SELECT CONTENT COMPONENTS
     public String selectGenericInputsContentCreator = "app-details-and-file-step > div > div:nth-of-type";
@@ -79,7 +82,7 @@ public class SelectorsDocola extends VariablesDocola{
     public String selectPreviewImage = appUploaderDropBox+"div > div > div:nth-of-type(2) > i:nth-of-type(1)";
     public String selectGenericThumbnailStep = appThumbnailStep+form+"div > div > app-uploader-drop-box > div > div > button:nth-of-type(";
     public String selectGenericUnsplash = matDialogContainer+"div > div > app-unsplash > form > div:nth-of-type(";
-    public String selectGenericTagType = form+"app-tags > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > app-tag-type-button:nth-of-type";
+    public String selectGenericTagType = form+"div > app-configuration-step > div > app-tags > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > app-tag-type-button:nth-of-type";
     public String selectGenericTag = appTagsSearchOverlay+"div > cdk-virtual-scroll-viewport > div > button:nth-of-type";
     public String contentTitle = selectGenericInputsContentCreator+"(1) input";
     public String contentDescription = selectGenericInputsContentCreator+"(2) textarea";
@@ -90,8 +93,8 @@ public class SelectorsDocola extends VariablesDocola{
         return selectGenericTypeQuestion+"("+typeQuestion+")";
     }
     public String writeaQuestionQuiz = selectGenericQuizCardQuestion+"mat-form-field input";
-    public String contentButtonContinue = footerDivButtons+"div > button:nth-of-type(2)";
-    public String contentTagICD10Type = selectGenericTagType+"(1)";
+    public String contentButtonContinue = footerDivButtons+"div > button:nth-of-type(3)";
+    public String contentTagICD10Type = selectGenericTagType+"(1) > button";
     public String contentSelectTagICD10 = selectGenericTag+"(1)";
     public String contentSelectTagICD10(int tagPosition){
         return selectGenericTag+"("+tagPosition+")";

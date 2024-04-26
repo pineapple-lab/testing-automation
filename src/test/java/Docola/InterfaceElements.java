@@ -33,8 +33,8 @@ public class InterfaceElements extends Application {
     Button removeQueue = new Button("Remover de la cola");
     //create buttons
     Button createUser = new Button("Crear usuario");
-    Button newContent = new Button("New content");
-
+    Button newResource = new Button("New Resource");
+    Button newCourse = new Button ("New course");
     //validation LOGIN buttons
     Button validationsLoginEmailIncorrect = new Button("Email incorrecto");
     Button validationsLoginPasswordIncorrect = new Button("Password incorrecto");

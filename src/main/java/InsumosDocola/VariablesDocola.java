@@ -20,8 +20,11 @@ public class VariablesDocola {
    public String companyName;
    public String webSite;
    //CREATE CONTENT
-   public static String typeContent;
+   public static String typeResource;
    public static int typeQuestion = 0;
    public int typeContentPosition;
-   public String uploadFileName;
+   public String contentName;
+   public String contentDescription;
+   public static int typeContent;
+
 }

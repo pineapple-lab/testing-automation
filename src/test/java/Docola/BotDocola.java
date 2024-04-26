@@ -48,14 +48,14 @@ public class BotDocola extends Docola.InterfaceActions {
                     configAvanzadaStage.show();
                 }
             });
-            newContent.setOnAction(e->{
-                waitingList.add(ExecMethod.NEW_CONTENT);
+            newResource.setOnAction(e->{
+                waitingList.add(ExecMethod.NEW_RESOURCE);
                 Enum elemento = waitingList.get(waitingList.size()-1);
-                CheckBox checkBox = new CheckBox("NEW_CONTENT");
+                CheckBox checkBox = new CheckBox("NEW_RESOURCE");
                 checkBoxesMap.put(checkBox, elemento);
                 gridCola.add(checkBox, 0, waitingList.size()-1);
             });
-            newContent.setOnMousePressed( event -> {
+            newResource.setOnMousePressed( event -> {
                 if (event.isSecondaryButtonDown()){
                     ejecuciones=tfExecute.getText();
                     AdvancedSettingContentCreator configAvanzada = new AdvancedSettingContentCreator(ejecuciones,seleccion);
@@ -63,6 +63,13 @@ public class BotDocola extends Docola.InterfaceActions {
                     configAvanzada.start(configAvanzadaStage);
                     configAvanzadaStage.show();
                 }
+            });
+            newCourse.setOnAction(e->{
+                waitingList.add(ExecMethod.NEW_COURSE);
+                Enum elemento = waitingList.get(waitingList.size()-1);
+                CheckBox checkBox = new CheckBox("NEW_COURSE");
+                checkBoxesMap.put(checkBox, elemento);
+                gridCola.add(checkBox, 0, waitingList.size()-1);
             });
             //validation LOGIN buttons
             validationsLoginEmailIncorrect.setOnAction(e->{
@@ -196,8 +203,11 @@ public class BotDocola extends Docola.InterfaceActions {
                 case CREATE_USER:
                     actionJoin();
                     break;
-                case NEW_CONTENT:
-                    actionNewContent();
+                case NEW_RESOURCE:
+                    actionNewResource();
+                    break;
+                case NEW_COURSE:
+                    actionNewCourse();
                     break;
                 case VALIDATION_EMAIL_INCORRECT_LOGIN:
                     actionValidationEmailIncorrectLogin();

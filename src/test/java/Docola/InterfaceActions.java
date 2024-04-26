@@ -2,11 +2,12 @@ package Docola;
 import javafx.scene.control.CheckBox;
 import java.util.ArrayList;
 import java.util.List;
-public class InterfaceActions extends InterfacePositions{
+public class InterfaceActions extends InterfaceProperties{
     enum ExecMethod {
         //CREATE
         CREATE_USER,
-        NEW_CONTENT,
+        NEW_RESOURCE,
+        NEW_COURSE,
         //Validations LOGIN
         VALIDATION_EMAIL_INCORRECT_LOGIN,
         VALIDATION_PASSWORD_INCORRECT_LOGIN,
@@ -41,9 +42,13 @@ public class InterfaceActions extends InterfacePositions{
         FunctionJoin test = new FunctionJoin();
         test.serviceValidationRegister();
     }
-    public void actionNewContent() {
+    public void actionNewResource() {
         FunctionCreateContent test = new FunctionCreateContent();
-        test.serviceNewContent();
+        test.serviceNewResource();
+    }
+    public void actionNewCourse() {
+        FunctionCreateContent test = new FunctionCreateContent();
+        test.serviceNewCourse();
     }
     ////validation login actions
     public void actionValidationEmailIncorrectLogin() {

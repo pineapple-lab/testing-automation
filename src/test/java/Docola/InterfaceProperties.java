@@ -4,7 +4,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-public class InterfacePositions extends InterfaceElements{
+public class InterfaceProperties extends InterfaceElements{
     @Override
     public void start(Stage stage){
         setupUIElements();
@@ -58,7 +58,8 @@ public class InterfacePositions extends InterfaceElements{
         GridPane.setConstraints(comboBox,2,1);
         //Create buttons
         GridPane.setConstraints(createUser, 2, 3);
-        GridPane.setConstraints(newContent, 2, 4);
+        GridPane.setConstraints(newResource, 2, 4);
+        GridPane.setConstraints(newCourse, 2, 5);
         //Validation login tab positions
         GridPane.setConstraints(validationsLoginEmailIncorrect, 2, 3);
         GridPane.setConstraints(validationsLoginPasswordIncorrect, 2, 4);
@@ -87,7 +88,8 @@ public class InterfacePositions extends InterfaceElements{
     }
     private void addElementsGridCreator(){
         gridCreator.getChildren().add(createUser);
-        gridCreator.getChildren().add(newContent);
+        gridCreator.getChildren().add(newResource);
+        gridCreator.getChildren().add(newCourse);
     }
     private void addElementsGridValidationsLogin(){
         gridValidationsLogin.getChildren().add(validationsLoginEmailIncorrect);
@@ -114,7 +116,8 @@ public class InterfacePositions extends InterfaceElements{
         scrollPane.setStyle("-fx-control-inner-background:#000000;");
         //Create buttons
         createUser.setStyle("-fx-background-color:#298dcc;");
-        newContent.setStyle("-fx-background-color:#298dcc;");
+        newResource.setStyle("-fx-background-color:#298dcc;");
+        newCourse.setStyle("-fx-background-color:#298dcc;");
         //Validations LOGIN buttons
         validationsLoginEmailIncorrect.setStyle("-fx-background-color:#298dcc;");
         validationsLoginPasswordIncorrect.setStyle("-fx-background-color:#298dcc;");
@@ -143,8 +146,10 @@ public class InterfacePositions extends InterfaceElements{
         //Create buttons
         createUser.setOnMouseEntered(e -> createUser.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
         createUser.setOnMouseExited(e -> createUser.setStyle("-fx-background-color: #298dcc;"));
-        newContent.setOnMouseEntered(e -> newContent.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
-        newContent.setOnMouseExited(e -> newContent.setStyle("-fx-background-color: #298dcc;"));
+        newResource.setOnMouseEntered(e -> newResource.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
+        newResource.setOnMouseExited(e -> newResource.setStyle("-fx-background-color: #298dcc;"));
+        newCourse.setOnMouseEntered(e -> newCourse.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
+        newCourse.setOnMouseExited(e -> newCourse.setStyle("-fx-background-color: #298dcc;"));
         //validation LOGIN buttons
         validationsLoginEmailIncorrect.setOnMouseEntered(e -> validationsLoginEmailIncorrect.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
         validationsLoginEmailIncorrect.setOnMouseExited(e -> validationsLoginEmailIncorrect.setStyle("-fx-background-color: #298dcc;"));

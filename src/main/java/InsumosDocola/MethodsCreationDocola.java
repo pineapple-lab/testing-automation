@@ -45,7 +45,7 @@ public class MethodsCreationDocola extends ContextBaseDocola{
 
             System.out.println(joinRol);
             if(joinRol.equals("Content provider")){
-                onboardingContentProvider();
+                methods.onboardingContentProvider();
             }
             methods.signOut();
         } else {
@@ -54,24 +54,17 @@ public class MethodsCreationDocola extends ContextBaseDocola{
         }
         closeContext();
     }
-    public void onboardingContentProvider(){
-     webSite=companyName+".com";
-     waitings.waitingOnboardingSelectorContentProviderStep1();
-     page.fill(selector.onboardingClinicianCompanyName,generate.generateCompanyName());
-     page.fill(selector.clinicianOnboardingWebSite,webSite);
-     page.click(selector.onboardingClinicianNextButtonStep1);
-     waitings.waitingOnboardingSelectorContentProviderStep2();
-     page.click(selector.VerifyPhoneSkipForNow);
-    }
-    public void newContent(){
+    public void newResource(){
         joinRol = "Content provider";
+        typeContent=1;
         methods.login(queries.getEmailUser(joinRol));
         for(contador= 1;contador<=generate.generateExecutions();contador++ ) {
             methods.goToContentCreateForm();
-            if (typeContent == null) {
-                typeContent = "Upload file";
+            methods.goToResourceCreateForm();
+            if (typeResource == null) {
+                typeResource = "Upload file";
             }
-            switch (typeContent) {
+            switch (typeResource) {
                 case "Upload file":
                     waitings.waitingCreateUploadFileSelectorsStep1();
                     methods.completeContentUploadFile();
@@ -99,6 +92,16 @@ public class MethodsCreationDocola extends ContextBaseDocola{
             page.click(selector.contentPublishButton);
             page.waitForTimeout(3000);
             System.out.println(contador+"/"+generate.generateExecutions());
+        }
+    }
+    public void newCourse() {
+        methods.login(queries.getEmailUser(joinRol));
+        typeContent=2;
+        for (contador = 1; contador <= generate.generateExecutions(); contador++) {
+            methods.goToContentCreateForm();
+            page.fill(selector.contentTitle,generate.generateContentName());
+            page.fill(selector.contentDescription, generate.generateContentDescription());
+            page.click(selector.contentButtonContinue);
         }
     }
 }

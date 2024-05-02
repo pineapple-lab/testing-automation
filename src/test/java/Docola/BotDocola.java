@@ -71,6 +71,13 @@ public class BotDocola extends Docola.InterfaceActions {
                 checkBoxesMap.put(checkBox, elemento);
                 gridCola.add(checkBox, 0, waitingList.size()-1);
             });
+            newCourseCollection.setOnAction(e->{
+                waitingList.add(ExecMethod.NEW_COURSE_COLLECTION);
+                Enum elemento = waitingList.get(waitingList.size()-1);
+                CheckBox checkBox = new CheckBox("NEW_COURSE_COLLECTION");
+                checkBoxesMap.put(checkBox, elemento);
+                gridCola.add(checkBox, 0, waitingList.size()-1);
+            });
             //validation LOGIN buttons
             validationsLoginEmailIncorrect.setOnAction(e->{
                 waitingList.add(ExecMethod.VALIDATION_EMAIL_INCORRECT_LOGIN);
@@ -164,7 +171,7 @@ public class BotDocola extends Docola.InterfaceActions {
                     VariablesDocola.linkNavigation = "http://localhost:4200/";
                 }
                 if (seleccion.equals("DEV")) {
-                    VariablesDocola.linkNavigation = "https://docola-sandbox-759b0.web.app/";
+                    VariablesDocola.linkNavigation = "https://docolasandbox.web.app/";
                 }
             });
             stopTestCase.setOnAction(event ->{
@@ -209,11 +216,14 @@ public class BotDocola extends Docola.InterfaceActions {
                 case NEW_COURSE:
                     actionNewCourse();
                     break;
+                case NEW_COURSE_COLLECTION:
+                    actionNewCourseCollection();
+                    break;
+                 //CASE VALIDATIONS
+                    //CASE VALIDATIONS LOGIN
                 case VALIDATION_EMAIL_INCORRECT_LOGIN:
                     actionValidationEmailIncorrectLogin();
                     break;
-                    //CASE VALIDATIONS
-                //CASE VALIDATIONS LOGIN
                 case VALIDATION_PASSWORD_INCORRECT_LOGIN:
                     actionValidationPasswordIncorrectLogin();
                     break;

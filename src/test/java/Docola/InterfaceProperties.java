@@ -60,6 +60,7 @@ public class InterfaceProperties extends InterfaceElements{
         GridPane.setConstraints(createUser, 2, 3);
         GridPane.setConstraints(newResource, 2, 4);
         GridPane.setConstraints(newCourse, 2, 5);
+        GridPane.setConstraints(newCourseCollection, 2, 6);
         //Validation login tab positions
         GridPane.setConstraints(validationsLoginEmailIncorrect, 2, 3);
         GridPane.setConstraints(validationsLoginPasswordIncorrect, 2, 4);
@@ -90,6 +91,7 @@ public class InterfaceProperties extends InterfaceElements{
         gridCreator.getChildren().add(createUser);
         gridCreator.getChildren().add(newResource);
         gridCreator.getChildren().add(newCourse);
+        gridCreator.getChildren().add(newCourseCollection);
     }
     private void addElementsGridValidationsLogin(){
         gridValidationsLogin.getChildren().add(validationsLoginEmailIncorrect);
@@ -118,6 +120,7 @@ public class InterfaceProperties extends InterfaceElements{
         createUser.setStyle("-fx-background-color:#298dcc;");
         newResource.setStyle("-fx-background-color:#298dcc;");
         newCourse.setStyle("-fx-background-color:#298dcc;");
+        newCourseCollection.setStyle("-fx-background-color:#298dcc;");
         //Validations LOGIN buttons
         validationsLoginEmailIncorrect.setStyle("-fx-background-color:#298dcc;");
         validationsLoginPasswordIncorrect.setStyle("-fx-background-color:#298dcc;");
@@ -133,7 +136,6 @@ public class InterfaceProperties extends InterfaceElements{
         validationsTermsAndConditionsRegister.setStyle("-fx-background-color:#298dcc;");
         validationsCaptchaRegister.setStyle("-fx-background-color:#298dcc;");
         validationsCaptchaRegister.setStyle("-fx-background-color:#298dcc;");
-
     }
     public void setHover(){
         //HEADER buttons
@@ -150,6 +152,8 @@ public class InterfaceProperties extends InterfaceElements{
         newResource.setOnMouseExited(e -> newResource.setStyle("-fx-background-color: #298dcc;"));
         newCourse.setOnMouseEntered(e -> newCourse.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
         newCourse.setOnMouseExited(e -> newCourse.setStyle("-fx-background-color: #298dcc;"));
+        newCourseCollection.setOnMouseEntered(e -> newCourseCollection.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
+        newCourseCollection.setOnMouseExited(e -> newCourseCollection.setStyle("-fx-background-color: #298dcc;"));
         //validation LOGIN buttons
         validationsLoginEmailIncorrect.setOnMouseEntered(e -> validationsLoginEmailIncorrect.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
         validationsLoginEmailIncorrect.setOnMouseExited(e -> validationsLoginEmailIncorrect.setStyle("-fx-background-color: #298dcc;"));
@@ -176,7 +180,6 @@ public class InterfaceProperties extends InterfaceElements{
         validationsTermsAndConditionsRegister.setOnMouseExited(e -> validationsTermsAndConditionsRegister.setStyle("-fx-background-color: #298dcc;"));
         validationsCaptchaRegister.setOnMouseEntered(e -> validationsCaptchaRegister.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
         validationsCaptchaRegister.setOnMouseExited(e -> validationsCaptchaRegister.setStyle("-fx-background-color: #298dcc;"));
-
     }
     public void setPlaceHolder(){
         tfExecute.setPromptText("Cantidad de ejecuciones");

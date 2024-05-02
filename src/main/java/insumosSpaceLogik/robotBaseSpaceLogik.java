@@ -81,7 +81,9 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         titleRegistro = companyList[index3];
         long timeStamp = Instant.now().toEpochMilli();
         mailRegistro=firstNameRegistro+lastNameRegistro+timeStamp+"@pineapple-lab.com";
-        page.navigate("https://space-logic.web.app/react/login");
+        String demo = "https://space-logic.web.app/login";
+        String dev = "https://spacelogic-development.web.app";
+        page.navigate(dev);
         page.click("text=REGISTER NOW");
         //campo firstname
         page.fill(".register-form > div:nth-child(1) > div:nth-child(3) input[type=text]", firstNameRegistro);
@@ -100,12 +102,14 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.waitForTimeout(2000);
         page.click("form > div:nth-of-type(3) > div:nth-of-type(3) input:nth-of-type(1)");
         page.click("text=Okay");
-        page.navigate("https://spacelogikdemolegacy.eastus.cloudapp.azure.com/Login.aspx");
+        String devLegacy = "https://spacelogikdevlegacy.eastus.cloudapp.azure.com/Login.aspx";
+        String demoLegacy = "https://spacelogikdemolegacy.eastus.cloudapp.azure.com/Login.aspx";
+        page.navigate(devLegacy);
         page.fill("form > div:nth-of-type(3) input","admin");
         page.fill("form > div:nth-of-type(4) input","Pickle30");
         page.click("form > div:nth-of-type(5) a");
         page.waitForTimeout(1000);
-        page.navigate("https://spacelogikdemolegacy.eastus.cloudapp.azure.com/SecurityUsersApprovals.aspx");
+        page.navigate("https://spacelogikdevlegacy.eastus.cloudapp.azure.com/SecurityUsersApprovals.aspx");
         page.waitForTimeout(3000);
         page.fill(".container > div > div:nth-of-type(1) > div input",mailRegistro);
         page.click(".col-sm-8  > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > div:nth-of-type(1) > div > div:nth-of-type(4) > div:nth-of-type(2) > div > div > div:nth-of-type(1)");
@@ -148,9 +152,8 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         page.navigate("https://space-logic.web.app/login");
         page.fill("#txtMail", emailLogin);
         page.fill("#txtPassword", "123123aA-");
-        page.waitForTimeout(2000);
         page.click("'LOGIN'");
-        page.waitForTimeout(3000);
+        page.waitForTimeout(2000);
     }
 
     public void logout(){

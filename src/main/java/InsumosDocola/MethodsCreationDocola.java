@@ -102,6 +102,32 @@ public class MethodsCreationDocola extends ContextBaseDocola{
             page.fill(selector.contentTitle,generate.generateContentName());
             page.fill(selector.contentDescription, generate.generateContentDescription());
             page.click(selector.contentButtonContinue);
+            methods.completeConfigurationStep();
+            methods.completeContentStep();
+            page.click(selector.contentButtonContinue);
+            methods.completePricingStep();
+            methods.completeThumbnailStep();
+            page.click(selector.contentPublishButton);
+            page.waitForTimeout(3000);
+            System.out.println(contador+"/"+generate.generateExecutions());
+        }
+    }
+    public void newCourseCollection() {
+        methods.login(queries.getEmailUser(joinRol));
+        typeContent=3;
+        for (contador = 1; contador <= generate.generateExecutions(); contador++) {
+            methods.goToContentCreateForm();
+            page.fill(selector.contentTitle,generate.generateContentName());
+            page.fill(selector.contentDescription, generate.generateContentDescription());
+            page.click(selector.contentButtonContinue);
+            methods.completeConfigurationStep();
+            methods.completeContentStep();
+            page.click(selector.contentButtonContinue);
+            methods.completePricingStep();
+            methods.completeThumbnailStep();
+            page.click(selector.contentPublishButton);
+            page.waitForTimeout(3000);
+            System.out.println(contador+"/"+generate.generateExecutions());
         }
     }
 }

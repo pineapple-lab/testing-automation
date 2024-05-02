@@ -6,6 +6,7 @@ public class MethodsDocola extends ContextBaseDocola{
     QueriesDocola queries = new QueriesDocola();
     GeneratorDocola generate = new GeneratorDocola();
     WaitingsDocola waiting = new WaitingsDocola();
+    VariablesDocola variables = new VariablesDocola();
     public void startContext(){
         System.out.println("\n-----------------------------------------------------------");
         System.out.println("Iniciando ejecucion....");
@@ -177,5 +178,30 @@ public class MethodsDocola extends ContextBaseDocola{
         page.waitForTimeout(3000);
         page.mouse().wheel(1000,1000);
         page.click(selector.contentUnsplashSaveButton);
+    }
+    public void selectContentCourses(){
+        for(int contentPosition = amountOfContent; contentPosition<=amountOfContent;contentPosition++) {
+            page.click(selector.courseSelectContent(contentPosition));
+        }
+    }
+    public void selectContentCoursesCollection() {
+        for(int contentPosition = amountOfContent; contentPosition<=amountOfContent;contentPosition++) {
+            page.click(selector.courseSelectContent(contentPosition));
+        }
+        for(int contentPosition = amountOfContent; contentPosition<=amountOfContent;contentPosition++) {
+            page.click(selector.contentTabCourses);
+            page.click(selector.courseSelectContent(contentPosition));
+        }
+    }
+    public void completeContentStep() {
+        if(typeContent == 2){
+            selectContentCourses();
+        }
+        if(typeContent == 3){
+            selectContentCoursesCollection();
+        }
+        //page.click(selector.contentConfigurationCMECE);
+        //page.click(selector.contentConfigurationMarketPlace);
+        page.click(selector.contentButtonContinue);
     }
 }

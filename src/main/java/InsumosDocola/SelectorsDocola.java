@@ -113,4 +113,9 @@ public class SelectorsDocola extends VariablesDocola{
     public String contentUnsplashSelectButton = selectGenericUnsplash+"4) > div > button";
     public String contentUnsplashSaveButton = "app-cropper-core > div > div:nth-of-type(2) > button";
     public String contentPublishButton = "text = Publish";
+    public String selectGenericCourseContent = "app-crud app-cards-container > div > app-card:nth-of-type";
+    public String courseSelectContent(int contentPosition){
+        return selectGenericCourseContent+"("+contentPosition+")";
+    }
+    public String contentTabCourses = "mat-tab-header > div .mat-mdc-tab-labels > div:nth-of-type(2)";
 }

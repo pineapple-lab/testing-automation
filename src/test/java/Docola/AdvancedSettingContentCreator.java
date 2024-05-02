@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
+import static InsumosDocola.VariablesDocola.amountOfContent;
 import static InsumosDocola.VariablesDocola.ejecuciones;
 
 public class AdvancedSettingContentCreator extends InterfaceElements {
@@ -45,8 +46,10 @@ public class AdvancedSettingContentCreator extends InterfaceElements {
         stageJoin.setScene(sceneConfigAvanzada);
         settingAdvancedExecute.setOnAction(e->{
             Thread execute=  new Thread (()->{
+                amountOfContent = 3;
                 VariablesDocola.typeResource = tfTypeContent.getText();
                 iActions.actionNewResource();
+
             }, "execute");
             if(execute.isAlive()) {
                 execute.stop();

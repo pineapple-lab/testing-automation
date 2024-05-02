@@ -26,5 +26,5 @@ public class VariablesDocola {
    public String contentName;
    public String contentDescription;
    public static int typeContent;
-
+   public static int amountOfContent = 1;
 }

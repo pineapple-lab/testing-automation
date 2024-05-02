@@ -19,4 +19,9 @@ public class FunctionCreateContent extends MethodsCreationDocola {
         methods.startContextAndNavigation();
         create.newCourse();
     }
+    @Test
+    public void serviceNewCourseCollection(){
+        methods.startContextAndNavigation();
+        create.newCourseCollection();
+    }
 }

@@ -6,7 +6,6 @@ public class MethodsDocola extends ContextBaseDocola{
     QueriesDocola queries = new QueriesDocola();
     GeneratorDocola generate = new GeneratorDocola();
     WaitingsDocola waiting = new WaitingsDocola();
-    VariablesDocola variables = new VariablesDocola();
     public void startContext(){
         System.out.println("\n-----------------------------------------------------------");
         System.out.println("Iniciando ejecucion....");
@@ -99,14 +98,29 @@ public class MethodsDocola extends ContextBaseDocola{
         page.waitForSelector(selector.selectPreviewImage);
         page.click(selector.contentButtonContinue);
     }
+    public void completeContentCaptureVideo(){
+        page.fill(selector.contentTitle, generate.generateContentName());
+        page.fill(selector.contentDescription, generate.generateContentDescription());
+        page.locator(selector.contentUpload).setInputFiles(Paths.get(pathVideo));
+        page.waitForSelector(selector.selectPreviewImage);
+        page.click(selector.contentButtonContinue);
+    }
     public void completeContentImportWebContent(){
         page.fill(selector.contentTitle, generate.generateContentName());
         page.fill(selector.contentDescription, generate.generateContentDescription());
         page.fill(selector.contentAddUrl,"https://www.youtube.com/embed/myDW_WPRHq0?si=bdkGE69WDFZXf7cj");
         page.click(selector.contentButtonContinue);
     }
+    public void completeContentQuestionTrueOrFalse(){
+        page.fill(selector.contentTitleTrueOrFalseQuiz, generate.generateQuestion());
+    }
+    public void completeContentMultipleChoice(){
+        page.fill(selector.contentTitleMultipleChoiceSurvey, generate.generateQuestion());
+        page.fill(selector.contentOption1MultipleChoiceSurvey, generate.generateAnswer());
+        page.fill(selector.contentOption2MultipleChoiceSurvey, generate.generateAnswer());
+    }
     public void completeContentQuiz(){
-        page.fill(selector.contentTitle, generate.generateContentName());
+        page.fill(selector.contentTitle, generate.generateQuestion());
         page.fill(selector.contentDescription, generate.generateContentDescription());
         page.click(selector.contentAddQuestionsQuiz);
         if(typeQuestion == 0){
@@ -126,7 +140,7 @@ public class MethodsDocola extends ContextBaseDocola{
         page.click(selector.contentButtonContinue);
     }
     public void completeContentSurvey(){
-        page.fill(selector.contentTitle, generate.generateContentName());
+        page.fill(selector.contentTitle, generate.generateQuestion());
         page.fill(selector.contentDescription, generate.generateContentDescription());
         page.click(selector.contentAddQuestionsQuiz);
         if(typeQuestion == 0){
@@ -136,7 +150,7 @@ public class MethodsDocola extends ContextBaseDocola{
         page.click(selector.contentTypeQuestionQuiz(typeQuestion));
         switch (typeQuestion) {
             case 1:
-               completeContentQuestionTrueOrFalse();
+               completeContentMultipleChoice();
                 break;
             /*case 2:
                 break;
@@ -145,8 +159,12 @@ public class MethodsDocola extends ContextBaseDocola{
         }
         page.click(selector.contentButtonContinue);
     }
-    public void completeContentQuestionTrueOrFalse (){
-        page.fill(selector.writeaQuestionQuiz, "test");
+    public void completeContentVr(){
+        page.fill(selector.contentTitle, generate.generateContentName());
+        page.fill(selector.contentDescription, generate.generateContentDescription());
+        page.locator(selector.contentUpload).setInputFiles(Paths.get(pathVideo));
+        page.waitForSelector(selector.selectPreviewImage);
+        page.click(selector.contentButtonContinue);
     }
     public void completeConfigurationStep() {
         waiting.waitingConfigurationStepSelector();
@@ -180,11 +198,13 @@ public class MethodsDocola extends ContextBaseDocola{
         page.click(selector.contentUnsplashSaveButton);
     }
     public void selectContentCourses(){
+        page.waitForTimeout(2000);
         for(int contentPosition = amountOfContent; contentPosition<=amountOfContent;contentPosition++) {
             page.click(selector.courseSelectContent(contentPosition));
         }
     }
     public void selectContentCoursesCollection() {
+        page.waitForTimeout(2000);
         for(int contentPosition = amountOfContent; contentPosition<=amountOfContent;contentPosition++) {
             page.click(selector.courseSelectContent(contentPosition));
         }

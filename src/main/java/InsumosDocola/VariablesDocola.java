@@ -6,6 +6,7 @@ public class VariablesDocola {
    public static volatile String linkNavigation;
    public static String ejecuciones;
    public String pathImage = "C:\\Users\\PineappleHP3\\Desktop\\dev\\WorkSpaces\\testingAutomation\\src\\test\\java\\Peppermint\\INSUMOSMULTIMEDIA\\IMAGENPARAPRUEBASWORKSHOP1.jpg";
+   public String pathVideo = "D:\\Escritorio\\insumos para pruebas\\VIDEOPARAPRUEBAS.mp4";
    public int contador;
    //REGISTER
    String firstName;
@@ -24,6 +25,8 @@ public class VariablesDocola {
    public static int typeQuestion = 0;
    public int typeContentPosition;
    public String contentName;
+   public String question;
+   public String answer;
    public String contentDescription;
    public static int typeContent;
    public static int amountOfContent = 1;

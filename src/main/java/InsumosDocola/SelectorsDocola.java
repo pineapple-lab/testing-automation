@@ -92,7 +92,11 @@ public class SelectorsDocola extends VariablesDocola{
     public String contentTypeQuestionQuiz(int typeQuestion){
         return selectGenericTypeQuestion+"("+typeQuestion+")";
     }
-    public String writeaQuestionQuiz = selectGenericQuizCardQuestion+"mat-form-field input";
+    public String contentTitleTrueOrFalseQuiz = selectGenericQuizCardQuestion+"mat-form-field input";
+    public String selectGenericDivMultipleChoice = "app-survey-question > div > div:nth-of-type(1) > div:nth-of-type";
+    public String contentTitleMultipleChoiceSurvey = selectGenericDivMultipleChoice+"(1) mat-form-field input";
+    public String contentOption1MultipleChoiceSurvey = selectGenericDivMultipleChoice+"(2) > div:nth-of-type(1) mat-form-field input";
+    public String contentOption2MultipleChoiceSurvey = selectGenericDivMultipleChoice+"(2) > div:nth-of-type(2) mat-form-field input";
     public String contentButtonContinue = footerDivButtons+"div > button:nth-of-type(3)";
     public String contentTagICD10Type = selectGenericTagType+"(1) > button";
     public String contentSelectTagICD10 = selectGenericTag+"(1)";

@@ -70,20 +70,24 @@ public class MethodsCreationDocola extends ContextBaseDocola{
                     methods.completeContentUploadFile();
                     break;
                 case "Capture video":
-                    typeContentPosition = 2;
+                    waitings.waitingCreateUploadFileSelectorsStep1();
+                    methods.completeContentCaptureVideo();
                     break;
                 case "Web content":
                     waitings.waitingCreateUploadFileSelectorsStep1();
                     methods.completeContentImportWebContent();
                     break;
                 case "Quiz":
+                    waitings.waitingCreateUploadFileSelectorsStep1();
                     methods.completeContentQuiz();
                     break;
                 case "Survey":
+                    waitings.waitingCreateUploadFileSelectorsStep1();
                     methods.completeContentSurvey();
                     break;
                 case "VR":
-                    typeContentPosition = 6;
+                    waitings.waitingCreateUploadFileSelectorsStep1();
+                    methods.completeContentVr();
                     break;
             }
             methods.completeConfigurationStep();

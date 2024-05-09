@@ -94,14 +94,14 @@ public class MethodsDocola extends ContextBaseDocola{
     public void completeContentUploadFile(){
         page.fill(selector.contentTitle, generate.generateContentName());
         page.fill(selector.contentDescription, generate.generateContentDescription());
-        page.locator(selector.contentUpload).setInputFiles(Paths.get(pathImage));
+        page.locator(selector.contentUpload).setInputFiles(Paths.get(generate.generateImage()));
         page.waitForSelector(selector.selectPreviewImage);
         page.click(selector.contentButtonContinue);
     }
     public void completeContentCaptureVideo(){
         page.fill(selector.contentTitle, generate.generateContentName());
         page.fill(selector.contentDescription, generate.generateContentDescription());
-        page.locator(selector.contentUpload).setInputFiles(Paths.get(pathVideo));
+        page.locator(selector.contentUpload).setInputFiles(Paths.get(generate.generateVideo()));
         page.waitForSelector(selector.selectPreviewImage);
         page.click(selector.contentButtonContinue);
     }
@@ -162,7 +162,7 @@ public class MethodsDocola extends ContextBaseDocola{
     public void completeContentVr(){
         page.fill(selector.contentTitle, generate.generateContentName());
         page.fill(selector.contentDescription, generate.generateContentDescription());
-        page.locator(selector.contentUpload).setInputFiles(Paths.get(pathVideo));
+        page.locator(selector.contentUpload).setInputFiles(Paths.get(generate.generateVideo()));
         page.waitForSelector(selector.selectPreviewImage);
         page.click(selector.contentButtonContinue);
     }

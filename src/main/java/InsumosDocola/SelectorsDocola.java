@@ -4,7 +4,9 @@ public class SelectorsDocola extends VariablesDocola{
     public String form = "form > ";
     public String appRegister = "app-register ";
     public String matStepper = "mat-stepper > ";
-    public String matDialogContainer = "mat-dialog-container > ";
+    public String matDialogContainer = "mat-dialog-container";
+    public String classMatDialogContainer = ".mdc-dialog__container";
+    public String classMatMdcDialogSurface = ".mat-mdc-dialog-surface";
     public String registrationTypePadding= ".registration-type-padding ";
     public String appSelectContent = "app-select-content > ";
     public String appSelectResource = "app-select-resource >";
@@ -56,12 +58,21 @@ public class SelectorsDocola extends VariablesDocola{
     public String registerCaptchat = formRegisterStep3+"re-captcha > div > div > iframe";
     public String registerNextButtonStep3 = selectDivNextButtons+"div:nth-of-type(3) > div:nth-of-type(2) > div > button";
     //SELECTORS ONBOARDING CLINICIAN//
-    public String onboardingClinicianCompanyName = "app-form-block-input:nth-of-type(1) input";
-    public String clinicianOnboardingWebSite = registrationTypePadding+"app-form-block-input:nth-of-type(2) input";
-    public String onboardingClinicianNextButtonStep1 = registrationTypePadding+"button";
-    public String VerifyPhoneSkipForNow = registrationTypePadding+"div > div:nth-of-type(2) > div:nth-of-type(2) > span";
+    public String selectGenericOnboardingFIleds = "app-onboarding > div > div";
+    public String onboardingContentProviderCompanyName = selectGenericOnboardingFIleds+" > div:nth-of-type(2) > mat-form-field:nth-of-type(1) input";
+    public String onboardingContentProviderWebSite = selectGenericOnboardingFIleds+" > div:nth-of-type(2) > mat-form-field:nth-of-type(2) input";
+    public String onboardingContentProviderNextButtonStep1 = selectGenericOnboardingFIleds+" > div:nth-of-type(3) button";
+    public String selectGenericOnboardingClinician = "app-clinitian-onboarding > div ";
+    public String onboardingCliniciancContinue = selectGenericOnboardingClinician+"> div:nth-of-type(2) button";
+    public String onboardingCliniciancContinueStep2 = selectGenericOnboardingClinician+"> div:nth-of-type(3) button";
+    public String onboardingClinicianSelector = selectGenericOnboardingClinician+"> mat-form-field > div:nth-of-type(1)";
+    public String onboardingClinicianSelectorOption = ".cdk-overlay-connected-position-bounding-box > .cdk-overlay-pane > div > mat-option:nth-of-type(1)";
+    public String onboardingClinicianPracticeName = selectGenericOnboardingClinician+"> div:nth-of-type(2) input";
+    public String onboardingClinicianPracticeNotForNow = selectGenericOnboardingClinician+"> div:nth-of-type(2) > button:nth-of-type(1)";
+    public String closeGuide = ".introjs-tooltipReferenceLayer > div > div:nth-of-type(1) a";
+    public String verifyPhoneSkipForNow = registrationTypePadding+"div > div:nth-of-type(2) > div:nth-of-type(2) > span";
     //SELECT PROFILE MENU
-    public String menuProfile = appHeader+"div > div:nth-of-type(1) > button:nth-of-type(2)";
+    public String menuProfile = appHeader+"div > div:nth-of-type(1) > div > div";
     //SELECT CONTENT CREATOR COMPNENTS
     public String createNewResourceButton = "text= New";
     public String selectGenericResourceType = appSelectResource+"div > div > div:nth-of-type";
@@ -81,7 +92,7 @@ public class SelectorsDocola extends VariablesDocola{
     public String selectGenericPricingStep = appPricingStep+"div > div:nth-of-type(";
     public String selectPreviewImage = appUploaderDropBox+"div > div > div:nth-of-type(2) > i:nth-of-type(1)";
     public String selectGenericThumbnailStep = appThumbnailStep+form+"div > div > app-uploader-drop-box > div > div > button:nth-of-type(";
-    public String selectGenericUnsplash = matDialogContainer+"div > div > app-unsplash > form > div:nth-of-type(";
+    public String selectGenericUnsplash = matDialogContainer+" > div > div > app-unsplash > form > div:nth-of-type(";
     public String selectGenericTagType = form+"div > app-configuration-step > div > app-tags > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > app-tag-type-button:nth-of-type";
     public String selectGenericTag = appTagsSearchOverlay+"div > cdk-virtual-scroll-viewport > div > button:nth-of-type";
     public String contentTitle = selectGenericInputsContentCreator+"(1) input";
@@ -112,10 +123,17 @@ public class SelectorsDocola extends VariablesDocola{
     public String contentPricingYearlyPrice = selectGenericPricingStep+"2) > div:nth-of-type(3) > div:nth-of-type(2) mat-form-field input";
     public String contentThumbnailUploadFile = selectGenericThumbnailStep+"1)";
     public String contentThumbnailUnsplash = selectGenericThumbnailStep+"2)";
-    public String contentUnsplashCategorie = selectGenericUnsplash+"2) > div > div > button:nth-of-type(1)";
-    public String contentUnsplashPhoto = selectGenericUnsplash+"3) > img:nth-of-type(10)";
+    public String waitCategoryUnplash =selectGenericUnsplash+"2) > div > div > button:nth-of-type(7)";
+    public String contentUnsplashCategorie(int thumbnailCategory){
+        return selectGenericUnsplash+"2) > div > div > button:nth-of-type("+thumbnailCategory+")";
+    }
+    public String waitingUnplash = selectGenericUnsplash+"3) > img:nth-of-type(10)";
+    public String contentUnsplashPhoto(int thumbnail){
+        return selectGenericUnsplash+"3) > img:nth-of-type("+thumbnail+")";
+    }
     public String contentUnsplashSelectButton = selectGenericUnsplash+"4) > div > button";
     public String contentUnsplashSaveButton = "app-cropper-core > div > div:nth-of-type(2) > button";
+    public String contentThumbnailDelete = appThumbnailStep+form+"div > div > button";
     public String contentPublishButton = "text = Publish";
     public String selectGenericCourseContent = "app-crud app-cards-container > div > app-card:nth-of-type";
     public String courseSelectContent(int contentPosition){

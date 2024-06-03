@@ -105,4 +105,8 @@ public class InterfaceActions extends InterfaceProperties{
         TestValidations test = new TestValidations();
         test.serviceValidationCaptcha();
     }
+    public void actionUpdateUndefinedUser(String email) {
+        BotConfiguration config = new BotConfiguration();
+        config.serviceUpdateUndefinedUser(email);
+    }
 }

@@ -9,12 +9,12 @@ public class VariablesDocola {
    public String pathVideo = "D:\\Escritorio\\insumos para pruebas\\Videos\\Bot docola\\video";
    public String image;
    public String video;
-
    public int contador;
    //REGISTER
    String firstName;
    String lastName;
-   String email;
+   public static String email;
+   public String emailProvider  = "mailinator";
    public static String joinRol;
    public int rol;
    public int passwordCondition;
@@ -23,6 +23,8 @@ public class VariablesDocola {
    //ONBOARDING CLINICIAN
    public String companyName;
    public String webSite;
+
+
    //CREATE CONTENT
    public static String typeResource;
    public static int typeQuestion = 0;
@@ -33,4 +35,6 @@ public class VariablesDocola {
    public String contentDescription;
    public static int typeContent;
    public static int amountOfContent = 1;
+   public int thumbnailCategory;
+   public int thumbnail;
 }

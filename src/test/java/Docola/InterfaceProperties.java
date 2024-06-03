@@ -56,6 +56,7 @@ public class InterfaceProperties extends InterfaceElements{
         GridPane.setConstraints(stopTestCase,4,1);
         GridPane.setConstraints(removeQueue, 5, 1);
         GridPane.setConstraints(comboBox,2,1);
+        GridPane.setConstraints(botConfigurations, 7, 1);
         //Create buttons
         GridPane.setConstraints(createUser, 2, 3);
         GridPane.setConstraints(newResource, 2, 4);
@@ -86,6 +87,7 @@ public class InterfaceProperties extends InterfaceElements{
         gridHeader.getChildren().add(stopTestCase);
         gridHeader.getChildren().add(removeQueue);
         gridHeader.getChildren().add(comboBox);
+        gridHeader.getChildren().add(botConfigurations);
     }
     private void addElementsGridCreator(){
         gridCreator.getChildren().add(createUser);
@@ -135,7 +137,8 @@ public class InterfaceProperties extends InterfaceElements{
         validationsConditionsPasswordRegister.setStyle("-fx-background-color:#298dcc;");
         validationsTermsAndConditionsRegister.setStyle("-fx-background-color:#298dcc;");
         validationsCaptchaRegister.setStyle("-fx-background-color:#298dcc;");
-        validationsCaptchaRegister.setStyle("-fx-background-color:#298dcc;");
+        //BOT CONFIGURATION
+        botConfigurations.setStyle("-fx-background-color:#298dcc;");
     }
     public void setHover(){
         //HEADER buttons
@@ -180,6 +183,9 @@ public class InterfaceProperties extends InterfaceElements{
         validationsTermsAndConditionsRegister.setOnMouseExited(e -> validationsTermsAndConditionsRegister.setStyle("-fx-background-color: #298dcc;"));
         validationsCaptchaRegister.setOnMouseEntered(e -> validationsCaptchaRegister.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
         validationsCaptchaRegister.setOnMouseExited(e -> validationsCaptchaRegister.setStyle("-fx-background-color: #298dcc;"));
+        //BOT CONFIGURATIONS
+        botConfigurations.setOnMouseEntered(e -> botConfigurations.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
+        botConfigurations.setOnMouseExited(e -> botConfigurations.setStyle("-fx-background-color: #298dcc;"));
     }
     public void setPlaceHolder(){
         tfExecute.setPromptText("Cantidad de ejecuciones");

@@ -29,6 +29,17 @@ public class QueriesDocola extends ContextBaseDocola{
             ex.printStackTrace();
         }
     }
+    public void updateUndefinedUser(String email) {
+        try {
+            connectDatabase();
+            String insertSql = "UPDATE undefinedusers SET emailUser ='" + email + "' WHERE rol = '"+joinRol+"' AND ambiente = '"+linkNavigation+"'";
+            Statement stmt = CN.createStatement();
+            stmt.executeUpdate(insertSql);
+            CN.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
     public String getEmailUser(String joinRol){
         try {
             if(joinRol == null){
@@ -43,6 +54,30 @@ public class QueriesDocola extends ContextBaseDocola{
             }
             if(linkNavigation=="https://docolasandbox.web.app/"){
                 rs = stm.executeQuery("SELECT * FROM testbddocola.users WHERE rol = '" + joinRol + "' and ambiente = '"+linkNavigation+"' ORDER BY RAND() LIMIT 1");
+            }
+            while(rs.next()) {
+                email = rs.getString(rs.findColumn("emailUser"));
+            }
+            CN.close();
+        }catch(Exception ex) {
+            ex.printStackTrace();
+        }
+        return email;
+    }
+    public String getUndefinedUser(String joinRol){
+        try {
+            if(joinRol == null){
+                joinRol = "Content provider";
+            }
+            System.out.println(joinRol);
+            System.out.println(linkNavigation);
+            connectDatabase();
+            stm=CN.createStatement();
+            if(linkNavigation=="http://localhost:4200/") {
+                rs = stm.executeQuery("SELECT * FROM testbddocola.undefinedusers WHERE rol = '" + joinRol + "' and ambiente = '"+linkNavigation+"' ORDER BY RAND() LIMIT 1");
+            }
+            if(linkNavigation=="https://docolasandbox.web.app/"){
+                rs = stm.executeQuery("SELECT * FROM testbddocola.undefinedusers WHERE rol = '" + joinRol + "' and ambiente = '"+linkNavigation+"' ORDER BY RAND() LIMIT 1");
             }
             while(rs.next()) {
                 email = rs.getString(rs.findColumn("emailUser"));

@@ -1,6 +1,11 @@
 package InsumosDocola;
 import com.microsoft.playwright.ElementHandle;
+import com.microsoft.playwright.Keyboard;
+
 import java.nio.file.Paths;
+import java.util.List;
+import java.util.Random;
+
 public class MethodsDocola extends ContextBaseDocola{
     SelectorsDocola selector = new SelectorsDocola();
     QueriesDocola queries = new QueriesDocola();
@@ -29,15 +34,16 @@ public class MethodsDocola extends ContextBaseDocola{
     public void stopTest(){
         shouldStopTest = true;
     }
-
     public void goToLogin(){
         page.click("text=Login");
     }
-    public void login(String email){
+    public void login(){
         goToLogin();
-        System.out.println(email);
-        page.fill(selector.loginEmail,email);
-        page.fill(selector.loginPassword,password);
+        if(email == null) {
+            email = queries.getUndefinedUser(joinRol);
+        }
+        page.fill(selector.loginEmail, email);
+        page.fill(selector.loginPassword, password);
         page.click(selector.loginButton);
     }
     public void signOut(){
@@ -45,14 +51,32 @@ public class MethodsDocola extends ContextBaseDocola{
         targetElement.hover();
         page.click(selector.signOut);
     }
-    public void onboardingContentProvider(){
-        webSite=companyName+".com";
-        waiting.waitingOnboardingSelectorContentProviderStep1();
-        page.fill(selector.onboardingClinicianCompanyName,generate.generateCompanyName());
-        page.fill(selector.clinicianOnboardingWebSite,webSite);
-        page.click(selector.onboardingClinicianNextButtonStep1);
-        waiting.waitingOnboardingSelectorContentProviderStep2();
-        page.click(selector.VerifyPhoneSkipForNow);
+    public void completeOnboarding(){
+        Keyboard kb = page.keyboard();
+        rol = generate.generateRol();
+        if(rol==1){
+            page.click(selector.verifyPhoneSkipForNow);
+        }
+        if(rol==2){
+            page.click(selector.onboardingCliniciancContinue);
+            page.click(selector.onboardingClinicianSelector);
+            page.click(selector.onboardingClinicianSelectorOption);
+            kb.press("Escape");
+            page.click(selector.onboardingCliniciancContinue);
+            page.fill(selector.onboardingClinicianPracticeName, "test");
+            page.click(selector.onboardingCliniciancContinueStep2);
+            page.click(selector.onboardingClinicianPracticeNotForNow);
+        }
+        if(rol==3) {
+            waiting.waitingOnboardingSelectorContentProviderStep1();
+            page.fill(selector.onboardingContentProviderCompanyName, generate.generateCompanyName());
+            webSite = "https://www."+companyName + ".com";
+            page.fill(selector.onboardingContentProviderWebSite, webSite);
+            page.click(selector.onboardingContentProviderNextButtonStep1);
+            waiting.waitingOnboardingSelectorContentProviderStep2();
+            page.click(selector.verifyPhoneSkipForNow);
+            page.click(selector.closeGuide);
+        }
     }
     public void goToRegisterForm(){
         page.click(selector.singUp);
@@ -180,22 +204,24 @@ public class MethodsDocola extends ContextBaseDocola{
     public void completePricingStep(){
         waiting.waitingPricingStepSelector();
         page.fill(selector.contentPricingMonthlyPrice,"123");
-        page.fill(selector.contentPricingYearlyPrice,"123");
+        //page.fill(selector.contentPricingYearlyPrice,"123");
         page.click(selector.contentButtonContinue);
     }
     public void completeThumbnailStep(){
         waiting.waitingThumbnailStepSelector();
         page.click(selector.contentThumbnailUnsplash);
         waiting.waitingUnshplashPopUpSelectors();
-        page.click(selector.contentUnsplashCategorie);
+        page.click(selector.contentUnsplashCategorie(generate.generateThumbnailCategory()));
         waiting.waitingUnsplashPhotos();
-        page.click(selector.contentUnsplashPhoto);
-        page.waitForTimeout(3000);
-        page.mouse().wheel(1000,1000);
+        page.click(selector.contentUnsplashPhoto(generate.generateThumbnailSplash()));
+        page.waitForTimeout(2000);
+        page.mouse().wheel(1500,1500);
+        page.waitForTimeout(2000);
         page.click(selector.contentUnsplashSelectButton);
-        page.waitForTimeout(3000);
-        page.mouse().wheel(1000,1000);
+        page.waitForTimeout(2000);
+        page.mouse().wheel(2000,2000);
         page.click(selector.contentUnsplashSaveButton);
+        page.waitForSelector(selector.contentThumbnailDelete);
     }
     public void selectContentCourses(){
         page.waitForTimeout(2000);
@@ -224,4 +250,5 @@ public class MethodsDocola extends ContextBaseDocola{
         //page.click(selector.contentConfigurationMarketPlace);
         page.click(selector.contentButtonContinue);
     }
+
 }

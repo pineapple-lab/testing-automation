@@ -19,6 +19,7 @@ public class InterfaceElements extends Application {
     ComboBox<String> comboBox = new ComboBox<>();
     public Map<CheckBox,Enum> checkBoxesMap = new HashMap<>();
     TabPane tabPane = new TabPane();
+    Button botConfigurations = new Button("*");
     Tab tbcreator = new Tab("Creador");
     Tab tbValidationsLogin = new Tab ("Validaciones login");
     Tab tbValidationsRegister = new Tab("Validaciones registro");

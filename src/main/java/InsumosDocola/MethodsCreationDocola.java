@@ -1,9 +1,6 @@
 package InsumosDocola;
 import com.microsoft.playwright.PlaywrightException;
 import org.junit.jupiter.api.Assertions;
-
-import java.nio.file.Paths;
-
 public class MethodsCreationDocola extends ContextBaseDocola{
     SelectorsDocola selector = new SelectorsDocola();
     WaitingsDocola waitings = new WaitingsDocola();
@@ -42,12 +39,10 @@ public class MethodsCreationDocola extends ContextBaseDocola{
                 break;
             } catch (PlaywrightException e) {}
         }
-
-            System.out.println(joinRol);
-            if(joinRol.equals("Content provider")){
-                methods.onboardingContentProvider();
-            }
-            methods.signOut();
+        System.out.println(joinRol);
+        methods.completeOnboarding();
+        page.waitForSelector(selector.menuProfile);
+        methods.signOut();
         } else {
             closeContext();
             }
@@ -57,7 +52,7 @@ public class MethodsCreationDocola extends ContextBaseDocola{
     public void newResource(){
         joinRol = "Content provider";
         typeContent=1;
-        methods.login(queries.getEmailUser(joinRol));
+        methods.login();
         for(contador= 1;contador<=generate.generateExecutions();contador++ ) {
             methods.goToContentCreateForm();
             methods.goToResourceCreateForm();
@@ -99,7 +94,7 @@ public class MethodsCreationDocola extends ContextBaseDocola{
         }
     }
     public void newCourse() {
-        methods.login(queries.getEmailUser(joinRol));
+        methods.login();
         typeContent=2;
         for (contador = 1; contador <= generate.generateExecutions(); contador++) {
             methods.goToContentCreateForm();
@@ -117,7 +112,7 @@ public class MethodsCreationDocola extends ContextBaseDocola{
         }
     }
     public void newCourseCollection() {
-        methods.login(queries.getEmailUser(joinRol));
+        methods.login();
         typeContent=3;
         for (contador = 1; contador <= generate.generateExecutions(); contador++) {
             methods.goToContentCreateForm();

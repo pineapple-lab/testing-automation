@@ -1,8 +1,12 @@
 package InsumosDocola;
 import java.time.Instant;
+import java.util.List;
 import java.util.Random;
 import Configurations.*;
+import com.microsoft.playwright.ElementHandle;
+
 public class GeneratorDocola extends ContextBaseDocola{
+    WaitingsDocola waiting = new WaitingsDocola();
     public int generateExecutions(){
         return Integer.parseInt(ejecuciones);
     }
@@ -29,7 +33,7 @@ public class GeneratorDocola extends ContextBaseDocola{
         generateLastName();
         long timeStamp = Instant.now().toEpochMilli();
         //if(configurationAdvancedRegistration==false) {
-        email = firstName+lastName+timeStamp+"@gmail.com";
+        email = firstName+lastName+timeStamp+"@"+emailProvider+".com";
         return new EmailInfo(email, firstName, lastName);
     }
     public String generateFirstName(){
@@ -122,6 +126,22 @@ public class GeneratorDocola extends ContextBaseDocola{
         answer = answerList[index1];
         return answer;
     }
+    public int generateThumbnailCategory(){
+        waiting.waitingMatDialogContainer();
+        List<ElementHandle> elements = page.querySelectorAll("mat-dialog-container > div > div > app-unsplash > form > div:nth-of-type(2) > div > div > button");
+        Random random = new Random();
+        thumbnailCategory = random.nextInt(1,elements.size()+1);
+        return thumbnailCategory;
+    }
+    public int generateThumbnailSplash(){
+        waiting.waitingMatDialogContainer();
+        page.waitForSelector(".grid-container");
+        List<ElementHandle> elements = page.querySelectorAll("mat-dialog-container > div > div > app-unsplash > form > div:nth-of-type(3) > img");
+        Random random = new Random();
+        thumbnail = random.nextInt(1,elements.size());
+        return thumbnail;
+    }
+
     class EmailInfo {
         private String email;
         private String firstName;
@@ -141,5 +161,4 @@ public class GeneratorDocola extends ContextBaseDocola{
             return lastName;
         }
     }
-
 }

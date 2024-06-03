@@ -24,12 +24,12 @@ public class WaitingsDocola extends ContextBaseDocola{
         page.waitForSelector(selector.registerCaptchat);
     }
     public void waitingOnboardingSelectorContentProviderStep1(){
-        page.waitForSelector(selector.onboardingClinicianCompanyName);
-        page.waitForSelector(selector.clinicianOnboardingWebSite);
-        page.waitForSelector(selector.onboardingClinicianNextButtonStep1);
+        page.waitForSelector(selector.onboardingContentProviderCompanyName);
+        page.waitForSelector(selector.onboardingContentProviderWebSite);
+        page.waitForSelector(selector.onboardingContentProviderNextButtonStep1);
     }
     public void waitingOnboardingSelectorContentProviderStep2(){
-        page.waitForSelector(selector.VerifyPhoneSkipForNow);
+        page.waitForSelector(selector.verifyPhoneSkipForNow);
     }
     public void waitingCreateUploadFileSelectorsStep1(){
         page.waitForSelector(selector.contentTitle);
@@ -44,18 +44,23 @@ public class WaitingsDocola extends ContextBaseDocola{
     }
     public void waitingPricingStepSelector(){
         page.waitForSelector(selector.contentPricingMonthlyPrice);
-        page.waitForSelector(selector.contentPricingYearlyPrice);
+        //page.waitForSelector(selector.contentPricingYearlyPrice);
         page.waitForSelector(selector.contentButtonContinue);
+    }
+    public void waitingMatDialogContainer(){
+        page.waitForSelector(selector.matDialogContainer);
+        page.waitForSelector(selector.classMatDialogContainer);
+        page.waitForSelector(selector.classMatMdcDialogSurface);
     }
     public void waitingThumbnailStepSelector(){
         page.waitForSelector(selector.contentThumbnailUnsplash);
         page.waitForSelector(selector.contentThumbnailUploadFile);
     }
     public void waitingUnshplashPopUpSelectors (){
-        page.waitForSelector(selector.contentUnsplashCategorie);
+        page.waitForSelector(selector.waitCategoryUnplash);
         //page.waitForSelector(selector.contentUnsplashSelectButton);
     }
     public void waitingUnsplashPhotos(){
-        page.waitForSelector(selector.contentUnsplashPhoto);
+        page.waitForSelector(selector.waitingUnplash);
     }
 }

@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Random;
 
 public class MethodsDocola extends ContextBaseDocola{
+    int typeQuestion = 0;
     SelectorsDocola selector = new SelectorsDocola();
     QueriesDocola queries = new QueriesDocola();
     GeneratorDocola generate = new GeneratorDocola();
@@ -69,9 +70,10 @@ public class MethodsDocola extends ContextBaseDocola{
             page.click(selector.onboardingClinicianPracticeNotForNow);
         }
         if(rol==3) {
+            String companyName = generate.generateCompanyName();
             waiting.waitingOnboardingSelectorContentProviderStep1();
-            page.fill(selector.onboardingContentProviderCompanyName, generate.generateCompanyName());
-            webSite = "https://www."+companyName + ".com";
+            page.fill(selector.onboardingContentProviderCompanyName, companyName);
+            String webSite = "https://www."+companyName + ".com";
             page.fill(selector.onboardingContentProviderWebSite, webSite);
             page.click(selector.onboardingContentProviderNextButtonStep1);
             waiting.waitingOnboardingSelectorContentProviderStep2();

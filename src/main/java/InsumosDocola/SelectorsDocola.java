@@ -19,7 +19,7 @@ public class SelectorsDocola extends VariablesDocola{
     public String loginIncorrectCredentials = "text=invalid_user_or_password";
     //SELECTORS HEADER
     public String appHeader = "app-header > ";
-    public String headerDivButtons = appHeader+"div > div > div:nth-of-type(1) > button:nth-of-type";
+    public String headerDivButtons = appHeader+"div > div > div:nth-of-type(1) > div > button:nth-of-type";
     public String headerMyCoursesButton = headerDivButtons+"(2)";
     //SELECTORS FOOTER
     public String footerDivButtons = form+"div:nth-of-type(4) > div > ";

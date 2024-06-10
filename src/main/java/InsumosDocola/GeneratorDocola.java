@@ -6,6 +6,8 @@ import Configurations.*;
 import com.microsoft.playwright.ElementHandle;
 
 public class GeneratorDocola extends ContextBaseDocola{
+    String firstName;
+    String lastName;
     WaitingsDocola waiting = new WaitingsDocola();
     public int generateExecutions(){
         return Integer.parseInt(ejecuciones);
@@ -71,66 +73,61 @@ public class GeneratorDocola extends ContextBaseDocola{
             typeResource="Upload file";
         }switch (typeResource) {
             case "Upload file":
-                typeContentPosition= 1;
-                break;
+                return 1;
             case "Capture video":
-                typeContentPosition = 2;
-                break;
+                return 2;
             case "Web content":
-                typeContentPosition = 3;
-                break;
+                return 3;
             case "Quiz":
-                typeContentPosition = 4;
-                break;
+               return 4;
             case "Survey":
-                typeContentPosition = 5;
-                break;
+                return 5;
             case "VR":
-                typeContentPosition = 6;
-                break;
+                return 6;
+                //break;
         }
-        return typeContentPosition;
+        return 1;
     }
     public String generateCompanyName(){
         String[] companyList = CompanyNames.companyNames;
         Random rand = new Random();
         int index1 = rand.nextInt(companyList.length);
-        companyName = companyList[index1];
+        String companyName = companyList[index1];
         return companyName;
     }
     public String generateContentName(){
         String [] nameContentList = ContentNames.contentNames;
         Random rand = new Random();
         int index1 = rand.nextInt(nameContentList.length);
-        contentName = nameContentList[index1];
+        String contentName = nameContentList[index1];
         return contentName;
     }
     public String generateContentDescription(){
         String [] contentDescriptiontList = ContentDescriptions.contentDescritpion;
         Random rand = new Random();
         int index1 = rand.nextInt(contentDescriptiontList.length);
-        contentDescription = contentDescriptiontList[index1];
+        String contentDescription = contentDescriptiontList[index1];
         return contentDescription;
     }
     public String generateQuestion(){
         String [] questionList = ContentQuestions.contentQuestions;
         Random rand = new Random();
         int index1 = rand.nextInt(questionList.length);
-        question = questionList[index1];
+        String question = questionList[index1];
         return question;
     }
     public String generateAnswer(){
         String[] answerList = ContentAnswers.contentAnswers;
         Random rand = new Random();
         int index1 = rand.nextInt(answerList.length);
-        answer = answerList[index1];
+        String answer = answerList[index1];
         return answer;
     }
     public int generateThumbnailCategory(){
         waiting.waitingMatDialogContainer();
         List<ElementHandle> elements = page.querySelectorAll("mat-dialog-container > div > div > app-unsplash > form > div:nth-of-type(2) > div > div > button");
         Random random = new Random();
-        thumbnailCategory = random.nextInt(1,elements.size()+1);
+        int thumbnailCategory = random.nextInt(1,elements.size()+1);
         return thumbnailCategory;
     }
     public int generateThumbnailSplash(){
@@ -138,7 +135,7 @@ public class GeneratorDocola extends ContextBaseDocola{
         page.waitForSelector(".grid-container");
         List<ElementHandle> elements = page.querySelectorAll("mat-dialog-container > div > div > app-unsplash > form > div:nth-of-type(3) > img");
         Random random = new Random();
-        thumbnail = random.nextInt(1,elements.size());
+        int thumbnail = random.nextInt(1,elements.size());
         return thumbnail;
     }
 

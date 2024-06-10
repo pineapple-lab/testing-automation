@@ -6,9 +6,10 @@ public class MethodsCreationDocola extends ContextBaseDocola{
     WaitingsDocola waitings = new WaitingsDocola();
     QueriesDocola queries = new QueriesDocola();
     GeneratorDocola generate = new GeneratorDocola();
-    GeneratorDocola.EmailInfo emailInfo = generate.generateEmail();
+    GeneratorDocola.EmailInfo emailInfo;
     MethodsDocola methods = new MethodsDocola();
     public void joinNow(){
+        emailInfo= generate.generateEmail();
         for (contador = 1; contador <= Integer.parseInt(ejecuciones); contador++) {
         if (!shouldStopTest) {
         rol = generate.generateRol();

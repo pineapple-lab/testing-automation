@@ -198,6 +198,7 @@ public class BotDocola extends Docola.InterfaceActions {
         execute.setOnAction(e -> {
             System.out.println(linkNavigation);
             Thread execute = new Thread(() -> {
+
                 ejecuciones = tfExecute.getText();
                 accion();
                 }, "execute");

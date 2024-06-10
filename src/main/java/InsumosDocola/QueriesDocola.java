@@ -46,7 +46,6 @@ public class QueriesDocola extends ContextBaseDocola{
                 joinRol = "Content provider";
             }
             System.out.println(joinRol);
-            System.out.println(linkNavigation);
             connectDatabase();
             stm=CN.createStatement();
             if(linkNavigation=="http://localhost:4200/") {
@@ -70,7 +69,6 @@ public class QueriesDocola extends ContextBaseDocola{
                 joinRol = "Content provider";
             }
             System.out.println(joinRol);
-            System.out.println(linkNavigation);
             connectDatabase();
             stm=CN.createStatement();
             if(linkNavigation=="http://localhost:4200/") {

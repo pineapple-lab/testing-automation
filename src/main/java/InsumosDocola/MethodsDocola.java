@@ -45,6 +45,7 @@ public class MethodsDocola extends ContextBaseDocola{
         page.fill(selector.loginEmail, email);
         page.fill(selector.loginPassword, password);
         page.click(selector.loginButton);
+        System.out.println(email);
     }
     public void signOut(){
         ElementHandle targetElement = page.querySelector(selector.menuProfile);

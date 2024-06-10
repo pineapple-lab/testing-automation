@@ -10,8 +10,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-import static InsumosDocola.VariablesDocola.amountOfContent;
-import static InsumosDocola.VariablesDocola.ejecuciones;
+import static InsumosDocola.VariablesDocola.*;
+import static InsumosDocola.VariablesDocola.linkNavigation;
 
 public class AdvancedSettingContentCreator extends InterfaceElements {
     Label labelTypeContent = new Label ("Tipo de contenido");
@@ -46,6 +46,8 @@ public class AdvancedSettingContentCreator extends InterfaceElements {
         stageJoin.setScene(sceneConfigAvanzada);
         settingAdvancedExecute.setOnAction(e->{
             Thread execute=  new Thread (()->{
+                System.out.println(email);
+                System.out.println(linkNavigation);
                 amountOfContent = 3;
                 VariablesDocola.typeResource = tfTypeContent.getText();
                 iActions.actionNewResource();

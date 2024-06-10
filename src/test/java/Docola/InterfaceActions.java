@@ -1,8 +1,13 @@
 package Docola;
+import InsumosDocola.VariablesDocola;
 import javafx.scene.control.CheckBox;
 import java.util.ArrayList;
 import java.util.List;
+
+import static InsumosDocola.VariablesDocola.email;
+
 public class InterfaceActions extends InterfaceProperties{
+    VariablesDocola variables = new VariablesDocola();
     enum ExecMethod {
         //CREATE
         CREATE_USER,

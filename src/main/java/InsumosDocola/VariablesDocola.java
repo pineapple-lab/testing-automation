@@ -23,8 +23,6 @@ public class VariablesDocola {
    //ONBOARDING CLINICIAN
    public String companyName;
    public String webSite;
-
-
    //CREATE CONTENT
    public static String typeResource;
    public static int typeQuestion = 0;

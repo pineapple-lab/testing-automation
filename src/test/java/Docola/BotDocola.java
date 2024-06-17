@@ -20,6 +20,7 @@ public class BotDocola extends Docola.InterfaceActions {
     @Override
     public void start(Stage stage1) {
         super.start(stage1);
+        stage1.setTitle("Docola bot");
         Thread interfaceThread = new Thread(() -> {
             printStream = new PrintStream(new PrintStream(new OutputStream() {
                 @Override

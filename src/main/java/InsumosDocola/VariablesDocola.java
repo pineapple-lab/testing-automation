@@ -5,8 +5,8 @@ public class VariablesDocola {
    public static volatile boolean shouldStopTest;
    public static volatile String linkNavigation;
    public static String ejecuciones;
-   public String pathImage = "D:\\Escritorio\\insumos para pruebas\\Imagenes\\Bot docola\\imagen";
-   public String pathVideo = "D:\\Escritorio\\insumos para pruebas\\Videos\\Bot docola\\video";
+   public String pathImage = "C:\\Escritorio\\insumos para pruebas\\Imagenes\\Bot docola\\imagen";
+   public String pathVideo = "C:\\Escritorio\\insumos para pruebas\\Videos\\Bot docola\\video";
    public String image;
    public String video;
    public int contador;

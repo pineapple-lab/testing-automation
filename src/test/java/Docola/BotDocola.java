@@ -183,8 +183,8 @@ public class BotDocola extends Docola.InterfaceActions {
                 actionEliminarDeLaCola();
             });
             botConfigurations.setOnAction( event -> {
-                    ejecuciones=tfExecute.getText();
-                    InterfaceBotSetting configAvanzada = new InterfaceBotSetting(seleccion);
+                    //ejecuciones=tfExecute.getText();
+                    BotSettings configAvanzada = new BotSettings(seleccion);
                     Stage botSettingsStage = new Stage();
                     configAvanzada.start(botSettingsStage);
                     botSettingsStage.show();
@@ -198,7 +198,6 @@ public class BotDocola extends Docola.InterfaceActions {
         execute.setOnAction(e -> {
             System.out.println(linkNavigation);
             Thread execute = new Thread(() -> {
-
                 ejecuciones = tfExecute.getText();
                 accion();
                 }, "execute");

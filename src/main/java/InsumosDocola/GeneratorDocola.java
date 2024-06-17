@@ -13,21 +13,21 @@ public class GeneratorDocola extends ContextBaseDocola{
         return Integer.parseInt(ejecuciones);
     }
     public String generateImage(){
-        String[] companyList = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
+        String[] imageList = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
                                 "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
                             };
         Random rand = new Random();
-        int index1 = rand.nextInt(companyList.length);
-        image = pathImage+companyList[index1]+".jpg";
+        int index1 = rand.nextInt(imageList.length);
+        image = pathImage+imageList[index1]+".jpg";
         return image;
     }
     public String generateVideo(){
-        String[] companyList = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
+        String[] videoList = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
                 "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
         };
         Random rand = new Random();
-        int index1 = rand.nextInt(companyList.length);
-        video = pathVideo+companyList[index1]+".mp4";
+        int index1 = rand.nextInt(videoList.length);
+        video = pathVideo+videoList[index1]+".mp4";
         return video;
     }
     public EmailInfo generateEmail(){

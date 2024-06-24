@@ -95,8 +95,8 @@ public class GeneratorDocola extends ContextBaseDocola{
         String companyName = companyList[index1];
         return companyName;
     }
-    public String generateContentName(){
-        String [] nameContentList = ContentNames.contentNames;
+    public String generateContentTitle(){
+        String [] nameContentList = ContentTitle.contentTitle;
         Random rand = new Random();
         int index1 = rand.nextInt(nameContentList.length);
         String contentName = nameContentList[index1];

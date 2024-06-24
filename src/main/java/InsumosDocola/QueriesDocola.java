@@ -68,7 +68,7 @@ public class QueriesDocola extends ContextBaseDocola{
             if(joinRol == null){
                 joinRol = "Content provider";
             }
-            System.out.println(joinRol);
+            System.out.println("Rol: "+joinRol);
             connectDatabase();
             stm=CN.createStatement();
             if(linkNavigation=="http://localhost:4200/") {

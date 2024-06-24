@@ -165,6 +165,51 @@ public class BotDocola extends Docola.InterfaceActions {
                 checkBoxesMap.put(checkBox, elemento);
                 gridCola.add(checkBox, 0, waitingList.size()-1);
             });
+            //validation RESOURCE buttons
+            validationTitleResource.setOnAction(e->{
+                typeResource ="Upload file";
+                waitingList.add(ExecMethod.VALIDATION_TITLE_RESOURCE_REQUIRED);
+                Enum elemento = waitingList.get(waitingList.size()-1);
+                CheckBox checkBox = new CheckBox("VALIDATION_TITLE_RESOURCE_REQUIRED");
+                checkBoxesMap.put(checkBox, elemento);
+                gridCola.add(checkBox, 0, waitingList.size()-1);
+            });
+            validationTitleResource.setOnMousePressed( event -> {
+                if (event.isSecondaryButtonDown()){
+                    ejecuciones=tfExecute.getText();
+                    final ExecMethod selectedMethod = ExecMethod.VALIDATION_TITLE_RESOURCE_REQUIRED;
+                    AdvancedSettingValidationResources  configAvanzada = new AdvancedSettingValidationResources (ejecuciones,seleccion, (value)->{
+                        VariablesDocola.typeResource = value;
+                        waitingList.add(selectedMethod);
+                        Platform.runLater(this::accion);
+                    });
+                    Stage configAvanzadaStage = new Stage();
+                    configAvanzada.start(configAvanzadaStage);
+                    configAvanzadaStage.show();
+                }
+            });
+            validationDescriptionResource.setOnAction(e->{
+                typeResource ="Upload file";
+                waitingList.add(ExecMethod.VALIDATION_DESCRIPTION_RESOURCE_REQUIRED);
+                Enum elemento = waitingList.get(waitingList.size()-1);
+                CheckBox checkBox = new CheckBox("VALIDATION_DESCRIPTION_RESOURCE_REQUIRED");
+                checkBoxesMap.put(checkBox, elemento);
+                gridCola.add(checkBox, 0, waitingList.size()-1);
+            });
+            validationDescriptionResource.setOnMousePressed( event -> {
+                if (event.isSecondaryButtonDown()){
+                    ejecuciones=tfExecute.getText();
+                    final ExecMethod selectedMethod = ExecMethod.VALIDATION_DESCRIPTION_RESOURCE_REQUIRED;
+                    AdvancedSettingValidationResources  configAvanzada = new AdvancedSettingValidationResources (ejecuciones,seleccion, (value)->{
+                        VariablesDocola.typeResource = value;
+                        waitingList.add(selectedMethod);
+                        Platform.runLater(this::accion);
+                    });
+                    Stage configAvanzadaStage = new Stage();
+                    configAvanzada.start(configAvanzadaStage);
+                    configAvanzadaStage.show();
+                }
+            });
             //HEADER
             comboBox.setOnAction(e -> {
                 seleccion = comboBox.getValue();
@@ -197,7 +242,6 @@ public class BotDocola extends Docola.InterfaceActions {
             interfaceThread.start();
         }
         execute.setOnAction(e -> {
-            System.out.println(linkNavigation);
             Thread execute = new Thread(() -> {
                 ejecuciones = tfExecute.getText();
                 accion();
@@ -209,6 +253,9 @@ public class BotDocola extends Docola.InterfaceActions {
                 execute.start();
             }
         });
+    }
+    private void cleanWaitingList(){
+        waitingList.clear();
     }
     public void accion () {
         for (int i = 0; i < waitingList.size(); i++) {
@@ -266,7 +313,15 @@ public class BotDocola extends Docola.InterfaceActions {
                 case VALIDATION_CAPTCHA_REGISTER:
                     actionValidationCaptchaRegister();
                     break;
+                case VALIDATION_TITLE_RESOURCE_REQUIRED:
+                    actionValidationRequiredTitleResource();
+
+                    break;
+                case VALIDATION_DESCRIPTION_RESOURCE_REQUIRED:
+                    actionValidationRequiredDescriptionResource();
+                    break;
             }
         }
+        cleanWaitingList();
     }
 }

@@ -12,12 +12,12 @@ public class BotSettings extends InterfaceElements{
         GridPane gridBotSettings = new GridPane();
         gridBotSettings.setVgap(10);
         gridBotSettings.setHgap(10);
-        gridBotSettings.add(undefinedUser,1,3);
+        gridBotSettings.add(undefinedUser,5,2);
         undefinedUser.setStyle("-fx-background-color:#298dcc;");
         undefinedUser.setOnMouseEntered(e -> undefinedUser.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
         undefinedUser.setOnMouseExited(e -> undefinedUser.setStyle("-fx-background-color: #298dcc;"));
         rootConfigAvanzada.getChildren().add(gridBotSettings);
-        Scene sceneConfigAvanzada = new Scene(rootConfigAvanzada,250,170);
+        Scene sceneConfigAvanzada = new Scene(rootConfigAvanzada,199,170);
         botSettings.setScene(sceneConfigAvanzada);
         undefinedUser.setOnAction( event -> {
             //ejecuciones=tfExecute.getText();

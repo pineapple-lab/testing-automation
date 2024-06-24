@@ -20,7 +20,7 @@ public class SelectorsDocola extends VariablesDocola{
     //SELECTORS HEADER
     public String appHeader = "app-header > ";
     public String headerDivButtons = appHeader+"div > div > div:nth-of-type(1) > div > button:nth-of-type";
-    public String headerMyCoursesButton = headerDivButtons+"(2)";
+    public String headerMyLibraryButton = headerDivButtons+"(2) > span:nth-of-type(1)";
     //SELECTORS FOOTER
     public String footerDivButtons = form+"div:nth-of-type(4) > div > ";
     //SELECTORS LOGIN
@@ -88,7 +88,7 @@ public class SelectorsDocola extends VariablesDocola{
     public String selectGenericInputsContentCreator = "app-details-and-file-step > div > div:nth-of-type";
     public String selectGenericTypeQuestion = ".cdk-overlay-pane> div > div > button:nth-of-type";
     public String selectGenericQuizCardQuestion = "app-quiz-question > div > div:nth-of-type(1) > div > ";
-    public String selectGenericConfigurationStep = appConfigurationStep+form+"div:nth-of-type(";
+    public String selectGenericConfigurationStep = appConfigurationStep+"div:nth-of-type(1) > div > div:nth-of-type(2) > div:nth-of-type(";
     public String selectGenericPricingStep = appPricingStep+"div > div:nth-of-type(";
     public String selectPreviewImage = appUploaderDropBox+"div > div > div:nth-of-type(2) > i:nth-of-type(1)";
     public String selectGenericThumbnailStep = appThumbnailStep+form+"div > div > app-uploader-drop-box > div > div > button:nth-of-type(";
@@ -115,8 +115,8 @@ public class SelectorsDocola extends VariablesDocola{
         return selectGenericTag+"("+tagPosition+")";
     }
     public String contentAddTags = appTagsSearchOverlay+"div > div > button:nth-of-type(2)";
-    public String contentConfigurationCMECE = selectGenericConfigurationStep+"1) > mat-slide-toggle";
-    public String contentConfigurationMarketPlace = selectGenericConfigurationStep+"2) > mat-slide-toggle";
+    public String contentConfigurationCMECE = selectGenericConfigurationStep+"1) > mat-checkbox input";
+    public String contentConfigurationMarketPlace = selectGenericConfigurationStep+"2) > mat-checkbox input";
     public String contentPricingContentForFree = selectGenericPricingStep+"1) mat-slide-toggle";
     public String contentPricingLifetimePurchase = selectGenericPricingStep+"2) mat-slide-toggle";
     public String contentPricingMonthlyPrice = selectGenericPricingStep+"2) > div:nth-of-type(3) > div:nth-of-type(1) mat-form-field input";
@@ -140,4 +140,7 @@ public class SelectorsDocola extends VariablesDocola{
         return selectGenericCourseContent+"("+contentPosition+")";
     }
     public String contentTabCourses = "mat-tab-header > div .mat-mdc-tab-labels > div:nth-of-type(2)";
+    //SELECT MESSAGE ERROR
+    public String messageErrorTitleRequired = "app-details-and-file-step > div > div:nth-of-type(1) mat-error";
+    public String messageErrorDescriptionRequired = "app-details-and-file-step > div > div:nth-of-type(2) mat-error";
 }

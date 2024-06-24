@@ -1,7 +1,7 @@
 package Configurations;
 
-public class ContentNames {
-    public static String [] contentNames = {
+public class ContentTitle {
+    public static String [] contentTitle= {
             "Anatomy And Physiology", "Medical Terminology", "Biochemistry", "Pathophysiology", "Pharmacology",
             "Medical Microbiology", "Clinical Medicine", "Medical Genetics", "Histology", "Immunology",
             "Epidemiology", "Public Health", "Clinical Research", "Medical Ethics", "Medical Law",

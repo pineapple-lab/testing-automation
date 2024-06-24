@@ -99,7 +99,7 @@ public class MethodsCreationDocola extends ContextBaseDocola{
         typeContent=2;
         for (contador = 1; contador <= generate.generateExecutions(); contador++) {
             methods.goToContentCreateForm();
-            page.fill(selector.contentTitle,generate.generateContentName());
+            page.fill(selector.contentTitle,generate.generateContentTitle());
             page.fill(selector.contentDescription, generate.generateContentDescription());
             page.click(selector.contentButtonContinue);
             methods.completeConfigurationStep();
@@ -117,7 +117,7 @@ public class MethodsCreationDocola extends ContextBaseDocola{
         typeContent=3;
         for (contador = 1; contador <= generate.generateExecutions(); contador++) {
             methods.goToContentCreateForm();
-            page.fill(selector.contentTitle,generate.generateContentName());
+            page.fill(selector.contentTitle,generate.generateContentTitle());
             page.fill(selector.contentDescription, generate.generateContentDescription());
             page.click(selector.contentButtonContinue);
             methods.completeConfigurationStep();

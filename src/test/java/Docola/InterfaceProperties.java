@@ -8,7 +8,7 @@ public class InterfaceProperties extends InterfaceElements{
     @Override
     public void start(Stage stage){
         setupUIElements();
-        tabPane.getTabs().addAll(tbcreator,tbValidationsLogin,tbValidationsRegister);
+        tabPane.getTabs().addAll(tbcreator,tbValidationsLogin,tbValidationsRegister,tbValidationsResources);
         splitPane.getItems().addAll(gridHeader, tabPane, scrollPane);
         splitMain.getItems().addAll(gridCola, splitPane);
         Scene scene = new Scene (splitMain,550, 670);
@@ -25,6 +25,8 @@ public class InterfaceProperties extends InterfaceElements{
         gridValidationsLogin.setVgap(10);
         gridValidationsRegister.setHgap(3);
         gridValidationsRegister.setVgap(10);
+        gridValidationsResources.setHgap(3);
+        gridValidationsResources.setVgap(10);
         gridHeader.setHgap(3);
         gridHeader.setVgap(10);
         splitPane.setOrientation(Orientation.VERTICAL);
@@ -40,6 +42,7 @@ public class InterfaceProperties extends InterfaceElements{
         addElementsGridCreator();
         addElementsGridValidationsLogin();
         addElementsGridValidationsRegister();
+        addElementsGridValidationsResource();
         addGridToTabs();
         setColors();
         setHover();
@@ -49,6 +52,7 @@ public class InterfaceProperties extends InterfaceElements{
         tbcreator.setContent(gridCreator);
         tbValidationsLogin.setContent(gridValidationsLogin);
         tbValidationsRegister.setContent(gridValidationsRegister);
+        tbValidationsResources.setContent(gridValidationsResources);
     }
     private void setupGridConstraints(){
         GridPane.setConstraints(execute, 3, 1);
@@ -76,10 +80,14 @@ public class InterfaceProperties extends InterfaceElements{
         GridPane.setConstraints(validationsConditionsPasswordRegister, 2, 8);
         GridPane.setConstraints(validationsTermsAndConditionsRegister, 2, 9);
         GridPane.setConstraints(validationsCaptchaRegister, 2, 10);
+        //Validation resource tab positions
+        GridPane.setConstraints(validationTitleResource, 2, 3);
+        GridPane.setConstraints(validationDescriptionResource, 2, 4);
         comboBox.getItems().add("DEV");
         comboBox.getItems().add("QA");
         comboBox.getItems().add("Local");
         comboBox.setValue("Elegir ambiente");
+
     }
     private void addElementsGridHeader(){
         gridHeader.getChildren().add(execute);
@@ -111,6 +119,10 @@ public class InterfaceProperties extends InterfaceElements{
         gridValidationsRegister.getChildren().add(validationsTermsAndConditionsRegister);
         gridValidationsRegister.getChildren().add(validationsCaptchaRegister);
     }
+    private void addElementsGridValidationsResource(){
+        gridValidationsResources.getChildren().add(validationTitleResource);
+        gridValidationsResources.getChildren().add(validationDescriptionResource);
+    }
     private void setColors(){
         //HEADER buttons
         execute.setStyle("-fx-background-color: #298dcc;");
@@ -137,6 +149,9 @@ public class InterfaceProperties extends InterfaceElements{
         validationsConditionsPasswordRegister.setStyle("-fx-background-color:#298dcc;");
         validationsTermsAndConditionsRegister.setStyle("-fx-background-color:#298dcc;");
         validationsCaptchaRegister.setStyle("-fx-background-color:#298dcc;");
+        //Validations RESOURCE buttons
+        validationTitleResource.setStyle("-fx-background-color:#298dcc;");
+        validationDescriptionResource.setStyle("-fx-background-color:#298dcc;");
         //BOT CONFIGURATION
         botConfigurations.setStyle("-fx-background-color:#298dcc;");
     }
@@ -183,6 +198,11 @@ public class InterfaceProperties extends InterfaceElements{
         validationsTermsAndConditionsRegister.setOnMouseExited(e -> validationsTermsAndConditionsRegister.setStyle("-fx-background-color: #298dcc;"));
         validationsCaptchaRegister.setOnMouseEntered(e -> validationsCaptchaRegister.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
         validationsCaptchaRegister.setOnMouseExited(e -> validationsCaptchaRegister.setStyle("-fx-background-color: #298dcc;"));
+        //Validation RESOURCE buttons
+        validationTitleResource.setOnMouseEntered(e -> validationTitleResource.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
+        validationTitleResource.setOnMouseExited(e -> validationTitleResource.setStyle("-fx-background-color: #298dcc;"));
+        validationDescriptionResource.setOnMouseEntered(e -> validationDescriptionResource.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
+        validationDescriptionResource.setOnMouseExited(e -> validationDescriptionResource.setStyle("-fx-background-color: #298dcc;"));
         //BOT CONFIGURATIONS
         botConfigurations.setOnMouseEntered(e -> botConfigurations.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
         botConfigurations.setOnMouseExited(e -> botConfigurations.setStyle("-fx-background-color: #298dcc;"));

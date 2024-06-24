@@ -5,8 +5,9 @@ public class VariablesDocola {
    public static volatile boolean shouldStopTest;
    public static volatile String linkNavigation;
    public static String ejecuciones;
-   public String pathImage = "C:\\Escritorio\\insumos para pruebas\\Imagenes\\Bot docola\\imagen";
-   public String pathVideo = "C:\\Escritorio\\insumos para pruebas\\Videos\\Bot docola\\video";
+   String root ="D";
+   public String pathImage = root+":\\Escritorio\\insumos para pruebas\\Imagenes\\Bot docola\\imagen";
+   public String pathVideo = root+":\\Escritorio\\insumos para pruebas\\Videos\\Bot docola\\video";
    public String image;
    public String video;
    public int contador;
@@ -15,9 +16,7 @@ public class VariablesDocola {
    public String emailProvider  = "mailinator";
    public static String joinRol;
    public int rol;
-   public int passwordCondition;
    public String password = "123123aA-";
-   public String confirmPassword;
    //CREATE CONTENT
    public static String typeResource;
    public static int typeContent;

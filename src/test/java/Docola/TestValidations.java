@@ -69,4 +69,14 @@ public class TestValidations extends MethodsCreationDocola {
         methods.startContextAndNavigation();
         validations.validationCaptcha();
     }
+    @Test
+    public void serviceValidationRequireTitleResource(){
+        methods.startContextAndNavigation();
+        validations.validationTitleResource();
+    }
+    @Test
+    public void serviceValidationRequireDescriptionResource(){
+        methods.startContextAndNavigation();
+        validations.validationDescriptionResource();
+    }
 }

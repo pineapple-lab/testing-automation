@@ -27,7 +27,9 @@ public class InterfaceActions extends InterfaceProperties{
         VALIDATION_CONFIRM_PASSWORD_REGISTER,
         VALIDATION_CONDITIONS_PASSWORD_REGISTER,
         VALIDATION_TERMS_AND_CONDITIONS_REGISTER,
-        VALIDATION_CAPTCHA_REGISTER
+        VALIDATION_CAPTCHA_REGISTER,
+        VALIDATION_TITLE_RESOURCE_REQUIRED,
+        VALIDATION_DESCRIPTION_RESOURCE_REQUIRED
     }
     public void actionEliminarDeLaCola() {
         List<CheckBox> checkBoxesSeleccionados = new ArrayList<>();
@@ -110,8 +112,18 @@ public class InterfaceActions extends InterfaceProperties{
         TestValidations test = new TestValidations();
         test.serviceValidationCaptcha();
     }
+    //validations RESOURCE actions
+    public void actionValidationRequiredTitleResource() {
+        TestValidations test = new TestValidations();
+        test.serviceValidationRequireTitleResource();
+    }
+    public void actionValidationRequiredDescriptionResource() {
+        TestValidations test = new TestValidations();
+        test.serviceValidationRequireDescriptionResource();
+    }
     public void actionUpdateUndefinedUser(String email) {
         BotConfiguration config = new BotConfiguration();
         config.serviceUpdateUndefinedUser(email);
     }
+
 }

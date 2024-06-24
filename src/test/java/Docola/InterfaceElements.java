@@ -13,16 +13,18 @@ public class InterfaceElements extends Application {
     GridPane gridCreator = new GridPane();
     GridPane gridValidationsRegister = new GridPane();
     GridPane gridValidationsLogin = new GridPane();
+    GridPane gridValidationsResources = new GridPane();
     GridPane gridHeader = new GridPane();
     GridPane gridCola = new GridPane();
     SplitPane splitMain = new SplitPane();
     ComboBox<String> comboBox = new ComboBox<>();
     public Map<CheckBox,Enum> checkBoxesMap = new HashMap<>();
     TabPane tabPane = new TabPane();
-    Button botConfigurations = new Button("*");
+    Button botConfigurations = new Button("⚙");
     Tab tbcreator = new Tab("Creador");
     Tab tbValidationsLogin = new Tab ("Validaciones login");
     Tab tbValidationsRegister = new Tab("Validaciones registro");
+    Tab tbValidationsResources = new Tab ("Validaciones recursos");
     SplitPane splitPane = new SplitPane();
     StackPane rootConfigAvanzada = new StackPane();
     TextArea consoleTextArea =  new TextArea();
@@ -51,5 +53,8 @@ public class InterfaceElements extends Application {
     Button validationsConditionsPasswordRegister = new Button("Conditions password");
     Button validationsTermsAndConditionsRegister = new Button("Terms and conditions");
     Button validationsCaptchaRegister = new Button("Captcha");
+    //Validations RESOURCES buttons
+    Button validationTitleResource = new Button("Title required");
+    Button validationDescriptionResource = new Button("Description required");
     public void start(Stage stage) throws Exception {}
 }

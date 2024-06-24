@@ -12,6 +12,9 @@ public class MethodsDocola extends ContextBaseDocola{
     QueriesDocola queries = new QueriesDocola();
     GeneratorDocola generate = new GeneratorDocola();
     WaitingsDocola waiting = new WaitingsDocola();
+    public void limpiarEjecuciones(){
+        ejecuciones = "";
+    }
     public void startContext(){
         System.out.println("\n-----------------------------------------------------------");
         System.out.println("Iniciando ejecucion....");
@@ -24,6 +27,7 @@ public class MethodsDocola extends ContextBaseDocola{
     }
     public void startNavigation(){
         page.navigate(linkNavigation);
+        System.out.println("Ambiente: "+linkNavigation+"\n");
     }
     public void startContextAndNavigation(){
         startContext();
@@ -46,7 +50,7 @@ public class MethodsDocola extends ContextBaseDocola{
         page.fill(selector.loginEmail, email);
         page.fill(selector.loginPassword, password);
         page.click(selector.loginButton);
-        System.out.println(email);
+        System.out.println("Usuario: "+email+"\n");
     }
     public void signOut(){
         ElementHandle targetElement = page.querySelector(selector.menuProfile);
@@ -89,7 +93,6 @@ public class MethodsDocola extends ContextBaseDocola{
         page.fill(selector.loginEmail,queries.getEmailUser(joinRol));
     }
     public void completeloginPassword(){
-        System.out.println(password);
         page.fill(selector.loginPassword, password);
     }
     public void completeregisterFirstName(String firstName){
@@ -111,7 +114,8 @@ public class MethodsDocola extends ContextBaseDocola{
         page.fill(selector.registerPasswordConfirmation,password);
     }
     public void goToContentCreateForm(){
-        page.click(selector.headerMyCoursesButton);
+        page.waitForTimeout(2000);
+        page.click(selector.headerMyLibraryButton);
         page.click(selector.createNewResourceButton);
         page.click(selector.createNewContentButton(typeContent));
     }
@@ -119,21 +123,21 @@ public class MethodsDocola extends ContextBaseDocola{
         page.click(selector.createResource(generate.generateTypeContent()));
     }
     public void completeContentUploadFile(){
-        page.fill(selector.contentTitle, generate.generateContentName());
+        page.fill(selector.contentTitle, generate.generateContentTitle());
         page.fill(selector.contentDescription, generate.generateContentDescription());
         page.locator(selector.contentUpload).setInputFiles(Paths.get(generate.generateImage()));
         page.waitForSelector(selector.selectPreviewImage);
         page.click(selector.contentButtonContinue);
     }
     public void completeContentCaptureVideo(){
-        page.fill(selector.contentTitle, generate.generateContentName());
+        page.fill(selector.contentTitle, generate.generateContentTitle());
         page.fill(selector.contentDescription, generate.generateContentDescription());
         page.locator(selector.contentUpload).setInputFiles(Paths.get(generate.generateVideo()));
         page.waitForSelector(selector.selectPreviewImage);
         page.click(selector.contentButtonContinue);
     }
     public void completeContentImportWebContent(){
-        page.fill(selector.contentTitle, generate.generateContentName());
+        page.fill(selector.contentTitle, generate.generateContentTitle());
         page.fill(selector.contentDescription, generate.generateContentDescription());
         page.fill(selector.contentAddUrl,"https://www.youtube.com/embed/myDW_WPRHq0?si=bdkGE69WDFZXf7cj");
         page.click(selector.contentButtonContinue);
@@ -187,7 +191,7 @@ public class MethodsDocola extends ContextBaseDocola{
         page.click(selector.contentButtonContinue);
     }
     public void completeContentVr(){
-        page.fill(selector.contentTitle, generate.generateContentName());
+        page.fill(selector.contentTitle, generate.generateContentTitle());
         page.fill(selector.contentDescription, generate.generateContentDescription());
         page.locator(selector.contentUpload).setInputFiles(Paths.get(generate.generateVideo()));
         page.waitForSelector(selector.selectPreviewImage);
@@ -200,7 +204,7 @@ public class MethodsDocola extends ContextBaseDocola{
             page.click(selector.contentSelectTagICD10(tagPosition));
             page.click(selector.contentAddTags);
         }
-        //page.click(selector.contentConfigurationCMECE);
+        page.click(selector.contentConfigurationCMECE);
         //page.click(selector.contentConfigurationMarketPlace);
         page.click(selector.contentButtonContinue);
     }
@@ -253,5 +257,4 @@ public class MethodsDocola extends ContextBaseDocola{
         //page.click(selector.contentConfigurationMarketPlace);
         page.click(selector.contentButtonContinue);
     }
-
 }

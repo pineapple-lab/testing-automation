@@ -13,8 +13,8 @@ public class formularioSegment extends Stage{
         GridPane grid = new GridPane();
         grid.setHgap(10);
         grid.setVgap(10);
-        TextField pathImageJT = new TextField("path image");
-        TextField pathVideoJT = new TextField("path video");
+        TextField imagePathJT = new TextField("path image");
+        TextField videoPathJT = new TextField("path video");
         TextField titleSegmentsJT = new TextField("title Segment");
         TextField descriptionSegmentsJT = new TextField("description Segment");
         TextField creatorSegmentsJT = new TextField("id creator Segment");
@@ -25,8 +25,8 @@ public class formularioSegment extends Stage{
         TextField subTopicSegmentsJT = new TextField("id sub topic segment");
         TextField estadoJT = new TextField("estado");
         Button guardar = new Button("Guardar");
-        GridPane.setConstraints(pathImageJT,2,1);
-        GridPane.setConstraints(pathVideoJT,4,1);
+        GridPane.setConstraints(imagePathJT,2,1);
+        GridPane.setConstraints(videoPathJT,4,1);
         GridPane.setConstraints(titleSegmentsJT,2,2);
         GridPane.setConstraints(descriptionSegmentsJT,4,2);
         GridPane.setConstraints(creatorSegmentsJT,2,3);
@@ -43,8 +43,8 @@ public class formularioSegment extends Stage{
                 String username = "root";
                 String password = "root";
                 Connection CN = DriverManager.getConnection(url, username, password);
-                String pathImage = pathImageJT.getText();
-                String pathVideo = pathVideoJT.getText();
+                String imagePath = imagePathJT.getText();
+                String videoPath = videoPathJT.getText();
                 String titleSegments = titleSegmentsJT.getText();
                 String descriptionSegments = descriptionSegmentsJT.getText();
                 String creatorSegments = creatorSegmentsJT.getText();
@@ -55,8 +55,8 @@ public class formularioSegment extends Stage{
                 String subTopicSegments = subTopicSegmentsJT.getText();
                 String estado = estadoJT.getText();
                 String insertSql = "INSERT INTO datoscrearsegment (" +
-                        "`pathImage`," +
-                        "`pathVideo`," +
+                        "`imagePath`," +
+                        "`videoPath`," +
                         "`titleSegments`," +
                         "`descriptionSegments`," +
                         "`creatorSegments`," +
@@ -67,8 +67,8 @@ public class formularioSegment extends Stage{
                         "`subTopicSegments`," +
                         "`estado`,) " +
                         "VALUES("+
-                        "'"+pathImage+"'"+","+
-                        "'"+pathVideo+"'"+","+
+                        "'"+imagePath+"'"+","+
+                        "'"+videoPath+"'"+","+
                         "'"+titleSegments+"'"+","+
                         "'"+descriptionSegments+"'"+","+
                         "'"+creatorSegments+"'"+","+
@@ -83,8 +83,8 @@ public class formularioSegment extends Stage{
                 CN.close();
             }catch (Exception ex){ex.printStackTrace();}
         });
-        grid.getChildren().add(pathImageJT);
-        grid.getChildren().add(pathVideoJT);
+        grid.getChildren().add(imagePathJT);
+        grid.getChildren().add(videoPathJT);
         grid.getChildren().add(titleSegmentsJT);
         grid.getChildren().add(descriptionSegmentsJT);
         grid.getChildren().add(creatorSegmentsJT);

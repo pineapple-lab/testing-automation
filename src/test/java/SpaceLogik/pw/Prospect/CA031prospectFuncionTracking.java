@@ -13,7 +13,7 @@ public class CA031prospectFuncionTracking extends robotBaseSpaceLogik {
         iniciarVariablesProspectFeliz();
         System.out.println("El caso CA0311 se va a execute: "+execute+" veces");
         for (counter=1; counter <= execute; counter++){
-            nameCase=nameCompanyProspect+".18-validacionCrearTracking.Ejecuciones:"+counter;
+            nameCase=nameCompanyProspect+".18-validacionCrearTracking.executionDetails:"+counter;
             subjectTrackingProspect=nameCase;
             assertions="text="+subjectTrackingProspect;
             login();

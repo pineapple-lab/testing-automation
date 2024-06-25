@@ -8,7 +8,7 @@ public class renovarSuscripcion extends methodsPeppermint {
     @Test
     public void iniciarRenovacion(){
         execute=400;
-        linkNavigation="http://localhost:4200/";
+        navigationLink="http://localhost:4200/";
 
         Keyboard kb = page.keyboard();
         //iniciarContexto();

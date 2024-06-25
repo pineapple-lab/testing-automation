@@ -6,8 +6,6 @@ import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-import static InsumosDocola.VariablesDocola.ejecuciones;
-
 public class AdvancedSettingJoin extends InterfaceElements {
     Label labelRol = new Label ("rol");
     TextField tfRol = new TextField();
@@ -16,9 +14,9 @@ public class AdvancedSettingJoin extends InterfaceElements {
     MethodsDocola mDocola = new MethodsDocola();
     VariablesDocola vDocola = new VariablesDocola();
     InterfaceActions iActions = new InterfaceActions();
-    public AdvancedSettingJoin(String ejecucionesAvanzadas , String seleccionAvanzada){
+    public AdvancedSettingJoin(String executionDetailsAvanzadas , String seleccionAvanzada){
 
-        this.vDocola.ejecuciones = ejecucionesAvanzadas;
+        this.vDocola.executionDetails = executionDetailsAvanzadas;
         this.seleccion = seleccionAvanzada;
     }
     @Override
@@ -41,7 +39,7 @@ public class AdvancedSettingJoin extends InterfaceElements {
         stageJoin.setScene(sceneConfigAvanzada);
         settingAdvancedExecute.setOnAction(e->{
             Thread execute=  new Thread (()->{
-              VariablesDocola.joinRol = tfRol.getText();
+              VariablesDocola.userRole = tfRol.getText();
               iActions.actionJoin();
             }, "execute");
             if(execute.isAlive()) {

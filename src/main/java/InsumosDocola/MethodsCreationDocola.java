@@ -1,133 +1,72 @@
 package InsumosDocola;
 import com.microsoft.playwright.PlaywrightException;
 import org.junit.jupiter.api.Assertions;
+/**
+ * Clase que contiene métodos para la creación de recursos y cursos en la plataforma Docola.
+ * Extiende ContextBaseDocola para aprovechar la configuración del contexto del navegador.
+ */
 public class MethodsCreationDocola extends ContextBaseDocola{
-    SelectorsDocola selector = new SelectorsDocola();
-    WaitingsDocola waitings = new WaitingsDocola();
-    QueriesDocola queries = new QueriesDocola();
-    GeneratorDocola generate = new GeneratorDocola();
+    private final SelectorsDocola selector = new SelectorsDocola();
+    private final WaitingsDocola waitings = new WaitingsDocola();
+    private final QueriesDocola queries = new QueriesDocola();
+    private final GeneratorDocola generate = new GeneratorDocola();
+    private final MethodsDocola methods = new MethodsDocola();
     GeneratorDocola.EmailInfo emailInfo;
-    MethodsDocola methods = new MethodsDocola();
+    /**
+     * Método para registrar usuarios en Docola y realizar su onboarding.
+     */
     public void joinNow(){
         emailInfo= generate.generateEmail();
-        for (contador = 1; contador <= Integer.parseInt(ejecuciones); contador++) {
-        if (!shouldStopTest) {
-        rol = generate.generateRol();
-        email=emailInfo.getEmail();
-        System.out.println("Se creara el usuario:"+email);
-        page.click(selector.singUp);
-        page.click(selector.continueWithEmail);
-        page.waitForTimeout(1000);
-        waitings.waitingJoinsSelectorStep1(rol);
-        page.fill(selector.registerFirstName, emailInfo.getFirstName());
-        page.fill(selector.registerLastName, emailInfo.getLastName());
-        page.fill(selector.email, generate.email);
-        page.click(selector.rolRegister(rol));
-        page.click(selector.registerNextButtonStep1);
-        waitings.waitingJoinSelectorStep2();
-        page.fill(selector.registerPassword,password);
-        page.fill(selector.registerPasswordConfirmation,password);
-        page.click(selector.registerNextButtonStep2);
-        waitings.waitingJoinSelectorStep3();
-        page.click(selector.registerTermsAndConditions);
-        page.click(selector.registerCaptchat);
-        page.click(selector.registerNextButtonStep3);
-        while (true) {
-            try {
-                page.waitForSelector("text=Login successful");
-                Assertions.assertTrue(page.isVisible("text=Login successful"));
-                queries.saveUser(email);
-                break;
-            } catch (PlaywrightException e) {}
-        }
-        System.out.println(joinRol);
-        methods.completeOnboarding();
-        page.waitForSelector(selector.menuProfile);
-        methods.signOut();
+        for (executeCounter = 1; executeCounter <= Integer.parseInt(executionDetails); executeCounter++) {
+        if (!stopTest) {
+        roleID = generate.generateRol();
+        userEmail =emailInfo.getEmail();
+        System.out.println("Se creara el usuario:"+ userEmail);
+        methods.completeRegisterUser(emailInfo);
+        methods.verifyLoginAndOnboarding();
         } else {
-            closeContext();
+            cleanupContext();
+            break;
             }
         }
-        closeContext();
+        cleanupContext();
     }
+    /**
+     * Método para crear nuevos recursos en Docola.
+     */
     public void newResource(){
-        joinRol = "Content provider";
-        typeContent=1;
+        userRole = "Content provider";
+        contentType =1;
         methods.login();
-        for(contador= 1;contador<=generate.generateExecutions();contador++ ) {
-            methods.goToContentCreateForm();
-            methods.goToResourceCreateForm();
-            if (typeResource == null) {
-                typeResource = "Upload file";
-            }
-            switch (typeResource) {
-                case "Upload file":
-                    waitings.waitingCreateUploadFileSelectorsStep1();
-                    methods.completeContentUploadFile();
-                    break;
-                case "Capture video":
-                    waitings.waitingCreateUploadFileSelectorsStep1();
-                    methods.completeContentCaptureVideo();
-                    break;
-                case "Web content":
-                    waitings.waitingCreateUploadFileSelectorsStep1();
-                    methods.completeContentImportWebContent();
-                    break;
-                case "Quiz":
-                    waitings.waitingCreateUploadFileSelectorsStep1();
-                    methods.completeContentQuiz();
-                    break;
-                case "Survey":
-                    waitings.waitingCreateUploadFileSelectorsStep1();
-                    methods.completeContentSurvey();
-                    break;
-                case "VR":
-                    waitings.waitingCreateUploadFileSelectorsStep1();
-                    methods.completeContentVr();
-                    break;
-            }
-            methods.completeConfigurationStep();
-            methods.completePricingStep();
-            methods.completeThumbnailStep();
-            page.click(selector.contentPublishButton);
-            page.waitForTimeout(3000);
-            System.out.println(contador+"/"+generate.generateExecutions());
+        for(executeCounter= 1;executeCounter<=generate.generateExecutions();executeCounter++ ) {
+            methods.completeResourceForm();
+            methods.completeResourceStep();
+            methods.publishContent();
+            System.out.println(executeCounter+"/"+generate.generateExecutions());
         }
     }
+    /**
+     * Método para crear nuevos cursos en Docola.
+     */
     public void newCourse() {
         methods.login();
-        typeContent=2;
-        for (contador = 1; contador <= generate.generateExecutions(); contador++) {
-            methods.goToContentCreateForm();
-            page.fill(selector.contentTitle,generate.generateContentTitle());
-            page.fill(selector.contentDescription, generate.generateContentDescription());
-            page.click(selector.contentButtonContinue);
-            methods.completeConfigurationStep();
-            methods.completeContentStep();
-            page.click(selector.contentButtonContinue);
-            methods.completePricingStep();
-            methods.completeThumbnailStep();
-            page.click(selector.contentPublishButton);
-            page.waitForTimeout(3000);
-            System.out.println(contador+"/"+generate.generateExecutions());
+        contentType =2;
+        for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
+            methods.completeCourseForm();
+            methods.publishContent();
+            System.out.println(executeCounter+"/"+generate.generateExecutions());
         }
     }
+    /**
+     * Método para crear nuevas colecciones de cursos en Docola.
+     */
     public void newCourseCollection() {
         methods.login();
-        typeContent=3;
-        for (contador = 1; contador <= generate.generateExecutions(); contador++) {
-            methods.goToContentCreateForm();
-            page.fill(selector.contentTitle,generate.generateContentTitle());
-            page.fill(selector.contentDescription, generate.generateContentDescription());
-            page.click(selector.contentButtonContinue);
-            methods.completeConfigurationStep();
-            methods.completeContentStep();
-            page.click(selector.contentButtonContinue);
-            methods.completePricingStep();
-            methods.completeThumbnailStep();
-            page.click(selector.contentPublishButton);
-            page.waitForTimeout(3000);
-            System.out.println(contador+"/"+generate.generateExecutions());
+        contentType =3;
+        for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
+            methods.completeCollectionForm();
+            methods.publishContent();
+            System.out.println(executeCounter+"/"+generate.generateExecutions());
         }
     }
 }

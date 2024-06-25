@@ -13,7 +13,7 @@ public class formularioClubs extends Stage {
         GridPane grid = new GridPane();
         grid.setHgap(10);
         grid.setVgap(10);
-        TextField pathImageJT = new TextField("path image");
+        TextField imagePathJT = new TextField("path image");
         TextField titleClubJT = new TextField("title Club");
         TextField descriptionClubJT = new TextField("description club");
         TextField creatorClubJT = new TextField("id creator Club");
@@ -23,7 +23,7 @@ public class formularioClubs extends Stage {
         TextField subTopicClubJT = new TextField("id sub topic Club");
         TextField estadoJT = new TextField("estado");
         Button guardar = new Button("Guardar");
-        GridPane.setConstraints(pathImageJT,2,1);
+        GridPane.setConstraints(imagePathJT,2,1);
         GridPane.setConstraints(titleClubJT,4,1);
         GridPane.setConstraints(descriptionClubJT,2,2);
         GridPane.setConstraints(creatorClubJT,4,2);
@@ -39,7 +39,7 @@ public class formularioClubs extends Stage {
                 String username = "root";
                 String password = "root";
                 Connection CN = DriverManager.getConnection(url, username, password);
-                String pathImage = pathImageJT.getText();
+                String imagePath = imagePathJT.getText();
                 String titleClub = titleClubJT.getText();
                 String descriptionClub = descriptionClubJT.getText();
                 String creatorClub = creatorClubJT.getText();
@@ -48,15 +48,15 @@ public class formularioClubs extends Stage {
                 String topicClub = topicClubJT.getText();
                 String subTopicClub = subTopicClubJT.getText();
                 String estado = estadoJT.getText();
-                String insertSql = "INSERT INTO datoscrearclub (`pathImage`,`titleClub`,`descriptionClub`,`creatorClub`,`tagClub`,`categoryClub`,`topicClub`,`subTopicClub`,`estado`,`ejecuciones`) " +
-                        "VALUES("+"'"+pathImage+"'"+","+"'"+titleClub+"'"+","+"'"+descriptionClub+"'"+","+"'"+creatorClub+"'"+","+"'"+tagClub+"'"+","+
+                String insertSql = "INSERT INTO datoscrearclub (`imagePath`,`titleClub`,`descriptionClub`,`creatorClub`,`tagClub`,`categoryClub`,`topicClub`,`subTopicClub`,`estado`,`executionDetails`) " +
+                        "VALUES("+"'"+imagePath+"'"+","+"'"+titleClub+"'"+","+"'"+descriptionClub+"'"+","+"'"+creatorClub+"'"+","+"'"+tagClub+"'"+","+
                         "'"+categoryClub+"'"+","+"'"+topicClub+"'"+","+"'"+subTopicClub+"'"+","+estado+")";
                 Statement stmt = CN.createStatement();
                 stmt.executeUpdate(insertSql);
                 CN.close();
             }catch (Exception ex){ex.printStackTrace();}
         });
-        grid.getChildren().add(pathImageJT);
+        grid.getChildren().add(imagePathJT);
         grid.getChildren().add(titleClubJT);
         grid.getChildren().add(descriptionClubJT);
         grid.getChildren().add(creatorClubJT);

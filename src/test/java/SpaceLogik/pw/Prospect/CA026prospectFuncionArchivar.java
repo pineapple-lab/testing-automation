@@ -12,7 +12,7 @@ public class CA026prospectFuncionArchivar extends robotBaseSpaceLogik {
         iniciarVariablesProspectFeliz();
         System.out.println("El caso CA0261 se va a execute: "+execute+" veces");
         for (counter=1; counter <= execute; counter++){
-            nameCase=nameCompanyProspect+".14-validacionArchivarProspect.Ejecuciones:"+counter;
+            nameCase=nameCompanyProspect+".14-validacionArchivarProspect.executionDetails:"+counter;
             assertions="text="+nameCase;
             login();
             crearProspect();

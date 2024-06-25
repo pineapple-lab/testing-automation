@@ -7,7 +7,7 @@ public class functionWorkshopUser extends testCasesEnrollWorkshop {
         startContext();
         serverStatus();
         System.out.println("Iniciando caso de prueba...");
-        printStream.println("Iniciando caso de prueba...");
+        outputStream.println("Iniciando caso de prueba...");
         startExecutionWorkshop();
         printNumberExecutions();
         startNavigation();
@@ -17,7 +17,7 @@ public class functionWorkshopUser extends testCasesEnrollWorkshop {
             startContext();
             serverStatus();
             System.out.println("Iniciando caso de prueba...");
-            printStream.println("Iniciando caso de prueba...");
+            outputStream.println("Iniciando caso de prueba...");
             startExecutionArticle();
             printNumberExecutions();
             startNavigation();
@@ -27,7 +27,7 @@ public class functionWorkshopUser extends testCasesEnrollWorkshop {
         startContext();
         serverStatus();
         System.out.println("Iniciando caso de prueba...");
-        printStream.println("Iniciando caso de prueba...");
+        outputStream.println("Iniciando caso de prueba...");
         startExecutionArticle();
         printNumberExecutions();
         startNavigation();
@@ -37,7 +37,7 @@ public class functionWorkshopUser extends testCasesEnrollWorkshop {
         startContext();
         serverStatus();
         System.out.println("Iniciando caso de prueba...");
-        printStream.println("Iniciando caso de prueba...");
+        outputStream.println("Iniciando caso de prueba...");
         startExecutionArticle();
         printNumberExecutions();
         startNavigation();

@@ -11,7 +11,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import static InsumosDocola.VariablesDocola.*;
-import static InsumosDocola.VariablesDocola.linkNavigation;
+import static InsumosDocola.VariablesDocola.navigationLink;
 
 public class AdvancedSettingContentCreator extends InterfaceElements {
     Label labelTypeContent = new Label ("Tipo de contenido");
@@ -21,9 +21,9 @@ public class AdvancedSettingContentCreator extends InterfaceElements {
     MethodsDocola mDocola = new MethodsDocola();
     VariablesDocola vDocola = new VariablesDocola();
     InterfaceActions iActions = new InterfaceActions();
-    public AdvancedSettingContentCreator(String ejecucionesAvanzadas , String seleccionAvanzada){
+    public AdvancedSettingContentCreator(String executionDetailsAvanzadas , String seleccionAvanzada){
 
-        this.vDocola.ejecuciones = ejecucionesAvanzadas;
+        this.vDocola.executionDetails = executionDetailsAvanzadas;
         this.seleccion = seleccionAvanzada;
     }
     @Override
@@ -46,10 +46,10 @@ public class AdvancedSettingContentCreator extends InterfaceElements {
         stageJoin.setScene(sceneConfigAvanzada);
         settingAdvancedExecute.setOnAction(e->{
             Thread execute=  new Thread (()->{
-                System.out.println(email);
-                System.out.println(linkNavigation);
-                amountOfContent = 3;
-                VariablesDocola.typeResource = tfTypeContent.getText();
+                System.out.println(userEmail);
+                System.out.println(navigationLink);
+                contentAmount = 3;
+                VariablesDocola.resourceType = tfTypeContent.getText();
                 iActions.actionNewResource();
 
             }, "execute");

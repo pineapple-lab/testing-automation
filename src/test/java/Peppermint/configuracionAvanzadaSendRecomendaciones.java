@@ -9,8 +9,8 @@ import static insumosPeppermint.variablesPeppermint.*;
 
 public class configuracionAvanzadaSendRecomendaciones extends interfaceActions{
     methodsPeppermint metodosPeppermint = new methodsPeppermint();
-    public configuracionAvanzadaSendRecomendaciones(String ejecucionesAvanzadas , String seleccionAvanzada){
-        this.ejecuciones = ejecucionesAvanzadas;
+    public configuracionAvanzadaSendRecomendaciones(String executionDetailsAvanzadas , String seleccionAvanzada){
+        this.executionDetails = executionDetailsAvanzadas;
         this.seleccion = seleccionAvanzada;
     }
     public void start(Stage configAvanzadaSendFriendsStage){

@@ -13,8 +13,8 @@ public class formularioArticles extends Stage {
         GridPane grid = new GridPane();
         grid.setHgap(10);
         grid.setVgap(10);
-        TextField pathImageJT = new TextField("path image");
-        TextField pathVideoJT = new TextField("path video");
+        TextField imagePathJT = new TextField("path image");
+        TextField videoPathJT = new TextField("path video");
         TextField titleArticleJT = new TextField("title Articles");
         TextField descriptionArticleJT = new TextField("description Articles");
         TextField creatorArticleJT = new TextField("id creator Articles");
@@ -27,10 +27,10 @@ public class formularioArticles extends Stage {
         TextField textContentJT = new TextField("text content");
         TextField estadoJT = new TextField("estado");
         Button guardar = new Button("Guardar");
-        GridPane.setConstraints(pathImageJT,2,1);
-        GridPane.setConstraints(pathVideoJT,4,1);
-        GridPane.setConstraints(pathImageJT,2,2);
-        GridPane.setConstraints(pathVideoJT,4,2);
+        GridPane.setConstraints(imagePathJT,2,1);
+        GridPane.setConstraints(videoPathJT,4,1);
+        GridPane.setConstraints(imagePathJT,2,2);
+        GridPane.setConstraints(videoPathJT,4,2);
         GridPane.setConstraints(titleArticleJT,2,3);
         GridPane.setConstraints(descriptionArticleJT,4,3);
         GridPane.setConstraints(creatorArticleJT,2,4);
@@ -49,8 +49,8 @@ public class formularioArticles extends Stage {
                 String username = "root";
                 String password = "root";
                 Connection CN = DriverManager.getConnection(url, username, password);
-                String pathImage = pathImageJT.getText();
-                String pathVideo = pathVideoJT.getText();
+                String imagePath = imagePathJT.getText();
+                String videoPath = videoPathJT.getText();
                 String titleArticle = titleArticleJT.getText();
                 String descriptionArticle = descriptionArticleJT.getText();
                 String creatorArticle = creatorArticleJT.getText();
@@ -63,8 +63,8 @@ public class formularioArticles extends Stage {
                 String textContent = contentTitleJT.getText();
                 String estado = estadoJT.getText();
                 String insertSql = "INSERT INTO datoscreararticle (" +
-                        "`pathImage`," +
-                        "`pathVideo`," +
+                        "`imagePath`," +
+                        "`videoPath`," +
                         "`titleArticle`," +
                         "`descriptionArticle`," +
                         "`creatorArticle`," +
@@ -77,8 +77,8 @@ public class formularioArticles extends Stage {
                         "`textContent`," +
                         "`estado`) " +
                         "VALUES("+
-                        "'"+pathImage+"'"+","+
-                        "'"+pathVideo+"'"+","+
+                        "'"+imagePath+"'"+","+
+                        "'"+videoPath+"'"+","+
                         "'"+titleArticle+"'"+","+
                         "'"+descriptionArticle+"'"+","+
                         "'"+creatorArticle+"'"+","+
@@ -95,8 +95,8 @@ public class formularioArticles extends Stage {
                 CN.close();
             }catch (Exception ex){ex.printStackTrace();}
         });
-        grid.getChildren().add(pathImageJT);
-        grid.getChildren().add(pathVideoJT);
+        grid.getChildren().add(imagePathJT);
+        grid.getChildren().add(videoPathJT);
         grid.getChildren().add(titleArticleJT);
         grid.getChildren().add(descriptionArticleJT);
         grid.getChildren().add(creatorArticleJT);

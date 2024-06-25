@@ -7,7 +7,7 @@ public class functionContentTaxonomy extends testCasesTaxonomy {
         startContext();
         serverStatus();
         System.out.println("iniciando caso de prueba...");
-        printStream.println("iniciando caso de prueba...");
+        outputStream.println("iniciando caso de prueba...");
         startExecutionTaxonomy();
         printNumberExecutions();
         startNavigation();

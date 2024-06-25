@@ -9,7 +9,7 @@ import java.sql.Statement;
 public class assertions extends queriesSQLcasesFailed {
     @Test
     public void iniciarPeppermintScaner(){
-        linkNavigation="http://localhost:4200/";
+        navigationLink="http://localhost:4200/";
         emailLogin="pineappleuser1687208170027@mailinator.com";
         passwordLogin="123123aA";
         //iniciarNavegacion();
@@ -27,7 +27,7 @@ public class assertions extends queriesSQLcasesFailed {
     }
     public void assertionsDashboard(){
         System.out.println("Comprobando elementos del dashboard");
-        printStream.println("Comprobando elementos del dashboard");
+        outputStream.println("Comprobando elementos del dashboard");
         //Titulo dashboard
         page.waitForSelector("app-user-dashboards > div > div > div:nth-of-type(1) > h1");
         //Titulo slider de workshops

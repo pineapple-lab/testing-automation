@@ -15,7 +15,7 @@ public class CA015programFuncionAutoProgram extends robotBaseSpaceLogik {
         iniciarVariablesAutoProgramFeliz();
         System.out.println("El caso CA0151 se va a execute "+execute+" veces");
         for(counter=1;counter<=execute;counter++) {
-            nameCase=nameRoomAutoProgram+".32-validacionCrearAutoProgram.Ejecuciones:"+counter;
+            nameCase=nameRoomAutoProgram+".32-validacionCrearAutoProgram.executionDetails:"+counter;
             login();
             crearAutoProgram();
             page.focus("#root");

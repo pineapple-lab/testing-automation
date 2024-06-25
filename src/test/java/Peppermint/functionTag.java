@@ -7,7 +7,7 @@ public class functionTag extends testCasesTag {
         startContext();
         serverStatus();
         System.out.println("Iniciando caso de prueba...");
-        printStream.println("Iniciando caso de prueba...");
+        outputStream.println("Iniciando caso de prueba...");
         startExecutionTag();
         printNumberExecutions();
         startNavigation();

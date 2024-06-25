@@ -20,7 +20,7 @@ public class BotSettings extends InterfaceElements{
         Scene sceneConfigAvanzada = new Scene(rootConfigAvanzada,199,170);
         botSettings.setScene(sceneConfigAvanzada);
         undefinedUser.setOnAction( event -> {
-            //ejecuciones=tfExecute.getText();
+            //executionDetails=tfExecute.getText();
             BotSettingDefaultUser configAvanzada = new BotSettingDefaultUser(seleccion);
             Stage botSettingsStage = new Stage();
             configAvanzada.start(botSettingsStage);

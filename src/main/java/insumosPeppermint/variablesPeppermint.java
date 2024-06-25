@@ -3,9 +3,9 @@ import java.io.PrintStream;
 public class variablesPeppermint extends connectionSQLpeppermint{
     //UTILIDAD
     public String assertions;
-    public static String linkNavigation;
-    public static volatile PrintStream printStream;
-    public static volatile boolean shouldStopTest;
+    public static String navigationLink;
+    public static volatile PrintStream outputStream;
+    public static volatile boolean stopTest;
 
     public boolean uploadImageVideo;
     public String textoParaPublicaciones = "Lorem ipsum dolor sit amet consectetur adipiscing elit quisque taciti faucibus facilisis ac, vestibulum viverra venenatis gravida magnis varius fames tortor imperdiet id facilisi phasellus, mollis mi at urna aliquet donec pellentesque est quam volutpat lacinia. Fames leo egestas feugiat nunc lobortis facilisi vehicula cursus mattis, nullam viverra commodo habitasse litora luctus id massa ut hendrerit, quis etiam mus varius a libero velit enim. Urna ullamcorper nulla dui etiam luctus nascetur tincidunt risus aenean himenaeos, egestas vel volutpat leo torquent venenatis et convallis porta varius, pulvinar vestibulum turpis dis montes elementum vitae arcu mauris. Taciti mi erat molestie ridiculus malesuada eu leo habitasse nostra, est sagittis tellus vivamus scelerisque mus integer vel porttitor sed, suscipit donec urna fames ornare phasellus eros interdum. Ac a donec taciti leo senectus rhoncus venenatis";
@@ -53,8 +53,8 @@ public class variablesPeppermint extends connectionSQLpeppermint{
     public String inviteGuestEmailLoop;
     public int idcontent;
     //RUTAS
-    public String pathImage;
-    public String pathVideo;
+    public String imagePath;
+    public String videoPath;
     //LOGIN
     public static String emailUserAdmin= "admin@oluko.com";
     public static String emailUserAdminQA= "danielmendoza001@mailinator.com";

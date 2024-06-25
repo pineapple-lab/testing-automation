@@ -13,7 +13,7 @@ public class CA030prospectFuncionEliminar extends robotBaseSpaceLogik {
         iniciarVariablesProspectFeliz();
         System.out.println("El caso CA0301 se va a execute: "+execute+" veces");
         for (counter=1; counter <= execute; counter++){
-            nameCase=nameCompanyProspect+".15-validacionEliminarProspect.Ejecuciones:"+counter;
+            nameCase=nameCompanyProspect+".15-validacionEliminarProspect.executionDetails:"+counter;
             assertions="text="+nameCase;
             login();
             crearProspect();

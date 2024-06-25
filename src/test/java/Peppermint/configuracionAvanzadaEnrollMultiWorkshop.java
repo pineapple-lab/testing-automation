@@ -9,8 +9,8 @@ import static insumosPeppermint.variablesPeppermint.*;
 
 public class configuracionAvanzadaEnrollMultiWorkshop extends interfaceActions{
     methodsPeppermint metodosPeppermint = new methodsPeppermint();
-    public configuracionAvanzadaEnrollMultiWorkshop(String ejecucionesAvanzadas , String seleccionAvanzada){
-        this.ejecuciones = ejecucionesAvanzadas;
+    public configuracionAvanzadaEnrollMultiWorkshop(String executionDetailsAvanzadas , String seleccionAvanzada){
+        this.executionDetails = executionDetailsAvanzadas;
         this.seleccion = seleccionAvanzada;
     }
     @Override

@@ -61,7 +61,7 @@ public class CA018programFuncionEdit extends robotBaseSpaceLogik {
         nameProgram = "pruebAutomatizada";
         System.out.println("El caso CA0183 se va a execute "+execute+" veces");
         for(counter=1;counter<=execute;counter++) {
-            nameCase=nameRoomAutoProgram+".26-validacionEditRoomOptions.Ejecuciones:"+counter;
+            nameCase=nameRoomAutoProgram+".26-validacionEditRoomOptions.executionDetails:"+counter;
             login();
             crearPrograma();
             page.focus("#root");
@@ -191,7 +191,7 @@ public class CA018programFuncionEdit extends robotBaseSpaceLogik {
         iniciarVariablesAutoProgramFeliz();
         System.out.println("El caso de prueba CA0188 se va a execute "+execute +" veces");
         for(counter=1;counter<=execute;counter++) {
-            nameCase=nameRoomAutoProgram+".31-validacionEdicionCompleta.Ejecuciones:"+counter;
+            nameCase=nameRoomAutoProgram+".31-validacionEdicionCompleta.executionDetails:"+counter;
             commentsRoomDetails=nameCase;
             login();
             crearPrograma();

@@ -20,7 +20,7 @@ public class CA06validacionProgramExcepcion extends robotBaseSpaceLogik {
         iniciarVariablesAutoProgramFeliz();
         System.out.println("El caso de prueba CA062 se va a execute "+execute+" veces");
         for(counter=1;counter<=execute;counter++) {
-            nameRoomAutoProgram = nameRoomAutoProgram+".34-validacionNombreVacioAutoProgramExcepcion.Ejecuciones"+counter;
+            nameRoomAutoProgram = nameRoomAutoProgram+".34-validacionNombreVacioAutoProgramExcepcion.executionDetails"+counter;
             login();
             excepcionAutoProgramNombreVacio();
             page.focus("#root");
@@ -44,7 +44,7 @@ public class CA06validacionProgramExcepcion extends robotBaseSpaceLogik {
         iniciarVariablesAutoProgramFeliz();
         System.out.println("El caso de prueba CA064 se va a execute "+execute+" veces");
         for(counter=1;counter<=execute;counter++) {
-            nameCase = nameRoomAutoProgram+".36-validacionRoomNameVacionExcepcion.Ejecuciones"+counter;
+            nameCase = nameRoomAutoProgram+".36-validacionRoomNameVacionExcepcion.executionDetails"+counter;
             login();
             excepcionProgramRoomNameVacio();
             page.focus("#root");
@@ -58,7 +58,7 @@ public class CA06validacionProgramExcepcion extends robotBaseSpaceLogik {
         iniciarVariablesAutoProgramFeliz();
         System.out.println("El caso de prueba CA065 se va a execute "+execute+" veces");
         for(counter=1;counter<=execute;counter++) {
-            nameCase = nameRoomAutoProgram+".37-validacionAreaListVacioExcepcion.Ejecuciones:"+counter;
+            nameCase = nameRoomAutoProgram+".37-validacionAreaListVacioExcepcion.executionDetails:"+counter;
             nameRoomAutoProgram=nameCase;
             login();
             excepcionProgramAreaListVacio();

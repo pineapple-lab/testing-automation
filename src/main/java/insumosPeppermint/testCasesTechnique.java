@@ -2,7 +2,7 @@ package insumosPeppermint;
 public class testCasesTechnique extends methodsPeppermint{
     public void validateCreateTechnique() {
         for (counter = 1; counter <= execute; counter++) {
-            if (!shouldStopTest) {
+            if (!stopTest) {
                 startVariablesCreateTechnique();
                 createTechnique();
                 assertions = "text=The technique was created successfully";
@@ -15,7 +15,7 @@ public class testCasesTechnique extends methodsPeppermint{
                 page.focus("table tbody");
                 //Assertions.assertTrue(page.isVisible(assertions));
                 System.out.println("La technique se ha creado con exito\n");
-                printStream.println("La technique se ha creado con exito\n");
+                outputStream.println("La technique se ha creado con exito\n");
                 printNumberCasesExecuted();
             } else {
                 closeContext();

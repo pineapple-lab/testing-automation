@@ -25,7 +25,7 @@ public class CA08validacionProspectExcepcion extends robotBaseSpaceLogik {
         iniciarVariablesProspectFeliz();
         System.out.println("El caso CA082 se va a execute "+execute+" veces");
         for (counter=1;counter<=execute;counter++) {
-            nameCase=nameCompanyProspect+".36-validacionEmailVacioExcepcion.Ejecuciones:"+counter;
+            nameCase=nameCompanyProspect+".36-validacionEmailVacioExcepcion.executionDetails:"+counter;
             login();
             excepcionProspectEmailVacio();
             page.focus("#root");
@@ -40,7 +40,7 @@ public class CA08validacionProspectExcepcion extends robotBaseSpaceLogik {
         emailProspect="pruebaExcepcion";
         System.out.println("El caso CA083 se va a execute "+execute+" veces");
         for (counter=1;counter<=execute;counter++) {
-            nameCase=nameCompanyProspect+".37-validacionFormatoIncorrectoExcepcion.Ejecuciones:"+counter;
+            nameCase=nameCompanyProspect+".37-validacionFormatoIncorrectoExcepcion.executionDetails:"+counter;
             login();
             excepcionProspectFormatoEmailIncorrecto();
             page.focus("#root");
@@ -54,7 +54,7 @@ public class CA08validacionProspectExcepcion extends robotBaseSpaceLogik {
         iniciarVariablesProspectFeliz();
         System.out.println("El caso CA084 se va a execute "+execute+" veces");
         for (counter=1;counter<=execute;counter++) {
-            nameCase=nameCompanyProspect+".38-validacionFirstnameVacioExcepcion.Ejecuciones:"+counter;
+            nameCase=nameCompanyProspect+".38-validacionFirstnameVacioExcepcion.executionDetails:"+counter;
             login();
             excepcionProspectFirstNameVacio();
             page.focus("#root");
@@ -68,7 +68,7 @@ public class CA08validacionProspectExcepcion extends robotBaseSpaceLogik {
         iniciarVariablesProspectFeliz();
         System.out.println("El caso CA085 se va a execute "+execute+" veces");
         for (counter=1;counter<=execute;counter++) {
-            nameCase=nameCompanyProspect+".39-validacionLastNameVacioExcepcion.Ejecuciones:"+counter;
+            nameCase=nameCompanyProspect+".39-validacionLastNameVacioExcepcion.executionDetails:"+counter;
             login();
             excepcionProspectLastNameVacio();
             page.focus("#root");
@@ -82,7 +82,7 @@ public class CA08validacionProspectExcepcion extends robotBaseSpaceLogik {
         iniciarVariablesProspectFeliz();
         System.out.println("El caso CA086 se va a execute "+execute+" veces");
         for (counter=1;counter<=execute;counter++) {
-            nameCase=nameCompanyProspect+".40-validacionCityVacioExcpecion.Ejecuciones:"+counter;
+            nameCase=nameCompanyProspect+".40-validacionCityVacioExcpecion.executionDetails:"+counter;
             login();
             excepcionProspectCityVacio();
             page.focus("#root");
@@ -96,7 +96,7 @@ public class CA08validacionProspectExcepcion extends robotBaseSpaceLogik {
         iniciarVariablesProspectFeliz();
         System.out.println("El caso CA087 se va a execute "+execute+" veces");
         for (counter=1;counter<=execute;counter++) {
-            nameCase=nameCompanyProspect+".41-validacionZipCodeVacioExcepcion.Ejecuciones:"+counter;
+            nameCase=nameCompanyProspect+".41-validacionZipCodeVacioExcepcion.executionDetails:"+counter;
             login();
             excepcionProspectZipCodeVacio();
             page.focus("#root");
@@ -110,7 +110,7 @@ public class CA08validacionProspectExcepcion extends robotBaseSpaceLogik {
         iniciarVariablesProspectFeliz();
         System.out.println("El caso CA088 se va a execute "+execute+" veces");
         for (counter=1;counter<=execute;counter++) {
-            nameCase=nameCompanyProspect+".42-validacionIndustryVacioExcepcion.Ejecuciones:"+counter;
+            nameCase=nameCompanyProspect+".42-validacionIndustryVacioExcepcion.executionDetails:"+counter;
             login();
             excepcionProspectIndustryVacio();
             page.focus("#root");
@@ -125,7 +125,7 @@ public class CA08validacionProspectExcepcion extends robotBaseSpaceLogik {
         iniciarVariablesCompetitiveSetFeliz();
         System.out.println("El caso CA089 se va a execute "+execute+" veces");
         for (counter=1;counter<=execute;counter++) {
-            nameCase=nameCompanyProspect+".43-validacionCompetitiveSetBuildingVacioExcepcion.Ejecuciones:"+counter;
+            nameCase=nameCompanyProspect+".43-validacionCompetitiveSetBuildingVacioExcepcion.executionDetails:"+counter;
             notesCompetitiveSetProspect=nameCase;
             login();
             crearProspect();
@@ -142,7 +142,7 @@ public class CA08validacionProspectExcepcion extends robotBaseSpaceLogik {
         iniciarVariablesTrackingFeliz();
         System.out.println("El caso CA0810 se va a execute "+execute+" veces");
         for (counter=1;counter<=execute;counter++) {
-            nameCase=nameCompanyProspect+".44-validacionTrackingSubjectVacio.Ejecuciones:"+counter;
+            nameCase=nameCompanyProspect+".44-validacionTrackingSubjectVacio.executionDetails:"+counter;
             login();
             crearProspect();
             excepcionProspectTrackingSubjectVacio();
@@ -160,7 +160,7 @@ public class CA08validacionProspectExcepcion extends robotBaseSpaceLogik {
         subjectTrackingProspect="pruebAutomatizada45-validacionTrackingDateSubjectVacio";
         System.out.println("El caso CA0811 se va a execute "+execute+" veces");
         for (counter=1;counter<=execute;counter++) {
-            nameCase=nameCompanyProspect+".45-validacionTrackingDateSubjectVacio.Ejecuciones:"+counter;
+            nameCase=nameCompanyProspect+".45-validacionTrackingDateSubjectVacio.executionDetails:"+counter;
             subjectTrackingProspect=nameCase;
             login();
             crearProspect();
@@ -177,7 +177,7 @@ public class CA08validacionProspectExcepcion extends robotBaseSpaceLogik {
         iniciarVariablesEditManualBrokerFeliz();
         System.out.println("El caso CA0812 se va a execute "+execute+" veces");
         for (counter=1;counter<=execute;counter++) {
-            nameCase=nameCompanyProspect+".46-validacionEditBrokerFirstNameVacioExcepcion.Ejecuciones:"+counter;
+            nameCase=nameCompanyProspect+".46-validacionEditBrokerFirstNameVacioExcepcion.executionDetails:"+counter;
             login();
             crearProspect();
             excepcionProspectFirstNameVacioEditBrokerInfo();
@@ -193,7 +193,7 @@ public class CA08validacionProspectExcepcion extends robotBaseSpaceLogik {
         iniciarVariablesEditManualBrokerFeliz();
         System.out.println("El caso CA0813 se va a execute "+execute+" veces");
         for (counter=1;counter<=execute;counter++) {
-            nameCase=nameCompanyProspect+".47-validacionEditBrokerLastNameVacioExcepcion.Ejecuciones:"+counter;
+            nameCase=nameCompanyProspect+".47-validacionEditBrokerLastNameVacioExcepcion.executionDetails:"+counter;
             firstNameEditBrokerManual=nameCase;
             login();
             crearProspect();
@@ -210,7 +210,7 @@ public class CA08validacionProspectExcepcion extends robotBaseSpaceLogik {
         iniciarVariablesEditManualBrokerFeliz();
         System.out.println("El caso CA0814 se va a execute "+execute+" veces");
         for (counter=1;counter<=execute;counter++) {
-            nameCase=nameCompanyProspect+".48-validacionEditBrokerLastNameVacioExcepcion.Ejecuciones:"+counter;
+            nameCase=nameCompanyProspect+".48-validacionEditBrokerLastNameVacioExcepcion.executionDetails:"+counter;
             firstNameEditBrokerManual=nameCase;
             login();
             crearProspect();
@@ -227,7 +227,7 @@ public class CA08validacionProspectExcepcion extends robotBaseSpaceLogik {
         iniciarVariablesEditManualBrokerFeliz();
         System.out.println("El caso CA0815 se va a execute "+execute+" veces");
         for (counter=1;counter<=execute;counter++) {
-            nameCase=nameCompanyProspect+".49-validacionEditBrokerEmailFormatoIncorrectoExcepcion.Ejecuciones:"+counter;
+            nameCase=nameCompanyProspect+".49-validacionEditBrokerEmailFormatoIncorrectoExcepcion.executionDetails:"+counter;
             firstNameEditBrokerManual=nameCase;
             login();
             crearProspect();
@@ -245,7 +245,7 @@ public class CA08validacionProspectExcepcion extends robotBaseSpaceLogik {
         iniciarVariablesEditManualBrokerFeliz();
         System.out.println("El caso CA0816 se va a execute "+execute+" veces");
         for (counter=1;counter<=execute;counter++) {
-            nameCase=nameCompanyProspect+".50-validacionEditBrokerCityVacioExcepcion.Ejecuciones:"+counter;
+            nameCase=nameCompanyProspect+".50-validacionEditBrokerCityVacioExcepcion.executionDetails:"+counter;
             firstNameEditBrokerManual=nameCase;
             login();
             crearProspect();
@@ -262,7 +262,7 @@ public class CA08validacionProspectExcepcion extends robotBaseSpaceLogik {
         iniciarVariablesEditManualBrokerFeliz();
         System.out.println("El caso CA0817 se va a execute "+execute+" veces");
         for (counter=1;counter<=execute;counter++) {
-            nameCase=nameCompanyProspect+".51-validacionEditBrokerZipCodeVacioExcepcion.Ejecuciones:"+counter;
+            nameCase=nameCompanyProspect+".51-validacionEditBrokerZipCodeVacioExcepcion.executionDetails:"+counter;
             firstNameEditBrokerManual=nameCase;
             login();
             crearProspect();

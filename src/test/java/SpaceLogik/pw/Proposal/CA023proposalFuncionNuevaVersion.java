@@ -12,7 +12,7 @@ public class CA023proposalFuncionNuevaVersion extends robotBaseSpaceLogik {
         iniciarVariablesCreacionProposal();
         System.out.println("El caso CA0231 se va a execute "+execute+" veces");
         for(counter=1; counter <= execute ;counter++) {
-            nameCase=nameProposal+".8-validacionNuevaVersion.Ejecuciones:"+counter;
+            nameCase=nameProposal+".8-validacionNuevaVersion.executionDetails:"+counter;
             assertions="text="+nameCase;
             obtenerFecha();
             login();

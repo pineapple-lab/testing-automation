@@ -14,8 +14,8 @@ public class formularioTechnique extends Stage{
         GridPane grid = new GridPane();
         grid.setHgap(10);
         grid.setVgap(10);
-        TextField pathImageJT= new TextField("path image");
-        TextField pathVideoJT= new TextField("path video");
+        TextField imagePathJT= new TextField("path image");
+        TextField videoPathJT= new TextField("path video");
         TextField titleTechniqueJT= new TextField("title Technique");
         TextField descriptionTechniqueJT= new TextField("description Technique");
         TextField creatorTechniqueJT= new TextField("id creator Technique");
@@ -25,8 +25,8 @@ public class formularioTechnique extends Stage{
         TextField subTopicTechniqueJT= new TextField("id sub topic Technique");
         TextField estadoJT= new TextField("estado");
         Button guardar= new Button("Guardar");
-        GridPane.setConstraints(pathImageJT,2,1);
-        GridPane.setConstraints(pathVideoJT,4,1);
+        GridPane.setConstraints(imagePathJT,2,1);
+        GridPane.setConstraints(videoPathJT,4,1);
         GridPane.setConstraints(titleTechniqueJT,2,2);
         GridPane.setConstraints(descriptionTechniqueJT,4,2);
         GridPane.setConstraints(creatorTechniqueJT,2,3);
@@ -42,8 +42,8 @@ public class formularioTechnique extends Stage{
                 String username = "root";
                 String password = "root";
                 Connection CN = DriverManager.getConnection(url, username, password);
-                String pathImage = pathImageJT.getText();
-                String pathVideo = pathVideoJT.getText();
+                String imagePath = imagePathJT.getText();
+                String videoPath = videoPathJT.getText();
                 String titleTechnique = titleTechniqueJT.getText();
                 String descriptionTechnique = descriptionTechniqueJT.getText();
                 String creatorTechnique = creatorTechniqueJT.getText();
@@ -53,16 +53,16 @@ public class formularioTechnique extends Stage{
                 String subTopicTechnique = subTopicTechniqueJT.getText();
                 String estado = estadoJT.getText();
 
-                String insertSql = "INSERT INTO datoscreartechnique (`pathImage`,`pathVideo`,`titleTechnique`,`descriptionTechnique`,`creatorTechnique`,`tagTechnique`,`categoryTechnique`,`topicTechnique`,`subTopicTechnique`,`estado`) " +
-                        "VALUES("+"'"+pathImage+"'"+","+ "'"+pathVideo+"'"+","+"'"+titleTechnique+"'"+","+"'"+descriptionTechnique+"'"+","+"'"+creatorTechnique+"'"+","+"'"+tagTechnique+"'"+","+
+                String insertSql = "INSERT INTO datoscreartechnique (`imagePath`,`videoPath`,`titleTechnique`,`descriptionTechnique`,`creatorTechnique`,`tagTechnique`,`categoryTechnique`,`topicTechnique`,`subTopicTechnique`,`estado`) " +
+                        "VALUES("+"'"+imagePath+"'"+","+ "'"+videoPath+"'"+","+"'"+titleTechnique+"'"+","+"'"+descriptionTechnique+"'"+","+"'"+creatorTechnique+"'"+","+"'"+tagTechnique+"'"+","+
                         "'"+categoryTechnique+"'"+","+"'"+topicTechnique+"'"+","+"'"+subTopicTechnique+"'"+","+estado+")";
                 Statement stmt = CN.createStatement();
                 stmt.executeUpdate(insertSql);
                 CN.close();
             }catch (Exception ex){ex.printStackTrace();}
         });
-        grid.getChildren().add(pathImageJT);
-        grid.getChildren().add(pathVideoJT);
+        grid.getChildren().add(imagePathJT);
+        grid.getChildren().add(videoPathJT);
         grid.getChildren().add(titleTechniqueJT);
         grid.getChildren().add(descriptionTechniqueJT);
         grid.getChildren().add(creatorTechniqueJT);

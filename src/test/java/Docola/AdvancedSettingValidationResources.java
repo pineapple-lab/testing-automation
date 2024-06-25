@@ -11,8 +11,6 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
-import static InsumosDocola.VariablesDocola.*;
-
 public class AdvancedSettingValidationResources extends InterfaceElements{
     Label labelTypeContent = new Label ("Tipo de contenido");
     TextField tfTypeContent = new TextField();
@@ -22,9 +20,9 @@ public class AdvancedSettingValidationResources extends InterfaceElements{
     VariablesDocola vDocola = new VariablesDocola();
     InterfaceActions iActions = new InterfaceActions();
     private CallBack valueCallBack;
-    public AdvancedSettingValidationResources(String ejecucionesAvanzadas , String seleccionAvanzada, CallBack valueCallBack){
+    public AdvancedSettingValidationResources(String executionDetailsAvanzadas , String seleccionAvanzada, CallBack valueCallBack){
 
-        this.vDocola.ejecuciones = ejecucionesAvanzadas;
+        this.vDocola.executionDetails = executionDetailsAvanzadas;
         this.seleccion = seleccionAvanzada;
         this.valueCallBack = valueCallBack;
     }
@@ -48,7 +46,7 @@ public class AdvancedSettingValidationResources extends InterfaceElements{
         stageJoin.setScene(sceneConfigAvanzada);
         settingAdvancedExecute.setOnAction(e->{
                 String typeContentValue = tfTypeContent.getText();
-                VariablesDocola.typeResource = typeContentValue;
+                VariablesDocola.resourceType = typeContentValue;
                 if(valueCallBack != null){
                     valueCallBack.onValueCaptured(typeContentValue);
                     stageJoin.fireEvent(new WindowEvent(stageJoin, WindowEvent.WINDOW_CLOSE_REQUEST));

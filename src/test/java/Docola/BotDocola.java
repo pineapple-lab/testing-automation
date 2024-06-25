@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import static InsumosDocola.VariablesDocola.*;
-import static insumosPeppermint.variablesPeppermint.printStream;
+import static insumosPeppermint.variablesPeppermint.outputStream;
 public class BotDocola extends Docola.InterfaceActions {
     MethodsDocola methods= new MethodsDocola();
     public static void main(String[] args) {
@@ -22,7 +22,7 @@ public class BotDocola extends Docola.InterfaceActions {
         super.start(stage1);
         stage1.setTitle("Docola bot");
         Thread interfaceThread = new Thread(() -> {
-            printStream = new PrintStream(new PrintStream(new OutputStream() {
+            outputStream = new PrintStream(new PrintStream(new OutputStream() {
                 @Override
                 public void write(int b){
                     appendText(String.valueOf((char)b));
@@ -31,7 +31,7 @@ public class BotDocola extends Docola.InterfaceActions {
                     appendText(new String (b,off,len));
                 }
             }));
-            printStream.println("Bienvenido, selecciona un ambiente y el numero de ejecuciones para empezar.\n\n");
+            outputStream.println("Bienvenido, selecciona un ambiente y el numero de executionDetails para empezar.\n\n");
             //CREATOR buttons
             createUser.setOnAction(e->{
                 waitingList.add(ExecMethod.CREATE_USER);
@@ -42,8 +42,8 @@ public class BotDocola extends Docola.InterfaceActions {
             });
             createUser.setOnMousePressed( event -> {
                 if (event.isSecondaryButtonDown()){
-                    ejecuciones=tfExecute.getText();
-                    AdvancedSettingJoin configAvanzada = new AdvancedSettingJoin(ejecuciones,seleccion);
+                    executionDetails=tfExecute.getText();
+                    AdvancedSettingJoin configAvanzada = new AdvancedSettingJoin(executionDetails,seleccion);
                     Stage configAvanzadaStage = new Stage();
                     configAvanzada.start(configAvanzadaStage);
                     configAvanzadaStage.show();
@@ -58,8 +58,8 @@ public class BotDocola extends Docola.InterfaceActions {
             });
             newResource.setOnMousePressed( event -> {
                 if (event.isSecondaryButtonDown()){
-                    ejecuciones=tfExecute.getText();
-                    AdvancedSettingContentCreator configAvanzada = new AdvancedSettingContentCreator(ejecuciones,seleccion);
+                    executionDetails=tfExecute.getText();
+                    AdvancedSettingContentCreator configAvanzada = new AdvancedSettingContentCreator(executionDetails,seleccion);
                     Stage configAvanzadaStage = new Stage();
                     configAvanzada.start(configAvanzadaStage);
                     configAvanzadaStage.show();
@@ -167,7 +167,7 @@ public class BotDocola extends Docola.InterfaceActions {
             });
             //validation RESOURCE buttons
             validationTitleResource.setOnAction(e->{
-                typeResource ="Upload file";
+                resourceType ="Upload file";
                 waitingList.add(ExecMethod.VALIDATION_TITLE_RESOURCE_REQUIRED);
                 Enum elemento = waitingList.get(waitingList.size()-1);
                 CheckBox checkBox = new CheckBox("VALIDATION_TITLE_RESOURCE_REQUIRED");
@@ -176,10 +176,10 @@ public class BotDocola extends Docola.InterfaceActions {
             });
             validationTitleResource.setOnMousePressed( event -> {
                 if (event.isSecondaryButtonDown()){
-                    ejecuciones=tfExecute.getText();
+                    executionDetails=tfExecute.getText();
                     final ExecMethod selectedMethod = ExecMethod.VALIDATION_TITLE_RESOURCE_REQUIRED;
-                    AdvancedSettingValidationResources  configAvanzada = new AdvancedSettingValidationResources (ejecuciones,seleccion, (value)->{
-                        VariablesDocola.typeResource = value;
+                    AdvancedSettingValidationResources  configAvanzada = new AdvancedSettingValidationResources (executionDetails,seleccion, (value)->{
+                        VariablesDocola.resourceType = value;
                         waitingList.add(selectedMethod);
                         Platform.runLater(this::accion);
                     });
@@ -189,7 +189,7 @@ public class BotDocola extends Docola.InterfaceActions {
                 }
             });
             validationDescriptionResource.setOnAction(e->{
-                typeResource ="Upload file";
+                resourceType ="Upload file";
                 waitingList.add(ExecMethod.VALIDATION_DESCRIPTION_RESOURCE_REQUIRED);
                 Enum elemento = waitingList.get(waitingList.size()-1);
                 CheckBox checkBox = new CheckBox("VALIDATION_DESCRIPTION_RESOURCE_REQUIRED");
@@ -198,10 +198,10 @@ public class BotDocola extends Docola.InterfaceActions {
             });
             validationDescriptionResource.setOnMousePressed( event -> {
                 if (event.isSecondaryButtonDown()){
-                    ejecuciones=tfExecute.getText();
+                    executionDetails=tfExecute.getText();
                     final ExecMethod selectedMethod = ExecMethod.VALIDATION_DESCRIPTION_RESOURCE_REQUIRED;
-                    AdvancedSettingValidationResources  configAvanzada = new AdvancedSettingValidationResources (ejecuciones,seleccion, (value)->{
-                        VariablesDocola.typeResource = value;
+                    AdvancedSettingValidationResources  configAvanzada = new AdvancedSettingValidationResources (executionDetails,seleccion, (value)->{
+                        VariablesDocola.resourceType = value;
                         waitingList.add(selectedMethod);
                         Platform.runLater(this::accion);
                     });
@@ -214,22 +214,22 @@ public class BotDocola extends Docola.InterfaceActions {
             comboBox.setOnAction(e -> {
                 seleccion = comboBox.getValue();
                 if (seleccion.equals("Local")) {
-                    VariablesDocola.linkNavigation = "http://localhost:4200/";
+                    VariablesDocola.navigationLink = "http://localhost:4200/";
                 }
                 if (seleccion.equals("DEV")) {
-                    VariablesDocola.linkNavigation = "https://docolasandbox.web.app/";
+                    VariablesDocola.navigationLink = "https://docolasandbox.web.app/";
                 }
             });
             stopTestCase.setOnAction(event ->{
                 methods.stopTest();
                 System.out.println("La ejecucion se detendra al final de la actual iteracion");
-                printStream.println("La ejecucion se detendra al final de la actual iteracion");
+                outputStream.println("La ejecucion se detendra al final de la actual iteracion");
             });
             removeQueue.setOnAction(event ->{
                 actionEliminarDeLaCola();
             });
             botConfigurations.setOnAction( event -> {
-                    //ejecuciones=tfExecute.getText();
+                    //executionDetails=tfExecute.getText();
                     BotSettings configAvanzada = new BotSettings(seleccion);
                     Stage botSettingsStage = new Stage();
                     configAvanzada.start(botSettingsStage);
@@ -243,7 +243,7 @@ public class BotDocola extends Docola.InterfaceActions {
         }
         execute.setOnAction(e -> {
             Thread execute = new Thread(() -> {
-                ejecuciones = tfExecute.getText();
+                executionDetails = tfExecute.getText();
                 accion();
                 }, "execute");
             if (execute.isAlive()) {

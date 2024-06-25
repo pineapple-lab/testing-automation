@@ -16,7 +16,7 @@ public class CA037tweakFuncionCrear extends robotBaseSpaceLogik {
         iniciarVariablesEditRoom();
         System.out.println("El caso CA0371 se va a execute "+execute+" veces");
         for(counter=1;counter<=execute;counter++) {
-            nameCase=nameRoomAutoProgram+".37-validacionCrearTweak.Ejecuciones:"+counter;
+            nameCase=nameRoomAutoProgram+".37-validacionCrearTweak.executionDetails:"+counter;
             selectProgramTweak=nameCase;
             programNameTweak=nameCase;
             System.out.println(nameCase);

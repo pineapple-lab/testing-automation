@@ -11,7 +11,7 @@ public class CA022proposalFuncionEliminar extends robotBaseSpaceLogik {
         iniciarVariablesCreacionProposal();
         System.out.println("El caso CA0221 se va a execute "+execute+" veces");
         for(counter=1;counter<=execute;counter++) {
-            nameCase=nameProposal+".11-validacionProposalDelete.Ejecuciones:"+counter;
+            nameCase=nameProposal+".11-validacionProposalDelete.executionDetails:"+counter;
             assertions="text="+nameCase;
             login();
             crearProposal();

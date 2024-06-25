@@ -6,10 +6,10 @@ import org.junit.jupiter.api.Test;
 public class register extends robotBaseSpaceLogik {
     @Test
     public void registerValidation(){
-        int contador = 50;
-    for(int ejecuciones=0; ejecuciones <= contador; ejecuciones++){
+        int executeCounter = 50;
+    for(int executionDetails=0; executionDetails <= executeCounter; executionDetails++){
             registrarse();
-        System.out.println(ejecuciones+"/"+contador);
+        System.out.println(executionDetails+"/"+executeCounter);
         }
     }
 }

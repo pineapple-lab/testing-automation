@@ -1,66 +1,96 @@
 package InsumosDocola;
 public class WaitingsDocola extends ContextBaseDocola{
-    SelectorsDocola selector = new SelectorsDocola();
+    private final SelectorsDocola selector = new SelectorsDocola();
     public void waitingLoginSelectors(){
-        page.waitForSelector(selector.loginEmail);
-        page.waitForSelector(selector.loginPassword);
-        page.waitForSelector(selector.loginButton);
+        waitForSelectors(
+                selector.LOGIN_EMAIL,
+                selector.LOGIN_PASSWORD,
+                selector.LOGIN_BUTTON
+        );
     }
     public void waitingLoginSelectorIncorrectCredentials(){
-        page.waitForSelector(selector.loginIncorrectCredentials);
+        waitForSelectors(selector.LOGIN_INCORRECT_CREDENTIALS);
     }
     public void waitingJoinsSelectorStep1(int rol){
-        page.waitForSelector(selector.registerFirstName);
-        page.waitForSelector(selector.registerLastName);
-        page.waitForSelector(selector.email);
-        page.waitForSelector(selector.rolRegister(rol));
+        waitForSelectors(
+                selector.REGISTER_FIRST_NAME,
+                selector.REGISTER_LAST_NAME,
+                selector.EMAIL,
+                selector.rolRegister(rol)
+        );
     }
     public void waitingJoinSelectorStep2(){
-        page.waitForSelector(selector.registerPassword);
-        page.waitForSelector(selector.registerPasswordConfirmation);
+        waitForSelectors(
+                selector.REGISTER_PASSWORD,
+                selector.REGISTER_PASSWORD_CONFIRMATION
+        );
     }
     public void waitingJoinSelectorStep3(){
-        page.waitForSelector(selector.registerTermsAndConditions);
-        page.waitForSelector(selector.registerCaptchat);
+        waitForSelectors(
+                selector.REGISTER_TERMS_AND_CONDITIONS,
+                selector.REGISTER_CAPTCHAT
+        );
     }
     public void waitingOnboardingSelectorContentProviderStep1(){
-        page.waitForSelector(selector.onboardingContentProviderCompanyName);
-        page.waitForSelector(selector.onboardingContentProviderWebSite);
-        page.waitForSelector(selector.onboardingContentProviderNextButtonStep1);
+        waitForSelectors(
+                selector.ONBOARDING_CONTENT_PROVIDER_COMPANY_NAME,
+                selector.ONBOARDING_CONTENT_PROVIDER_WEB_SITE,
+                selector.ONBOARDING_CONTENT_PROVIDER_NEXT_BUTTON_STEP_1
+        );
     }
     public void waitingOnboardingSelectorContentProviderStep2(){
-        page.waitForSelector(selector.verifyPhoneSkipForNow);
+        waitForSelectors(
+                selector.VERIFY_PHONE_SKIP_FOR_NOW
+        );
     }
     public void waitingCreateUploadFileSelectorsStep1(){
-        page.waitForSelector(selector.contentTitle);
-        page.waitForSelector(selector.contentDescription);
-        //page.waitForSelector(selector.contentUploadFile);
-        page.waitForSelector(selector.contentButtonContinue);
+        waitForSelectors(
+                selector.CONTENT_TITLE,
+                selector.CONTENT_DESCRIPTION,
+                selector.CONTENT_BUTTON_CONTINUE
+        );
     }
     public void waitingConfigurationStepSelector() {
-        page.waitForSelector(selector.contentTagICD10Type);
+        waitForSelectors(
+                selector.CONTENT_TAG_ICD_10_TYPE
+        );
         //page.waitForSelector(selector.contentConfigurationMarketPlace);
         //page.waitForSelector(selector.contentButtonContinue);
     }
     public void waitingPricingStepSelector(){
-        page.waitForSelector(selector.contentPricingMonthlyPrice);
+        waitForSelectors(
+                selector.CONTENT_PRICING_MONTHLY_PRICE,
+                selector.CONTENT_BUTTON_CONTINUE
+        );
         //page.waitForSelector(selector.contentPricingYearlyPrice);
-        page.waitForSelector(selector.contentButtonContinue);
+
     }
     public void waitingMatDialogContainer(){
-        page.waitForSelector(selector.matDialogContainer);
-        page.waitForSelector(selector.classMatDialogContainer);
-        page.waitForSelector(selector.classMatMdcDialogSurface);
+        waitForSelectors(
+                selector.MAT_DIALOG_CONTAINER,
+                selector.CLASS_MAT_DIALOG_CONTAINER,
+                selector.CLASS_MAT_MDC_DIALOG_SURFACE
+        );
     }
     public void waitingThumbnailStepSelector(){
-        page.waitForSelector(selector.contentThumbnailUnsplash);
-        page.waitForSelector(selector.contentThumbnailUploadFile);
+        waitForSelectors(
+                selector.CONTENT_THUMBNAIL_UNSPLASH,
+                selector.CONTENT_THUMBNAIL_UPLOAD_FILE
+        );
     }
     public void waitingUnshplashPopUpSelectors (){
-        page.waitForSelector(selector.waitCategoryUnplash);
+        waitForSelectors(
+                selector.WAIT_CATEGORY_UNPLASH
+        );
         //page.waitForSelector(selector.contentUnsplashSelectButton);
     }
     public void waitingUnsplashPhotos(){
-        page.waitForSelector(selector.waitingUnplash);
+        waitForSelectors(selector.WAITING_UNPLASH);
+    }
+    // Método auxiliar para esperar varios selectores
+    private void waitForSelectors(String... selectors) {
+        for (String selector : selectors) {
+            page.waitForSelector(selector);
+        }
     }
 }

@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 public class interfaceElements extends Application{
-    String ejecuciones;
+    String executionDetails;
     String seleccion;
     ArrayList<botCREATOR.ExecMethod> listaDeEspera = new ArrayList<>();
     GridPane grid = new GridPane();
@@ -126,7 +126,7 @@ public class interfaceElements extends Application{
     Button buttonexecuteMultiBookmark = new Button("execute");
     Button deneterCasoDePrueba = new Button("Detener");
     Button execute = new Button("execute");
-    TextField ejecucionestf = new TextField("Ejecuciones");
+    TextField executionDetailstf = new TextField("executionDetails");
 
     public void start(Stage stage) throws Exception {}
 }

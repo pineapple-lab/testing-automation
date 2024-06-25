@@ -15,7 +15,7 @@ public class CA019proposalFuncionActivar extends robotBaseSpaceLogik {
         iniciarVariablesCreacionProposal();
         System.out.println("El caso CA0191 se va a execute "+execute+" veces");
         for(counter=1;counter<=execute;counter++) {
-            nameCase=nameProposal+".16-validacionActivarProposal.Ejecuciones:"+counter;
+            nameCase=nameProposal+".16-validacionActivarProposal.executionDetails:"+counter;
             assertions="text="+nameCase;
             crearProposal();
             page.waitForSelector(".MuiTableBody-root tr");

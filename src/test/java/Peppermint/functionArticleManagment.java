@@ -7,7 +7,7 @@ public class functionArticleManagment extends testCasesArticles {
         startContext();
         serverStatus();
         System.out.println("Iniciando caso de prueba...");
-        printStream.println("iniciando caso de prueba...");
+        outputStream.println("iniciando caso de prueba...");
         startExecutionArticle();
         printNumberExecutions();
         startNavigation();

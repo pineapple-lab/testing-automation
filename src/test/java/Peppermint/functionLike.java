@@ -7,7 +7,7 @@ public class functionLike extends testCasesLike {
         startContext();
         serverStatus();
         System.out.println("Iniciando caso de prueba...");
-        printStream.println("iniciando caso de prueba...");
+        outputStream.println("iniciando caso de prueba...");
         startExecutionClub();
         printNumberExecutions();
 

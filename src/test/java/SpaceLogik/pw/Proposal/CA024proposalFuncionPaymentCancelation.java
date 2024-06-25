@@ -15,7 +15,7 @@ public class CA024proposalFuncionPaymentCancelation extends robotBaseSpaceLogik 
         iniciarVariablesPropposalValoresPequeños();
         System.out.println("El caso CA0241 se va a execute "+execute+" veces");
         for(counter=1; counter<=execute;counter++) {
-            nameCase = nameProposal+".2-PaymentCancelationPequeño.Ejecuciones:"+counter;
+            nameCase = nameProposal+".2-PaymentCancelationPequeño.executionDetails:"+counter;
             login();
             llenarProposal();
             page.focus("#root");
@@ -35,7 +35,7 @@ public class CA024proposalFuncionPaymentCancelation extends robotBaseSpaceLogik 
         iniciarVariablesPropposalValoresMedianos();
         System.out.println("El caso CA0242 se va execute "+execute+" veces");
         for(counter=1;counter<=execute;counter++) {
-            nameCase = nameProposal+".3-PaymentCancelationMediano.Ejecuciones:"+counter;
+            nameCase = nameProposal+".3-PaymentCancelationMediano.executionDetails:"+counter;
             login();
             llenarProposal();
             page.focus("#root");
@@ -55,7 +55,7 @@ public class CA024proposalFuncionPaymentCancelation extends robotBaseSpaceLogik 
         iniciarVariablesPropposalValoresGrandes();
         System.out.println("El caso CA0243 se va execute "+execute+" veces");
         for(counter=1;counter<=execute;counter++) {
-        nameCase = nameProposal+".4-PaymentCancelationGrande.Ejecuciones:"+counter;
+        nameCase = nameProposal+".4-PaymentCancelationGrande.executionDetails:"+counter;
         login();
         llenarProposal();
         page.focus("#root");
@@ -75,7 +75,7 @@ public class CA024proposalFuncionPaymentCancelation extends robotBaseSpaceLogik 
         iniciarVariablesPropposalValoresMuyGrandes();
         System.out.println("El caso CA0245 se va execute "+execute+" veces");
         for(counter=1;counter<=execute;counter++) {
-        nameCase = nameProposal+".5-PaymentCancelationMuyGrande.Ejecuciones:"+counter;
+        nameCase = nameProposal+".5-PaymentCancelationMuyGrande.executionDetails:"+counter;
         login();
         llenarProposal();
         page.focus("#root");

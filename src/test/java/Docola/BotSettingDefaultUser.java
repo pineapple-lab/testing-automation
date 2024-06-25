@@ -42,7 +42,6 @@ public class BotSettingDefaultUser extends InterfaceElements {
         gridPaneUndefinedSettings.add(radioButtonPatient,4,7);
         gridPaneUndefinedSettings.add(settingSave,6,9);
 
-
         settingSave.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #5bb346;");
         settingSave.setOnMouseEntered(e -> settingSave.setStyle("-fx-background-color: #6ec957; -fx-text-fill: white;"));
         settingSave.setOnMouseExited(e -> settingSave.setStyle("-fx-background-color: #5bb346;"));
@@ -54,44 +53,44 @@ public class BotSettingDefaultUser extends InterfaceElements {
         undefineduserSetting.setScene(sceneConfigAvanzada);
         radioButtonDev.setOnAction(e->{
             if(radioButtonDev.isSelected()){
-                vDocola.linkNavigation="https://docolasandbox.web.app/";
+                vDocola.navigationLink="https://docolasandbox.web.app/";
             }else if(radioButtonDev.isDisabled()){
-                vDocola.linkNavigation=null;
+                vDocola.navigationLink=null;
             }
         });
         radioButtonLocal.setOnAction(e->{
             if(radioButtonLocal.isSelected()){
-                vDocola.linkNavigation="http://localhost:4200/";
+                vDocola.navigationLink="http://localhost:4200/";
             }else if(radioButtonLocal.isDisabled()){
-                vDocola.linkNavigation=null;
+                vDocola.navigationLink=null;
             }
         });
         radioButtonContentProvider.setOnAction(e->{
             if(radioButtonContentProvider.isSelected()){
-                vDocola.joinRol="Content provider";
+                vDocola.userRole ="Content provider";
             }else if(radioButtonContentProvider.isDisabled()){
-                vDocola.joinRol=null;
+                vDocola.userRole =null;
             }
         });
         radioButtonClinician.setOnAction(e->{
             if(radioButtonClinician.isSelected()){
-                vDocola.joinRol="Clinician";
+                vDocola.userRole ="Clinician";
             }else if(radioButtonClinician.isDisabled()){
-                vDocola.joinRol=null;
+                vDocola.userRole =null;
             }
         });
         radioButtonPatient.setOnAction(e->{
             if(radioButtonPatient.isSelected()){
-                vDocola.joinRol="Patient";
+                vDocola.userRole ="Patient";
             }else if(radioButtonPatient.isDisabled()){
-                vDocola.joinRol=null;
+                vDocola.userRole =null;
             }
         });
         settingSave.setOnAction(e->{
             Thread execute=  new Thread (()->{
-                VariablesDocola.email = tfEmail.getText();
-                System.out.println(VariablesDocola.email);
-                iActions.actionUpdateUndefinedUser(VariablesDocola.email);
+                VariablesDocola.userEmail = tfEmail.getText();
+                System.out.println(VariablesDocola.userEmail);
+                iActions.actionUpdateUndefinedUser(VariablesDocola.userEmail);
             }, "execute");
             if(execute.isAlive()) {
                 execute.stop();

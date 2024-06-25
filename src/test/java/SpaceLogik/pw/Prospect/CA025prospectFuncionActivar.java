@@ -13,7 +13,7 @@ public class CA025prospectFuncionActivar extends robotBaseSpaceLogik {
         iniciarVariablesProspectFeliz();
         System.out.println("El caso CA0251 se va a execute "+execute+" veces");
         for(counter=1; counter<=execute; counter++) {
-            nameCase=nameCompanyProspect+".16-validacionActivarProspect.Ejecuciones:"+counter;
+            nameCase=nameCompanyProspect+".16-validacionActivarProspect.executionDetails:"+counter;
             assertions="text="+nameCase;
             login();
             crearProspect();

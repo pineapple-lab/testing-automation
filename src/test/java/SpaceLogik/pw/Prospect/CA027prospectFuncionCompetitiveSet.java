@@ -14,7 +14,7 @@ public class CA027prospectFuncionCompetitiveSet extends robotBaseSpaceLogik {
         iniciarVariablesCompetitiveSetFeliz();
        System.out.println("El caso CA0271 se va a execute: "+execute+" veces");
        for (counter=1; counter <= execute; counter++){
-            nameCase=nameCompanyProspect+".17-validacionCrearCompetitiveSet.Ejecuciones:"+counter;
+            nameCase=nameCompanyProspect+".17-validacionCrearCompetitiveSet.executionDetails:"+counter;
             notesCompetitiveSetProspect=nameCase;
             login();
             crearProspect();

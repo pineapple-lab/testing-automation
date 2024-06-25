@@ -1,89 +1,70 @@
 package InsumosDocola;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
+
 public class QueriesDocola extends ContextBaseDocola{
-    Connection CN;
-    Statement stm;
-    ResultSet rs;
-    public void connectDatabase(){
-        try {
-            String url = "jdbc:mysql://localhost:3306/testbddocola?serverTimezone=UTC";
-            String userName = "root";
-            String password = "root";
-            CN = DriverManager.getConnection(url, userName, password);
-        }catch(Exception ex) {
-            ex.printStackTrace();
-        }
+    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/testbddocola?serverTimezone=UTC";
+    private static final String DATABASE_USER = "root";
+    private static final String DATABASE_PASSWORD = "root";
+    private Connection connectDatabase()throws SQLException{
+        return DriverManager.getConnection(DATABASE_URL, DATABASE_USER, DATABASE_PASSWORD);
     }
     public void saveUser(String email){
-        try {
-            connectDatabase();
-            String insertSql = "INSERT INTO users (`emailUser`,`rol`,`ambiente`) " +
-                    "VALUES('"+email+"','"+joinRol+"','"+linkNavigation+"')";
-            Statement stmt = CN.createStatement();
-            stmt.executeUpdate(insertSql);
-            CN.close();
-        }catch(Exception ex) {
-            ex.printStackTrace();
+        String insertSql = "INSERT INTO users (`emailUser`,`rol`,`ambiente`) VALUES(?, ?, ?)";
+        try {Connection connection = connectDatabase();
+            PreparedStatement stmt = connection.prepareStatement(insertSql);
+            stmt.setString(1,email);
+            stmt.setString(2,userRole);
+            stmt.setString(3,navigationLink);
+            stmt.executeUpdate();
+        }catch(SQLException ex) {
+            handleSQLException(ex);
         }
     }
     public void updateUndefinedUser(String email) {
-        try {
-            connectDatabase();
-            String insertSql = "UPDATE undefinedusers SET emailUser ='" + email + "' WHERE rol = '"+joinRol+"' AND ambiente = '"+linkNavigation+"'";
-            Statement stmt = CN.createStatement();
-            stmt.executeUpdate(insertSql);
-            CN.close();
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        String updateSql = "UPDATE undefinedusers SET emailUser = ? WHERE rol = ? AND ambiente = ?";
+        try {Connection connection = connectDatabase();
+            PreparedStatement stmt = connection.prepareStatement(updateSql);
+            stmt.setString(1,email);
+            stmt.setString(2,userRole);
+            stmt.setString(3,navigationLink);
+            stmt.executeUpdate();
+        } catch (SQLException ex) {
+            handleSQLException(ex);
         }
     }
     public String getEmailUser(String joinRol){
-        try {
             if(joinRol == null){
                 joinRol = "Content provider";
             }
-            System.out.println(joinRol);
-            connectDatabase();
-            stm=CN.createStatement();
-            if(linkNavigation=="http://localhost:4200/") {
-                rs = stm.executeQuery("SELECT * FROM testbddocola.users WHERE rol = '" + joinRol + "' and ambiente = '"+linkNavigation+"' ORDER BY RAND() LIMIT 1");
-            }
-            if(linkNavigation=="https://docolasandbox.web.app/"){
-                rs = stm.executeQuery("SELECT * FROM testbddocola.users WHERE rol = '" + joinRol + "' and ambiente = '"+linkNavigation+"' ORDER BY RAND() LIMIT 1");
-            }
-            while(rs.next()) {
-                email = rs.getString(rs.findColumn("emailUser"));
-            }
-            CN.close();
-        }catch(Exception ex) {
-            ex.printStackTrace();
-        }
-        return email;
+            String selectSql = "SELECT * FROM testbddocola.users WHERE rol = ? and ambiente =  ? ORDER BY RAND() LIMIT 1";
+            return getUserEmailQuery(selectSql, joinRol);
     }
     public String getUndefinedUser(String joinRol){
-        try {
             if(joinRol == null){
                 joinRol = "Content provider";
             }
-            System.out.println("Rol: "+joinRol);
-            connectDatabase();
-            stm=CN.createStatement();
-            if(linkNavigation=="http://localhost:4200/") {
-                rs = stm.executeQuery("SELECT * FROM testbddocola.undefinedusers WHERE rol = '" + joinRol + "' and ambiente = '"+linkNavigation+"' ORDER BY RAND() LIMIT 1");
+            String selectSql = "SELECT * FROM testbddocola.undefinedusers WHERE rol = ? and ambiente = ? ORDER BY RAND() LIMIT 1";
+            return getUserEmailQuery(selectSql, joinRol);
+    }
+    private String getUserEmailQuery(String sql, String joinRol){
+        String email = null;
+        try(Connection connection = connectDatabase();
+                PreparedStatement stmt = connection.prepareStatement(sql)){
+            stmt.setString(1,joinRol);
+            stmt.setString(2,navigationLink);
+            try (ResultSet rs = stmt.executeQuery()){
+                if(rs.next()){
+                    email = rs.getString("emailUser");
+                }
             }
-            if(linkNavigation=="https://docolasandbox.web.app/"){
-                rs = stm.executeQuery("SELECT * FROM testbddocola.undefinedusers WHERE rol = '" + joinRol + "' and ambiente = '"+linkNavigation+"' ORDER BY RAND() LIMIT 1");
-            }
-            while(rs.next()) {
-                email = rs.getString(rs.findColumn("emailUser"));
-            }
-            CN.close();
-        }catch(Exception ex) {
-            ex.printStackTrace();
+        }catch (SQLException ex){
+            handleSQLException(ex);
         }
+
         return email;
+    }
+    private void handleSQLException(SQLException ex) {
+        System.err.println("SQL Error: " + ex.getMessage());
+        ex.printStackTrace();
     }
 }

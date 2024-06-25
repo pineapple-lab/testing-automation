@@ -2,14 +2,14 @@ package insumosPeppermint;
 public class testCasesInviteGuest extends methodsPeppermint {
     public void validateSendInviteGuest(){
         for (counter = 1; counter <= execute; counter++) {
-            if (!shouldStopTest) {
+            if (!stopTest) {
               sendInviteGuest();
             } else {
                 closeContext();
             }
         }
         for (counterRegister = 1; counterRegister <= execute;) {
-            if (!shouldStopTest) {
+            if (!stopTest) {
                 page.waitForTimeout(500);
                 getEmail();
                 page.waitForTimeout(900);

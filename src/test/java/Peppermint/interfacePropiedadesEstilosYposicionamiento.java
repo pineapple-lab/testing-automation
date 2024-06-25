@@ -48,10 +48,10 @@ public class interfacePropiedadesEstilosYposicionamiento extends interfaceElemen
         ayuda.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         guardarBookmark.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #008A66;");
         cuadroDeAyudas.setEditable(false);
-        cuadroDeAyudas.setText(" INSTRUCCIONES BASICAS DE USO: \n 1-Seleccionar el ambiente en el campo 'seleccionar ambiente' \n 2-Introducir cantidad de ejecuciones en el campo 'ejecuciones' \n 3-Hacer click en una funcion o en varias, por ejemplo 'crear workshop' \n 4-Presionar 'execute' \n\n EN CASO DE AGREGAR POR ERROR UNA FUNCION A LA COLA DE EJECUCION: \n 1-Click en el checkbox de la funcion \n 2-Click en remover de la cola \n\n COMO execute LAS CONFIGURACIONES AVANZADAS \n 1-Seleccionar el ambiente \n 2-Introducir cantidad de ejecuciones \n 3-Hacer CLICK DERECHO sobre la funcion a execute \n 4-En la ventana emergente introducir los datos deseados \n 5-Hacer click en el boton 'execute' de la ventana emergente");
+        cuadroDeAyudas.setText(" INSTRUCCIONES BASICAS DE USO: \n 1-Seleccionar el ambiente en el campo 'seleccionar ambiente' \n 2-Introducir cantidad de executionDetails en el campo 'executionDetails' \n 3-Hacer click en una funcion o en varias, por ejemplo 'crear workshop' \n 4-Presionar 'execute' \n\n EN CASO DE AGREGAR POR ERROR UNA FUNCION A LA COLA DE EJECUCION: \n 1-Click en el checkbox de la funcion \n 2-Click en remover de la cola \n\n COMO execute LAS CONFIGURACIONES AVANZADAS \n 1-Seleccionar el ambiente \n 2-Introducir cantidad de executionDetails \n 3-Hacer CLICK DERECHO sobre la funcion a execute \n 4-En la ventana emergente introducir los datos deseados \n 5-Hacer click en el boton 'execute' de la ventana emergente");
         //positionAMIENTO
         GridPane.setConstraints(comboBox,2,1);
-        GridPane.setConstraints(ejecucionestf,2,2);
+        GridPane.setConstraints(executionDetailstf,2,2);
         GridPane.setConstraints(execute, 3, 1);
         GridPane.setConstraints(deneterCasoDePrueba,4,1);
         GridPane.setConstraints(removerDeLaCola, 5, 1);
@@ -84,7 +84,7 @@ public class interfacePropiedadesEstilosYposicionamiento extends interfaceElemen
         GridPane.setConstraints(ayuda,5,13);
         //AGREGAR ELEMENTOS
         grid.getChildren().add(comboBox);
-        grid.getChildren().add(ejecucionestf);
+        grid.getChildren().add(executionDetailstf);
         grid.getChildren().add(deneterCasoDePrueba);
         grid.getChildren().add(execute);
         grid.getChildren().add(removerDeLaCola);

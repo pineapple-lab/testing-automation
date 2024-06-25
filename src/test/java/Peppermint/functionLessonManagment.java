@@ -7,7 +7,7 @@ public class functionLessonManagment extends testCasesLesson {
         startContext();
         serverStatus();
         System.out.println("Iniciando caso de prueba...");
-        printStream.println("Iniciando caso de prueba...");
+        outputStream.println("Iniciando caso de prueba...");
         startExecutionLesson();
         printNumberExecutions();
         startNavigation();

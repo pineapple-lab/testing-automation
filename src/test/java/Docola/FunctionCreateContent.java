@@ -2,6 +2,8 @@ package Docola;
 
 import InsumosDocola.MethodsCreationDocola;
 import InsumosDocola.MethodsDocola;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class FunctionCreateContent extends MethodsCreationDocola {
@@ -11,17 +13,15 @@ public class FunctionCreateContent extends MethodsCreationDocola {
     public void serviceNewResource(){
         methods.startContextAndNavigation();
         create.newResource();
-        closeContext();
-        closeBrowser();
+        cleanupContext();
+        teardownPlaywright();
     }
     @Test
     public void serviceNewCourse(){
-        methods.startContextAndNavigation();
         create.newCourse();
     }
     @Test
     public void serviceNewCourseCollection(){
-        methods.startContextAndNavigation();
         create.newCourseCollection();
     }
 }

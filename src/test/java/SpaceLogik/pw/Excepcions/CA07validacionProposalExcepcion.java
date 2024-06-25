@@ -20,7 +20,7 @@ public class CA07validacionProposalExcepcion extends robotBaseSpaceLogik {
         iniciarVariablesCreacionProposal();
         System.out.println("El caso CA072 se va a execute "+execute+" veces");
         for(counter=1;counter<=execute;counter++) {
-            nameCase=nameProposal+".7-validacionExcepcionPropposalduplicado.Ejecuciones:"+counter;
+            nameCase=nameProposal+".7-validacionExcepcionPropposalduplicado.executionDetails:"+counter;
             login();
             crearProposal();
             crearProposal();
@@ -35,7 +35,7 @@ public class CA07validacionProposalExcepcion extends robotBaseSpaceLogik {
         iniciarVariablesCreacionProposal();
         System.out.println("El caso CA073 se va a execute "+execute+" veces");
         for(counter=1;counter<=execute;counter++) {
-            nameCase=nameProposal+".34-validacionExcepcionPropposalDuplicadoArchivado.Ejecuciones:"+counter;
+            nameCase=nameProposal+".34-validacionExcepcionPropposalDuplicadoArchivado.executionDetails:"+counter;
             login();
             crearProposal();
             archivarProposal();

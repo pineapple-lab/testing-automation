@@ -10,70 +10,55 @@ public class GeneratorDocola extends ContextBaseDocola{
     String lastName;
     WaitingsDocola waiting = new WaitingsDocola();
     public int generateExecutions(){
-        return Integer.parseInt(ejecuciones);
+        return Integer.parseInt(executionDetails);
     }
     public String generateImage(){
         String[] imageList = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
                                 "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
                             };
-        Random rand = new Random();
-        int index1 = rand.nextInt(imageList.length);
-        image = pathImage+imageList[index1]+".jpg";
-        return image;
+        return generateRandomFileName(imageList,imagePath,".jpg");
     }
     public String generateVideo(){
         String[] videoList = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
                 "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
         };
-        Random rand = new Random();
-        int index1 = rand.nextInt(videoList.length);
-        video = pathVideo+videoList[index1]+".mp4";
-        return video;
+        return generateRandomFileName(videoList,videoPath,".mp4");
     }
     public EmailInfo generateEmail(){
         generateFirstName();
         generateLastName();
         long timeStamp = Instant.now().toEpochMilli();
         //if(configurationAdvancedRegistration==false) {
-        email = firstName+lastName+timeStamp+"@"+emailProvider+".com";
-        return new EmailInfo(email, firstName, lastName);
+        firstName=generateFirstName();
+        lastName=generateLastName();
+        userEmail = firstName+lastName+timeStamp+"@"+ emailDomain +".com";
+        return new EmailInfo(userEmail, firstName, lastName);
     }
     public String generateFirstName(){
         String [] listFirstNames = FirstNames.firstNames;
-        Random rand = new Random();
-        int index1 = rand.nextInt(listFirstNames.length);
-        firstName = listFirstNames[index1];
-        return firstName;
+        return getRandomString(listFirstNames);
     }
     public String generateLastName(){
         String[] listLastNames = LastNames.lastNames;
-        Random random = new Random();
-        int index2 = random.nextInt(listLastNames.length);
-        lastName= listLastNames[index2];
-        return lastName;
+        return getRandomString(listLastNames);
     }
     public int generateRol(){
-        if (joinRol == null) {
-            joinRol="Clinician";
-        }switch (joinRol) {
-                case "Patient":
-                    rol = 1;
-                    break;
-                case "Clinician":
-                    rol = 2;
-                    break;
-                case "Content provider":
-                    rol = 3;
-                    break;
+        if (userRole == null) {
+            return 2;
         }
-        return rol;
+        switch (userRole) {
+            case "Patient":
+                return 1;
+            case "Content provider":
+                return 3;
+            default:
+                return 2;
+        }
     }
     public int generateTypeContent(){
-        if (typeResource == null) {
-            typeResource="Upload file";
-        }switch (typeResource) {
-            case "Upload file":
-                return 1;
+        if (resourceType == null) {
+            return 1;
+        }switch (resourceType) {
             case "Capture video":
                 return 2;
             case "Web content":
@@ -85,60 +70,55 @@ public class GeneratorDocola extends ContextBaseDocola{
             case "VR":
                 return 6;
                 //break;
+            default:
+                return 1;
         }
-        return 1;
     }
     public String generateCompanyName(){
         String[] companyList = CompanyNames.companyNames;
-        Random rand = new Random();
-        int index1 = rand.nextInt(companyList.length);
-        String companyName = companyList[index1];
-        return companyName;
+        return getRandomString(companyList);
     }
     public String generateContentTitle(){
         String [] nameContentList = ContentTitle.contentTitle;
-        Random rand = new Random();
-        int index1 = rand.nextInt(nameContentList.length);
-        String contentName = nameContentList[index1];
-        return contentName;
+        return getRandomString(nameContentList);
     }
     public String generateContentDescription(){
         String [] contentDescriptiontList = ContentDescriptions.contentDescritpion;
-        Random rand = new Random();
-        int index1 = rand.nextInt(contentDescriptiontList.length);
-        String contentDescription = contentDescriptiontList[index1];
-        return contentDescription;
+        return getRandomString(contentDescriptiontList);
     }
     public String generateQuestion(){
         String [] questionList = ContentQuestions.contentQuestions;
-        Random rand = new Random();
-        int index1 = rand.nextInt(questionList.length);
-        String question = questionList[index1];
-        return question;
+        return getRandomString(questionList);
     }
     public String generateAnswer(){
         String[] answerList = ContentAnswers.contentAnswers;
-        Random rand = new Random();
-        int index1 = rand.nextInt(answerList.length);
-        String answer = answerList[index1];
-        return answer;
+        return getRandomString(answerList);
     }
     public int generateThumbnailCategory(){
         waiting.waitingMatDialogContainer();
         List<ElementHandle> elements = page.querySelectorAll("mat-dialog-container > div > div > app-unsplash > form > div:nth-of-type(2) > div > div > button");
-        Random random = new Random();
-        int thumbnailCategory = random.nextInt(1,elements.size()+1);
-        return thumbnailCategory;
+        return getRandomIndex(elements.size())+ 1;
     }
     public int generateThumbnailSplash(){
         waiting.waitingMatDialogContainer();
         page.waitForSelector(".grid-container");
         List<ElementHandle> elements = page.querySelectorAll("mat-dialog-container > div > div > app-unsplash > form > div:nth-of-type(3) > img");
-        Random random = new Random();
-        int thumbnail = random.nextInt(1,elements.size());
-        return thumbnail;
+        return getRandomIndex(elements.size());
     }
-
+    private String generateRandomFileName(String[] fileList, String basePath, String extension){
+        Random rand = new Random();
+        int index = rand.nextInt(fileList.length);
+        return basePath + fileList[index] + extension;
+    }
+    private String getRandomString(String[] array){
+        Random rand = new Random();
+        int index = rand.nextInt(array.length);
+        return array[index];
+    }
+    private int getRandomIndex(int size){
+        Random random = new Random();
+        return random.nextInt(size);
+    }
     class EmailInfo {
         private String email;
         private String firstName;

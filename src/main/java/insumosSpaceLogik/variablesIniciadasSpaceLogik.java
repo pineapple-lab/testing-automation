@@ -380,7 +380,7 @@ public class variablesIniciadasSpaceLogik extends conexionsql {
             Statement stm = CN.createStatement();
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdspacelogik.datoscrearsingesuitelisting WHERE estado = 0 ORDER BY RAND() LIMIT 1");
             while(rs.next()){
-                execute =rs.getInt(rs.findColumn("ejecuciones"));
+                execute =rs.getInt(rs.findColumn("executionDetails"));
                 suiteNumberListingSpaceBuildin = rs.getString(rs.findColumn("SuiteNumber"));
             }
             String query1 = "UPDATE testbdspacelogik.datoscrearsingesuitelisting SET estado = 1 WHERE SuiteNumber="+"'"+suiteNumberListingSpaceBuildin+"'";

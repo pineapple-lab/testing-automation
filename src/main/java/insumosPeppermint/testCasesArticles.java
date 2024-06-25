@@ -2,7 +2,7 @@ package insumosPeppermint;
 public class testCasesArticles extends methodsPeppermint{
     public void validateCreateArticle(){
         for (counter = 1; counter <= execute; counter++) {
-            if (!shouldStopTest) {
+            if (!stopTest) {
                 startVariablesCreateArticle();
                 createArticle();
                 assertions = "text=Techniques added successfully";
@@ -19,7 +19,7 @@ public class testCasesArticles extends methodsPeppermint{
                 page.focus("table tbody");
                 //Assertions.assertTrue(page.isVisible(assertions));
                 System.out.println("El article se ha creado con exito\n");
-                printStream.println("El article se ha creado con exito\n");
+                outputStream.println("El article se ha creado con exito\n");
                 printNumberCasesExecuted();
             } else {
                 closeContext();

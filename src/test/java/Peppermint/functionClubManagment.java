@@ -7,7 +7,7 @@ public class functionClubManagment extends testCasesClubManagment {
         startContext();
         serverStatus();
         System.out.println("Iniciando caso de prueba...");
-        printStream.println("iniciando caso de prueba...");
+        outputStream.println("iniciando caso de prueba...");
         startExecutionClub();
         printNumberExecutions();
         startNavigation();
@@ -18,7 +18,7 @@ public class functionClubManagment extends testCasesClubManagment {
         startContext();
         serverStatus();
         System.out.println("Iniciando caso de prueba...");
-        printStream.println("iniciando caso de prueba...");
+        outputStream.println("iniciando caso de prueba...");
         startExecutionClub();
         printNumberExecutions();
         startNavigation();
@@ -28,7 +28,7 @@ public class functionClubManagment extends testCasesClubManagment {
         startContext();
         serverStatus();
         System.out.println("Iniciando caso de prueba...");
-        printStream.println("iniciando caso de prueba...");
+        outputStream.println("iniciando caso de prueba...");
         startExecutionClub();
         printNumberExecutions();
         startNavigation();
@@ -40,7 +40,7 @@ public class functionClubManagment extends testCasesClubManagment {
         startContext();
         serverStatus();
         System.out.println("Iniciando caso de prueba...");
-        printStream.println("Iniciando caso de prueba...");
+        outputStream.println("Iniciando caso de prueba...");
         startExecutionArticle();
         printNumberExecutions();
         startNavigation();

@@ -21,8 +21,8 @@ public class queriesSQLcasesFailed extends contextBasePeppermint{
             sqlconectar();
             try {
                 Statement st = CN.createStatement();
-                String query = "INSERT INTO datoscrearclubcasosfallidos (`pathImage`,`titleClub`,`descriptionClub`,`fechaDePrueba`) " +
-                        "VALUES('"+pathImage+"','"+titleClub+"','"+descriptionClub+"',NOW())";
+                String query = "INSERT INTO datoscrearclubcasosfallidos (`imagePath`,`titleClub`,`descriptionClub`,`fechaDePrueba`) " +
+                        "VALUES('"+imagePath+"','"+titleClub+"','"+descriptionClub+"',NOW())";
                 st.executeUpdate(query);
                 System.out.println("Los datos de la prueba fallida se guardaron correctamente");
             }catch (Exception e){e.printStackTrace();}
@@ -35,8 +35,8 @@ public class queriesSQLcasesFailed extends contextBasePeppermint{
             sqlconectar();
             try {
                 Statement st = CN.createStatement();
-                String query = "INSERT INTO datoscrearlessoncasosfallidos (`pathImage`,`titleLesson`,`descriptionLesson`,`creatorLesson`,`tagLesson`,`categoryLesson`,`topicLesson`,`subTopicLesson`,`fechaDePrueba`) " +
-                        "VALUES('"+pathImage+"','"+titleLesson+"','"+descriptionLesson+"','"+creatorLesson+"','"+tagLesson+"','"+categoryLesson+"','"+topicLesson+"','"+subtopicLesson+"',NOW())";
+                String query = "INSERT INTO datoscrearlessoncasosfallidos (`imagePath`,`titleLesson`,`descriptionLesson`,`creatorLesson`,`tagLesson`,`categoryLesson`,`topicLesson`,`subTopicLesson`,`fechaDePrueba`) " +
+                        "VALUES('"+imagePath+"','"+titleLesson+"','"+descriptionLesson+"','"+creatorLesson+"','"+tagLesson+"','"+categoryLesson+"','"+topicLesson+"','"+subtopicLesson+"',NOW())";
                 st.executeUpdate(query);
                 System.out.println("Los datos de la prueba fallida se guardaron correctamente");
             }catch (Exception e){e.printStackTrace();}

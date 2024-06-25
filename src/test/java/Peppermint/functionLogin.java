@@ -12,7 +12,7 @@ public class functionLogin extends methodsPeppermint {
     }
     //@Test
     /*public void validationLogin2(){
-        iniciarEjecucionesLogin();
+        iniciarexecutionDetailsLogin();
         System.out.println("Iniciando caso de prueba...");
         System.out.println("El caso CA0321 se va a execute "+execute+" veces");
         for(counter=1;counter<=execute;counter++) {

@@ -43,7 +43,7 @@ public class CA012listingFuncionEditGeneralInfo extends robotBaseSpaceLogik {
         iniciarVariablesEditarBuildingContacts();
         System.out.println("El caso CA0124 se va execute "+execute+" veces");
         for(counter=1;counter<=execute;counter++) {
-            nameCase=firstNameListingPrimaryLeasingContacts+".94validacionEditPrimaryLeasingContact.Ejecuciones:"+counter;
+            nameCase=firstNameListingPrimaryLeasingContacts+".94validacionEditPrimaryLeasingContact.executionDetails:"+counter;
             login();
             editarListingPrimaryLeasingContact();
             assertions="text=Changes saved successfully";//
@@ -58,7 +58,7 @@ public class CA012listingFuncionEditGeneralInfo extends robotBaseSpaceLogik {
         iniciarVariablesEditarBuildingContacts();
         System.out.println("El caso CA0125 se va execute "+execute+" veces");
         for(counter=1;counter<=execute;counter++) {
-            nameCase=firstNameListingPrimaryLeasingContacts+".95validacionEditListingSecondaryLeasingContact.Ejecuciones:"+counter;
+            nameCase=firstNameListingPrimaryLeasingContacts+".95validacionEditListingSecondaryLeasingContact.executionDetails:"+counter;
             login();
             editarListingSecondaryLeasingContact();
             page.focus("#root");
@@ -74,7 +74,7 @@ public class CA012listingFuncionEditGeneralInfo extends robotBaseSpaceLogik {
         iniciarVariablesEditarBuildingContacts();
         System.out.println("El caso CA0126 se va execute "+execute+" veces");
         for(counter=1;counter<=execute;counter++) {
-            nameCase=firstNameListingPrimaryLeasingContacts+".96validacionEditBuildingOwner.Ejecuciones:"+counter;
+            nameCase=firstNameListingPrimaryLeasingContacts+".96validacionEditBuildingOwner.executionDetails:"+counter;
             login();
             editarListingBuildingOwner();
             page.focus("#root");
@@ -90,7 +90,7 @@ public class CA012listingFuncionEditGeneralInfo extends robotBaseSpaceLogik {
         iniciarVariablesEditarBuildingContacts();
         System.out.println("El caso CA0127 se va execute "+execute+" veces");
         for(counter=1;counter<=execute;counter++) {
-            nameCase=firstNameListingPrimaryLeasingContacts+".97validacionEditAdditionalLeasingContact.Ejecuciones:"+counter;
+            nameCase=firstNameListingPrimaryLeasingContacts+".97validacionEditAdditionalLeasingContact.executionDetails:"+counter;
             login();
             editarListingAdditionalLeasingContact();
             assertions="text=Changes saved successfully";

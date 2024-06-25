@@ -2,32 +2,32 @@ package insumosPeppermint;
 import java.sql.ResultSet;
 import java.sql.Statement;
 public class variablesInitiatedPeppermint extends variablesPeppermint{
-    public void iniciarEjecucionesLogin(){
+    public void iniciarexecutionDetailsLogin(){
         try {
             sqlconectar();
             Statement stm = CN.createStatement();
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.configuracion");
             while(rs.next()){
-                execute = rs.getInt(rs.findColumn("ejecuciones"));
+                execute = rs.getInt(rs.findColumn("executionDetails"));
             }
         }catch(Exception e){}
         sqlclose();
     }
     public void startVariablesLogin(){
         System.out.println("Iniciando variables...");
-        printStream.println("Iniciando variables...");
+        outputStream.println("Iniciando variables...");
         try {
             sqlconectar();
             Statement stm = CN.createStatement();
             ResultSet rs;
-            if(linkNavigation=="https://peppermint-development.web.app/auth/login" || linkNavigation=="http://localhost:4200/auth/login"){
+            if(navigationLink=="https://peppermint-development.web.app/auth/login" || navigationLink=="http://localhost:4200/auth/login"){
                rs = stm.executeQuery("SELECT * FROM testbdpeppermint.usuariosautomaticos WHERE EnUso = 0 and ambiente = 'https://peppermint-development.web.app/auth/login' OR ambiente = 'https://peppermint-development.web.app/user/plans/' OR ambiente = 'http://localhost:4200/auth/login' OR ambiente = 'http://localhost:4200/user/plans/' ORDER BY RAND() LIMIT 1");
                 while(rs.next()){
                     emailLogin =rs.getString(rs.findColumn("emailRegistro"));
                     passwordLogin = "123123aA";
                     idUsuario = rs.getString(rs.findColumn("id"));
                 }
-            } else if (linkNavigation=="https://peppermint-qa.web.app/auth/login") {
+            } else if (navigationLink=="https://peppermint-qa.web.app/auth/login") {
                 rs = stm.executeQuery("SELECT * FROM testbdpeppermint.usuariosautomaticos WHERE EnUso = 0 and ambiente = 'https://peppermint-qa.web.app/auth/login' OR ambiente = 'https://peppermint-qa.web.app/user/plans/' ORDER BY RAND() LIMIT 1");
                 while(rs.next()){
                     emailLogin =rs.getString(rs.findColumn("emailRegistro"));
@@ -44,18 +44,18 @@ public class variablesInitiatedPeppermint extends variablesPeppermint{
     }
     public void startVariablesLoginDeleteUser(){
         System.out.println("Iniciando variables...");
-        //printStream.println("Iniciando variables...");
+        //outputStream.println("Iniciando variables...");
         try {
             sqlconectar();
             Statement stm = CN.createStatement();
             ResultSet rs;
-            if(linkNavigation=="https://peppermint-development.web.app/auth/login" || linkNavigation=="http://localhost:4200/auth/login"){
+            if(navigationLink=="https://peppermint-development.web.app/auth/login" || navigationLink=="http://localhost:4200/auth/login"){
                 rs = stm.executeQuery("SELECT * FROM testbdpeppermint.usuariosautomaticos WHERE revisado = 0 and ambiente = 'https://peppermint-development.web.app/auth/login' OR ambiente = 'https://peppermint-development.web.app/user/plans/' OR ambiente = 'http://localhost:4200/auth/login' OR ambiente = 'http://localhost:4200/user/plans/' ORDER BY RAND() LIMIT 1");
                 while(rs.next()){
                     emailLogin =rs.getString(rs.findColumn("emailRegistro"));
                     idUsuario = rs.getString(rs.findColumn("id"));
                 }
-            } else if (linkNavigation=="https://peppermint-qa.web.app/auth/login") {
+            } else if (navigationLink=="https://peppermint-qa.web.app/auth/login") {
                 rs = stm.executeQuery("SELECT * FROM testbdpeppermint.usuariosautomaticos WHERE revisado = 0 and ambiente = 'https://peppermint-qa.web.app/auth/login' OR ambiente = 'https://peppermint-qa.web.app/user/plans/' ORDER BY RAND() LIMIT 1");
                 while(rs.next()){
                     emailLogin =rs.getString(rs.findColumn("emailRegistro"));
@@ -76,21 +76,21 @@ public class variablesInitiatedPeppermint extends variablesPeppermint{
             Statement stm = CN.createStatement();
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.configuracion");
             while(rs.next()){
-                execute = rs.getInt(rs.findColumn("ejecuciones"));
+                execute = rs.getInt(rs.findColumn("executionDetails"));
             }
         }catch(Exception e){}
         sqlclose();
     }
     public void startVariablesCreateTechnique(){
         System.out.println("Iniciando variables...");
-        printStream.println("Iniciando variables...");
+        outputStream.println("Iniciando variables...");
         try {
             sqlconectar();
             Statement stm = CN.createStatement();
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.datoscreartechnique WHERE estado = 0 ORDER BY RAND() LIMIT 1");
             while(rs.next()){
-                pathImage =rs.getString(rs.findColumn("pathImage"));
-                pathVideo = rs.getString(rs.findColumn("pathVideo"));
+                imagePath =rs.getString(rs.findColumn("imagePath"));
+                videoPath = rs.getString(rs.findColumn("videoPath"));
                 titleTechnique = rs.getString(rs.findColumn("titleTechnique"));
                 descriptionTechnique = rs.getString(rs.findColumn("descriptionTechnique"));
                 creatorTechnique = rs.getString(rs.findColumn("creatorTechnique"));
@@ -113,21 +113,21 @@ public class variablesInitiatedPeppermint extends variablesPeppermint{
             Statement stm = CN.createStatement();
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.configuracion");
             while(rs.next()){
-                execute = rs.getInt(rs.findColumn("ejecuciones"));
+                execute = rs.getInt(rs.findColumn("executionDetails"));
             }
         }catch(Exception e){}
         sqlclose();
     }
     public void startVariablesCreateSegments(){
         System.out.println("Iniciando variables...");
-        printStream.println("Iniciando variables...");
+        outputStream.println("Iniciando variables...");
         try {
             sqlconectar();
             Statement stm = CN.createStatement();
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.datoscrearsegment WHERE estado = 0 ORDER BY RAND() LIMIT 1");
             while(rs.next()){
-                pathImage =rs.getString(rs.findColumn("pathImage"));
-                pathVideo =rs.getString(rs.findColumn("pathVideo"));
+                imagePath =rs.getString(rs.findColumn("imagePath"));
+                videoPath =rs.getString(rs.findColumn("videoPath"));
                 titleSegments = rs.getString(rs.findColumn("titleSegments"));
                 descriptionSegments = rs.getString(rs.findColumn("descriptionSegments"));
                 creatorSegments = rs.getString(rs.findColumn("creatorSegments"));
@@ -150,20 +150,20 @@ public class variablesInitiatedPeppermint extends variablesPeppermint{
             Statement stm = CN.createStatement();
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.configuracion");
             while(rs.next()){
-                execute = rs.getInt(rs.findColumn("ejecuciones"));
+                execute = rs.getInt(rs.findColumn("executionDetails"));
             }
         }catch(Exception e){}
         sqlclose();
     }
     public void startVariablesCreateLesson(){
         System.out.println("Iniciando variables...");
-        printStream.println("Iniciando variables...");
+        outputStream.println("Iniciando variables...");
         try {
             sqlconectar();
             Statement stm = CN.createStatement();
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.datoscrearlesson WHERE estado = 0 ORDER BY RAND() LIMIT 1");
             while(rs.next()){
-                pathImage =rs.getString(rs.findColumn("pathImage"));
+                imagePath =rs.getString(rs.findColumn("imagePath"));
                 titleLesson = rs.getString(rs.findColumn("titleLesson"));
                 descriptionLesson = rs.getString(rs.findColumn("descriptionLesson"));
                 creatorLesson = rs.getString(rs.findColumn("creatorLesson"));
@@ -185,14 +185,14 @@ public class variablesInitiatedPeppermint extends variablesPeppermint{
             Statement stm = CN.createStatement();
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.configuracion");
             while(rs.next()){
-                execute = rs.getInt(rs.findColumn("ejecuciones"));
+                execute = rs.getInt(rs.findColumn("executionDetails"));
             }
         }catch(Exception e){}
         sqlclose();
     }
     public void startVariablesCreateWorkshop(){
         System.out.println("Iniciando variables...");
-        printStream.println("Iniciando variables...");
+        outputStream.println("Iniciando variables...");
         try {
             sqlconectar();
             Statement stm = CN.createStatement();
@@ -223,8 +223,8 @@ public class variablesInitiatedPeppermint extends variablesPeppermint{
                 }else {
                     maxStudentsGroup = rs.getString(rs.findColumn("maxStudentsGroup"));
                 }
-                pathImage =rs.getString(rs.findColumn("pathImage"));
-                pathVideo =rs.getString(rs.findColumn("pathVideo"));
+                imagePath =rs.getString(rs.findColumn("imagePath"));
+                videoPath =rs.getString(rs.findColumn("videoPath"));
                 descriptionWorkshop = rs.getString(rs.findColumn("descriptionWorkshop"));
                 creatorWorkshop = rs.getString(rs.findColumn("creatorWorkshop"));
                 tagWorkshop = rs.getString(rs.findColumn("tagWorkshop"));
@@ -269,15 +269,15 @@ public class variablesInitiatedPeppermint extends variablesPeppermint{
     }
     public void startVariablesSubmitActivity(){
         System.out.println("Iniciando variables...");
-        printStream.println("Iniciando variables...");
+        outputStream.println("Iniciando variables...");
         try {
             sqlconectar();
             Statement stm = CN.createStatement();
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.datoslogin WHERE estado = 0 AND id <="+execute+"");
             while(rs.next()){
                 emailLogin = rs.getString(rs.findColumn("userName"));
-                pathImage = rs.getString(rs.findColumn("pathImage"));
-                pathVideo = rs.getString(rs.findColumn("pathVideo"));
+                imagePath = rs.getString(rs.findColumn("imagePath"));
+                videoPath = rs.getString(rs.findColumn("videoPath"));
                 passwordLogin = "123123aA";
             }
             String query1 = "UPDATE testbdpeppermint.datoslogin SET estado = 1 WHERE userName="+"'"+emailLogin+"'";
@@ -300,21 +300,21 @@ public class variablesInitiatedPeppermint extends variablesPeppermint{
             Statement stm = CN.createStatement();
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.configuracion");
             while(rs.next()){
-                execute = rs.getInt(rs.findColumn("ejecuciones"));
+                execute = rs.getInt(rs.findColumn("executionDetails"));
             }
         }catch(Exception e){}
         sqlclose();
     }
     public void startVariablesCreateArticle(){
         System.out.println("Iniciando variables article...");
-        printStream.println("Iniciando variables...");
+        outputStream.println("Iniciando variables...");
         try {
             sqlconectar();
             Statement stm = CN.createStatement();
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.datoscrearArticle WHERE estado = 0 ORDER BY RAND() LIMIT 1");
             while(rs.next()){
-                pathImage =rs.getString(rs.findColumn("pathImage"));
-                pathVideo =rs.getString(rs.findColumn("pathVideo"));
+                imagePath =rs.getString(rs.findColumn("imagePath"));
+                videoPath =rs.getString(rs.findColumn("videoPath"));
                 titleArticle = rs.getString(rs.findColumn("titleArticle"));
                 descriptionArticle = rs.getString(rs.findColumn("descriptionArticle"));
                 creatorArticle = rs.getString(rs.findColumn("creatorArticle"));
@@ -339,7 +339,7 @@ public class variablesInitiatedPeppermint extends variablesPeppermint{
             Statement stm = CN.createStatement();
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.configuracion");
             while(rs.next()){
-                execute = rs.getInt(rs.findColumn("ejecuciones"));
+                execute = rs.getInt(rs.findColumn("executionDetails"));
             }
         }catch(Exception e){}
         sqlclose();
@@ -369,7 +369,7 @@ public class variablesInitiatedPeppermint extends variablesPeppermint{
             Statement stm = CN.createStatement();
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.configuracion");
             while(rs.next()){
-                execute = rs.getInt(rs.findColumn("ejecuciones"));
+                execute = rs.getInt(rs.findColumn("executionDetails"));
             }
         }catch(Exception e){}
         sqlclose();
@@ -397,7 +397,7 @@ public class variablesInitiatedPeppermint extends variablesPeppermint{
             Statement stm = CN.createStatement();
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.configuracion");
             while(rs.next()){
-                execute = rs.getInt(rs.findColumn("ejecuciones"));
+                execute = rs.getInt(rs.findColumn("executionDetails"));
             }
         }catch(Exception e){}
         sqlclose();
@@ -424,20 +424,20 @@ public class variablesInitiatedPeppermint extends variablesPeppermint{
             Statement stm = CN.createStatement();
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.configuracion");
             while(rs.next()){
-                execute = rs.getInt(rs.findColumn("ejecuciones"));
+                execute = rs.getInt(rs.findColumn("executionDetails"));
             }
         }catch(Exception e){}
         sqlclose();
     }
     public void startVariablesCreateClub(){
         System.out.println("Iniciando variables...");
-        printStream.println("Iniciando variables...");
+        outputStream.println("Iniciando variables...");
         try {
             sqlconectar();
             Statement stm = CN.createStatement();
             ResultSet rs = stm.executeQuery("SELECT * FROM testbdpeppermint.datoscrearclub WHERE estado = 0 ORDER BY RAND() LIMIT 1");
             while(rs.next()){
-                pathImage =rs.getString(rs.findColumn("pathImage"));
+                imagePath =rs.getString(rs.findColumn("imagePath"));
                 titleClub = rs.getString(rs.findColumn("titleClub"));
                 descriptionClub = rs.getString(rs.findColumn("descriptionClub"));
                 creatorClub = rs.getString(rs.findColumn("creatorClub"));
@@ -455,17 +455,17 @@ public class variablesInitiatedPeppermint extends variablesPeppermint{
     }
     public void startVaraiblesJoinUserClub() {
         System.out.println("Iniciando variables...");
-        printStream.println("Iniciando variables...");
+        outputStream.println("Iniciando variables...");
         try {
             sqlconectar();
             Statement stm = CN.createStatement();
             ResultSet rs;
-            if(linkNavigation=="https://peppermint-development.web.app/auth/login" || linkNavigation=="http://localhost:4200/auth/login"){
+            if(navigationLink=="https://peppermint-development.web.app/auth/login" || navigationLink=="http://localhost:4200/auth/login"){
                 rs = stm.executeQuery("SELECT * FROM testbdpeppermint.usuariosautomaticos WHERE EnUso = 0 and ambiente = 'https://peppermint-development.web.app/auth/login' OR ambiente = 'https://peppermint-development.web.app/user/plans/' OR ambiente = 'http://localhost:4200/auth/login' OR ambiente = 'http://localhost:4200/user/plans/' ORDER BY RAND() LIMIT 1");
                 while(rs.next()){
                     emailLogin = rs.getString(rs.findColumn("emailRegistro"));
                 }
-            } else if (linkNavigation=="https://peppermint-qa.web.app/auth/login") {
+            } else if (navigationLink=="https://peppermint-qa.web.app/auth/login") {
                 rs = stm.executeQuery("SELECT * FROM testbdpeppermint.usuariosautomaticos WHERE EnUso = 0 and ambiente = 'https://peppermint-qa.web.app/auth/login' OR ambiente = 'https://peppermint-qa.web.app/user/plans/'ORDER BY RAND() LIMIT 1");
                 while(rs.next()){
                     emailLogin = rs.getString(rs.findColumn("emailRegistro"));

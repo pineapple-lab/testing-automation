@@ -1,146 +1,146 @@
 package InsumosDocola;
 public class SelectorsDocola extends VariablesDocola{
     //SELECTORS CLASS AND COMPONENTS
-    public String form = "form > ";
-    public String appRegister = "app-register ";
-    public String matStepper = "mat-stepper > ";
-    public String matDialogContainer = "mat-dialog-container";
-    public String classMatDialogContainer = ".mdc-dialog__container";
-    public String classMatMdcDialogSurface = ".mat-mdc-dialog-surface";
-    public String registrationTypePadding= ".registration-type-padding ";
-    public String appSelectContent = "app-select-content > ";
-    public String appSelectResource = "app-select-resource >";
-    public String appConfigurationStep = "app-configuration-step > ";
-    public String appTagsSearchOverlay = "app-tags-search-overlay > ";
-    public String appPricingStep = "app-pricing-step > ";
-    public String appThumbnailStep = "app-thumbnail-step > ";
-    public String appUploaderDropBox = "app-uploader-drop-box > ";
+    public static final String FORM = "form > ";
+    public static final String APP_REGISTER = "app-register ";
+    public static final String MAT_STEPPER = "mat-stepper > ";
+    public static final String MAT_DIALOG_CONTAINER = "mat-dialog-container";
+    public static final String CLASS_MAT_DIALOG_CONTAINER = ".mdc-dialog__container";
+    public static final String CLASS_MAT_MDC_DIALOG_SURFACE = ".mat-mdc-dialog-surface";
+    public static final String REGISTRATION_TYPE_PADDING = ".registration-type-padding ";
+    public static final String APP_SELECT_CONTENT = "app-select-content > ";
+    public static final String APP_SELECT_RESOURCE = "app-select-resource >";
+    public static final String APP_CONFIGURATION_STEP = "app-configuration-step > ";
+    public static final String APP_TAGS_SEARCH_OVERLAY = "app-tags-search-overlay > ";
+    public static final String APP_PRICING_STEP = "app-pricing-step > ";
+    public static final String APP_THUMBNAIL_STEP = "app-thumbnail-step > ";
+    public static final String APP_UPLOADER_DROP_BOX = "app-uploader-drop-box > ";
     //SELECTORS WARNING
-    public String loginIncorrectCredentials = "text=invalid_user_or_password";
+    public static final String LOGIN_INCORRECT_CREDENTIALS = "text=invalid_user_or_password";
     //SELECTORS HEADER
-    public String appHeader = "app-header > ";
-    public String headerDivButtons = appHeader+"div > div > div:nth-of-type(1) > div > button:nth-of-type";
-    public String headerMyLibraryButton = headerDivButtons+"(2) > span:nth-of-type(1)";
+    public static final String APP_HEADER = "app-header > ";
+    public static final String HEADER_DIV_BUTTONS = APP_HEADER +"div > div > div:nth-of-type(1) > div > button:nth-of-type";
+    public static final String HEADER_MY_LIBRARY_BUTTON = HEADER_DIV_BUTTONS +"(2) > span:nth-of-type(1)";
     //SELECTORS FOOTER
-    public String footerDivButtons = form+"div:nth-of-type(4) > div > ";
+    public static final String FOOTER_DIV_BUTTONS = FORM +"div:nth-of-type(4) > div > ";
     //SELECTORS LOGIN
-    public String formLogin = "form > div:nth-of-type(2) > div:nth-of-type(2) > ";
-    public String loginEmail = formLogin+"app-form-block-input:nth-of-type(1) input";
-    public String loginPassword = formLogin+"app-form-block-input:nth-of-type(2) input";
-    public String loginButton = form+"div:nth-of-type(2) > div:nth-of-type(3) button";
+    public static final String FORM_LOGIN = "form > div:nth-of-type(2) > div:nth-of-type(2) > ";
+    public static final String LOGIN_EMAIL = FORM_LOGIN +"app-form-block-input:nth-of-type(1) input";
+    public static final String LOGIN_PASSWORD = FORM_LOGIN +"app-form-block-input:nth-of-type(2) input";
+    public static final String LOGIN_BUTTON = FORM +"div:nth-of-type(2) > div:nth-of-type(3) button";
     //SELECTOR SIGN OUT
-    public String signOut = "text=Sign out";
+    public static final String SIGN_OUT = "text=Sign out";
     //SELECTORS REGISTER//
-    public String singUp = "text=Sign up free";
-    public String continueWithEmail = ".border-primary > div > button:nth-of-type(3)";
-    public String selectDivNextButtons = matStepper+"div > div:nth-of-type(2) > ";
+    public static final String SING_UP = "text=Sign up free";
+    public static final String CONTINUE_WITH_EMAIL = ".border-primary > div > button:nth-of-type(3)";
+    public static final String SELECT_DIV_NEXT_BUTTONS = MAT_STEPPER +"div > div:nth-of-type(2) > ";
     //REGISTER STEP 1//
-    public String formRegisterStep1TopDiv = appRegister+matStepper+"div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ";
-    public String formRegisterStep1BottomDiv = appRegister+matStepper+"div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > ";
-    public String registerFirstName = formRegisterStep1TopDiv+"app-form-block-input:nth-of-type(1) mat-form-field input";
-    public String registerLastName = formRegisterStep1TopDiv+"app-form-block-input:nth-of-type(2) mat-form-field input";
-    public String email = formRegisterStep1BottomDiv+"app-form-block-input mat-form-field input";
+    public static final String FORM_REGISTER_STEP_1_TOP_DIV = APP_REGISTER + MAT_STEPPER +"div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ";
+    public static final String FORM_REGISTER_STEP_1_BOTTOM_DIV = APP_REGISTER + MAT_STEPPER +"div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > ";
+    public static final String REGISTER_FIRST_NAME = FORM_REGISTER_STEP_1_TOP_DIV +"app-form-block-input:nth-of-type(1) mat-form-field input";
+    public static final String REGISTER_LAST_NAME = FORM_REGISTER_STEP_1_TOP_DIV +"app-form-block-input:nth-of-type(2) mat-form-field input";
+    public static final String EMAIL = FORM_REGISTER_STEP_1_BOTTOM_DIV +"app-form-block-input mat-form-field input";
     public String rolRegister(int rol){
-        return formRegisterStep1BottomDiv+"div:nth-of-type(3) > mat-card:nth-of-type("+rol+")";
+        return FORM_REGISTER_STEP_1_BOTTOM_DIV +"div:nth-of-type(3) > mat-card:nth-of-type("+rol+")";
     }
-    public String registerNextButtonStep1 = selectDivNextButtons+"div:nth-of-type(1) > div:nth-of-type(2) > button";
+    public static final String REGISTER_NEXT_BUTTON_STEP_1 = SELECT_DIV_NEXT_BUTTONS +"div:nth-of-type(1) > div:nth-of-type(2) > button";
     //REGISTER STEP 2//
-    public String formRegisterStep2 = matStepper+"div > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > ";
-    public String registerPassword = formRegisterStep2+"app-form-block-input:nth-of-type(1) input";
+    public static final String FORM_REGISTER_STEP_2 = MAT_STEPPER +"div > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > ";
+    public static final String REGISTER_PASSWORD = FORM_REGISTER_STEP_2 +"app-form-block-input:nth-of-type(1) input";
     public String passwordConditionSelector(int passwordCondition){
         return "app-password-verification > div > div:nth-of-type("+passwordCondition+")";
     }
-    public String registerPasswordConfirmation = formRegisterStep2+"app-form-block-input:nth-of-type(2) input";
-    public String registerNextButtonStep2 = selectDivNextButtons+"div:nth-of-type(2) > div:nth-of-type(2) > div > button";
+    public static final String REGISTER_PASSWORD_CONFIRMATION = FORM_REGISTER_STEP_2 +"app-form-block-input:nth-of-type(2) input";
+    public static final String REGISTER_NEXT_BUTTON_STEP_2 = SELECT_DIV_NEXT_BUTTONS +"div:nth-of-type(2) > div:nth-of-type(2) > div > button";
     //REGISTER STEP 3//
-    public String formRegisterStep3 = matStepper+"div > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) ";
-    public String registerTermsAndConditions = formRegisterStep3+"mat-checkbox input";
-    public String registerCaptchat = formRegisterStep3+"re-captcha > div > div > iframe";
-    public String registerNextButtonStep3 = selectDivNextButtons+"div:nth-of-type(3) > div:nth-of-type(2) > div > button";
+    public static final String FORM_REGISTER_STEP_3 = MAT_STEPPER +"div > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) ";
+    public static final String REGISTER_TERMS_AND_CONDITIONS = FORM_REGISTER_STEP_3 +"mat-checkbox input";
+    public static final String REGISTER_CAPTCHAT = FORM_REGISTER_STEP_3 +"re-captcha > div > div > iframe";
+    public static final String REGISTER_NEXT_BUTTON_STEP_3 = SELECT_DIV_NEXT_BUTTONS +"div:nth-of-type(3) > div:nth-of-type(2) > div > button";
     //SELECTORS ONBOARDING CLINICIAN//
-    public String selectGenericOnboardingFIleds = "app-onboarding > div > div";
-    public String onboardingContentProviderCompanyName = selectGenericOnboardingFIleds+" > div:nth-of-type(2) > mat-form-field:nth-of-type(1) input";
-    public String onboardingContentProviderWebSite = selectGenericOnboardingFIleds+" > div:nth-of-type(2) > mat-form-field:nth-of-type(2) input";
-    public String onboardingContentProviderNextButtonStep1 = selectGenericOnboardingFIleds+" > div:nth-of-type(3) button";
-    public String selectGenericOnboardingClinician = "app-clinitian-onboarding > div ";
-    public String onboardingCliniciancContinue = selectGenericOnboardingClinician+"> div:nth-of-type(2) button";
-    public String onboardingCliniciancContinueStep2 = selectGenericOnboardingClinician+"> div:nth-of-type(3) button";
-    public String onboardingClinicianSelector = selectGenericOnboardingClinician+"> mat-form-field > div:nth-of-type(1)";
-    public String onboardingClinicianSelectorOption = ".cdk-overlay-connected-position-bounding-box > .cdk-overlay-pane > div > mat-option:nth-of-type(1)";
-    public String onboardingClinicianPracticeName = selectGenericOnboardingClinician+"> div:nth-of-type(2) input";
-    public String onboardingClinicianPracticeNotForNow = selectGenericOnboardingClinician+"> div:nth-of-type(2) > button:nth-of-type(1)";
-    public String closeGuide = ".introjs-tooltipReferenceLayer > div > div:nth-of-type(1) a";
-    public String verifyPhoneSkipForNow = registrationTypePadding+"div > div:nth-of-type(2) > div:nth-of-type(2) > span";
+    public static final String SELECT_GENERIC_ONBOARDING_FIELDS = "app-onboarding > div > div";
+    public static final String ONBOARDING_CONTENT_PROVIDER_COMPANY_NAME = SELECT_GENERIC_ONBOARDING_FIELDS +" > div:nth-of-type(2) > mat-form-field:nth-of-type(1) input";
+    public static final String ONBOARDING_CONTENT_PROVIDER_WEB_SITE = SELECT_GENERIC_ONBOARDING_FIELDS +" > div:nth-of-type(2) > mat-form-field:nth-of-type(2) input";
+    public static final String ONBOARDING_CONTENT_PROVIDER_NEXT_BUTTON_STEP_1 = SELECT_GENERIC_ONBOARDING_FIELDS +" > div:nth-of-type(3) button";
+    public static final String SELECT_GENERIC_ONBOARDING_CLINICIAN = "app-clinitian-onboarding > div ";
+    public static final String ONBOARDING_CLINICIANC_CONTINUE = SELECT_GENERIC_ONBOARDING_CLINICIAN +"> div:nth-of-type(2) button";
+    public static final String ONBOARDING_CLINICIANC_CONTINUE_STEP_2 = SELECT_GENERIC_ONBOARDING_CLINICIAN +"> div:nth-of-type(3) button";
+    public static final String ONBOARDING_CLINICIAN_SELECTOR = SELECT_GENERIC_ONBOARDING_CLINICIAN +"> mat-form-field > div:nth-of-type(1)";
+    public static final String ONBOARDING_CLINICIAN_SELECTOR_OPTION = ".cdk-overlay-connected-position-bounding-box > .cdk-overlay-pane > div > mat-option:nth-of-type(1)";
+    public static final String ONBOARDING_CLINICIAN_PRACTICE_NAME = SELECT_GENERIC_ONBOARDING_CLINICIAN +"> div:nth-of-type(2) input";
+    public static final String ONBOARDING_CLINICIAN_PRACTICE_NOT_FOR_NOW = SELECT_GENERIC_ONBOARDING_CLINICIAN +"> div:nth-of-type(2) > button:nth-of-type(1)";
+    public static final String CLOSE_GUIDE = ".introjs-tooltipReferenceLayer > div > div:nth-of-type(1) a";
+    public static final String VERIFY_PHONE_SKIP_FOR_NOW = REGISTRATION_TYPE_PADDING +"div > div:nth-of-type(2) > div:nth-of-type(2) > span";
     //SELECT PROFILE MENU
-    public String menuProfile = appHeader+"div > div:nth-of-type(1) > div > div";
+    public static final String MENU_PROFILE = APP_HEADER +"div > div:nth-of-type(1) > div > div";
     //SELECT CONTENT CREATOR COMPNENTS
-    public String createNewResourceButton = "text= New";
-    public String selectGenericResourceType = appSelectResource+"div > div > div:nth-of-type";
+    public static final String CREATE_NEW_RESOURCE_BUTTON = "text= New";
+    public static final String SELECT_GENERIC_RESOURCE_TYPE = APP_SELECT_RESOURCE +"div > div > div:nth-of-type";
     public String createNewContentButton(int typeContent){
-        return selectGenericResourceType+"("+typeContent+") > span";
+        return SELECT_GENERIC_RESOURCE_TYPE +"("+typeContent+") > span";
     }
 
-    public String selectDivAllResourceCreator = appSelectContent+"div > div > div:nth-of-type";
+    public static final String SELECT_DIV_ALL_RESOURCE_CREATOR = APP_SELECT_CONTENT +"div > div > div:nth-of-type";
     public String createResource(int resourceTypePosition){
-        return selectDivAllResourceCreator+"("+resourceTypePosition+")";
+        return SELECT_DIV_ALL_RESOURCE_CREATOR +"("+resourceTypePosition+")";
     }
     //SELECT CONTENT COMPONENTS
-    public String selectGenericInputsContentCreator = "app-details-and-file-step > div > div:nth-of-type";
-    public String selectGenericTypeQuestion = ".cdk-overlay-pane> div > div > button:nth-of-type";
-    public String selectGenericQuizCardQuestion = "app-quiz-question > div > div:nth-of-type(1) > div > ";
-    public String selectGenericConfigurationStep = appConfigurationStep+"div:nth-of-type(1) > div > div:nth-of-type(2) > div:nth-of-type(";
-    public String selectGenericPricingStep = appPricingStep+"div > div:nth-of-type(";
-    public String selectPreviewImage = appUploaderDropBox+"div > div > div:nth-of-type(2) > i:nth-of-type(1)";
-    public String selectGenericThumbnailStep = appThumbnailStep+form+"div > div > app-uploader-drop-box > div > div > button:nth-of-type(";
-    public String selectGenericUnsplash = matDialogContainer+" > div > div > app-unsplash > form > div:nth-of-type(";
-    public String selectGenericTagType = form+"div > app-configuration-step > div > app-tags > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > app-tag-type-button:nth-of-type";
-    public String selectGenericTag = appTagsSearchOverlay+"div > cdk-virtual-scroll-viewport > div > button:nth-of-type";
-    public String contentTitle = selectGenericInputsContentCreator+"(1) input";
-    public String contentDescription = selectGenericInputsContentCreator+"(2) textarea";
-    public String contentUpload = selectGenericInputsContentCreator+"(3) > div:nth-of-type(1) input";
-    public String contentAddUrl = selectGenericInputsContentCreator+"(3) input";
-    public String contentAddQuestionsQuiz = selectGenericInputsContentCreator+"(3) > div:nth-of-type(2)";
+    public static final String SELECT_GENERIC_INPUTS_CONTENT_CREATOR = "app-details-and-file-step > div > div:nth-of-type";
+    public static final String SELECT_GENERIC_TYPE_QUESTION = ".cdk-overlay-pane> div > div > button:nth-of-type";
+    public static final String SELECT_GENERIC_QUIZ_CARD_QUESTION = "app-quiz-question > div > div:nth-of-type(1) > div > ";
+    public static final String SELECT_GENERIC_CONFIGURATION_STEP = APP_CONFIGURATION_STEP +"div:nth-of-type(1) > div > div:nth-of-type(2) > div:nth-of-type(";
+    public static final String SELECT_GENERIC_PRICING_STEP = APP_PRICING_STEP +"div > div:nth-of-type(";
+    public static final String SELECT_PREVIEW_IMAGE = APP_UPLOADER_DROP_BOX +"div > div > div:nth-of-type(2) > i:nth-of-type(1)";
+    public static final String SELECT_GENERIC_THUMBNAIL_STEP = APP_THUMBNAIL_STEP + FORM +"div > div > app-uploader-drop-box > div > div > button:nth-of-type(";
+    public static final String SELECT_GENERIC_UNSPLASH = MAT_DIALOG_CONTAINER +" > div > div > app-unsplash > form > div:nth-of-type(";
+    public static final String SELECT_GENERIC_TAG_TYPE = FORM +"div > app-configuration-step > div > app-tags > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > app-tag-type-button:nth-of-type";
+    public static final String SELECT_GENERIC_TAG = APP_TAGS_SEARCH_OVERLAY +"div > cdk-virtual-scroll-viewport > div > button:nth-of-type";
+    public static final String CONTENT_TITLE = SELECT_GENERIC_INPUTS_CONTENT_CREATOR +"(1) input";
+    public static final String CONTENT_DESCRIPTION = SELECT_GENERIC_INPUTS_CONTENT_CREATOR +"(2) textarea";
+    public static final String CONTENT_UPLOAD = SELECT_GENERIC_INPUTS_CONTENT_CREATOR +"(3) > div:nth-of-type(1) input";
+    public static final String CONTENT_ADD_URL = SELECT_GENERIC_INPUTS_CONTENT_CREATOR +"(3) input";
+    public static final String CONTENT_ADD_QUESTIONS_QUIZ = SELECT_GENERIC_INPUTS_CONTENT_CREATOR +"(3) > div:nth-of-type(2)";
     public String contentTypeQuestionQuiz(int typeQuestion){
-        return selectGenericTypeQuestion+"("+typeQuestion+")";
+        return SELECT_GENERIC_TYPE_QUESTION +"("+typeQuestion+")";
     }
-    public String contentTitleTrueOrFalseQuiz = selectGenericQuizCardQuestion+"mat-form-field input";
-    public String selectGenericDivMultipleChoice = "app-survey-question > div > div:nth-of-type(1) > div:nth-of-type";
-    public String contentTitleMultipleChoiceSurvey = selectGenericDivMultipleChoice+"(1) mat-form-field input";
-    public String contentOption1MultipleChoiceSurvey = selectGenericDivMultipleChoice+"(2) > div:nth-of-type(1) mat-form-field input";
-    public String contentOption2MultipleChoiceSurvey = selectGenericDivMultipleChoice+"(2) > div:nth-of-type(2) mat-form-field input";
-    public String contentButtonContinue = footerDivButtons+"div > button:nth-of-type(3)";
-    public String contentTagICD10Type = selectGenericTagType+"(1) > button";
-    public String contentSelectTagICD10 = selectGenericTag+"(1)";
+    public static final String CONTENT_TITLE_TRUE_OR_FALSE_QUIZ = SELECT_GENERIC_QUIZ_CARD_QUESTION +"mat-form-field input";
+    public static final String SELECT_GENERIC_DIV_MULTIPLE_CHOICE = "app-survey-question > div > div:nth-of-type(1) > div:nth-of-type";
+    public static final String CONTENT_TITLE_MULTIPLE_CHOICE_SURVEY = SELECT_GENERIC_DIV_MULTIPLE_CHOICE +"(1) mat-form-field input";
+    public static final String CONTENT_OPTION_1_MULTIPLE_CHOICE_SURVEY = SELECT_GENERIC_DIV_MULTIPLE_CHOICE +"(2) > div:nth-of-type(1) mat-form-field input";
+    public static final String CONTENT_OPTION_2_MULTIPLE_CHOICE_SURVEY = SELECT_GENERIC_DIV_MULTIPLE_CHOICE +"(2) > div:nth-of-type(2) mat-form-field input";
+    public static final String CONTENT_BUTTON_CONTINUE = FOOTER_DIV_BUTTONS +"div > button:nth-of-type(3)";
+    public static final String CONTENT_TAG_ICD_10_TYPE = SELECT_GENERIC_TAG_TYPE +"(1) > button";
+    public static final String CONTENT_SELECT_TAG_ICD_10 = SELECT_GENERIC_TAG +"(1)";
     public String contentSelectTagICD10(int tagPosition){
-        return selectGenericTag+"("+tagPosition+")";
+        return SELECT_GENERIC_TAG +"("+tagPosition+")";
     }
-    public String contentAddTags = appTagsSearchOverlay+"div > div > button:nth-of-type(2)";
-    public String contentConfigurationCMECE = selectGenericConfigurationStep+"1) > mat-checkbox input";
-    public String contentConfigurationMarketPlace = selectGenericConfigurationStep+"2) > mat-checkbox input";
-    public String contentPricingContentForFree = selectGenericPricingStep+"1) mat-slide-toggle";
-    public String contentPricingLifetimePurchase = selectGenericPricingStep+"2) mat-slide-toggle";
-    public String contentPricingMonthlyPrice = selectGenericPricingStep+"2) > div:nth-of-type(3) > div:nth-of-type(1) mat-form-field input";
-    public String contentPricingYearlyPrice = selectGenericPricingStep+"2) > div:nth-of-type(3) > div:nth-of-type(2) mat-form-field input";
-    public String contentThumbnailUploadFile = selectGenericThumbnailStep+"1)";
-    public String contentThumbnailUnsplash = selectGenericThumbnailStep+"2)";
-    public String waitCategoryUnplash =selectGenericUnsplash+"2) > div > div > button:nth-of-type(7)";
+    public static final String CONTENT_ADD_TAGS = APP_TAGS_SEARCH_OVERLAY +"div > div > button:nth-of-type(2)";
+    public static final String CONTENT_CONFIGURATION_CMECE = SELECT_GENERIC_CONFIGURATION_STEP +"1) > mat-checkbox input";
+    public static final String CONTENT_CONFIGURATION_MARKET_PLACE = SELECT_GENERIC_CONFIGURATION_STEP +"2) > mat-checkbox input";
+    public static final String CONTENT_PRICING_CONTENT_FOR_FREE = SELECT_GENERIC_PRICING_STEP +"1) mat-slide-toggle";
+    public static final String CONTENT_PRICING_LIFETIME_PURCHASE = SELECT_GENERIC_PRICING_STEP +"2) mat-slide-toggle";
+    public static final String CONTENT_PRICING_MONTHLY_PRICE = SELECT_GENERIC_PRICING_STEP +"2) > div:nth-of-type(3) > div:nth-of-type(1) mat-form-field input";
+    public static final String CONTENT_PRICING_YEARLY_PRICE = SELECT_GENERIC_PRICING_STEP +"2) > div:nth-of-type(3) > div:nth-of-type(2) mat-form-field input";
+    public static final String CONTENT_THUMBNAIL_UPLOAD_FILE = SELECT_GENERIC_THUMBNAIL_STEP +"1)";
+    public static final String CONTENT_THUMBNAIL_UNSPLASH = SELECT_GENERIC_THUMBNAIL_STEP +"2)";
+    public static final String WAIT_CATEGORY_UNPLASH = SELECT_GENERIC_UNSPLASH +"2) > div > div > button:nth-of-type(7)";
     public String contentUnsplashCategorie(int thumbnailCategory){
-        return selectGenericUnsplash+"2) > div > div > button:nth-of-type("+thumbnailCategory+")";
+        return SELECT_GENERIC_UNSPLASH +"2) > div > div > button:nth-of-type("+thumbnailCategory+")";
     }
-    public String waitingUnplash = selectGenericUnsplash+"3) > img:nth-of-type(10)";
+    public static final String WAITING_UNPLASH = SELECT_GENERIC_UNSPLASH +"3) > img:nth-of-type(10)";
     public String contentUnsplashPhoto(int thumbnail){
-        return selectGenericUnsplash+"3) > img:nth-of-type("+thumbnail+")";
+        return SELECT_GENERIC_UNSPLASH +"3) > img:nth-of-type("+thumbnail+")";
     }
-    public String contentUnsplashSelectButton = selectGenericUnsplash+"4) > div > button";
-    public String contentUnsplashSaveButton = "app-cropper-core > div > div:nth-of-type(2) > button";
-    public String contentThumbnailDelete = appThumbnailStep+form+"div > div > button";
-    public String contentPublishButton = "text = Publish";
-    public String selectGenericCourseContent = "app-crud app-cards-container > div > app-card:nth-of-type";
+    public static final String CONTENT_UNSPLASH_SELECT_BUTTON = SELECT_GENERIC_UNSPLASH +"4) > div > button";
+    public static final String CONTENT_UNSPLASH_SAVE_BUTTON = "app-cropper-core > div > div:nth-of-type(2) > button";
+    public static final String CONTENT_THUMBNAIL_DELETE = APP_THUMBNAIL_STEP + FORM +"div > div > button";
+    public static final String CONTENT_PUBLISH_BUTTON = "text = Publish";
+    public static final String SELECT_GENERIC_COURSE_CONTENT = "app-crud app-cards-container > div > app-card:nth-of-type";
     public String courseSelectContent(int contentPosition){
-        return selectGenericCourseContent+"("+contentPosition+")";
+        return SELECT_GENERIC_COURSE_CONTENT +"("+contentPosition+")";
     }
-    public String contentTabCourses = "mat-tab-header > div .mat-mdc-tab-labels > div:nth-of-type(2)";
+    public static final String CONTENT_TAB_COURSES = "mat-tab-header > div .mat-mdc-tab-labels > div:nth-of-type(2)";
     //SELECT MESSAGE ERROR
-    public String messageErrorTitleRequired = "app-details-and-file-step > div > div:nth-of-type(1) mat-error";
-    public String messageErrorDescriptionRequired = "app-details-and-file-step > div > div:nth-of-type(2) mat-error";
+    public static final String MESSAGE_ERROR_TITLE_REQUIRED = "app-details-and-file-step > div > div:nth-of-type(1) mat-error";
+    public static final String MESSAGE_ERROR_DESCRIPTION_REQUIRED = "app-details-and-file-step > div > div:nth-of-type(2) mat-error";
 }

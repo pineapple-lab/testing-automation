@@ -7,7 +7,7 @@ public class functionSegmentsManagment extends testCasesSegment {
         startContext();
         serverStatus();
         System.out.println("iniciando caso de prueba...");
-        printStream.println("iniciando caso de prueba...");
+        outputStream.println("iniciando caso de prueba...");
         startExecutionSegments();
         printNumberExecutions();
         startNavigation();

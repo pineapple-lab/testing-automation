@@ -7,8 +7,8 @@ import javafx.stage.Stage;
 import insumosPeppermint.variablesPeppermint;
 public class configuracionAvanzadaEnrollClub extends interfaceActions{
     methodsPeppermint metodosPeppermint = new methodsPeppermint();
-    public configuracionAvanzadaEnrollClub(String ejecucionesAvanzadas , String seleccionAvanzada){
-        this.ejecuciones = ejecucionesAvanzadas;
+    public configuracionAvanzadaEnrollClub(String executionDetailsAvanzadas , String seleccionAvanzada){
+        this.executionDetails = executionDetailsAvanzadas;
         this.seleccion = seleccionAvanzada;
     }
     @Override

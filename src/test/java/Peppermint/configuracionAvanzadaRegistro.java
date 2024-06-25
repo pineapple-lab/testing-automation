@@ -10,8 +10,8 @@ import static insumosPeppermint.variablesPeppermint.*;
 public class configuracionAvanzadaRegistro extends interfaceActions{
 
     methodsPeppermint metodosPeppermint = new methodsPeppermint();
-    public configuracionAvanzadaRegistro(String ejecucionesAvanzadas , String seleccionAvanzada){
-        this.ejecuciones = ejecucionesAvanzadas;
+    public configuracionAvanzadaRegistro(String executionDetailsAvanzadas , String seleccionAvanzada){
+        this.executionDetails = executionDetailsAvanzadas;
         this.seleccion = seleccionAvanzada;
     }
 

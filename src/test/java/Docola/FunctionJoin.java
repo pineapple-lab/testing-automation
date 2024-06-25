@@ -2,6 +2,8 @@ package Docola;
 
 import InsumosDocola.MethodsCreationDocola;
 import InsumosDocola.MethodsDocola;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class FunctionJoin extends MethodsCreationDocola {
@@ -10,5 +12,7 @@ public class FunctionJoin extends MethodsCreationDocola {
     public void serviceValidationRegister(){
         methods.startContextAndNavigation();
         joinNow();
+        cleanupContext();
+        teardownPlaywright();
     }
 }

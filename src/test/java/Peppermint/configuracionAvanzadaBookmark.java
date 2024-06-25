@@ -8,8 +8,8 @@ import javafx.stage.Stage;
 
 public class configuracionAvanzadaBookmark extends interfaceActions {
     methodsPeppermint metodosPeppermint = new methodsPeppermint();
-    public configuracionAvanzadaBookmark(String ejecucionesAvanzadas, String seleccionAvanzada) {
-        this.ejecuciones = ejecucionesAvanzadas;
+    public configuracionAvanzadaBookmark(String executionDetailsAvanzadas, String seleccionAvanzada) {
+        this.executionDetails = executionDetailsAvanzadas;
         this.seleccion = seleccionAvanzada;
     }
 

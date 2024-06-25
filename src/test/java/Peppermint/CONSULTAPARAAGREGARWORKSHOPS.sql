@@ -4,8 +4,8 @@ VALUES("C:\\Users\\PineappleHP3\\Desktop\\dev\\WorkSpaces\\testingAutomation\\sr
 
 
 /*configurar workshop existente*/
-UPDATE testbdpeppermint.datoscrearworkshopcompleto SET pathImage = "C:\\Users\\PineappleHP3\\Desktop\\dev\\WorkSpaces\\testingAutomation\\src\\test\\java\\Peppermint\\INSUMOSMULTIMEDIA\\IMAGENPARAPRUEBASWORKSHOP1.jpg", 
-pathVideo = "C:\\Users\\PineappleHP3\\Desktop\\dev\\WorkSpaces\\testingAutomation\\src\\test\\java\\Peppermint\\INSUMOSMULTIMEDIA\\VIDEOPARAPRUEBAS.mp4",
+UPDATE testbdpeppermint.datoscrearworkshopcompleto SET imagePath = "C:\\Users\\PineappleHP3\\Desktop\\dev\\WorkSpaces\\testingAutomation\\src\\test\\java\\Peppermint\\INSUMOSMULTIMEDIA\\IMAGENPARAPRUEBASWORKSHOP1.jpg",
+videoPath = "C:\\Users\\PineappleHP3\\Desktop\\dev\\WorkSpaces\\testingAutomation\\src\\test\\java\\Peppermint\\INSUMOSMULTIMEDIA\\VIDEOPARAPRUEBAS.mp4",
 titleWorkshop ="Curso bricolage", descriptionWorkshop = "Convertite en poco tiempo en un experto armador de muebles",
 targetAudienceWorkshop = "Carpinteros principiantes", learningObjectivesWorkshop = "al final de este curso nunca mas volveras a tener problemas para armar tus muebles", whatDoYouNeed = "Solo necesitas ganas de aprender, en este curso te enseñamos todo desde 0",
 questionWorkshop = "Tengo que tener experiencia armando muebles?",answerWorkshop= "No, no necesitas experiencia", reviewWorkshop = "un gran curso en el que podras dar salida practica a lo aprendido en poco tiempo", 
@@ -15,6 +15,6 @@ WHERE titleWorkshop = "prueba Automatizada7";
 
 DELETE FROM testbdpeppermint.datoscrearworkshopcompleto WHERE id=10;
 
-UPDATE testbdpeppermint.datoscrearworkshopcompleto SET ejecuciones = '30';
+UPDATE testbdpeppermint.datoscrearworkshopcompleto SET executionDetails = '30';
 
-UPDATE testbdpeppermint.datoscrearworkshopcompleto SET pathVideo = "C:\\Users\\PineappleHP3\\Desktop\\dev\\WorkSpaces\\testingAutomation\\src\\test\\java\\Peppermint\\INSUMOSMULTIMEDIA\\VIDEOPARAPRUEBAS.mp4" WHERE id = 2 ;
+UPDATE testbdpeppermint.datoscrearworkshopcompleto SET videoPath = "C:\\Users\\PineappleHP3\\Desktop\\dev\\WorkSpaces\\testingAutomation\\src\\test\\java\\Peppermint\\INSUMOSMULTIMEDIA\\VIDEOPARAPRUEBAS.mp4" WHERE id = 2 ;

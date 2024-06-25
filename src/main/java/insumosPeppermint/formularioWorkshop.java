@@ -14,8 +14,8 @@ public class formularioWorkshop extends Stage  {
         GridPane grid = new GridPane();
         grid.setHgap(10);
         grid.setVgap(10);
-                TextField pathImageJT = new TextField("path image");
-                TextField pathVideoJT = new TextField("path video");
+                TextField imagePathJT = new TextField("path image");
+                TextField videoPathJT = new TextField("path video");
                 TextField titleWorkshopJT = new TextField("title workshop");
                 TextField descriptionWorkshopJT = new TextField("description workshop");
                 TextField creatorWorkshopJT = new TextField("id creator workshop");
@@ -52,8 +52,8 @@ public class formularioWorkshop extends Stage  {
                 TextField optimalBuddyGroupGroupJT = new TextField("optimal buddy group");
                 TextField estadoJT = new TextField("estado");
                 Button save = new Button("Guardar");
-                GridPane.setConstraints(pathImageJT, 2, 1);
-                GridPane.setConstraints(pathVideoJT, 4, 1);
+                GridPane.setConstraints(imagePathJT, 2, 1);
+                GridPane.setConstraints(videoPathJT, 4, 1);
                 GridPane.setConstraints(titleWorkshopJT, 2, 2);
                 GridPane.setConstraints(descriptionWorkshopJT, 4, 2);
                 GridPane.setConstraints(creatorWorkshopJT, 2, 3);
@@ -96,8 +96,8 @@ public class formularioWorkshop extends Stage  {
                         String username = "root";
                         String password = "root";
                         Connection CN = DriverManager.getConnection(url, username, password);
-                        String pathImage = pathImageJT.getText();
-                        String pathVideo = pathVideoJT.getText();
+                        String imagePath = imagePathJT.getText();
+                        String videoPath = videoPathJT.getText();
                         String titleWorkshop = titleWorkshopJT.getText();
                         String descriptionWorkshop = descriptionWorkshopJT.getText();
                         String creatorWorkshop = creatorWorkshopJT.getText();
@@ -133,8 +133,8 @@ public class formularioWorkshop extends Stage  {
                         String maxStudentsGroup = maxStudentsGroupJT.getText();
                         String optimalBuddyGroupGroup = optimalBuddyGroupGroupJT.getText();
                         String estado = estadoJT.getText();
-                        String insertSql = "INSERT INTO datoscrearworkshopcompleto (`pathImage`,`pathVideo`,`titleWorkshop`,`descriptionWorkshop`,`creatorWorkshop`,`tagWorkshop`,`categoryWorkshop`,`topicWorkshop`,`subTopicWorkshop`,`targetAudienceWorkshop`,`learningObjectivesWorkshop`,`whatDoYouNeed`,`purposeWorkshop`,`skillsWorkshop`,`pysicalActivityWorkshop`,`questionWorkshop`,`answerWorkshop`,`reviewerWorkshop`,`reviewWorkshop`,`studentWorkshop`,`descriptionProjectWorkshop`,`addLinksWorkshop`,`titleZoomWorkshop`,`deadlineWorkshop`,`descriptionZoomWorkshop`,`zoomUrlWorkshop`,`activitiesTItleWorkshop`,`activitieDescriptionWorkshop`,`syncUpTitleWorkshop`,`syncUpDescriptionWorkshop`,`instructorSoloWithInstructor`,`instructorGroupWithInstructor`,`maxStudentsGroupWithInstructor`,`optimaBuddyGroupGroupWithInstructor`,`maxStudentsGroup`,`optimalBuddyGroupGroup`,`estado`) VALUES(" + "'" + pathImage + "'" + "," +
-                                "'" + pathVideo + "'" + "," + "'" + titleWorkshop + "'" + "," + "'" + descriptionWorkshop + "'" + "," + "'" + creatorWorkshop + "'" + "," + "'" + tagWorkshop + "'" + "," + "'" + categoryWorkshop + "'" + "," + "'" + topicWorkshop + "'" + "," + "'" + subTopicWorkshop + "'" + "," +
+                        String insertSql = "INSERT INTO datoscrearworkshopcompleto (`imagePath`,`videoPath`,`titleWorkshop`,`descriptionWorkshop`,`creatorWorkshop`,`tagWorkshop`,`categoryWorkshop`,`topicWorkshop`,`subTopicWorkshop`,`targetAudienceWorkshop`,`learningObjectivesWorkshop`,`whatDoYouNeed`,`purposeWorkshop`,`skillsWorkshop`,`pysicalActivityWorkshop`,`questionWorkshop`,`answerWorkshop`,`reviewerWorkshop`,`reviewWorkshop`,`studentWorkshop`,`descriptionProjectWorkshop`,`addLinksWorkshop`,`titleZoomWorkshop`,`deadlineWorkshop`,`descriptionZoomWorkshop`,`zoomUrlWorkshop`,`activitiesTItleWorkshop`,`activitieDescriptionWorkshop`,`syncUpTitleWorkshop`,`syncUpDescriptionWorkshop`,`instructorSoloWithInstructor`,`instructorGroupWithInstructor`,`maxStudentsGroupWithInstructor`,`optimaBuddyGroupGroupWithInstructor`,`maxStudentsGroup`,`optimalBuddyGroupGroup`,`estado`) VALUES(" + "'" + imagePath + "'" + "," +
+                                "'" + videoPath + "'" + "," + "'" + titleWorkshop + "'" + "," + "'" + descriptionWorkshop + "'" + "," + "'" + creatorWorkshop + "'" + "," + "'" + tagWorkshop + "'" + "," + "'" + categoryWorkshop + "'" + "," + "'" + topicWorkshop + "'" + "," + "'" + subTopicWorkshop + "'" + "," +
                                 "'" + targetAudienceWorkshop + "'" + "," + "'" + learningObjectivesWorkshop + "'" + "," + "'" + whatDoYouNeed + "'" + "," + "'" + purposeWorkshop + "'" + "," + "'" + skillsWorkshop + "'" + "," + "'" + pysicalActivityWorkshop + "'" + "," +
                                 "'" + questionWorkshop + "'" + "," + "'" + answerWorkshop + "'" + "," + "'" + reviewerWorkshop + "'" + "," + "'" + reviewWorkshop + "'" + "," + "'" + studentWorkshop + "'" + "," + "'" + descriptionProjectWorkshop + "'" + "," + "'" + addLinksWorkshop + "'" + "," +
                                 "'" + titleZoomWorkshop + "'" + "," + "'" + deadlineWorkshop + "'" + "," + "'" + descriptionZoomWorkshop + "'" + "," + "'" + zoomUrlWorkshop + "'" + "," + "'" + activitiesTItleWorkshop + "'" + "," + "'" + activitieDescriptionWorkshop + "'" + "," +
@@ -147,8 +147,8 @@ public class formularioWorkshop extends Stage  {
                         ex.printStackTrace();
                     }
                 });
-        grid.getChildren().add(pathImageJT);
-        grid.getChildren().add(pathVideoJT);
+        grid.getChildren().add(imagePathJT);
+        grid.getChildren().add(videoPathJT);
         grid.getChildren().add(titleWorkshopJT);
         grid.getChildren().add(descriptionWorkshopJT);
         grid.getChildren().add(creatorWorkshopJT);

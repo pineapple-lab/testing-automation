@@ -1,24 +1,26 @@
 package InsumosDocola;
 import java.io.PrintStream;
 public class VariablesDocola {
-   public static volatile PrintStream printStream;
-   public static volatile boolean shouldStopTest;
-   public static volatile String linkNavigation;
-   public static String ejecuciones;
-   String root ="D";
-   public String pathImage = root+":\\Escritorio\\insumos para pruebas\\Imagenes\\Bot docola\\imagen";
-   public String pathVideo = root+":\\Escritorio\\insumos para pruebas\\Videos\\Bot docola\\video";
-   public String image;
-   public String video;
-   public int contador;
-   //REGISTER
-   public static String email;
-   public String emailProvider  = "mailinator";
-   public static String joinRol;
-   public int rol;
-   public String password = "123123aA-";
-   //CREATE CONTENT
-   public static String typeResource;
-   public static int typeContent;
-   public static int amountOfContent = 1;
+   //Variables de salida y control
+   public static volatile PrintStream outputStream;
+   public static volatile boolean stopTest;
+   public static volatile String navigationLink;
+   public static String executionDetails;
+   //Variables de rutas y archivos
+   private static final String ROOT ="D";
+   public String imagePath = ROOT+":\\Escritorio\\insumos para pruebas\\Imagenes\\Bot docola\\imagen";
+   public String videoPath = ROOT+":\\Escritorio\\insumos para pruebas\\Videos\\Bot docola\\video";
+   public String imageFileName;
+   public String videoFileName;
+   public int executeCounter;
+   //Variables de registro
+   public static String userEmail;
+   public String emailDomain = "mailinator";
+   public static String userRole;
+   public int roleID;
+   public String userPassword = "123123aA-";
+   //Variables de contenido
+   public static String resourceType;
+   public static int contentType;
+   public static int contentAmount = 1;
 }

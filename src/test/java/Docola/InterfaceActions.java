@@ -4,8 +4,6 @@ import javafx.scene.control.CheckBox;
 import java.util.ArrayList;
 import java.util.List;
 
-import static InsumosDocola.VariablesDocola.email;
-
 public class InterfaceActions extends InterfaceProperties{
     VariablesDocola variables = new VariablesDocola();
     enum ExecMethod {
@@ -47,8 +45,7 @@ public class InterfaceActions extends InterfaceProperties{
     }
    //create actions
     public void actionJoin() {
-        FunctionJoin test = new FunctionJoin();
-        test.serviceValidationRegister();
+        executeService(new FunctionJoin(), FunctionJoin::serviceValidationRegister);
     }
     public void actionNewResource() {
         FunctionCreateContent test = new FunctionCreateContent();
@@ -125,5 +122,17 @@ public class InterfaceActions extends InterfaceProperties{
         BotConfiguration config = new BotConfiguration();
         config.serviceUpdateUndefinedUser(email);
     }
+    private <T> void executeService(T serviceInstance, CheckedConsumer<T> action) {
+        try {
+            action.accept(serviceInstance);
+        } catch (Exception e) {
+            e.printStackTrace(); // Manejo básico de excepciones, se debe mejorar según el contexto real
+        }
+    }
 
+    // Interfaz funcional para consumidores con excepción
+    @FunctionalInterface
+    private interface CheckedConsumer<T> {
+        void accept(T t) throws Exception;
+    }
 }

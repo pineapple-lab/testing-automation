@@ -9,7 +9,7 @@ public class functionWorkshopManagment extends testCasesWorkshop {
         startContext();
         serverStatus();
         System.out.println("Iniciando caso de prueba...");
-        printStream.println("Iniciando caso de prueba...");
+        outputStream.println("Iniciando caso de prueba...");
         startExecutionWorkshop();
         printNumberExecutions();
         startNavigation();
@@ -52,9 +52,9 @@ public class functionWorkshopManagment extends testCasesWorkshop {
         }
         page.click("a:nth-of-type(5)");
         page.click("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)");
-        page.locator(".ng-star-inserted app-upload-image input[type=file]").setInputFiles(Paths.get(pathImage));
+        page.locator(".ng-star-inserted app-upload-image input[type=file]").setInputFiles(Paths.get(imagePath));
         page.click(".ma-auto button");
-        page.locator("//*[@id=\"video-file\"]").setInputFiles(Paths.get(pathVideo));
+        page.locator("//*[@id=\"video-file\"]").setInputFiles(Paths.get(videoPath));
         page.focus(".ng-star-inserted form > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) app-mat-form-field input");
         kb.insertText(titleWorkshop+" "+counter);
         page.click(".ng-star-inserted app-select-creator");
@@ -98,9 +98,9 @@ public class functionWorkshopManagment extends testCasesWorkshop {
         page.click(".cdk-overlay-container mat-option:nth-of-type("+reviewerWorkshop+")");
         page.click("form > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) mat-list mat-expansion-panel > div > div > div > div > div:nth-of-type(2)");
         kb.insertText(reviewWorkshop);
-        page.locator(".ng-star-inserted app-upload-image input[type=file]").setInputFiles(Paths.get(pathImage));
+        page.locator(".ng-star-inserted app-upload-image input[type=file]").setInputFiles(Paths.get(imagePath));
         page.click(".ma-auto button");
-        page.locator("//*[@id=\"video-file\"]").setInputFiles(Paths.get(pathVideo));
+        page.locator("//*[@id=\"video-file\"]").setInputFiles(Paths.get(videoPath));
         page.click("form > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) mat-list app-generic-selects > div input");
         page.click(".cdk-overlay-container mat-option:nth-of-type("+studentWorkshop+")");
         page.click("form > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) mat-list textarea");
@@ -108,7 +108,7 @@ public class functionWorkshopManagment extends testCasesWorkshop {
         page.click("form > div:nth-of-type(3) > div:nth-of-type(2) button:nth-of-type(1)");
         page.fill("mat-dialog-container input", addLinksWorkshop);
         page.click("mat-dialog-container div:nth-of-type(2) .material-popup button");
-        page.locator("//*[@id=\"file\"]").setInputFiles(Paths.get(pathImage));
+        page.locator("//*[@id=\"file\"]").setInputFiles(Paths.get(imagePath));
         page.click("form > div:nth-of-type(1) button");
         page.click("app-course-outlet-form app-course-lesson-form > button");
         page.click("app-course-outlet-form app-course-lesson-form > div:nth-of-type(3) button");
@@ -143,7 +143,7 @@ public class functionWorkshopManagment extends testCasesWorkshop {
         kb.insertText(activitiesTitleWorkshop);
         page.click("app-course-lesson-form > div:nth-of-type(2) > app-drag-drop-sorting > mat-list > div:nth-of-type(2) > .ng-star-inserted > div > div > div > div > div:nth-of-type(4) > div:nth-of-type(2) app-drag-drop-sorting mat-list > div:nth-of-type(1) mat-expansion-panel > div >div>div>div>div:nth-of-type(2) textarea");
         kb.insertText(activitiesDescriptionWorkshop);
-        page.locator("app-course-lesson-form > div:nth-of-type(2) > app-drag-drop-sorting > mat-list > div:nth-of-type(2) > .ng-star-inserted > div > div > div > div > div:nth-of-type(4) > div:nth-of-type(2) app-drag-drop-sorting mat-list > div:nth-of-type(1) mat-expansion-panel > div >div>div>div input[type=file]").setInputFiles(Paths.get(pathVideo));
+        page.locator("app-course-lesson-form > div:nth-of-type(2) > app-drag-drop-sorting > mat-list > div:nth-of-type(2) > .ng-star-inserted > div > div > div > div > div:nth-of-type(4) > div:nth-of-type(2) app-drag-drop-sorting mat-list > div:nth-of-type(1) mat-expansion-panel > div >div>div>div input[type=file]").setInputFiles(Paths.get(videoPath));
         page.click("app-course-lesson-form > div:nth-of-type(2) > app-drag-drop-sorting > mat-list > div:nth-of-type(2) > .ng-star-inserted > div > div > div > div > div:nth-of-type(4) > div:nth-of-type(2) app-drag-drop-sorting mat-list > div:nth-of-type(2) mat-expansion-panel > div >div>div>div>div:nth-of-type(1) input");
         kb.insertText(syncUpTitleWorkshop);
         page.click("app-course-lesson-form > div:nth-of-type(2) > app-drag-drop-sorting > mat-list > div:nth-of-type(2) > .ng-star-inserted > div > div > div > div > div:nth-of-type(4) > div:nth-of-type(2) app-drag-drop-sorting mat-list > div:nth-of-type(2) mat-expansion-panel > div >div>div>div>div:nth-of-type(2) textarea");

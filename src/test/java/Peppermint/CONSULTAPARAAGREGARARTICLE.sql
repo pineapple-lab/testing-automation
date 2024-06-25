@@ -20,8 +20,8 @@ Una vez cocidos retiramos y reservamos. El caldo lo guardamos para cocer el arro
 4.- Cubrimos con el caldo de cocer las alubias. Esto le aportará un sabor especial. Ponemos un poco de sal.
 5.- Una vez cocido el arroz, agregamos los frijoles y lo dejamos cocinar unos minutos antes de servir.",FALSE,1);
 
-UPDATE testbdpeppermint.datoscreararticle SET estado = false, ejecuciones = 10, topicArticle="1" where id= "6"; 
-UPDATE testbdpeppermint.datoscreararticle SET pathVideo ="C:\\Users\\PineappleHP3\\Desktop\\dev\\WorkSpaces\\testingAutomation\\src\\test\\java\\Peppermint\\INSUMOSMULTIMEDIA\\VIDEOPARAPRUEBASARTICLE2.mp4"   where id= "6"; 
+UPDATE testbdpeppermint.datoscreararticle SET estado = false, executionDetails = 10, topicArticle="1" where id= "6";
+UPDATE testbdpeppermint.datoscreararticle SET videoPath ="C:\\Users\\PineappleHP3\\Desktop\\dev\\WorkSpaces\\testingAutomation\\src\\test\\java\\Peppermint\\INSUMOSMULTIMEDIA\\VIDEOPARAPRUEBASARTICLE2.mp4"   where id= "6";
 UPDATE testbdpeppermint.datoscreararticle SET estado = true; 
 DELETE FROM testbdpeppermint.datoscreararticle WHERE id = 5;
 UPDATE testbdpeppermint.datoscreararticle SET titleArticle = "La mejor receta de arroz moro" where id= "6"; 

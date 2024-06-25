@@ -23,7 +23,7 @@ public class botCREATOR extends interfaceActions{
     public void start(Stage stage1){
         super.start(stage1);
      Thread interfaceThread =  new Thread (()->{
-         printStream = new PrintStream(new PrintStream(new OutputStream() {
+         outputStream = new PrintStream(new PrintStream(new OutputStream() {
              @Override
              public void write(int b){
                  appendText(String.valueOf((char)b));
@@ -32,21 +32,21 @@ public class botCREATOR extends interfaceActions{
                  appendText(new String (b,off,len));
              }
          }));
-         printStream.println("Bienvenido, selecciona un ambiente y el numero de ejecuciones para empezar.\n\n");
+         outputStream.println("Bienvenido, selecciona un ambiente y el numero de executionDetails para empezar.\n\n");
          comboBox.setOnAction(e->{
              seleccion = comboBox.getValue();
              if (seleccion.equals("DEV")) {
-                 variablesPeppermint.linkNavigation="https://peppermint-development.web.app/auth/login";
+                 variablesPeppermint.navigationLink="https://peppermint-development.web.app/auth/login";
              } else if (seleccion.equals("QA")) {
-                 variablesPeppermint.linkNavigation="https://peppermint-qa.web.app/auth/login";
+                 variablesPeppermint.navigationLink="https://peppermint-qa.web.app/auth/login";
              }else if (seleccion.equals("Local")) {
-                 variablesPeppermint.linkNavigation="http://localhost:4200/auth/login";
+                 variablesPeppermint.navigationLink="http://localhost:4200/auth/login";
              }
          });
          deneterCasoDePrueba.setOnAction(event ->{
              metodosPeppermint.detenerTest();
              System.out.println("La ejecucion se detendra al final de la actual iteracion");
-             printStream.println("La ejecucion se detendra al final de la actual iteracion");
+             outputStream.println("La ejecucion se detendra al final de la actual iteracion");
          });
          removerDeLaCola.setOnAction(event ->{
              actionEliminarDeLaCola();
@@ -83,8 +83,8 @@ public class botCREATOR extends interfaceActions{
          });
          crearWorkshop.setOnMousePressed( event -> {
              if (event.isSecondaryButtonDown()){
-                 ejecuciones=ejecucionestf.getText();
-                 configuracionAvanzadaCrearWorkshops configAvanzada = new configuracionAvanzadaCrearWorkshops(ejecuciones,seleccion);
+                 executionDetails=executionDetailstf.getText();
+                 configuracionAvanzadaCrearWorkshops configAvanzada = new configuracionAvanzadaCrearWorkshops(executionDetails,seleccion);
                  Stage configAvanzadaStage = new Stage();
                  configAvanzada.start(configAvanzadaStage);
                  configAvanzadaStage.show();
@@ -99,8 +99,8 @@ public class botCREATOR extends interfaceActions{
          });
          enrollWorkshop.setOnMousePressed( event -> {
              if (event.isSecondaryButtonDown()){
-                 ejecuciones=ejecucionestf.getText();
-                 configuracionAvanzadaEnrollWorkshop configAvanzada = new configuracionAvanzadaEnrollWorkshop(ejecuciones,seleccion);
+                 executionDetails=executionDetailstf.getText();
+                 configuracionAvanzadaEnrollWorkshop configAvanzada = new configuracionAvanzadaEnrollWorkshop(executionDetails,seleccion);
                  Stage configAvanzadaStage = new Stage();
                  configAvanzada.start(configAvanzadaStage);
                  configAvanzadaStage.show();
@@ -171,11 +171,11 @@ public class botCREATOR extends interfaceActions{
          });
          crearUsuario.setOnMousePressed( event -> {
              if (event.isSecondaryButtonDown()){
-                 ejecuciones=ejecucionestf.getText();
+                 executionDetails=executionDetailstf.getText();
                  variablesPeppermint.firstName ="pineapple";
                  variablesPeppermint.lastName = "user";
                  variablesPeppermint.passwordRegister = "123123aA";
-                 configuracionAvanzadaRegistro configAvanzada = new configuracionAvanzadaRegistro(ejecuciones,seleccion);
+                 configuracionAvanzadaRegistro configAvanzada = new configuracionAvanzadaRegistro(executionDetails,seleccion);
                  Stage configAvanzadaStage = new Stage();
                  configAvanzada.start(configAvanzadaStage);
                  configAvanzadaStage.show();
@@ -190,8 +190,8 @@ public class botCREATOR extends interfaceActions{
          });
          enviarSolicitudDeAmistad.setOnMousePressed( event -> {
              if (event.isSecondaryButtonDown()){
-                 ejecuciones=ejecucionestf.getText();
-                 configuracionAvanzadaSendFriends configAvanzada = new configuracionAvanzadaSendFriends(ejecuciones,seleccion);
+                 executionDetails=executionDetailstf.getText();
+                 configuracionAvanzadaSendFriends configAvanzada = new configuracionAvanzadaSendFriends(executionDetails,seleccion);
                  Stage configAvanzadaStage = new Stage();
                  configAvanzada.start(configAvanzadaStage);
                  configAvanzadaStage.show();
@@ -220,8 +220,8 @@ public class botCREATOR extends interfaceActions{
          });
          generarInviteGuest.setOnMousePressed( event -> {
              if (event.isSecondaryButtonDown()){
-                 ejecuciones=ejecucionestf.getText();
-                 configuracionAvanzadaEnviarInviteGuest configAvanzada = new configuracionAvanzadaEnviarInviteGuest(ejecuciones,seleccion);
+                 executionDetails=executionDetailstf.getText();
+                 configuracionAvanzadaEnviarInviteGuest configAvanzada = new configuracionAvanzadaEnviarInviteGuest(executionDetails,seleccion);
                  Stage configAvanzadaStage = new Stage();
                  configAvanzada.start(configAvanzadaStage);
                  configAvanzadaStage.show();
@@ -240,8 +240,8 @@ public class botCREATOR extends interfaceActions{
          });
          enviarRecomendaciones.setOnMousePressed( event -> {
              if (event.isSecondaryButtonDown()){
-                 ejecuciones=ejecucionestf.getText();
-                 configuracionAvanzadaSendRecomendaciones configAvanzada = new configuracionAvanzadaSendRecomendaciones(ejecuciones,seleccion);
+                 executionDetails=executionDetailstf.getText();
+                 configuracionAvanzadaSendRecomendaciones configAvanzada = new configuracionAvanzadaSendRecomendaciones(executionDetails,seleccion);
                  Stage configAvanzadaStage = new Stage();
                  configAvanzada.start(configAvanzadaStage);
                  configAvanzadaStage.show();
@@ -258,8 +258,8 @@ public class botCREATOR extends interfaceActions{
          });
          guardarBookmark.setOnMousePressed( event -> {
              if (event.isSecondaryButtonDown()){
-                 ejecuciones=ejecucionestf.getText();
-                 configuracionAvanzadaBookmark configAvanzada = new configuracionAvanzadaBookmark(ejecuciones,seleccion);
+                 executionDetails=executionDetailstf.getText();
+                 configuracionAvanzadaBookmark configAvanzada = new configuracionAvanzadaBookmark(executionDetails,seleccion);
                  Stage configAvanzadaStage = new Stage();
                  configAvanzada.start(configAvanzadaStage);
                  configAvanzadaStage.show();
@@ -275,8 +275,8 @@ public class botCREATOR extends interfaceActions{
          });
          unirMultiplesWorkshop.setOnMousePressed( event -> {
              if (event.isSecondaryButtonDown()){
-                 ejecuciones=ejecucionestf.getText();
-                 configuracionAvanzadaEnrollMultiWorkshop configAvanzada = new configuracionAvanzadaEnrollMultiWorkshop(ejecuciones,seleccion);
+                 executionDetails=executionDetailstf.getText();
+                 configuracionAvanzadaEnrollMultiWorkshop configAvanzada = new configuracionAvanzadaEnrollMultiWorkshop(executionDetails,seleccion);
                  Stage configAvanzadaStage = new Stage();
                  configAvanzada.start(configAvanzadaStage);
                  configAvanzadaStage.show();
@@ -292,8 +292,8 @@ public class botCREATOR extends interfaceActions{
          });
          unirMultiplesClub.setOnMousePressed( event -> {
              if (event.isSecondaryButtonDown()){
-                 ejecuciones=ejecucionestf.getText();
-                 configuracionAvanzadaEnrollClub configAvanzada = new configuracionAvanzadaEnrollClub(ejecuciones,seleccion);
+                 executionDetails=executionDetailstf.getText();
+                 configuracionAvanzadaEnrollClub configAvanzada = new configuracionAvanzadaEnrollClub(executionDetails,seleccion);
                  Stage configAvanzadaStage = new Stage();
                  configAvanzada.start(configAvanzadaStage);
                  configAvanzadaStage.show();
@@ -338,7 +338,7 @@ public class botCREATOR extends interfaceActions{
      }
      execute.setOnAction(e->{
          Thread execute=  new Thread (()->{
-             ejecuciones = ejecucionestf.getText();
+             executionDetails = executionDetailstf.getText();
             accion();
          }, "execute");
          if(execute.isAlive()) {

@@ -6,11 +6,11 @@ import org.junit.jupiter.api.Test;
 public class usuariofunctionLogin extends robotBaseSpaceLogik {
     @Test
     public void loginValidation(){
-        int contador = 100;
-        for(int ejecuciones=0; ejecuciones <= contador; ejecuciones++){
+        int executeCounter = 100;
+        for(int executionDetails=0; executionDetails <= executeCounter; executionDetails++){
             login();
             logout();
-            System.out.println(ejecuciones+"/"+contador);
+            System.out.println(executionDetails+"/"+executeCounter);
         }
     }
 }

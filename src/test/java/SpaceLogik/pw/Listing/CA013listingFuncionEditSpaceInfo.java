@@ -62,7 +62,7 @@ public class CA013listingFuncionEditSpaceInfo extends robotBaseSpaceLogik {
         iniciarVariablesEditarSingleSuite();
         System.out.println("El caso de preuba CA0134 se va a execute "+execute+" veces");
         for(counter=1;counter<=execute;counter++) {
-            nameCase=suiteDescriptionListingSingleSuite+".97validacionEditSingleSuiteSpace.Ejecuciones:"+counter;
+            nameCase=suiteDescriptionListingSingleSuite+".97validacionEditSingleSuiteSpace.executionDetails:"+counter;
             suiteNumberListingSpaceBuildin=String.valueOf(counter);
             login();
             crearListingSingleSuiteSpace();

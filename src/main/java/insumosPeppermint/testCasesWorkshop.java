@@ -2,7 +2,7 @@ package insumosPeppermint;
 public class testCasesWorkshop extends methodsPeppermint{
     public void validateCreateWorkshop(){
         for (counter = 1; counter <= execute; counter++) {
-            if (!shouldStopTest) {
+            if (!stopTest) {
                 startVariablesCreateWorkshop();
 
                 createWorkshop();
@@ -16,7 +16,7 @@ public class testCasesWorkshop extends methodsPeppermint{
                 //assertions = "text=" + titleWorkshop;
                 //Assertions.assertTrue(page.isVisible(assertions));
                 System.out.println("El workshop se ha creado con exito\n");
-                printStream.println("El workshop se ha creado con exito\n");
+                outputStream.println("El workshop se ha creado con exito\n");
                 printNumberCasesExecuted();
             }else {
                 closeContext();

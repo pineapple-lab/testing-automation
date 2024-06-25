@@ -13,7 +13,7 @@ public class CA029prospectFuncionEditar extends robotBaseSpaceLogik {
         iniciarVariablesEditGeneralInfoProspect();
         System.out.println("El caso CA0291 se va a execute: "+execute+" veces");
         for (counter=1; counter <= execute; counter++){
-            nameCase=nameCompanyProspect+".20-validacionEditProspectGeneralInfo.Ejecuciones:"+counter;
+            nameCase=nameCompanyProspect+".20-validacionEditProspectGeneralInfo.executionDetails:"+counter;
             nameCompanyEditProspectGeneralInfo=nameCase+"edit";
             login();
             crearProspect();
@@ -36,7 +36,7 @@ public class CA029prospectFuncionEditar extends robotBaseSpaceLogik {
         iniciarVariablesEditManualBrokerFeliz();
         System.out.println("El caso CA0292 se va a execute: "+execute+" veces");
         for (counter=1; counter <= execute; counter++){
-            nameCase=nameCompanyProspect+".19-validacionEdicionManualInfoBrokerage.Ejecuciones:"+counter;
+            nameCase=nameCompanyProspect+".19-validacionEdicionManualInfoBrokerage.executionDetails:"+counter;
             firstNameEditBrokerManual=nameCase+"edit";
             assertions="text="+firstNameEditBrokerManual;
             login();
@@ -56,7 +56,7 @@ public class CA029prospectFuncionEditar extends robotBaseSpaceLogik {
         iniciarVariablesEditManualBrokerFeliz();
         System.out.println("El caso CA0293 se va a execute: "+execute+" veces");
         for (counter=1; counter <= execute; counter++){
-            nameCase=nameCompanyProspect+".21-validacionEdicionManualInfoBrokerage.Ejecuciones:"+counter;
+            nameCase=nameCompanyProspect+".21-validacionEdicionManualInfoBrokerage.executionDetails:"+counter;
             firstNameEditBrokerManual=nameCase+".firstnameedit";
             nameCompanyEditProspectGeneralInfo=nameCase+".namecompanyEdit";
             firstNameEditProspectGeneralInfo=nameCase+".firstNameGeneralInfoEdit";

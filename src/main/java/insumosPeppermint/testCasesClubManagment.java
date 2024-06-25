@@ -2,7 +2,7 @@ package insumosPeppermint;
 public class testCasesClubManagment extends methodsPeppermint{
     public void validarCrearClub(){
         for (counter = 1; counter <= execute; counter++) {
-            if (!shouldStopTest) {
+            if (!stopTest) {
                 startVariablesCreateClub();
                 createClub();
                 assertions = "text=The club was created successfully";
@@ -10,7 +10,7 @@ public class testCasesClubManagment extends methodsPeppermint{
                 searchingElement = titleClub;
                 assertions = "text=" + titleClub;
                 System.out.println("El club se ha creado con exito\n");
-                printStream.println("El club se ha creado con exito\n");
+                outputStream.println("El club se ha creado con exito\n");
                 printNumberCasesExecuted();
             } else {
                 closeContext();
@@ -20,14 +20,14 @@ public class testCasesClubManagment extends methodsPeppermint{
     }
     public void validarJoinClub(){
         for (counter = 1; counter <= execute; counter++) {
-            if (!shouldStopTest) {
+            if (!stopTest) {
                 startVaraiblesJoinUserClub();
                 login();
                 System.out.println("\nEnrolando usuario\n");
-                printStream.println("\nEnrolando usuario\n");
+                outputStream.println("\nEnrolando usuario\n");
                 joinClub();
                 System.out.println("El usuario "+emailLogin+" ha sido enrolado con exito \n");
-                printStream.println("El usuario "+emailLogin+" ha sido enrolado con exito \n");
+                outputStream.println("El usuario "+emailLogin+" ha sido enrolado con exito \n");
                 printNumberCasesExecuted();
                 logout();
             } else {
@@ -39,10 +39,10 @@ public class testCasesClubManagment extends methodsPeppermint{
     public void validarPostClub(){
 
         for (counter = 1; counter <= execute; counter++) {
-            if (!shouldStopTest) {
+            if (!stopTest) {
                 createPostClub();
                 System.out.println("Post realizado con exito\n");
-                printStream.println("Post realizado con exito\n");
+                outputStream.println("Post realizado con exito\n");
                 printNumberCasesExecuted();
             } else {
                 closeContext();
@@ -51,17 +51,17 @@ public class testCasesClubManagment extends methodsPeppermint{
         closeContext();
     }
     public void validacionUnirseMuchosClubs(){
-        if (!shouldStopTest) {
+        if (!stopTest) {
             if(execute==1) {
                 System.out.println("\nEL usuario se va ha unir a" + execute + " club\n");
-                printStream.println("\nEl usuario se va ha unir a " + execute + " club\n");
+                outputStream.println("\nEl usuario se va ha unir a " + execute + " club\n");
             }else{
                 System.out.println("\nEL usuario se va ha unir a " + execute + " clubs\n");
-                printStream.println("\nEL usuario se va ha unir a " + execute + " clubs\n");
+                outputStream.println("\nEL usuario se va ha unir a " + execute + " clubs\n");
             }
             joinUserManyClub();
             System.out.println("El usuario se ha unido correctamente\n"+emailuserSendRecomendation);
-            printStream.println("El usuario se ha unido correctamente\n"+emailuserSendRecomendation);
+            outputStream.println("El usuario se ha unido correctamente\n"+emailuserSendRecomendation);
             printNumberCasesExecuted();
         } else {
             closeContext();

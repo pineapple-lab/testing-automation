@@ -2,10 +2,10 @@ package insumosPeppermint;
 public class testCasesSegment extends methodsPeppermint{
     public void validateCreateSegment(){
         for (counter = 1; counter <= execute; counter++) {
-            if (!shouldStopTest) {
+            if (!stopTest) {
                 startVariablesCreateSegments();
                 System.out.print("\nSe creara el segments: " + titleSegments + "\n");
-                printStream.print("\nSe creara el segments: " + titleSegments + "\n");
+                outputStream.print("\nSe creara el segments: " + titleSegments + "\n");
                 createSegment();
                 assertions = "text=The segment was created successfully";
                 page.waitForSelector("text=The segment was created successfully");
@@ -18,7 +18,7 @@ public class testCasesSegment extends methodsPeppermint{
                 page.focus("table tbody");
                 //Assertions.assertTrue(page.isVisible(assertions));
                 System.out.println("El segment se ha creado con exito\n");
-                printStream.println("El segment se ha creado con exito\n");
+                outputStream.println("El segment se ha creado con exito\n");
                 printNumberCasesExecuted();
             } else {
                 closeContext();

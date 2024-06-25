@@ -7,7 +7,7 @@ public class functionTechniqueManagment extends testCasesTechnique {
         startContext();
         serverStatus();
         System.out.println("iniciando caso de prueba...");
-        printStream.println("iniciando caso de prueba...");
+        outputStream.println("iniciando caso de prueba...");
         startExecutionTechnique();
         printNumberExecutions();
         startNavigation();

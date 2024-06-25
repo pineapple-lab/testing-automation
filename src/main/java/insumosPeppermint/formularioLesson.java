@@ -13,7 +13,7 @@ public class formularioLesson extends Stage {
         GridPane grid = new GridPane();
         grid.setHgap(10);
         grid.setVgap(10);
-        TextField pathImageJT = new TextField("path image");
+        TextField imagePathJT = new TextField("path image");
         TextField titleLessonJT = new TextField("title lesson");
         TextField descriptionLessonJT = new TextField("description lesson");
         TextField creatorLessonJT = new TextField("id creator lesson");
@@ -23,7 +23,7 @@ public class formularioLesson extends Stage {
         TextField subTopicLessonJT = new TextField("id subtopic lesson");
         TextField estadoJT = new TextField("estado");
         Button guardar = new Button("Guardar");
-        GridPane.setConstraints(pathImageJT,2,1);
+        GridPane.setConstraints(imagePathJT,2,1);
         GridPane.setConstraints(titleLessonJT,4,1);
         GridPane.setConstraints(descriptionLessonJT,2,2);
         GridPane.setConstraints(creatorLessonJT,4,2);
@@ -39,7 +39,7 @@ public class formularioLesson extends Stage {
                 String username = "root";
                 String password = "root";
                 Connection CN = DriverManager.getConnection(url, username, password);
-                String pathImage = pathImageJT.getText();
+                String imagePath = imagePathJT.getText();
                 String titleLesson = titleLessonJT.getText();
                 String descriptionLesson = descriptionLessonJT.getText();
                 String creatorLesson = creatorLessonJT.getText();
@@ -49,7 +49,7 @@ public class formularioLesson extends Stage {
                 String subTopicLesson = subTopicLessonJT.getText();
                 String estado = estadoJT.getText();
                 String insertSql = "INSERT INTO datoscrearlesson (" +
-                        "`pathImage`," +
+                        "`imagePath`," +
                         "`titleLesson`," +
                         "`descriptionLesson`," +
                         "`creatorLesson`," +
@@ -59,7 +59,7 @@ public class formularioLesson extends Stage {
                         "`subTopicLesson`," +
                         "`estado`," +
                         "VALUES("+
-                        "'"+pathImage+"'"+","+
+                        "'"+imagePath+"'"+","+
                         "'"+titleLesson+"'"+","+
                         "'"+descriptionLesson+"'"+","+
                         "'"+creatorLesson+"'"+","+
@@ -73,7 +73,7 @@ public class formularioLesson extends Stage {
                 CN.close();
             }catch (Exception ex){ex.printStackTrace();}
         });
-         grid.getChildren().add(pathImageJT);
+         grid.getChildren().add(imagePathJT);
          grid.getChildren().add(titleLessonJT);
          grid.getChildren().add(descriptionLessonJT);
          grid.getChildren().add(creatorLessonJT);

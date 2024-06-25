@@ -2,7 +2,7 @@ package insumosPeppermint;
 public class testCasesEnrollWorkshop extends methodsPeppermint {
     public void validarEnrollWorkshop(){
         for(counter=1;counter<=execute;counter++) {
-            if (!shouldStopTest) {
+            if (!stopTest) {
             startVariablesLogin();
             login();
             enrollWorkshop();
@@ -16,17 +16,17 @@ public class testCasesEnrollWorkshop extends methodsPeppermint {
         closeContext();
     }
     public void validacionUnirseMuchosWorkshops(){
-        if (!shouldStopTest) {
+        if (!stopTest) {
             if(execute==1) {
                 System.out.println("\nEL usuario se va ha unir a" + execute + " workshop\n");
-                printStream.println("\nEl usuario se va ha unir a " + execute + " workshop\n");
+                outputStream.println("\nEl usuario se va ha unir a " + execute + " workshop\n");
             }else{
                 System.out.println("\nEL usuario se va ha unir a " + execute + " workshops\n");
-                printStream.println("\nEL usuario se va ha unir a " + execute + " workshops\n");
+                outputStream.println("\nEL usuario se va ha unir a " + execute + " workshops\n");
             }
             joinUserManyWorkshop();
             System.out.println("El usuario se ha unido correctamente\n"+emailuserSendRecomendation);
-            printStream.println("El usuario se ha unido correctamente\n"+emailuserSendRecomendation);
+            outputStream.println("El usuario se ha unido correctamente\n"+emailuserSendRecomendation);
             printNumberCasesExecuted();
         } else {
             closeContext();
@@ -36,13 +36,13 @@ public class testCasesEnrollWorkshop extends methodsPeppermint {
     public void validarEnviarActivity(){
         uploadImageVideo=true;
         for (counter = 1; counter <= execute; counter++) {
-            if (!shouldStopTest) {
+            if (!stopTest) {
                 startVariablesSubmitActivity();
                 login();
                 completeAssignmentActivity();
                 logout();
                 System.out.println("El workshop se ha creado con exito\n");
-                printStream.println("El workshop se ha creado con exito\n");
+                outputStream.println("El workshop se ha creado con exito\n");
                 printNumberCasesExecuted();
             }else {
                 closeContext();
@@ -52,7 +52,7 @@ public class testCasesEnrollWorkshop extends methodsPeppermint {
     }
     public void validarResponderActivity(){
         uploadImageVideo=true;
-            if (!shouldStopTest) {
+            if (!stopTest) {
                 startVariablesSubmitActivity();
                 login();
                 replyAssignmentActivity();

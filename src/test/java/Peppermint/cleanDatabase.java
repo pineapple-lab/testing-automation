@@ -8,14 +8,14 @@ public class cleanDatabase extends methodsPeppermint {
     public void limpiarUserBD(){
         Keyboard kb = page.keyboard();
         execute=383;
-        linkNavigation="http://localhost:4200/user/plans/";
+        navigationLink="http://localhost:4200/user/plans/";
         for(counter=0; counter<=execute;counter++){
             startNavigation();
             startVariablesLoginDeleteUser();
             if(login()){
                 continue;
             }
-            System.out.println("ejecuciones:"+counter+"\\"+execute+"\n");
+            System.out.println("executionDetails:"+counter+"\\"+execute+"\n");
             page.waitForSelector("text= My workshops");
             page.waitForTimeout(1000);
             if (page.isVisible("mat-dialog-container > app-expired-popup")) {

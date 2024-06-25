@@ -8,14 +8,14 @@ public class functionSendRecomendation extends testCasesRecommendation {
         startContext();
         serverStatus();
         System.out.println("Iniciando caso de prueba...");
-        printStream.println("Iniciando caso de prueba...");
+        outputStream.println("Iniciando caso de prueba...");
         startExecutionArticle();
         printNumberExecutions();
         startNavigation();
-        if (linkNavigation =="http://localhost:4200/auth/login" || linkNavigation == "https://peppermint-development.web.app/auth/login") {
+        if (navigationLink =="http://localhost:4200/auth/login" || navigationLink == "https://peppermint-development.web.app/auth/login") {
             emailLogin = emailRecomendationSending;
         }
-        if (linkNavigation=="https://peppermint-qa.web.app/auth/login"){
+        if (navigationLink=="https://peppermint-qa.web.app/auth/login"){
             emailLogin = emailRecomendationSendingQA;
         }
         login();
@@ -26,15 +26,15 @@ public class functionSendRecomendation extends testCasesRecommendation {
         startContext();
         serverStatus();
         System.out.println("Iniciando caso de prueba...");
-        printStream.println("Iniciando caso de prueba...");
+        outputStream.println("Iniciando caso de prueba...");
         startExecutionArticle();
         printNumberExecutions();
         startNavigation();
-        if (linkNavigation =="http://localhost:4200/auth/login" || linkNavigation == "https://peppermint-development.web.app/auth/login") {
+        if (navigationLink =="http://localhost:4200/auth/login" || navigationLink == "https://peppermint-development.web.app/auth/login") {
             emailLogin = "pineappleuser1685718024380@mailinator.com";
 
         }
-        if (linkNavigation=="https://peppermint-qa.web.app/auth/login"){
+        if (navigationLink=="https://peppermint-qa.web.app/auth/login"){
             emailLogin = "LauraPadilla1693506039635@mailinator.com";
         }
 

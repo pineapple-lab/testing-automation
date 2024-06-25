@@ -7,7 +7,7 @@ public class functionRegistryManagment extends testCasesRegistry {
         startContext();
         serverStatus();
         System.out.println("Iniciando caso de prueba...");
-        printStream.println("Iniciando caso de prueba...");
+        outputStream.println("Iniciando caso de prueba...");
         startExecutionArticle();
         printNumberExecutions();
         validateRegistry();

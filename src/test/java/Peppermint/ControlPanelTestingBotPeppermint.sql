@@ -13,7 +13,7 @@
 /*|*/		/*SETEA EN 1 LOS DATOS QUE NO QUERES execute*/									/*|*/
 /*|*/		UPDATE testbdpeppermint.nombredetabla SET estado = '1' WHERE id !='';			/*|*/	
 /*|*/																						/*|*/	
-/*|*/			/*SETEAR CANTIDAD DE EJECUCIONES*/											/*|*/		
+/*|*/			/*SETEAR CANTIDAD DE executionDetails*/											/*|*/
 /*|*/		UPDATE testbdpeppermint.nombredetabla SET execute = '' WHERE id = '';			/*|*/
 /*|-------------------------------------------------------------------------------------------|*/
 

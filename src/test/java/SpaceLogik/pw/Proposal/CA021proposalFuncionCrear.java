@@ -17,7 +17,7 @@ public class CA021proposalFuncionCrear extends robotBaseSpaceLogik {
             System.out.println("valores:"+building+","+prospect+","+program);
             System.out.println("El caso CA0211 se va a execute: "+execute+" veces");
             for (counter=1; counter <= execute; counter++){
-                nameCase = nameProposal+".1validacioncrearProposal.Ejecuciones:"+counter;
+                nameCase = nameProposal+".1validacioncrearProposal.executionDetails:"+counter;
                 login();
                 crearProposal();
                 buscadorContenido();

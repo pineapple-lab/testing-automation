@@ -2,10 +2,10 @@ package insumosPeppermint;
 public class testCasesLesson extends methodsPeppermint{
     public void validateCreateLesson(){
         for (counter = 1; counter <= execute; counter++) {
-            if (!shouldStopTest) {
+            if (!stopTest) {
                 startVariablesCreateLesson();
                 System.out.println("\nSe creara el lesson: " + titleLesson + "\n");
-                printStream.println("\nSe creara el lesson: " + titleLesson + "\n");
+                outputStream.println("\nSe creara el lesson: " + titleLesson + "\n");
                 createLesson();
                 assertions = "text=The lesson was created successfully";
                 page.waitForSelector("text=The lesson was created successfully");
@@ -18,7 +18,7 @@ public class testCasesLesson extends methodsPeppermint{
                 page.focus("table tbody");
                 //Assertions.assertTrue(page.isVisible(assertions));
                 System.out.println("El lesson se ha creado con exito\n");
-                printStream.println("El lesson se ha creado con exito\n");
+                outputStream.println("El lesson se ha creado con exito\n");
                 printNumberCasesExecuted();
             } else {
                 closeContext();

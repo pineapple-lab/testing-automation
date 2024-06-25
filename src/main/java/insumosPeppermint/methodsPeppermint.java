@@ -17,10 +17,10 @@ import java.util.Random;
 
 public class methodsPeppermint extends assertions {
     public void iniciarTest(){
-        shouldStopTest = false;
+        stopTest = false;
     }
     public void detenerTest(){
-    shouldStopTest = true;
+    stopTest = true;
 }
     public void serverStatus(){
         APIResponse response = page.request().post("https://peppermint-development.firebaseapp.com/");
@@ -28,66 +28,66 @@ public class methodsPeppermint extends assertions {
         assert(response).ok();
         System.out.println("Server status: "+statusCode);
         System.out.println("-----------------------------------------------------------");
-        printStream.println("Server status: "+statusCode);
-        printStream.println("-----------------------------------------------------------");
+        outputStream.println("Server status: "+statusCode);
+        outputStream.println("-----------------------------------------------------------");
     }
     public void startContext(){
         System.out.println("\n-----------------------------------------------------------");
         System.out.println("Iniciando ejecucion....");
         System.out.println("-----------------------------------------------------------");
-        printStream.println("\n-----------------------------------------------------------");
-        printStream.println("Iniciando ejecucion....");
-        printStream.println("-----------------------------------------------------------");
+        outputStream.println("\n-----------------------------------------------------------");
+        outputStream.println("Iniciando ejecucion....");
+        outputStream.println("-----------------------------------------------------------");
         launchBrowser();
         createContextAndPage();
     }
     public void startNavigation(){
-        //printStream.println("\nAmbiente: "+linkNavigation+"\n");
-        System.out.println("\nAmbiente: "+linkNavigation+"\n");
+        //outputStream.println("\nAmbiente: "+navigationLink+"\n");
+        System.out.println("\nAmbiente: "+navigationLink+"\n");
         Keyboard kb = page.keyboard();
         kb.press("Control+KeyN");
-        page.navigate(linkNavigation);
+        page.navigate(navigationLink);
     }
     public void printNumberExecutions(){
         if(execute>1) {
             System.out.println("El caso se va a ejecutar " + execute + " veces");
-            printStream.println("El caso se va a ejecutar " + execute + " veces");
+            outputStream.println("El caso se va a ejecutar " + execute + " veces");
         }else {
             System.out.println("El caso se va a ejecutar " + execute + " vez");
-            printStream.println("El caso se va a ejecutar " + execute + " vez");
+            outputStream.println("El caso se va a ejecutar " + execute + " vez");
         }
     }
     public void printNumberCasesExecuted (){
         if(counter>1) {
             System.out.println("El caso se ejecuto " + counter + " veces");
-            printStream.println("El caso se ejecuto " + counter + " veces");
+            outputStream.println("El caso se ejecuto " + counter + " veces");
         }else {
             System.out.println("El caso se ejecuto " + counter + " vez");
-            printStream.println("El caso se ejecuto " + counter + " vez");
+            outputStream.println("El caso se ejecuto " + counter + " vez");
         }
-        int ejecucionesRestantes = execute - counter;
-        System.out.println("Ejecuciones restantes: "+ejecucionesRestantes);
-        printStream.println("Ejecuciones restantes: "+ejecucionesRestantes);
-        if(ejecucionesRestantes==0){
+        int executionDetailsRestantes = execute - counter;
+        System.out.println("executionDetails restantes: "+executionDetailsRestantes);
+        outputStream.println("executionDetails restantes: "+executionDetailsRestantes);
+        if(executionDetailsRestantes==0){
             System.out.println("-----------------------------------------------------------");
             System.out.println("Fin de la ejecucion");
-            printStream.println("-----------------------------------------------------------");
-            printStream.println("Fin de la ejecucion");
+            outputStream.println("-----------------------------------------------------------");
+            outputStream.println("Fin de la ejecucion");
         }
         System.out.println("-----------------------------------------------------------\n");
-        printStream.println("-----------------------------------------------------------\n");
+        outputStream.println("-----------------------------------------------------------\n");
     }
     public void imprimirCantidadDeCasosEjecutadosRegistroInviteguest (){
         if(counterRegister>1) {
             System.out.println("El caso se ejecuto " + counterRegister + " veces\n");
-            printStream.println("El caso se ejecuto " + counterRegister + " veces\n");
+            outputStream.println("El caso se ejecuto " + counterRegister + " veces\n");
         }else {
             System.out.println("El caso se ejecuto " + counterRegister + " vez\n");
-            printStream.println("El caso se ejecuto " + counterRegister + " vez\n");
+            outputStream.println("El caso se ejecuto " + counterRegister + " vez\n");
         }
-        int ejecucionesRestantes = execute - counterRegister;
-        System.out.println("Ejecuciones restantes: "+ejecucionesRestantes);
-        printStream.println("Ejecuciones restantes: "+ejecucionesRestantes);
+        int executionDetailsRestantes = execute - counterRegister;
+        System.out.println("executionDetails restantes: "+executionDetailsRestantes);
+        outputStream.println("executionDetails restantes: "+executionDetailsRestantes);
     }
     public void buscarContenido(){
         Keyboard kb = page.keyboard();
@@ -169,7 +169,7 @@ public class methodsPeppermint extends assertions {
         }
         saveUser();
         System.out.println("\nSe creara el usuario: " +emailRegister+ "\n");
-        printStream.println("\nSe creara el usuario: " +emailRegister+ "\n");
+        outputStream.println("\nSe creara el usuario: " +emailRegister+ "\n");
         page.click("text=Join Now");
         //page.click("text=Begin your Membership");
         page.waitForSelector("text=Sign up with email");
@@ -192,7 +192,7 @@ public class methodsPeppermint extends assertions {
         page.click("mat-calendar tbody > tr:first-child > td:nth-of-type(4)");
         page.fill("mat-card-content > app-mat-form-field:nth-of-type(2) input",passwordRegister);
         page.click("text=Sign up with email");
-        if(linkNavigation== "https://peppermint-development.web.app/auth/login" || linkNavigation =="https://peppermint-qa.web.app/auth/login") {
+        if(navigationLink== "https://peppermint-development.web.app/auth/login" || navigationLink =="https://peppermint-qa.web.app/auth/login") {
             page.fill("app-payment > div > div > mat-card .wrapper > div:nth-of-type(1) > app-mat-form-field input", cardholderName);
             page.waitForSelector("app-payment > div > div > mat-card .wrapper > div:nth-of-type(1) > div > div:nth-of-type(1) > div > div > input");
             page.waitForSelector("app-payment > div > div > mat-card .wrapper > div:nth-of-type(1) > div > div:nth-of-type(2) > div:nth-of-type(1) input");
@@ -209,7 +209,7 @@ public class methodsPeppermint extends assertions {
             kb.insertText(cvv);
             page.click("text=Start my Peppermint membership");
         }
-        if(linkNavigation=="http://localhost:4200/auth/login") {
+        if(navigationLink=="http://localhost:4200/auth/login") {
             page.fill("app-payment > div > div > mat-card .wrapper > div > div:nth-of-type(1) app-mat-form-field input", cardholderName);
             page.waitForSelector("app-payment > div > div > mat-card .wrapper > div > div:nth-of-type(2) > div:nth-of-type(1) iframe");
             page.waitForSelector("app-payment > div > div > mat-card .wrapper > div > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) input");
@@ -305,7 +305,7 @@ public class methodsPeppermint extends assertions {
             String password = "root";
             Connection CN = DriverManager.getConnection(url, username, password);
             String insertSql = "INSERT INTO usuariosautomaticos (`emailRegistro`,`ambiente`) " +
-                    "VALUES('"+emailRegister+"','"+linkNavigation+"')";
+                    "VALUES('"+emailRegister+"','"+navigationLink+"')";
             Statement stmt = CN.createStatement();
             stmt.executeUpdate(insertSql);
             CN.close();
@@ -345,7 +345,7 @@ public class methodsPeppermint extends assertions {
     }
     public boolean login() {
         System.out.println("Iniciando login...");
-        //printStream.println("Iniciando login...");
+        //outputStream.println("Iniciando login...");
         Keyboard kb = page.keyboard();
         kb.press("F12");
         if (page.isVisible(".bg-primary-contrast form > .mat-card-content app-mat-form-field:nth-of-type(2) input") == false) {
@@ -388,12 +388,12 @@ public class methodsPeppermint extends assertions {
         }
         System.out.println("El login del usuario " + emailLogin + " se realizo con exito \n");
         return false;
-        //printStream.println("El login del usuario "+emailLogin+" se realizo con exito \n");
+        //outputStream.println("El login del usuario "+emailLogin+" se realizo con exito \n");
     }
 
     public void loginAdmin(){
         System.out.println("Iniciando login...");
-        //printStream.println("Iniciando login...");
+        //outputStream.println("Iniciando login...");
         Keyboard kb = page.keyboard();
         kb.press("F12");
         page.waitForTimeout(500);
@@ -407,10 +407,10 @@ public class methodsPeppermint extends assertions {
         Assertions.assertTrue(page.isVisible("text=Login with Facebook"));
         Assertions.assertTrue(page.isVisible("text=Login with Email"));
         page.focus(".bg-primary-contrast form > .mat-card-content app-mat-form-field:nth-of-type(1) input");
-        if(linkNavigation=="https://peppermint-development.web.app/auth/login"|| linkNavigation =="http://localhost:4200/auth/login" ) {
+        if(navigationLink=="https://peppermint-development.web.app/auth/login"|| navigationLink =="http://localhost:4200/auth/login" ) {
             kb.insertText(emailUserAdmin);
         }
-        if(linkNavigation=="https://peppermint-qa.web.app/auth/login"){
+        if(navigationLink=="https://peppermint-qa.web.app/auth/login"){
             kb.insertText(emailUserAdminQA);
         }
         page.focus(".bg-primary-contrast form > .mat-card-content app-mat-form-field:nth-of-type(2) input");
@@ -419,7 +419,7 @@ public class methodsPeppermint extends assertions {
         page.waitForSelector("text=Login Successfull!");
         Assertions.assertTrue(page.isVisible("text=Login Successfull!"));
         System.out.println("El login del usuario "+emailUserAdmin+" se realizo con exito \n");
-        //printStream.println("El login del usuario "+emailLogin+" se realizo con exito \n");
+        //outputStream.println("El login del usuario "+emailLogin+" se realizo con exito \n");
     }
     public void logout(){
         page.click("text=My Stuff");
@@ -461,7 +461,7 @@ public class methodsPeppermint extends assertions {
             emailRegister = firstName+lastName+timeStamp+"@mailinator.com";
         }
         System.out.println("\nSe creara el usuario: " +emailRegister+ "\n");
-        printStream.println("\nSe creara el usuario: " +emailRegister+ "\n");
+        outputStream.println("\nSe creara el usuario: " +emailRegister+ "\n");
         page.waitForSelector("text=Join Now");
         page.click("text=Join Now");
         page.fill("mat-card-content > div > div:nth-of-type(1) app-mat-form-field input",firstName);
@@ -481,7 +481,7 @@ public class methodsPeppermint extends assertions {
         page.click("mat-calendar tbody > tr:first-child > td:nth-of-type(4)");
         page.fill("mat-card-content > app-mat-form-field:nth-of-type(2) input",passwordRegister);
         page.click("text=Sign up with email");
-        if(linkNavigation== "https://peppermint-development.web.app/auth/login" || linkNavigation =="https://peppermint-qa.web.app/auth/login") {
+        if(navigationLink== "https://peppermint-development.web.app/auth/login" || navigationLink =="https://peppermint-qa.web.app/auth/login") {
             page.fill("app-payment > div > div > mat-card .wrapper > div:nth-of-type(1) > app-mat-form-field input", cardholderName);
             page.waitForSelector("app-payment > div > div > mat-card .wrapper > div:nth-of-type(1) > div > div:nth-of-type(1) > div > div > input");
             page.waitForSelector("app-payment > div > div > mat-card .wrapper > div:nth-of-type(1) > div > div:nth-of-type(2) > div:nth-of-type(1) input");
@@ -498,7 +498,7 @@ public class methodsPeppermint extends assertions {
             kb.insertText(cvv);
             page.click("text=Start my Peppermint membership");
         }
-        if(linkNavigation=="http://localhost:4200/auth/login") {
+        if(navigationLink=="http://localhost:4200/auth/login") {
             page.fill("app-payment > div > div > mat-card .wrapper > div > div:nth-of-type(1) app-mat-form-field input", cardholderName);
             page.waitForSelector("app-payment > div > div > mat-card .wrapper > div > div:nth-of-type(2) > div:nth-of-type(1) iframe");
             page.waitForSelector("app-payment > div > div > mat-card .wrapper > div > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) input");
@@ -529,18 +529,18 @@ public class methodsPeppermint extends assertions {
         kb.type(userSendFriends);
         kb.press("Enter");
         System.out.println("Enviando solicitud de amistad");
-        printStream.println("Enviando solicitud de amistad");
+        outputStream.println("Enviando solicitud de amistad");
         page.click("app-search-results > div > main > div > mat-tab-group > div app-friends-card button");
         page.waitForTimeout(2000);
         logout();
-        printStream.println("Solicitud de amistad enviada");
+        outputStream.println("Solicitud de amistad enviada");
     }
     public void acceptFriendshipRequest(){
         emailLogin=emailAcceptFriendRequests;
         login();
         page.click("app-header > mat-toolbar>div:nth-of-type(3) > div > span > button:nth-of-type(3)");
         System.out.println("Aceptando solicitudes de amistad");
-        printStream.println("Aceptando solicitudes de amistad");
+        outputStream.println("Aceptando solicitudes de amistad");
         for(counterAcceptFriendship=0; counterAcceptFriendship<execute;counterAcceptFriendship++) {
             int counterInterno= counterAcceptFriendship+1;
             page.waitForTimeout(15000);
@@ -550,20 +550,20 @@ public class methodsPeppermint extends assertions {
     }
     public void saveBookmark(){
         Keyboard kb = page.keyboard();
-        if (linkNavigation =="http://localhost:4200/auth/login" || linkNavigation == "https://peppermint-development.web.app/auth/login") {
+        if (navigationLink =="http://localhost:4200/auth/login" || navigationLink == "https://peppermint-development.web.app/auth/login") {
             emailLogin=emailUserBookmark;
         }
-        if (linkNavigation=="https://peppermint-qa.web.app/auth/login"){
+        if (navigationLink=="https://peppermint-qa.web.app/auth/login"){
             emailLogin=emailUserBookmarkQA;
         }
         int counterScroll = 10;
         login();
         page.waitForSelector("text=My workshops");
-        if(linkNavigation=="https://peppermint-qa.web.app/auth/login") {
+        if(navigationLink=="https://peppermint-qa.web.app/auth/login") {
             page.navigate("https://peppermint-qa.web.app/content/workshops");
-        }else if (linkNavigation=="https://peppermint-development.web.app/auth/login") {
+        }else if (navigationLink=="https://peppermint-development.web.app/auth/login") {
             page.navigate("https://peppermint-development.web.app/content/workshops");
-        }else if (linkNavigation=="http://localhost:4200/auth/login"){
+        }else if (navigationLink=="http://localhost:4200/auth/login"){
             page.navigate("http://localhost:4200/content/workshops");
         }
         page.waitForSelector("app-all-cards .container > div:nth-of-type(2) app-three-dots button");
@@ -591,11 +591,11 @@ public class methodsPeppermint extends assertions {
             Assertions.assertTrue(page.isVisible("app-all-cards .container > div:nth-of-type("+counterInterno+") app-bookmark-icon > div > mat-icon"));
         }
         counterScroll=7;
-        if(linkNavigation=="https://peppermint-qa.web.app/auth/login") {
+        if(navigationLink=="https://peppermint-qa.web.app/auth/login") {
             page.navigate("https://peppermint-qa.web.app/content/articles");
-        }else if (linkNavigation=="https://peppermint-development.web.app/auth/login") {
+        }else if (navigationLink=="https://peppermint-development.web.app/auth/login") {
             page.navigate("https://peppermint-development.web.app/content/articles");
-        }else if (linkNavigation=="http://localhost:4200/auth/login"){
+        }else if (navigationLink=="http://localhost:4200/auth/login"){
             page.navigate("http://localhost:4200/content/articles");
         }
         page.waitForSelector("app-all-cards .container > div:nth-of-type(2) app-three-dots button");
@@ -622,11 +622,11 @@ public class methodsPeppermint extends assertions {
             Assertions.assertTrue(page.isVisible("app-all-cards .container > div:nth-of-type("+counterInterno+") app-bookmark-icon > div > mat-icon"));
         }
         counterScroll=12;
-        if(linkNavigation=="https://peppermint-qa.web.app/auth/login") {
+        if(navigationLink=="https://peppermint-qa.web.app/auth/login") {
             page.navigate("https://peppermint-qa.web.app/content/videos");
-        }else if (linkNavigation=="https://peppermint-development.web.app/auth/login") {
+        }else if (navigationLink=="https://peppermint-development.web.app/auth/login") {
             page.navigate("https://peppermint-development.web.app/content/videos");
-        }else if (linkNavigation=="http://localhost:4200/auth/login"){
+        }else if (navigationLink=="http://localhost:4200/auth/login"){
             page.navigate("http://localhost:4200/content/videos");
         }
         page.waitForSelector("app-all-cards .container > div:nth-of-type(2) app-three-dots button");
@@ -653,11 +653,11 @@ public class methodsPeppermint extends assertions {
             Assertions.assertTrue(page.isVisible("app-all-cards .container > div:nth-of-type("+counterInterno+") app-bookmark-icon > div > mat-icon"));
         }
         counterScroll=10;
-        if(linkNavigation=="https://peppermint-qa.web.app/auth/login") {
+        if(navigationLink=="https://peppermint-qa.web.app/auth/login") {
             page.navigate("https://peppermint-qa.web.app/content/clubs");
-        }else if (linkNavigation=="https://peppermint-development.web.app/auth/login") {
+        }else if (navigationLink=="https://peppermint-development.web.app/auth/login") {
             page.navigate("https://peppermint-development.web.app/content/clubs");
-        }else if (linkNavigation=="http://localhost:4200/auth/login"){
+        }else if (navigationLink=="http://localhost:4200/auth/login"){
             page.navigate("http://localhost:4200/content/clubs");
         }
         page.waitForSelector("app-all-cards .container > div:nth-of-type(2) app-three-dots button");
@@ -690,11 +690,11 @@ public class methodsPeppermint extends assertions {
         if(page.isVisible("app-profile-description")==false){
             page.waitForSelector("text=My workshops");
         }
-        if(linkNavigation=="https://peppermint-qa.web.app/auth/login") {
+        if(navigationLink=="https://peppermint-qa.web.app/auth/login") {
             page.navigate("https://peppermint-qa.web.app/user/friends");
-        }else if (linkNavigation=="https://peppermint-development.web.app/auth/login") {
+        }else if (navigationLink=="https://peppermint-development.web.app/auth/login") {
             page.navigate("https://peppermint-development.web.app/user/friends");
-        }else if (linkNavigation=="http://localhost:4200/auth/login"){
+        }else if (navigationLink=="http://localhost:4200/auth/login"){
             page.navigate("http://localhost:4200/user/friends");
         }
         page.waitForSelector(".main-container > div > div:nth-of-type(3) > div > div:nth-of-type("+counter+") mat-card");
@@ -707,10 +707,10 @@ public class methodsPeppermint extends assertions {
         page.click("app-bookmark-invitation-popup > div > div:nth-of-type(5) app-mat-recommendation-chips");
         userSendRecomendation ="AAAAAAusuariorecomendacionpineapple";
         userSendRecomendationQA ="Paula Gomez";
-        if (linkNavigation =="http://localhost:4200/auth/login" || linkNavigation == "https://peppermint-development.web.app/auth/login") {
+        if (navigationLink =="http://localhost:4200/auth/login" || navigationLink == "https://peppermint-development.web.app/auth/login") {
             kb.insertText(userSendRecomendation);
         }
-        if (linkNavigation=="https://peppermint-qa.web.app/auth/login"){
+        if (navigationLink=="https://peppermint-qa.web.app/auth/login"){
             kb.insertText(userSendRecomendationQA);
         }
         page.waitForSelector(".cdk-overlay-connected-position-bounding-box .cdk-overlay-pane mat-option:nth-of-type(1)");
@@ -718,10 +718,10 @@ public class methodsPeppermint extends assertions {
         kb.press("Enter");
         page.waitForSelector("app-bookmark-invitation-popup > div > div:nth-of-type(5) app-mat-recommendation-chips mat-chip-list mat-chip");
         page.click("app-bookmark-invitation-popup > div > div:nth-of-type(6) button");
-        if (linkNavigation =="http://localhost:4200/auth/login" || linkNavigation == "https://peppermint-development.web.app/auth/login") {
+        if (navigationLink =="http://localhost:4200/auth/login" || navigationLink == "https://peppermint-development.web.app/auth/login") {
             page.waitForSelector("text=Your recommendation has been successfully sent");
         }
-        if (linkNavigation=="https://peppermint-qa.web.app/auth/login"){
+        if (navigationLink=="https://peppermint-qa.web.app/auth/login"){
             page.waitForSelector("text=Your recommendation was shared successfully!");
         }
 
@@ -730,11 +730,11 @@ public class methodsPeppermint extends assertions {
         Keyboard kb = page.keyboard();
 
         page.waitForSelector("text=My workshops");
-        if(linkNavigation=="https://peppermint-qa.web.app/auth/login") {
+        if(navigationLink=="https://peppermint-qa.web.app/auth/login") {
             page.navigate("https://peppermint-qa.web.app/content/workshops");
-        }else if (linkNavigation=="https://peppermint-development.web.app/auth/login") {
+        }else if (navigationLink=="https://peppermint-development.web.app/auth/login") {
             page.navigate("https://peppermint-development.web.app/content/workshops");
-        }else if (linkNavigation=="http://localhost:4200/auth/login"){
+        }else if (navigationLink=="http://localhost:4200/auth/login"){
             page.navigate("http://localhost:4200/content/workshops");
         }
         for (counter=0; counter<execute;counter++){
@@ -748,32 +748,32 @@ public class methodsPeppermint extends assertions {
             page.waitForSelector("app-bookmark-invitation-popup > div > div:nth-of-type(5) app-mat-recommendation-chips");
             page.click("app-bookmark-invitation-popup > div > div:nth-of-type(5) app-mat-recommendation-chips");
             System.out.println(userSendRecomendation);
-            if (linkNavigation =="http://localhost:4200/auth/login" || linkNavigation == "https://peppermint-development.web.app/auth/login") {
+            if (navigationLink =="http://localhost:4200/auth/login" || navigationLink == "https://peppermint-development.web.app/auth/login") {
                 kb.insertText(userSendRecomendation);
             }
-           if (linkNavigation=="https://peppermint-qa.web.app/auth/login"){
+           if (navigationLink=="https://peppermint-qa.web.app/auth/login"){
                kb.insertText(userSendRecomendationQA);
            }
             page.waitForSelector(".cdk-overlay-connected-position-bounding-box .cdk-overlay-pane mat-option:nth-of-type(1)");
             page.click(".cdk-overlay-connected-position-bounding-box .cdk-overlay-pane mat-option:nth-of-type(1)");
             page.waitForSelector("app-bookmark-invitation-popup > div > div:nth-of-type(5) mat-chip span b");
             page.click("app-bookmark-invitation-popup > div > div:nth-of-type(6) button");
-            if(linkNavigation =="http://localhost:4200/auth/login" || linkNavigation == "https://peppermint-development.web.app/auth/login") {
+            if(navigationLink =="http://localhost:4200/auth/login" || navigationLink == "https://peppermint-development.web.app/auth/login") {
                 page.waitForSelector("text=Your recommendation has been successfully sent");
                 Assertions.assertTrue(page.isVisible("text=Your recommendation has been successfully sent"));
             }
-            if (linkNavigation=="https://peppermint-qa.web.app/auth/login"){
+            if (navigationLink=="https://peppermint-qa.web.app/auth/login"){
                 page.waitForSelector("text=Your recommendation was shared successfully!");
                 Assertions.assertTrue(page.isVisible("text=Your recommendation was shared successfully!"));
             }
             System.out.println("\nRecomendaciones de workshops enviadas: "+counterInterno+" Recomendaciones faltantes: "+execute);
-            printStream.println("\nRecomendaciones de workshops enviadas: "+counterInterno+" Recomendaciones faltantes: "+execute);
+            outputStream.println("\nRecomendaciones de workshops enviadas: "+counterInterno+" Recomendaciones faltantes: "+execute);
         }
-        if(linkNavigation=="https://peppermint-qa.web.app/auth/login") {
+        if(navigationLink=="https://peppermint-qa.web.app/auth/login") {
             page.navigate("https://peppermint-qa.web.app/content/articles");
-        }else if (linkNavigation=="https://peppermint-development.web.app/auth/login") {
+        }else if (navigationLink=="https://peppermint-development.web.app/auth/login") {
             page.navigate("https://peppermint-development.web.app/content/articles");
-        }else if (linkNavigation=="http://localhost:4200/auth/login"){
+        }else if (navigationLink=="http://localhost:4200/auth/login"){
             page.navigate("http://localhost:4200/content/articles");
         }
         for (counter=0; counter<execute;counter++){
@@ -786,32 +786,32 @@ public class methodsPeppermint extends assertions {
             page.click(".mat-menu-panel button:nth-of-type(2)");
             page.waitForSelector("app-bookmark-invitation-popup > div > div:nth-of-type(5) app-mat-recommendation-chips");
             page.click("app-bookmark-invitation-popup > div > div:nth-of-type(5) app-mat-recommendation-chips");
-            if (linkNavigation =="http://localhost:4200/auth/login" || linkNavigation == "https://peppermint-development.web.app/auth/login") {
+            if (navigationLink =="http://localhost:4200/auth/login" || navigationLink == "https://peppermint-development.web.app/auth/login") {
                 kb.insertText(userSendRecomendation);
             }
-            if (linkNavigation=="https://peppermint-qa.web.app/auth/login"){
+            if (navigationLink=="https://peppermint-qa.web.app/auth/login"){
                 kb.insertText(userSendRecomendationQA);
             }
             page.waitForSelector(".cdk-overlay-connected-position-bounding-box .cdk-overlay-pane mat-option:nth-of-type(1)");
             page.click(".cdk-overlay-connected-position-bounding-box .cdk-overlay-pane mat-option:nth-of-type(1)");
             page.waitForSelector("app-bookmark-invitation-popup > div > div:nth-of-type(5) mat-chip span b");
             page.click("app-bookmark-invitation-popup > div > div:nth-of-type(6) button");
-            if(linkNavigation =="http://localhost:4200/auth/login" || linkNavigation == "https://peppermint-development.web.app/auth/login") {
+            if(navigationLink =="http://localhost:4200/auth/login" || navigationLink == "https://peppermint-development.web.app/auth/login") {
                 page.waitForSelector("text=Your recommendation has been successfully sent");
                 Assertions.assertTrue(page.isVisible("text=Your recommendation has been successfully sent"));
             }
-            if (linkNavigation=="https://peppermint-qa.web.app/auth/login"){
+            if (navigationLink=="https://peppermint-qa.web.app/auth/login"){
                 page.waitForSelector("text=Your recommendation was shared successfully!");
                 Assertions.assertTrue(page.isVisible("text=Your recommendation was shared successfully!"));
             }
             System.out.println("\nRecomendaciones de articles enviadas: "+counterInterno+" Recomendaciones faltantes: "+execute);
-            printStream.println("\nRecomendaciones de articles enviadas: "+counterInterno+" Recomendaciones faltantes: "+execute);
+            outputStream.println("\nRecomendaciones de articles enviadas: "+counterInterno+" Recomendaciones faltantes: "+execute);
         }
-        if(linkNavigation=="https://peppermint-qa.web.app/auth/login") {
+        if(navigationLink=="https://peppermint-qa.web.app/auth/login") {
             page.navigate("https://peppermint-qa.web.app/content/videos");
-        }else if (linkNavigation=="https://peppermint-development.web.app/auth/login") {
+        }else if (navigationLink=="https://peppermint-development.web.app/auth/login") {
             page.navigate("https://peppermint-development.web.app/content/videos");
-        }else if (linkNavigation=="http://localhost:4200/auth/login"){
+        }else if (navigationLink=="http://localhost:4200/auth/login"){
             page.navigate("http://localhost:4200/content/videos");
         }
         for (counter=0; counter <execute;counter++){
@@ -824,32 +824,32 @@ public class methodsPeppermint extends assertions {
             page.click(".mat-menu-panel button:nth-of-type(2)");
             page.waitForSelector("app-bookmark-invitation-popup > div > div:nth-of-type(5) app-mat-recommendation-chips");
             page.click("app-bookmark-invitation-popup > div > div:nth-of-type(5) app-mat-recommendation-chips");
-            if (linkNavigation =="http://localhost:4200/auth/login" || linkNavigation == "https://peppermint-development.web.app/auth/login") {
+            if (navigationLink =="http://localhost:4200/auth/login" || navigationLink == "https://peppermint-development.web.app/auth/login") {
                 kb.insertText(userSendRecomendation);
             }
-            if (linkNavigation=="https://peppermint-qa.web.app/auth/login"){
+            if (navigationLink=="https://peppermint-qa.web.app/auth/login"){
                 kb.insertText(userSendRecomendationQA);
             }
             page.waitForSelector(".cdk-overlay-connected-position-bounding-box .cdk-overlay-pane mat-option:nth-of-type(1)");
             page.click(".cdk-overlay-connected-position-bounding-box .cdk-overlay-pane mat-option:nth-of-type(1)");
             page.waitForSelector("app-bookmark-invitation-popup > div > div:nth-of-type(5) mat-chip span b");
             page.click("app-bookmark-invitation-popup > div > div:nth-of-type(6) button");
-            if(linkNavigation =="http://localhost:4200/auth/login" || linkNavigation == "https://peppermint-development.web.app/auth/login") {
+            if(navigationLink =="http://localhost:4200/auth/login" || navigationLink == "https://peppermint-development.web.app/auth/login") {
                 page.waitForSelector("text=Your recommendation has been successfully sent");
                 Assertions.assertTrue(page.isVisible("text=Your recommendation has been successfully sent"));
             }
-            if (linkNavigation=="https://peppermint-qa.web.app/auth/login"){
+            if (navigationLink=="https://peppermint-qa.web.app/auth/login"){
                 page.waitForSelector("text=Your recommendation was shared successfully!");
                 Assertions.assertTrue(page.isVisible("text=Your recommendation was shared successfully!"));
             }
             System.out.println("\nRecomendaciones de techniques enviadas: "+counterInterno+" Recomendaciones faltantes: "+execute);
-            printStream.println("\nRecomendaciones de techniques enviadas: "+counterInterno+" Recomendaciones faltantes: "+execute);
+            outputStream.println("\nRecomendaciones de techniques enviadas: "+counterInterno+" Recomendaciones faltantes: "+execute);
         }
-        if(linkNavigation=="https://peppermint-qa.web.app/auth/login") {
+        if(navigationLink=="https://peppermint-qa.web.app/auth/login") {
             page.navigate("https://peppermint-qa.web.app/content/clubs");
-        }else if (linkNavigation=="https://peppermint-development.web.app/auth/login") {
+        }else if (navigationLink=="https://peppermint-development.web.app/auth/login") {
             page.navigate("https://peppermint-development.web.app/content/videos");
-        }else if (linkNavigation=="http://localhost:4200/auth/login"){
+        }else if (navigationLink=="http://localhost:4200/auth/login"){
             page.navigate("http://localhost:4200/content/videos");
         }
         for (counter=0; counter <execute;counter++){
@@ -862,26 +862,26 @@ public class methodsPeppermint extends assertions {
             page.click(".mat-menu-panel button:nth-of-type(2)");
             page.waitForSelector("app-bookmark-invitation-popup > div > div:nth-of-type(5) app-mat-recommendation-chips");
             page.click("app-bookmark-invitation-popup > div > div:nth-of-type(5) app-mat-recommendation-chips");
-            if (linkNavigation =="http://localhost:4200/auth/login" || linkNavigation == "https://peppermint-development.web.app/auth/login") {
+            if (navigationLink =="http://localhost:4200/auth/login" || navigationLink == "https://peppermint-development.web.app/auth/login") {
                 kb.insertText(userSendRecomendation);
             }
-            if (linkNavigation=="https://peppermint-qa.web.app/auth/login"){
+            if (navigationLink=="https://peppermint-qa.web.app/auth/login"){
                 kb.insertText(userSendRecomendationQA);
             }
             page.waitForSelector(".cdk-overlay-connected-position-bounding-box .cdk-overlay-pane mat-option:nth-of-type(1)");
             page.click(".cdk-overlay-connected-position-bounding-box .cdk-overlay-pane mat-option:nth-of-type(1)");
             page.waitForSelector("app-bookmark-invitation-popup > div > div:nth-of-type(5) mat-chip span b");
             page.click("app-bookmark-invitation-popup > div > div:nth-of-type(6) button");
-            if(linkNavigation =="http://localhost:4200/auth/login" || linkNavigation == "https://peppermint-development.web.app/auth/login") {
+            if(navigationLink =="http://localhost:4200/auth/login" || navigationLink == "https://peppermint-development.web.app/auth/login") {
                 page.waitForSelector("text=Your recommendation has been successfully sent");
                 Assertions.assertTrue(page.isVisible("text=Your recommendation has been successfully sent"));
             }
-            if (linkNavigation=="https://peppermint-qa.web.app/auth/login"){
+            if (navigationLink=="https://peppermint-qa.web.app/auth/login"){
                 page.waitForSelector("text=Your recommendation was shared successfully!");
                 Assertions.assertTrue(page.isVisible("text=Your recommendation was shared successfully!"));
             }
             System.out.println("\nRecomendaciones de clubs enviadas: "+counterInterno+" Recomendaciones faltantes: "+execute);
-            printStream.println("\nRecomendaciones de clubs enviadas: "+counterInterno+" Recomendaciones faltantes: "+execute);
+            outputStream.println("\nRecomendaciones de clubs enviadas: "+counterInterno+" Recomendaciones faltantes: "+execute);
         }
         logout();
     }
@@ -925,7 +925,7 @@ public class methodsPeppermint extends assertions {
         page.click("text=Membership");
         page.click("text=Invite guests");
         System.out.println("Enviando invite guest...");
-        printStream.println("Enviando invite guest...");
+        outputStream.println("Enviando invite guest...");
         page.waitForSelector("app-guest-invite mat-card mat-card-content:nth-of-type(2)>div>div:nth-of-type(1)>div:nth-of-type(2) input");
         page.waitForSelector("app-guest-invite mat-card mat-card-content:nth-of-type(2)>div>div:nth-of-type(2)>div:nth-of-type(1) app-mat-form-field:nth-of-type(1) input");
         page.waitForSelector("app-guest-invite mat-card mat-card-content:nth-of-type(2)>div>div:nth-of-type(2)>div:nth-of-type(1) app-mat-form-field:nth-of-type(2) input");
@@ -1017,7 +1017,7 @@ public class methodsPeppermint extends assertions {
         Page nuevaPestana = pages.get(pages.size() - 1);
         nuevaPestana.bringToFront();
         System.out.println("Registrando invite guest...");
-        printStream.println("Registrando invite guest...");
+        outputStream.println("Registrando invite guest...");
         nuevaPestana.click("mat-card-content > mat-form-field mat-datepicker-toggle button");
         nuevaPestana.click("mat-calendar mat-calendar-header > div > div > button:nth-of-type(1)");
         nuevaPestana.click("mat-calendar mat-calendar-header > div > div > button:nth-of-type(2)");
@@ -1192,9 +1192,9 @@ public class methodsPeppermint extends assertions {
         int index1 = rand.nextInt(listaNombres.length);
         titleTechnique = listaNombres[index1];
         System.out.println("Creando technique...");
-        printStream.println("Creando technique...");
+        outputStream.println("Creando technique...");
         System.out.println("\nSe creara la technqiue: " + titleTechnique + "\n");
-        printStream.println("\nSe creara la technqiue: " + titleTechnique + "\n");
+        outputStream.println("\nSe creara la technqiue: " + titleTechnique + "\n");
         Keyboard kb = page.keyboard();
         if( (page.isVisible("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)"))==false) {
             page.click("text=My Stuff");
@@ -1204,12 +1204,12 @@ public class methodsPeppermint extends assertions {
         }
         page.click("app-side-bar a:nth-of-type(2)");
         page.click("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)");
-        page.locator("//*[@id=\"video-file\"]").setInputFiles(Paths.get(pathVideo));
+        page.locator("//*[@id=\"video-file\"]").setInputFiles(Paths.get(videoPath));
 
         FileChooser fileChooser1 = page.waitForFileChooser(()->{
             page.locator(".image-container:nth-of-type(1) app-upload-media").click();
         });
-        fileChooser1.setFiles(Paths.get(pathImage));
+        fileChooser1.setFiles(Paths.get(imagePath));
         page.click(".ma-auto button");
         page.focus("app-movement-form >div>div>div>div:nth-of-type(2) >div:nth-of-type(1) input");
         kb.insertText(titleTechnique);
@@ -1242,7 +1242,7 @@ public class methodsPeppermint extends assertions {
     }
     public void createSegment(){
         System.out.println("Creando Segment...");
-        printStream.println("Creando Segment...");
+        outputStream.println("Creando Segment...");
         Keyboard kb = page.keyboard();
         if( (page.isVisible("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)"))==false) {
             page.click("text=My Stuff");
@@ -1252,11 +1252,11 @@ public class methodsPeppermint extends assertions {
         }
         page.click("app-side-bar a:nth-of-type(3)");
         page.click("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)");
-        page.locator("//*[@id=\"video-file\"]").setInputFiles(Paths.get(pathVideo));
+        page.locator("//*[@id=\"video-file\"]").setInputFiles(Paths.get(videoPath));
         FileChooser fileChooser1 = page.waitForFileChooser(()->{
             page.locator(".image-container:nth-of-type(1) app-upload-media").click();
         });
-        fileChooser1.setFiles(Paths.get(pathImage));
+        fileChooser1.setFiles(Paths.get(imagePath));
         page.click(".ma-auto button");
         page.focus("form>div>div>div:nth-of-type(2) >div:nth-of-type(1) input");
         kb.insertText(titleSegments);
@@ -1283,7 +1283,7 @@ public class methodsPeppermint extends assertions {
         page.click("app-mat-table > div:nth-of-type(1) > button:nth-of-type(1)");
         page.waitForSelector("text=Techniques added successfully");
         Assertions.assertTrue(page.isVisible("text=Techniques added successfully"));
-        page.locator("//*[@id=\"file\"]").setInputFiles(Paths.get(pathImage));
+        page.locator("//*[@id=\"file\"]").setInputFiles(Paths.get(imagePath));
         page.click("text=Publish");
         page.click(".mat-dialog-container div:nth-of-type(2) button");
         page.waitForSelector("text=The segment was created successfully");
@@ -1291,7 +1291,7 @@ public class methodsPeppermint extends assertions {
     }
     public void createLesson(){
         System.out.println("Creando Lesson...");
-        printStream.println("Creando Lesson...");
+        outputStream.println("Creando Lesson...");
         Keyboard kb = page.keyboard();
         if( (page.isVisible("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)"))==false) {
             page.click("text=My Stuff");
@@ -1306,7 +1306,7 @@ public class methodsPeppermint extends assertions {
         page.click("app-mat-table > div:nth-of-type(1) > button");
         page.waitForSelector("text=Segments added successfully");
         Assertions.assertTrue(page.isVisible("text=Segments added successfully"));
-        page.locator("app-upload-media input[type=file]").setInputFiles(Paths.get(pathImage));
+        page.locator("app-upload-media input[type=file]").setInputFiles(Paths.get(imagePath));
         page.click(".ma-auto button");
         page.focus(".container > div:nth-of-type(2) app-mat-form-field input");
         kb.insertText(titleLesson);
@@ -1338,7 +1338,7 @@ public class methodsPeppermint extends assertions {
     }
     public void createWorkshop() {
         System.out.println("Creando Workshop...");
-        printStream.println("Creando Workshop...");
+        outputStream.println("Creando Workshop...");
         String[] listaNombres = {"Curso de Programación Java", "Curso de Desarrollo Web", "Curso de Inteligencia Artificial", "Curso de Ciencia de Datos", "Curso de Diseño Gráfico",
                 "Curso de Inglés Avanzado", "Curso de Marketing Digital", "Curso de Fotografía", "Curso de Música", "Curso de Cocina Internacional",
                 "Curso de Yoga", "Curso de Psicología", "Curso de Matemáticas Avanzadas", "Curso de Historia del Arte", "Curso de Robótica", "Curso de Finanzas Personales",
@@ -1367,7 +1367,7 @@ public class methodsPeppermint extends assertions {
         titleWorkshop = listaNombres[index1];
         Keyboard kb = page.keyboard();
         System.out.println("\nSe creara el workshop: " + titleWorkshop + "\n");
-        printStream.println("\nSe creara el workshop: " + titleWorkshop + "\n");
+        outputStream.println("\nSe creara el workshop: " + titleWorkshop + "\n");
         if ((page.isVisible("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)")) == false) {
             page.click("text=My Stuff");
             page.click("text=Contact Us");
@@ -1384,9 +1384,9 @@ public class methodsPeppermint extends assertions {
             } catch (PlaywrightException e) {
             }
         }
-        page.locator(".ng-star-inserted app-upload-image input[type=file]").setInputFiles(Paths.get(pathImage));
+        page.locator(".ng-star-inserted app-upload-image input[type=file]").setInputFiles(Paths.get(imagePath));
         page.click(".ma-auto button");
-        page.locator("//*[@id=\"video-file\"]").setInputFiles(Paths.get(pathVideo));
+        page.locator("//*[@id=\"video-file\"]").setInputFiles(Paths.get(videoPath));
         page.focus(".ng-star-inserted > app-course-form > form > div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > app-mat-form-field input");
         kb.insertText(titleWorkshop);
         page.click(".ng-star-inserted app-select-creator");
@@ -1450,9 +1450,9 @@ public class methodsPeppermint extends assertions {
         page.click(".cdk-overlay-container mat-option:nth-of-type(" + reviewerWorkshop + ")");
         page.click("form > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) mat-list mat-expansion-panel > div > div > div > div > div:nth-of-type(2)");
         kb.insertText(reviewWorkshop);
-        page.locator(".ng-star-inserted app-upload-image input[type=file]").setInputFiles(Paths.get(pathImage));
+        page.locator(".ng-star-inserted app-upload-image input[type=file]").setInputFiles(Paths.get(imagePath));
         page.click(".ma-auto button");
-        page.locator("//*[@id=\"video-file\"]").setInputFiles(Paths.get(pathVideo));
+        page.locator("//*[@id=\"video-file\"]").setInputFiles(Paths.get(videoPath));
         page.click("form > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) mat-list mat-expansion-panel > div > div > div > div > div:nth-of-type(2) app-generic-selects > div input");
         page.click(".cdk-overlay-container mat-option:nth-of-type(" + studentWorkshop + ")");
         page.click("form > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) mat-list mat-expansion-panel > div > div > div > div > div:nth-of-type(2) textarea");
@@ -1460,7 +1460,7 @@ public class methodsPeppermint extends assertions {
         page.click("form > div:nth-of-type(2) > div:nth-of-type(2) button:nth-of-type(1)");
         page.fill("mat-dialog-container input", addLinksWorkshop);
         page.click("mat-dialog-container div:nth-of-type(2) .material-popup button");
-        page.locator("//*[@id=\"file\"]").setInputFiles(Paths.get(pathImage));
+        page.locator("//*[@id=\"file\"]").setInputFiles(Paths.get(imagePath));
         page.click("app-admin-top-bar > div button:nth-of-type(2)");
         page.click("app-course-outlet-form app-course-lesson-form > button");
         page.click("app-course-outlet-form app-course-lesson-form > div:nth-of-type(2) button");
@@ -1497,7 +1497,7 @@ public class methodsPeppermint extends assertions {
         kb.insertText(activitiesTitleWorkshop);
         page.click("app-course-lesson-form > div:nth-of-type(1) > app-drag-drop-sorting > mat-list > div:nth-of-type(2) > .ng-star-inserted > div > div > div > div > div:nth-of-type(4) > div:nth-of-type(2) app-drag-drop-sorting mat-list > div:nth-of-type(1) mat-expansion-panel > div >div>div>div>div:nth-of-type(2) textarea");
         kb.insertText(activitiesDescriptionWorkshop);
-        page.locator("app-course-lesson-form > div:nth-of-type(1) > app-drag-drop-sorting > mat-list > div:nth-of-type(2) > .ng-star-inserted > div > div > div > div > div:nth-of-type(4) > div:nth-of-type(2) app-drag-drop-sorting mat-list > div:nth-of-type(1) mat-expansion-panel > div >div>div>div input[type=file]").setInputFiles(Paths.get(pathVideo));
+        page.locator("app-course-lesson-form > div:nth-of-type(1) > app-drag-drop-sorting > mat-list > div:nth-of-type(2) > .ng-star-inserted > div > div > div > div > div:nth-of-type(4) > div:nth-of-type(2) app-drag-drop-sorting mat-list > div:nth-of-type(1) mat-expansion-panel > div >div>div>div input[type=file]").setInputFiles(Paths.get(videoPath));
         page.click("app-course-lesson-form > div:nth-of-type(1) > app-drag-drop-sorting > mat-list > div:nth-of-type(2) > .ng-star-inserted > div > div > div > div > div:nth-of-type(4) > div:nth-of-type(2) app-drag-drop-sorting mat-list > div:nth-of-type(2) mat-expansion-panel > div >div>div>div>div:nth-of-type(1) input");
         kb.insertText(syncUpTitleWorkshop);
         page.click("app-course-lesson-form > div:nth-of-type(1) > app-drag-drop-sorting > mat-list > div:nth-of-type(2) > .ng-star-inserted > div > div > div > div > div:nth-of-type(4) > div:nth-of-type(2) app-drag-drop-sorting mat-list > div:nth-of-type(2) mat-expansion-panel > div >div>div>div>div:nth-of-type(2) textarea");
@@ -1577,18 +1577,18 @@ public class methodsPeppermint extends assertions {
         assertionsHeader();
         assertionsDashboard();
         assertionsPopupsDashboard();
-        if(linkNavigation == "https://peppermint-development.web.app/auth/login") {
+        if(navigationLink == "https://peppermint-development.web.app/auth/login") {
             page.navigate("https://peppermint-development.web.app/content/workshops");
-        } else if(linkNavigation=="https://peppermint-qa.web.app/auth/login"){
+        } else if(navigationLink=="https://peppermint-qa.web.app/auth/login"){
             page.navigate("https://peppermint-qa.web.app/content/workshops");
-        } else if(linkNavigation=="http://localhost:4200/auth/login"){
+        } else if(navigationLink=="http://localhost:4200/auth/login"){
             page.navigate("http://localhost:4200/content/workshops");
 
         }
         assertionsAllWorkshop();
         page.click("app-all-cards .container > div:nth-of-type(2)");
         System.out.println("Enrolando usuario");
-        printStream.println("Enrolando usuario");
+        outputStream.println("Enrolando usuario");
         assertionsInsideWorkshop();
         page.click("app-overview-tab-view > div > div:nth-of-type(2) > div:nth-of-type(1) > div > mat-card > div > button");
         page.waitForSelector("mat-card > div:nth-of-type(2) > .div-ledby");
@@ -1638,7 +1638,7 @@ public class methodsPeppermint extends assertions {
         assertionsPopUpModalitysPaso2();
         page.click("app-guest-invite > div > div:nth-of-type(2) p");
         System.out.println("Enroll realizado con exito\n");
-        printStream.println("Enroll realizado con exito\n");
+        outputStream.println("Enroll realizado con exito\n");
         position=counter;
         saveEmailEnrollWorkshop();
     }
@@ -1653,11 +1653,11 @@ public class methodsPeppermint extends assertions {
     }
     public void completeAssignmentActivity(){
         page.waitForSelector("text=My workshops");
-        if(linkNavigation == "https://peppermint-development.web.app/auth/login") {
+        if(navigationLink == "https://peppermint-development.web.app/auth/login") {
             page.navigate("https://peppermint-development.web.app/content/workshops");
-        } else if(linkNavigation=="https://peppermint-qa.web.app/auth/login"){
+        } else if(navigationLink=="https://peppermint-qa.web.app/auth/login"){
             page.navigate("https://peppermint-qa.web.app/content/workshops");
-        } else if(linkNavigation=="http://localhost:4200/auth/login"){
+        } else if(navigationLink=="http://localhost:4200/auth/login"){
             page.navigate("http://localhost:4200/content/workshops");
 
         }
@@ -1682,10 +1682,10 @@ public class methodsPeppermint extends assertions {
         }
         page.click("app-schedule > mat-card > div:nth-of-type(2) > div > div:nth-of-type(2)");
         if(!uploadImageVideo) {
-            page.locator("app-submit-popup > mat-card>div:nth-of-type(1) input[type=file]").setInputFiles(Paths.get(pathVideo));
+            page.locator("app-submit-popup > mat-card>div:nth-of-type(1) input[type=file]").setInputFiles(Paths.get(videoPath));
             page.click("app-submit-popup > mat-card > div:nth-of-type(2)");
         }else {
-            page.locator("app-submit-popup > mat-card>div:nth-of-type(1) input[type=file]").setInputFiles(Paths.get(pathImage));
+            page.locator("app-submit-popup > mat-card>div:nth-of-type(1) input[type=file]").setInputFiles(Paths.get(imagePath));
             page.click("app-submit-popup > mat-card > div:nth-of-type(2)");
         }
         uploadImageVideo= !uploadImageVideo;
@@ -1718,11 +1718,11 @@ public class methodsPeppermint extends assertions {
         Keyboard kb = page.keyboard();
         emailLogin=emailUserEnrollMultiplesWorkshops;
         login();
-        if(linkNavigation=="http://localhost:4200/user/plans"){
+        if(navigationLink=="http://localhost:4200/user/plans"){
             page.navigate("http://localhost:4200/content/workshops");
-        } else if (linkNavigation=="https://peppermint-development.web.app/auth/login") {
+        } else if (navigationLink=="https://peppermint-development.web.app/auth/login") {
             page.navigate("https://peppermint-development.web.app/content/workshops");
-        } else if (linkNavigation=="https://peppermint-qa.web.app/auth/login") {
+        } else if (navigationLink=="https://peppermint-qa.web.app/auth/login") {
             page.navigate("https://peppermint-qa.web.app/content/workshops");
         }
         for (counter=0; counter <execute;counter++){
@@ -1895,9 +1895,9 @@ public class methodsPeppermint extends assertions {
         int index1 = rand.nextInt(listaNombres.length);
         titleArticle = listaNombres[index1];
         System.out.println("Creando Articulo...");
-        printStream.println("Creando Articulo...");
+        outputStream.println("Creando Articulo...");
         System.out.println("\nSe creara el article: " + titleArticle + "\n");
-        printStream.println("\nSe creara el article: " + titleArticle + "\n");
+        outputStream.println("\nSe creara el article: " + titleArticle + "\n");
         Keyboard kb = page.keyboard();
         if( (page.isVisible("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)"))==false) {
             page.click("text=My Stuff");
@@ -1907,7 +1907,7 @@ public class methodsPeppermint extends assertions {
         }
         page.click("a:nth-of-type(6)");
         page.click("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)");
-        page.locator(".container:nth-of-type(1) input[type=file]").setInputFiles(Paths.get(pathImage));
+        page.locator(".container:nth-of-type(1) input[type=file]").setInputFiles(Paths.get(imagePath));
         page.click(".ma-auto button");
         page.focus(".container > div:nth-of-type(1) > div:nth-of-type(2) > div > div:nth-of-type(1) > app-mat-form-field input");
         kb.insertText(titleArticle);
@@ -1963,9 +1963,9 @@ public class methodsPeppermint extends assertions {
         page.waitForTimeout(900);
         kb.type(contentTitle);
         //kb.press("Tab");
-        page.locator("app-upload-image input[type=file]").setInputFiles(Paths.get(pathImage));
+        page.locator("app-upload-image input[type=file]").setInputFiles(Paths.get(imagePath));
         page.click(".ma-auto button");
-        page.locator("//*[@id=\"video-file\"]").setInputFiles(Paths.get(pathVideo));
+        page.locator("//*[@id=\"video-file\"]").setInputFiles(Paths.get(videoPath));
         page.click("text=Publish");
         page.click("mat-dialog-container > div > div:nth-of-type(2) button");
         page.waitForSelector("text=The article was created successfully");
@@ -1973,7 +1973,7 @@ public class methodsPeppermint extends assertions {
     }
     public void createEvent(){
         System.out.println("Creando Evento...");
-        printStream.println("Creando Evento...");
+        outputStream.println("Creando Evento...");
         Keyboard kb = page.keyboard();
         if( (page.isVisible("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)"))==false) {
             page.click("text=My Stuff");
@@ -2030,7 +2030,7 @@ public class methodsPeppermint extends assertions {
     }
     public void deleteEvent(){
         System.out.println("Eliminando evento...");
-        printStream.println("Eliminando evento...");
+        outputStream.println("Eliminando evento...");
         Keyboard kb = page.keyboard();
         page.focus("app-paging-search input");
         kb.insertText(titleEvent);
@@ -2039,7 +2039,7 @@ public class methodsPeppermint extends assertions {
     }
     public void createTaxonomy(){
         System.out.println("Creando Taxonomy...");
-        printStream.println("Creando Taxonomy...");
+        outputStream.println("Creando Taxonomy...");
         Keyboard kb = page.keyboard();
         if( (page.isVisible("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)"))==false) {
             page.click("text=My Stuff");
@@ -2064,7 +2064,7 @@ public class methodsPeppermint extends assertions {
     }
     public void createTag(){
         System.out.println("Creando Tag...");
-        printStream.println("Creando Tag...");
+        outputStream.println("Creando Tag...");
         Keyboard kb = page.keyboard();
         if( (page.isVisible("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)"))==false) {
             page.click("text=My Stuff");
@@ -2093,11 +2093,11 @@ public class methodsPeppermint extends assertions {
         if(page.isVisible("text=My workshops")) {
             assertionsDashboard();
         }
-            if(linkNavigation == "https://peppermint-development.web.app/auth/login") {
+            if(navigationLink == "https://peppermint-development.web.app/auth/login") {
                 page.navigate("https://peppermint-development.web.app/content/clubs");
-            } else if(linkNavigation=="https://peppermint-qa.web.app/auth/login"){
+            } else if(navigationLink=="https://peppermint-qa.web.app/auth/login"){
                 page.navigate("https://peppermint-qa.web.app/content/clubs");
-            } else if(linkNavigation=="http://localhost:4200/auth/login"){
+            } else if(navigationLink=="http://localhost:4200/auth/login"){
                 page.navigate("http://localhost:4200/content/clubs");
             }
             page.waitForSelector("app-all-cards .container > div:nth-of-type(1)");
@@ -2118,11 +2118,11 @@ public class methodsPeppermint extends assertions {
         login();
         page.waitForSelector("text=My workshops");
         assertionsDashboard();
-        if(linkNavigation == "https://peppermint-development.web.app/auth/login") {
+        if(navigationLink == "https://peppermint-development.web.app/auth/login") {
             page.navigate("https://peppermint-development.web.app/content/clubs");
-        } else if(linkNavigation=="https://peppermint-qa.web.app/auth/login"){
+        } else if(navigationLink=="https://peppermint-qa.web.app/auth/login"){
             page.navigate("https://peppermint-qa.web.app/content/clubs");
-        } else if(linkNavigation=="http://localhost:4200/user/plans/"){
+        } else if(navigationLink=="http://localhost:4200/user/plans/"){
             page.navigate("http://localhost:4200/content/clubs");
         }
         for (counter=0; counter <execute;counter++){
@@ -2137,7 +2137,7 @@ public class methodsPeppermint extends assertions {
             Assertions.assertTrue(page.isVisible("text=The club was joined successfully"));
             page.click("app-breadcrumb ul li:nth-of-type(1) a");
             System.out.print("el usuario se ha unido a "+ counterInterno+" de "+execute+" clubs\n");
-            printStream.println("el usuario se ha unido a "+ counterInterno+" de "+execute+" clubs\n");
+            outputStream.println("el usuario se ha unido a "+ counterInterno+" de "+execute+" clubs\n");
         }
     }
     public void createPostClub(){
@@ -2203,11 +2203,11 @@ public class methodsPeppermint extends assertions {
         page.waitForTimeout(6000);
         if(page.isVisible("text=My workshops")==true) {
             assertionsDashboard();
-            if(linkNavigation == "https://peppermint-development.web.app/auth/login") {
+            if(navigationLink == "https://peppermint-development.web.app/auth/login") {
                 page.navigate("https://peppermint-development.web.app/content/clubs");
-            } else if(linkNavigation=="https://peppermint-qa.web.app/auth/login"){
+            } else if(navigationLink=="https://peppermint-qa.web.app/auth/login"){
                 page.navigate("https://peppermint-qa.web.app/content/clubs");
-            } else if(linkNavigation=="http://localhost:4200/auth/login"){
+            } else if(navigationLink=="http://localhost:4200/auth/login"){
                 page.navigate("http://localhost:4200/content/clubs");
             }
             page.waitForSelector("app-all-cards .container > div:nth-of-type(1)");
@@ -2218,7 +2218,7 @@ public class methodsPeppermint extends assertions {
             joinClub();
         }
         System.out.println("\nCreando post\n");
-        printStream.println("\nCreando post\n");
+        outputStream.println("\nCreando post\n");
         page.waitForTimeout(900);
         page.click("app-text-editor quill-editor");
         page.waitForTimeout(900);
@@ -2231,11 +2231,11 @@ public class methodsPeppermint extends assertions {
         page.waitForTimeout(6000);
         if(page.isVisible("text=My workshops")==true) {
             //assertionsDashboard();
-            if(linkNavigation == "https://peppermint-development.web.app/auth/login") {
+            if(navigationLink == "https://peppermint-development.web.app/auth/login") {
                 page.navigate("https://peppermint-development.web.app/content/clubs");
-            } else if(linkNavigation=="https://peppermint-qa.web.app/auth/login"){
+            } else if(navigationLink=="https://peppermint-qa.web.app/auth/login"){
                 page.navigate("https://peppermint-qa.web.app/content/clubs");
-            } else if(linkNavigation=="http://localhost:4200/user/plans/"){
+            } else if(navigationLink=="http://localhost:4200/user/plans/"){
                 page.navigate("http://localhost:4200/content/clubs");
             }
             page.waitForSelector("app-all-cards .container > div:nth-of-type(1)");
@@ -2283,9 +2283,9 @@ public class methodsPeppermint extends assertions {
         int index1 = rand.nextInt(listaNombres.length);
         titleClub = listaNombres[index1];
         System.out.println("Creando club...");
-        printStream.println("Creando club...");
+        outputStream.println("Creando club...");
         System.out.println("\nSe creara el club: " + titleClub + "\n");
-        printStream.println("\nSe creara el club: " + titleClub + "\n");
+        outputStream.println("\nSe creara el club: " + titleClub + "\n");
         Keyboard kb = page.keyboard();
         if( (page.isVisible("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)"))==false) {
             page.click("text=My Stuff");
@@ -2295,7 +2295,7 @@ public class methodsPeppermint extends assertions {
         }
         page.click("text=Club management");
         page.click("app-mat-table > div:nth-of-type(1) div button:nth-of-type(1)");
-        page.locator(".image-container:nth-of-type(1) input[type=file]").setInputFiles(Paths.get(pathImage));
+        page.locator(".image-container:nth-of-type(1) input[type=file]").setInputFiles(Paths.get(imagePath));
         page.click(".ma-auto button");
         page.focus(".container > div:nth-of-type(2) app-mat-form-field input");
         kb.insertText(titleClub);

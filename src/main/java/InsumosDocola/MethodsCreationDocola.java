@@ -44,6 +44,7 @@ public class MethodsCreationDocola extends ContextBaseDocola{
             methods.publishContent();
             System.out.println(executeCounter+"/"+generate.generateExecutions());
         }
+        cleanupContext();
     }
     /**
      * Método para crear nuevos cursos en Docola.
@@ -56,6 +57,7 @@ public class MethodsCreationDocola extends ContextBaseDocola{
             methods.publishContent();
             System.out.println(executeCounter+"/"+generate.generateExecutions());
         }
+        cleanupContext();
     }
     /**
      * Método para crear nuevas colecciones de cursos en Docola.
@@ -68,5 +70,6 @@ public class MethodsCreationDocola extends ContextBaseDocola{
             methods.publishContent();
             System.out.println(executeCounter+"/"+generate.generateExecutions());
         }
+        cleanupContext();
     }
 }

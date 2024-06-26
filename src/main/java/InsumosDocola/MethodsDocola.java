@@ -65,7 +65,6 @@ public class MethodsDocola extends ContextBaseDocola{
         waitForLoginSuccess();
         Assertions.assertTrue(page.isVisible("text=Login successful"));
         queries.saveUser(userEmail);
-        System.out.println(userRole);
         completeOnboarding();
         page.waitForSelector(selector.MENU_PROFILE);
         signOut();

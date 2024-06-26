@@ -13,15 +13,18 @@ public class FunctionCreateContent extends MethodsCreationDocola {
     public void serviceNewResource(){
         methods.startContextAndNavigation();
         create.newResource();
-        cleanupContext();
         teardownPlaywright();
     }
     @Test
     public void serviceNewCourse(){
+        methods.startContextAndNavigation();
         create.newCourse();
+        teardownPlaywright();
     }
     @Test
     public void serviceNewCourseCollection(){
+        methods.startContextAndNavigation();
         create.newCourseCollection();
+        teardownPlaywright();
     }
 }

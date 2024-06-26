@@ -3,13 +3,17 @@ import InsumosDocola.VariablesDocola;
 import InsumosDocola.MethodsDocola;
 import javafx.application.Platform;
 import javafx.scene.control.CheckBox;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import org.apache.tools.ant.taskdefs.Exec;
+
+import javax.security.auth.callback.Callback;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import static InsumosDocola.VariablesDocola.*;
 import static insumosPeppermint.variablesPeppermint.outputStream;
 public class BotDocola extends Docola.InterfaceActions {
-    MethodsDocola methods= new MethodsDocola();
+    private MethodsDocola methods= new MethodsDocola();
     public static void main(String[] args) {
         launch(BotDocola.class, args);
     }
@@ -33,208 +37,38 @@ public class BotDocola extends Docola.InterfaceActions {
             }));
             outputStream.println("Bienvenido, selecciona un ambiente y el numero de executionDetails para empezar.\n\n");
             //CREATOR buttons
-            createUser.setOnAction(e->{
-                waitingList.add(ExecMethod.CREATE_USER);
-                Enum elemento = waitingList.get(waitingList.size()-1);
-                CheckBox checkBox = new CheckBox("CREATE_USER");
-                checkBoxesMap.put(checkBox, elemento);
-                gridCola.add(checkBox, 0, waitingList.size()-1);
-            });
-            createUser.setOnMousePressed( event -> {
-                if (event.isSecondaryButtonDown()){
-                    executionDetails=tfExecute.getText();
-                    AdvancedSettingJoin configAvanzada = new AdvancedSettingJoin(executionDetails,seleccion);
-                    Stage configAvanzadaStage = new Stage();
-                    configAvanzada.start(configAvanzadaStage);
-                    configAvanzadaStage.show();
-                }
-            });
-            newResource.setOnAction(e->{
-                waitingList.add(ExecMethod.NEW_RESOURCE);
-                Enum elemento = waitingList.get(waitingList.size()-1);
-                CheckBox checkBox = new CheckBox("NEW_RESOURCE");
-                checkBoxesMap.put(checkBox, elemento);
-                gridCola.add(checkBox, 0, waitingList.size()-1);
-            });
-            newResource.setOnMousePressed( event -> {
-                if (event.isSecondaryButtonDown()){
-                    executionDetails=tfExecute.getText();
-                    AdvancedSettingContentCreator configAvanzada = new AdvancedSettingContentCreator(executionDetails,seleccion);
-                    Stage configAvanzadaStage = new Stage();
-                    configAvanzada.start(configAvanzadaStage);
-                    configAvanzadaStage.show();
-                }
-            });
-            newCourse.setOnAction(e->{
-                waitingList.add(ExecMethod.NEW_COURSE);
-                Enum elemento = waitingList.get(waitingList.size()-1);
-                CheckBox checkBox = new CheckBox("NEW_COURSE");
-                checkBoxesMap.put(checkBox, elemento);
-                gridCola.add(checkBox, 0, waitingList.size()-1);
-            });
-            newCourseCollection.setOnAction(e->{
-                waitingList.add(ExecMethod.NEW_COURSE_COLLECTION);
-                Enum elemento = waitingList.get(waitingList.size()-1);
-                CheckBox checkBox = new CheckBox("NEW_COURSE_COLLECTION");
-                checkBoxesMap.put(checkBox, elemento);
-                gridCola.add(checkBox, 0, waitingList.size()-1);
-            });
+            createUser.setOnAction(e -> handleAction(ExecMethod.CREATE_USER,"CREATE_USER"));
+            createUser.setOnMousePressed( event -> handleSecondaryClick(event, AdvancedSettingJoin.class));
+
+            newResource.setOnAction(e -> handleAction(ExecMethod.NEW_RESOURCE,"NEW_RESOURCE"));
+            newResource.setOnMousePressed( event -> handleSecondaryClick(event, AdvancedSettingContentCreator.class));
+
+            newCourse.setOnAction(e -> handleAction(ExecMethod.NEW_COURSE,"NEW_COURSE"));
+            newCourseCollection.setOnAction(e -> handleAction(ExecMethod.NEW_COURSE_COLLECTION,"NEW_COURSE_COLLECTION"));
             //validation LOGIN buttons
-            validationsLoginEmailIncorrect.setOnAction(e->{
-                waitingList.add(ExecMethod.VALIDATION_EMAIL_INCORRECT_LOGIN);
-                Enum elemento = waitingList.get(waitingList.size()-1);
-                CheckBox checkBox = new CheckBox("VALIDATION_EMAIL_INCORRECT_LOGIN");
-                checkBoxesMap.put(checkBox, elemento);
-                gridCola.add(checkBox, 0, waitingList.size()-1);
-            });
-            validationsLoginPasswordIncorrect.setOnAction(e->{
-                waitingList.add(ExecMethod.VALIDATION_PASSWORD_INCORRECT_LOGIN);
-                Enum elemento = waitingList.get(waitingList.size()-1);
-                CheckBox checkBox = new CheckBox("VALIDATION_PASSWORD_INCORRECT_LOGIN");
-                checkBoxesMap.put(checkBox, elemento);
-                gridCola.add(checkBox, 0, waitingList.size()-1);
-            });
-            validationsLoginEmailEmpty.setOnAction(e->{
-                waitingList.add(ExecMethod.VALIDATION_EMAIL_EMPTY_LOGIN);
-                Enum elemento = waitingList.get(waitingList.size()-1);
-                CheckBox checkBox = new CheckBox("VALIDATION_EMAIL_EMPTY_LOGIN");
-                checkBoxesMap.put(checkBox, elemento);
-                gridCola.add(checkBox, 0, waitingList.size()-1);
-            });
-            validationsLoginPasswordEmpty.setOnAction(e->{
-                waitingList.add(ExecMethod.VALIDATION_PASSWORD_EMPTY_LOGIN);
-                Enum elemento = waitingList.get(waitingList.size()-1);
-                CheckBox checkBox = new CheckBox("VALIDATION_PASSWORD_EMPTY_LOGIN");
-                checkBoxesMap.put(checkBox, elemento);
-                gridCola.add(checkBox, 0, waitingList.size()-1);
-            });
+            validationsLoginEmailIncorrect.setOnAction(e -> handleAction(ExecMethod.VALIDATION_EMAIL_EMPTY_LOGIN,"VALIDATION_EMAIL_EMPTY_LOGIN"));
+            validationsLoginPasswordIncorrect.setOnAction(e -> handleAction(ExecMethod.VALIDATION_PASSWORD_INCORRECT_LOGIN,"VALIDATION_PASSWORD_INCORRECT_LOGIN"));
+            validationsLoginEmailEmpty.setOnAction(e -> handleAction(ExecMethod.VALIDATION_EMAIL_EMPTY_LOGIN,"VALIDATION_PASSWORD_EMPTY_LOGIN"));
+            validationsLoginPasswordEmpty.setOnAction(e -> handleAction(ExecMethod.VALIDATION_PASSWORD_EMPTY_LOGIN,"VALIDATION_PASSWORD_EMPTY_LOGIN"));
             //validation REGISTER buttons
-            validationsFirstNameRegister.setOnAction(e->{
-                waitingList.add(ExecMethod.VALIDATION_FIRST_NAME_REGISTER);
-                Enum elemento = waitingList.get(waitingList.size()-1);
-                CheckBox checkBox = new CheckBox("VALIDATION_FIRST_NAME_REGISTER");
-                checkBoxesMap.put(checkBox, elemento);
-                gridCola.add(checkBox, 0, waitingList.size()-1);
-            });
-            validationsLastNameRegister.setOnAction(e->{
-                waitingList.add(ExecMethod.VALIDATION_LAST_NAME_REGISTER);
-                Enum elemento = waitingList.get(waitingList.size()-1);
-                CheckBox checkBox = new CheckBox("VALIDATION_LAST_NAME_REGISTER");
-                checkBoxesMap.put(checkBox, elemento);
-                gridCola.add(checkBox, 0, waitingList.size()-1);
-            });
-            validationsEmailRegister.setOnAction(e->{
-                waitingList.add(ExecMethod.VALIDATION_EMAIL_REGISTER);
-                Enum elemento = waitingList.get(waitingList.size()-1);
-                CheckBox checkBox = new CheckBox("VALIDATION_EMAIL_REGISTER");
-                checkBoxesMap.put(checkBox, elemento);
-                gridCola.add(checkBox, 0, waitingList.size()-1);
-            });
-            validationsPasswordRegister.setOnAction(e->{
-                waitingList.add(ExecMethod.VALIDATION_PASSWORD_REGISTER);
-                Enum elemento = waitingList.get(waitingList.size()-1);
-                CheckBox checkBox = new CheckBox("VALIDATION_PASSWORD_REGISTER");
-                checkBoxesMap.put(checkBox, elemento);
-                gridCola.add(checkBox, 0, waitingList.size()-1);
-            });
-            validationsConfirmPasswordRegister.setOnAction(e->{
-                waitingList.add(ExecMethod.VALIDATION_CONFIRM_PASSWORD_REGISTER);
-                Enum elemento = waitingList.get(waitingList.size()-1);
-                CheckBox checkBox = new CheckBox("VALIDATION_CONFIRM_PASSWORD_REGISTER");
-                checkBoxesMap.put(checkBox, elemento);
-                gridCola.add(checkBox, 0, waitingList.size()-1);
-            });
-            validationsConditionsPasswordRegister.setOnAction(e->{
-                waitingList.add(ExecMethod.VALIDATION_CONDITIONS_PASSWORD_REGISTER);
-                Enum elemento = waitingList.get(waitingList.size()-1);
-                CheckBox checkBox = new CheckBox("VALIDATION_CONDITIONS_PASSWORD_REGISTER");
-                checkBoxesMap.put(checkBox, elemento);
-                gridCola.add(checkBox, 0, waitingList.size()-1);
-            });
-            validationsTermsAndConditionsRegister.setOnAction(e->{
-                waitingList.add(ExecMethod.VALIDATION_TERMS_AND_CONDITIONS_REGISTER);
-                Enum elemento = waitingList.get(waitingList.size()-1);
-                CheckBox checkBox = new CheckBox("VALIDATION_TERMS_AND_CONDITIONS_REGISTER");
-                checkBoxesMap.put(checkBox, elemento);
-                gridCola.add(checkBox, 0, waitingList.size()-1);
-            });
-            validationsCaptchaRegister.setOnAction(e->{
-                waitingList.add(ExecMethod.VALIDATION_CAPTCHA_REGISTER);
-                Enum elemento = waitingList.get(waitingList.size()-1);
-                CheckBox checkBox = new CheckBox("VALIDATION_CAPTCHA_REGISTER");
-                checkBoxesMap.put(checkBox, elemento);
-                gridCola.add(checkBox, 0, waitingList.size()-1);
-            });
+            validationsFirstNameRegister.setOnAction(e -> handleAction(ExecMethod.VALIDATION_FIRST_NAME_REGISTER,"VALIDATION_FIRST_NAME_REGISTER"));
+            validationsLastNameRegister.setOnAction(e -> handleAction(ExecMethod.VALIDATION_LAST_NAME_REGISTER,"VALIDATION_LAST_NAME_REGISTER"));
+            validationsEmailRegister.setOnAction(e -> handleAction(ExecMethod.VALIDATION_EMAIL_REGISTER,"VALIDATION_EMAIL_REGISTER"));
+            validationsPasswordRegister.setOnAction(e -> handleAction(ExecMethod.VALIDATION_PASSWORD_REGISTER,"VALIDATION_PASSWORD_REGISTER"));
+            validationsConfirmPasswordRegister.setOnAction(e -> handleAction(ExecMethod.VALIDATION_CONFIRM_PASSWORD_REGISTER,"VALIDATION_CONFIRM_PASSWORD_REGISTER"));
+            validationsConditionsPasswordRegister.setOnAction(e -> handleAction(ExecMethod.VALIDATION_CONDITIONS_PASSWORD_REGISTER,"VALIDATION_CONDITIONS_PASSWORD_REGISTER"));
+            validationsTermsAndConditionsRegister.setOnAction(e -> handleAction(ExecMethod.VALIDATION_TERMS_AND_CONDITIONS_REGISTER,"VALIDATION_TERMS_AND_CONDITIONS_REGISTER"));
+            validationsCaptchaRegister.setOnAction(e -> handleAction(ExecMethod.VALIDATION_CAPTCHA_REGISTER,"VALIDATION_CAPTCHA_REGISTER"));
             //validation RESOURCE buttons
-            validationTitleResource.setOnAction(e->{
-                resourceType ="Upload file";
-                waitingList.add(ExecMethod.VALIDATION_TITLE_RESOURCE_REQUIRED);
-                Enum elemento = waitingList.get(waitingList.size()-1);
-                CheckBox checkBox = new CheckBox("VALIDATION_TITLE_RESOURCE_REQUIRED");
-                checkBoxesMap.put(checkBox, elemento);
-                gridCola.add(checkBox, 0, waitingList.size()-1);
-            });
-            validationTitleResource.setOnMousePressed( event -> {
-                if (event.isSecondaryButtonDown()){
-                    executionDetails=tfExecute.getText();
-                    final ExecMethod selectedMethod = ExecMethod.VALIDATION_TITLE_RESOURCE_REQUIRED;
-                    AdvancedSettingValidationResources  configAvanzada = new AdvancedSettingValidationResources (executionDetails,seleccion, (value)->{
-                        VariablesDocola.resourceType = value;
-                        waitingList.add(selectedMethod);
-                        Platform.runLater(this::accion);
-                    });
-                    Stage configAvanzadaStage = new Stage();
-                    configAvanzada.start(configAvanzadaStage);
-                    configAvanzadaStage.show();
-                }
-            });
-            validationDescriptionResource.setOnAction(e->{
-                resourceType ="Upload file";
-                waitingList.add(ExecMethod.VALIDATION_DESCRIPTION_RESOURCE_REQUIRED);
-                Enum elemento = waitingList.get(waitingList.size()-1);
-                CheckBox checkBox = new CheckBox("VALIDATION_DESCRIPTION_RESOURCE_REQUIRED");
-                checkBoxesMap.put(checkBox, elemento);
-                gridCola.add(checkBox, 0, waitingList.size()-1);
-            });
-            validationDescriptionResource.setOnMousePressed( event -> {
-                if (event.isSecondaryButtonDown()){
-                    executionDetails=tfExecute.getText();
-                    final ExecMethod selectedMethod = ExecMethod.VALIDATION_DESCRIPTION_RESOURCE_REQUIRED;
-                    AdvancedSettingValidationResources  configAvanzada = new AdvancedSettingValidationResources (executionDetails,seleccion, (value)->{
-                        VariablesDocola.resourceType = value;
-                        waitingList.add(selectedMethod);
-                        Platform.runLater(this::accion);
-                    });
-                    Stage configAvanzadaStage = new Stage();
-                    configAvanzada.start(configAvanzadaStage);
-                    configAvanzadaStage.show();
-                }
-            });
+            validationTitleResource.setOnAction(e -> handleResourceAction(ExecMethod.VALIDATION_TITLE_RESOURCE_REQUIRED,"VALIDATION_TITLE_RESOURCE_REQUIRED"));
+            validationTitleResource.setOnMousePressed( event -> handleResourceSecondaryClick(event, ExecMethod.VALIDATION_TITLE_RESOURCE_REQUIRED));
+            validationDescriptionResource.setOnAction(e -> handleResourceAction(ExecMethod.VALIDATION_DESCRIPTION_RESOURCE_REQUIRED, "VALIDATION_DESCRIPTION_RESOURCE_REQUIRED"));
+            validationDescriptionResource.setOnMousePressed( event -> handleResourceSecondaryClick(event, ExecMethod.VALIDATION_DESCRIPTION_RESOURCE_REQUIRED));
             //HEADER
-            comboBox.setOnAction(e -> {
-                seleccion = comboBox.getValue();
-                if (seleccion.equals("Local")) {
-                    VariablesDocola.navigationLink = "http://localhost:4200/";
-                }
-                if (seleccion.equals("DEV")) {
-                    VariablesDocola.navigationLink = "https://docolasandbox.web.app/";
-                }
-            });
-            stopTestCase.setOnAction(event ->{
-                methods.stopTest();
-                System.out.println("La ejecucion se detendra al final de la actual iteracion");
-                outputStream.println("La ejecucion se detendra al final de la actual iteracion");
-            });
-            removeQueue.setOnAction(event ->{
-                actionEliminarDeLaCola();
-            });
-            botConfigurations.setOnAction( event -> {
-                    //executionDetails=tfExecute.getText();
-                    BotSettings configAvanzada = new BotSettings(seleccion);
-                    Stage botSettingsStage = new Stage();
-                    configAvanzada.start(botSettingsStage);
-                    botSettingsStage.show();
-            });
+            comboBox.setOnAction(e -> handleComboBoxAction());
+            stopTestCase.setOnAction(event -> handleStopTestCase());
+            removeQueue.setOnAction(event -> actionEliminarDeLaCola());
+            botConfigurations.setOnAction( event -> handleBotConfigurations());
         }, "interfaceThread");
         if(interfaceThread.isAlive()) {
             interfaceThread.stop();
@@ -253,6 +87,77 @@ public class BotDocola extends Docola.InterfaceActions {
                 execute.start();
             }
         });
+    }
+    private void handleAction(ExecMethod method, String checkBoxText) {
+        waitingList.add(method);
+        Enum elemento = waitingList.get(waitingList.size() - 1);
+        CheckBox checkBox = new CheckBox(checkBoxText);
+        checkBoxesMap.put(checkBox, elemento);
+        gridCola.add(checkBox, 0, waitingList.size() - 1);
+    }
+    private <T> void handleSecondaryClick(MouseEvent event, Class<T> advancedSettingClass) {
+        if (event.isSecondaryButtonDown()) {
+            executionDetails = tfExecute.getText();
+            try {
+                T configAvanzada = advancedSettingClass.getDeclaredConstructor(String.class, String.class)
+                        .newInstance(executionDetails, seleccion);
+                Stage configAvanzadaStage = new Stage();
+                if (configAvanzada instanceof AdvancedSettingJoin) {
+                    ((AdvancedSettingJoin) configAvanzada).start(configAvanzadaStage);
+                } else if (configAvanzada instanceof AdvancedSettingContentCreator) {
+                    ((AdvancedSettingContentCreator) configAvanzada).start(configAvanzadaStage);
+                }
+                configAvanzadaStage.show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    private void handleResourceAction(ExecMethod method, String checkBoxText) {
+        resourceType = "Upload file";
+        handleAction(method, checkBoxText);
+    }
+    private void handleResourceSecondaryClick(MouseEvent event, ExecMethod method) {
+        if (event.isSecondaryButtonDown()) {
+            executionDetails = tfExecute.getText();
+            try {
+                AdvancedSettingValidationResources configAvanzada = new AdvancedSettingValidationResources(
+                        executionDetails, seleccion, value -> {
+                    VariablesDocola.resourceType = value;
+                    waitingList.add(method);
+                    Platform.runLater(this::accion);
+                });
+                Stage configAvanzadaStage = new Stage();
+                configAvanzada.start(configAvanzadaStage);
+                configAvanzadaStage.show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    private void handleComboBoxAction() {
+        seleccion = comboBox.getValue();
+        if ("Local".equals(seleccion)) {
+            VariablesDocola.navigationLink = "http://localhost:4200/";
+        }
+        if ("DEV".equals(seleccion)) {
+            VariablesDocola.navigationLink = "https://docolasandbox.web.app/";
+        }
+    }
+    private void handleStopTestCase() {
+        methods.stopTest();
+        System.out.println("La ejecucion se detendra al final de la actual iteracion");
+        outputStream.println("La ejecucion se detendra al final de la actual iteracion");
+    }
+    private void handleBotConfigurations() {
+        try {
+            BotSettings configAvanzada = new BotSettings(seleccion);
+            Stage botSettingsStage = new Stage();
+            configAvanzada.start(botSettingsStage);
+            botSettingsStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     private void cleanWaitingList(){
         waitingList.clear();

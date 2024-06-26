@@ -12,7 +12,6 @@ public class FunctionJoin extends MethodsCreationDocola {
     public void serviceValidationRegister(){
         methods.startContextAndNavigation();
         joinNow();
-        cleanupContext();
         teardownPlaywright();
     }
 }

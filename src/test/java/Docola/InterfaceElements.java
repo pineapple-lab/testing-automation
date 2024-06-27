@@ -56,5 +56,10 @@ public class InterfaceElements extends Application {
     //Validations RESOURCES buttons
     Button validationTitleResource = new Button("Title required");
     Button validationDescriptionResource = new Button("Description required");
+    Button validationFileResource = new Button("File required");
+    Button validationTagsResource = new Button("Tags required");
+    Button validationTwoTagsResource = new Button("Two tags required");
+    Button validationICD10TagsResource = new Button("ICD10 tags required");
+    Button validationMonthlyPriceResource = new Button("Monthly price required");
     public void start(Stage stage) throws Exception {}
 }

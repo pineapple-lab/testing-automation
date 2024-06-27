@@ -26,7 +26,12 @@ public class InterfaceActions extends InterfaceProperties{
         VALIDATION_TERMS_AND_CONDITIONS_REGISTER,
         VALIDATION_CAPTCHA_REGISTER,
         VALIDATION_TITLE_RESOURCE_REQUIRED,
-        VALIDATION_DESCRIPTION_RESOURCE_REQUIRED
+        VALIDATION_DESCRIPTION_RESOURCE_REQUIRED,
+        VALIDATION_FILE_RESOURCE_REQUIRED,
+        VALIDATION_TAGS_RESOURCE_REQUIRED,
+        VALIDATION_TWO_TAGS_RESOURCE_REQUIRED,
+        VALIDATION_ICD10_TAGS_RESOURCE_REQUIRED,
+        VALIDATION_MONTHLY_PRICE_RESOURCE_REQUIRED
     }
     public void actionEliminarDeLaCola() {
         List<CheckBox> checkBoxesSeleccionados = new ArrayList<>();
@@ -100,14 +105,31 @@ public class InterfaceActions extends InterfaceProperties{
     public void actionValidationRequiredDescriptionResource() {
         executeService(new TestValidations(), TestValidations::serviceValidationRequireDescriptionResource);
     }
+    public void actionValidationRequiredFileResource() {
+        executeService(new TestValidations(), TestValidations::serviceValidationRequireFileResource);
+    }
+    public void actionValidationRequiredTagsResource() {
+        executeService(new TestValidations(), TestValidations::serviceValidationRequireTagsResource);
+    }
+    public void actionValidationRequiredTwoTagsResource() {
+        executeService(new TestValidations(), TestValidations::serviceValidationRequireTwoTagsResource);
+    }
+    public void actionValidationRequiredICD10TagsResource() {
+        executeService(new TestValidations(), TestValidations::serviceValidationRequireICD10TagsResource);
+    }
+    public void actionValidationRequiredIMonthlyPriceResource() {
+        executeService(new TestValidations(), TestValidations::serviceValidationRequireMonthlyPriceResource);
+    }
+    //Querys
     public void actionUpdateUndefinedUser(String email) {
         executeService(new BotConfiguration(), config -> config.serviceUpdateUndefinedUser(email));
     }
+    // Manejo básico de excepciones
     private <T> void executeService(T serviceInstance, CheckedConsumer<T> action) {
         try {
             action.accept(serviceInstance);
         } catch (Exception e) {
-            e.printStackTrace(); // Manejo básico de excepciones, se debe mejorar según el contexto real
+            e.printStackTrace();
         }
     }
     // Interfaz funcional para consumidores con excepción

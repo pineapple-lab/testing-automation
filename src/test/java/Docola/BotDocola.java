@@ -64,6 +64,16 @@ public class BotDocola extends Docola.InterfaceActions {
             validationTitleResource.setOnMousePressed( event -> handleResourceSecondaryClick(event, ExecMethod.VALIDATION_TITLE_RESOURCE_REQUIRED));
             validationDescriptionResource.setOnAction(e -> handleResourceAction(ExecMethod.VALIDATION_DESCRIPTION_RESOURCE_REQUIRED, "VALIDATION_DESCRIPTION_RESOURCE_REQUIRED"));
             validationDescriptionResource.setOnMousePressed( event -> handleResourceSecondaryClick(event, ExecMethod.VALIDATION_DESCRIPTION_RESOURCE_REQUIRED));
+            validationFileResource.setOnAction(e -> handleResourceAction(ExecMethod.VALIDATION_FILE_RESOURCE_REQUIRED, "VALIDATION_FILE_RESOURCE_REQUIRED"));
+            validationFileResource.setOnMousePressed( event -> handleResourceSecondaryClick(event, ExecMethod.VALIDATION_FILE_RESOURCE_REQUIRED));
+            validationTagsResource.setOnAction(e -> handleResourceAction(ExecMethod.VALIDATION_TAGS_RESOURCE_REQUIRED, "VALIDATION_TAGS_RESOURCE_REQUIRED"));
+            validationTagsResource.setOnMousePressed( event -> handleResourceSecondaryClick(event, ExecMethod.VALIDATION_TAGS_RESOURCE_REQUIRED));
+            validationTwoTagsResource.setOnAction(e -> handleResourceAction(ExecMethod.VALIDATION_TWO_TAGS_RESOURCE_REQUIRED, "VALIDATION_TWO_TAGS_RESOURCE_REQUIRED"));
+            validationTwoTagsResource.setOnMousePressed( event -> handleResourceSecondaryClick(event, ExecMethod.VALIDATION_TWO_TAGS_RESOURCE_REQUIRED));
+            validationICD10TagsResource.setOnAction(e -> handleResourceAction(ExecMethod.VALIDATION_ICD10_TAGS_RESOURCE_REQUIRED, "VALIDATION_ICD10_TAGS_RESOURCE_REQUIRED"));
+            validationICD10TagsResource.setOnMousePressed( event -> handleResourceSecondaryClick(event, ExecMethod.VALIDATION_ICD10_TAGS_RESOURCE_REQUIRED));
+            validationMonthlyPriceResource.setOnAction(e -> handleResourceAction(ExecMethod.VALIDATION_MONTHLY_PRICE_RESOURCE_REQUIRED, "VALIDATION_MONTHLY_PRICE_RESOURCE_REQUIRED"));
+            validationMonthlyPriceResource.setOnMousePressed( event -> handleResourceSecondaryClick(event, ExecMethod.VALIDATION_MONTHLY_PRICE_RESOURCE_REQUIRED));
             //HEADER
             comboBox.setOnAction(e -> handleComboBoxAction());
             stopTestCase.setOnAction(event -> handleStopTestCase());
@@ -224,6 +234,21 @@ public class BotDocola extends Docola.InterfaceActions {
                     break;
                 case VALIDATION_DESCRIPTION_RESOURCE_REQUIRED:
                     actionValidationRequiredDescriptionResource();
+                    break;
+                case VALIDATION_FILE_RESOURCE_REQUIRED:
+                    actionValidationRequiredFileResource();
+                    break;
+                case VALIDATION_TAGS_RESOURCE_REQUIRED:
+                    actionValidationRequiredTagsResource();
+                    break;
+                case VALIDATION_TWO_TAGS_RESOURCE_REQUIRED:
+                    actionValidationRequiredTwoTagsResource();
+                    break;
+                case VALIDATION_ICD10_TAGS_RESOURCE_REQUIRED:
+                    actionValidationRequiredICD10TagsResource();
+                    break;
+                case VALIDATION_MONTHLY_PRICE_RESOURCE_REQUIRED:
+                    actionValidationRequiredIMonthlyPriceResource();
                     break;
             }
         }

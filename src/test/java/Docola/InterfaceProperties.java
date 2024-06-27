@@ -85,6 +85,11 @@ public class InterfaceProperties extends InterfaceElements{
         //Validation resource tab positions
         GridPane.setConstraints(validationTitleResource, 2, 3);
         GridPane.setConstraints(validationDescriptionResource, 2, 4);
+        GridPane.setConstraints(validationFileResource, 2, 5);
+        GridPane.setConstraints(validationTagsResource, 2, 6);
+        GridPane.setConstraints(validationTwoTagsResource, 2, 7);
+        GridPane.setConstraints(validationICD10TagsResource, 2, 8);
+        GridPane.setConstraints(validationMonthlyPriceResource, 2, 9);
         comboBox.getItems().add("DEV");
         comboBox.getItems().add("QA");
         comboBox.getItems().add("Local");
@@ -124,6 +129,11 @@ public class InterfaceProperties extends InterfaceElements{
     private void addElementsGridValidationsResource(){
         gridValidationsResources.getChildren().add(validationTitleResource);
         gridValidationsResources.getChildren().add(validationDescriptionResource);
+        gridValidationsResources.getChildren().add(validationFileResource);
+        gridValidationsResources.getChildren().add(validationTagsResource);
+        gridValidationsResources.getChildren().add(validationTwoTagsResource);
+        gridValidationsResources.getChildren().add(validationICD10TagsResource);
+        gridValidationsResources.getChildren().add(validationMonthlyPriceResource);
     }
     private void setColors(){
         //HEADER buttons
@@ -153,6 +163,11 @@ public class InterfaceProperties extends InterfaceElements{
         //Validation RESOURCE buttons
         setButtonStyle(validationTitleResource);
         setButtonStyle(validationDescriptionResource);
+        setButtonStyle(validationFileResource);
+        setButtonStyle(validationTagsResource);
+        setButtonStyle(validationTwoTagsResource);
+        setButtonStyle(validationICD10TagsResource);
+        setButtonStyle(validationMonthlyPriceResource);
     }
     private void setButtonStyle(Button button) {
         button.setStyle("-fx-background-color: #298dcc;");
@@ -185,6 +200,12 @@ public class InterfaceProperties extends InterfaceElements{
         //Validation RESOURCE buttons
         setupHoverEffect(validationTitleResource);
         setupHoverEffect(validationDescriptionResource);
+        setupHoverEffect(validationFileResource);
+        setupHoverEffect(validationTagsResource);
+        setupHoverEffect(validationTwoTagsResource);
+        setupHoverEffect(validationTwoTagsResource);
+        setupHoverEffect(validationICD10TagsResource);
+        setupHoverEffect(validationMonthlyPriceResource);
     }
     private void setupHoverEffect(Button button) {
         button.setOnMouseEntered(e -> button.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));

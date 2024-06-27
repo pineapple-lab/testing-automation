@@ -95,4 +95,34 @@ public class TestValidations extends MethodsCreationDocola {
         validations.validationDescriptionResource();
         teardownPlaywright();
     }
+    @Test
+    public void serviceValidationRequireFileResource(){
+        methods.startContextAndNavigation();
+        validations.validationFileResource();
+        teardownPlaywright();
+    }
+    @Test
+    public void serviceValidationRequireTagsResource(){
+        methods.startContextAndNavigation();
+        validations.validationTagsResource();
+        teardownPlaywright();
+    }
+    @Test
+    public void serviceValidationRequireTwoTagsResource(){
+        methods.startContextAndNavigation();
+        validations.validationTwoTagsResource();
+        teardownPlaywright();
+    }
+    @Test
+    public void serviceValidationRequireICD10TagsResource(){
+        methods.startContextAndNavigation();
+        validations.validationICD10TagResoruce();
+        teardownPlaywright();
+    }
+    @Test
+    public void serviceValidationRequireMonthlyPriceResource(){
+        methods.startContextAndNavigation();
+        validations.validationMonthlyPrice();
+        teardownPlaywright();
+    }
 }

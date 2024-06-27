@@ -100,6 +100,7 @@ public class SelectorsDocola extends VariablesDocola{
     public static final String CONTENT_UPLOAD = SELECT_GENERIC_INPUTS_CONTENT_CREATOR +"(3) > div:nth-of-type(1) input";
     public static final String CONTENT_ADD_URL = SELECT_GENERIC_INPUTS_CONTENT_CREATOR +"(3) input";
     public static final String CONTENT_ADD_QUESTIONS_QUIZ = SELECT_GENERIC_INPUTS_CONTENT_CREATOR +"(3) > div:nth-of-type(2)";
+
     public String contentTypeQuestionQuiz(int typeQuestion){
         return SELECT_GENERIC_TYPE_QUESTION +"("+typeQuestion+")";
     }
@@ -111,10 +112,12 @@ public class SelectorsDocola extends VariablesDocola{
     public static final String CONTENT_BUTTON_CONTINUE = FOOTER_DIV_BUTTONS +"div > button:nth-of-type(3)";
     public static final String CONTENT_TAG_ICD_10_TYPE = SELECT_GENERIC_TAG_TYPE +"(1) > button";
     public static final String CONTENT_SELECT_TAG_ICD_10 = SELECT_GENERIC_TAG +"(1)";
+    public static final String CONTENT_TAG_NORMAL_TYPE_TWO = SELECT_GENERIC_TAG_TYPE+"(2) > button";
     public String contentSelectTagICD10(int tagPosition){
         return SELECT_GENERIC_TAG +"("+tagPosition+")";
     }
     public static final String CONTENT_ADD_TAGS = APP_TAGS_SEARCH_OVERLAY +"div > div > button:nth-of-type(2)";
+    public static final String CONTENT_DELETE_TAGS = "app-tags > div > div:nth-of-type(1) > div:nth-of-type(2) .gap > div:nth-of-type(1) i";
     public static final String CONTENT_CONFIGURATION_CMECE = SELECT_GENERIC_CONFIGURATION_STEP +"1) > mat-checkbox input";
     public static final String CONTENT_CONFIGURATION_MARKET_PLACE = SELECT_GENERIC_CONFIGURATION_STEP +"2) > mat-checkbox input";
     public static final String CONTENT_PRICING_CONTENT_FOR_FREE = SELECT_GENERIC_PRICING_STEP +"1) mat-slide-toggle";
@@ -143,4 +146,7 @@ public class SelectorsDocola extends VariablesDocola{
     //SELECT MESSAGE ERROR
     public static final String MESSAGE_ERROR_TITLE_REQUIRED = "app-details-and-file-step > div > div:nth-of-type(1) mat-error";
     public static final String MESSAGE_ERROR_DESCRIPTION_REQUIRED = "app-details-and-file-step > div > div:nth-of-type(2) mat-error";
+    public static final String MESSAGE_ERROR_FILE_REQUIRED = "app-details-and-file-step > div > div:nth-of-type(3) > div:nth-of-type(1) span";
+    public static final String MESSAGE_ERROR_TAGS_REQUIRED = "app-tags > div > div:nth-of-type(3) span";
+    public static final String MESSAGE_ERROR_MONTHLYPRICE_REQUIRED = "app-pricing-step mat-form-field mat-error";
 }

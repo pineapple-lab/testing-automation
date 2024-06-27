@@ -3,7 +3,6 @@ import InsumosDocola.VariablesDocola;
 import javafx.scene.control.CheckBox;
 import java.util.ArrayList;
 import java.util.List;
-
 public class InterfaceActions extends InterfaceProperties{
     VariablesDocola variables = new VariablesDocola();
     enum ExecMethod {
@@ -48,79 +47,61 @@ public class InterfaceActions extends InterfaceProperties{
         executeService(new FunctionJoin(), FunctionJoin::serviceValidationRegister);
     }
     public void actionNewResource() {
-        FunctionCreateContent test = new FunctionCreateContent();
-        test.serviceNewResource();
+        executeService(new FunctionCreateContent(), FunctionCreateContent::serviceNewResource);
     }
     public void actionNewCourse() {
-        FunctionCreateContent test = new FunctionCreateContent();
-        test.serviceNewCourse();
+        executeService(new FunctionCreateContent(), FunctionCreateContent::serviceNewCourse);
     }
     public void actionNewCourseCollection() {
-        FunctionCreateContent test = new FunctionCreateContent();
-        test.serviceNewCourseCollection();
+        executeService(new FunctionCreateContent(), FunctionCreateContent::serviceNewCourseCollection);
     }
     ////validation login actions
     public void actionValidationEmailIncorrectLogin() {
-        TestValidations test = new TestValidations();
-        test.serviceValidationEmailIncorrectLogin();
+        executeService(new TestValidations(), TestValidations::serviceValidationEmailIncorrectLogin);
     }
     public void actionValidationPasswordIncorrectLogin() {
-        TestValidations test = new TestValidations();
-        test.serviceValidationPasswordIncorrectLogin();
+        executeService(new TestValidations(), TestValidations::serviceValidationPasswordIncorrectLogin);
     }
     public void actionValidationEmailEmptyLogin() {
-        TestValidations test = new TestValidations();
-        test.serviceValidationEmailEmptyLogin();
+        executeService(new TestValidations(), TestValidations::serviceValidationEmailEmptyLogin);
     }
     public void actionValidationPasswordEmptyLogin() {
-        TestValidations test = new TestValidations();
-        test.serviceValidationPasswordEmptyLogin();
+        executeService(new TestValidations(), TestValidations::serviceValidationPasswordEmptyLogin);
     }
     //validation register actions
     public void actionValidationFirstNameRegister() {
-        TestValidations test = new TestValidations();
-        test.serviceValidationFirstNameRegister();
+        executeService(new TestValidations(), TestValidations::serviceValidationFirstNameRegister);
     }
     public void actionValidationLastNameRegister() {
-        TestValidations test = new TestValidations();
-        test.serviceValidationLastNameRegister();
+        executeService(new TestValidations(), TestValidations::serviceValidationLastNameRegister);
     }
     public void actionValidationEmailRegister() {
-        TestValidations test = new TestValidations();
-        test.serviceValidationEmailRegister();
+        executeService(new TestValidations(), TestValidations::serviceValidationEmailRegister);
     }
     public void actionValidationPasswordRegister() {
-        TestValidations test = new TestValidations();
-        test.serviceValidationPasswordRegister();
+        executeService(new TestValidations(), TestValidations::serviceValidationPasswordRegister);
     }
     public void actionValidationConfirmPasswordRegister() {
-        TestValidations test = new TestValidations();
-        test.serviceValidationConfirmPasswordRegister();
+        executeService(new TestValidations(), TestValidations::serviceValidationConfirmPasswordRegister);
     }
     public void actionValidationConditionsPasswordRegister() {
-        TestValidations test = new TestValidations();
-        test.serviceValidationConditionsPassword();
+        executeService(new TestValidations(), TestValidations::serviceValidationConditionsPassword);
     }
     public void actionValidationTermsAndConditionsRegister() {
-        TestValidations test = new TestValidations();
-        test.serviceValidationTermsAndConditions();
+        executeService(new TestValidations(), TestValidations::serviceValidationTermsAndConditions);
     }
     public void actionValidationCaptchaRegister() {
-        TestValidations test = new TestValidations();
-        test.serviceValidationCaptcha();
+        executeService(new TestValidations(), TestValidations::serviceValidationCaptcha);
     }
     //validations RESOURCE actions
     public void actionValidationRequiredTitleResource() {
-        TestValidations test = new TestValidations();
-        test.serviceValidationRequireTitleResource();
+        executeService(new TestValidations(), TestValidations::serviceValidationRequireTitleResource);
     }
     public void actionValidationRequiredDescriptionResource() {
-        TestValidations test = new TestValidations();
-        test.serviceValidationRequireDescriptionResource();
+        executeService(new TestValidations(), TestValidations::serviceValidationRequireDescriptionResource);
     }
     public void actionUpdateUndefinedUser(String email) {
-        BotConfiguration config = new BotConfiguration();
-        config.serviceUpdateUndefinedUser(email);
+        executeService(new BotConfiguration(), config -> config.serviceUpdateUndefinedUser(email));
     }
     private <T> void executeService(T serviceInstance, CheckedConsumer<T> action) {
         try {
@@ -129,7 +110,6 @@ public class InterfaceActions extends InterfaceProperties{
             e.printStackTrace(); // Manejo básico de excepciones, se debe mejorar según el contexto real
         }
     }
-
     // Interfaz funcional para consumidores con excepción
     @FunctionalInterface
     private interface CheckedConsumer<T> {

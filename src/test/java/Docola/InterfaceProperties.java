@@ -1,6 +1,7 @@
 package Docola;
 import javafx.geometry.Orientation;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -47,6 +48,7 @@ public class InterfaceProperties extends InterfaceElements{
         setColors();
         setHover();
         setPlaceHolder();
+        setupScrollAndConsole();
     }
     public void addGridToTabs(){
         tbcreator.setContent(gridCreator);
@@ -125,89 +127,76 @@ public class InterfaceProperties extends InterfaceElements{
     }
     private void setColors(){
         //HEADER buttons
-        execute.setStyle("-fx-background-color: #298dcc;");
-        stopTestCase.setStyle("-fx-background-color: #298dcc;");
-        comboBox.setStyle("-fx-base: #298dcc");//;
-        removeQueue.setStyle("-fx-background-color:#298dcc;");
-        scrollPane.setStyle("-fx-control-inner-background:#000000;");
+        setButtonStyle(execute);
+        setButtonStyle(stopTestCase);
+        setButtonStyle(removeQueue);
+        setButtonStyle(botConfigurations);
         //Create buttons
-        createUser.setStyle("-fx-background-color:#298dcc;");
-        newResource.setStyle("-fx-background-color:#298dcc;");
-        newCourse.setStyle("-fx-background-color:#298dcc;");
-        newCourseCollection.setStyle("-fx-background-color:#298dcc;");
-        //Validations LOGIN buttons
-        validationsLoginEmailIncorrect.setStyle("-fx-background-color:#298dcc;");
-        validationsLoginPasswordIncorrect.setStyle("-fx-background-color:#298dcc;");
-        validationsLoginEmailEmpty.setStyle("-fx-background-color:#298dcc;");
-        validationsLoginPasswordEmpty.setStyle("-fx-background-color:#298dcc;");
-        //Validations REGISTER buttons
-        validationsFirstNameRegister.setStyle("-fx-background-color:#298dcc;");
-        validationsLastNameRegister.setStyle("-fx-background-color:#298dcc;");
-        validationsEmailRegister.setStyle("-fx-background-color:#298dcc;");
-        validationsPasswordRegister.setStyle("-fx-background-color:#298dcc;");
-        validationsConfirmPasswordRegister.setStyle("-fx-background-color:#298dcc;");
-        validationsConditionsPasswordRegister.setStyle("-fx-background-color:#298dcc;");
-        validationsTermsAndConditionsRegister.setStyle("-fx-background-color:#298dcc;");
-        validationsCaptchaRegister.setStyle("-fx-background-color:#298dcc;");
-        //Validations RESOURCE buttons
-        validationTitleResource.setStyle("-fx-background-color:#298dcc;");
-        validationDescriptionResource.setStyle("-fx-background-color:#298dcc;");
-        //BOT CONFIGURATION
-        botConfigurations.setStyle("-fx-background-color:#298dcc;");
+        setButtonStyle(createUser);
+        setButtonStyle(newResource);
+        setButtonStyle(newCourse);
+        setButtonStyle(newCourseCollection);
+        //validation LOGIN buttons
+        setButtonStyle(validationsLoginEmailIncorrect);
+        setButtonStyle(validationsLoginPasswordIncorrect);
+        setButtonStyle(validationsLoginEmailEmpty);
+        setButtonStyle(validationsLoginPasswordEmpty);
+        //validation REGISTER buttons
+        setButtonStyle(validationsFirstNameRegister);
+        setButtonStyle(validationsLastNameRegister);
+        setButtonStyle(validationsEmailRegister);
+        setButtonStyle(validationsPasswordRegister);
+        setButtonStyle(validationsConfirmPasswordRegister);
+        setButtonStyle(validationsConditionsPasswordRegister);
+        setButtonStyle(validationsTermsAndConditionsRegister);
+        setButtonStyle(validationsCaptchaRegister);
+        //Validation RESOURCE buttons
+        setButtonStyle(validationTitleResource);
+        setButtonStyle(validationDescriptionResource);
+    }
+    private void setButtonStyle(Button button) {
+        button.setStyle("-fx-background-color: #298dcc;");
     }
     public void setHover(){
         //HEADER buttons
-        execute.setOnMouseEntered(e -> execute.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
-        execute.setOnMouseExited(e -> execute.setStyle("-fx-background-color: #298dcc;"));
-        stopTestCase.setOnMouseEntered(e -> stopTestCase.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
-        stopTestCase.setOnMouseExited(e -> stopTestCase.setStyle("-fx-background-color: #298dcc;"));
-        removeQueue.setOnMouseEntered(e -> removeQueue.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
-        removeQueue.setOnMouseExited(e -> removeQueue.setStyle("-fx-background-color: #298dcc;"));
+        setupHoverEffect(execute);
+        setupHoverEffect(stopTestCase);
+        setupHoverEffect(removeQueue);
+        setupHoverEffect(botConfigurations);
         //Create buttons
-        createUser.setOnMouseEntered(e -> createUser.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
-        createUser.setOnMouseExited(e -> createUser.setStyle("-fx-background-color: #298dcc;"));
-        newResource.setOnMouseEntered(e -> newResource.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
-        newResource.setOnMouseExited(e -> newResource.setStyle("-fx-background-color: #298dcc;"));
-        newCourse.setOnMouseEntered(e -> newCourse.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
-        newCourse.setOnMouseExited(e -> newCourse.setStyle("-fx-background-color: #298dcc;"));
-        newCourseCollection.setOnMouseEntered(e -> newCourseCollection.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
-        newCourseCollection.setOnMouseExited(e -> newCourseCollection.setStyle("-fx-background-color: #298dcc;"));
+        setupHoverEffect(createUser);
+        setupHoverEffect(newResource);
+        setupHoverEffect(newCourse);
+        setupHoverEffect(newCourseCollection);
         //validation LOGIN buttons
-        validationsLoginEmailIncorrect.setOnMouseEntered(e -> validationsLoginEmailIncorrect.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
-        validationsLoginEmailIncorrect.setOnMouseExited(e -> validationsLoginEmailIncorrect.setStyle("-fx-background-color: #298dcc;"));
-        validationsLoginPasswordIncorrect.setOnMouseEntered(e -> validationsLoginPasswordIncorrect.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
-        validationsLoginPasswordIncorrect.setOnMouseExited(e -> validationsLoginPasswordIncorrect.setStyle("-fx-background-color: #298dcc;"));
-        validationsLoginEmailEmpty.setOnMouseEntered(e -> validationsLoginEmailEmpty.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
-        validationsLoginEmailEmpty.setOnMouseExited(e -> validationsLoginEmailEmpty.setStyle("-fx-background-color: #298dcc;"));
-        validationsLoginPasswordEmpty.setOnMouseEntered(e -> validationsLoginPasswordEmpty.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
-        validationsLoginPasswordEmpty.setOnMouseExited(e -> validationsLoginPasswordEmpty.setStyle("-fx-background-color: #298dcc;"));
+        setupHoverEffect(validationsLoginEmailIncorrect);
+        setupHoverEffect(validationsLoginPasswordIncorrect);
+        setupHoverEffect(validationsLoginEmailEmpty);
+        setupHoverEffect(validationsLoginPasswordEmpty);
         //validation REGISTER buttons
-        validationsFirstNameRegister.setOnMouseEntered(e -> validationsFirstNameRegister.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
-        validationsFirstNameRegister.setOnMouseExited(e -> validationsFirstNameRegister.setStyle("-fx-background-color: #298dcc;"));
-        validationsLastNameRegister.setOnMouseEntered(e -> validationsLastNameRegister.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
-        validationsLastNameRegister.setOnMouseExited(e -> validationsLastNameRegister.setStyle("-fx-background-color: #298dcc;"));
-        validationsEmailRegister.setOnMouseEntered(e -> validationsEmailRegister.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
-        validationsEmailRegister.setOnMouseExited(e -> validationsEmailRegister.setStyle("-fx-background-color: #298dcc;"));
-        validationsPasswordRegister.setOnMouseEntered(e -> validationsPasswordRegister.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
-        validationsPasswordRegister.setOnMouseExited(e -> validationsPasswordRegister.setStyle("-fx-background-color: #298dcc;"));
-        validationsConfirmPasswordRegister.setOnMouseEntered(e -> validationsConfirmPasswordRegister.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
-        validationsConfirmPasswordRegister.setOnMouseExited(e -> validationsConfirmPasswordRegister.setStyle("-fx-background-color: #298dcc;"));
-        validationsConditionsPasswordRegister.setOnMouseEntered(e -> validationsConditionsPasswordRegister.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
-        validationsConditionsPasswordRegister.setOnMouseExited(e -> validationsConditionsPasswordRegister.setStyle("-fx-background-color: #298dcc;"));
-        validationsTermsAndConditionsRegister.setOnMouseEntered(e -> validationsTermsAndConditionsRegister.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
-        validationsTermsAndConditionsRegister.setOnMouseExited(e -> validationsTermsAndConditionsRegister.setStyle("-fx-background-color: #298dcc;"));
-        validationsCaptchaRegister.setOnMouseEntered(e -> validationsCaptchaRegister.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
-        validationsCaptchaRegister.setOnMouseExited(e -> validationsCaptchaRegister.setStyle("-fx-background-color: #298dcc;"));
+        setupHoverEffect(validationsFirstNameRegister);
+        setupHoverEffect(validationsLastNameRegister);
+        setupHoverEffect(validationsEmailRegister);
+        setupHoverEffect(validationsPasswordRegister);
+        setupHoverEffect(validationsConfirmPasswordRegister);
+        setupHoverEffect(validationsConditionsPasswordRegister);
+        setupHoverEffect(validationsTermsAndConditionsRegister);
+        setupHoverEffect(validationsCaptchaRegister);
         //Validation RESOURCE buttons
-        validationTitleResource.setOnMouseEntered(e -> validationTitleResource.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
-        validationTitleResource.setOnMouseExited(e -> validationTitleResource.setStyle("-fx-background-color: #298dcc;"));
-        validationDescriptionResource.setOnMouseEntered(e -> validationDescriptionResource.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
-        validationDescriptionResource.setOnMouseExited(e -> validationDescriptionResource.setStyle("-fx-background-color: #298dcc;"));
-        //BOT CONFIGURATIONS
-        botConfigurations.setOnMouseEntered(e -> botConfigurations.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
-        botConfigurations.setOnMouseExited(e -> botConfigurations.setStyle("-fx-background-color: #298dcc;"));
+        setupHoverEffect(validationTitleResource);
+        setupHoverEffect(validationDescriptionResource);
+    }
+    private void setupHoverEffect(Button button) {
+        button.setOnMouseEntered(e -> button.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
+        button.setOnMouseExited(e -> button.setStyle("-fx-background-color: #298dcc;"));
     }
     public void setPlaceHolder(){
         tfExecute.setPromptText("Cantidad de ejecuciones");
+    }
+    private void setupScrollAndConsole() {
+        consoleTextArea.setEditable(false);
+        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+        scrollPane.setStyle("-fx-control-inner-background:#000000;");
     }
 }

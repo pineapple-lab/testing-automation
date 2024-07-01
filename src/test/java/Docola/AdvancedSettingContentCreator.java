@@ -46,8 +46,6 @@ public class AdvancedSettingContentCreator extends InterfaceElements {
         stageJoin.setScene(sceneConfigAvanzada);
         settingAdvancedExecute.setOnAction(e->{
             Thread execute=  new Thread (()->{
-                System.out.println(userEmail);
-                System.out.println(navigationLink);
                 contentAmount = 3;
                 VariablesDocola.resourceType = tfTypeContent.getText();
                 iActions.actionNewResource();

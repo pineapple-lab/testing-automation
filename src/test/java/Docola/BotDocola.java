@@ -2,6 +2,7 @@ package Docola;
 import InsumosDocola.VariablesDocola;
 import InsumosDocola.MethodsDocola;
 import javafx.application.Platform;
+import javafx.scene.Node;
 import javafx.scene.control.CheckBox;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -39,7 +40,6 @@ public class BotDocola extends Docola.InterfaceActions {
             //CREATOR buttons
             createUser.setOnAction(e -> handleAction(ExecMethod.CREATE_USER,"CREATE_USER"));
             createUser.setOnMousePressed( event -> handleSecondaryClick(event, AdvancedSettingJoin.class));
-
             newResource.setOnAction(e -> handleAction(ExecMethod.NEW_RESOURCE,"NEW_RESOURCE"));
             newResource.setOnMousePressed( event -> handleSecondaryClick(event, AdvancedSettingContentCreator.class));
 
@@ -117,6 +117,12 @@ public class BotDocola extends Docola.InterfaceActions {
                 } else if (configAvanzada instanceof AdvancedSettingContentCreator) {
                     ((AdvancedSettingContentCreator) configAvanzada).start(configAvanzadaStage);
                 }
+                Stage ownerStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                double x = ownerStage.getX();
+                double y = ownerStage.getY();
+                // Posicionar la ventana B relativa a la ventana A
+                configAvanzadaStage.setX(x + 50);
+                configAvanzadaStage.setY(y + 50);
                 configAvanzadaStage.show();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -139,6 +145,12 @@ public class BotDocola extends Docola.InterfaceActions {
                 });
                 Stage configAvanzadaStage = new Stage();
                 configAvanzada.start(configAvanzadaStage);
+                Stage ownerStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                double x = ownerStage.getX();
+                double y = ownerStage.getY();
+                // Posicionar la ventana B relativa a la ventana A
+                configAvanzadaStage.setX(x + 50);
+                configAvanzadaStage.setY(y + 50);
                 configAvanzadaStage.show();
             } catch (Exception e) {
                 e.printStackTrace();

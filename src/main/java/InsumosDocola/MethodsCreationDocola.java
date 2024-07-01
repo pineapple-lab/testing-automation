@@ -6,9 +6,6 @@ import org.junit.jupiter.api.Assertions;
  * Extiende ContextBaseDocola para aprovechar la configuración del contexto del navegador.
  */
 public class MethodsCreationDocola extends ContextBaseDocola{
-    private final SelectorsDocola selector = new SelectorsDocola();
-    private final WaitingsDocola waitings = new WaitingsDocola();
-    private final QueriesDocola queries = new QueriesDocola();
     private final GeneratorDocola generate = new GeneratorDocola();
     private final MethodsDocola methods = new MethodsDocola();
     GeneratorDocola.EmailInfo emailInfo;
@@ -19,9 +16,10 @@ public class MethodsCreationDocola extends ContextBaseDocola{
         emailInfo= generate.generateEmail();
         for (executeCounter = 1; executeCounter <= Integer.parseInt(executionDetails); executeCounter++) {
         if (!stopTest) {
+        userEmail = "";
         roleID = generate.generateRol();
         userEmail =emailInfo.getEmail();
-        System.out.println("Se creara el usuario:"+ userEmail);
+        System.out.println("Creando usuario: "+ userEmail);
         methods.completeRegisterUser(emailInfo);
         methods.verifyLoginAndOnboarding();
         methods.uploadProfilePicture();
@@ -40,6 +38,7 @@ public class MethodsCreationDocola extends ContextBaseDocola{
         userRole = "Content provider";
         contentType =1;
         methods.login();
+        System.out.println("Se crearan "+generate.generateExecutions()+" "+resourceType+"\n");
         for(executeCounter= 1;executeCounter<=generate.generateExecutions();executeCounter++ ) {
             methods.completeResourceForm();
             methods.completeResourceStep();
@@ -54,6 +53,7 @@ public class MethodsCreationDocola extends ContextBaseDocola{
     public void newCourse() {
         methods.login();
         contentType =2;
+        System.out.println("Se crearan "+generate.generateExecutions()+" cursos\n");
         for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
             methods.completeCourseForm();
             methods.publishContent();
@@ -67,6 +67,7 @@ public class MethodsCreationDocola extends ContextBaseDocola{
     public void newCourseCollection() {
         methods.login();
         contentType =3;
+        System.out.println("Se crearan "+generate.generateExecutions()+" curriculum\n");
         for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
             methods.completeCollectionForm();
             methods.publishContent();

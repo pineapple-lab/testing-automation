@@ -7,7 +7,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class AdvancedSettingJoin extends InterfaceElements {
-    Label labelRol = new Label ("rol");
+    Label labelRol = new Label ("Rol");
     TextField tfRol = new TextField();
     Button settingAdvancedExecute = new Button("Ejecutar");
     Tab tbjoinRol = new Tab();

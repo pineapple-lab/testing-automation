@@ -58,7 +58,7 @@ public class variablesPeppermint extends connectionSQLpeppermint{
     //LOGIN
     public static String emailUserAdmin= "admin@oluko.com";
     public static String emailUserAdminQA= "danielmendoza001@mailinator.com";
-    public static volatile String emailLogin;//= "JulietaSanchez1692213580092@mailinator.com"
+    public static volatile String emailLogin;//=
     public String passwordLogin= "123123aA";
     public String idUsuario;
     //CREAR TECHNIQUE

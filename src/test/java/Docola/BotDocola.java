@@ -12,8 +12,10 @@ import javax.security.auth.callback.Callback;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import static InsumosDocola.VariablesDocola.*;
+import static insumosPeppermint.variablesPeppermint.emailLogin;
 import static insumosPeppermint.variablesPeppermint.outputStream;
 public class BotDocola extends Docola.InterfaceActions {
+    private volatile boolean isRunning = true;
     private MethodsDocola methods= new MethodsDocola();
     public static void main(String[] args) {
         launch(BotDocola.class, args);
@@ -90,13 +92,16 @@ public class BotDocola extends Docola.InterfaceActions {
                 executionDetails = tfExecute.getText();
                 accion();
                 }, "execute");
-            if (execute.isAlive()) {
-                execute.stop();
-            } else {
+            if (isRunning) {
                 methods.startTest();
                 execute.start();
             }
         });
+    }
+    private void stopExecuteThread() {
+        isRunning = false; // Establecer la bandera para detener el hilo
+
+        // Lógica adicional para finalizar cualquier tarea o limpieza necesaria
     }
     private void handleAction(ExecMethod method, String checkBoxText) {
         waitingList.add(method);
@@ -123,6 +128,9 @@ public class BotDocola extends Docola.InterfaceActions {
                 // Posicionar la ventana B relativa a la ventana A
                 configAvanzadaStage.setX(x + 50);
                 configAvanzadaStage.setY(y + 50);
+                configAvanzadaStage.setOnHiding(e->{
+                    cleanWaitingList();
+                });
                 configAvanzadaStage.show();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -151,6 +159,9 @@ public class BotDocola extends Docola.InterfaceActions {
                 // Posicionar la ventana B relativa a la ventana A
                 configAvanzadaStage.setX(x + 50);
                 configAvanzadaStage.setY(y + 50);
+                configAvanzadaStage.setOnHiding(e->{
+                    cleanWaitingList();
+                });
                 configAvanzadaStage.show();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -170,6 +181,7 @@ public class BotDocola extends Docola.InterfaceActions {
         methods.stopTest();
         System.out.println("La ejecucion se detendra al final de la actual iteracion");
         outputStream.println("La ejecucion se detendra al final de la actual iteracion");
+        stopExecuteThread();
     }
     private void handleBotConfigurations() {
         try {
@@ -183,6 +195,8 @@ public class BotDocola extends Docola.InterfaceActions {
     }
     private void cleanWaitingList(){
         waitingList.clear();
+        userEmail = null;
+        resourceType = "";
     }
     public void accion () {
         for (int i = 0; i < waitingList.size(); i++) {
@@ -191,7 +205,6 @@ public class BotDocola extends Docola.InterfaceActions {
                 //CASE CREATION
                 case CREATE_USER:
                     actionJoin();
-                    break;
                 case NEW_RESOURCE:
                     actionNewResource();
                     break;
@@ -242,7 +255,6 @@ public class BotDocola extends Docola.InterfaceActions {
                     break;
                 case VALIDATION_TITLE_RESOURCE_REQUIRED:
                     actionValidationRequiredTitleResource();
-
                     break;
                 case VALIDATION_DESCRIPTION_RESOURCE_REQUIRED:
                     actionValidationRequiredDescriptionResource();
@@ -261,7 +273,10 @@ public class BotDocola extends Docola.InterfaceActions {
                     break;
                 case VALIDATION_MONTHLY_PRICE_RESOURCE_REQUIRED:
                     actionValidationRequiredIMonthlyPriceResource();
-                    break;
+                }
+            if (!isRunning) {
+                cleanWaitingList();
+                return;
             }
         }
         cleanWaitingList();

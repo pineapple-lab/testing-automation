@@ -132,7 +132,6 @@ public class MethodsDocola extends ContextBaseDocola{
         page.click(selector.createNewContentButton(contentType));
     }
     public void goToResourceCreateForm(){
-
         page.click(selector.createResource(generate.generateTypeContent()));
     }
     public void completeResourceStep(){
@@ -375,7 +374,7 @@ public class MethodsDocola extends ContextBaseDocola{
             page.click(selector.contentSelectTagICD10(tagPosition));
             page.click(SelectorsDocola.CONTENT_ADD_TAGS);
         }
-        page.click(SelectorsDocola.CONTENT_CONFIGURATION_CMECE);
+        //page.click(SelectorsDocola.CONTENT_CONFIGURATION_CMECE);
         //page.click(SelectorsDocola.contentConfigurationMarketPlace);
         page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
     }
@@ -391,12 +390,12 @@ public class MethodsDocola extends ContextBaseDocola{
         waiting.waitingUnshplashPopUpSelectors();
         page.click(selector.contentUnsplashCategorie(generate.generateThumbnailCategory()));
         waiting.waitingUnsplashPhotos();
-        page.waitForTimeout(2000);
+        page.waitForTimeout(4000);
         page.click(selector.contentUnsplashPhoto(generate.generateThumbnailSplash()));
         page.mouse().wheel(1500,1500);
-        page.waitForTimeout(2000);
+        page.waitForTimeout(1000);
         page.click(SelectorsDocola.CONTENT_UNSPLASH_SELECT_BUTTON);
-        page.waitForTimeout(2000);
+        page.waitForTimeout(1000);
         page.mouse().wheel(2000,2000);
         page.click(SelectorsDocola.CONTENT_UNSPLASH_SAVE_BUTTON);
         page.waitForSelector(SelectorsDocola.CONTENT_THUMBNAIL_DELETE);

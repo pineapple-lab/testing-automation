@@ -24,6 +24,8 @@ public class MethodsCreationDocola extends ContextBaseDocola{
         System.out.println("Se creara el usuario:"+ userEmail);
         methods.completeRegisterUser(emailInfo);
         methods.verifyLoginAndOnboarding();
+        methods.uploadProfilePicture();
+        methods.signOut();
         } else {
             cleanupContext();
             break;

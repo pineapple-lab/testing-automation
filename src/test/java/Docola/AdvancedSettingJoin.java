@@ -21,7 +21,7 @@ public class AdvancedSettingJoin extends InterfaceElements {
     }
     @Override
     public void start(Stage stageJoin) {
-        stageJoin.setTitle("Configuracion avanzada enroll workshop");
+        stageJoin.setTitle("Configuraciones registro");
         GridPane gridPaneJoin = new GridPane();
         gridPaneJoin.setVgap(10);
         gridPaneJoin.setHgap(10);

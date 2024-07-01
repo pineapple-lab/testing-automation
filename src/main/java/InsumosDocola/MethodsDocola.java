@@ -45,9 +45,9 @@ public class MethodsDocola extends ContextBaseDocola{
         System.out.println("Usuario: "+ userEmail +"\n");
     }
     public void signOut(){
-        ElementHandle targetElement = page.querySelector(InsumosDocola.SelectorsDocola.MENU_PROFILE);
+        ElementHandle targetElement = page.querySelector(SelectorsDocola.MENU_PROFILE);
         targetElement.hover();
-        page.click(InsumosDocola.SelectorsDocola.SIGN_OUT);
+        page.click(SelectorsDocola.SIGN_OUT);
     }
     public void completeOnboarding(){
         Keyboard kb = page.keyboard();
@@ -66,12 +66,11 @@ public class MethodsDocola extends ContextBaseDocola{
         Assertions.assertTrue(page.isVisible("text=Login successful"));
         queries.saveUser(userEmail);
         completeOnboarding();
-        page.waitForSelector(InsumosDocola.SelectorsDocola.MENU_PROFILE);
-        signOut();
+        page.waitForSelector(SelectorsDocola.MENU_PROFILE);
     }
     public void goToRegisterForm(){
-        page.click(InsumosDocola.SelectorsDocola.SING_UP);
-        page.click(InsumosDocola.SelectorsDocola.CONTINUE_WITH_EMAIL);
+        page.click(SelectorsDocola.SING_UP);
+        page.click(SelectorsDocola.CONTINUE_WITH_EMAIL);
     }
     public void completeRegisterUser(GeneratorDocola.EmailInfo emailInfo){
         startRegistrationFlow();
@@ -91,37 +90,45 @@ public class MethodsDocola extends ContextBaseDocola{
         completeCollectionSetup();
     }
     public void publishContent(){
-        page.click(InsumosDocola.SelectorsDocola.CONTENT_PUBLISH_BUTTON);
+        page.click(SelectorsDocola.CONTENT_PUBLISH_BUTTON);
         page.waitForTimeout(3000);
     }
     public void completeloginEmail(){
-        page.fill(InsumosDocola.SelectorsDocola.LOGIN_EMAIL,queries.getEmailUser(userRole));
+        page.fill(SelectorsDocola.LOGIN_EMAIL,queries.getEmailUser(userRole));
     }
     public void completeloginPassword(){
-        page.fill(InsumosDocola.SelectorsDocola.LOGIN_PASSWORD, userPassword);
+        page.fill(SelectorsDocola.LOGIN_PASSWORD, userPassword);
     }
     public void completeregisterFirstName(String firstName){
-        page.fill(InsumosDocola.SelectorsDocola.REGISTER_FIRST_NAME,firstName);
+        page.fill(SelectorsDocola.REGISTER_FIRST_NAME,firstName);
     }
     public void completeLastNameARegister(String lastName){
-        page.fill(InsumosDocola.SelectorsDocola.REGISTER_LAST_NAME,lastName);
+        page.fill(SelectorsDocola.REGISTER_LAST_NAME,lastName);
     }
     public void completeEmail(String email){
-        page.fill(InsumosDocola.SelectorsDocola.EMAIL, email);
+        page.fill(SelectorsDocola.EMAIL, email);
     }
     public void completeFirstStepRegister(String firstName, String lastName, String email){
-        page.fill(InsumosDocola.SelectorsDocola.REGISTER_FIRST_NAME,firstName);
-        page.fill(InsumosDocola.SelectorsDocola.REGISTER_LAST_NAME,lastName);
-        page.fill(InsumosDocola.SelectorsDocola.EMAIL,email);
+        page.fill(SelectorsDocola.REGISTER_FIRST_NAME,firstName);
+        page.fill(SelectorsDocola.REGISTER_LAST_NAME,lastName);
+        page.fill(SelectorsDocola.EMAIL,email);
     }
     public void completeSecondStepRegister(){
-        page.fill(InsumosDocola.SelectorsDocola.REGISTER_PASSWORD, userPassword);
-        page.fill(InsumosDocola.SelectorsDocola.REGISTER_PASSWORD_CONFIRMATION, userPassword);
+        page.fill(SelectorsDocola.REGISTER_PASSWORD, userPassword);
+        page.fill(SelectorsDocola.REGISTER_PASSWORD_CONFIRMATION, userPassword);
+    }
+    public void uploadProfilePicture(){
+        ElementHandle targetElement = page.querySelector(SelectorsDocola.MENU_PROFILE);
+        targetElement.hover();
+        page.click(SelectorsDocola.ACCOUNT_SETINGS);
+        page.locator(SelectorsDocola.UPLOAD_PROFILE_PICTURE).setInputFiles(Paths.get(generate.generatePictureProfile()));
+        page.waitForTimeout(1000);
+        page.click(SelectorsDocola.SAVE_CHANGES);
     }
     public void goToContentCreateForm(){
         page.waitForTimeout(2000);
-        page.click(InsumosDocola.SelectorsDocola.HEADER_MY_LIBRARY_BUTTON);
-        page.click(InsumosDocola.SelectorsDocola.CREATE_NEW_RESOURCE_BUTTON);
+        page.click(SelectorsDocola.HEADER_MY_LIBRARY_BUTTON);
+        page.click(SelectorsDocola.CREATE_NEW_RESOURCE_BUTTON);
         page.click(selector.createNewContentButton(contentType));
     }
     public void goToResourceCreateForm(){
@@ -149,33 +156,35 @@ public class MethodsDocola extends ContextBaseDocola{
         System.out.println("Ambiente: "+navigationLink+"\n");
     }
     private void completeLogin(){
-        page.fill(InsumosDocola.SelectorsDocola.LOGIN_EMAIL, userEmail);
-        page.fill(InsumosDocola.SelectorsDocola.LOGIN_PASSWORD, userPassword);
-        page.click(InsumosDocola.SelectorsDocola.LOGIN_BUTTON);
+        page.fill(SelectorsDocola.LOGIN_EMAIL, userEmail);
+        page.fill(SelectorsDocola.LOGIN_PASSWORD, userPassword);
+        page.click(SelectorsDocola.LOGIN_BUTTON);
     }
     private void completeOnboardingForRole1(Keyboard kb){
-        page.click(InsumosDocola.SelectorsDocola.VERIFY_PHONE_SKIP_FOR_NOW);
+        page.click(SelectorsDocola.VERIFY_PHONE_SKIP_FOR_NOW);
+        page.click(SelectorsDocola.CLOSE_GUIDE);
     }
     private void completeOnboardingForRole2(Keyboard kb){
-        page.click(InsumosDocola.SelectorsDocola.ONBOARDING_CLINICIANC_CONTINUE);
-        page.click(InsumosDocola.SelectorsDocola.ONBOARDING_CLINICIAN_SELECTOR);
-        page.click(InsumosDocola.SelectorsDocola.ONBOARDING_CLINICIAN_SELECTOR_OPTION);
+        page.click(SelectorsDocola.ONBOARDING_CLINICIANC_CONTINUE);
+        page.click(SelectorsDocola.ONBOARDING_CLINICIAN_SELECTOR);
+        page.click(SelectorsDocola.ONBOARDING_CLINICIAN_SELECTOR_OPTION);
         kb.press("Escape");
-        page.click(InsumosDocola.SelectorsDocola.ONBOARDING_CLINICIANC_CONTINUE);
-        page.fill(InsumosDocola.SelectorsDocola.ONBOARDING_CLINICIAN_PRACTICE_NAME, "test");
-        page.click(InsumosDocola.SelectorsDocola.ONBOARDING_CLINICIANC_CONTINUE_STEP_2);
-        page.click(InsumosDocola.SelectorsDocola.ONBOARDING_CLINICIAN_PRACTICE_NOT_FOR_NOW);
+        page.click(SelectorsDocola.ONBOARDING_CLINICIANC_CONTINUE);
+        //page.fill(SelectorsDocola.ONBOARDING_CLINICIAN_PRACTICE_NAME, "test");
+        //page.click(SelectorsDocola.ONBOARDING_CLINICIANC_CONTINUE_STEP_2);
+        page.click(SelectorsDocola.ONBOARDING_CLINICIAN_PRACTICE_NOT_FOR_NOW);
+        page.click(SelectorsDocola.CLOSE_GUIDE);
     }
     private void completeOnboardingForRole3(Keyboard kb){
         String companyName = generate.generateCompanyName();
         waiting.waitingOnboardingSelectorContentProviderStep1();
-        page.fill(InsumosDocola.SelectorsDocola.ONBOARDING_CONTENT_PROVIDER_COMPANY_NAME, companyName);
+        page.fill(SelectorsDocola.ONBOARDING_CONTENT_PROVIDER_COMPANY_NAME, companyName);
         String webSite = "https://www."+companyName + ".com";
-        page.fill(InsumosDocola.SelectorsDocola.ONBOARDING_CONTENT_PROVIDER_WEB_SITE, webSite);
-        page.click(InsumosDocola.SelectorsDocola.ONBOARDING_CONTENT_PROVIDER_NEXT_BUTTON_STEP_1);
+        page.fill(SelectorsDocola.ONBOARDING_CONTENT_PROVIDER_WEB_SITE, webSite);
+        page.click(SelectorsDocola.ONBOARDING_CONTENT_PROVIDER_NEXT_BUTTON_STEP_1);
         waiting.waitingOnboardingSelectorContentProviderStep2();
-        page.click(InsumosDocola.SelectorsDocola.VERIFY_PHONE_SKIP_FOR_NOW);
-        page.click(InsumosDocola.SelectorsDocola.CLOSE_GUIDE);
+        page.click(SelectorsDocola.VERIFY_PHONE_SKIP_FOR_NOW);
+        page.click(SelectorsDocola.CLOSE_GUIDE);
     }
     private void waitForLoginSuccess(){
         while (true) {
@@ -186,25 +195,25 @@ public class MethodsDocola extends ContextBaseDocola{
         }
     }
     private void startRegistrationFlow(){
-        page.click(InsumosDocola.SelectorsDocola.SING_UP);
-        page.click(InsumosDocola.SelectorsDocola.CONTINUE_WITH_EMAIL);
+        page.click(SelectorsDocola.SING_UP);
+        page.click(SelectorsDocola.CONTINUE_WITH_EMAIL);
         page.waitForTimeout(1000);
         waiting.waitingJoinsSelectorStep1(generate.generateRol());
     }
     private void completeRegistrationForm(GeneratorDocola.EmailInfo emailInfo){
-        page.fill(InsumosDocola.SelectorsDocola.REGISTER_FIRST_NAME, emailInfo.getFirstName());
-        page.fill(InsumosDocola.SelectorsDocola.REGISTER_LAST_NAME, emailInfo.getLastName());
-        page.fill(InsumosDocola.SelectorsDocola.EMAIL, generate.userEmail);
+        page.fill(SelectorsDocola.REGISTER_FIRST_NAME, emailInfo.getFirstName());
+        page.fill(SelectorsDocola.REGISTER_LAST_NAME, emailInfo.getLastName());
+        page.fill(SelectorsDocola.EMAIL, generate.userEmail);
         page.click(selector.rolRegister(generate.generateRol()));
-        page.click(InsumosDocola.SelectorsDocola.REGISTER_NEXT_BUTTON_STEP_1);
+        page.click(SelectorsDocola.REGISTER_NEXT_BUTTON_STEP_1);
         waiting.waitingJoinSelectorStep2();
-        page.fill(InsumosDocola.SelectorsDocola.REGISTER_PASSWORD, userPassword);
-        page.fill(InsumosDocola.SelectorsDocola.REGISTER_PASSWORD_CONFIRMATION, userPassword);
-        page.click(InsumosDocola.SelectorsDocola.REGISTER_NEXT_BUTTON_STEP_2);
+        page.fill(SelectorsDocola.REGISTER_PASSWORD, userPassword);
+        page.fill(SelectorsDocola.REGISTER_PASSWORD_CONFIRMATION, userPassword);
+        page.click(SelectorsDocola.REGISTER_NEXT_BUTTON_STEP_2);
         waiting.waitingJoinSelectorStep3();
-        page.click(InsumosDocola.SelectorsDocola.REGISTER_TERMS_AND_CONDITIONS);
-        page.click(InsumosDocola.SelectorsDocola.REGISTER_CAPTCHAT);
-        page.click(InsumosDocola.SelectorsDocola.REGISTER_NEXT_BUTTON_STEP_3);
+        page.click(SelectorsDocola.REGISTER_TERMS_AND_CONDITIONS);
+        page.click(SelectorsDocola.REGISTER_CAPTCHAT);
+        page.click(SelectorsDocola.REGISTER_NEXT_BUTTON_STEP_3);
     }
    private void completeContentCreationProcess() {
        if (resourceType == null) {
@@ -238,22 +247,22 @@ public class MethodsDocola extends ContextBaseDocola{
        }
    }
     private void completeCourseSetup(){
-        page.fill(InsumosDocola.SelectorsDocola.CONTENT_TITLE,generate.generateContentTitle());
-        page.fill(InsumosDocola.SelectorsDocola.CONTENT_DESCRIPTION, generate.generateContentDescription());
-        page.click(InsumosDocola.SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+        page.fill(SelectorsDocola.CONTENT_TITLE,generate.generateContentTitle());
+        page.fill(SelectorsDocola.CONTENT_DESCRIPTION, generate.generateContentDescription());
+        page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
         completeConfigurationStep();
         completeContentStep();
-        page.click(InsumosDocola.SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+        page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
         completePricingStep();
         completeThumbnailStep();
     }
     private void completeCollectionSetup(){
-        page.fill(InsumosDocola.SelectorsDocola.CONTENT_TITLE,generate.generateContentTitle());
-        page.fill(InsumosDocola.SelectorsDocola.CONTENT_DESCRIPTION, generate.generateContentDescription());
-        page.click(InsumosDocola.SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+        page.fill(SelectorsDocola.CONTENT_TITLE,generate.generateContentTitle());
+        page.fill(SelectorsDocola.CONTENT_DESCRIPTION, generate.generateContentDescription());
+        page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
         completeConfigurationStep();
         completeContentStep();
-        page.click(InsumosDocola.SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+        page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
         completePricingStep();
         completeThumbnailStep();
     }
@@ -266,7 +275,7 @@ public class MethodsDocola extends ContextBaseDocola{
         }
         //page.click(SelectorsDocola.contentConfigurationCMECE);
         //page.click(SelectorsDocola.contentConfigurationMarketPlace);
-        page.click(InsumosDocola.SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+        page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
     }
     private void selectContentCourses(){
         page.waitForTimeout(2000);
@@ -280,42 +289,42 @@ public class MethodsDocola extends ContextBaseDocola{
             page.click(selector.courseSelectContent(contentPosition));
         }
         for(int contentPosition = contentAmount; contentPosition<= contentAmount; contentPosition++) {
-            page.click(InsumosDocola.SelectorsDocola.CONTENT_TAB_COURSES);
+            page.click(SelectorsDocola.CONTENT_TAB_COURSES);
             page.click(selector.courseSelectContent(contentPosition));
         }
     }
     private void completeContentUploadFile(){
-        page.fill(InsumosDocola.SelectorsDocola.CONTENT_TITLE, generate.generateContentTitle());
-        page.fill(InsumosDocola.SelectorsDocola.CONTENT_DESCRIPTION, generate.generateContentDescription());
-        page.locator(InsumosDocola.SelectorsDocola.CONTENT_UPLOAD).setInputFiles(Paths.get(generate.generateImage()));
-        page.waitForSelector(InsumosDocola.SelectorsDocola.SELECT_PREVIEW_IMAGE);
-        page.click(InsumosDocola.SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+        page.fill(SelectorsDocola.CONTENT_TITLE, generate.generateContentTitle());
+        page.fill(SelectorsDocola.CONTENT_DESCRIPTION, generate.generateContentDescription());
+        page.locator(SelectorsDocola.CONTENT_UPLOAD).setInputFiles(Paths.get(generate.generateImage()));
+        page.waitForSelector(SelectorsDocola.SELECT_PREVIEW_IMAGE);
+        page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
     }
     private void completeContentCaptureVideo(){
-        page.fill(InsumosDocola.SelectorsDocola.CONTENT_TITLE, generate.generateContentTitle());
-        page.fill(InsumosDocola.SelectorsDocola.CONTENT_DESCRIPTION, generate.generateContentDescription());
-        page.locator(InsumosDocola.SelectorsDocola.CONTENT_UPLOAD).setInputFiles(Paths.get(generate.generateVideo()));
-        page.waitForSelector(InsumosDocola.SelectorsDocola.SELECT_PREVIEW_IMAGE);
-        page.click(InsumosDocola.SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+        page.fill(SelectorsDocola.CONTENT_TITLE, generate.generateContentTitle());
+        page.fill(SelectorsDocola.CONTENT_DESCRIPTION, generate.generateContentDescription());
+        page.locator(SelectorsDocola.CONTENT_UPLOAD).setInputFiles(Paths.get(generate.generateVideo()));
+        page.waitForSelector(SelectorsDocola.SELECT_PREVIEW_IMAGE);
+        page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
     }
     private void completeContentImportWebContent(){
-        page.fill(InsumosDocola.SelectorsDocola.CONTENT_TITLE, generate.generateContentTitle());
-        page.fill(InsumosDocola.SelectorsDocola.CONTENT_DESCRIPTION, generate.generateContentDescription());
-        page.fill(InsumosDocola.SelectorsDocola.CONTENT_ADD_URL,"https://www.youtube.com/embed/myDW_WPRHq0?si=bdkGE69WDFZXf7cj");
-        page.click(InsumosDocola.SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+        page.fill(SelectorsDocola.CONTENT_TITLE, generate.generateContentTitle());
+        page.fill(SelectorsDocola.CONTENT_DESCRIPTION, generate.generateContentDescription());
+        page.fill(SelectorsDocola.CONTENT_ADD_URL,"https://www.youtube.com/embed/myDW_WPRHq0?si=bdkGE69WDFZXf7cj");
+        page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
     }
     private void completeContentQuestionTrueOrFalse(){
-        page.fill(InsumosDocola.SelectorsDocola.CONTENT_TITLE_TRUE_OR_FALSE_QUIZ, generate.generateQuestion());
+        page.fill(SelectorsDocola.CONTENT_TITLE_TRUE_OR_FALSE_QUIZ, generate.generateQuestion());
     }
     private void completeContentMultipleChoice(){
-        page.fill(InsumosDocola.SelectorsDocola.CONTENT_TITLE_MULTIPLE_CHOICE_SURVEY, generate.generateQuestion());
-        page.fill(InsumosDocola.SelectorsDocola.CONTENT_OPTION_1_MULTIPLE_CHOICE_SURVEY, generate.generateAnswer());
-        page.fill(InsumosDocola.SelectorsDocola.CONTENT_OPTION_2_MULTIPLE_CHOICE_SURVEY, generate.generateAnswer());
+        page.fill(SelectorsDocola.CONTENT_TITLE_MULTIPLE_CHOICE_SURVEY, generate.generateQuestion());
+        page.fill(SelectorsDocola.CONTENT_OPTION_1_MULTIPLE_CHOICE_SURVEY, generate.generateAnswer());
+        page.fill(SelectorsDocola.CONTENT_OPTION_2_MULTIPLE_CHOICE_SURVEY, generate.generateAnswer());
     }
     private void completeContentQuiz(){
-        page.fill(InsumosDocola.SelectorsDocola.CONTENT_TITLE, generate.generateQuestion());
-        page.fill(InsumosDocola.SelectorsDocola.CONTENT_DESCRIPTION, generate.generateContentDescription());
-        page.click(InsumosDocola.SelectorsDocola.CONTENT_ADD_QUESTIONS_QUIZ);
+        page.fill(SelectorsDocola.CONTENT_TITLE, generate.generateQuestion());
+        page.fill(SelectorsDocola.CONTENT_DESCRIPTION, generate.generateContentDescription());
+        page.click(SelectorsDocola.CONTENT_ADD_QUESTIONS_QUIZ);
         if(typeQuestion == 0){
             typeQuestion=1;
         }
@@ -330,12 +339,12 @@ public class MethodsDocola extends ContextBaseDocola{
             case 3:
                 break;*/
         }
-        page.click(InsumosDocola.SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+        page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
     }
     private void completeContentSurvey(){
-        page.fill(InsumosDocola.SelectorsDocola.CONTENT_TITLE, generate.generateQuestion());
-        page.fill(InsumosDocola.SelectorsDocola.CONTENT_DESCRIPTION, generate.generateContentDescription());
-        page.click(InsumosDocola.SelectorsDocola.CONTENT_ADD_QUESTIONS_QUIZ);
+        page.fill(SelectorsDocola.CONTENT_TITLE, generate.generateQuestion());
+        page.fill(SelectorsDocola.CONTENT_DESCRIPTION, generate.generateContentDescription());
+        page.click(SelectorsDocola.CONTENT_ADD_QUESTIONS_QUIZ);
         if(typeQuestion == 0){
             typeQuestion=1;
         }
@@ -350,46 +359,46 @@ public class MethodsDocola extends ContextBaseDocola{
             case 3:
                 break;*/
         }
-        page.click(InsumosDocola.SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+        page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
     }
     private void completeContentVr(){
-        page.fill(InsumosDocola.SelectorsDocola.CONTENT_TITLE, generate.generateContentTitle());
-        page.fill(InsumosDocola.SelectorsDocola.CONTENT_DESCRIPTION, generate.generateContentDescription());
-        page.locator(InsumosDocola.SelectorsDocola.CONTENT_UPLOAD).setInputFiles(Paths.get(generate.generateVideo()));
-        page.waitForSelector(InsumosDocola.SelectorsDocola.SELECT_PREVIEW_IMAGE);
-        page.click(InsumosDocola.SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+        page.fill(SelectorsDocola.CONTENT_TITLE, generate.generateContentTitle());
+        page.fill(SelectorsDocola.CONTENT_DESCRIPTION, generate.generateContentDescription());
+        page.locator(SelectorsDocola.CONTENT_UPLOAD).setInputFiles(Paths.get(generate.generateVideo()));
+        page.waitForSelector(SelectorsDocola.SELECT_PREVIEW_IMAGE);
+        page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
     }
     private void completeConfigurationStep() {
         waiting.waitingConfigurationStepSelector();
         for(int tagPosition = 1; tagPosition<=2;tagPosition++) {
-            page.click(InsumosDocola.SelectorsDocola.CONTENT_TAG_ICD_10_TYPE);
+            page.click(SelectorsDocola.CONTENT_TAG_ICD_10_TYPE);
             page.click(selector.contentSelectTagICD10(tagPosition));
-            page.click(InsumosDocola.SelectorsDocola.CONTENT_ADD_TAGS);
+            page.click(SelectorsDocola.CONTENT_ADD_TAGS);
         }
-        page.click(InsumosDocola.SelectorsDocola.CONTENT_CONFIGURATION_CMECE);
+        page.click(SelectorsDocola.CONTENT_CONFIGURATION_CMECE);
         //page.click(SelectorsDocola.contentConfigurationMarketPlace);
-        page.click(InsumosDocola.SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+        page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
     }
     private void completePricingStep(){
         waiting.waitingPricingStepSelector();
-        page.fill(InsumosDocola.SelectorsDocola.CONTENT_PRICING_MONTHLY_PRICE,"123");
+        page.fill(SelectorsDocola.CONTENT_PRICING_MONTHLY_PRICE,"123");
         //page.fill(SelectorsDocola.contentPricingYearlyPrice,"123");
-        page.click(InsumosDocola.SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+        page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
     }
     private void completeThumbnailStep(){
         waiting.waitingThumbnailStepSelector();
-        page.click(InsumosDocola.SelectorsDocola.CONTENT_THUMBNAIL_UNSPLASH);
+        page.click(SelectorsDocola.CONTENT_THUMBNAIL_UNSPLASH);
         waiting.waitingUnshplashPopUpSelectors();
         page.click(selector.contentUnsplashCategorie(generate.generateThumbnailCategory()));
         waiting.waitingUnsplashPhotos();
-        page.click(selector.contentUnsplashPhoto(generate.generateThumbnailSplash()));
         page.waitForTimeout(2000);
+        page.click(selector.contentUnsplashPhoto(generate.generateThumbnailSplash()));
         page.mouse().wheel(1500,1500);
         page.waitForTimeout(2000);
-        page.click(InsumosDocola.SelectorsDocola.CONTENT_UNSPLASH_SELECT_BUTTON);
+        page.click(SelectorsDocola.CONTENT_UNSPLASH_SELECT_BUTTON);
         page.waitForTimeout(2000);
         page.mouse().wheel(2000,2000);
-        page.click(InsumosDocola.SelectorsDocola.CONTENT_UNSPLASH_SAVE_BUTTON);
-        page.waitForSelector(InsumosDocola.SelectorsDocola.CONTENT_THUMBNAIL_DELETE);
+        page.click(SelectorsDocola.CONTENT_UNSPLASH_SAVE_BUTTON);
+        page.waitForSelector(SelectorsDocola.CONTENT_THUMBNAIL_DELETE);
     }
 }

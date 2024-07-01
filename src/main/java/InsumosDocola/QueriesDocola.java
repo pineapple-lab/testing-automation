@@ -31,6 +31,9 @@ public class QueriesDocola extends ContextBaseDocola{
         } catch (SQLException ex) {
             handleSQLException(ex);
         }
+        System.out.println("Se actualizo correctamente email por defecto\n" +
+                "Rol: "+userRole+"\n"+
+                "Ambiente: "+navigationLink);
     }
     public String getEmailUser(String joinRol){
             if(joinRol == null){

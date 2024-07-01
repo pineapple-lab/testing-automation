@@ -41,7 +41,6 @@ public class BotSettingDefaultUser extends InterfaceElements {
         gridPaneUndefinedSettings.add(radioButtonClinician,3,7);
         gridPaneUndefinedSettings.add(radioButtonPatient,4,7);
         gridPaneUndefinedSettings.add(settingSave,6,9);
-
         settingSave.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #5bb346;");
         settingSave.setOnMouseEntered(e -> settingSave.setStyle("-fx-background-color: #6ec957; -fx-text-fill: white;"));
         settingSave.setOnMouseExited(e -> settingSave.setStyle("-fx-background-color: #5bb346;"));
@@ -89,7 +88,6 @@ public class BotSettingDefaultUser extends InterfaceElements {
         settingSave.setOnAction(e->{
             Thread execute=  new Thread (()->{
                 VariablesDocola.userEmail = tfEmail.getText();
-                System.out.println(VariablesDocola.userEmail);
                 iActions.actionUpdateUndefinedUser(VariablesDocola.userEmail);
             }, "execute");
             if(execute.isAlive()) {

@@ -28,7 +28,7 @@ public class AdvancedSettingContentCreator extends InterfaceElements {
     }
     @Override
     public void start(Stage stageJoin) {
-        stageJoin.setTitle("Configuracion avanzada enroll workshop");
+        stageJoin.setTitle("Configuraciones creacion de contenido");
         GridPane gridPaneJoin = new GridPane();
         gridPaneJoin.setVgap(10);
         gridPaneJoin.setHgap(10);

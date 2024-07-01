@@ -29,7 +29,7 @@ public class SelectorsDocola extends VariablesDocola{
     public static final String LOGIN_PASSWORD = FORM_LOGIN +"app-form-block-input:nth-of-type(2) input";
     public static final String LOGIN_BUTTON = FORM +"div:nth-of-type(2) > div:nth-of-type(3) button";
     //SELECTOR SIGN OUT
-    public static final String SIGN_OUT = "text=Sign out";
+    public static final String SIGN_OUT = ".mat-mdc-menu-content > div > button:nth-of-type(4)";
     //SELECTORS REGISTER//
     public static final String SING_UP = "text=Sign up free";
     public static final String CONTINUE_WITH_EMAIL = ".border-primary > div > button:nth-of-type(3)";
@@ -72,8 +72,12 @@ public class SelectorsDocola extends VariablesDocola{
     public static final String CLOSE_GUIDE = ".introjs-tooltipReferenceLayer > div > div:nth-of-type(1) a";
     public static final String VERIFY_PHONE_SKIP_FOR_NOW = REGISTRATION_TYPE_PADDING +"div > div:nth-of-type(2) > div:nth-of-type(2) > span";
     //SELECT PROFILE MENU
-    public static final String MENU_PROFILE = APP_HEADER +"div > div:nth-of-type(1) > div > div";
-    //SELECT CONTENT CREATOR COMPNENTS
+    public static final String MENU_PROFILE = APP_HEADER +"div > div:nth-of-type(1) > div:nth-of-type(2) > div";
+    public static final String ACCOUNT_SETINGS = "text=Account settings";
+    //SELECTORS ACCOUNT SETTINGS
+    public static final String UPLOAD_PROFILE_PICTURE = "app-profile-tab > div > div > input";
+    public static final String SAVE_CHANGES = "app-profile-tab > div > div:nth-of-type(3) button";
+    //SELECT CONTENT CREATOR COMPONENTS
     public static final String CREATE_NEW_RESOURCE_BUTTON = "text= New";
     public static final String SELECT_GENERIC_RESOURCE_TYPE = APP_SELECT_RESOURCE +"div > div > div:nth-of-type";
     public String createNewContentButton(int typeContent){

@@ -8,7 +8,8 @@ public class VariablesDocola {
    public static String executionDetails;
    //Variables de rutas y archivos
    private static final String ROOT ="D";
-   public String imagePath = ROOT+":\\Escritorio\\insumos para pruebas\\Imagenes\\Bot docola\\imagen";
+   public String imagePath = ROOT+":\\Escritorio\\insumos para pruebas\\Imagenes\\Bot docola\\Contenidos\\imagen";
+   public String pictureProfilePath = ROOT+":\\Escritorio\\insumos para pruebas\\Imagenes\\Bot docola\\Picture profile\\profile";
    public String videoPath = ROOT+":\\Escritorio\\insumos para pruebas\\Videos\\Bot docola\\video";
    public String imageFileName;
    public String videoFileName;

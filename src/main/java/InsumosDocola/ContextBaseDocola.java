@@ -42,7 +42,7 @@ public class ContextBaseDocola extends VariablesDocola {
      * @param page La página a configurar.
      */
     private void configurePageViewPort(Page page){
-        page.setViewportSize(1920, 1080);
+        page.setViewportSize(1820, 750);
     }
     private void printExecutionEndMessage(){
         String endMessage = """

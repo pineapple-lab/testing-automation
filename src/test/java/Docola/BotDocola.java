@@ -82,9 +82,8 @@ public class BotDocola extends Docola.InterfaceActions {
             removeQueue.setOnAction(event -> actionEliminarDeLaCola());
             botConfigurations.setOnAction( event -> handleBotConfigurations());
         }, "interfaceThread");
-        if(interfaceThread.isAlive()) {
-            interfaceThread.stop();
-        }else {
+        if(isRunning) {
+            methods.startTest();
             interfaceThread.start();
         }
         execute.setOnAction(e -> {

@@ -14,6 +14,7 @@ import static InsumosDocola.VariablesDocola.*;
 import static InsumosDocola.VariablesDocola.navigationLink;
 
 public class AdvancedSettingContentCreator extends InterfaceElements {
+    private volatile boolean isRunning = true;
     Label labelTypeContent = new Label ("Tipo de contenido");
     TextField tfTypeContent = new TextField();
     Button settingAdvancedExecute = new Button("Ejecutar");
@@ -49,14 +50,18 @@ public class AdvancedSettingContentCreator extends InterfaceElements {
                 contentAmount = 3;
                 VariablesDocola.resourceType = tfTypeContent.getText();
                 iActions.actionNewResource();
-
+                cleanWaitingList();
             }, "execute");
-            if(execute.isAlive()) {
-                execute.stop();
-            }else {
+            if(isRunning) {
                 mDocola.startTest();
                 execute.start();
             }
         });
     }
+    private void cleanWaitingList(){
+        waitingList.clear();
+        userEmail = null;
+        resourceType = "";
+    }
+
 }

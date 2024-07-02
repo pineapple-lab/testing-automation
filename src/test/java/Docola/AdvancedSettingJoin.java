@@ -6,7 +6,11 @@ import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
+import static InsumosDocola.VariablesDocola.resourceType;
+import static InsumosDocola.VariablesDocola.userEmail;
+
 public class AdvancedSettingJoin extends InterfaceElements {
+    private volatile boolean isRunning = true;
     Label labelRol = new Label ("Rol");
     TextField tfRol = new TextField();
     Button settingAdvancedExecute = new Button("Ejecutar");
@@ -41,13 +45,18 @@ public class AdvancedSettingJoin extends InterfaceElements {
             Thread execute=  new Thread (()->{
               VariablesDocola.userRole = tfRol.getText();
               iActions.actionJoin();
+                cleanWaitingList();
             }, "execute");
-            if(execute.isAlive()) {
-                execute.stop();
-            }else {
+            if(isRunning) {
                 mDocola.startTest();
                 execute.start();
             }
         });
     }
+    private void cleanWaitingList(){
+        waitingList.clear();
+        userEmail = null;
+        resourceType = "";
+    }
+
 }

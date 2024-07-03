@@ -18,6 +18,8 @@ public class BotDocola extends Docola.InterfaceActions {
     private volatile boolean isRunning = true;
     private MethodsDocola methods= new MethodsDocola();
     public static void main(String[] args) {
+        //String path = BotDocola.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+        //System.out.println(path);
         launch(BotDocola.class, args);
     }
 

@@ -1,7 +1,7 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="SelectedForm" type="Application" factoryName="Application" nameIsGenerated="true">
     <option name="MAIN_CLASS_NAME" value="insumosPeppermint.SelectedForm" />
-    <module name="testingAutomation" />
+    <module name="TestingAutomation" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>

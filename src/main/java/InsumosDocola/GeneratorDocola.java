@@ -1,4 +1,5 @@
 package InsumosDocola;
+import java.nio.file.Paths;
 import java.time.Instant;
 import java.util.List;
 import java.util.Random;
@@ -16,19 +17,20 @@ public class GeneratorDocola extends ContextBaseDocola{
         String[] imageList = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
                                 "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
                             };
-        return generateRandomFileName(imageList,RELATIVE_IMAGE_PATH,".jpg");
+        return generateRandomFileName(imageList, Paths.get(getBasePath())+RELATIVE_IMAGE_PATH,".jpg");
     }
     public String generateVideo(){
         String[] videoList = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
                 "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
         };
-        return generateRandomFileName(videoList,RELATIVE_VIDEO_PATH,".mp4");
+        return generateRandomFileName(videoList,Paths.get(getBasePath())+RELATIVE_VIDEO_PATH,".mp4");
     }
     public String generatePictureProfile(){
         String[] imageList = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
                 "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
         };
-        return generateRandomFileName(imageList,RELATIVE_PICTURE_PROFILE_PATH,".jpg");
+        String basePath = Paths.get(PathUtils.getBasePath(), PathUtils.RELATIVE_PICTURE_PROFILE_PATH).toString();
+        return generateRandomFileName(imageList,basePath,".jpg");
     }
     public EmailInfo generateEmail(){
         generateFirstName();
@@ -111,10 +113,11 @@ public class GeneratorDocola extends ContextBaseDocola{
         List<ElementHandle> elements = page.querySelectorAll("mat-dialog-container > div > div > app-unsplash > form > div:nth-of-type(3) > img");
         return getRandomIndex(elements.size());
     }
-    private String generateRandomFileName(String[] fileList, String relativePath, String extension){
+    private String generateRandomFileName(String[] fileList, String basePath, String extension){
         Random rand = new Random();
         int index = rand.nextInt(fileList.length);
-        return BASE_PATH+relativePath + fileList[index] + extension;
+        return basePath + fileList[index] + extension;
+
     }
     private String getRandomString(String[] array){
         Random rand = new Random();

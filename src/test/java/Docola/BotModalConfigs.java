@@ -1,4 +1,6 @@
 package Docola;
+import javafx.event.ActionEvent;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
@@ -25,17 +27,25 @@ public class BotModalConfigs extends InterfaceElements{
         Scene sceneConfigAvanzada = new Scene(rootConfigAvanzada,199,170);
         botSettings.setScene(sceneConfigAvanzada);
         undefinedUser.setOnAction( event -> {
-            //executionDetails=tfExecute.getText();
             BotSettingDefaultUser configAvanzada = new BotSettingDefaultUser(seleccion);
             Stage botSettingsStage = new Stage();
             configAvanzada.start(botSettingsStage);
+            Stage ownerStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            double x = ownerStage.getX();
+            double y = ownerStage.getY();
+            botSettingsStage.setX(x + 50);
+            botSettingsStage.setY(y + 50);
             botSettingsStage.show();
         });
         botConfig.setOnAction( event -> {
-            //executionDetails=tfExecute.getText();
             BotConfigs configAvanzada = new BotConfigs();
             Stage botSettingsStage = new Stage();
             configAvanzada.start(botSettingsStage);
+            Stage ownerStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            double x = ownerStage.getX();
+            double y = ownerStage.getY();
+            botSettingsStage.setX(x + 50);
+            botSettingsStage.setY(y + 50);
             botSettingsStage.show();
         });
     }

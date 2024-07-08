@@ -7,7 +7,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import org.apache.tools.ant.taskdefs.Exec;
-
+import javafx.event.ActionEvent;
 import javax.security.auth.callback.Callback;
 import java.io.OutputStream;
 import java.io.PrintStream;
@@ -82,7 +82,7 @@ public class BotDocola extends Docola.InterfaceActions {
             comboBox.setOnAction(e -> handleComboBoxAction());
             stopTestCase.setOnAction(event -> handleStopTestCase());
             removeQueue.setOnAction(event -> actionEliminarDeLaCola());
-            botConfigurations.setOnAction( event -> handleBotConfigurations());
+            botConfigurations.setOnAction( event -> handleBotConfigurations(event));
         }, "interfaceThread");
         if(isRunning) {
             methods.startTest();
@@ -184,11 +184,17 @@ public class BotDocola extends Docola.InterfaceActions {
         outputStream.println("La ejecucion se detendra al final de la actual iteracion");
         stopExecuteThread();
     }
-    private void handleBotConfigurations() {
+    private void handleBotConfigurations(ActionEvent event) {
         try {
             BotModalConfigs configAvanzada = new BotModalConfigs(seleccion);
             Stage botSettingsStage = new Stage();
             configAvanzada.start(botSettingsStage);
+            Stage ownerStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            double x = ownerStage.getX();
+            double y = ownerStage.getY();
+            // Posicionar la ventana B relativa a la ventana A
+            botSettingsStage.setX(x + 50);
+            botSettingsStage.setY(y + 50);
             botSettingsStage.show();
         } catch (Exception e) {
             e.printStackTrace();

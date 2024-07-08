@@ -374,7 +374,7 @@ public class MethodsDocola extends ContextBaseDocola{
             page.click(selector.contentSelectTagICD10(tagPosition));
             page.click(SelectorsDocola.CONTENT_ADD_TAGS);
         }
-        //page.click(SelectorsDocola.CONTENT_CONFIGURATION_CMECE);
+        page.click(SelectorsDocola.CONTENT_CONFIGURATION_CMECE);
         //page.click(SelectorsDocola.contentConfigurationMarketPlace);
         page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
     }

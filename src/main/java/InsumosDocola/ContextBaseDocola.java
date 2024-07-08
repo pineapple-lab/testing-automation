@@ -18,9 +18,9 @@ public class ContextBaseDocola extends VariablesDocola {
     static void initializePlaywright(){
         playwright = Playwright.create();
         browser = playwright.chromium().launch(new BrowserType.LaunchOptions()
-                .setHeadless(false)
-                .setSlowMo(0.1)
-                .setChannel("chrome"));
+                .setHeadless(setHeadless)
+                .setSlowMo(setSlowMotion)
+                .setChannel(setChannel));
     }
     @BeforeEach
     public void setupContextAndPage(){
@@ -42,7 +42,7 @@ public class ContextBaseDocola extends VariablesDocola {
      * @param page La página a configurar.
      */
     private void configurePageViewPort(Page page){
-        page.setViewportSize(1820, 750);
+        page.setViewportSize(setSizeWidth, setSizeHeight);
     }
     private void printExecutionEndMessage(){
         String endMessage = """

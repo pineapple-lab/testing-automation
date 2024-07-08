@@ -94,7 +94,6 @@ public class InterfaceProperties extends InterfaceElements{
         comboBox.getItems().add("QA");
         comboBox.getItems().add("Local");
         comboBox.setValue("Elegir ambiente");
-
     }
     private void addElementsGridHeader(){
         gridHeader.getChildren().add(execute);

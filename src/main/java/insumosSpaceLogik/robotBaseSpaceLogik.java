@@ -83,7 +83,8 @@ public class robotBaseSpaceLogik extends comportamientoBaseExcepciones {
         mailRegistro=firstNameRegistro+lastNameRegistro+timeStamp+"@pineapple-lab.com";
         String demo = "https://space-logic.web.app/login";
         String dev = "https://spacelogic-development.web.app";
-        page.navigate(dev);
+        String local = "http://localhost:3000/login";
+        page.navigate(local);
         page.click("text=REGISTER NOW");
         //campo firstname
         page.fill(".register-form > div:nth-child(1) > div:nth-child(3) input[type=text]", firstNameRegistro);

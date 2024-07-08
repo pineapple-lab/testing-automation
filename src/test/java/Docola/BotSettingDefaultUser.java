@@ -7,7 +7,11 @@ import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
+import static InsumosDocola.VariablesDocola.resourceType;
+import static InsumosDocola.VariablesDocola.userEmail;
+
 public class BotSettingDefaultUser extends InterfaceElements {
+    private volatile boolean isRunning = true;
     Label labelEmail = new Label ("Userdefined");
     Label setRol = new Label("Set rol");
     Label setEnvironment = new Label("Set environment");
@@ -89,13 +93,17 @@ public class BotSettingDefaultUser extends InterfaceElements {
             Thread execute=  new Thread (()->{
                 VariablesDocola.userEmail = tfEmail.getText();
                 iActions.actionUpdateUndefinedUser(VariablesDocola.userEmail);
+                cleanWaitingList();
             }, "execute");
-            if(execute.isAlive()) {
-                execute.stop();
-            }else {
+            if(isRunning) {
                 mDocola.startTest();
                 execute.start();
             }
         });
+    }
+    private void cleanWaitingList(){
+        waitingList.clear();
+        userEmail = null;
+        resourceType = "";
     }
 }

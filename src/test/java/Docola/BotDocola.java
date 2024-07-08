@@ -94,7 +94,7 @@ public class BotDocola extends Docola.InterfaceActions {
                 accion();
                 }, "execute");
             if (isRunning) {
-                methods.startTest();
+                //methods.startTest();
                 execute.start();
             }
         });
@@ -186,7 +186,7 @@ public class BotDocola extends Docola.InterfaceActions {
     }
     private void handleBotConfigurations() {
         try {
-            BotSettings configAvanzada = new BotSettings(seleccion);
+            BotModalConfigs configAvanzada = new BotModalConfigs(seleccion);
             Stage botSettingsStage = new Stage();
             configAvanzada.start(botSettingsStage);
             botSettingsStage.show();

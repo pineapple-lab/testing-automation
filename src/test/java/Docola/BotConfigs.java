@@ -102,7 +102,6 @@ public class BotConfigs extends InterfaceElements {
         }
         if(textFieldSlowMotion.getText()!= null){
             setSlowMotion=Double.parseDouble(textFieldSlowMotion.getText());
-            String a = "UNPAPAQUE";
         }
     }
     private void handleRadioButtons(){

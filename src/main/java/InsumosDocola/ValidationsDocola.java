@@ -372,7 +372,7 @@ public class ValidationsDocola extends ContextBaseDocola {
                 page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
                 for(int tagPosition = 1; tagPosition<=1;tagPosition++) {
                     page.click(SelectorsDocola.CONTENT_TAG_ICD_10_TYPE);
-                    page.click(selector.contentSelectTagICD10(tagPosition));
+                    page.click(selector.contentSelectTag(tagPosition));
                     page.click(SelectorsDocola.CONTENT_ADD_TAGS);
                 }
                 page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
@@ -398,11 +398,11 @@ public class ValidationsDocola extends ContextBaseDocola {
                 page.waitForSelector(SelectorsDocola.SELECT_PREVIEW_IMAGE);
                 page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
                 page.click(SelectorsDocola.CONTENT_TAG_ICD_10_TYPE);
-                page.click(selector.contentSelectTagICD10(1));
+                page.click(selector.contentSelectTag(1));
                 page.click(SelectorsDocola.CONTENT_ADD_TAGS);
                 for(int tagPosition = 1; tagPosition<=2;tagPosition++) {
                     page.click(SelectorsDocola.CONTENT_TAG_NORMAL_TYPE_TWO);
-                    page.click(selector.contentSelectTagICD10(tagPosition));
+                    page.click(selector.contentSelectTag(tagPosition));
                     page.click(SelectorsDocola.CONTENT_ADD_TAGS);
                 }
                 page.click(SelectorsDocola.CONTENT_DELETE_TAGS);
@@ -429,11 +429,11 @@ public class ValidationsDocola extends ContextBaseDocola {
                 page.waitForSelector(SelectorsDocola.SELECT_PREVIEW_IMAGE);
                 page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
                 page.click(SelectorsDocola.CONTENT_TAG_ICD_10_TYPE);
-                page.click(selector.contentSelectTagICD10(1));
+                page.click(selector.contentSelectTag(1));
                 page.click(SelectorsDocola.CONTENT_ADD_TAGS);
                 for(int tagPosition = 1; tagPosition<=2;tagPosition++) {
                     page.click(SelectorsDocola.CONTENT_TAG_NORMAL_TYPE_TWO);
-                    page.click(selector.contentSelectTagICD10(tagPosition));
+                    page.click(selector.contentSelectTag(tagPosition));
                     page.click(SelectorsDocola.CONTENT_ADD_TAGS);
                 }
                 page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);

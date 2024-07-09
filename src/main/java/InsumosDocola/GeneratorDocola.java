@@ -17,19 +17,19 @@ public class GeneratorDocola extends ContextBaseDocola{
         String[] imageList = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
                                 "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
                             };
-        return generateRandomFileName(imageList, Paths.get(getBasePath())+RELATIVE_IMAGE_PATH,".jpg");
+        return generateRandomFileName(imageList, Paths.get(getBasePath())+"\\"+RELATIVE_IMAGE_PATH,".jpg");
     }
     public String generateVideo(){
         String[] videoList = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
                 "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
         };
-        return generateRandomFileName(videoList,Paths.get(getBasePath())+RELATIVE_VIDEO_PATH,".mp4");
+        return generateRandomFileName(videoList,Paths.get(getBasePath())+"\\"+RELATIVE_VIDEO_PATH,".mp4");
     }
     public String generatePictureProfile(){
         String[] imageList = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
                 "11", "12", "13", "14", "15", "16", "17", "18", "19", "20","21","22","23","24","25","26"
         };
-        String basePath = Paths.get(PathUtils.getBasePath(), PathUtils.RELATIVE_PICTURE_PROFILE_PATH).toString();
+        String basePath = Paths.get(PathUtils.getBasePath(),PathUtils.RELATIVE_PICTURE_PROFILE_PATH).toString();
         return generateRandomFileName(imageList,basePath,".jpg");
     }
     public EmailInfo generateEmail(){
@@ -94,6 +94,15 @@ public class GeneratorDocola extends ContextBaseDocola{
         String [] contentDescriptiontList = ContentDescriptions.contentDescritpion;
         return getRandomString(contentDescriptiontList);
     }
+    public int generateTagType(){
+        List<ElementHandle> elements = page.querySelectorAll("app-tags > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > app-tag-type-button");
+        return getRandomIndex(elements.size())+1;
+    }
+    public int generateTag(){
+        waiting.waitingTagsSearchoverlay();
+        List<ElementHandle> elements = page.querySelectorAll("app-tags-search-overlay > div > cdk-virtual-scroll-viewport > div > button");
+        return getRandomIndex(elements.size())+1;
+    }
     public String generateQuestion(){
         String [] questionList = ContentQuestions.contentQuestions;
         return getRandomString(questionList);
@@ -109,9 +118,10 @@ public class GeneratorDocola extends ContextBaseDocola{
     }
     public int generateThumbnailSplash(){
         waiting.waitingMatDialogContainer();
+        waiting.waitingUnplashFirstImage();
         page.waitForSelector(".grid-container");
         List<ElementHandle> elements = page.querySelectorAll("mat-dialog-container > div > div > app-unsplash > form > div:nth-of-type(3) > img");
-        return getRandomIndex(elements.size());
+        return getRandomIndex(elements.size())+1;
     }
     private String generateRandomFileName(String[] fileList, String basePath, String extension){
         Random rand = new Random();

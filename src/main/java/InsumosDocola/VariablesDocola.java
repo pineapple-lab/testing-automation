@@ -11,7 +11,7 @@ public class VariablesDocola extends PathUtils{
    public static boolean setHeadless = false;
    public static String setChannel = "chrome";
    public static int setSizeWidth = 1820;
-   public static int setSizeHeight = 750;
+   public static int setSizeHeight = 980;
    public int executeCounter;
    //Variables de registro
    public static String userEmail;

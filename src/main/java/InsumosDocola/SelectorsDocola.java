@@ -116,11 +116,17 @@ public class SelectorsDocola extends VariablesDocola{
     public static final String CONTENT_BUTTON_CONTINUE = FOOTER_DIV_BUTTONS +"div > button:nth-of-type(3)";
     public static final String CONTENT_TAG_ICD_10_TYPE = SELECT_GENERIC_TAG_TYPE +"(1) > button";
     public static final String CONTENT_SELECT_TAG_ICD_10 = SELECT_GENERIC_TAG +"(1)";
+    public static final String CONTENT_TAG_SEARCH_OVERLAY = "app-tags-search-overlay";
+    public static final String CONTENT_TAG_ICD10_FIRST = "app-tags-search-overlay > div > cdk-virtual-scroll-viewport > div > button:nth-of-type(1)";
     public static final String CONTENT_TAG_NORMAL_TYPE_TWO = SELECT_GENERIC_TAG_TYPE+"(2) > button";
-    public String contentSelectTagICD10(int tagPosition){
+    public String contentTagType(int tagTypePosition){
+        return SELECT_GENERIC_TAG_TYPE+"("+tagTypePosition+") button";
+    }
+    public String contentSelectTag(int tagPosition){
         return SELECT_GENERIC_TAG +"("+tagPosition+")";
     }
     public static final String CONTENT_ADD_TAGS = APP_TAGS_SEARCH_OVERLAY +"div > div > button:nth-of-type(2)";
+    public static final String CONTENT_LABEL_TAGS = "app-tags > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(1)";
     public static final String CONTENT_DELETE_TAGS = "app-tags > div > div:nth-of-type(1) > div:nth-of-type(2) .gap > div:nth-of-type(1) i";
     public static final String CONTENT_CONFIGURATION_CMECE = SELECT_GENERIC_CONFIGURATION_STEP +"1) > mat-checkbox input";
     public static final String CONTENT_CONFIGURATION_MARKET_PLACE = SELECT_GENERIC_CONFIGURATION_STEP +"2) > mat-checkbox input";
@@ -141,12 +147,18 @@ public class SelectorsDocola extends VariablesDocola{
     public static final String CONTENT_UNSPLASH_SELECT_BUTTON = SELECT_GENERIC_UNSPLASH +"4) > div > button";
     public static final String CONTENT_UNSPLASH_SAVE_BUTTON = "app-cropper-core > div > div:nth-of-type(2) > button";
     public static final String CONTENT_THUMBNAIL_DELETE = APP_THUMBNAIL_STEP + FORM +"div > div > button";
+    public static final String CONTENT_THUMBNAIL_FIRST_IMAGE = "mat-dialog-container > div > div > app-unsplash > form > div:nth-of-type(3) > img:nth-of-type(1)";
     public static final String CONTENT_PUBLISH_BUTTON = "text = Publish";
     public static final String SELECT_GENERIC_COURSE_CONTENT = "app-crud app-cards-container > div > app-card:nth-of-type";
     public String courseSelectContent(int contentPosition){
         return SELECT_GENERIC_COURSE_CONTENT +"("+contentPosition+")";
     }
     public static final String CONTENT_TAB_COURSES = "mat-tab-header > div .mat-mdc-tab-labels > div:nth-of-type(2)";
+    //SELECT CERTIFICATE
+    public static final String CONTENT_CERTIFICATE_CUSTOMIZE = "app-configuration-step > div > div > div:nth-of-type(2) > div:nth-of-type(1) > div";
+    public static final String CONTENT_CERTIFICATE_DESCRIPTION = "app-certificate-dialog .container-border > div:nth-of-type(1) > div:nth-of-type(5) textarea";
+    public static final String CONTENT_CERTIFICATE_SIGNATURE = "app-certificate-dialog > div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) >div:nth-of-type(2) input";
+    public static final String CONTENT_CERTIFICATE_SAVE = "app-certificate-dialog > div > div:nth-of-type(3) > button:nth-of-type(2)";
     //SELECT MESSAGE ERROR
     public static final String MESSAGE_ERROR_TITLE_REQUIRED = "app-details-and-file-step > div > div:nth-of-type(1) mat-error";
     public static final String MESSAGE_ERROR_DESCRIPTION_REQUIRED = "app-details-and-file-step > div > div:nth-of-type(2) mat-error";

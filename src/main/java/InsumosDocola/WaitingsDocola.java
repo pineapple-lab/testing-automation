@@ -72,6 +72,29 @@ public class WaitingsDocola extends ContextBaseDocola{
                 SelectorsDocola.CLASS_MAT_MDC_DIALOG_SURFACE
         );
     }
+    public void waitingUnplashFirstImage(){
+        waitForSelectors(
+                SelectorsDocola.CONTENT_THUMBNAIL_FIRST_IMAGE
+        );
+    }
+    public void waitingTagsSearchoverlay(){
+        waitForSelectors(
+                SelectorsDocola.CONTENT_TAG_SEARCH_OVERLAY,
+                SelectorsDocola.CONTENT_TAG_ICD10_FIRST
+        );
+    }
+    public void waitingLabelTags(){
+        waitForSelectors(
+                SelectorsDocola.CONTENT_LABEL_TAGS
+        );
+    }
+    public void waitingCertificateElements(){
+        waitForSelectors(
+                SelectorsDocola.CONTENT_CERTIFICATE_DESCRIPTION,
+                SelectorsDocola.CONTENT_CERTIFICATE_SIGNATURE,
+                SelectorsDocola.CONTENT_CERTIFICATE_SAVE
+        );
+    }
     public void waitingThumbnailStepSelector(){
         waitForSelectors(
                 SelectorsDocola.CONTENT_THUMBNAIL_UNSPLASH,

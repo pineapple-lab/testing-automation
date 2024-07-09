@@ -135,7 +135,7 @@ public class MethodsDocola extends ContextBaseDocola{
         page.click(selector.createResource(generate.generateTypeContent()));
     }
     public void completeResourceStep(){
-        completeConfigurationStep();
+        completeResourceConfigurationStep();
         completePricingStep();
         completeThumbnailStep();
     }
@@ -249,7 +249,7 @@ public class MethodsDocola extends ContextBaseDocola{
         page.fill(SelectorsDocola.CONTENT_TITLE,generate.generateContentTitle());
         page.fill(SelectorsDocola.CONTENT_DESCRIPTION, generate.generateContentDescription());
         page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
-        completeConfigurationStep();
+        completeCourseAndCurriculumConfigurationStep();
         completeContentStep();
         page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
         completePricingStep();
@@ -259,7 +259,7 @@ public class MethodsDocola extends ContextBaseDocola{
         page.fill(SelectorsDocola.CONTENT_TITLE,generate.generateContentTitle());
         page.fill(SelectorsDocola.CONTENT_DESCRIPTION, generate.generateContentDescription());
         page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
-        completeConfigurationStep();
+        completeCourseAndCurriculumConfigurationStep();
         completeContentStep();
         page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
         completePricingStep();
@@ -367,16 +367,36 @@ public class MethodsDocola extends ContextBaseDocola{
         page.waitForSelector(SelectorsDocola.SELECT_PREVIEW_IMAGE);
         page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
     }
-    private void completeConfigurationStep() {
-        waiting.waitingConfigurationStepSelector();
-        for(int tagPosition = 1; tagPosition<=2;tagPosition++) {
-            page.click(SelectorsDocola.CONTENT_TAG_ICD_10_TYPE);
-            page.click(selector.contentSelectTagICD10(tagPosition));
-            page.click(SelectorsDocola.CONTENT_ADD_TAGS);
-        }
+    private void completeResourceConfigurationStep() {
+        addTags();
         page.click(SelectorsDocola.CONTENT_CONFIGURATION_CMECE);
         //page.click(SelectorsDocola.contentConfigurationMarketPlace);
         page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+    }
+    private void completeCourseAndCurriculumConfigurationStep() {
+        addTags();
+        page.click(SelectorsDocola.CONTENT_CONFIGURATION_CMECE);
+        completeCertificate();
+        page.waitForTimeout(1000);
+        //page.click(SelectorsDocola.contentConfigurationMarketPlace);
+        page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+    }
+    private void addTags(){
+        waiting.waitingConfigurationStepSelector();
+        page.click(SelectorsDocola.CONTENT_TAG_ICD_10_TYPE);
+        page.click(selector.contentSelectTag(generate.generateTag()));
+        page.click(SelectorsDocola.CONTENT_ADD_TAGS);
+        waiting.waitingLabelTags();
+        page.click(selector.contentTagType(generate.generateTagType()));
+        page.click(selector.contentSelectTag(generate.generateTag()));
+        page.click(SelectorsDocola.CONTENT_ADD_TAGS);
+    }
+    private void completeCertificate(){
+        page.click(SelectorsDocola.CONTENT_CERTIFICATE_CUSTOMIZE);
+        waiting.waitingCertificateElements();
+        page.fill(SelectorsDocola.CONTENT_CERTIFICATE_DESCRIPTION,generate.generateContentDescription());
+        page.fill(SelectorsDocola.CONTENT_CERTIFICATE_SIGNATURE,generate.generateFirstName());
+        page.click(SelectorsDocola.CONTENT_CERTIFICATE_SAVE);
     }
     private void completePricingStep(){
         waiting.waitingPricingStepSelector();
@@ -389,8 +409,7 @@ public class MethodsDocola extends ContextBaseDocola{
         page.click(SelectorsDocola.CONTENT_THUMBNAIL_UNSPLASH);
         waiting.waitingUnshplashPopUpSelectors();
         page.click(selector.contentUnsplashCategorie(generate.generateThumbnailCategory()));
-        waiting.waitingUnsplashPhotos();
-        page.waitForTimeout(4000);
+        //waiting.waitingUnsplashPhotos();
         page.click(selector.contentUnsplashPhoto(generate.generateThumbnailSplash()));
         page.mouse().wheel(1500,1500);
         page.waitForTimeout(1000);

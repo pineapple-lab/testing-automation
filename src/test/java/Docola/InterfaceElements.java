@@ -22,20 +22,20 @@ public class InterfaceElements extends Application {
     TabPane tabPane = new TabPane();
     Button botConfigurations = new Button("⚙");
     Tab tbcreator = new Tab("Creador");
-    Tab tbValidationsLogin = new Tab ("Validaciones login");
-    Tab tbValidationsRegister = new Tab("Validaciones registro");
-    Tab tbValidationsResources = new Tab ("Validaciones recursos");
+    Tab tbValidationsLogin = new Tab ("Login validation");
+    Tab tbValidationsRegister = new Tab("Validation register");
+    Tab tbValidationsResources = new Tab ("Resources validation");
     SplitPane splitPane = new SplitPane();
     StackPane rootConfigAvanzada = new StackPane();
     TextArea consoleTextArea =  new TextArea();
     ScrollPane scrollPane = new ScrollPane(consoleTextArea);
     //Header
-    Button stopTestCase = new Button("Detener");
-    Button execute = new Button("Ejecutar");
+    Button stopTestCase = new Button("Stop");
+    Button execute = new Button("Execute");
     TextField tfExecute = new TextField();
-    Button removeQueue = new Button("Remover de la cola");
+    Button removeQueue = new Button("List remove");
     //create buttons
-    Button createUser = new Button("Crear usuario");
+    Button createUser = new Button("New user");
     Button newResource = new Button("New Resource");
     Button newCourse = new Button ("New course");
     Button newCourseCollection = new Button ("New course collection");

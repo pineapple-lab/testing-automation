@@ -57,7 +57,7 @@ public class BotConfigs extends InterfaceElements {
         textFieldSlowMotion.setPromptText("Slowmotion");
         textFieldWidth.setText(String.valueOf(setSizeWidth));
         textFieldHeight.setText(String.valueOf(setSizeHeight));
-        textFieldSlowMotion.setText(String.format("%.1f", setSlowMotion));
+        textFieldSlowMotion.setText(String.valueOf(setSlowMotion));
         radioButtonFalseHeadless.setSelected(true);
         rootConfigAvanzada.getChildren().add(gridBotSettings);
         Scene sceneConfigAvanzada = new Scene(rootConfigAvanzada,400,300);

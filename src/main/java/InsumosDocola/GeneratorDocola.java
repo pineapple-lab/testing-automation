@@ -96,12 +96,12 @@ public class GeneratorDocola extends ContextBaseDocola{
     }
     public int generateTagType(){
         List<ElementHandle> elements = page.querySelectorAll("app-tags > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > app-tag-type-button");
-        return getRandomIndex(elements.size())+1;
+        return getRandomIndex(elements.size()-1)+1;
     }
     public int generateTag(){
         waiting.waitingTagsSearchoverlay();
         List<ElementHandle> elements = page.querySelectorAll("app-tags-search-overlay > div > cdk-virtual-scroll-viewport > div > button");
-        return getRandomIndex(elements.size())+1;
+        return getRandomIndex(elements.size()-1)+1;
     }
     public String generateQuestion(){
         String [] questionList = ContentQuestions.contentQuestions;
@@ -114,14 +114,14 @@ public class GeneratorDocola extends ContextBaseDocola{
     public int generateThumbnailCategory(){
         waiting.waitingMatDialogContainer();
         List<ElementHandle> elements = page.querySelectorAll("mat-dialog-container > div > div > app-unsplash > form > div:nth-of-type(2) > div > div > button");
-        return getRandomIndex(elements.size())+ 1;
+        return getRandomIndex(elements.size()-1)+ 1;
     }
     public int generateThumbnailSplash(){
         waiting.waitingMatDialogContainer();
         waiting.waitingUnplashFirstImage();
         page.waitForSelector(".grid-container");
         List<ElementHandle> elements = page.querySelectorAll("mat-dialog-container > div > div > app-unsplash > form > div:nth-of-type(3) > img");
-        return getRandomIndex(elements.size())+1;
+        return getRandomIndex(elements.size()-1)+1;
     }
     private String generateRandomFileName(String[] fileList, String basePath, String extension){
         Random rand = new Random();

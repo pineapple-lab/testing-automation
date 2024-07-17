@@ -375,6 +375,9 @@ public class MethodsDocola extends ContextBaseDocola{
     }
     private void completeCourseAndCurriculumConfigurationStep() {
         addTags();
+        /*boolean cme = true;
+        if( cme != false){
+        }para cuando agregue la config cme en las configuraciones avanzadas de los contenidos*/
         page.click(SelectorsDocola.CONTENT_CONFIGURATION_CMECE);
         completeCertificate();
         page.waitForTimeout(1000);
@@ -400,7 +403,8 @@ public class MethodsDocola extends ContextBaseDocola{
     }
     private void completePricingStep(){
         waiting.waitingPricingStepSelector();
-        page.fill(SelectorsDocola.CONTENT_PRICING_MONTHLY_PRICE,"123");
+        page.click(SelectorsDocola.CONTENT_PRICING_CONTENT_FOR_FREE);
+        //page.fill(SelectorsDocola.CONTENT_PRICING_MONTHLY_PRICE,"123");
         //page.fill(SelectorsDocola.contentPricingYearlyPrice,"123");
         page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
     }

@@ -68,6 +68,11 @@ public class MethodsDocola extends ContextBaseDocola{
         completeOnboarding();
         page.waitForSelector(SelectorsDocola.MENU_PROFILE);
     }
+    public void goToMyPractice(){
+    page.waitForTimeout(2000);
+    page.click(selector.CONTENT_GO_TO_MY_PRACTICES);
+    page.click(selector.CONTENT_GO_TO_PRACTICE);
+    }
     public void goToRegisterForm(){
         page.click(SelectorsDocola.SING_UP);
         page.click(SelectorsDocola.CONTINUE_WITH_EMAIL);
@@ -137,6 +142,35 @@ public class MethodsDocola extends ContextBaseDocola{
     public void completeResourceStep(){
         completeResourceConfigurationStep();
         completePricingStep();
+        completeThumbnailStep();
+    }
+    public void completeThumbnailStep(){
+        waiting.waitingThumbnailStepSelector();
+        page.click(SelectorsDocola.CONTENT_THUMBNAIL_UNSPLASH);
+        waiting.waitingUnshplashPopUpSelectors();
+        page.click(selector.contentUnsplashCategorie(generate.generateThumbnailCategory()));
+        //waiting.waitingUnsplashPhotos();
+        page.click(selector.contentUnsplashPhoto(generate.generateThumbnailSplash()));
+        page.mouse().wheel(1500,1500);
+        page.waitForTimeout(1000);
+        page.click(SelectorsDocola.CONTENT_UNSPLASH_SELECT_BUTTON);
+        page.waitForTimeout(1000);
+        page.mouse().wheel(2000,2000);
+        page.click(SelectorsDocola.CONTENT_UNSPLASH_SAVE_BUTTON);
+        page.waitForSelector(SelectorsDocola.CONTENT_THUMBNAIL_DELETE);
+    }
+    public void completeCourseInPracticeForm(){
+        goToContentCreateForm();
+        completeCourseDetailsStep();
+        completeContentStep();
+        page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+        completeThumbnailStep();
+    }
+    public void completeCollectionInPracticeForm(){
+        goToContentCreateForm();
+        completeCollectionDetailsStep();
+        completeContentStep();
+        page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
         completeThumbnailStep();
     }
     //Metodos privados
@@ -245,20 +279,26 @@ public class MethodsDocola extends ContextBaseDocola{
                break;
        }
    }
-    private void completeCourseSetup(){
+    private void completeCourseDetailsStep(){
         page.fill(SelectorsDocola.CONTENT_TITLE,generate.generateContentTitle());
         page.fill(SelectorsDocola.CONTENT_DESCRIPTION, generate.generateContentDescription());
         page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+    }
+    private void completeCourseSetup(){
+        completeCourseDetailsStep();
         completeCourseAndCurriculumConfigurationStep();
         completeContentStep();
         page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
         completePricingStep();
         completeThumbnailStep();
     }
-    private void completeCollectionSetup(){
+    private void completeCollectionDetailsStep(){
         page.fill(SelectorsDocola.CONTENT_TITLE,generate.generateContentTitle());
         page.fill(SelectorsDocola.CONTENT_DESCRIPTION, generate.generateContentDescription());
         page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+    }
+    private void completeCollectionSetup(){
+        completeCollectionDetailsStep();
         completeCourseAndCurriculumConfigurationStep();
         completeContentStep();
         page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
@@ -407,20 +447,5 @@ public class MethodsDocola extends ContextBaseDocola{
         //page.fill(SelectorsDocola.CONTENT_PRICING_MONTHLY_PRICE,"123");
         //page.fill(SelectorsDocola.contentPricingYearlyPrice,"123");
         page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
-    }
-    private void completeThumbnailStep(){
-        waiting.waitingThumbnailStepSelector();
-        page.click(SelectorsDocola.CONTENT_THUMBNAIL_UNSPLASH);
-        waiting.waitingUnshplashPopUpSelectors();
-        page.click(selector.contentUnsplashCategorie(generate.generateThumbnailCategory()));
-        //waiting.waitingUnsplashPhotos();
-        page.click(selector.contentUnsplashPhoto(generate.generateThumbnailSplash()));
-        page.mouse().wheel(1500,1500);
-        page.waitForTimeout(1000);
-        page.click(SelectorsDocola.CONTENT_UNSPLASH_SELECT_BUTTON);
-        page.waitForTimeout(1000);
-        page.mouse().wheel(2000,2000);
-        page.click(SelectorsDocola.CONTENT_UNSPLASH_SAVE_BUTTON);
-        page.waitForSelector(SelectorsDocola.CONTENT_THUMBNAIL_DELETE);
     }
 }

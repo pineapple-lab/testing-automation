@@ -27,4 +27,22 @@ public class FunctionCreateContent extends MethodsCreationDocola {
         create.newCourseCollection();
         teardownPlaywright();
     }
+    @Test
+    public void serviceNewResourceInPractice(){
+        methods.startContextAndNavigation();
+        create.newResourceInPractice();
+        teardownPlaywright();
+    }
+    @Test
+    public void serviceNewCourseInPractice(){
+        methods.startContextAndNavigation();
+        create.newCourseInPractice();
+        teardownPlaywright();
+    }
+    @Test
+    public void serviceNewCourseCollectionInPractice(){
+        methods.startContextAndNavigation();
+        create.newCourseCollectionInPractice();
+        teardownPlaywright();
+    }
 }

@@ -10,10 +10,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-import static InsumosDocola.VariablesDocola.*;
-import static InsumosDocola.VariablesDocola.navigationLink;
+import static InsumosDocola.VariablesDocola.resourceType;
+import static InsumosDocola.VariablesDocola.userEmail;
 
-public class AdvancedSettingContentCreator extends InterfaceElements {
+public class AdvancedSettingContentCreatorInPractice extends InterfaceElements {
     private volatile boolean isRunning = true;
     Label labelTypeContent = new Label ("Tipo de contenido");
     TextField tfTypeContent = new TextField();
@@ -22,9 +22,7 @@ public class AdvancedSettingContentCreator extends InterfaceElements {
     MethodsDocola mDocola = new MethodsDocola();
     VariablesDocola vDocola = new VariablesDocola();
     InterfaceActions iActions = new InterfaceActions();
-    BotDocola accion = new BotDocola();
-    public AdvancedSettingContentCreator(String executionDetailsAvanzadas , String seleccionAvanzada){
-
+    public AdvancedSettingContentCreatorInPractice(String executionDetailsAvanzadas , String seleccionAvanzada){
         this.vDocola.executionDetails = executionDetailsAvanzadas;
         this.seleccion = seleccionAvanzada;
     }
@@ -49,8 +47,7 @@ public class AdvancedSettingContentCreator extends InterfaceElements {
         settingAdvancedExecute.setOnAction(e->{
             Thread execute=  new Thread (()->{
                 VariablesDocola.resourceType = tfTypeContent.getText();
-                iActions.actionNewResource();
-
+                iActions.actionNewResourceInPractice();
                 cleanWaitingList();
             }, "execute");
             if(isRunning) {

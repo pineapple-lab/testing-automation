@@ -47,6 +47,7 @@ public class MethodsCreationDocola extends ContextBaseDocola{
         }
         cleanupContext();
     }
+
     /**
      * Método para crear nuevos cursos en Docola.
      */
@@ -70,6 +71,49 @@ public class MethodsCreationDocola extends ContextBaseDocola{
         System.out.println("Se crearan "+generate.generateExecutions()+" curriculum\n");
         for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
             methods.completeCollectionForm();
+            methods.publishContent();
+            System.out.println(executeCounter+"/"+generate.generateExecutions());
+        }
+        cleanupContext();
+    }
+    public void newResourceInPractice(){
+        userRole = "Clinician";
+        contentType =1;
+        methods.login();
+        System.out.println("Se crearan "+generate.generateExecutions()+" "+resourceType+"\n");
+        methods.goToMyPractice();
+        for(executeCounter= 1;executeCounter<=generate.generateExecutions();executeCounter++ ) {
+            methods.completeResourceForm();
+            methods.completeThumbnailStep();
+            methods.publishContent();
+            System.out.println(executeCounter+"/"+generate.generateExecutions());
+        }
+        cleanupContext();
+    }
+    public void newCourseInPractice() {
+        userRole = "Clinician";
+        methods.login();
+        contentType =2;
+        System.out.println("Se crearan "+generate.generateExecutions()+" cursos\n");
+        methods.goToMyPractice();
+        for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
+            methods.completeCourseInPracticeForm();
+            methods.publishContent();
+            System.out.println(executeCounter+"/"+generate.generateExecutions());
+        }
+        cleanupContext();
+    }
+    /**
+     * Método para crear nuevas colecciones de cursos en Docola.
+     */
+    public void newCourseCollectionInPractice() {
+        userRole = "Clinician";
+        methods.login();
+        contentType =3;
+        System.out.println("Se crearan "+generate.generateExecutions()+" curriculum\n");
+        methods.goToMyPractice();
+        for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
+            methods.completeCollectionInPracticeForm();
             methods.publishContent();
             System.out.println(executeCounter+"/"+generate.generateExecutions());
         }

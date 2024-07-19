@@ -154,6 +154,8 @@ public class SelectorsDocola extends VariablesDocola{
         return SELECT_GENERIC_COURSE_CONTENT +"("+contentPosition+")";
     }
     public static final String CONTENT_TAB_COURSES = "mat-tab-header > div .mat-mdc-tab-labels > div:nth-of-type(2)";
+    public static final String CONTENT_GO_TO_MY_PRACTICES = "app-header .container > div:nth-of-type(1) > div > button:nth-of-type(1)";
+    public static final String CONTENT_GO_TO_PRACTICE = "app-practices > div:nth-of-type(1) > div:nth-of-type(2) button";
     //SELECT CERTIFICATE
     public static final String CONTENT_CERTIFICATE_CUSTOMIZE = "app-configuration-step > div > div > div:nth-of-type(2) > div:nth-of-type(1) > div";
     public static final String CONTENT_CERTIFICATE_DESCRIPTION = "app-certificate-dialog .container-border > div:nth-of-type(1) > div:nth-of-type(5) textarea";

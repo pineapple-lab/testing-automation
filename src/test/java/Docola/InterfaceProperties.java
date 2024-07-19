@@ -68,6 +68,9 @@ public class InterfaceProperties extends InterfaceElements{
         GridPane.setConstraints(newResource, 2, 4);
         GridPane.setConstraints(newCourse, 2, 5);
         GridPane.setConstraints(newCourseCollection, 2, 6);
+        GridPane.setConstraints(PracticeNewResource, 3, 3);
+        GridPane.setConstraints(PracticeNewCourse, 3, 4);
+        GridPane.setConstraints(PracticeNewCourseCollection, 3, 5);
         //Validation login tab positions
         GridPane.setConstraints(validationsLoginEmailIncorrect, 2, 3);
         GridPane.setConstraints(validationsLoginPasswordIncorrect, 2, 4);
@@ -108,6 +111,9 @@ public class InterfaceProperties extends InterfaceElements{
         gridCreator.getChildren().add(newResource);
         gridCreator.getChildren().add(newCourse);
         gridCreator.getChildren().add(newCourseCollection);
+        gridCreator.getChildren().add(PracticeNewResource);
+        gridCreator.getChildren().add(PracticeNewCourse);
+        gridCreator.getChildren().add(PracticeNewCourseCollection);
     }
     private void addElementsGridValidationsLogin(){
         gridValidationsLogin.getChildren().add(validationsLoginEmailIncorrect);
@@ -145,6 +151,9 @@ public class InterfaceProperties extends InterfaceElements{
         setButtonStyle(newResource);
         setButtonStyle(newCourse);
         setButtonStyle(newCourseCollection);
+        setButtonStyle(PracticeNewResource);
+        setButtonStyle(PracticeNewCourse);
+        setButtonStyle(PracticeNewCourseCollection);
         //validation LOGIN buttons
         setButtonStyle(validationsLoginEmailIncorrect);
         setButtonStyle(validationsLoginPasswordIncorrect);
@@ -182,6 +191,9 @@ public class InterfaceProperties extends InterfaceElements{
         setupHoverEffect(newResource);
         setupHoverEffect(newCourse);
         setupHoverEffect(newCourseCollection);
+        setupHoverEffect(PracticeNewResource);
+        setupHoverEffect(PracticeNewCourse);
+        setupHoverEffect(PracticeNewCourseCollection);
         //validation LOGIN buttons
         setupHoverEffect(validationsLoginEmailIncorrect);
         setupHoverEffect(validationsLoginPasswordIncorrect);

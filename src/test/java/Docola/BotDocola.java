@@ -46,9 +46,13 @@ public class BotDocola extends Docola.InterfaceActions {
             createUser.setOnMousePressed( event -> handleSecondaryClick(event, AdvancedSettingJoin.class));
             newResource.setOnAction(e -> handleAction(ExecMethod.NEW_RESOURCE,"NEW_RESOURCE"));
             newResource.setOnMousePressed( event -> handleSecondaryClick(event, AdvancedSettingContentCreator.class));
-
             newCourse.setOnAction(e -> handleAction(ExecMethod.NEW_COURSE,"NEW_COURSE"));
             newCourseCollection.setOnAction(e -> handleAction(ExecMethod.NEW_COURSE_COLLECTION,"NEW_COURSE_COLLECTION"));
+            PracticeNewResource.setOnAction(e -> handleAction(ExecMethod.PRACTICE_NEW_RESOURCE,"PRACTICE_NEW_RESOURCE"));
+            PracticeNewResource.setOnMousePressed( event -> handleSecondaryClick(event, AdvancedSettingContentCreatorInPractice.class));
+            PracticeNewCourse.setOnAction(e -> handleAction(ExecMethod.PRACTICE_NEW_COURSE,"PRACTICE_NEW_COURSE"));
+            PracticeNewCourseCollection.setOnAction(e -> handleAction(ExecMethod.PRACTICE_NEW_COURSE_COLLECTION,"PRACTICE_NEW_COURSE_COLLECTION"));
+
             //validation LOGIN buttons
             validationsLoginEmailIncorrect.setOnAction(e -> handleAction(ExecMethod.VALIDATION_EMAIL_EMPTY_LOGIN,"VALIDATION_EMAIL_EMPTY_LOGIN"));
             validationsLoginPasswordIncorrect.setOnAction(e -> handleAction(ExecMethod.VALIDATION_PASSWORD_INCORRECT_LOGIN,"VALIDATION_PASSWORD_INCORRECT_LOGIN"));
@@ -122,6 +126,8 @@ public class BotDocola extends Docola.InterfaceActions {
                     ((AdvancedSettingJoin) configAvanzada).start(configAvanzadaStage);
                 } else if (configAvanzada instanceof AdvancedSettingContentCreator) {
                     ((AdvancedSettingContentCreator) configAvanzada).start(configAvanzadaStage);
+                }else if (configAvanzada instanceof AdvancedSettingContentCreatorInPractice) {
+                    ((AdvancedSettingContentCreatorInPractice) configAvanzada).start(configAvanzadaStage);
                 }
                 Stage ownerStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 double x = ownerStage.getX();
@@ -220,6 +226,15 @@ public class BotDocola extends Docola.InterfaceActions {
                     break;
                 case NEW_COURSE_COLLECTION:
                     actionNewCourseCollection();
+                    break;
+                case PRACTICE_NEW_RESOURCE:
+                    actionNewResourceInPractice();
+                    break;
+                case PRACTICE_NEW_COURSE:
+                    actionNewCourseInPractice();
+                    break;
+                case PRACTICE_NEW_COURSE_COLLECTION:
+                    actionNewCourseCollectionInPractice();
                     break;
                  //CASE VALIDATIONS
                     //CASE VALIDATIONS LOGIN

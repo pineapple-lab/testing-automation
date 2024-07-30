@@ -173,6 +173,12 @@ public class MethodsDocola extends ContextBaseDocola{
         page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
         completeThumbnailStep();
     }
+    public void completePracticeForm(){
+        page.fill(SelectorsDocola.PRACTICE_NAME, generate.generateContentTitle());
+        page.fill(SelectorsDocola.PRACTICE_DESCRIPTION, generate.generateContentDescription());
+        uploadPracticeImage();
+        page.click(SelectorsDocola.PRACTICE_PUBLISH_BUTTON);
+    }
     //Metodos privados
     private void startContext(){
         System.out.println("\n-----------------------------------------------------------");
@@ -447,5 +453,9 @@ public class MethodsDocola extends ContextBaseDocola{
         //page.fill(SelectorsDocola.CONTENT_PRICING_MONTHLY_PRICE,"123");
         //page.fill(SelectorsDocola.contentPricingYearlyPrice,"123");
         page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+    }
+    private void uploadPracticeImage(){
+        page.locator(SelectorsDocola.PRACTICE_UPLOAD_IMAGE).setInputFiles(Paths.get(generate.generateImage()));
+        page.click(SelectorsDocola.SAVE_CHANGES);
     }
 }

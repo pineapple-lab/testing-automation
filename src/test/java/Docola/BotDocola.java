@@ -48,10 +48,11 @@ public class BotDocola extends Docola.InterfaceActions {
             newResource.setOnMousePressed( event -> handleSecondaryClick(event, AdvancedSettingContentCreator.class));
             newCourse.setOnAction(e -> handleAction(ExecMethod.NEW_COURSE,"NEW_COURSE"));
             newCourseCollection.setOnAction(e -> handleAction(ExecMethod.NEW_COURSE_COLLECTION,"NEW_COURSE_COLLECTION"));
-            PracticeNewResource.setOnAction(e -> handleAction(ExecMethod.PRACTICE_NEW_RESOURCE,"PRACTICE_NEW_RESOURCE"));
-            PracticeNewResource.setOnMousePressed( event -> handleSecondaryClick(event, AdvancedSettingContentCreatorInPractice.class));
-            PracticeNewCourse.setOnAction(e -> handleAction(ExecMethod.PRACTICE_NEW_COURSE,"PRACTICE_NEW_COURSE"));
-            PracticeNewCourseCollection.setOnAction(e -> handleAction(ExecMethod.PRACTICE_NEW_COURSE_COLLECTION,"PRACTICE_NEW_COURSE_COLLECTION"));
+            practiceCreator.setOnAction(e -> handleAction(ExecMethod.PRACTICE_CREATOR,"PRACTICE_CREATOR"));
+            practiceNewResource.setOnAction(e -> handleAction(ExecMethod.PRACTICE_NEW_RESOURCE,"PRACTICE_NEW_RESOURCE"));
+            practiceNewResource.setOnMousePressed( event -> handleSecondaryClick(event, AdvancedSettingContentCreatorInPractice.class));
+            practiceNewCourse.setOnAction(e -> handleAction(ExecMethod.PRACTICE_NEW_COURSE,"PRACTICE_NEW_COURSE"));
+            practiceNewCourseCollection.setOnAction(e -> handleAction(ExecMethod.PRACTICE_NEW_COURSE_COLLECTION,"PRACTICE_NEW_COURSE_COLLECTION"));
 
             //validation LOGIN buttons
             validationsLoginEmailIncorrect.setOnAction(e -> handleAction(ExecMethod.VALIDATION_EMAIL_EMPTY_LOGIN,"VALIDATION_EMAIL_EMPTY_LOGIN"));
@@ -212,12 +213,14 @@ public class BotDocola extends Docola.InterfaceActions {
         resourceType = "";
     }
     public void accion () {
+
         for (int i = 0; i < waitingList.size(); i++) {
             InterfaceActions.ExecMethod var = waitingList.get(i);
             switch (var) {
                 //CASE CREATION
                 case CREATE_USER:
                     actionJoin();
+                    break;
                 case NEW_RESOURCE:
                     actionNewResource();
                     break;
@@ -226,6 +229,9 @@ public class BotDocola extends Docola.InterfaceActions {
                     break;
                 case NEW_COURSE_COLLECTION:
                     actionNewCourseCollection();
+                    break;
+                case PRACTICE_CREATOR:
+                    actionNewPractice();
                     break;
                 case PRACTICE_NEW_RESOURCE:
                     actionNewResourceInPractice();
@@ -295,6 +301,7 @@ public class BotDocola extends Docola.InterfaceActions {
                     break;
                 case VALIDATION_MONTHLY_PRICE_RESOURCE_REQUIRED:
                     actionValidationRequiredIMonthlyPriceResource();
+                    break;
                 }
             if (!isRunning) {
                 cleanWaitingList();

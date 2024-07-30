@@ -119,4 +119,22 @@ public class MethodsCreationDocola extends ContextBaseDocola{
         }
         cleanupContext();
     }
+    /**
+     * Método para crear nuevas colecciones de cursos en Docola.
+     */
+    public void newPractice(){
+        userRole = "Clinician";
+        methods.login();
+        contentType =3;
+        System.out.println("Se crearan "+generate.generateExecutions()+" practices\n");
+        page.waitForTimeout(1000);
+        page.click(SelectorsDocola.CONTENT_GO_TO_MY_PRACTICES);
+        for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
+            page.click(SelectorsDocola.PRACTICE_CREATE_BUTTON);
+            methods.completePracticeForm();
+            System.out.println(executeCounter+"/"+generate.generateExecutions());
+        }
+        cleanupContext();
+    }
+
 }

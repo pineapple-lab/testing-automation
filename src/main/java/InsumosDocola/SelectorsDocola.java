@@ -76,14 +76,13 @@ public class SelectorsDocola extends VariablesDocola{
     public static final String ACCOUNT_SETINGS = "text=Account settings";
     //SELECTORS ACCOUNT SETTINGS
     public static final String UPLOAD_PROFILE_PICTURE = "app-profile-tab > div > div > input";
-    public static final String SAVE_CHANGES = "app-profile-tab > div > div:nth-of-type(3) button";
+    public static final String SAVE_CHANGES = "app-cropper-core > div > div:nth-of-type(2) > button";
     //SELECT CONTENT CREATOR COMPONENTS
     public static final String CREATE_NEW_RESOURCE_BUTTON = "text= New";
     public static final String SELECT_GENERIC_RESOURCE_TYPE = APP_SELECT_RESOURCE +"div > div > div:nth-of-type";
-    public String createNewContentButton(int typeContent){
-        return SELECT_GENERIC_RESOURCE_TYPE +"("+typeContent+") > span";
+    public String createNewContentButton(int typeContent) {
+        return SELECT_GENERIC_RESOURCE_TYPE + "(" + typeContent + ") > span";
     }
-
     public static final String SELECT_DIV_ALL_RESOURCE_CREATOR = APP_SELECT_CONTENT +"div > div > div:nth-of-type";
     public String createResource(int resourceTypePosition){
         return SELECT_DIV_ALL_RESOURCE_CREATOR +"("+resourceTypePosition+")";
@@ -161,6 +160,16 @@ public class SelectorsDocola extends VariablesDocola{
     public static final String CONTENT_CERTIFICATE_DESCRIPTION = "app-certificate-dialog .container-border > div:nth-of-type(1) > div:nth-of-type(5) textarea";
     public static final String CONTENT_CERTIFICATE_SIGNATURE = "app-certificate-dialog > div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) >div:nth-of-type(2) input";
     public static final String CONTENT_CERTIFICATE_SAVE = "app-certificate-dialog > div > div:nth-of-type(3) > button:nth-of-type(2)";
+    //SELECT PRACTICE CREATE
+    public static final String PRACTICE_CREATE_BUTTON = "app-my-practices > div > div:nth-of-type(1) > button";
+    public static final String PRACTICE_NAME = "form > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) input";
+    public static final String PRACTICE_DESCRIPTION = "form > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) textarea";
+    public static final String PRACTICE_ADD_MEMBERS = "form > div:nth-of-type(2) button";
+    public static final String PRACTICE_EMAIL_INVITE = "form > div:nth-of-type(2) > div > mat-form-field:nth-of-type(1) input";
+    public static final String PRACTICE_ROL_SELECTOR = "form > div:nth-of-type(2) > div > mat-form-field:nth-of-type(2) > div:nth-of-type(1)";
+    public static final String PRACTICE_ROL_SEND_INVITE = ".cdk-overlay-pane > div > mat-option:nth-of-type(1)";
+    public static final String PRACTICE_UPLOAD_IMAGE = "form > div:nth-of-type(1) > div:nth-of-type(2) input";
+    public static final String PRACTICE_PUBLISH_BUTTON = "form > div:nth-of-type(3) > button";
     //SELECT MESSAGE ERROR
     public static final String MESSAGE_ERROR_TITLE_REQUIRED = "app-details-and-file-step > div > div:nth-of-type(1) mat-error";
     public static final String MESSAGE_ERROR_DESCRIPTION_REQUIRED = "app-details-and-file-step > div > div:nth-of-type(2) mat-error";

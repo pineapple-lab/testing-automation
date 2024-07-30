@@ -68,9 +68,10 @@ public class InterfaceProperties extends InterfaceElements{
         GridPane.setConstraints(newResource, 2, 4);
         GridPane.setConstraints(newCourse, 2, 5);
         GridPane.setConstraints(newCourseCollection, 2, 6);
-        GridPane.setConstraints(PracticeNewResource, 3, 3);
-        GridPane.setConstraints(PracticeNewCourse, 3, 4);
-        GridPane.setConstraints(PracticeNewCourseCollection, 3, 5);
+        GridPane.setConstraints(practiceCreator,3,3);
+        GridPane.setConstraints(practiceNewResource, 3, 4);
+        GridPane.setConstraints(practiceNewCourse, 3, 5);
+        GridPane.setConstraints(practiceNewCourseCollection, 3, 6);
         //Validation login tab positions
         GridPane.setConstraints(validationsLoginEmailIncorrect, 2, 3);
         GridPane.setConstraints(validationsLoginPasswordIncorrect, 2, 4);
@@ -111,9 +112,10 @@ public class InterfaceProperties extends InterfaceElements{
         gridCreator.getChildren().add(newResource);
         gridCreator.getChildren().add(newCourse);
         gridCreator.getChildren().add(newCourseCollection);
-        gridCreator.getChildren().add(PracticeNewResource);
-        gridCreator.getChildren().add(PracticeNewCourse);
-        gridCreator.getChildren().add(PracticeNewCourseCollection);
+        gridCreator.getChildren().add(practiceCreator);
+        gridCreator.getChildren().add(practiceNewResource);
+        gridCreator.getChildren().add(practiceNewCourse);
+        gridCreator.getChildren().add(practiceNewCourseCollection);
     }
     private void addElementsGridValidationsLogin(){
         gridValidationsLogin.getChildren().add(validationsLoginEmailIncorrect);
@@ -151,9 +153,10 @@ public class InterfaceProperties extends InterfaceElements{
         setButtonStyle(newResource);
         setButtonStyle(newCourse);
         setButtonStyle(newCourseCollection);
-        setButtonStyle(PracticeNewResource);
-        setButtonStyle(PracticeNewCourse);
-        setButtonStyle(PracticeNewCourseCollection);
+        setButtonStyle(practiceCreator);
+        setButtonStyle(practiceNewResource);
+        setButtonStyle(practiceNewCourse);
+        setButtonStyle(practiceNewCourseCollection);
         //validation LOGIN buttons
         setButtonStyle(validationsLoginEmailIncorrect);
         setButtonStyle(validationsLoginPasswordIncorrect);
@@ -191,9 +194,10 @@ public class InterfaceProperties extends InterfaceElements{
         setupHoverEffect(newResource);
         setupHoverEffect(newCourse);
         setupHoverEffect(newCourseCollection);
-        setupHoverEffect(PracticeNewResource);
-        setupHoverEffect(PracticeNewCourse);
-        setupHoverEffect(PracticeNewCourseCollection);
+        setupHoverEffect(practiceCreator);
+        setupHoverEffect(practiceNewResource);
+        setupHoverEffect(practiceNewCourse);
+        setupHoverEffect(practiceNewCourseCollection);
         //validation LOGIN buttons
         setupHoverEffect(validationsLoginEmailIncorrect);
         setupHoverEffect(validationsLoginPasswordIncorrect);

@@ -167,7 +167,9 @@ public class SelectorsDocola extends VariablesDocola{
     public static final String PRACTICE_ADD_MEMBERS = "form > div:nth-of-type(2) button";
     public static final String PRACTICE_EMAIL_INVITE = "form > div:nth-of-type(2) > div > mat-form-field:nth-of-type(1) input";
     public static final String PRACTICE_ROL_SELECTOR = "form > div:nth-of-type(2) > div > mat-form-field:nth-of-type(2) > div:nth-of-type(1)";
-    public static final String PRACTICE_ROL_SEND_INVITE = ".cdk-overlay-pane > div > mat-option:nth-of-type(1)";
+    public String practiceRolSendInvite(int rolPosition){
+        return ".cdk-overlay-pane > div > mat-option:nth-of-type("+rolPosition+")";
+    }
     public static final String PRACTICE_UPLOAD_IMAGE = "form > div:nth-of-type(1) > div:nth-of-type(2) input";
     public static final String PRACTICE_PUBLISH_BUTTON = "form > div:nth-of-type(3) > button";
     //SELECT MESSAGE ERROR

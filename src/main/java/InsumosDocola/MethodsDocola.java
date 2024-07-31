@@ -177,9 +177,21 @@ public class MethodsDocola extends ContextBaseDocola{
         page.fill(SelectorsDocola.PRACTICE_NAME, generate.generateContentTitle());
         page.fill(SelectorsDocola.PRACTICE_DESCRIPTION, generate.generateContentDescription());
         uploadPracticeImage();
+        addMembers=true;
+        if(addMembers){
+           addmembers();
+        }
+        page.waitForTimeout(100000);
         page.click(SelectorsDocola.PRACTICE_PUBLISH_BUTTON);
     }
     //Metodos privados
+    private void addmembers(){
+        //userEmail = emailInfo.getEmail();
+        page.click(SelectorsDocola.PRACTICE_ADD_MEMBERS);
+        page.fill(SelectorsDocola.PRACTICE_EMAIL_INVITE, generate.userEmail);
+        page.click(SelectorsDocola.PRACTICE_ROL_SELECTOR);
+        page.click(selector.practiceRolSendInvite(generate.generateInviteRol()));
+    }
     private void startContext(){
         System.out.println("\n-----------------------------------------------------------");
         System.out.println("Iniciando ejecucion....");

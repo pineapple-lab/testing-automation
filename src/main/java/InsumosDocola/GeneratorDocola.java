@@ -123,6 +123,11 @@ public class GeneratorDocola extends ContextBaseDocola{
         List<ElementHandle> elements = page.querySelectorAll("mat-dialog-container > div > div > app-unsplash > form > div:nth-of-type(3) > img");
         return getRandomIndex(elements.size()-1)+1;
     }
+    public int generateInviteRol(){
+        page.waitForSelector(".cdk-overlay-pane");
+        List<ElementHandle> elements = page.querySelectorAll(".cdk-overlay-pane > div > mat-option");
+        return getRandomIndex(elements.size()-1)+1;
+    }
     private String generateRandomFileName(String[] fileList, String basePath, String extension){
         Random rand = new Random();
         int index = rand.nextInt(fileList.length);

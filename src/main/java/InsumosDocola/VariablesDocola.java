@@ -23,4 +23,6 @@ public class VariablesDocola extends PathUtils{
    public static String resourceType;
    public static int contentType;
    public static int contentAmount = 1;
+
+   boolean addMembers = false;
 }

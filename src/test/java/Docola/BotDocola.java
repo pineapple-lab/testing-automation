@@ -181,6 +181,9 @@ public class BotDocola extends Docola.InterfaceActions {
         if ("Local".equals(seleccion)) {
             VariablesDocola.navigationLink = "http://localhost:4200/";
         }
+        if ("QA".equals(seleccion)) {
+            VariablesDocola.navigationLink = "https://docola-qa.web.app/";
+        }
         if ("DEV".equals(seleccion)) {
             VariablesDocola.navigationLink = "https://docolasandbox.web.app/";
         }

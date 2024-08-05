@@ -178,7 +178,7 @@ public class MethodsDocola extends ContextBaseDocola{
         page.fill(SelectorsDocola.PRACTICE_DESCRIPTION, generate.generateContentDescription());
         uploadPracticeImage();
         addMembers=true;
-        if(addMembers){
+        if(addMembers){//FALTA DESARROLLAR EL IF AGREGAR LA OPCION DE AGREGAR MIEMBROS O NO AGREGARLOS DESDE LA UI
            addmembers();
         }
         page.waitForTimeout(100000);
@@ -186,7 +186,8 @@ public class MethodsDocola extends ContextBaseDocola{
     }
     //Metodos privados
     private void addmembers(){
-        //userEmail = emailInfo.getEmail();
+        //LA SELECCION DEL ROL AHORA ES TOTALMENTE ALEATORIA PERO LA IDEA ES QUE TAMBIEN SE PUEDA ELEGIR UN ROL ESPECIFICO DESDE LA UI
+        //TAMBIEN FALTA AGREGAR LOGICA PARA PODER SETEAR LA CANTIDAD DE MIEMBROS QUE QUIERO QUE SE AGREGUEN
         page.click(SelectorsDocola.PRACTICE_ADD_MEMBERS);
         page.fill(SelectorsDocola.PRACTICE_EMAIL_INVITE, generate.userEmail);
         page.click(SelectorsDocola.PRACTICE_ROL_SELECTOR);

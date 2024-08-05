@@ -2,7 +2,6 @@ package Docola;
 
 import InsumosDocola.MethodsDocola;
 import InsumosDocola.VariablesDocola;
-import clojure.lang.IFn;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;

@@ -11,7 +11,6 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import static InsumosDocola.VariablesDocola.*;
-import static InsumosDocola.VariablesDocola.navigationLink;
 
 public class AdvancedSettingContentCreator extends InterfaceElements {
     private volatile boolean isRunning = true;

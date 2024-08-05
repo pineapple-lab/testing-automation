@@ -6,13 +6,11 @@ import javafx.scene.Node;
 import javafx.scene.control.CheckBox;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import org.apache.tools.ant.taskdefs.Exec;
 import javafx.event.ActionEvent;
-import javax.security.auth.callback.Callback;
+
 import java.io.OutputStream;
 import java.io.PrintStream;
 import static InsumosDocola.VariablesDocola.*;
-import static insumosPeppermint.variablesPeppermint.emailLogin;
 import static insumosPeppermint.variablesPeppermint.outputStream;
 public class BotDocola extends Docola.InterfaceActions {
     private volatile boolean isRunning = true;

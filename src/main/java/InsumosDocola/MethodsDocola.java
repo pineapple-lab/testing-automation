@@ -194,6 +194,7 @@ public class MethodsDocola extends ContextBaseDocola{
         page.fill(SelectorsDocola.PRACTICE_EMAIL_INVITE, generate.userEmail);
         page.click(SelectorsDocola.PRACTICE_ROL_SELECTOR);
         page.click(selector.practiceRolSendInvite(generate.generateInviteRol()));
+    }
     public void prescribeViaEmail(){
         page.click(SelectorsDocola.PRESCRIBE_BUTTON);
         completeContentStep();
@@ -499,3 +500,4 @@ public class MethodsDocola extends ContextBaseDocola{
         page.click(SelectorsDocola.SAVE_CHANGES);
     }
 }
+

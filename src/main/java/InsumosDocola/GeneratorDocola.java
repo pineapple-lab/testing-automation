@@ -103,6 +103,11 @@ public class GeneratorDocola extends ContextBaseDocola{
         List<ElementHandle> elements = page.querySelectorAll("app-tags-search-overlay > div > cdk-virtual-scroll-viewport > div > button");
         return getRandomIndex(elements.size()-1)+1;
     }
+    public int generateSetContentStep(){
+        page.waitForSelector("app-crud");
+        List<ElementHandle> elements = page.querySelectorAll("app-crud app-cards-container > div > app-card");
+        return getRandomIndex(elements.size()-1)+1;
+    }
     public String generateQuestion(){
         String [] questionList = ContentQuestions.contentQuestions;
         return getRandomString(questionList);

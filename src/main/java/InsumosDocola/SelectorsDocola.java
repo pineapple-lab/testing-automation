@@ -113,7 +113,6 @@ public class SelectorsDocola extends VariablesDocola{
     public static final String CONTENT_TITLE_MULTIPLE_CHOICE_SURVEY = SELECT_GENERIC_DIV_MULTIPLE_CHOICE +"(1) mat-form-field input";
     public static final String CONTENT_OPTION_1_MULTIPLE_CHOICE_SURVEY = SELECT_GENERIC_DIV_MULTIPLE_CHOICE +"(2) > div:nth-of-type(1) mat-form-field input";
     public static final String CONTENT_OPTION_2_MULTIPLE_CHOICE_SURVEY = SELECT_GENERIC_DIV_MULTIPLE_CHOICE +"(2) > div:nth-of-type(2) mat-form-field input";
-    public static final String CONTENT_BUTTON_CONTINUE = FOOTER_DIV_BUTTONS +"div > button:nth-of-type(3)";
     public static final String CONTENT_TAG_ICD_10_TYPE = SELECT_GENERIC_TAG_TYPE +"(1) > button";
     public static final String CONTENT_SELECT_TAG_ICD_10 = SELECT_GENERIC_TAG +"(1)";
     public static final String CONTENT_TAG_SEARCH_OVERLAY = "app-tags-search-overlay";
@@ -161,6 +160,14 @@ public class SelectorsDocola extends VariablesDocola{
     public static final String CONTENT_CERTIFICATE_DESCRIPTION = "app-certificate-dialog .container-border > div:nth-of-type(1) > div:nth-of-type(5) textarea";
     public static final String CONTENT_CERTIFICATE_SIGNATURE = "app-certificate-dialog > div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) >div:nth-of-type(2) input";
     public static final String CONTENT_CERTIFICATE_SAVE = "app-certificate-dialog > div > div:nth-of-type(3) > button:nth-of-type(2)";
+    //SELECT PRESCRIBE
+    public static final String PRESCRIBE_BUTTON = "app-header .container > div:nth-of-type(2) > button:nth-of-type(1)";
+    public static final String PRESCRIBE_TO_PATIENT = "app-options > div:nth-of-type(2) > div:nth-of-type(1)";
+    public static final String PRESCRIBE_VIA_EMAIL_RADIOBUTTON = "app-prescription mat-radio-group > mat-radio-button:nth-of-type(1) input";
+    public static final String PRESCRIBE_PATIENTS_EMAIL_INPUT = "app-prescription mat-radio-group > div > div > mat-form-field:nth-of-type(1) input";
+    //SELECT CONTINUE
+    public static final String CONTINUE_CONTENT_BUTTON = FOOTER_DIV_BUTTONS +"div > button:nth-of-type(3)";
+    public static final String CONTINUE_PRESCRIBE_BUTTON = "form .sticky-footer > div > div > button";
     //SELECT MESSAGE ERROR
     public static final String MESSAGE_ERROR_TITLE_REQUIRED = "app-details-and-file-step > div > div:nth-of-type(1) mat-error";
     public static final String MESSAGE_ERROR_DESCRIPTION_REQUIRED = "app-details-and-file-step > div > div:nth-of-type(2) mat-error";

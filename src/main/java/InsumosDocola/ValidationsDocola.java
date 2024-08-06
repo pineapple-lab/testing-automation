@@ -287,7 +287,7 @@ public class ValidationsDocola extends ContextBaseDocola {
                 page.fill(SelectorsDocola.CONTENT_DESCRIPTION,generate.generateContentDescription());
                 page.locator(SelectorsDocola.CONTENT_UPLOAD).setInputFiles(Paths.get(generate.generateImage()));
                 page.waitForSelector(SelectorsDocola.SELECT_PREVIEW_IMAGE);
-                page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+                methods.continueContent();
                 String color = page.evaluate("() => { return window.getComputedStyle(document.querySelector('"+ SelectorsDocola.MESSAGE_ERROR_TITLE_REQUIRED +"')).color; }").toString();
                 System.out.println(color.equals("rgb(170, 34, 34)") ? "El campo title se requiere correctamente" : "El campo title no esta siendo requerido");
             }
@@ -307,7 +307,7 @@ public class ValidationsDocola extends ContextBaseDocola {
                 page.fill(SelectorsDocola.CONTENT_TITLE,generate.generateContentTitle());
                 page.locator(SelectorsDocola.CONTENT_UPLOAD).setInputFiles(Paths.get(generate.generateImage()));
                 page.waitForSelector(SelectorsDocola.SELECT_PREVIEW_IMAGE);
-                page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+                methods.continueContent();
                 String color = page.evaluate("() => { return window.getComputedStyle(document.querySelector('"+ SelectorsDocola.MESSAGE_ERROR_DESCRIPTION_REQUIRED +"')).color; }").toString();
                 System.out.println(color.equals("rgb(170, 34, 34)") ? "El campo description se requiere correctamente" : "El campo description no esta siendo requerido");
             }
@@ -326,7 +326,7 @@ public class ValidationsDocola extends ContextBaseDocola {
                 methods.goToResourceCreateForm();
                 page.fill(SelectorsDocola.CONTENT_TITLE,generate.generateContentTitle());
                 page.fill(SelectorsDocola.CONTENT_DESCRIPTION,generate.generateContentDescription());
-                page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+                methods.continueContent();
                 String color = page.evaluate("() => { return window.getComputedStyle(document.querySelector('"+ SelectorsDocola.MESSAGE_ERROR_FILE_REQUIRED +"')).color; }").toString();
                 System.out.println(color.equals("rgb(170, 34, 34)") ? "El campo file se requiere correctamente" : "El campo file no esta siendo requerido");
             }
@@ -347,8 +347,8 @@ public class ValidationsDocola extends ContextBaseDocola {
                 page.fill(SelectorsDocola.CONTENT_DESCRIPTION,generate.generateContentDescription());
                 page.locator(SelectorsDocola.CONTENT_UPLOAD).setInputFiles(Paths.get(generate.generateImage()));
                 page.waitForSelector(SelectorsDocola.SELECT_PREVIEW_IMAGE);
-                page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
-                page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+                methods.continueContent();
+                methods.continueContent();
                 String color = page.evaluate("() => { return window.getComputedStyle(document.querySelector('"+ SelectorsDocola.MESSAGE_ERROR_TAGS_REQUIRED +"')).color; }").toString();
                 System.out.println(color.equals("rgb(170, 34, 34)") ? "El campo tags se requiere correctamente" : "El campo tags no esta siendo requerido");
             }
@@ -369,13 +369,13 @@ public class ValidationsDocola extends ContextBaseDocola {
                 page.fill(SelectorsDocola.CONTENT_DESCRIPTION,generate.generateContentDescription());
                 page.locator(SelectorsDocola.CONTENT_UPLOAD).setInputFiles(Paths.get(generate.generateImage()));
                 page.waitForSelector(SelectorsDocola.SELECT_PREVIEW_IMAGE);
-                page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+                methods.continueContent();
                 for(int tagPosition = 1; tagPosition<=1;tagPosition++) {
                     page.click(SelectorsDocola.CONTENT_TAG_ICD_10_TYPE);
                     page.click(selector.contentSelectTag(tagPosition));
                     page.click(SelectorsDocola.CONTENT_ADD_TAGS);
                 }
-                page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+                methods.continueContent();
                 String color = page.evaluate("() => { return window.getComputedStyle(document.querySelector('"+SelectorsDocola.MESSAGE_ERROR_TAGS_REQUIRED+"')).color; }").toString();
                 System.out.println(color.equals("rgb(170, 34, 34)") ? "El campo tags requiere dos tags correctamente" : "El campo tags no esta requiriendo 2 tags");
             }
@@ -396,7 +396,7 @@ public class ValidationsDocola extends ContextBaseDocola {
                 page.fill(SelectorsDocola.CONTENT_DESCRIPTION,generate.generateContentDescription());
                 page.locator(SelectorsDocola.CONTENT_UPLOAD).setInputFiles(Paths.get(generate.generateImage()));
                 page.waitForSelector(SelectorsDocola.SELECT_PREVIEW_IMAGE);
-                page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+                methods.continueContent();
                 page.click(SelectorsDocola.CONTENT_TAG_ICD_10_TYPE);
                 page.click(selector.contentSelectTag(1));
                 page.click(SelectorsDocola.CONTENT_ADD_TAGS);
@@ -406,7 +406,7 @@ public class ValidationsDocola extends ContextBaseDocola {
                     page.click(SelectorsDocola.CONTENT_ADD_TAGS);
                 }
                 page.click(SelectorsDocola.CONTENT_DELETE_TAGS);
-                page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+                methods.continueContent();
                 String color = page.evaluate("() => { return window.getComputedStyle(document.querySelector('"+SelectorsDocola.MESSAGE_ERROR_TAGS_REQUIRED+"')).color; }").toString();
                 System.out.println(color.equals("rgb(170, 34, 34)") ? "El campo tags requiere  al menos una tag ICD10 correctamente" : "El campo tags no esta requiriendo al menos una tag ICD10");
             }
@@ -427,7 +427,7 @@ public class ValidationsDocola extends ContextBaseDocola {
                 page.fill(SelectorsDocola.CONTENT_DESCRIPTION,generate.generateContentDescription());
                 page.locator(SelectorsDocola.CONTENT_UPLOAD).setInputFiles(Paths.get(generate.generateImage()));
                 page.waitForSelector(SelectorsDocola.SELECT_PREVIEW_IMAGE);
-                page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+                methods.continueContent();
                 page.click(SelectorsDocola.CONTENT_TAG_ICD_10_TYPE);
                 page.click(selector.contentSelectTag(1));
                 page.click(SelectorsDocola.CONTENT_ADD_TAGS);
@@ -436,8 +436,8 @@ public class ValidationsDocola extends ContextBaseDocola {
                     page.click(selector.contentSelectTag(tagPosition));
                     page.click(SelectorsDocola.CONTENT_ADD_TAGS);
                 }
-                page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
-                page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+                methods.continueContent();
+                methods.continueContent();
                 String color = page.evaluate("() => { return window.getComputedStyle(document.querySelector('"+SelectorsDocola.MESSAGE_ERROR_MONTHLYPRICE_REQUIRED+"')).color; }").toString();
                 System.out.println(color.equals("rgb(170, 34, 34)") ? "El campo monthly price se requiere correctamente" : "El campo monthly price no esta siendo requerido");
                 page.waitForTimeout(1000000);

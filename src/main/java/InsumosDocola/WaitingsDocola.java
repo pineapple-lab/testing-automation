@@ -46,9 +46,9 @@ public class WaitingsDocola extends ContextBaseDocola{
     public void waitingCreateUploadFileSelectorsStep1(){
         waitForSelectors(
                 SelectorsDocola.CONTENT_TITLE,
-                SelectorsDocola.CONTENT_DESCRIPTION,
-                SelectorsDocola.CONTENT_BUTTON_CONTINUE
+                SelectorsDocola.CONTENT_DESCRIPTION
         );
+        waitingContinueContentButton();
     }
     public void waitingConfigurationStepSelector() {
         waitForSelectors(
@@ -59,9 +59,9 @@ public class WaitingsDocola extends ContextBaseDocola{
     }
     public void waitingPricingStepSelector(){
         waitForSelectors(
-                SelectorsDocola.CONTENT_PRICING_MONTHLY_PRICE,
-                SelectorsDocola.CONTENT_BUTTON_CONTINUE
+                SelectorsDocola.CONTENT_PRICING_MONTHLY_PRICE
         );
+        waitingContinueContentButton();
         //page.waitForSelector(SelectorsDocola.contentPricingYearlyPrice);
 
     }
@@ -106,6 +106,11 @@ public class WaitingsDocola extends ContextBaseDocola{
                 SelectorsDocola.WAIT_CATEGORY_UNPLASH
         );
         //page.waitForSelector(SelectorsDocola.contentUnsplashSelectButton);
+    }
+    private void waitingContinueContentButton(){
+        waitForSelectors(
+                SelectorsDocola.CONTINUE_CONTENT_BUTTON
+        );
     }
     public void waitingUnsplashPhotos(){
         waitForSelectors(SelectorsDocola.WAITING_UNPLASH);

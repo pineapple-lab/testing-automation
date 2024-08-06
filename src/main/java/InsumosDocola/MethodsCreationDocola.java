@@ -36,7 +36,7 @@ public class MethodsCreationDocola extends ContextBaseDocola{
      */
     public void newResource(){
         userRole = "Content provider";
-        contentType =1;
+        contentType = 1;
         methods.login();
         System.out.println("Se crearan "+generate.generateExecutions()+" "+resourceType+"\n");
         for(executeCounter= 1;executeCounter<=generate.generateExecutions();executeCounter++ ) {
@@ -53,7 +53,7 @@ public class MethodsCreationDocola extends ContextBaseDocola{
      */
     public void newCourse() {
         methods.login();
-        contentType =2;
+        contentType = 2;
         System.out.println("Se crearan "+generate.generateExecutions()+" cursos\n");
         for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
             methods.completeCourseForm();
@@ -67,7 +67,7 @@ public class MethodsCreationDocola extends ContextBaseDocola{
      */
     public void newCourseCollection() {
         methods.login();
-        contentType =3;
+        contentType = 3;
         System.out.println("Se crearan "+generate.generateExecutions()+" curriculum\n");
         for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
             methods.completeCollectionForm();
@@ -78,7 +78,7 @@ public class MethodsCreationDocola extends ContextBaseDocola{
     }
     public void newResourceInPractice(){
         userRole = "Clinician";
-        contentType =1;
+        contentType = 1;
         methods.login();
         System.out.println("Se crearan "+generate.generateExecutions()+" "+resourceType+"\n");
         methods.goToMyPractice();
@@ -93,8 +93,8 @@ public class MethodsCreationDocola extends ContextBaseDocola{
     public void newCourseInPractice() {
         userRole = "Clinician";
         methods.login();
-        contentType =2;
-        System.out.println("Se crearan "+generate.generateExecutions()+" cursos\n");
+        contentType = 2;
+        System.out.println("Se crearan "+generate.generateExecutions()+" cursos en la practica\n");
         methods.goToMyPractice();
         for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
             methods.completeCourseInPracticeForm();
@@ -109,12 +109,26 @@ public class MethodsCreationDocola extends ContextBaseDocola{
     public void newCourseCollectionInPractice() {
         userRole = "Clinician";
         methods.login();
-        contentType =3;
-        System.out.println("Se crearan "+generate.generateExecutions()+" curriculum\n");
+        contentType = 3;
+        System.out.println("Se crearan "+generate.generateExecutions()+" curriculum en la practica\n");
         methods.goToMyPractice();
         for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
             methods.completeCollectionInPracticeForm();
             methods.publishContent();
+            System.out.println(executeCounter+"/"+generate.generateExecutions());
+        }
+        cleanupContext();
+    }
+    /**
+     * Método para crear una nueva prescripcion via email en el curso de una practica en Docola.
+     */
+    public void prescribe(){
+        userRole = "Clinician";
+        methods.login();
+        System.out.println("Se crearan "+generate.generateExecutions()+" prescribe\n");
+        methods.goToMyPractice();
+        for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
+            methods.prescribeViaEmail();
             System.out.println(executeCounter+"/"+generate.generateExecutions());
         }
         cleanupContext();

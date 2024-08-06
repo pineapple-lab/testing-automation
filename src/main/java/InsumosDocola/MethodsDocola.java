@@ -163,17 +163,34 @@ public class MethodsDocola extends ContextBaseDocola{
         goToContentCreateForm();
         completeCourseDetailsStep();
         completeContentStep();
-        page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+        continueContent();
+        continueContent();
         completeThumbnailStep();
     }
     public void completeCollectionInPracticeForm(){
         goToContentCreateForm();
         completeCollectionDetailsStep();
         completeContentStep();
-        page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+        continueContent();
+        continueContent();
         completeThumbnailStep();
     }
+    public void prescribeViaEmail(){
+        page.click(SelectorsDocola.PRESCRIBE_BUTTON);
+        completeContentStep();
+        continuePrescribe();
+        setSendOptionsStep();
+        continuePrescribe();
+        setPrescriptionStepViaEmail();
+        continuePrescribe();
+    }
+    public void continueContent(){
+        page.click(SelectorsDocola.CONTINUE_CONTENT_BUTTON);
+    }
     //Metodos privados
+    private void continuePrescribe(){
+        page.click(SelectorsDocola.CONTINUE_PRESCRIBE_BUTTON);
+    }
     private void startContext(){
         System.out.println("\n-----------------------------------------------------------");
         System.out.println("Iniciando ejecucion....");
@@ -236,7 +253,7 @@ public class MethodsDocola extends ContextBaseDocola{
     private void completeRegistrationForm(GeneratorDocola.EmailInfo emailInfo){
         page.fill(SelectorsDocola.REGISTER_FIRST_NAME, emailInfo.getFirstName());
         page.fill(SelectorsDocola.REGISTER_LAST_NAME, emailInfo.getLastName());
-        page.fill(SelectorsDocola.EMAIL, generate.userEmail);
+        page.fill(SelectorsDocola.EMAIL, emailInfo.getEmail());
         page.click(selector.rolRegister(generate.generateRol()));
         page.click(SelectorsDocola.REGISTER_NEXT_BUTTON_STEP_1);
         waiting.waitingJoinSelectorStep2();
@@ -282,54 +299,52 @@ public class MethodsDocola extends ContextBaseDocola{
     private void completeCourseDetailsStep(){
         page.fill(SelectorsDocola.CONTENT_TITLE,generate.generateContentTitle());
         page.fill(SelectorsDocola.CONTENT_DESCRIPTION, generate.generateContentDescription());
-        page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+        continueContent();
     }
     private void completeCourseSetup(){
         completeCourseDetailsStep();
         completeCourseAndCurriculumConfigurationStep();
         completeContentStep();
-        page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+        continueContent();
         completePricingStep();
-        completeThumbnailStep();
+        continueContent();
     }
     private void completeCollectionDetailsStep(){
         page.fill(SelectorsDocola.CONTENT_TITLE,generate.generateContentTitle());
         page.fill(SelectorsDocola.CONTENT_DESCRIPTION, generate.generateContentDescription());
-        page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+        continueContent();
     }
     private void completeCollectionSetup(){
         completeCollectionDetailsStep();
         completeCourseAndCurriculumConfigurationStep();
         completeContentStep();
-        page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+        continueContent();
         completePricingStep();
         completeThumbnailStep();
     }
     private void completeContentStep() {
-        if(contentType == 2){
-            selectContentCourses();
-        }
+        selectContentCourses();
         if(contentType == 3){
             selectContentCoursesCollection();
         }
         //page.click(SelectorsDocola.contentConfigurationCMECE);
         //page.click(SelectorsDocola.contentConfigurationMarketPlace);
-        page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+
     }
     private void selectContentCourses(){
-        page.waitForTimeout(2000);
+        page.waitForTimeout(1000);
         for(int contentPosition = contentAmount; contentPosition<= contentAmount; contentPosition++) {
-            page.click(selector.courseSelectContent(contentPosition));
+            page.click(selector.courseSelectContent(generate.generateSetContentStep()));
         }
     }
     private void selectContentCoursesCollection() {
         page.waitForTimeout(2000);
         for(int contentPosition = contentAmount; contentPosition<= contentAmount; contentPosition++) {
-            page.click(selector.courseSelectContent(contentPosition));
+            selectContentCourses();
         }
         for(int contentPosition = contentAmount; contentPosition<= contentAmount; contentPosition++) {
             page.click(SelectorsDocola.CONTENT_TAB_COURSES);
-            page.click(selector.courseSelectContent(contentPosition));
+            selectContentCourses();
         }
     }
     private void completeContentUploadFile(){
@@ -337,20 +352,20 @@ public class MethodsDocola extends ContextBaseDocola{
         page.fill(SelectorsDocola.CONTENT_DESCRIPTION, generate.generateContentDescription());
         page.locator(SelectorsDocola.CONTENT_UPLOAD).setInputFiles(Paths.get(generate.generateImage()));
         page.waitForSelector(SelectorsDocola.SELECT_PREVIEW_IMAGE);
-        page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+        continueContent();
     }
     private void completeContentCaptureVideo(){
         page.fill(SelectorsDocola.CONTENT_TITLE, generate.generateContentTitle());
         page.fill(SelectorsDocola.CONTENT_DESCRIPTION, generate.generateContentDescription());
         page.locator(SelectorsDocola.CONTENT_UPLOAD).setInputFiles(Paths.get(generate.generateVideo()));
         page.waitForSelector(SelectorsDocola.SELECT_PREVIEW_IMAGE);
-        page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+        continueContent();
     }
     private void completeContentImportWebContent(){
         page.fill(SelectorsDocola.CONTENT_TITLE, generate.generateContentTitle());
         page.fill(SelectorsDocola.CONTENT_DESCRIPTION, generate.generateContentDescription());
         page.fill(SelectorsDocola.CONTENT_ADD_URL,"https://www.youtube.com/embed/myDW_WPRHq0?si=bdkGE69WDFZXf7cj");
-        page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+        continueContent();
     }
     private void completeContentQuestionTrueOrFalse(){
         page.fill(SelectorsDocola.CONTENT_TITLE_TRUE_OR_FALSE_QUIZ, generate.generateQuestion());
@@ -378,7 +393,7 @@ public class MethodsDocola extends ContextBaseDocola{
             case 3:
                 break;*/
         }
-        page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+        continueContent();
     }
     private void completeContentSurvey(){
         page.fill(SelectorsDocola.CONTENT_TITLE, generate.generateQuestion());
@@ -398,20 +413,20 @@ public class MethodsDocola extends ContextBaseDocola{
             case 3:
                 break;*/
         }
-        page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+        continueContent();
     }
     private void completeContentVr(){
         page.fill(SelectorsDocola.CONTENT_TITLE, generate.generateContentTitle());
         page.fill(SelectorsDocola.CONTENT_DESCRIPTION, generate.generateContentDescription());
         page.locator(SelectorsDocola.CONTENT_UPLOAD).setInputFiles(Paths.get(generate.generateVideo()));
         page.waitForSelector(SelectorsDocola.SELECT_PREVIEW_IMAGE);
-        page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+        continueContent();
     }
     private void completeResourceConfigurationStep() {
         addTags();
         page.click(SelectorsDocola.CONTENT_CONFIGURATION_CMECE);
         //page.click(SelectorsDocola.contentConfigurationMarketPlace);
-        page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+        continueContent();
     }
     private void completeCourseAndCurriculumConfigurationStep() {
         addTags();
@@ -422,7 +437,7 @@ public class MethodsDocola extends ContextBaseDocola{
         completeCertificate();
         page.waitForTimeout(1000);
         //page.click(SelectorsDocola.contentConfigurationMarketPlace);
-        page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+        continueContent();
     }
     private void addTags(){
         waiting.waitingConfigurationStepSelector();
@@ -446,6 +461,18 @@ public class MethodsDocola extends ContextBaseDocola{
         page.click(SelectorsDocola.CONTENT_PRICING_CONTENT_FOR_FREE);
         //page.fill(SelectorsDocola.CONTENT_PRICING_MONTHLY_PRICE,"123");
         //page.fill(SelectorsDocola.contentPricingYearlyPrice,"123");
-        page.click(SelectorsDocola.CONTENT_BUTTON_CONTINUE);
+        continueContent();
+    }
+    private void setSendOptionsStep(){
+       page.click(SelectorsDocola.PRESCRIBE_TO_PATIENT);
+    }
+    private void setPrescriptionStepViaEmail(){
+        Keyboard kb = page.keyboard();
+        emailInfo = generate.generateEmail();
+        String patientEmail= emailInfo.getEmail();
+        page.click(SelectorsDocola.PRESCRIBE_VIA_EMAIL_RADIOBUTTON);
+        page.fill(SelectorsDocola.PRESCRIBE_PATIENTS_EMAIL_INPUT,patientEmail);
+        page.click(SelectorsDocola.PRESCRIBE_PATIENTS_EMAIL_INPUT);
+        kb.press("Enter");
     }
 }

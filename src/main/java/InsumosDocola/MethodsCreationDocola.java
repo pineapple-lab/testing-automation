@@ -139,6 +139,9 @@ public class MethodsCreationDocola extends ContextBaseDocola{
         }
         cleanupContext();
     }
+    /**
+     * Método para crear nuevos prescribe en Docola.
+     */
     public void prescribe(){
         userRole = "Clinician";
         methods.login();

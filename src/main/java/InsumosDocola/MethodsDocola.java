@@ -149,7 +149,6 @@ public class MethodsDocola extends ContextBaseDocola{
         page.click(SelectorsDocola.CONTENT_THUMBNAIL_UNSPLASH);
         waiting.waitingUnshplashPopUpSelectors();
         page.click(selector.contentUnsplashCategorie(generate.generateThumbnailCategory()));
-        //waiting.waitingUnsplashPhotos();
         page.click(selector.contentUnsplashPhoto(generate.generateThumbnailSplash()));
         page.mouse().wheel(1500,1500);
         page.waitForTimeout(1000);

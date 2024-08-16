@@ -47,7 +47,6 @@ public class MethodsCreationDocola extends ContextBaseDocola{
         }
         cleanupContext();
     }
-
     /**
      * Método para crear nuevos cursos en Docola.
      */
@@ -76,6 +75,9 @@ public class MethodsCreationDocola extends ContextBaseDocola{
         }
         cleanupContext();
     }
+    /**
+     * Método para crear recursos adentro de una practica en Docola.
+     */
     public void newResourceInPractice(){
         userRole = "Clinician";
         contentType = 1;
@@ -90,6 +92,9 @@ public class MethodsCreationDocola extends ContextBaseDocola{
         }
         cleanupContext();
     }
+    /**
+     * Método para crear cursos adentro de una practica en Docola.
+     */
     public void newCourseInPractice() {
         userRole = "Clinician";
         methods.login();
@@ -104,7 +109,7 @@ public class MethodsCreationDocola extends ContextBaseDocola{
         cleanupContext();
     }
     /**
-     * Método para crear nuevas colecciones de cursos en Docola.
+     * Método para crear nuevas colecciones de cursos adentro de una practica en Docola.
      */
     public void newCourseCollectionInPractice() {
         userRole = "Clinician";

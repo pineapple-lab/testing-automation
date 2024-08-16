@@ -161,12 +161,16 @@ public class SelectorsDocola extends VariablesDocola{
     public static final String CONTENT_CERTIFICATE_SIGNATURE = "app-certificate-dialog > div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) >div:nth-of-type(2) input";
     public static final String CONTENT_CERTIFICATE_SAVE = "app-certificate-dialog > div > div:nth-of-type(3) > button:nth-of-type(2)";
     //SELECT PRACTICE CREATE
-    public static final String PRACTICE_CREATE_BUTTON = "app-my-practices > div > div:nth-of-type(1) > bustton";
+    public static final String PRACTICE_CREATE_BUTTON = "app-my-practices > div > div:nth-of-type(1) > button";
     public static final String PRACTICE_NAME = "form > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) input";
     public static final String PRACTICE_DESCRIPTION = "form > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) textarea";
     public static final String PRACTICE_ADD_MEMBERS = "form > div:nth-of-type(2) button";
-    public static final String PRACTICE_EMAIL_INVITE = "form > div:nth-of-type(2) > div > mat-form-field:nth-of-type(1) input";
-    public static final String PRACTICE_ROL_SELECTOR = "form > div:nth-of-type(2) > div > mat-form-field:nth-of-type(2) > div:nth-of-type(1)";
+    public String practiceEmailInvite (int membersAmountEmail){
+        return "form > div:nth-of-type(2) > div:nth-of-type("+membersAmountEmail+") input";
+    }
+    public String practiceRolInvite (int membersAmountRol){
+        return "form > div:nth-of-type(2) > div:nth-of-type("+membersAmountRol+") > mat-form-field:nth-of-type(2) > div:nth-of-type(1)";
+    }
     public String practiceRolSendInvite(int rolPosition){
         return ".cdk-overlay-pane > div > mat-option:nth-of-type("+rolPosition+")";
     }

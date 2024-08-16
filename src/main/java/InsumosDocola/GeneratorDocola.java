@@ -131,7 +131,7 @@ public class GeneratorDocola extends ContextBaseDocola{
     public int generateInviteRol(){
         page.waitForSelector(".cdk-overlay-pane");
         List<ElementHandle> elements = page.querySelectorAll(".cdk-overlay-pane > div > mat-option");
-        return getRandomIndex(elements.size()-1)+1;
+        return getRandomIndex(elements.size())+1;
     }
     private String generateRandomFileName(String[] fileList, String basePath, String extension){
         Random rand = new Random();

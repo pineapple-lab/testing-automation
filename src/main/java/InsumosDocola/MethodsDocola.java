@@ -179,21 +179,28 @@ public class MethodsDocola extends ContextBaseDocola{
         page.fill(SelectorsDocola.PRACTICE_NAME, generate.generateContentTitle());
         page.fill(SelectorsDocola.PRACTICE_DESCRIPTION, generate.generateContentDescription());
         uploadPracticeImage();
-        addMembers=true;
-        if(addMembers){//FALTA DESARROLLAR EL IF AGREGAR LA OPCION DE AGREGAR MIEMBROS O NO AGREGARLOS DESDE LA UI
+        if(addMembers){
            addmembers();
         }
-        page.waitForTimeout(100000);
+        page.waitForTimeout(1000);
         page.click(SelectorsDocola.PRACTICE_PUBLISH_BUTTON);
+        //agregar logica para sacar timeout y que espere a que el practice este creado
+        page.waitForTimeout(5000);
     }
     //Metodos privados
     private void addmembers(){
-        //LA SELECCION DEL ROL AHORA ES TOTALMENTE ALEATORIA PERO LA IDEA ES QUE TAMBIEN SE PUEDA ELEGIR UN ROL ESPECIFICO DESDE LA UI
-        //TAMBIEN FALTA AGREGAR LOGICA PARA PODER SETEAR LA CANTIDAD DE MIEMBROS QUE QUIERO QUE SE AGREGUEN
-        page.click(SelectorsDocola.PRACTICE_ADD_MEMBERS);
-        page.fill(SelectorsDocola.PRACTICE_EMAIL_INVITE, generate.userEmail);
-        page.click(SelectorsDocola.PRACTICE_ROL_SELECTOR);
-        page.click(selector.practiceRolSendInvite(generate.generateInviteRol()));
+       for(executeMembersAmount = 1; executeMembersAmount <= membersAmount; executeMembersAmount++ ) {
+           page.click(SelectorsDocola.PRACTICE_ADD_MEMBERS);
+           emailInfo = generate.generateEmail();
+           page.fill(selector.practiceEmailInvite(executeMembersAmount), generate.userEmail);
+           page.click(selector.practiceRolInvite(executeMembersAmount));
+           if (practiceRol == 0) {
+               page.click(selector.practiceRolSendInvite(generate.generateInviteRol()));
+           } else {
+               page.click(selector.practiceRolSendInvite(practiceRol));
+           }
+       }
+       //AGREGAR LOGICA PARA GUARDAR EN LA BASE LOS INVITES Y LUEGO PODER REGISTRARLOS
     }
     public void prescribeViaEmail(){
         page.click(SelectorsDocola.PRESCRIBE_BUTTON);

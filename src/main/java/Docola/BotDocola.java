@@ -47,6 +47,7 @@ public class BotDocola extends Docola.InterfaceActions {
             newCourse.setOnAction(e -> handleAction(ExecMethod.NEW_COURSE,"NEW_COURSE"));
             newCourseCollection.setOnAction(e -> handleAction(ExecMethod.NEW_COURSE_COLLECTION,"NEW_COURSE_COLLECTION"));
             practiceCreator.setOnAction(e -> handleAction(ExecMethod.PRACTICE_CREATOR,"PRACTICE_CREATOR"));
+            practiceCreator.setOnMousePressed( event -> handleSecondaryClick(event, AdvancedSettingCreatePractice.class));
             practiceNewResource.setOnAction(e -> handleAction(ExecMethod.PRACTICE_NEW_RESOURCE,"PRACTICE_NEW_RESOURCE"));
             practiceNewResource.setOnMousePressed( event -> handleSecondaryClick(event, AdvancedSettingContentCreatorInPractice.class));
             practiceNewCourse.setOnAction(e -> handleAction(ExecMethod.PRACTICE_NEW_COURSE,"PRACTICE_NEW_COURSE"));
@@ -123,9 +124,14 @@ public class BotDocola extends Docola.InterfaceActions {
                 Stage configAvanzadaStage = new Stage();
                 if (configAvanzada instanceof AdvancedSettingJoin) {
                     ((AdvancedSettingJoin) configAvanzada).start(configAvanzadaStage);
-                } else if (configAvanzada instanceof AdvancedSettingContentCreator) {
+                }
+                else if (configAvanzada instanceof AdvancedSettingContentCreator) {
                     ((AdvancedSettingContentCreator) configAvanzada).start(configAvanzadaStage);
-                }else if (configAvanzada instanceof AdvancedSettingContentCreatorInPractice) {
+                }
+                else if (configAvanzada instanceof AdvancedSettingCreatePractice) {
+                    ((AdvancedSettingCreatePractice) configAvanzada).start(configAvanzadaStage);
+                }
+                else if (configAvanzada instanceof AdvancedSettingContentCreatorInPractice) {
                     ((AdvancedSettingContentCreatorInPractice) configAvanzada).start(configAvanzadaStage);
                 }
                 Stage ownerStage = (Stage) ((Node) event.getSource()).getScene().getWindow();

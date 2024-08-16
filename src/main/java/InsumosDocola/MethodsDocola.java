@@ -183,8 +183,8 @@ public class MethodsDocola extends ContextBaseDocola{
         }
         page.waitForTimeout(1000);
         page.click(SelectorsDocola.PRACTICE_PUBLISH_BUTTON);
-        //agregar logica para sacar timeout y que espere a que el practice este creado
-        page.waitForTimeout(5000);
+        page.waitForSelector("text=You have logged in into practice");
+        Assertions.assertTrue(page.isVisible("text=You have logged in into practice"));
     }
     //Metodos privados
     private void addmembers(){

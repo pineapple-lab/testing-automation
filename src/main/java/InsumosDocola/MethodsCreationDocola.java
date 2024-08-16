@@ -132,7 +132,7 @@ public class MethodsCreationDocola extends ContextBaseDocola{
         methods.login();
         contentType =3;
         System.out.println("Se crearan "+generate.generateExecutions()+" practices\n");
-        page.waitForTimeout(1000);
+        page.waitForTimeout(2000);
         page.click(SelectorsDocola.CONTENT_GO_TO_MY_PRACTICES);
         for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
             page.click(SelectorsDocola.PRACTICE_CREATE_BUTTON);

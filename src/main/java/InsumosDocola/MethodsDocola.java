@@ -63,7 +63,7 @@ public class MethodsDocola extends ContextBaseDocola{
     }
     public void verifyLoginAndOnboarding(){
         waitForLoginSuccess();
-        Assertions.assertTrue(page.isVisible("text=Login successful"));
+        Assertions.assertTrue(page.isVisible("text=You have successfully logged in"));
         queries.saveUser(userEmail);
         completeOnboarding();
         page.waitForSelector(SelectorsDocola.MENU_PROFILE);
@@ -259,7 +259,7 @@ public class MethodsDocola extends ContextBaseDocola{
     private void waitForLoginSuccess(){
         while (true) {
             try {
-                page.waitForSelector("text=Login successful");
+                page.waitForSelector("text= You have successfully logged in");
                 break;
             } catch (PlaywrightException e) {}
         }

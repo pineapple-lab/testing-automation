@@ -63,7 +63,6 @@ public class QueriesDocola extends ContextBaseDocola{
         }catch (SQLException ex){
             handleSQLException(ex);
         }
-
         return email;
     }
     private void handleSQLException(SQLException ex) {

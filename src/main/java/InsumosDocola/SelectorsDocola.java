@@ -4,6 +4,7 @@ public class SelectorsDocola extends VariablesDocola{
     public static final String FORM = "form > ";
     public static final String APP_REGISTER = "app-register ";
     public static final String MAT_STEPPER = "mat-stepper > ";
+    public static final String APP_TERMS_CONDITION = "app-terms-condition > ";
     public static final String MAT_DIALOG_CONTAINER = "mat-dialog-container";
     public static final String CLASS_MAT_DIALOG_CONTAINER = ".mdc-dialog__container";
     public static final String CLASS_MAT_MDC_DIALOG_SURFACE = ".mat-mdc-dialog-surface";
@@ -53,10 +54,10 @@ public class SelectorsDocola extends VariablesDocola{
     public static final String REGISTER_PASSWORD_CONFIRMATION = FORM_REGISTER_STEP_2 +"app-form-block-input:nth-of-type(2) input";
     public static final String REGISTER_NEXT_BUTTON_STEP_2 = SELECT_DIV_NEXT_BUTTONS +"div:nth-of-type(2) > div:nth-of-type(2) > div > button";
     //REGISTER STEP 3//
-    public static final String FORM_REGISTER_STEP_3 = MAT_STEPPER +"div > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) ";
-    public static final String REGISTER_TERMS_AND_CONDITIONS = FORM_REGISTER_STEP_3 +"mat-checkbox input";
+    public static final String FORM_REGISTER_STEP_3 = APP_TERMS_CONDITION +"div > div:nth-of-type(2) > ";
+    public static final String REGISTER_TERMS_AND_CONDITIONS = FORM_REGISTER_STEP_3 +"mat-checkbox > div input";
     public static final String REGISTER_CAPTCHAT = FORM_REGISTER_STEP_3 +"re-captcha > div > div > iframe";
-    public static final String REGISTER_NEXT_BUTTON_STEP_3 = SELECT_DIV_NEXT_BUTTONS +"div:nth-of-type(3) > div:nth-of-type(2) > div > button";
+    public static final String REGISTER_NEXT_BUTTON_STEP_3 = SELECT_DIV_NEXT_BUTTONS +"div:nth-of-type(3) > div > div button";
     //SELECTORS ONBOARDING CLINICIAN//
     public static final String SELECT_GENERIC_ONBOARDING_FIELDS = "app-onboarding > div > div";
     public static final String ONBOARDING_CONTENT_PROVIDER_COMPANY_NAME = SELECT_GENERIC_ONBOARDING_FIELDS +" > div:nth-of-type(2) > mat-form-field:nth-of-type(1) input";

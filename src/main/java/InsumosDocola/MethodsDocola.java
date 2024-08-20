@@ -1,10 +1,10 @@
 package InsumosDocola;
-import com.microsoft.playwright.ElementHandle;
-import com.microsoft.playwright.Keyboard;
-import com.microsoft.playwright.PlaywrightException;
+import com.microsoft.playwright.*;
 import org.junit.jupiter.api.Assertions;
 
 import java.nio.file.Paths;
+import java.util.List;
+
 /**
  * Clase que contiene métodos para interactuar con páginas web utilizando Playwright.
  * Extiende ContextBaseDocola para aprovechar la configuración del contexto del navegador.
@@ -175,8 +175,10 @@ public class MethodsDocola extends ContextBaseDocola{
         completeThumbnailStep();
     }
     public void completePracticeForm(){
-        page.fill(SelectorsDocola.PRACTICE_NAME, generate.generateContentTitle());
+        practiceName = generate.generateContentTitle();
+        page.fill(SelectorsDocola.PRACTICE_NAME, practiceName);
         page.fill(SelectorsDocola.PRACTICE_DESCRIPTION, generate.generateContentDescription());
+        queries.savePractice(practiceName);
         uploadPracticeImage();
         if(addMembers){
            addmembers();
@@ -186,20 +188,34 @@ public class MethodsDocola extends ContextBaseDocola{
         page.waitForSelector("text=You have logged in into practice");
         Assertions.assertTrue(page.isVisible("text=You have logged in into practice"));
     }
-    //Metodos privados
-    private void addmembers(){
-       for(executeMembersAmount = 1; executeMembersAmount <= membersAmount; executeMembersAmount++ ) {
-           page.click(SelectorsDocola.PRACTICE_ADD_MEMBERS);
-           emailInfo = generate.generateEmail();
-           page.fill(selector.practiceEmailInvite(executeMembersAmount), generate.userEmail);
-           page.click(selector.practiceRolInvite(executeMembersAmount));
-           if (practiceRol == 0) {
-               page.click(selector.practiceRolSendInvite(generate.generateInviteRol()));
-           } else {
-               page.click(selector.practiceRolSendInvite(practiceRol));
-           }
-       }
-       //AGREGAR LOGICA PARA GUARDAR EN LA BASE LOS INVITES Y LUEGO PODER REGISTRARLOS
+    public void mailinatorOpenLink(String userInvitation){
+        Keyboard kb = page.keyboard();
+        page.navigate("https://www.mailinator.com/");
+        page.fill(SelectorsDocola.MAILINATOR_INPUT,userInvitation);
+        kb.press("Enter");
+        page.waitForTimeout(2000);
+        page.click(SelectorsDocola.NEW_MESSAGE);
+        page.click(SelectorsDocola.TEXT_TAB);
+        page.frameLocator(SelectorsDocola.LINK_REGISTRATION).locator("a").click();
+        page.waitForTimeout(2000);
+        List<Page> pages = context.pages();
+        Page newTab = pages.get(pages.size()-1);
+        System.out.println(page.url());// Cambia a la nueva pestaña
+        newTab.bringToFront(); // Asegúrate de que la nueva pestaña está al frente
+        page = newTab;
+        System.out.println(page.url());// Actualiza el objeto page para referirse a la nueva pestaña
+    }
+    public void completeInvitationForm(){
+        page.click(SelectorsDocola.REGISTER_INVITATION_BUTTON);
+        page.fill(SelectorsDocola.REGISTER_INVITATION_FIRST_NAME, invitationFirstName);
+        page.fill(SelectorsDocola.REGISTER_INVITATION_LAST_NAME, invitationLastName);
+        page.click(SelectorsDocola.REGISTER_INVITATION_CONTINUE_STEP_1);
+        page.fill(SelectorsDocola.REGISTER_PASSWORD,"123123aA-");
+        page.fill(SelectorsDocola.REGISTER_PASSWORD_CONFIRMATION, "123123aA-");
+        page.click(SelectorsDocola.REGISTER_INVITATION_CONTINUE_STEP_2);
+        page.click(SelectorsDocola.REGISTER_TERMS_AND_CONDITIONS);
+        page.click(SelectorsDocola.REGISTER_CAPTCHAT);
+        page.click(SelectorsDocola.REGISTER_INVITATION_BUTTON_STEP_3);
     }
     public void prescribeViaEmail(){
         page.click(SelectorsDocola.PRESCRIBE_BUTTON);
@@ -213,7 +229,37 @@ public class MethodsDocola extends ContextBaseDocola{
     public void continueContent(){
         page.click(SelectorsDocola.CONTINUE_CONTENT_BUTTON);
     }
+    public void completeOnboardingInstructor(){
+        Keyboard kb = page.keyboard();
+        page.click(SelectorsDocola.ONBOARDING_CLINICIAN_SELECTOR);
+        page.click(SelectorsDocola.ONBOARDING_CLINICIAN_SELECTOR_OPTION);
+        kb.press("Escape");
+        page.click(SelectorsDocola.ONBOARDING_CLINICIANC_CONTINUE);
+        page.waitForTimeout(2000);
+        page.click(SelectorsDocola.CLOSE_GUIDE);
+        //page.fill(SelectorsDocola.ONBOARDING_CLINICIAN_PRACTICE_NAME, "test");
+        //page.click(SelectorsDocola.ONBOARDING_CLINICIANC_CONTINUE_STEP_2);
+    }
     //Metodos privados
+    private void addmembers(){
+        for(executeMembersAmount = 1; executeMembersAmount <= membersAmount; executeMembersAmount++) {
+            page.click(SelectorsDocola.PRACTICE_ADD_MEMBERS);
+            emailInfo = generate.generateEmail();
+            String inviteFirstName = emailInfo.getFirstName();
+            String inviteLastName = emailInfo.getLastName();
+            String email = generate.userEmail;
+            page.fill(selector.practiceEmailInvite(executeMembersAmount), email);
+            page.click(selector.practiceRolInvite(executeMembersAmount));
+            if (practiceRol == 0) {
+                int userInviteRol = generate.generateInviteRol();
+                page.click(selector.practiceRolSendInvite(userInviteRol));
+                queries.saveInvitation(email, userInviteRol, inviteFirstName, inviteLastName);
+            }else{
+                page.click(selector.practiceRolSendInvite(practiceRol));
+            }
+
+        }
+    }
     private void continuePrescribe(){
         page.click(SelectorsDocola.CONTINUE_PRESCRIBE_BUTTON);
     }
@@ -262,6 +308,7 @@ public class MethodsDocola extends ContextBaseDocola{
         page.click(SelectorsDocola.VERIFY_PHONE_SKIP_FOR_NOW);
         page.click(SelectorsDocola.CLOSE_GUIDE);
     }
+
     private void waitForLoginSuccess(){
         while (true) {
             try {

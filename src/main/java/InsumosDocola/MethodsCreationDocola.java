@@ -8,11 +8,12 @@ import org.junit.jupiter.api.Assertions;
 public class MethodsCreationDocola extends ContextBaseDocola{
     private final GeneratorDocola generate = new GeneratorDocola();
     private final MethodsDocola methods = new MethodsDocola();
+    private final QueriesDocola querie = new QueriesDocola();
     GeneratorDocola.EmailInfo emailInfo;
     /**
      * Método para registrar usuarios en Docola y realizar su onboarding.
      */
-    public void joinNow(){
+    public void newJoinNow(){
         emailInfo= generate.generateEmail();
         for (executeCounter = 1; executeCounter <= Integer.parseInt(executionDetails); executeCounter++) {
         if (!stopTest) {
@@ -147,13 +148,31 @@ public class MethodsCreationDocola extends ContextBaseDocola{
     /**
      * Método para crear nuevos prescribe en Docola.
      */
-    public void prescribe(){
+    public void newPrescribe(){
         userRole = "Clinician";
         methods.login();
         System.out.println("Se crearan "+generate.generateExecutions()+" prescribe\n");
         methods.goToMyPractice();
         for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
             methods.prescribeViaEmail();
+            System.out.println(executeCounter+"/"+generate.generateExecutions());
+        }
+        cleanupContext();
+    }
+    /**
+     * Método para registrar patients invitados a una practice en Docola.
+     */
+    public void newInvitationRegister(){
+        userRole = "Clinican";
+        System.out.println("Se crearan "+generate.generateExecutions()+" register invitations\n");
+        for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
+            userInvitation= querie.getInvitationEmail(15);
+            methods.mailinatorOpenLink(userInvitation);
+            methods.completeInvitationForm();
+            methods.completeOnboardingInstructor();
+            System.out.println(userInvitation);
+            querie.updateRegisterInvitation(userInvitation);
+            methods.uploadProfilePicture();
             System.out.println(executeCounter+"/"+generate.generateExecutions());
         }
         cleanupContext();

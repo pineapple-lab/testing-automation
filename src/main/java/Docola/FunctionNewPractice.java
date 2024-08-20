@@ -12,4 +12,10 @@ public class FunctionNewPractice extends MethodsCreationDocola {
         newPractice();
         teardownPlaywright();
     }
+    @Test
+    public void servicePracticeInvitationRegister(){
+        methods.startContextAndNavigation();
+        newInvitationRegister();
+        teardownPlaywright();
+    }
 }

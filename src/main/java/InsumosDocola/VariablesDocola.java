@@ -22,9 +22,13 @@ public class VariablesDocola extends PathUtils{
    //Variables de contenido
    public static String resourceType;
    public static int contentType;
+   public String userInvitation = null;
+   public static String invitationFirstName;
+   public static String invitationLastName;
    public static int contentAmount = 1;
    public static int executeMembersAmount;
    public static int membersAmount = 1;
+   public String practiceName;
    public static int practiceRol = 0;
    public static boolean addMembers;
 }

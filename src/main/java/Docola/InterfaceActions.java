@@ -14,6 +14,7 @@ public class InterfaceActions extends InterfaceProperties{
         PRACTICE_CREATOR,
         PRACTICE_NEW_RESOURCE,
         PRACTICE_NEW_COURSE,
+        INVITATION_REGISTER,
         PRACTICE_NEW_COURSE_COLLECTION,
         //Validations LOGIN
         VALIDATION_EMAIL_INCORRECT_LOGIN,
@@ -75,6 +76,9 @@ public class InterfaceActions extends InterfaceProperties{
     }
     public void actionNewCourseCollectionInPractice() {
         executeService(new FunctionCreateContent(), FunctionCreateContent::serviceNewCourseCollectionInPractice);
+    }
+    public void actionNewRegisterInvitationInPractice() {
+        executeService(new FunctionNewPractice(), FunctionNewPractice::servicePracticeInvitationRegister);
     }
     ////validation login actions
     public void actionValidationEmailIncorrectLogin() {

@@ -9,7 +9,7 @@ public class FunctionJoin extends MethodsCreationDocola {
     @Test
     public void serviceValidationRegister(){
         methods.startContextAndNavigation();
-        joinNow();
+        newJoinNow();
         teardownPlaywright();
     }
 }

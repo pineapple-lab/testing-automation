@@ -12,7 +12,7 @@ public class FunctionPrescribe extends MethodsCreationDocola {
         executionDetails = "40";
         contentAmount=1;
         methods.startContextAndNavigation();
-        prescribe();
+        newPrescribe();
         //methods.signOut();
         teardownPlaywright();
     }

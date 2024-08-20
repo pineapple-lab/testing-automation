@@ -72,6 +72,7 @@ public class InterfaceProperties extends InterfaceElements{
         GridPane.setConstraints(practiceNewResource, 3, 4);
         GridPane.setConstraints(practiceNewCourse, 3, 5);
         GridPane.setConstraints(practiceNewCourseCollection, 3, 6);
+        GridPane.setConstraints(invitationRegister, 3, 7);
         //Validation login tab positions
         GridPane.setConstraints(validationsLoginEmailIncorrect, 2, 3);
         GridPane.setConstraints(validationsLoginPasswordIncorrect, 2, 4);
@@ -116,6 +117,7 @@ public class InterfaceProperties extends InterfaceElements{
         gridCreator.getChildren().add(practiceNewResource);
         gridCreator.getChildren().add(practiceNewCourse);
         gridCreator.getChildren().add(practiceNewCourseCollection);
+        gridCreator.getChildren().add(invitationRegister);
     }
     private void addElementsGridValidationsLogin(){
         gridValidationsLogin.getChildren().add(validationsLoginEmailIncorrect);
@@ -157,6 +159,7 @@ public class InterfaceProperties extends InterfaceElements{
         setButtonStyle(practiceNewResource);
         setButtonStyle(practiceNewCourse);
         setButtonStyle(practiceNewCourseCollection);
+        setButtonStyle(invitationRegister);
         //validation LOGIN buttons
         setButtonStyle(validationsLoginEmailIncorrect);
         setButtonStyle(validationsLoginPasswordIncorrect);
@@ -198,6 +201,7 @@ public class InterfaceProperties extends InterfaceElements{
         setupHoverEffect(practiceNewResource);
         setupHoverEffect(practiceNewCourse);
         setupHoverEffect(practiceNewCourseCollection);
+        setupHoverEffect(invitationRegister);
         //validation LOGIN buttons
         setupHoverEffect(validationsLoginEmailIncorrect);
         setupHoverEffect(validationsLoginPasswordIncorrect);

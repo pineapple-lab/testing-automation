@@ -1,5 +1,10 @@
 package InsumosDocola;
 public class SelectorsDocola extends VariablesDocola{
+    //SELECTORS MAILINATOR
+    public static final String MAILINATOR_INPUT = "body > div:nth-of-type(1) > header:nth-of-type(1) > div:nth-of-type(1) input";
+    public static final String NEW_MESSAGE = "main > div:nth-of-type(2) > div:nth-of-type(3) > div > div:nth-of-type(4) table > tbody > tr";
+    public static final String TEXT_TAB = "ul > li:nth-of-type(2) a";
+    public static final String LINK_REGISTRATION = "#texthtml_msg_body";
     //SELECTORS CLASS AND COMPONENTS
     public static final String FORM = "form > ";
     public static final String APP_REGISTER = "app-register ";
@@ -184,6 +189,13 @@ public class SelectorsDocola extends VariablesDocola{
     //SELECT CONTINUE
     public static final String CONTINUE_CONTENT_BUTTON = FOOTER_DIV_BUTTONS +"div > button:nth-of-type(3)";
     public static final String CONTINUE_PRESCRIBE_BUTTON = "form .sticky-footer > div > div > button";
+    //INVITATION FORM
+    public static final String REGISTER_INVITATION_BUTTON = "app-register button";
+    public static final String REGISTER_INVITATION_FIRST_NAME = "app-register mat-stepper > div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > app-form-block-input:nth-of-type(1) input";
+    public static final String REGISTER_INVITATION_LAST_NAME = "app-register mat-stepper > div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > app-form-block-input:nth-of-type(2) input";
+    public static final String REGISTER_INVITATION_CONTINUE_STEP_1 = "app-register mat-stepper > div > div:nth-of-type(2) > div:nth-of-type(1) button";
+    public static final String REGISTER_INVITATION_CONTINUE_STEP_2 = "app-register mat-stepper > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(3) > div > button";
+    public static final String REGISTER_INVITATION_BUTTON_STEP_3 = "app-register mat-stepper > div > div:nth-of-type(2) > div:nth-of-type(3) > div > div > button";
     //SELECT MESSAGE ERROR
     public static final String MESSAGE_ERROR_TITLE_REQUIRED = "app-details-and-file-step > div > div:nth-of-type(1) mat-error";
     public static final String MESSAGE_ERROR_DESCRIPTION_REQUIRED = "app-details-and-file-step > div > div:nth-of-type(2) mat-error";

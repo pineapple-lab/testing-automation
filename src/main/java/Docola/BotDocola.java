@@ -52,7 +52,7 @@ public class BotDocola extends Docola.InterfaceActions {
             practiceNewResource.setOnMousePressed( event -> handleSecondaryClick(event, AdvancedSettingContentCreatorInPractice.class));
             practiceNewCourse.setOnAction(e -> handleAction(ExecMethod.PRACTICE_NEW_COURSE,"PRACTICE_NEW_COURSE"));
             practiceNewCourseCollection.setOnAction(e -> handleAction(ExecMethod.PRACTICE_NEW_COURSE_COLLECTION,"PRACTICE_NEW_COURSE_COLLECTION"));
-            invitationRegister.setOnAction(e -> handleAction(ExecMethod.INVITATION_REGISTER,"INVITATION_REGISTER"));
+            invitationRegister.setOnMousePressed( event -> handleSecondaryClick(event, AdvancedSettingPracticeInvite.class));
             //validation LOGIN buttons
             validationsLoginEmailIncorrect.setOnAction(e -> handleAction(ExecMethod.VALIDATION_EMAIL_EMPTY_LOGIN,"VALIDATION_EMAIL_EMPTY_LOGIN"));
             validationsLoginPasswordIncorrect.setOnAction(e -> handleAction(ExecMethod.VALIDATION_PASSWORD_INCORRECT_LOGIN,"VALIDATION_PASSWORD_INCORRECT_LOGIN"));
@@ -133,6 +133,9 @@ public class BotDocola extends Docola.InterfaceActions {
                 }
                 else if (configAvanzada instanceof AdvancedSettingContentCreatorInPractice) {
                     ((AdvancedSettingContentCreatorInPractice) configAvanzada).start(configAvanzadaStage);
+                }
+                else if (configAvanzada instanceof AdvancedSettingPracticeInvite) {
+                    ((AdvancedSettingPracticeInvite) configAvanzada).start(configAvanzadaStage);
                 }
                 Stage ownerStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 double x = ownerStage.getX();

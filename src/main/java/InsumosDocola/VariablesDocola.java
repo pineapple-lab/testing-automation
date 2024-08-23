@@ -30,5 +30,6 @@ public class VariablesDocola extends PathUtils{
    public static int membersAmount = 1;
    public String practiceName;
    public static int practiceRol = 0;
+   public static int practiceId;
    public static boolean addMembers;
 }

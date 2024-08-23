@@ -128,6 +128,8 @@ public class MethodsDocola extends ContextBaseDocola{
         page.click(SelectorsDocola.ACCOUNT_SETINGS);
         page.locator(SelectorsDocola.UPLOAD_PROFILE_PICTURE).setInputFiles(Paths.get(generate.generatePictureProfile()));
         page.waitForTimeout(1000);
+        page.click(SelectorsDocola.SAVE_UPLOAD_PICTURE);
+        page.waitForTimeout(3000);
         page.click(SelectorsDocola.SAVE_CHANGES);
     }
     public void goToContentCreateForm(){
@@ -200,10 +202,8 @@ public class MethodsDocola extends ContextBaseDocola{
         page.waitForTimeout(2000);
         List<Page> pages = context.pages();
         Page newTab = pages.get(pages.size()-1);
-        System.out.println(page.url());// Cambia a la nueva pestaña
-        newTab.bringToFront(); // Asegúrate de que la nueva pestaña está al frente
+        newTab.bringToFront();
         page = newTab;
-        System.out.println(page.url());// Actualiza el objeto page para referirse a la nueva pestaña
     }
     public void completeInvitationForm(){
         page.click(SelectorsDocola.REGISTER_INVITATION_BUTTON);
@@ -402,7 +402,6 @@ public class MethodsDocola extends ContextBaseDocola{
         }
         //page.click(SelectorsDocola.contentConfigurationCMECE);
         //page.click(SelectorsDocola.contentConfigurationMarketPlace);
-
     }
     private void selectContentCourses(){
         page.waitForTimeout(1000);
@@ -550,7 +549,7 @@ public class MethodsDocola extends ContextBaseDocola{
     }
     private void uploadPracticeImage(){
         page.locator(SelectorsDocola.PRACTICE_UPLOAD_IMAGE).setInputFiles(Paths.get(generate.generateImage()));
-        page.click(SelectorsDocola.SAVE_CHANGES);
+        page.click(SelectorsDocola.SAVE_UPLOAD_PICTURE);
     }
 }
 

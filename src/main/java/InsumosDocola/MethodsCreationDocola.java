@@ -166,11 +166,10 @@ public class MethodsCreationDocola extends ContextBaseDocola{
         userRole = "Clinican";
         System.out.println("Se crearan "+generate.generateExecutions()+" register invitations\n");
         for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
-            userInvitation= querie.getInvitationEmail(15);
+            userInvitation= querie.getInvitationEmail(practiceId);
             methods.mailinatorOpenLink(userInvitation);
             methods.completeInvitationForm();
             methods.completeOnboardingInstructor();
-            System.out.println(userInvitation);
             querie.updateRegisterInvitation(userInvitation);
             methods.uploadProfilePicture();
             System.out.println(executeCounter+"/"+generate.generateExecutions());

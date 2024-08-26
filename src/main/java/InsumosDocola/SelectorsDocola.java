@@ -30,10 +30,10 @@ public class SelectorsDocola extends VariablesDocola{
     //SELECTORS FOOTER
     public static final String FOOTER_DIV_BUTTONS = FORM +"div:nth-of-type(4) > div > ";
     //SELECTORS LOGIN
-    public static final String FORM_LOGIN = "form > div:nth-of-type(2) > div:nth-of-type(2) > ";
+    public static final String FORM_LOGIN = "app-login > div > div > form > div:nth-of-type(2) > ";
     public static final String LOGIN_EMAIL = FORM_LOGIN +"app-form-block-input:nth-of-type(1) input";
     public static final String LOGIN_PASSWORD = FORM_LOGIN +"app-form-block-input:nth-of-type(2) input";
-    public static final String LOGIN_BUTTON = FORM +"div:nth-of-type(2) > div:nth-of-type(3) button";
+    public static final String LOGIN_BUTTON = FORM +"div:nth-of-type(3) button";
     //SELECTOR SIGN OUT
     public static final String SIGN_OUT = ".mat-mdc-menu-content > div > button:nth-of-type(4)";
     //SELECTORS REGISTER//
@@ -183,10 +183,10 @@ public class SelectorsDocola extends VariablesDocola{
     public static final String PRACTICE_UPLOAD_IMAGE = "form > div:nth-of-type(1) > div:nth-of-type(2) input";
     public static final String PRACTICE_PUBLISH_BUTTON = "form > div:nth-of-type(3) > button";
     //SELECT PRESCRIBE
-    public static final String PRESCRIBE_BUTTON = "app-header .container > div:nth-of-type(2) > button:nth-of-type(1)";
+    public static final String PRESCRIBE_BUTTON = "app-header > div > div > div:nth-of-type(2) > button:nth-of-type(1)";
     public static final String PRESCRIBE_TO_PATIENT = "app-options > div:nth-of-type(2) > div:nth-of-type(1)";
     public static final String PRESCRIBE_VIA_EMAIL_RADIOBUTTON = "app-prescription mat-radio-group > mat-radio-button:nth-of-type(1) input";
-    public static final String PRESCRIBE_PATIENTS_EMAIL_INPUT = "app-prescription mat-radio-group > div > div > mat-form-field:nth-of-type(1) input";
+    public static final String PRESCRIBE_PATIENTS_EMAIL_INPUT = "mat-radio-group > div > div > div:nth-of-type(1) app-progressive-list input";
     //SELECT CONTINUE
     public static final String CONTINUE_CONTENT_BUTTON = FOOTER_DIV_BUTTONS +"div > button:nth-of-type(3)";
     public static final String CONTINUE_PRESCRIBE_BUTTON = "form .sticky-footer > div > div > button";

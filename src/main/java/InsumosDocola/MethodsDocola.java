@@ -218,6 +218,7 @@ public class MethodsDocola extends ContextBaseDocola{
         page.click(SelectorsDocola.REGISTER_INVITATION_BUTTON_STEP_3);
     }
     public void prescribeViaEmail(){
+        page.waitForTimeout(2000);
         page.click(SelectorsDocola.PRESCRIBE_BUTTON);
         completeContentStep();
         continuePrescribe();
@@ -257,7 +258,6 @@ public class MethodsDocola extends ContextBaseDocola{
             }else{
                 page.click(selector.practiceRolSendInvite(practiceRol));
             }
-
         }
     }
     private void continuePrescribe(){
@@ -405,13 +405,13 @@ public class MethodsDocola extends ContextBaseDocola{
     }
     private void selectContentCourses(){
         page.waitForTimeout(1000);
-        for(int contentPosition = contentAmount; contentPosition<= contentAmount; contentPosition++) {
+        for(int contentPosition = 1 ; contentPosition <= contentAmount; contentPosition++) {
             page.click(selector.courseSelectContent(generate.generateSetContentStep()));
         }
     }
     private void selectContentCoursesCollection() {
         page.waitForTimeout(2000);
-        for(int contentPosition = contentAmount; contentPosition<= contentAmount; contentPosition++) {
+        for(int contentPosition = contentAmount; contentPosition <= contentAmount; contentPosition++) {
             selectContentCourses();
         }
         for(int contentPosition = contentAmount; contentPosition<= contentAmount; contentPosition++) {
@@ -540,12 +540,15 @@ public class MethodsDocola extends ContextBaseDocola{
     }
     private void setPrescriptionStepViaEmail(){
         Keyboard kb = page.keyboard();
-        emailInfo = generate.generateEmail();
-        String patientEmail= emailInfo.getEmail();
-        page.click(SelectorsDocola.PRESCRIBE_VIA_EMAIL_RADIOBUTTON);
-        page.fill(SelectorsDocola.PRESCRIBE_PATIENTS_EMAIL_INPUT,patientEmail);
-        page.click(SelectorsDocola.PRESCRIBE_PATIENTS_EMAIL_INPUT);
-        kb.press("Enter");
+        for(int counterInvite = 1;counterInvite<=inviteAmount;counterInvite++) {
+            emailInfo = generate.generateEmail();
+            String patientEmail = emailInfo.getEmail();
+            page.click(SelectorsDocola.PRESCRIBE_VIA_EMAIL_RADIOBUTTON);
+            page.fill(SelectorsDocola.PRESCRIBE_PATIENTS_EMAIL_INPUT, patientEmail);
+            System.out.println("Se enviara un presribe a: " + patientEmail);
+            page.click(SelectorsDocola.PRESCRIBE_PATIENTS_EMAIL_INPUT);
+            kb.press("Enter");
+        }
     }
     private void uploadPracticeImage(){
         page.locator(SelectorsDocola.PRACTICE_UPLOAD_IMAGE).setInputFiles(Paths.get(generate.generateImage()));

@@ -46,8 +46,10 @@ public class BotDocola extends Docola.InterfaceActions {
             newResource.setOnMousePressed( event -> handleSecondaryClick(event, AdvancedSettingContentCreator.class));
             newCourse.setOnAction(e -> handleAction(ExecMethod.NEW_COURSE,"NEW_COURSE"));
             newCourseCollection.setOnAction(e -> handleAction(ExecMethod.NEW_COURSE_COLLECTION,"NEW_COURSE_COLLECTION"));
-            practiceCreator.setOnAction(e -> handleAction(ExecMethod.PRACTICE_CREATOR,"PRACTICE_CREATOR"));
-            practiceCreator.setOnMousePressed( event -> handleSecondaryClick(event, AdvancedSettingCreatePractice.class));
+            newPractice.setOnAction(e -> handleAction(ExecMethod.NEW_PRACTICE,"NEW_PRACTICE"));
+            newPractice.setOnMousePressed( event -> handleSecondaryClick(event, AdvancedSettingCreatePractice.class));
+            newPrescribe.setOnAction(e -> handleAction(ExecMethod.NEW_PRESCRIBE,"NEW_PRESCRIBE"));
+            newPrescribe.setOnMousePressed( event -> handleSecondaryClick(event, AdvancedSettingPrescribe.class));
             practiceNewResource.setOnAction(e -> handleAction(ExecMethod.PRACTICE_NEW_RESOURCE,"PRACTICE_NEW_RESOURCE"));
             practiceNewResource.setOnMousePressed( event -> handleSecondaryClick(event, AdvancedSettingContentCreatorInPractice.class));
             practiceNewCourse.setOnAction(e -> handleAction(ExecMethod.PRACTICE_NEW_COURSE,"PRACTICE_NEW_COURSE"));
@@ -137,6 +139,9 @@ public class BotDocola extends Docola.InterfaceActions {
                 else if (configAvanzada instanceof AdvancedSettingPracticeInvite) {
                     ((AdvancedSettingPracticeInvite) configAvanzada).start(configAvanzadaStage);
                 }
+                else if (configAvanzada instanceof AdvancedSettingPrescribe) {
+                    ((AdvancedSettingPrescribe) configAvanzada).start(configAvanzadaStage);
+                }
                 Stage ownerStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 double x = ownerStage.getX();
                 double y = ownerStage.getY();
@@ -223,7 +228,6 @@ public class BotDocola extends Docola.InterfaceActions {
         resourceType = "";
     }
     public void accion () {
-
         for (int i = 0; i < waitingList.size(); i++) {
             InterfaceActions.ExecMethod var = waitingList.get(i);
             switch (var) {
@@ -240,8 +244,11 @@ public class BotDocola extends Docola.InterfaceActions {
                 case NEW_COURSE_COLLECTION:
                     actionNewCourseCollection();
                     break;
-                case PRACTICE_CREATOR:
+                case NEW_PRACTICE:
                     actionNewPractice();
+                    break;
+                case NEW_PRESCRIBE:
+                    actionNewPrescribe();
                     break;
                 case PRACTICE_NEW_RESOURCE:
                     actionNewResourceInPractice();

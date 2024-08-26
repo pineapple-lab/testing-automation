@@ -1,11 +1,9 @@
 package InsumosDocola;
 import java.nio.file.Paths;
 import java.time.Instant;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import Configurations.*;
 import com.microsoft.playwright.ElementHandle;
-
 public class GeneratorDocola extends ContextBaseDocola{
     String firstName;
     String lastName;
@@ -103,10 +101,17 @@ public class GeneratorDocola extends ContextBaseDocola{
         List<ElementHandle> elements = page.querySelectorAll("app-tags-search-overlay > div > cdk-virtual-scroll-viewport > div > button");
         return getRandomIndex(elements.size()-1)+1;
     }
+    private List<Integer> availableIndices = new ArrayList<>();
     public int generateSetContentStep(){
         page.waitForSelector("app-crud");
         List<ElementHandle> elements = page.querySelectorAll("app-crud app-cards-container > div > app-card");
-        return getRandomIndex(elements.size()-1)+1;
+        if (availableIndices.isEmpty()) {
+            for (int i = 0; i < elements.size(); i++) {
+                availableIndices.add(i);
+            }
+            Collections.shuffle(availableIndices);
+        }
+        return availableIndices.remove(0) + 1;
     }
     public String generateQuestion(){
         String [] questionList = ContentQuestions.contentQuestions;

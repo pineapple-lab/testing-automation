@@ -38,11 +38,12 @@ public class InterfaceElements extends Application {
     Button createUser = new Button("New user");
     Button newResource = new Button("New Resource");
     Button newCourse = new Button ("New course");
+    Button newPrescribe = new Button ("New prescribe");
+    Button newPractice = new Button ("New practice");
     Button newCourseCollection = new Button ("New course collection");
     Button practiceNewResource = new Button("Practice new Resource");
     Button practiceNewCourse = new Button ("Practice new course");
     Button practiceNewCourseCollection = new Button ("Practice new course collection");
-    Button practiceCreator = new Button ("New practice");
     Button invitationRegister = new Button ("New invitation register");
     //validation LOGIN buttons
     Button validationsLoginEmailIncorrect = new Button("Email incorrecto");

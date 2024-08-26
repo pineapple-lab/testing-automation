@@ -4,13 +4,10 @@ import InsumosDocola.MethodsCreationDocola;
 import InsumosDocola.MethodsDocola;
 import org.junit.jupiter.api.Test;
 
-public class FunctionPrescribe extends MethodsCreationDocola {
+public class FunctionNewPrescribe extends MethodsCreationDocola {
     MethodsDocola methods = new MethodsDocola();
     @Test
-    public void servicePrescribe(){
-        navigationLink = "https://docolasandbox.web.app/";
-        executionDetails = "40";
-        contentAmount=1;
+    public void serviceNewPrescribe(){
         methods.startContextAndNavigation();
         newPrescribe();
         //methods.signOut();

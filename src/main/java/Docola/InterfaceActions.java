@@ -11,7 +11,8 @@ public class InterfaceActions extends InterfaceProperties{
         NEW_RESOURCE,
         NEW_COURSE,
         NEW_COURSE_COLLECTION,
-        PRACTICE_CREATOR,
+        NEW_PRACTICE,
+        NEW_PRESCRIBE,
         PRACTICE_NEW_RESOURCE,
         PRACTICE_NEW_COURSE,
         INVITATION_REGISTER,
@@ -67,6 +68,9 @@ public class InterfaceActions extends InterfaceProperties{
     }
     public void actionNewPractice() {
         executeService(new FunctionNewPractice(), FunctionNewPractice::serviceNewPractice);
+    }
+    public void actionNewPrescribe() {
+        executeService(new FunctionNewPrescribe(), FunctionNewPrescribe::serviceNewPrescribe);
     }
     public void actionNewResourceInPractice() {
         executeService(new FunctionCreateContent(), FunctionCreateContent::serviceNewResourceInPractice);

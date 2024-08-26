@@ -155,6 +155,7 @@ public class MethodsCreationDocola extends ContextBaseDocola{
         methods.goToMyPractice();
         for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
             methods.prescribeViaEmail();
+            page.waitForTimeout(2000);
             System.out.println(executeCounter+"/"+generate.generateExecutions());
         }
         cleanupContext();

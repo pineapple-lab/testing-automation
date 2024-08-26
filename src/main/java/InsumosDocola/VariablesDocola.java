@@ -25,7 +25,8 @@ public class VariablesDocola extends PathUtils{
    public String userInvitation = null;
    public static String invitationFirstName;
    public static String invitationLastName;
-   public static int contentAmount = 1;
+   public static volatile int contentAmount = 1;
+   public static volatile int inviteAmount = 1;
    public static int executeMembersAmount;
    public static int membersAmount = 1;
    public String practiceName;

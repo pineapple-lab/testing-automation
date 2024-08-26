@@ -50,7 +50,7 @@ public class AdvancedSettingPrescribe extends InterfaceElements{
         tbjoinRol.setContent(gridPaneJoin);
         tabPane.getTabs().addAll(tbjoinRol);
         rootConfigAvanzada.getChildren().add(tabPane);
-        Scene sceneConfigAvanzada = new Scene(rootConfigAvanzada,270,170);
+        Scene sceneConfigAvanzada = new Scene(rootConfigAvanzada,284,205);
         stageJoin.setScene(sceneConfigAvanzada);
         settingAdvancedExecute.setOnAction(e->{
             Thread execute=  new Thread (()->{

@@ -218,14 +218,14 @@ public class MethodsDocola extends ContextBaseDocola{
         page.click(SelectorsDocola.REGISTER_INVITATION_BUTTON_STEP_3);
     }
     public void prescribeViaEmail(){
-        page.waitForTimeout(2000);
-        page.click(SelectorsDocola.PRESCRIBE_BUTTON);
-        completeContentStep();
-        continuePrescribe();
-        setSendOptionsStep();
-        continuePrescribe();
+        prescribeCompleteStepOneAndTwo();
         setPrescriptionStepViaEmail();
         continuePrescribe();
+    }
+    public void prescribeCreatePatientAccountWithoutEmail(){
+        prescribeViaEmail();
+        setCreatePatientAccountWithoutEmail();
+
     }
     public void continueContent(){
         page.click(SelectorsDocola.CONTINUE_CONTENT_BUTTON);
@@ -242,6 +242,14 @@ public class MethodsDocola extends ContextBaseDocola{
         //page.click(SelectorsDocola.ONBOARDING_CLINICIANC_CONTINUE_STEP_2);
     }
     //Metodos privados
+    private void prescribeCompleteStepOneAndTwo(){
+        page.waitForTimeout(2000);
+        page.click(SelectorsDocola.PRESCRIBE_BUTTON);
+        completeContentStep();
+        continuePrescribe();
+        setSendOptionsStep();
+        continuePrescribe();
+    }
     private void addmembers(){
         for(executeMembersAmount = 1; executeMembersAmount <= membersAmount; executeMembersAmount++) {
             page.click(SelectorsDocola.PRACTICE_ADD_MEMBERS);
@@ -548,6 +556,16 @@ public class MethodsDocola extends ContextBaseDocola{
             System.out.println("Se enviara un presribe a: " + patientEmail);
             page.click(SelectorsDocola.PRESCRIBE_PATIENTS_EMAIL_INPUT);
             kb.press("Enter");
+        }
+    }
+    private void setCreatePatientAccountWithoutEmail(){
+        for(int counterInvite = 1; counterInvite<=inviteAmount;counterInvite++){
+            page.click(SelectorsDocola.PRESCRIBE_WITHOUT_EMAIL_RADIOBUTTON);
+            page.fill(selector.prescribeFirstName(counterInvite), generate.generateFirstName());
+            page.fill(selector.prescribeLastName(counterInvite), generate.generateLastName());
+            if(inviteAmount>1){
+                page.click(SelectorsDocola.PRESCRIBE_PATIENTS_EMAIL_INPUT);
+            }
         }
     }
     private void uploadPracticeImage(){

@@ -186,6 +186,14 @@ public class SelectorsDocola extends VariablesDocola{
     public static final String PRESCRIBE_BUTTON = "app-header > div > div > div:nth-of-type(2) > button:nth-of-type(1)";
     public static final String PRESCRIBE_TO_PATIENT = "app-options > div:nth-of-type(2) > div:nth-of-type(1)";
     public static final String PRESCRIBE_VIA_EMAIL_RADIOBUTTON = "app-prescription mat-radio-group > mat-radio-button:nth-of-type(1) input";
+    public static final String PRESCRIBE_WITHOUT_EMAIL_RADIOBUTTON = "app-prescription mat-radio-group > mat-radio-button:nth-of-type(2) input";
+    public String prescribeFirstName(int firstNamePosition){
+        return "mat-radio-group > div > div > div:nth-of-type("+firstNamePosition+") mat-form-field:nth-of-type(1) input";
+    }
+    public String prescribeLastName(int firstNamePosition){
+        return "mat-radio-group > div > div > div:nth-of-type("+firstNamePosition+") mat-form-field:nth-of-type(2) input";
+    }
+    public static final String PRESCRIBE_ADD_PATIENT = "mat-radio-group > div > div p";
     public static final String PRESCRIBE_PATIENTS_EMAIL_INPUT = "mat-radio-group > div > div > div:nth-of-type(1) app-progressive-list input";
     //SELECT CONTINUE
     public static final String CONTINUE_CONTENT_BUTTON = FOOTER_DIV_BUTTONS +"div > button:nth-of-type(3)";

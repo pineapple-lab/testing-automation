@@ -21,6 +21,7 @@ public class VariablesDocola extends PathUtils{
    public String userPassword = "123123aA-";
    //Variables de contenido
    public static volatile String contentTitle;
+   public static volatile String contentDescription;
    public static String resourceType;
    public static int contentType;
    public String userInvitation = null;

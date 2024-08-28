@@ -428,15 +428,20 @@ public class MethodsDocola extends ContextBaseDocola{
         }
     }
     private void completeContentTitle(){
-        System.out.println(contentTitle);
         if(contentTitle == ""){
             contentTitle = generate.generateContentTitle();
         }
         page.fill(SelectorsDocola.CONTENT_TITLE, contentTitle);
     }
+    private void completeContentDescription(){
+        if(contentDescription == ""){
+            contentDescription = generate.generateContentDescription();
+        }
+        page.fill(SelectorsDocola.CONTENT_DESCRIPTION, contentDescription);
+    }
     private void completeContentUploadFile(){
         completeContentTitle();
-        page.fill(SelectorsDocola.CONTENT_DESCRIPTION, generate.generateContentDescription());
+        completeContentDescription();
         page.locator(SelectorsDocola.CONTENT_UPLOAD).setInputFiles(Paths.get(generate.generateImage()));
         page.waitForSelector(SelectorsDocola.SELECT_PREVIEW_IMAGE);
         continueContent();

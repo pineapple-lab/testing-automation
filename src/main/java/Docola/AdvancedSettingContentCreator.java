@@ -21,6 +21,7 @@ public class AdvancedSettingContentCreator extends InterfaceElements {
     private volatile boolean isRunning = true;
     Button settingAdvancedExecute = new Button("Ejecutar");
     Tab tbUploadFile = new Tab("Upload file");
+    Label labelTest = new Label("test");
     Tab tbCaptureVideo = new Tab("Capture video");
     Tab tbQuiz = new Tab("Quiz");
     Tab tbSurvey = new Tab("Survey");
@@ -41,6 +42,7 @@ public class AdvancedSettingContentCreator extends InterfaceElements {
         TabPane tabPane = new TabPane();
 
         GridPane gridUploadFile = createTabContent(tbUploadFile);
+
         tbUploadFile.setContent(gridUploadFile);
 
         GridPane gridCaptureVideo = createTabContent(tbCaptureVideo);
@@ -65,7 +67,7 @@ public class AdvancedSettingContentCreator extends InterfaceElements {
         HBox buttonContainer = new HBox();
         buttonContainer.getChildren().add(settingAdvancedExecute);
 
-        mainLayout.add(buttonContainer, 20, 6);
+        mainLayout.add(buttonContainer, 40, 10);
 
         VBox vbox = new VBox();
         vbox.getChildren().addAll(tabPane, mainLayout);
@@ -78,7 +80,7 @@ public class AdvancedSettingContentCreator extends InterfaceElements {
         configureTabSelection(tbQuiz, "Quiz");
         configureTabSelection(tbSurvey, "Survey");
         configureTabSelection(tbVR, "VR");
-        Scene sceneConfigAvanzada = new Scene(vbox,310,190);
+        Scene sceneConfigAvanzada = new Scene(vbox,500,250);
         stageJoin.setScene(sceneConfigAvanzada);
         settingAdvancedExecute.setOnAction(e->{
             Tab selectedTab = tabPane.getSelectionModel().getSelectedItem();
@@ -102,13 +104,17 @@ public class AdvancedSettingContentCreator extends InterfaceElements {
         gridPane.setHgap(10);
         HBox headerContainer = new HBox(10);
         headerContainer.setPadding(new Insets(10, 10, 10, 10));
-        Label label = new Label("Title");
+        Label labelTitle = new Label("Title");
         TextField tfContentTitle = new TextField();
         tfContentTitle.setPromptText("Content title");
+        Label labelDescription = new Label("Description");
+        TextField tfContentDescription = new TextField();
+        tfContentDescription.setPromptText("Content description");
         textFieldMap.put(tab, tfContentTitle);
-        headerContainer.getChildren().add(label);
+        headerContainer.getChildren().add(labelTitle);
         headerContainer.getChildren().add(tfContentTitle);
-
+        headerContainer.getChildren().add(labelDescription);
+        headerContainer.getChildren().add(tfContentDescription);
         gridPane.add(headerContainer, 2, 2);
 
         return gridPane;

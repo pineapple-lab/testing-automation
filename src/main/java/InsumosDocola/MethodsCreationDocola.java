@@ -36,6 +36,11 @@ public class MethodsCreationDocola extends ContextBaseDocola{
      * Método para crear nuevos recursos en Docola.
      */
     public void newResource(){
+        //TO DO
+        //Hacer una pestaña para cada tipo de contenido
+        //Agregar en cada pestaña los input necesarios para setear de forma especifica cada contenido
+        //Dar prioridad a survey y quiz, tengo que poder configurar de forma especifica que tipo de pregunta agregar y cuantas
+        
         userRole = "Content provider";
         contentType = 1;
         methods.login();
@@ -113,6 +118,7 @@ public class MethodsCreationDocola extends ContextBaseDocola{
      * Método para crear nuevas colecciones de cursos adentro de una practica en Docola.
      */
     public void newCourseCollectionInPractice() {
+        //Agregar logica para setear actions
         userRole = "Clinician";
         methods.login();
         contentType = 3;

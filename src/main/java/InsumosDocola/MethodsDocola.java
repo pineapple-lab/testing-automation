@@ -427,8 +427,15 @@ public class MethodsDocola extends ContextBaseDocola{
             selectContentCourses();
         }
     }
+    private void completeContentTitle(){
+        System.out.println(contentTitle);
+        if(contentTitle == ""){
+            contentTitle = generate.generateContentTitle();
+        }
+        page.fill(SelectorsDocola.CONTENT_TITLE, contentTitle);
+    }
     private void completeContentUploadFile(){
-        page.fill(SelectorsDocola.CONTENT_TITLE, generate.generateContentTitle());
+        completeContentTitle();
         page.fill(SelectorsDocola.CONTENT_DESCRIPTION, generate.generateContentDescription());
         page.locator(SelectorsDocola.CONTENT_UPLOAD).setInputFiles(Paths.get(generate.generateImage()));
         page.waitForSelector(SelectorsDocola.SELECT_PREVIEW_IMAGE);

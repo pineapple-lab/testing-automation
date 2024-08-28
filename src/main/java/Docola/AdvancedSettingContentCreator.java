@@ -12,7 +12,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static InsumosDocola.VariablesDocola.*;
@@ -30,7 +32,7 @@ public class AdvancedSettingContentCreator extends InterfaceElements {
     VariablesDocola vDocola = new VariablesDocola();
     InterfaceActions iActions = new InterfaceActions();
     BotDocola accion = new BotDocola();
-    private Map<Tab, TextField> textFieldMap = new HashMap<>();
+    private Map<Tab,List<TextField>> textFieldMap = new HashMap<>();
     public AdvancedSettingContentCreator(String executionDetailsAvanzadas , String seleccionAvanzada){
 
         this.vDocola.executionDetails = executionDetailsAvanzadas;
@@ -59,6 +61,16 @@ public class AdvancedSettingContentCreator extends InterfaceElements {
 
         tabPane.getTabs().addAll(tbUploadFile,tbCaptureVideo,tbQuiz,tbSurvey,tbVR);
 
+        Tab firstTab = tabPane.getTabs().get(0);
+        VariablesDocola.resourceType = firstTab.getText();
+
+
+        tabPane.getSelectionModel().selectedItemProperty().addListener((observable, oldTab, newTab) -> {
+            if (newTab != null) {
+                VariablesDocola.resourceType = newTab.getText();
+            }
+        });
+
         GridPane mainLayout = new GridPane();
 
         mainLayout.setVgap(10);
@@ -84,9 +96,12 @@ public class AdvancedSettingContentCreator extends InterfaceElements {
         stageJoin.setScene(sceneConfigAvanzada);
         settingAdvancedExecute.setOnAction(e->{
             Tab selectedTab = tabPane.getSelectionModel().getSelectedItem();
-            TextField selectedTextField = textFieldMap.get(selectedTab);
-            if (selectedTextField != null) {
+            List<TextField> textFields = textFieldMap.get(selectedTab);
+            if (textFields != null && !textFields.isEmpty()) {
+                TextField selectedTextField = textFields.get(0);
                 contentTitle = selectedTextField.getText();
+                TextField descriptionTextField = textFields.size() > 1 ? textFields.get(1) : null;
+                contentDescription = descriptionTextField != null ? descriptionTextField.getText() : "";
                 Thread execute = new Thread(() -> {
                     iActions.actionNewResource();
                     cleanWaitingList();
@@ -110,7 +125,10 @@ public class AdvancedSettingContentCreator extends InterfaceElements {
         Label labelDescription = new Label("Description");
         TextField tfContentDescription = new TextField();
         tfContentDescription.setPromptText("Content description");
-        textFieldMap.put(tab, tfContentTitle);
+        List<TextField> textFields = new ArrayList<>();
+        textFields.add(tfContentTitle);
+        textFields.add(tfContentDescription);
+        textFieldMap.put(tab, textFields);
         headerContainer.getChildren().add(labelTitle);
         headerContainer.getChildren().add(tfContentTitle);
         headerContainer.getChildren().add(labelDescription);

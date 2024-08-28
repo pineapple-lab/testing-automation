@@ -447,15 +447,15 @@ public class MethodsDocola extends ContextBaseDocola{
         continueContent();
     }
     private void completeContentCaptureVideo(){
-        page.fill(SelectorsDocola.CONTENT_TITLE, generate.generateContentTitle());
-        page.fill(SelectorsDocola.CONTENT_DESCRIPTION, generate.generateContentDescription());
+        completeContentTitle();
+        completeContentDescription();
         page.locator(SelectorsDocola.CONTENT_UPLOAD).setInputFiles(Paths.get(generate.generateVideo()));
         page.waitForSelector(SelectorsDocola.SELECT_PREVIEW_IMAGE);
         continueContent();
     }
     private void completeContentImportWebContent(){
-        page.fill(SelectorsDocola.CONTENT_TITLE, generate.generateContentTitle());
-        page.fill(SelectorsDocola.CONTENT_DESCRIPTION, generate.generateContentDescription());
+        completeContentTitle();
+        completeContentDescription();
         page.fill(SelectorsDocola.CONTENT_ADD_URL,"https://www.youtube.com/embed/myDW_WPRHq0?si=bdkGE69WDFZXf7cj");
         continueContent();
     }
@@ -468,8 +468,8 @@ public class MethodsDocola extends ContextBaseDocola{
         page.fill(SelectorsDocola.CONTENT_OPTION_2_MULTIPLE_CHOICE_SURVEY, generate.generateAnswer());
     }
     private void completeContentQuiz(){
-        page.fill(SelectorsDocola.CONTENT_TITLE, generate.generateQuestion());
-        page.fill(SelectorsDocola.CONTENT_DESCRIPTION, generate.generateContentDescription());
+        completeContentTitle();
+        completeContentDescription();
         page.click(SelectorsDocola.CONTENT_ADD_QUESTIONS_QUIZ);
         if(typeQuestion == 0){
             typeQuestion=1;
@@ -488,8 +488,8 @@ public class MethodsDocola extends ContextBaseDocola{
         continueContent();
     }
     private void completeContentSurvey(){
-        page.fill(SelectorsDocola.CONTENT_TITLE, generate.generateQuestion());
-        page.fill(SelectorsDocola.CONTENT_DESCRIPTION, generate.generateContentDescription());
+        completeContentTitle();
+        completeContentDescription();
         page.click(SelectorsDocola.CONTENT_ADD_QUESTIONS_QUIZ);
         if(typeQuestion == 0){
             typeQuestion=1;
@@ -508,8 +508,8 @@ public class MethodsDocola extends ContextBaseDocola{
         continueContent();
     }
     private void completeContentVr(){
-        page.fill(SelectorsDocola.CONTENT_TITLE, generate.generateContentTitle());
-        page.fill(SelectorsDocola.CONTENT_DESCRIPTION, generate.generateContentDescription());
+        completeContentTitle();
+        completeContentDescription();
         page.locator(SelectorsDocola.CONTENT_UPLOAD).setInputFiles(Paths.get(generate.generateVideo()));
         page.waitForSelector(SelectorsDocola.SELECT_PREVIEW_IMAGE);
         continueContent();

@@ -476,14 +476,24 @@ public class MethodsDocola extends ContextBaseDocola{
         }
         page.waitForSelector(selector.contentTypeQuestionQuiz(typeQuestion));
         page.click(selector.contentTypeQuestionQuiz(typeQuestion));
-        switch (typeQuestion) {
-            case 1:
-                completeContentQuestionTrueOrFalse();
-                break;
+        //switch (typeQuestion) {
+            //case 1:
+
+                //break;
             /*case 2:
                 break;
             case 3:
                 break;*/
+        //}
+        page.waitForTimeout(4000);
+        page.focus("app-quiz-question");
+        Locator quizQuestion = page.locator("app-quiz-question >> text=True");
+        if(quizQuestion.isVisible()) {
+            System.out.println("encontre tipo de pregunta");
+            completeContentQuestionTrueOrFalse();
+        }else{
+            System.out.println("no encontre");
+
         }
         continueContent();
     }

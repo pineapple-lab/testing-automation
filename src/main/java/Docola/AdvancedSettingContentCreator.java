@@ -44,13 +44,13 @@ public class AdvancedSettingContentCreator extends InterfaceElements {
         TabPane tabPane = new TabPane();
 
         GridPane gridUploadFile = createTabContent(tbUploadFile);
-
         tbUploadFile.setContent(gridUploadFile);
 
         GridPane gridCaptureVideo = createTabContent(tbCaptureVideo);
         tbCaptureVideo.setContent(gridCaptureVideo);
 
         GridPane gridQuiz = createTabContent(tbQuiz);
+
         tbQuiz.setContent(gridQuiz);
 
         GridPane gridSurvey = createTabContent(tbSurvey);

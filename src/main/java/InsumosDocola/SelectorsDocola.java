@@ -43,13 +43,13 @@ public class SelectorsDocola extends VariablesDocola{
     //REGISTER STEP 1//
     public static final String FORM_REGISTER_STEP_1_TOP_DIV = APP_REGISTER + MAT_STEPPER +"div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ";
     public static final String FORM_REGISTER_STEP_1_BOTTOM_DIV = APP_REGISTER + MAT_STEPPER +"div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > ";
-    public static final String REGISTER_FIRST_NAME = FORM_REGISTER_STEP_1_TOP_DIV +"app-form-block-input:nth-of-type(1) mat-form-field input";
-    public static final String REGISTER_LAST_NAME = FORM_REGISTER_STEP_1_TOP_DIV +"app-form-block-input:nth-of-type(2) mat-form-field input";
-    public static final String EMAIL = FORM_REGISTER_STEP_1_BOTTOM_DIV +"app-form-block-input mat-form-field input";
+    public static final String REGISTER_FIRST_NAME = FORM_REGISTER_STEP_1_TOP_DIV +"app-form-block-input:nth-of-type(1) input";
+    public static final String REGISTER_LAST_NAME = FORM_REGISTER_STEP_1_TOP_DIV +"app-form-block-input:nth-of-type(2) input";
+    public static final String EMAIL = FORM_REGISTER_STEP_1_BOTTOM_DIV +"div:nth-of-type(2) > div input";
     public String rolRegister(int rol){
         return FORM_REGISTER_STEP_1_BOTTOM_DIV +"div:nth-of-type(3) > mat-card:nth-of-type("+rol+")";
     }
-    public static final String REGISTER_NEXT_BUTTON_STEP_1 = SELECT_DIV_NEXT_BUTTONS +"div:nth-of-type(1) > div:nth-of-type(2) > button";
+    public static final String REGISTER_NEXT_BUTTON_STEP_1 = SELECT_DIV_NEXT_BUTTONS +"div:nth-of-type(1) > div > div:nth-of-type(4) button";
     //REGISTER STEP 2//
     public static final String FORM_REGISTER_STEP_2 = MAT_STEPPER +"div > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > ";
     public static final String REGISTER_PASSWORD = FORM_REGISTER_STEP_2 +"app-form-block-input:nth-of-type(1) input";
@@ -57,12 +57,12 @@ public class SelectorsDocola extends VariablesDocola{
         return "app-password-verification > div > div:nth-of-type("+passwordCondition+")";
     }
     public static final String REGISTER_PASSWORD_CONFIRMATION = FORM_REGISTER_STEP_2 +"app-form-block-input:nth-of-type(2) input";
-    public static final String REGISTER_NEXT_BUTTON_STEP_2 = SELECT_DIV_NEXT_BUTTONS +"div:nth-of-type(2) > div:nth-of-type(2) > div > button";
+    public static final String REGISTER_NEXT_BUTTON_STEP_2 = SELECT_DIV_NEXT_BUTTONS +"div:nth-of-type(2) > div > div:nth-of-type(3) > div > button";
     //REGISTER STEP 3//
     public static final String FORM_REGISTER_STEP_3 = APP_TERMS_CONDITION +"div > div:nth-of-type(2) > ";
     public static final String REGISTER_TERMS_AND_CONDITIONS = FORM_REGISTER_STEP_3 +"mat-checkbox > div input";
     public static final String REGISTER_CAPTCHAT = FORM_REGISTER_STEP_3 +"re-captcha > div > div > iframe";
-    public static final String REGISTER_NEXT_BUTTON_STEP_3 = SELECT_DIV_NEXT_BUTTONS +"div:nth-of-type(3) > div > div button";
+    public static final String REGISTER_NEXT_BUTTON_STEP_3 = SELECT_DIV_NEXT_BUTTONS +"div:nth-of-type(3) > app-terms-condition > div > div:nth-of-type(3) > div button";
     //SELECTORS ONBOARDING CLINICIAN//
     public static final String SELECT_GENERIC_ONBOARDING_FIELDS = "app-onboarding > div > div";
     public static final String ONBOARDING_CONTENT_PROVIDER_COMPANY_NAME = SELECT_GENERIC_ONBOARDING_FIELDS +" > div:nth-of-type(2) > mat-form-field:nth-of-type(1) input";
@@ -83,7 +83,7 @@ public class SelectorsDocola extends VariablesDocola{
     //SELECTORS ACCOUNT SETTINGS
     public static final String UPLOAD_PROFILE_PICTURE = "app-profile-tab > div > div > input";
     public static final String SAVE_UPLOAD_PICTURE = "app-cropper-core > div > div:nth-of-type(2) > button";
-    public static final String SAVE_CHANGES = "app-profile > div:nth-of-type(2) > div button";
+    public static final String SAVE_CHANGES = "app-profile > div:nth-of-type(1) button";
     //SELECT CONTENT CREATOR COMPONENTS
     public static final String CREATE_NEW_RESOURCE_BUTTON = "text= New";
     public static final String SELECT_GENERIC_RESOURCE_TYPE = APP_SELECT_RESOURCE +"div > div > div:nth-of-type";

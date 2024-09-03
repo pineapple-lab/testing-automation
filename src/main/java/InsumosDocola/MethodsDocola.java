@@ -143,7 +143,7 @@ public class MethodsDocola extends ContextBaseDocola{
     }
     public void completeResourceStep(){
         completeResourceConfigurationStep();
-        completePricingStep();
+        //completePricingStep();
         completeThumbnailStep();
     }
     public void completeThumbnailStep(){

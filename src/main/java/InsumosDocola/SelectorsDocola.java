@@ -98,7 +98,7 @@ public class SelectorsDocola extends VariablesDocola{
     public static final String SELECT_GENERIC_INPUTS_CONTENT_CREATOR = "app-details-and-file-step > div > div:nth-of-type";
     public static final String SELECT_GENERIC_TYPE_QUESTION = ".cdk-overlay-pane> div > div > button:nth-of-type";
     public static final String SELECT_GENERIC_QUIZ_CARD_QUESTION = "app-quiz-question > div > div:nth-of-type(1) > div > ";
-    public static final String SELECT_GENERIC_CONFIGURATION_STEP = APP_CONFIGURATION_STEP +"div:nth-of-type(1) > div > div:nth-of-type(2) > div:nth-of-type(";
+    public static final String SELECT_GENERIC_CONFIGURATION_STEP = APP_CONFIGURATION_STEP +"div:nth-of-type(1) > div > div:nth-of-type(2) > mat-radio-group > ";
     public static final String SELECT_GENERIC_PRICING_STEP = APP_PRICING_STEP +"div > div:nth-of-type(";
     public static final String SELECT_PREVIEW_IMAGE = APP_UPLOADER_DROP_BOX +"div > div > div:nth-of-type(2) > i:nth-of-type(1)";
     public static final String SELECT_GENERIC_THUMBNAIL_STEP = APP_THUMBNAIL_STEP + FORM +"div > div > app-uploader-drop-box > div > div > button:nth-of-type(";
@@ -133,7 +133,7 @@ public class SelectorsDocola extends VariablesDocola{
     public static final String CONTENT_ADD_TAGS = APP_TAGS_SEARCH_OVERLAY +"div > div > button:nth-of-type(2)";
     public static final String CONTENT_LABEL_TAGS = "app-tags > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(1)";
     public static final String CONTENT_DELETE_TAGS = "app-tags > div > div:nth-of-type(1) > div:nth-of-type(2) .gap > div:nth-of-type(1) i";
-    public static final String CONTENT_CONFIGURATION_CMECE = SELECT_GENERIC_CONFIGURATION_STEP +"1) > mat-checkbox input";
+    public static final String CONTENT_CONFIGURATION_CMECE = SELECT_GENERIC_CONFIGURATION_STEP +"div mat-radio-button";
     public static final String CONTENT_CONFIGURATION_MARKET_PLACE = SELECT_GENERIC_CONFIGURATION_STEP +"2) > mat-checkbox input";
     public static final String CONTENT_PRICING_CONTENT_FOR_FREE = SELECT_GENERIC_PRICING_STEP +"1) mat-slide-toggle";
     public static final String CONTENT_PRICING_LIFETIME_PURCHASE = SELECT_GENERIC_PRICING_STEP +"2) mat-slide-toggle";

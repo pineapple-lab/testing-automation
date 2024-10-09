@@ -387,6 +387,7 @@ public class MethodsDocola extends ContextBaseDocola{
         completeCourseAndCurriculumConfigurationStep();
         completeContentStep();
         continueContent();
+        continueContent();
         completePricingStep();
         continueContent();
     }
@@ -400,7 +401,9 @@ public class MethodsDocola extends ContextBaseDocola{
         completeCourseAndCurriculumConfigurationStep();
         completeContentStep();
         continueContent();
+        continueContent();
         completePricingStep();
+        continueContent();
         completeThumbnailStep();
     }
     private void completeContentStep() {
@@ -560,10 +563,9 @@ public class MethodsDocola extends ContextBaseDocola{
     }
     private void completePricingStep(){
         waiting.waitingPricingStepSelector();
-        page.click(SelectorsDocola.CONTENT_PRICING_CONTENT_FOR_FREE);
-        //page.fill(SelectorsDocola.CONTENT_PRICING_MONTHLY_PRICE,"123");
+        //page.click(SelectorsDocola.CONTENT_PRICING_CONTENT_FOR_FREE);
+        page.fill(SelectorsDocola.CONTENT_PRICING_MONTHLY_PRICE,"123");
         //page.fill(SelectorsDocola.contentPricingYearlyPrice,"123");
-        continueContent();
     }
     private void setSendOptionsStep(){
        page.click(SelectorsDocola.PRESCRIBE_TO_PATIENT);

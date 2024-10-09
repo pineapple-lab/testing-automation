@@ -414,8 +414,13 @@ public class MethodsDocola extends ContextBaseDocola{
         //page.click(SelectorsDocola.contentConfigurationCMECE);
         //page.click(SelectorsDocola.contentConfigurationMarketPlace);
     }
+    /*public void selectPaging(){
+        generate.generatePaging();
+    }
+    * */
     private void selectContentCourses(){
         page.waitForTimeout(1000);
+        //selectPaging();
         for(int contentPosition = 1 ; contentPosition <= contentAmount; contentPosition++) {
             page.click(selector.courseSelectContent(generate.generateSetContentStep()));
         }

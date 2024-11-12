@@ -27,6 +27,7 @@ public class AdvancedSettingContentCreator extends InterfaceElements {
     Tab tbCaptureVideo = new Tab("Capture video");
     Tab tbQuiz = new Tab("Quiz");
     Tab tbSurvey = new Tab("Survey");
+    Tab tbWebContent = new Tab("Web content");
     Tab tbVR = new Tab("VR");
     MethodsDocola mDocola = new MethodsDocola();
     VariablesDocola vDocola = new VariablesDocola();
@@ -49,6 +50,10 @@ public class AdvancedSettingContentCreator extends InterfaceElements {
         GridPane gridCaptureVideo = createTabContent(tbCaptureVideo);
         tbCaptureVideo.setContent(gridCaptureVideo);
 
+        GridPane gridWebContent = createTabContent(tbWebContent);
+
+        tbWebContent.setContent(gridWebContent);
+
         GridPane gridQuiz = createTabContent(tbQuiz);
 
         tbQuiz.setContent(gridQuiz);
@@ -59,7 +64,7 @@ public class AdvancedSettingContentCreator extends InterfaceElements {
         GridPane gridVR = createTabContent(tbVR);
         tbVR.setContent(gridVR);
 
-        tabPane.getTabs().addAll(tbUploadFile,tbCaptureVideo,tbQuiz,tbSurvey,tbVR);
+        tabPane.getTabs().addAll(tbUploadFile,tbCaptureVideo,tbWebContent,tbQuiz,tbSurvey,tbVR);
 
         Tab firstTab = tabPane.getTabs().get(0);
         VariablesDocola.resourceType = firstTab.getText();
@@ -89,6 +94,7 @@ public class AdvancedSettingContentCreator extends InterfaceElements {
         settingAdvancedExecute.setOnMouseExited(e -> settingAdvancedExecute.setStyle("-fx-background-color: #5bb346;"));
         configureTabSelection(tbUploadFile, "Upload file");
         configureTabSelection(tbCaptureVideo, "Capture video");
+        configureTabSelection(tbWebContent, "Web content");
         configureTabSelection(tbQuiz, "Quiz");
         configureTabSelection(tbSurvey, "Survey");
         configureTabSelection(tbVR, "VR");

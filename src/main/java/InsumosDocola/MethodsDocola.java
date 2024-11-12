@@ -89,6 +89,7 @@ public class MethodsDocola extends ContextBaseDocola{
     public void completeCourseForm(){
         goToContentCreateForm();
         completeCourseSetup();
+        completeThumbnailStep();
     }
     public void completeCollectionForm(){
         goToContentCreateForm();
@@ -133,10 +134,13 @@ public class MethodsDocola extends ContextBaseDocola{
         page.click(SelectorsDocola.SAVE_CHANGES);
     }
     public void goToContentCreateForm(){
-        page.waitForTimeout(2000);
-        page.click(SelectorsDocola.HEADER_MY_LIBRARY_BUTTON);
+        page.waitForTimeout(1000);
         page.click(SelectorsDocola.CREATE_NEW_RESOURCE_BUTTON);
         page.click(selector.createNewContentButton(contentType));
+    }
+    public void goToMyLibrary(){
+        page.waitForTimeout(3000);
+        page.click(SelectorsDocola.HEADER_MY_LIBRARY_BUTTON);
     }
     public void goToResourceCreateForm(){
         page.click(selector.createResource(generate.generateTypeContent()));
@@ -387,6 +391,7 @@ public class MethodsDocola extends ContextBaseDocola{
         completeCourseAndCurriculumConfigurationStep();
         completeContentStep();
         continueContent();
+        continueContent();
         completePricingStep();
         continueContent();
     }
@@ -400,7 +405,9 @@ public class MethodsDocola extends ContextBaseDocola{
         completeCourseAndCurriculumConfigurationStep();
         completeContentStep();
         continueContent();
+        continueContent();
         completePricingStep();
+        continueContent();
         completeThumbnailStep();
     }
     private void completeContentStep() {
@@ -412,20 +419,17 @@ public class MethodsDocola extends ContextBaseDocola{
         //page.click(SelectorsDocola.contentConfigurationMarketPlace);
     }
     private void selectContentCourses(){
-        page.waitForTimeout(1000);
+        page.waitForTimeout(2000);
         for(int contentPosition = 1 ; contentPosition <= contentAmount; contentPosition++) {
             page.click(selector.courseSelectContent(generate.generateSetContentStep()));
         }
     }
     private void selectContentCoursesCollection() {
         page.waitForTimeout(2000);
-        for(int contentPosition = contentAmount; contentPosition <= contentAmount; contentPosition++) {
-            selectContentCourses();
-        }
-        for(int contentPosition = contentAmount; contentPosition<= contentAmount; contentPosition++) {
-            page.click(SelectorsDocola.CONTENT_TAB_COURSES);
-            selectContentCourses();
-        }
+        selectContentCourses();
+        page.click(SelectorsDocola.CONTENT_TAB_COURSES);
+        selectContentCourses();
+
     }
     private void completeContentTitle(){
         if(contentTitle == ""){
@@ -489,11 +493,7 @@ public class MethodsDocola extends ContextBaseDocola{
         page.focus("app-quiz-question");
         Locator quizQuestion = page.locator("app-quiz-question >> text=True");
         if(quizQuestion.isVisible()) {
-            System.out.println("encontre tipo de pregunta");
             completeContentQuestionTrueOrFalse();
-        }else{
-            System.out.println("no encontre");
-
         }
         continueContent();
     }
@@ -560,10 +560,12 @@ public class MethodsDocola extends ContextBaseDocola{
     }
     private void completePricingStep(){
         waiting.waitingPricingStepSelector();
+        page.waitForTimeout(2000);
+        page.click(SelectorsDocola.CONTENT_PRICING_CONTENT_FOR_FREE);
+        page.click(SelectorsDocola.CONTENT_PRICING_CONTENT_FOR_FREE);
         page.click(SelectorsDocola.CONTENT_PRICING_CONTENT_FOR_FREE);
         //page.fill(SelectorsDocola.CONTENT_PRICING_MONTHLY_PRICE,"123");
         //page.fill(SelectorsDocola.contentPricingYearlyPrice,"123");
-        continueContent();
     }
     private void setSendOptionsStep(){
        page.click(SelectorsDocola.PRESCRIBE_TO_PATIENT);

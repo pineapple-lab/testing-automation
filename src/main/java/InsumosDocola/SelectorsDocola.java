@@ -26,7 +26,7 @@ public class SelectorsDocola extends VariablesDocola{
     //SELECTORS HEADER
     public static final String APP_HEADER = "app-header > ";
     public static final String HEADER_DIV_BUTTONS = APP_HEADER +"div > div > div:nth-of-type(1) > div > button:nth-of-type";
-    public static final String HEADER_MY_LIBRARY_BUTTON = HEADER_DIV_BUTTONS +"(2) > span:nth-of-type(1)";
+    public static final String HEADER_MY_LIBRARY_BUTTON = HEADER_DIV_BUTTONS +"(1) > span:nth-of-type(1)";
     //SELECTORS FOOTER
     public static final String FOOTER_DIV_BUTTONS = FORM +"div:nth-of-type(4) > div > ";
     //SELECTORS LOGIN
@@ -88,7 +88,7 @@ public class SelectorsDocola extends VariablesDocola{
     public static final String CREATE_NEW_RESOURCE_BUTTON = "text= New";
     public static final String SELECT_GENERIC_RESOURCE_TYPE = APP_SELECT_RESOURCE +"div > div > div:nth-of-type";
     public String createNewContentButton(int typeContent) {
-        return SELECT_GENERIC_RESOURCE_TYPE + "(" + typeContent + ") > span";
+        return SELECT_GENERIC_RESOURCE_TYPE + "(" + typeContent + ") > button";
     }
     public static final String SELECT_DIV_ALL_RESOURCE_CREATOR = APP_SELECT_CONTENT +"div > div > div:nth-of-type";
     public String createResource(int resourceTypePosition){
@@ -137,7 +137,7 @@ public class SelectorsDocola extends VariablesDocola{
     public static final String CONTENT_CONFIGURATION_MARKET_PLACE = SELECT_GENERIC_CONFIGURATION_STEP +"2) > mat-checkbox input";
     public static final String CONTENT_PRICING_CONTENT_FOR_FREE = SELECT_GENERIC_PRICING_STEP +"1) mat-slide-toggle";
     public static final String CONTENT_PRICING_LIFETIME_PURCHASE = SELECT_GENERIC_PRICING_STEP +"2) mat-slide-toggle";
-    public static final String CONTENT_PRICING_MONTHLY_PRICE = SELECT_GENERIC_PRICING_STEP +"2) > div:nth-of-type(3) > div:nth-of-type(1) mat-form-field input";
+    public static final String CONTENT_PRICING_MONTHLY_PRICE = SELECT_GENERIC_PRICING_STEP +"2) mat-form-field input";
     public static final String CONTENT_PRICING_YEARLY_PRICE = SELECT_GENERIC_PRICING_STEP +"2) > div:nth-of-type(3) > div:nth-of-type(2) mat-form-field input";
     public static final String CONTENT_THUMBNAIL_UPLOAD_FILE = SELECT_GENERIC_THUMBNAIL_STEP +"1)";
     public static final String CONTENT_THUMBNAIL_UNSPLASH = SELECT_GENERIC_THUMBNAIL_STEP +"2)";
@@ -162,7 +162,7 @@ public class SelectorsDocola extends VariablesDocola{
     public static final String CONTENT_GO_TO_MY_PRACTICES = "app-header .container > div:nth-of-type(1) > div > button:nth-of-type(1)";
     public static final String CONTENT_GO_TO_PRACTICE = "app-practices > div:nth-of-type(1) > div:nth-of-type(2) button";
     //SELECT CERTIFICATE
-    public static final String CONTENT_CERTIFICATE_CUSTOMIZE = "app-configuration-step > div > div > div:nth-of-type(2) > div:nth-of-type(1) > div";
+    public static final String CONTENT_CERTIFICATE_CUSTOMIZE = "app-configuration-step > div > div > div:nth-of-type(2) > mat-radio-group > div > div small";
     public static final String CONTENT_CERTIFICATE_DESCRIPTION = "app-certificate-dialog .container-border > div:nth-of-type(1) > div:nth-of-type(5) textarea";
     public static final String CONTENT_CERTIFICATE_SIGNATURE = "app-certificate-dialog > div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) >div:nth-of-type(2) input";
     public static final String CONTENT_CERTIFICATE_SAVE = "app-certificate-dialog > div > div:nth-of-type(3) > button:nth-of-type(2)";
@@ -196,7 +196,7 @@ public class SelectorsDocola extends VariablesDocola{
     public static final String PRESCRIBE_ADD_PATIENT = "mat-radio-group > div > div p";
     public static final String PRESCRIBE_PATIENTS_EMAIL_INPUT = "mat-radio-group > div > div > div:nth-of-type(1) app-progressive-list input";
     //SELECT CONTINUE
-    public static final String CONTINUE_CONTENT_BUTTON = FOOTER_DIV_BUTTONS +"div > button:nth-of-type(3)";
+    public static final String CONTINUE_CONTENT_BUTTON = FOOTER_DIV_BUTTONS +"div > button:nth-of-type(2)";
     public static final String CONTINUE_PRESCRIBE_BUTTON = "form .sticky-footer > div > div > button";
     //INVITATION FORM
     public static final String REGISTER_INVITATION_BUTTON = "app-register button";

@@ -44,6 +44,7 @@ public class MethodsCreationDocola extends ContextBaseDocola{
         userRole = "Content provider";
         contentType = 1;
         methods.login();
+        methods.goToMyLibrary();
         System.out.println("Se crearan "+generate.generateExecutions()+" "+resourceType+"\n");
         for(executeCounter= 1;executeCounter<=generate.generateExecutions();executeCounter++ ) {
             methods.completeResourceForm();
@@ -59,6 +60,7 @@ public class MethodsCreationDocola extends ContextBaseDocola{
     public void newCourse() {
         methods.login();
         contentType = 2;
+        methods.goToMyLibrary();
         System.out.println("Se crearan "+generate.generateExecutions()+" cursos\n");
         for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
             methods.completeCourseForm();
@@ -74,6 +76,7 @@ public class MethodsCreationDocola extends ContextBaseDocola{
         methods.login();
         contentType = 3;
         System.out.println("Se crearan "+generate.generateExecutions()+" curriculum\n");
+        methods.goToMyLibrary();
         for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
             methods.completeCollectionForm();
             methods.publishContent();

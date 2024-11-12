@@ -106,12 +106,12 @@ public class GeneratorDocola extends ContextBaseDocola{
         page.waitForSelector("app-crud");
         List<ElementHandle> elements = page.querySelectorAll("app-crud app-cards-container > div > app-card");
         if (availableIndices.isEmpty()) {
-            for (int i = 0; i < elements.size(); i++) {
+            for (int i = 1; i < elements.size(); i++) {
                 availableIndices.add(i);
             }
             Collections.shuffle(availableIndices);
         }
-        return availableIndices.remove(0) + 1;
+        return availableIndices.remove(0)+1;
     }
     public String generateQuestion(){
         String [] questionList = ContentQuestions.contentQuestions;

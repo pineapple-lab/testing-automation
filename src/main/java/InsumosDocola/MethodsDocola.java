@@ -436,16 +436,16 @@ public class MethodsDocola extends ContextBaseDocola{
         }
     }
     private void completeContentTitle(){
-        if(contentTitle == ""){
+        /*if(contentTitle == ""){
             contentTitle = generate.generateContentTitle();
-        }
-        page.fill(SelectorsDocola.CONTENT_TITLE, contentTitle);
+        }*/
+        page.fill(SelectorsDocola.CONTENT_TITLE, generate.generateContentTitle());
     }
     private void completeContentDescription(){
-        if(contentDescription == ""){
+        /*if(contentDescription == ""){
             contentDescription = generate.generateContentDescription();
-        }
-        page.fill(SelectorsDocola.CONTENT_DESCRIPTION, contentDescription);
+        }*/
+        page.fill(SelectorsDocola.CONTENT_DESCRIPTION, generate.generateContentDescription());
     }
     private void completeContentUploadFile(){
         completeContentTitle();
@@ -497,10 +497,9 @@ public class MethodsDocola extends ContextBaseDocola{
         page.focus("app-quiz-question");
         Locator quizQuestion = page.locator("app-quiz-question >> text=True");
         if(quizQuestion.isVisible()) {
-            System.out.println("encontre tipo de pregunta");
             completeContentQuestionTrueOrFalse();
         }else{
-            System.out.println("no encontre");
+            System.out.println("no encontre tipo de pregunta");
 
         }
         continueContent();

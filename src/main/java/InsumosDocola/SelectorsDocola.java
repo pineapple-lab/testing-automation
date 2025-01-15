@@ -85,10 +85,10 @@ public class SelectorsDocola extends VariablesDocola{
     public static final String SAVE_UPLOAD_PICTURE = "app-cropper-core > div > div:nth-of-type(2) > button";
     public static final String SAVE_CHANGES = "app-profile > div:nth-of-type(1) button";
     //SELECT CONTENT CREATOR COMPONENTS
-    public static final String CREATE_NEW_RESOURCE_BUTTON = "text= New";
+    public static final String CREATE_NEW_RESOURCE_BUTTON = "text=New";
     public static final String SELECT_GENERIC_RESOURCE_TYPE = APP_SELECT_RESOURCE +"div > div > div:nth-of-type";
     public String createNewContentButton(int typeContent) {
-        return SELECT_GENERIC_RESOURCE_TYPE + "(" + typeContent + ") > span";
+        return SELECT_GENERIC_RESOURCE_TYPE + "(" + typeContent + ") > button";
     }
     public static final String SELECT_DIV_ALL_RESOURCE_CREATOR = APP_SELECT_CONTENT +"div > div > div:nth-of-type";
     public String createResource(int resourceTypePosition){

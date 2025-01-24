@@ -44,7 +44,8 @@ public abstract class InterfaceElements extends Application {
     Tab tbTestCase = new Tab("TestCase");
 
     //TEST CASE BUTTONS
-    Button loginButton = new Button("Login");
+    Button hpLoginButton = new Button("Hp Login");
+    Button hpUploadVideos = new Button ("Hp Upload video");
 
     public abstract void start(Stage stage);
 }

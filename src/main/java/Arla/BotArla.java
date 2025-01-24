@@ -45,9 +45,8 @@ public class BotArla extends Arla.InterfaceActions {
             }));
             outputStream.println("Bienvenido, selecciona un ambiente y el numero de executionDetails para empezar.\n\n");
             //CREATOR buttons
-            loginButton.setOnAction(e -> handleAction(ExecMethod.LOGIN_USER,"LOGIN_USER"));
-
-
+            hpLoginButton.setOnAction(e -> handleAction(ExecMethod.HP_LOGIN_USER,"HP_LOGIN_USER"));
+            hpUploadVideos.setOnAction(e -> handleAction(ExecMethod.HP_UPLOAD_VIDEO,"HP_UPLOAD_VIDEO"));
 
             //HEADER
             comboBox.setOnAction(e -> handleComboBoxAction());
@@ -179,8 +178,11 @@ public class BotArla extends Arla.InterfaceActions {
             Arla.InterfaceActions.ExecMethod var = waitingList.get(i);
             switch (var) {
                 //CASE CREATION
-                case LOGIN_USER:
-                    actionLogin();
+                case HP_LOGIN_USER:
+                    actionHpLogin();
+                    break;
+                case HP_UPLOAD_VIDEO:
+                    actionHpUploadVideo();
                     break;
             }
             if (!isRunning) {

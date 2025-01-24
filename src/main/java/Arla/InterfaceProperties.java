@@ -59,7 +59,8 @@ public class InterfaceProperties extends InterfaceElements{
         GridPane.setConstraints(comboBox,2,1);
         GridPane.setConstraints(botConfigurations, 7, 1);
         //Test case buttons
-        GridPane.setConstraints(loginButton, 2, 3);
+        GridPane.setConstraints(hpLoginButton, 2, 3);
+        GridPane.setConstraints(hpUploadVideos, 2, 4);
         comboBox.getItems().add("DEV");
         comboBox.getItems().add("QA");
         comboBox.getItems().add("Local");
@@ -74,7 +75,8 @@ public class InterfaceProperties extends InterfaceElements{
         gridHeader.getChildren().add(botConfigurations);
     }
     private void addElementsGridCreator(){
-        gridCreator.getChildren().add(loginButton);
+        gridCreator.getChildren().add(hpLoginButton);
+        gridCreator.getChildren().add(hpUploadVideos);
 
     }
     private void setColors(){
@@ -83,8 +85,9 @@ public class InterfaceProperties extends InterfaceElements{
         setButtonStyle(stopTestCase);
         setButtonStyle(removeQueue);
         setButtonStyle(botConfigurations);
-        //Create buttons
-        setButtonStyle(loginButton);
+        //Test case buttons
+        setButtonStyle(hpLoginButton);
+        setButtonStyle(hpUploadVideos);
     }
     private void setButtonStyle(Button button) {
         button.setStyle("-fx-background-color: #cb4b81;");
@@ -95,8 +98,9 @@ public class InterfaceProperties extends InterfaceElements{
         setupHoverEffect(stopTestCase);
         setupHoverEffect(removeQueue);
         setupHoverEffect(botConfigurations);
-        //Create buttons
-
+        //Test case buttons
+        setupHoverEffect(hpLoginButton);
+        setupHoverEffect(hpUploadVideos);
     }
     private void setupHoverEffect(Button button) {
         button.setOnMouseEntered(e -> button.setStyle("-fx-background-color: #e27da1; -fx-text-fill: white;"));

@@ -2,7 +2,7 @@ package InsumosArla;
 
 import java.io.PrintStream;
 
-public class VariablesArla {
+public class VariablesArla extends PathUtilsArla{
     public static volatile PrintStream outputStream;
     public static volatile boolean stopTest;
     public static volatile String navigationLink;
@@ -14,4 +14,6 @@ public class VariablesArla {
     public static int setSizeWidth = 1820;
     public static int setSizeHeight = 980;
     public int executeCounter;
+    public String username = "franclient";
+    public String password = "123123aA.";
 }

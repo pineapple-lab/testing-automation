@@ -9,7 +9,8 @@ import java.util.List;
 public class InterfaceActions extends InterfaceProperties{
     enum ExecMethod {
         //CREATE
-        LOGIN_USER,
+        HP_LOGIN_USER,
+        HP_UPLOAD_VIDEO
     }
     public void actionEliminarDeLaCola() {
         List<CheckBox> checkBoxesSeleccionados = new ArrayList<>();
@@ -26,8 +27,11 @@ public class InterfaceActions extends InterfaceProperties{
         }
     }
     //create actions
-    public void actionLogin() {
+    public void actionHpLogin() {
         executeService(new FunctionLogin(), FunctionLogin::serviceLogin);
+    }
+    public void actionHpUploadVideo() {
+        executeService(new FunctionUploadVideo(), FunctionUploadVideo::serviceUploadVideos);
     }
     private <T> void executeService(T serviceInstance, Arla.InterfaceActions.CheckedConsumer<T> action) {
         try {

@@ -21,6 +21,7 @@ public class TestCaseArla extends ContextArla{
         for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
             methods.uploadVideo();
             methods.waitForToast(toast.VIDEO_UPLOAD_SUCCESS);
+
         }
         cleanupContext();
     }

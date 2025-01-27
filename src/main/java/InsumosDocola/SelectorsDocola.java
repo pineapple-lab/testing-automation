@@ -85,7 +85,7 @@ public class SelectorsDocola extends VariablesDocola{
     public static final String SAVE_UPLOAD_PICTURE = "app-cropper-core > div > div:nth-of-type(2) > button";
     public static final String SAVE_CHANGES = "app-profile > div:nth-of-type(1) button";
     //SELECT CONTENT CREATOR COMPONENTS
-    public static final String CREATE_NEW_RESOURCE_BUTTON = "text= New";
+    public static final String CREATE_NEW_RESOURCE_BUTTON = "text=New";
     public static final String SELECT_GENERIC_RESOURCE_TYPE = APP_SELECT_RESOURCE +"div > div > div:nth-of-type";
     public String createNewContentButton(int typeContent) {
         return SELECT_GENERIC_RESOURCE_TYPE + "(" + typeContent + ") > button";
@@ -138,6 +138,8 @@ public class SelectorsDocola extends VariablesDocola{
     public static final String CONTENT_PRICING_CONTENT_FOR_FREE = SELECT_GENERIC_PRICING_STEP +"1) mat-slide-toggle";
     public static final String CONTENT_PRICING_LIFETIME_PURCHASE = SELECT_GENERIC_PRICING_STEP +"2) mat-slide-toggle";
     public static final String CONTENT_PRICING_MONTHLY_PRICE = SELECT_GENERIC_PRICING_STEP +"2) mat-form-field input";
+    //public static final String CONTENT_PRICING_MONTHLY_PRICE = SELECT_GENERIC_PRICING_STEP +"2) > div:nth-of-type(2) input";
+
     public static final String CONTENT_PRICING_YEARLY_PRICE = SELECT_GENERIC_PRICING_STEP +"2) > div:nth-of-type(3) > div:nth-of-type(2) mat-form-field input";
     public static final String CONTENT_THUMBNAIL_UPLOAD_FILE = SELECT_GENERIC_THUMBNAIL_STEP +"1)";
     public static final String CONTENT_THUMBNAIL_UNSPLASH = SELECT_GENERIC_THUMBNAIL_STEP +"2)";
@@ -163,6 +165,9 @@ public class SelectorsDocola extends VariablesDocola{
     public static final String CONTENT_GO_TO_PRACTICE = "app-practices > div:nth-of-type(1) > div:nth-of-type(2) button";
     //SELECT CERTIFICATE
     public static final String CONTENT_CERTIFICATE_CUSTOMIZE = "app-configuration-step > div > div > div:nth-of-type(2) > mat-radio-group > div > div small";
+
+    //public static final String CONTENT_CERTIFICATE_CUSTOMIZE = "app-configuration-step > div > div > div:nth-of-type(2) >  mat-radio-group > div > div > div";
+
     public static final String CONTENT_CERTIFICATE_DESCRIPTION = "app-certificate-dialog .container-border > div:nth-of-type(1) > div:nth-of-type(5) textarea";
     public static final String CONTENT_CERTIFICATE_SIGNATURE = "app-certificate-dialog > div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) >div:nth-of-type(2) input";
     public static final String CONTENT_CERTIFICATE_SAVE = "app-certificate-dialog > div > div:nth-of-type(3) > button:nth-of-type(2)";

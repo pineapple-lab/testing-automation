@@ -418,8 +418,15 @@ public class MethodsDocola extends ContextBaseDocola{
         //page.click(SelectorsDocola.contentConfigurationCMECE);
         //page.click(SelectorsDocola.contentConfigurationMarketPlace);
     }
+    /*public void selectPaging(){
+        generate.generatePaging();
+    }
+    * */
     private void selectContentCourses(){
         page.waitForTimeout(2000);
+
+        page.waitForTimeout(1000);
+        //selectPaging();
         for(int contentPosition = 1 ; contentPosition <= contentAmount; contentPosition++) {
             page.click(selector.courseSelectContent(generate.generateSetContentStep()));
         }
@@ -432,16 +439,16 @@ public class MethodsDocola extends ContextBaseDocola{
 
     }
     private void completeContentTitle(){
-        if(contentTitle == ""){
+        /*if(contentTitle == ""){
             contentTitle = generate.generateContentTitle();
-        }
-        page.fill(SelectorsDocola.CONTENT_TITLE, contentTitle);
+        }*/
+        page.fill(SelectorsDocola.CONTENT_TITLE, generate.generateContentTitle());
     }
     private void completeContentDescription(){
-        if(contentDescription == ""){
+        /*if(contentDescription == ""){
             contentDescription = generate.generateContentDescription();
-        }
-        page.fill(SelectorsDocola.CONTENT_DESCRIPTION, contentDescription);
+        }*/
+        page.fill(SelectorsDocola.CONTENT_DESCRIPTION, generate.generateContentDescription());
     }
     private void completeContentUploadFile(){
         completeContentTitle();
@@ -494,6 +501,10 @@ public class MethodsDocola extends ContextBaseDocola{
         Locator quizQuestion = page.locator("app-quiz-question >> text=True");
         if(quizQuestion.isVisible()) {
             completeContentQuestionTrueOrFalse();
+
+        }else{
+            System.out.println("no encontre tipo de pregunta");
+
         }
         continueContent();
     }
@@ -560,11 +571,16 @@ public class MethodsDocola extends ContextBaseDocola{
     }
     private void completePricingStep(){
         waiting.waitingPricingStepSelector();
+
         page.waitForTimeout(2000);
         page.click(SelectorsDocola.CONTENT_PRICING_CONTENT_FOR_FREE);
         page.click(SelectorsDocola.CONTENT_PRICING_CONTENT_FOR_FREE);
         page.click(SelectorsDocola.CONTENT_PRICING_CONTENT_FOR_FREE);
         //page.fill(SelectorsDocola.CONTENT_PRICING_MONTHLY_PRICE,"123");
+
+        //page.click(SelectorsDocola.CONTENT_PRICING_CONTENT_FOR_FREE);
+        page.fill(SelectorsDocola.CONTENT_PRICING_MONTHLY_PRICE,"123");
+
         //page.fill(SelectorsDocola.contentPricingYearlyPrice,"123");
     }
     private void setSendOptionsStep(){

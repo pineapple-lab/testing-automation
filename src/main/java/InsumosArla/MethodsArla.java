@@ -55,7 +55,6 @@ public class MethodsArla extends ContextArla{
     }
     public void waitForToast(String expectedMessage) {
         Locator toast = page.locator(SelectorsArla.APP_TOASTERS); // Ajusta el selector según el HTML real
-
         // Espera indefinidamente hasta que el toast aparezca
         try {
             toast.waitFor(); // Espera hasta que el toast esté presente

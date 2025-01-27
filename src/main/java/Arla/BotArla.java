@@ -56,6 +56,7 @@ public class BotArla extends Arla.InterfaceActions {
         }, "interfaceThread");
         if(isRunning) {
             methods.startTest();
+            methods.startContextAndNavigation();
             interfaceThread.start();
         }
         execute.setOnAction(e -> {
@@ -71,9 +72,33 @@ public class BotArla extends Arla.InterfaceActions {
     }
     private void stopExecuteThread() {
         isRunning = false; // Establecer la bandera para detener el hilo
-
         // Lógica adicional para finalizar cualquier tarea o limpieza necesaria
     }
+    private void cleanWaitingList(){
+        waitingList.clear();
+        userEmail = null;
+        resourceType = "";
+    }
+    public void accion () {
+        for (int i = 0; i < waitingList.size(); i++) {
+            Arla.InterfaceActions.ExecMethod var = waitingList.get(i);
+            switch (var) {
+                //CASE CREATION
+                case HP_LOGIN_USER:
+                    actionHpLogin();
+                    break;
+                case HP_UPLOAD_VIDEO:
+                    actionHpUploadVideo();
+                    break;
+            }
+            if (!isRunning) {
+                cleanWaitingList();
+                return;
+            }
+        }
+        cleanWaitingList();
+    }
+    //HANDLERS
     private void handleAction(Arla.InterfaceActions.ExecMethod methods, String checkBoxText) {
         waitingList.add(methods);
         Enum elemento = waitingList.get(waitingList.size() - 1);
@@ -167,29 +192,5 @@ public class BotArla extends Arla.InterfaceActions {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-    private void cleanWaitingList(){
-        waitingList.clear();
-        userEmail = null;
-        resourceType = "";
-    }
-    public void accion () {
-        for (int i = 0; i < waitingList.size(); i++) {
-            Arla.InterfaceActions.ExecMethod var = waitingList.get(i);
-            switch (var) {
-                //CASE CREATION
-                case HP_LOGIN_USER:
-                    actionHpLogin();
-                    break;
-                case HP_UPLOAD_VIDEO:
-                    actionHpUploadVideo();
-                    break;
-            }
-            if (!isRunning) {
-                cleanWaitingList();
-                return;
-            }
-        }
-        cleanWaitingList();
     }
 }

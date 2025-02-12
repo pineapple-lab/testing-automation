@@ -47,6 +47,7 @@ public class BotArla extends Arla.InterfaceActions {
             //CREATOR buttons
             hpLoginButton.setOnAction(e -> handleAction(ExecMethod.HP_LOGIN_USER,"HP_LOGIN_USER"));
             hpUploadVideos.setOnAction(e -> handleAction(ExecMethod.HP_UPLOAD_VIDEO,"HP_UPLOAD_VIDEO"));
+            hpCreateCourses.setOnAction(e -> handleAction(ExecMethod.HP_CREATE_COURSE,"HP_CREATE_COURSE"));
 
             //HEADER
             comboBox.setOnAction(e -> handleComboBoxAction());
@@ -193,4 +194,34 @@ public class BotArla extends Arla.InterfaceActions {
             e.printStackTrace();
         }
     }
+<<<<<<< Updated upstream
+=======
+    private void cleanWaitingList(){
+        waitingList.clear();
+        userEmail = null;
+        resourceType = "";
+    }
+    public void accion () {
+        for (int i = 0; i < waitingList.size(); i++) {
+            Arla.InterfaceActions.ExecMethod var = waitingList.get(i);
+            switch (var) {
+                //CASE CREATION
+                case HP_LOGIN_USER:
+                    actionHpLogin();
+                    break;
+                case HP_UPLOAD_VIDEO:
+                    actionHpUploadVideo();
+                    break;
+                case HP_CREATE_COURSE:
+                    actionHpCreateCourse();
+                    break;
+            }
+            if (!isRunning) {
+                cleanWaitingList();
+                return;
+            }
+        }
+        cleanWaitingList();
+    }
+>>>>>>> Stashed changes
 }

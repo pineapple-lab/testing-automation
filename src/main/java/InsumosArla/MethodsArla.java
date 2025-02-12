@@ -1,6 +1,7 @@
 package InsumosArla;
 
 import InsumosDocola.SelectorsDocola;
+import com.microsoft.playwright.Keyboard;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.TimeoutError;
 import javaslang.match.generator.Generator;
@@ -10,12 +11,11 @@ import java.nio.file.Paths;
 
 public class MethodsArla extends ContextArla{
     GeneratorArla generate = new GeneratorArla();
-
+    SelectorsArla selector = new SelectorsArla();
     public void startContextAndNavigation(){
         startContext();
         startNavigation();
     }
-
     private void startContext(){
         System.out.println("\n-----------------------------------------------------------");
         System.out.println("Iniciando ejecucion....");
@@ -51,7 +51,46 @@ public class MethodsArla extends ContextArla{
         page.click(SelectorsArla.UPLOAD_VIDEO_ADD_LENGUAGE);
         page.click(SelectorsArla.UPLOAD_VIDEO_SELECT_LENGUAGE);
         page.click(SelectorsArla.UPLOAD_VIDEO_SAVE_BUTTON);
-
+    }
+    public void goToFormCreateCourse(){
+        page.click(SelectorsArla.COURSE_MENU_BUTTON);
+        page.click(SelectorsArla.COURSE_CREATE_BUTTON);
+    }
+    public void createCourse(){
+        Keyboard kb = page.keyboard();
+        page.fill(SelectorsArla.COURSE_NAME_INPUT, generate.generateContentTitle());
+        page.fill(SelectorsArla.COURSE_DESCRIBE_INPUT, generate.generateContentDescription());
+        page.fill(SelectorsArla.COURSE_KEYWORD_INPUT, generate.generatekeywords());
+        kb.press("Enter");
+        page.click(SelectorsArla.COURSE_LENGUAGE_SELECTOR);
+        page.click(SelectorsArla.COURSE_LENGUAGE_LIST);
+        page.click(SelectorsArla.COURSE_CONTINUE_BUTTON);
+        page.locator(SelectorsArla.COURSE_UPLOAD_IMAGE).setInputFiles(Paths.get(generate.generateImage()));
+        page.click(SelectorsArla.COURSE_UPLOAD_IMAGE_SAVE_BUTTON);
+        page.click(SelectorsArla.COURSE_CONTINUE_BUTTON);
+        page.click(SelectorsArla.COURSE_CHAPTER_ADD_BUTTON);
+        page.fill(SelectorsArla.COURSE_CHAPTER_TITLE_INPUT, generate.generateContentTitle());
+        page.click(SelectorsArla.COURSE_CHAPTER_CREATE_QUIZ_BUTTON);
+        page.fill(SelectorsArla.COURSE_CHAPTER_APPROVAL_PERCENTAGE_INPUT, "50");
+        page.click(SelectorsArla.COURSE_CHAPTER_QUIZ_ADDQUESTION_BUTTON);
+        page.fill(SelectorsArla.COURSE_CHAPTER_QUIZ_QUESTION_INPUT, generate.generateQuestion());
+        for(counter = 1; counter <= generate.generateResponseCount(); counter++) {
+            page.fill(selector.courseChapterQuizAnswerInput(counter), generate.generateAnswer());
+        }
+        page.click(SelectorsArla.COURSE_CHAPTER_QUIZ_CORRECT_ANSWER_CHECKBOX);
+        page.click(SelectorsArla.COURSE_CHAPTER_QUIZ_TIME_TOGGLE);
+        page.fill(SelectorsArla.COURSE_CHAPTER_QUIZ_TIME_INPUT, "60");
+        page.click(SelectorsArla.COURSE_CHAPTER_QUIZ_QUESTION_SAVE_BUTTON);
+        page.click(SelectorsArla.COURSE_CHAPTER_QUIZ_QUESTION_SAVE_BUTTON);
+        page.click(SelectorsArla.COURSE_CHAPTER_ADD_VIDEO);
+        page.click(SelectorsArla.COURSE_CHAPTER_UPLOAD_VIDEO_BUTTON);
+        page.locator(SelectorsArla.COURSE_CHAPTER_UPLOAD_VIDEO).setInputFiles(Paths.get(generate.generateVideo()));
+        page.waitForTimeout(1000);
+        page.click(SelectorsArla.COURSE_CHAPTER_UPLOAD_VIDEO_SAVE_BUTTON);
+        page.click(SelectorsArla.COURSE_CHAPTER_SELECT_VIDEO_LIST);
+        page.click(SelectorsArla.COURSE_CHAPTER_SAVE_BUTTON);
+        page.click(SelectorsArla.COURSE_CONTINUE_BUTTON);
+        page.click(SelectorsArla.COURSE_CONTINUE_BUTTON);
     }
     public void waitForToast(String expectedMessage) {
         Locator toast = page.locator(SelectorsArla.APP_TOASTERS); // Ajusta el selector según el HTML real

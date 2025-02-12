@@ -10,7 +10,8 @@ public class InterfaceActions extends InterfaceProperties{
     enum ExecMethod {
         //CREATE
         HP_LOGIN_USER,
-        HP_UPLOAD_VIDEO
+        HP_UPLOAD_VIDEO,
+        HP_CREATE_COURSE
     }
     public void actionEliminarDeLaCola() {
         List<CheckBox> checkBoxesSeleccionados = new ArrayList<>();
@@ -32,6 +33,9 @@ public class InterfaceActions extends InterfaceProperties{
     }
     public void actionHpUploadVideo() {
         executeService(new FunctionUploadVideo(), FunctionUploadVideo::serviceUploadVideos);
+    }
+    public void actionHpCreateCourse() {
+        executeService(new FunctionCreateCourse(), FunctionCreateCourse::serviceCreateCourse);
     }
     private <T> void executeService(T serviceInstance, Arla.InterfaceActions.CheckedConsumer<T> action) {
         try {

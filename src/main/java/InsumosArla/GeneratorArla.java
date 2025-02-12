@@ -43,7 +43,7 @@ public class GeneratorArla extends ContextArla {
         lastName=generateLastName();
         userEmail = firstName+lastName+timeStamp+"@"+ emailDomain +".com";
         return new GeneratorDocola.EmailInfo(userEmail, firstName, lastName);
-    }
+    }*/
     public String generateFirstName(){
         String [] listFirstNames = FirstNames.firstNames;
         return getRandomString(listFirstNames);
@@ -52,38 +52,7 @@ public class GeneratorArla extends ContextArla {
         String[] listLastNames = LastNames.lastNames;
         return getRandomString(listLastNames);
     }
-    public int generateRol(){
-        if (userRole == null) {
-            return 2;
-        }
-        switch (userRole) {
-            case "Patient":
-                return 1;
-            case "Content provider":
-                return 3;
-            default:
-                return 2;
-        }
-    }
-    public int generateTypeContent(){
-        if (resourceType == null) {
-            return 1;
-        }switch (resourceType) {
-            case "Capture video":
-                return 2;
-            case "Web content":
-                return 3;
-            case "Quiz":
-                return 4;
-            case "Survey":
-                return 5;
-            case "VR":
-                return 6;
-            //break;
-            default:
-                return 1;
-        }
-    }*/
+
     public String generateCompanyName(){
         String[] companyList = CompanyNames.companyNames;
         return getRandomString(companyList);
@@ -95,6 +64,10 @@ public class GeneratorArla extends ContextArla {
     public String generateContentDescription(){
         String [] contentDescriptiontList = ContentDescriptions.contentDescritpion;
         return getRandomString(contentDescriptiontList);
+    }
+    public String generatekeywords(){
+        String [] keywordstList = Keywords.keywords;
+        return getRandomString(keywordstList);
     }
     public int generateTagType(){
         List<ElementHandle> elements = page.querySelectorAll("app-tags > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > app-tag-type-button");
@@ -137,10 +110,10 @@ public class GeneratorArla extends ContextArla {
         List<ElementHandle> elements = page.querySelectorAll("mat-dialog-container > div > div > app-unsplash > form > div:nth-of-type(3) > img");
         return getRandomIndex(elements.size()-1)+1;
     }
-    public int generateInviteRol(){
-        page.waitForSelector(".cdk-overlay-pane");
-        List<ElementHandle> elements = page.querySelectorAll(".cdk-overlay-pane > div > mat-option");
-        return getRandomIndex(elements.size())+1;
+    public int generateResponseCount(){
+        page.waitForSelector("app-quiz");
+        List<ElementHandle> elements = page.querySelectorAll("app-quiz > div:nth-of-type(1) > div:nth-of-type(3) > div");
+        return elements.size();
     }
     private String generateRandomFileName(String[] fileList, String basePath, String extension){
         Random rand = new Random();

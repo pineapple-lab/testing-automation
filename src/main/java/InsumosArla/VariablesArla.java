@@ -13,7 +13,9 @@ public class VariablesArla extends PathUtilsArla{
     public static String setChannel = "chrome";
     public static int setSizeWidth = 1820;
     public static int setSizeHeight = 980;
+    //Variables utiles
     public int executeCounter;
     public String username = "franclient";
     public String password = "123123aA.";
+    public int counter = 0;
 }

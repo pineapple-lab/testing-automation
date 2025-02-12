@@ -25,4 +25,15 @@ public class TestCaseArla extends ContextArla{
         }
         cleanupContext();
     }
+    public void happyPathCreateCourse(){
+        System.out.println("Se van a crear "+generate.generateExecutions()+" cursos\n");
+        methods.login();
+        methods.goToFormCreateCourse();
+        for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
+            methods.createCourse();
+            methods.waitForToast(toast.COURSE_CREATE_SUCESS);
+
+        }
+        cleanupContext();
+    }
 }

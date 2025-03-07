@@ -3,6 +3,7 @@ package InsumosArla;
 import InsumosDocola.SelectorsDocola;
 import com.microsoft.playwright.Keyboard;
 import com.microsoft.playwright.Locator;
+import com.microsoft.playwright.Page;
 import com.microsoft.playwright.TimeoutError;
 import javaslang.match.generator.Generator;
 import org.junit.jupiter.api.Assertions;
@@ -56,6 +57,10 @@ public class MethodsArla extends ContextArla{
         page.click(SelectorsArla.COURSE_MENU_BUTTON);
         page.click(SelectorsArla.COURSE_CREATE_BUTTON);
     }
+    public void goToFormCreateCategory(){
+        page.click(SelectorsArla.CATEGORY_MENU_BUTTON);
+        page.click(SelectorsArla.CATEGORY_CREATE_BUTTON);
+    }
     public void createCourse(){
         Keyboard kb = page.keyboard();
         page.fill(SelectorsArla.COURSE_NAME_INPUT, generate.generateContentTitle());
@@ -91,6 +96,28 @@ public class MethodsArla extends ContextArla{
         page.click(SelectorsArla.COURSE_CHAPTER_SAVE_BUTTON);
         page.click(SelectorsArla.COURSE_CONTINUE_BUTTON);
         page.click(SelectorsArla.COURSE_CONTINUE_BUTTON);
+    }
+    public void createCategory(){
+        Keyboard kb = page.keyboard();
+        page.fill(SelectorsArla.CATEGORY_NAME_INPUT, generate.generateContentTitle());
+        page.fill(SelectorsArla.CATEGORY_DESCRIPTION_INPUT, generate.generateContentDescription());
+        kb.press("Tab");
+        kb.press("Enter");
+        page.focus(SelectorsArla.CATEGORY_CLIENTS_SEARCH_SELECT);
+        page.fill(SelectorsArla.CATEGORY_CLIENTS_SEARCH_SELECT, "franclient");
+        page.click(SelectorsArla.CATEGORY_CLIENTS_CHECKBOX);
+        kb.press("Escape");
+        page.click(SelectorsArla.CATEGORY_LENGUAGE_SELECTOR);
+        page.click(SelectorsArla.CATEGORY_LENGUAGE_LIST);
+        page.click(SelectorsArla.CATEGORY_CONTINUE_BUTTON);
+        page.locator(SelectorsArla.COURSE_UPLOAD_IMAGE).setInputFiles(Paths.get(generate.generateImage()));
+        page.click(SelectorsArla.COURSE_UPLOAD_IMAGE_SAVE_BUTTON);
+        page.click(SelectorsArla.CATEGORY_CONTINUE_BUTTON);
+        page.click(SelectorsArla.CATEGORY_SELECT_COURSE_BUTTON);
+        page.click(SelectorsArla.CATEGORY_LIST_CHECKBOX);
+        page.click(SelectorsArla.CATEGORY_COURSE_SAVE_BUTTON);
+        page.click(SelectorsArla.CATEGORY_CONTINUE_BUTTON);
+        page.click(SelectorsArla.CATEGORY_CONTINUE_BUTTON);
     }
     public void waitForToast(String expectedMessage) {
         Locator toast = page.locator(SelectorsArla.APP_TOASTERS); // Ajusta el selector según el HTML real

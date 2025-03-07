@@ -1,20 +1,15 @@
 package Arla;
 import Docola.BotModalConfigs;
 import InsumosArla.MethodsArla;
-import InsumosArla.VariablesArla;
+import static InsumosArla.VariablesArla.*;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.control.CheckBox;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-
 import java.io.OutputStream;
 import java.io.PrintStream;
-
-import static InsumosDocola.VariablesDocola.*;
-import static InsumosDocola.VariablesDocola.resourceType;
-import static insumosPeppermint.variablesPeppermint.outputStream;
 import static javafx.application.Application.launch;
 
 public class BotArla extends Arla.InterfaceActions {
@@ -48,7 +43,7 @@ public class BotArla extends Arla.InterfaceActions {
             hpLoginButton.setOnAction(e -> handleAction(ExecMethod.HP_LOGIN_USER,"HP_LOGIN_USER"));
             hpUploadVideos.setOnAction(e -> handleAction(ExecMethod.HP_UPLOAD_VIDEO,"HP_UPLOAD_VIDEO"));
             hpCreateCourses.setOnAction(e -> handleAction(ExecMethod.HP_CREATE_COURSE,"HP_CREATE_COURSE"));
-
+            hpCreateCategory.setOnAction(e -> handleAction(ExecMethod.HP_CREATE_CATEGORY,"HP_CREATE_CATEGORY"));
             //HEADER
             comboBox.setOnAction(e -> handleComboBoxAction());
             stopTestCase.setOnAction(event -> handleStopTestCase());
@@ -57,7 +52,6 @@ public class BotArla extends Arla.InterfaceActions {
         }, "interfaceThread");
         if(isRunning) {
             methods.startTest();
-            methods.startContextAndNavigation();
             interfaceThread.start();
         }
         execute.setOnAction(e -> {
@@ -77,27 +71,6 @@ public class BotArla extends Arla.InterfaceActions {
     }
     private void cleanWaitingList(){
         waitingList.clear();
-        userEmail = null;
-        resourceType = "";
-    }
-    public void accion () {
-        for (int i = 0; i < waitingList.size(); i++) {
-            Arla.InterfaceActions.ExecMethod var = waitingList.get(i);
-            switch (var) {
-                //CASE CREATION
-                case HP_LOGIN_USER:
-                    actionHpLogin();
-                    break;
-                case HP_UPLOAD_VIDEO:
-                    actionHpUploadVideo();
-                    break;
-            }
-            if (!isRunning) {
-                cleanWaitingList();
-                return;
-            }
-        }
-        cleanWaitingList();
     }
     //HANDLERS
     private void handleAction(Arla.InterfaceActions.ExecMethod methods, String checkBoxText) {
@@ -130,7 +103,6 @@ public class BotArla extends Arla.InterfaceActions {
         }
     }
     private void handleResourceAction(Arla.InterfaceActions.ExecMethod methods, String checkBoxText) {
-        resourceType = "Upload file";
         handleAction(methods, checkBoxText);
     }
     /*private void handleResourceSecondaryClick(MouseEvent event, Arla.InterfaceActions.ExecMethod methods) {
@@ -169,7 +141,7 @@ public class BotArla extends Arla.InterfaceActions {
             VariablesArla.navigationLink = "https://docola-qa.web.app/";
         }*/
         if ("DEV".equals(seleccion)) {
-            VariablesArla.navigationLink = "https://arla-cms-dev.web.app/login";
+            navigationLink = "https://arla-cms-dev.web.app/login";
         }
     }
     private void handleStopTestCase() {
@@ -194,13 +166,6 @@ public class BotArla extends Arla.InterfaceActions {
             e.printStackTrace();
         }
     }
-<<<<<<< Updated upstream
-=======
-    private void cleanWaitingList(){
-        waitingList.clear();
-        userEmail = null;
-        resourceType = "";
-    }
     public void accion () {
         for (int i = 0; i < waitingList.size(); i++) {
             Arla.InterfaceActions.ExecMethod var = waitingList.get(i);
@@ -215,6 +180,8 @@ public class BotArla extends Arla.InterfaceActions {
                 case HP_CREATE_COURSE:
                     actionHpCreateCourse();
                     break;
+                case HP_CREATE_CATEGORY:
+                    actionHpCreateCategory();
             }
             if (!isRunning) {
                 cleanWaitingList();
@@ -223,5 +190,4 @@ public class BotArla extends Arla.InterfaceActions {
         }
         cleanWaitingList();
     }
->>>>>>> Stashed changes
 }

@@ -4,12 +4,12 @@ import InsumosArla.MethodsArla;
 import InsumosArla.TestCaseArla;
 import org.junit.jupiter.api.Test;
 
-public class FunctionLogin extends TestCaseArla {
+public class FunctionCreateCategory extends TestCaseArla {
     MethodsArla methods = new MethodsArla();
     @Test
-    public void serviceLogin(){
+    public void serviceCreateCategory(){
         methods.startContextAndNavigation();
-        happyPathLogin();
+        happyPathCreateCategory();
         teardownPlaywright();
     }
 }

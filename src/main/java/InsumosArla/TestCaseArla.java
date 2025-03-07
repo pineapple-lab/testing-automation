@@ -1,11 +1,11 @@
 package InsumosArla;
 
-import InsumosDocola.GeneratorDocola;
+import InsumosArla.GeneratorArla;
 import com.microsoft.playwright.Locator;
 import org.junit.jupiter.api.Assertions;
 
 public class TestCaseArla extends ContextArla{
-    private final GeneratorDocola generate = new GeneratorDocola();
+    private final GeneratorArla  generate = new GeneratorArla();
     MethodsArla methods = new MethodsArla();
     ToastMessages toast = new ToastMessages();
     public void happyPathLogin(){
@@ -21,7 +21,6 @@ public class TestCaseArla extends ContextArla{
         for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
             methods.uploadVideo();
             methods.waitForToast(toast.VIDEO_UPLOAD_SUCCESS);
-
         }
         cleanupContext();
     }
@@ -32,7 +31,16 @@ public class TestCaseArla extends ContextArla{
         for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
             methods.createCourse();
             methods.waitForToast(toast.COURSE_CREATE_SUCESS);
-
+        }
+        cleanupContext();
+    }
+    public void happyPathCreateCategory(){
+        System.out.println("Se van a crear "+generate.generateExecutions()+" category\n");
+        methods.login();
+        methods.goToFormCreateCategory();
+        for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
+            methods.createCategory();
+            methods.waitForToast(toast.CATEGORY_CREATE_SUCESS);
         }
         cleanupContext();
     }

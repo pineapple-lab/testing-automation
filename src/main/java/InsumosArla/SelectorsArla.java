@@ -41,5 +41,19 @@ public class SelectorsArla {
     public static final String COURSE_CHAPTER_QUIZ_CORRECT_ANSWER_CHECKBOX = "app-quiz > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) mat-checkbox";
     public static final String COURSE_CHAPTER_QUIZ_QUESTION_SAVE_BUTTON = "app-quiz > div:nth-of-type(2) > button:nth-of-type(2)";
     public static final String COURSE_CHAPTER_SAVE_BUTTON = "app-new-chapter-modal > div:nth-of-type(2) > button:nth-of-type(2)";
+    public static final String CATEGORY_MENU_BUTTON = "mat-list > mat-list-item:nth-of-type(1)";
+    public static final String CATEGORY_CREATE_BUTTON = "app-category-list > div > div:nth-of-type(1) button";
+    public static final String CATEGORY_NAME_INPUT = "app-category-creation > div > div:nth-of-type(1) > div:nth-of-type(2) > app-mat-form-field:nth-of-type(1) input";
+    public static final String CATEGORY_DESCRIPTION_INPUT = "app-category-creation > div > div:nth-of-type(1) > div:nth-of-type(2) > app-mat-form-field:nth-of-type(2) textarea";
+    public static final String CATEGORY_CLIENTS_SELECT = "app-category-creation > div > div:nth-of-type(1) > div:nth-of-type(2) > mat-form-field mat-select";
+    public static final String CATEGORY_CLIENTS_SEARCH_SELECT = ".cdk-overlay-pane mat-form-field input";
+    public static final String CATEGORY_CLIENTS_CHECKBOX = ".cdk-overlay-pane mat-option > mat-pseudo-checkbox";
+    public static final String CATEGORY_KEYWORD_INPUT = "app-category-creation > div > div:nth-of-type(1) > div:nth-of-type(2) > app-mat-chips > mat-form-field input";
+    public static final String CATEGORY_LENGUAGE_SELECTOR = "app-language-selector > mat-form-field";
+    public static final String CATEGORY_LENGUAGE_LIST = ".cdk-overlay-container > div:nth-of-type(2) > div > div > mat-option:nth-of-type(1)";
+    public static final String CATEGORY_SELECT_COURSE_BUTTON = "app-category-creation > div > div:nth-of-type(1) button:nth-of-type(2)";
+    public static final String CATEGORY_LIST_CHECKBOX = "mat-dialog-content app-table table tbody tr:nth-of-type(1) mat-checkbox";
+    public static final String CATEGORY_COURSE_SAVE_BUTTON = "app-select-courses-dialog > mat-dialog-actions button:nth-of-type(2)";
 
+    public static final String CATEGORY_CONTINUE_BUTTON = "app-category-creation > div > div:nth-of-type(2) > div > button:nth-of-type(2)";
 }

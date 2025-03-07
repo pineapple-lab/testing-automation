@@ -1,7 +1,7 @@
-package Docola;
+package Arla;
 
-import InsumosDocola.MethodsDocola;
-import InsumosDocola.VariablesDocola;
+import InsumosArla.MethodsArla;
+import InsumosArla.VariablesArla;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
@@ -9,12 +9,13 @@ import javafx.stage.Stage;
 
 import java.util.Objects;
 
-import static InsumosDocola.VariablesDocola.*;
+import static InsumosArla.VariablesArla.*;
+import static InsumosArla.VariablesArla.setHeadless;
 
-public class BotConfigs extends InterfaceElements {
+public class BotGralConfigs extends InterfaceElements{
     private volatile boolean isRunning = true;
-    MethodsDocola mDocola = new MethodsDocola();
-    VariablesDocola vDocola = new VariablesDocola();
+    MethodsArla mDocola = new MethodsArla();
+    VariablesArla vDocola = new VariablesArla();
     ComboBox<String> comboBox = new ComboBox<>();
     Button settingSave = new Button("Guardar");
     Label labelSetBrowser = new Label("Set browser");
@@ -48,9 +49,9 @@ public class BotConfigs extends InterfaceElements {
         comboBox.getItems().add("chromium");
         comboBox.getItems().add("firefox");
         comboBox.setValue("Elegir browser");
-        settingSave.setStyle("-fx-background-color:#298dcc;");
-        settingSave.setOnMouseEntered(e -> settingSave.setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"));
-        settingSave.setOnMouseExited(e -> settingSave.setStyle("-fx-background-color: #298dcc;"));
+        settingSave.setStyle("-fx-background-color: #cb4b81;");
+        settingSave.setOnMouseEntered(e -> settingSave.setStyle("-fx-background-color: #e27da1; -fx-text-fill: white;"));
+        settingSave.setOnMouseExited(e -> settingSave.setStyle("-fx-background-color: #cb4b81;"));
         textFieldWidth.setPromptText("Width");
         textFieldHeight.setPromptText("Height");
         textFieldSlowMotion.setPromptText("Slowmotion");
@@ -77,19 +78,17 @@ public class BotConfigs extends InterfaceElements {
     }
     private void cleanWaitingList(){
         waitingList.clear();
-        userEmail = null;
-        resourceType = "";
     }
     private void handleComboBoxAction() {
         seleccion = comboBox.getValue();
         if ("chrome".equals(seleccion)) {
-            VariablesDocola.setChannel = "chrome";
+            VariablesArla.setChannel = "chrome";
         }
         if ("chromium".equals(seleccion)) {
-            VariablesDocola.setChannel = "chromium";
+            VariablesArla.setChannel = "chromium";
         }
         if ("firefox".equals(seleccion)) {
-            VariablesDocola.setChannel = "firefox";
+            VariablesArla.setChannel = "firefox";
         }
     }
     private void handleTextField(){
@@ -104,12 +103,12 @@ public class BotConfigs extends InterfaceElements {
         }
     }
     private void handleRadioButtons(){
-            if(radioButtonFalseHeadless.isSelected()){
-                setHeadless =false;
-            }
-            if(radioButtonTrueHeadless.isSelected()){
-                setHeadless =true;
-            }
+        if(radioButtonFalseHeadless.isSelected()){
+            setHeadless =false;
+        }
+        if(radioButtonTrueHeadless.isSelected()){
+            setHeadless =true;
+        }
     }
     private String lastSelection = null;
     private void initializeComboBoxListener() {
@@ -120,5 +119,4 @@ public class BotConfigs extends InterfaceElements {
             }
         });
     }
-
 }

@@ -11,7 +11,8 @@ public class InterfaceActions extends InterfaceProperties{
         //CREATE
         HP_LOGIN_USER,
         HP_UPLOAD_VIDEO,
-        HP_CREATE_COURSE
+        HP_CREATE_COURSE,
+        HP_CREATE_CATEGORY
     }
     public void actionEliminarDeLaCola() {
         List<CheckBox> checkBoxesSeleccionados = new ArrayList<>();
@@ -36,6 +37,9 @@ public class InterfaceActions extends InterfaceProperties{
     }
     public void actionHpCreateCourse() {
         executeService(new FunctionCreateCourse(), FunctionCreateCourse::serviceCreateCourse);
+    }
+    public void actionHpCreateCategory() {
+        executeService(new FunctionCreateCategory(), FunctionCreateCategory::serviceCreateCategory);
     }
     private <T> void executeService(T serviceInstance, Arla.InterfaceActions.CheckedConsumer<T> action) {
         try {

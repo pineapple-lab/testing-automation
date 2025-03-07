@@ -62,6 +62,7 @@ public class InterfaceProperties extends InterfaceElements{
         GridPane.setConstraints(hpLoginButton, 2, 3);
         GridPane.setConstraints(hpUploadVideos, 2, 4);
         GridPane.setConstraints(hpCreateCourses, 2, 5);
+        GridPane.setConstraints(hpCreateCategory, 2, 6);
         comboBox.getItems().add("DEV");
         comboBox.getItems().add("QA");
         comboBox.getItems().add("Local");
@@ -79,6 +80,7 @@ public class InterfaceProperties extends InterfaceElements{
         gridCreator.getChildren().add(hpLoginButton);
         gridCreator.getChildren().add(hpUploadVideos);
         gridCreator.getChildren().add(hpCreateCourses);
+        gridCreator.getChildren().add(hpCreateCategory);
 
     }
     private void setColors(){
@@ -91,6 +93,7 @@ public class InterfaceProperties extends InterfaceElements{
         setButtonStyle(hpLoginButton);
         setButtonStyle(hpUploadVideos);
         setButtonStyle(hpCreateCourses);
+        setButtonStyle(hpCreateCategory);
     }
     private void setButtonStyle(Button button) {
         button.setStyle("-fx-background-color: #cb4b81;");
@@ -105,6 +108,7 @@ public class InterfaceProperties extends InterfaceElements{
         setupHoverEffect(hpLoginButton);
         setupHoverEffect(hpUploadVideos);
         setupHoverEffect(hpCreateCourses);
+        setupHoverEffect(hpCreateCategory);
     }
     private void setupHoverEffect(Button button) {
         button.setOnMouseEntered(e -> button.setStyle("-fx-background-color: #e27da1; -fx-text-fill: white;"));

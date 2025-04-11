@@ -1,15 +1,13 @@
 package Arla;
 
-import Docola.InterfaceActions;
+import Arla.InterfaceActions;
 import InsumosArla.MethodsArla;
 import InsumosArla.VariablesArla;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-
-import static InsumosDocola.VariablesDocola.resourceType;
-import static InsumosDocola.VariablesDocola.userEmail;
+import static InsumosArla.VariablesArla.userEmail;
 
 public class BotSettingsDefaultUser extends InterfaceElements{
     private volatile boolean isRunning = true;
@@ -20,13 +18,13 @@ public class BotSettingsDefaultUser extends InterfaceElements{
     Button settingSave = new Button("Guardar");
     Tab tbUndefinedEmail = new Tab();
     RadioButton radioButtonContentProvider = new RadioButton("Content provider");
-    RadioButton radioButtonClinician = new RadioButton("Cilnician");
+    RadioButton radioButtonClinician = new RadioButton("Clinician");
     RadioButton radioButtonPatient = new RadioButton("Patient");
     RadioButton radioButtonDev = new RadioButton("Dev");
     RadioButton radioButtonLocal = new RadioButton("Local");
     MethodsArla mDocola = new MethodsArla();
     VariablesArla vArla = new VariablesArla();
-    Docola.InterfaceActions iActions = new InterfaceActions();
+    Arla.InterfaceActions iActions = new InterfaceActions();
     public BotSettingsDefaultUser(String environment){
         this.seleccion = environment;
     }
@@ -46,9 +44,9 @@ public class BotSettingsDefaultUser extends InterfaceElements{
         gridPaneUndefinedSettings.add(radioButtonClinician,3,7);
         gridPaneUndefinedSettings.add(radioButtonPatient,4,7);
         gridPaneUndefinedSettings.add(settingSave,6,9);
-        settingSave.setStyle("-fx-text-fill: #FFFFFF; -fx-background-color: #5bb346;");
-        settingSave.setOnMouseEntered(e -> settingSave.setStyle("-fx-background-color: #6ec957; -fx-text-fill: white;"));
-        settingSave.setOnMouseExited(e -> settingSave.setStyle("-fx-background-color: #5bb346;"));
+        settingSave.setStyle("-fx-background-color: #cb4b81;");
+        settingSave.setOnMouseEntered(e -> settingSave.setStyle("-fx-background-color: #e27da1; -fx-text-fill: white;"));
+        settingSave.setOnMouseExited(e -> settingSave.setStyle("-fx-background-color: #cb4b81;"));
         tfEmail.setPromptText("Userdefined");
         tbUndefinedEmail.setContent(gridPaneUndefinedSettings);
         tabPane.getTabs().addAll(tbUndefinedEmail);
@@ -93,7 +91,7 @@ public class BotSettingsDefaultUser extends InterfaceElements{
         settingSave.setOnAction(e->{
             Thread execute=  new Thread (()->{
                 VariablesArla.userEmail = tfEmail.getText();
-                iActions.actionUpdateUndefinedUser(VariablesArla.userEmail);
+                //iActions.actionUpdateUndefinedUser(VariablesArla.userEmail);
                 cleanWaitingList();
             }, "execute");
             if(isRunning) {
@@ -105,6 +103,5 @@ public class BotSettingsDefaultUser extends InterfaceElements{
     private void cleanWaitingList(){
         waitingList.clear();
         userEmail = null;
-        resourceType = "";
     }
 }

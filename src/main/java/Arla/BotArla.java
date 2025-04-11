@@ -1,5 +1,4 @@
 package Arla;
-import Docola.BotModalConfigs;
 import InsumosArla.MethodsArla;
 import static InsumosArla.VariablesArla.*;
 import javafx.application.Platform;
@@ -152,7 +151,7 @@ public class BotArla extends Arla.InterfaceActions {
     }
     private void handleBotConfigurations(ActionEvent event) {
         try {
-            BotModalConfigs configAvanzada = new BotModalConfigs(seleccion);
+            Arla.BotModalConfigs configAvanzada = new BotModalConfigs(seleccion);
             Stage botSettingsStage = new Stage();
             configAvanzada.start(botSettingsStage);
             Stage ownerStage = (Stage) ((Node) event.getSource()).getScene().getWindow();

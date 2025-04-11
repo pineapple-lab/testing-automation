@@ -17,7 +17,7 @@ public class MethodsArla extends ContextArla{
         startContext();
         startNavigation();
     }
-    private void startContext(){
+    public void startContext(){
         System.out.println("\n-----------------------------------------------------------");
         System.out.println("Iniciando ejecucion....");
         System.out.println("-----------------------------------------------------------");
@@ -40,7 +40,6 @@ public class MethodsArla extends ContextArla{
         stopTest = true;
     }
     public void login(){
-        page.navigate(navigationLink);
         page.fill(SelectorsArla.USERNAME_INPUT,username);
         page.fill(SelectorsArla.PASSWORD_INPUT, password);
         page.click(SelectorsArla.LOGIN_BUTTON);

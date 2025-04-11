@@ -56,4 +56,5 @@ public class SelectorsArla {
     public static final String CATEGORY_COURSE_SAVE_BUTTON = "app-select-courses-dialog > mat-dialog-actions button:nth-of-type(2)";
 
     public static final String CATEGORY_CONTINUE_BUTTON = "app-category-creation > div > div:nth-of-type(2) > div > button:nth-of-type(2)";
+    public static final String PLAY_VIDEO_BUTTON = "app-video-player > vg-player > vg-overlay-play > div";
 }

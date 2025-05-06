@@ -15,7 +15,7 @@ public class VariablesArla extends PathUtilsArla{
     public static int setSizeHeight = 980;
     //Variables utiles
     public int executeCounter;
-    public static volatile String username = "admin-b";
+    public static volatile String username = "admin";
     public String password = "123123aA.";
     public int counter = 0;
     public String userRole;

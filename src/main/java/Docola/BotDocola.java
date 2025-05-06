@@ -11,7 +11,6 @@ import javafx.event.ActionEvent;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import static InsumosDocola.VariablesDocola.*;
-import static insumosPeppermint.variablesPeppermint.outputStream;
 public class BotDocola extends InterfaceActions {
     private volatile boolean isRunning = true;
     private MethodsDocola methods= new MethodsDocola();

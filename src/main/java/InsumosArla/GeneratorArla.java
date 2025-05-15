@@ -34,7 +34,7 @@ public class GeneratorArla extends ContextArla {
         String basePath = Paths.get(InsumosDocola.PathUtils.getBasePath(), PathUtils.RELATIVE_PICTURE_PROFILE_PATH).toString();
         return generateRandomFileName(imageList,basePath,".jpg");
     }
-    /*public GeneratorDocola.EmailInfo generateEmail(){
+    public GeneratorArla.EmailInfo generateEmail(){
         generateFirstName();
         generateLastName();
         long timeStamp = Instant.now().toEpochMilli();
@@ -42,8 +42,8 @@ public class GeneratorArla extends ContextArla {
         firstName=generateFirstName();
         lastName=generateLastName();
         userEmail = firstName+lastName+timeStamp+"@"+ emailDomain +".com";
-        return new GeneratorDocola.EmailInfo(userEmail, firstName, lastName);
-    }*/
+        return new GeneratorArla.EmailInfo(userEmail, firstName, lastName);
+    }
     public String generateFirstName(){
         String [] listFirstNames = FirstNames.firstNames;
         return getRandomString(listFirstNames);

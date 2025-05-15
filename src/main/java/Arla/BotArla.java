@@ -43,6 +43,7 @@ public class BotArla extends Arla.InterfaceActions {
             hpUploadVideos.setOnAction(e -> handleAction(ExecMethod.HP_UPLOAD_VIDEO,"HP_UPLOAD_VIDEO"));
             hpCreateCourses.setOnAction(e -> handleAction(ExecMethod.HP_CREATE_COURSE,"HP_CREATE_COURSE"));
             hpCreateCategory.setOnAction(e -> handleAction(ExecMethod.HP_CREATE_CATEGORY,"HP_CREATE_CATEGORY"));
+            hpInviteClient.setOnAction(e -> handleAction(ExecMethod.HP_INVITE_CLIENT,"HP_INVITE_CLIENT"));
             //HEADER
             comboBox.setOnAction(e -> handleComboBoxAction());
             stopTestCase.setOnAction(event -> handleStopTestCase());
@@ -181,6 +182,10 @@ public class BotArla extends Arla.InterfaceActions {
                     break;
                 case HP_CREATE_CATEGORY:
                     actionHpCreateCategory();
+                    break;
+                case HP_INVITE_CLIENT:
+                    actionHpInviteClient();
+                    break;
             }
             if (!isRunning) {
                 cleanWaitingList();

@@ -48,6 +48,7 @@ public abstract class InterfaceElements extends Application {
     Button hpUploadVideos = new Button ("Hp upload video");
     Button hpCreateCourses = new Button ("Hp create course");
     Button hpCreateCategory = new Button ("Hp create category");
+    Button hpInviteClient = new Button ("Hp invite client");
 
     public abstract void start(Stage stage);
 }

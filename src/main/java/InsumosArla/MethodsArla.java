@@ -1,5 +1,6 @@
 package InsumosArla;
 
+import InsumosDocola.GeneratorDocola;
 import InsumosDocola.SelectorsDocola;
 import com.microsoft.playwright.Keyboard;
 import com.microsoft.playwright.Locator;
@@ -13,6 +14,8 @@ import java.nio.file.Paths;
 public class MethodsArla extends ContextArla{
     GeneratorArla generate = new GeneratorArla();
     SelectorsArla selector = new SelectorsArla();
+    QueriesArla querie = new QueriesArla();
+    GeneratorArla.EmailInfo emailInfo;
     public void startContextAndNavigation(){
         startContext();
         startNavigation();
@@ -60,6 +63,10 @@ public class MethodsArla extends ContextArla{
         page.click(SelectorsArla.CATEGORY_MENU_BUTTON);
         page.click(SelectorsArla.CATEGORY_CREATE_BUTTON);
     }
+    public void goToFormManageClient(){
+        page.click(SelectorsArla.CLIENT_MENU_BUTTON);
+        page.click(SelectorsArla.CLIENT_NEW_INVITE_BUTTON);
+    }
     public void createCourse(){
         Keyboard kb = page.keyboard();
         page.fill(SelectorsArla.COURSE_NAME_INPUT, generate.generateContentTitle());
@@ -101,9 +108,10 @@ public class MethodsArla extends ContextArla{
         page.fill(SelectorsArla.CATEGORY_NAME_INPUT, generate.generateContentTitle());
         page.fill(SelectorsArla.CATEGORY_DESCRIPTION_INPUT, generate.generateContentDescription());
         kb.press("Tab");
+        page.waitForTimeout(2000);
         kb.press("Enter");
         page.focus(SelectorsArla.CATEGORY_CLIENTS_SEARCH_SELECT);
-        page.fill(SelectorsArla.CATEGORY_CLIENTS_SEARCH_SELECT, "franclient");
+        page.fill(SelectorsArla.CATEGORY_CLIENTS_SEARCH_SELECT, "franclient101");
         page.click(SelectorsArla.CATEGORY_CLIENTS_CHECKBOX);
         kb.press("Escape");
         page.click(SelectorsArla.CATEGORY_LENGUAGE_SELECTOR);
@@ -118,8 +126,34 @@ public class MethodsArla extends ContextArla{
         page.click(SelectorsArla.CATEGORY_CONTINUE_BUTTON);
         page.click(SelectorsArla.CATEGORY_CONTINUE_BUTTON);
     }
+    public void inviteClient(){
+        emailInfo = generate.generateEmail();
+        String companyEmail = emailInfo.getEmail();
+        page.fill(SelectorsArla.CLIENT_COMPANY_NAME_INPUT,generate.generateCompanyName());
+        page.fill(SelectorsArla.CLIENT_USERNAME_INPUT,generate.generateCompanyName());
+        page.fill(SelectorsArla.CLIENT_EMAIL_INPUT,companyEmail);
+        page.fill(SelectorsArla.CLIENT_FORMLINK_INPUT,"https://docs.google.com/forms/d/e/1FAIpQLSfqYX7p8WXJqNrRInUHJsuq7DU4L1s55DxRRmw_OYi_K-BZKw/viewform?usp=dialog");
+        page.click(SelectorsArla.CLIENT_CONTINUE_BUTTON_STEP1);
+        page.click(SelectorsArla.CLIENT_CONTINUE_BUTTON_STEP2);
+        page.fill(SelectorsArla.CLIENT_SEARCH_CATEGORY_INPUT, "");
+        page.click(SelectorsArla.CLIENT_CATEGORY_CHECKBOX);
+        page.click(SelectorsArla.CLIENT_SEND_INVITE_BUTTON);
+        querie.saveClient(companyEmail,false);
+    }
     public void waitForToast(String expectedMessage) {
         Locator toast = page.locator(SelectorsArla.APP_TOASTERS); // Ajusta el selector según el HTML real
+        // Espera indefinidamente hasta que el toast aparezca
+        try {
+            toast.waitFor(); // Espera hasta que el toast esté presente
+            String actualText = toast.innerText().trim(); // Obtiene el texto visible sin espacios extra
+            System.out.println(actualText); // Depuración
+            Assertions.assertEquals(expectedMessage, actualText, "El mensaje de confirmación no coincide.");
+        } catch (TimeoutError e) {
+            throw new AssertionError("El mensaje esperado no apareció: " + expectedMessage);
+        }
+    }
+    public void waitForPopUp(String expectedMessage) {
+        Locator toast = page.locator(SelectorsArla.APP_POPUPS); // Ajusta el selector según el HTML real
         // Espera indefinidamente hasta que el toast aparezca
         try {
             toast.waitFor(); // Espera hasta que el toast esté presente

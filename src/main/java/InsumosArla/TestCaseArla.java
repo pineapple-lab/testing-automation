@@ -44,4 +44,15 @@ public class TestCaseArla extends ContextArla{
         }
         cleanupContext();
     }
+    public void happyPathInviteClient(){
+        System.out.println("Se van a crear "+generate.generateExecutions()+" category\n");
+        methods.login();
+        methods.goToFormManageClient();
+        for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
+            methods.inviteClient();
+            page.waitForTimeout(2000);
+            Assertions.assertTrue(page.isVisible("text="+toast.INVITE_CLIENT_SENT_SUCESS));
+        }
+        cleanupContext();
+    }
 }

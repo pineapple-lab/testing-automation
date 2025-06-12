@@ -10,12 +10,15 @@ import javaslang.match.generator.Generator;
 import org.junit.jupiter.api.Assertions;
 
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MethodsArla extends ContextArla{
     GeneratorArla generate = new GeneratorArla();
     SelectorsArla selector = new SelectorsArla();
     QueriesArla querie = new QueriesArla();
     GeneratorArla.EmailInfo emailInfo;
+    private static final List<String> errores = new ArrayList<>();
     public void startContextAndNavigation(){
         startContext();
         startNavigation();
@@ -41,6 +44,31 @@ public class MethodsArla extends ContextArla{
     public void stopTest(){
 
         stopTest = true;
+    }
+    public static void assertThat(Runnable assertion, String mensaje) {
+        try {
+            assertion.run();
+        } catch (AssertionError e) {
+            String errorMsg = "❌ " + mensaje + ": " + e.getMessage();
+            System.out.println(errorMsg);
+            errores.add(errorMsg);
+        }
+    }
+    public void printErrores() {
+        if (!errores.isEmpty()) {
+            System.out.println("\n🧾 Errores detectados:");
+            errores.forEach(System.out::println);
+        } else {
+            System.out.println("✅ Todas las comprobaciones pasaron.");
+        }
+    }
+
+    public void reset() {
+        errores.clear();
+    }
+
+    public static boolean hayErrores() {
+        return !errores.isEmpty();
     }
     public void login(){
         page.fill(SelectorsArla.USERNAME_INPUT,username);
@@ -146,10 +174,10 @@ public class MethodsArla extends ContextArla{
         try {
             toast.waitFor(); // Espera hasta que el toast esté presente
             String actualText = toast.innerText().trim(); // Obtiene el texto visible sin espacios extra
-            System.out.println(actualText); // Depuración
-            Assertions.assertEquals(expectedMessage, actualText, "El mensaje de confirmación no coincide.");
+            System.out.println(actualText);
+            assertThat(()->Assertions.assertEquals(expectedMessage, actualText), "El mensaje de confirmación no coincide."+expectedMessage);
         } catch (TimeoutError e) {
-            throw new AssertionError("El mensaje esperado no apareció: " + expectedMessage);
+            assertThat(() -> {throw new AssertionError("El mensaje esperado no apareció: " + expectedMessage);}, "Timeout esperando el toast con mensaje: " + expectedMessage);
         }
     }
     public void waitForPopUp(String expectedMessage) {

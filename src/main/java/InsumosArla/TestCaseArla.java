@@ -22,6 +22,8 @@ public class TestCaseArla extends ContextArla{
             methods.uploadVideo();
             methods.waitForToast(toast.VIDEO_UPLOAD_SUCCESS);
         }
+        methods.printErrores();
+        methods.reset();
         cleanupContext();
     }
     public void happyPathCreateCourse(){
@@ -32,6 +34,8 @@ public class TestCaseArla extends ContextArla{
             methods.createCourse();
             methods.waitForToast(toast.COURSE_CREATE_SUCESS);
         }
+        methods.printErrores();
+        methods.reset();
         cleanupContext();
     }
     public void happyPathCreateCategory(){
@@ -42,6 +46,8 @@ public class TestCaseArla extends ContextArla{
             methods.createCategory();
             methods.waitForToast(toast.CATEGORY_CREATE_SUCESS);
         }
+        methods.printErrores();
+        methods.reset();
         cleanupContext();
     }
     public void happyPathInviteClient(){

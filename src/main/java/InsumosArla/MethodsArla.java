@@ -19,6 +19,9 @@ public class MethodsArla extends ContextArla{
     QueriesArla querie = new QueriesArla();
     GeneratorArla.EmailInfo emailInfo;
     private static final List<String> errores = new ArrayList<>();
+    public void F5(){
+        page.keyboard().press("F5");
+    }
     public void startContextAndNavigation(){
         startContext();
         startNavigation();
@@ -129,7 +132,11 @@ public class MethodsArla extends ContextArla{
         page.click(SelectorsArla.COURSE_CHAPTER_SELECT_VIDEO_LIST);
         page.click(SelectorsArla.COURSE_CHAPTER_SAVE_BUTTON);
         page.click(SelectorsArla.COURSE_CONTINUE_BUTTON);
+        Double scrolly = (Double) page.evaluate("() => window.scrolly");
+
+        System.out.println("Scroll actual y:" + scrolly);
         page.click(SelectorsArla.COURSE_CONTINUE_BUTTON);
+        System.out.println("Scroll actual y:" + scrolly);
     }
     public void createCategory(){
         Keyboard kb = page.keyboard();

@@ -34,12 +34,12 @@ public class SelectorsArla {
     public static final String COURSE_CHAPTER_SELECT_VIDEO_LIST = "app-media-library > div > app-table > table > tbody > tr:nth-of-type(1)";
     public static final String COURSE_CHAPTER_CREATE_QUIZ_BUTTON = "app-new-chapter-modal > div:nth-of-type(1) > div > div:nth-of-type(2) > button";
     public static final String COURSE_CHAPTER_APPROVAL_PERCENTAGE_INPUT = "app-quiz > div:nth-of-type(1) > div:nth-of-type(1) > div > mat-form-field input";
-    public static final String COURSE_CHAPTER_QUIZ_ADDQUESTION_BUTTON = "app-quiz > div:nth-of-type(1) > div:nth-of-type(2) button";
+    public static final String COURSE_CHAPTER_QUIZ_ADDQUESTION_BUTTON = "app-quiz > div:nth-of-type(1) > div:nth-of-type(3) button";
     public static final String COURSE_CHAPTER_QUIZ_QUESTION_INPUT = "app-quiz > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > mat-form-field input";
     public String courseChapterQuizAnswerInput(int counter){
         return "app-quiz > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type("+counter+") > div > div:nth-of-type(1) input";
     }
-    public static final String COURSE_CHAPTER_QUIZ_TIME_TOGGLE = "app-quiz > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) mat-slide-toggle";
+    public static final String COURSE_CHAPTER_QUIZ_TIME_TOGGLE = "app-quiz > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) mat-slide-toggle button";
     public static final String COURSE_CHAPTER_QUIZ_TIME_INPUT = "app-quiz > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) input";
     public static final String COURSE_CHAPTER_QUIZ_CORRECT_ANSWER_CHECKBOX = "app-quiz > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) mat-checkbox";
     public static final String COURSE_CHAPTER_QUIZ_QUESTION_SAVE_BUTTON = "app-quiz > div:nth-of-type(2) > button:nth-of-type(2)";

@@ -99,6 +99,7 @@ public class MethodsArla extends ContextArla{
         Keyboard kb = page.keyboard();
         page.fill(SelectorsArla.COURSE_NAME_INPUT, generate.generateContentTitle());
         page.fill(SelectorsArla.COURSE_DESCRIBE_INPUT, generate.generateContentDescription());
+        page.fill(SelectorsArla.COURSE_ISSUE_INPUT, generate.generateContentTitle());
         page.fill(SelectorsArla.COURSE_KEYWORD_INPUT, generate.generatekeywords());
         kb.press("Enter");
         page.click(SelectorsArla.COURSE_LENGUAGE_SELECTOR);
@@ -117,8 +118,8 @@ public class MethodsArla extends ContextArla{
             page.fill(selector.courseChapterQuizAnswerInput(counter), generate.generateAnswer());
         }
         page.click(SelectorsArla.COURSE_CHAPTER_QUIZ_CORRECT_ANSWER_CHECKBOX);
-        page.click(SelectorsArla.COURSE_CHAPTER_QUIZ_TIME_TOGGLE);
-        page.fill(SelectorsArla.COURSE_CHAPTER_QUIZ_TIME_INPUT, "60");
+        //page.click(SelectorsArla.COURSE_CHAPTER_QUIZ_TIME_TOGGLE);
+        //page.fill(SelectorsArla.COURSE_CHAPTER_QUIZ_TIME_INPUT, "60");
         page.click(SelectorsArla.COURSE_CHAPTER_QUIZ_QUESTION_SAVE_BUTTON);
         page.click(SelectorsArla.COURSE_CHAPTER_QUIZ_QUESTION_SAVE_BUTTON);
         page.click(SelectorsArla.COURSE_CHAPTER_ADD_VIDEO);
@@ -135,18 +136,19 @@ public class MethodsArla extends ContextArla{
         Keyboard kb = page.keyboard();
         page.fill(SelectorsArla.CATEGORY_NAME_INPUT, generate.generateContentTitle());
         page.fill(SelectorsArla.CATEGORY_DESCRIPTION_INPUT, generate.generateContentDescription());
-        kb.press("Tab");
-        page.waitForTimeout(2000);
+        page.fill(SelectorsArla.CATEGORY_KEYWORD_INPUT, generate.generatekeywords());
         kb.press("Enter");
-        page.focus(SelectorsArla.CATEGORY_CLIENTS_SEARCH_SELECT);
-        page.fill(SelectorsArla.CATEGORY_CLIENTS_SEARCH_SELECT, "franclient101");
-        page.click(SelectorsArla.CATEGORY_CLIENTS_CHECKBOX);
-        kb.press("Escape");
         page.click(SelectorsArla.CATEGORY_LENGUAGE_SELECTOR);
         page.click(SelectorsArla.CATEGORY_LENGUAGE_LIST);
+        page.fill(SelectorsArla.CATEGORY_PRICE_INPUT, "10");
+        page.fill(SelectorsArla.CATEGORY_DISCOUNT_INPUT, "10");
         page.click(SelectorsArla.CATEGORY_CONTINUE_BUTTON);
         page.locator(SelectorsArla.COURSE_UPLOAD_IMAGE).setInputFiles(Paths.get(generate.generateImage()));
         page.click(SelectorsArla.COURSE_UPLOAD_IMAGE_SAVE_BUTTON);
+        page.click(SelectorsArla.CATEGORY_OPENLISTVIDEO_BUTTON);
+        page.click(SelectorsArla.CATEGORY_OPENUPLOADVIDEO_MODAL);
+        page.locator(SelectorsArla.CATEGORY_VIDEO_UPLOAD).setInputFiles(Paths.get(generate.generateVideo()));
+        page.click(SelectorsArla.CATEGORY_SAVEVIDEO_BUTTON);
         page.click(SelectorsArla.CATEGORY_CONTINUE_BUTTON);
         page.click(SelectorsArla.CATEGORY_SELECT_COURSE_BUTTON);
         page.click(SelectorsArla.CATEGORY_LIST_CHECKBOX);

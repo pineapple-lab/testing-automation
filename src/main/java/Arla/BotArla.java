@@ -26,7 +26,7 @@ public class BotArla extends Arla.InterfaceActions {
     @Override
     public void start(Stage stage1) {
         super.start(stage1);
-        stage1.setTitle("Docola bot");
+        stage1.setTitle("LMS bot");
         Thread interfaceThread = new Thread(() -> {
             outputStream = new PrintStream(new PrintStream(new OutputStream() {
                 @Override
@@ -141,7 +141,7 @@ public class BotArla extends Arla.InterfaceActions {
             VariablesArla.navigationLink = "https://docola-qa.web.app/";
         }*/
         if ("DEV".equals(seleccion)) {
-            navigationLink = "https://arla-cms-dev.web.app/login";
+            navigationLink = "https://thezone-dev.web.app/login";
         }
     }
     private void handleStopTestCase() {

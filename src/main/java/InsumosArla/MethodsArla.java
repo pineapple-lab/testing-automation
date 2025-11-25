@@ -6,6 +6,7 @@ import com.microsoft.playwright.Keyboard;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.TimeoutError;
+import com.microsoft.playwright.assertions.PlaywrightAssertions;
 import javaslang.match.generator.Generator;
 import org.junit.jupiter.api.Assertions;
 
@@ -69,6 +70,26 @@ public class MethodsArla extends ContextArla{
 
     public static boolean hayErrores() {
         return !errores.isEmpty();
+    }
+    public void goRegisterForm(){
+        System.out.println("register 4");
+        page.click(SelectorsArla.REGISTER_NAVIGATION_FORM_BUTTON);
+    }
+    public void register(){
+        System.out.println("register 3");
+        emailInfo = generate.generateEmail();
+        userEmail = emailInfo.getEmail();
+        goRegisterForm();
+        System.out.println("register 5");
+        page.fill(SelectorsArla.REGISTER_FIRSTNAME_INPUT, emailInfo.getFirstName());
+        System.out.println("register 6");
+        page.fill(SelectorsArla.REGISTER_LASTNAME_INPUT, emailInfo.getFirstName());
+        page.fill(SelectorsArla.REGISTER_EMAIL_INPUT, userEmail);
+        page.fill(SelectorsArla.REGISTER_PASSWORD_INPUT, password);
+        page.fill(SelectorsArla.REGISTER_CONFIRMPASWORD_INPUT, password);
+        page.click(SelectorsArla.REGISTER_TERMSANDCONDITION_CHECKBOX);
+        page.click(SelectorsArla.REGISTER_BUTTON);
+        System.out.println("register 7");
     }
     public void login(){
         page.fill(SelectorsArla.USERNAME_INPUT,username);
@@ -148,11 +169,15 @@ public class MethodsArla extends ContextArla{
         page.click(SelectorsArla.CATEGORY_OPENLISTVIDEO_BUTTON);
         page.click(SelectorsArla.CATEGORY_OPENUPLOADVIDEO_MODAL);
         page.locator(SelectorsArla.CATEGORY_VIDEO_UPLOAD).setInputFiles(Paths.get(generate.generateVideo()));
+        page.waitForTimeout(10000);
         page.click(SelectorsArla.CATEGORY_SAVEVIDEO_BUTTON);
+        page.click(SelectorsArla.CATEGORY_VIDEO_LIST);
         page.click(SelectorsArla.CATEGORY_CONTINUE_BUTTON);
         page.click(SelectorsArla.CATEGORY_SELECT_COURSE_BUTTON);
         page.click(SelectorsArla.CATEGORY_LIST_CHECKBOX);
         page.click(SelectorsArla.CATEGORY_COURSE_SAVE_BUTTON);
+        page.click(SelectorsArla.CATEGORY_CONTINUE_BUTTON);
+        page.click(SelectorsArla.CATEGORY_CONTINUE_BUTTON);
         page.click(SelectorsArla.CATEGORY_CONTINUE_BUTTON);
         page.click(SelectorsArla.CATEGORY_CONTINUE_BUTTON);
     }
@@ -180,6 +205,23 @@ public class MethodsArla extends ContextArla{
             assertThat(()->Assertions.assertEquals(expectedMessage, actualText), "El mensaje de confirmación no coincide."+expectedMessage);
         } catch (TimeoutError e) {
             assertThat(() -> {throw new AssertionError("El mensaje esperado no apareció: " + expectedMessage);}, "Timeout esperando el toast con mensaje: " + expectedMessage);
+        }
+    }
+    public void waitForComponent(String selector) {
+        Locator componentLocator = page.locator(selector);
+        try {
+            componentLocator.waitFor();
+            PlaywrightAssertions.assertThat(componentLocator).isVisible();
+            System.out.println("Componente encontrado: " + selector);
+        } catch (TimeoutError e) {
+            assertThat(() -> {
+                throw new AssertionError("\n¡Error de Timeout! El componente no apareció en el DOM.\n -> Selector fallido: \"" + selector + "\"");
+            }, "Timeout esperando el componente: " + selector);
+
+        } catch (AssertionError e) {
+            assertThat(() -> {
+                throw new AssertionError("\n¡Error de Visibilidad! El componente no es visible.\n -> Selector fallido: \"" + selector + "\"\nDetalles: " + e.getMessage());
+            }, "Verificación de visibilidad fallida: " + selector);
         }
     }
     public void waitForPopUp(String expectedMessage) {

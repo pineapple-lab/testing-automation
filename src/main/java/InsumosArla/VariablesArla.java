@@ -20,7 +20,7 @@ public class VariablesArla extends PathUtilsArla{
     public int counter = 0;
     public String userRole;
     public static String userEmail;
-    public String emailDomain = "mailinator";
+    public String emailDomain = "gmail";
     //Queries variables
     public boolean registerClient;
 }

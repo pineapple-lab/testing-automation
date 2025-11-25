@@ -59,11 +59,12 @@ public class InterfaceProperties extends InterfaceElements{
         GridPane.setConstraints(comboBox,2,1);
         GridPane.setConstraints(botConfigurations, 7, 1);
         //Test case buttons
-        GridPane.setConstraints(hpLoginButton, 2, 3);
-        GridPane.setConstraints(hpUploadVideos, 2, 4);
-        GridPane.setConstraints(hpCreateCourses, 2, 5);
-        GridPane.setConstraints(hpCreateCategory, 2, 6);
-        GridPane.setConstraints(hpInviteClient, 2, 7);
+        GridPane.setConstraints(hpRegisterButton, 2, 3);
+        GridPane.setConstraints(hpLoginButton, 2, 4);
+        GridPane.setConstraints(hpUploadVideos, 2, 5);
+        GridPane.setConstraints(hpCreateCourses, 2, 6);
+        GridPane.setConstraints(hpCreateCategory, 2, 7);
+        //GridPane.setConstraints(hpInviteClient, 2, 7);
         comboBox.getItems().add("DEV");
         comboBox.getItems().add("QA");
         comboBox.getItems().add("Local");
@@ -78,12 +79,11 @@ public class InterfaceProperties extends InterfaceElements{
         gridHeader.getChildren().add(botConfigurations);
     }
     private void addElementsGridCreator(){
+        gridCreator.getChildren().add(hpRegisterButton);
         gridCreator.getChildren().add(hpLoginButton);
         gridCreator.getChildren().add(hpUploadVideos);
         gridCreator.getChildren().add(hpCreateCourses);
         gridCreator.getChildren().add(hpCreateCategory);
-        gridCreator.getChildren().add(hpInviteClient);
-
     }
     private void setColors(){
         //HEADER buttons
@@ -92,11 +92,11 @@ public class InterfaceProperties extends InterfaceElements{
         setButtonStyle(removeQueue);
         setButtonStyle(botConfigurations);
         //Test case buttons
+        setButtonStyle(hpRegisterButton);
         setButtonStyle(hpLoginButton);
         setButtonStyle(hpUploadVideos);
         setButtonStyle(hpCreateCourses);
         setButtonStyle(hpCreateCategory);
-        setButtonStyle(hpInviteClient);
     }
     private void setButtonStyle(Button button) {
         button.setStyle("-fx-background-color: #cb4b81;");
@@ -108,11 +108,11 @@ public class InterfaceProperties extends InterfaceElements{
         setupHoverEffect(removeQueue);
         setupHoverEffect(botConfigurations);
         //Test case buttons
+        setupHoverEffect(hpRegisterButton);
         setupHoverEffect(hpLoginButton);
         setupHoverEffect(hpUploadVideos);
         setupHoverEffect(hpCreateCourses);
         setupHoverEffect(hpCreateCategory);
-        setupHoverEffect(hpInviteClient);
     }
     private void setupHoverEffect(Button button) {
         button.setOnMouseEntered(e -> button.setStyle("-fx-background-color: #e27da1; -fx-text-fill: white;"));

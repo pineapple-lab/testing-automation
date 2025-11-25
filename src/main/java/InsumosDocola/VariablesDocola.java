@@ -15,10 +15,10 @@ public class VariablesDocola extends PathUtils{
    public int executeCounter;
    //Variables de registro
    public static String userEmail;
-   public String emailDomain = "mailinator";
+   public String emailDomain = "gmail";
    public static String userRole;
    public int roleID;
-   public String userPassword = "123123aA-";
+   public String userPassword = "123123aA.";
    //Variables de contenido
    public static volatile String contentTitle = "";
    public static volatile String contentDescription = "";

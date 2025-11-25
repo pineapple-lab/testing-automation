@@ -15,6 +15,18 @@ public class TestCaseArla extends ContextArla{
         }
         cleanupContext();
     }
+    public void happyPathRegister(){
+        System.out.println("Se van a registrar "+generate.generateExecutions()+" usuarios\n");
+        for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
+            System.out.println("register 2");
+            methods.register();
+            page.waitForTimeout(1000);
+            methods.waitForComponent(SelectorsArla.ASSERTION_MENU_USER);
+        }
+        methods.printErrores();
+        methods.reset();
+        cleanupContext();
+    }
     public void happyPathUploadVideos(){
         System.out.println("Se van a subir "+generate.generateExecutions()+" videos\n");
         methods.login();

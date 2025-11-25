@@ -7,6 +7,20 @@ public class SelectorsArla {
     public static final String USERNAME_INPUT = "form > mat-form-field:nth-of-type(1) input";
     public static final String PASSWORD_INPUT = "form > mat-form-field:nth-of-type(2) input";
     public static final String LOGIN_BUTTON = "form > button";
+
+    //ASSERTIONS SELECTORS
+    public static final String ASSERTION_MENU_USER = "app-header > header .mat-mdc-menu-trigger";
+
+    //REGISTER
+    public static final String REGISTER_NAVIGATION_FORM_BUTTON = "header > div > div:nth-of-type(2) > button:nth-of-type(2)";
+    public static final String REGISTER_FIRSTNAME_INPUT = "form > div > div:nth-of-type(1) > mat-form-field input";
+    public static final String REGISTER_LASTNAME_INPUT = "form > div > div:nth-of-type(2) > mat-form-field input";
+    public static final String REGISTER_EMAIL_INPUT = "form > mat-form-field:nth-of-type(1) input";
+    public static final String REGISTER_PASSWORD_INPUT  = "form > mat-form-field:nth-of-type(2) input";
+    public static final String REGISTER_CONFIRMPASWORD_INPUT = "form > mat-form-field:nth-of-type(3) input";
+    public static final String REGISTER_TERMSANDCONDITION_CHECKBOX = "form mat-checkbox input";
+    public static final String REGISTER_BUTTON = "form button";
+
     //MEDIA LIBRARY
     public static final String MEDIA_LIBRARY_MENU = "mat-list > mat-list-item:nth-of-type(3)";
     public static final String MEDIA_LIBRARY_UPLOAD_BUTTON = "app-my-media-library > div > div > button";
@@ -14,7 +28,8 @@ public class SelectorsArla {
     public static final String UPLOAD_VIDEO_ADD_LENGUAGE = "app-upload-video app-table tbody td:nth-of-type(3) mat-chip";
     public static final String UPLOAD_VIDEO_SELECT_LENGUAGE = "app-overlay > div > div > mat-option:nth-of-type(1)";
     public static final String UPLOAD_VIDEO_SAVE_BUTTON = "app-upload-video > div:nth-of-type(2) div:nth-of-type(2) > button:nth-of-type(2)";
-    //COURSES
+
+    //COURSE
     public static final String COURSE_MENU_BUTTON = "mat-list > mat-list-item:nth-of-type(2)";
     public static final String COURSE_CREATE_BUTTON = "app-courses > div > div:nth-of-type(1) button";
     public static final String COURSE_NAME_INPUT = "app-course-creation > div > div:nth-of-type(1) > div:nth-of-type(2) > app-mat-form-field:nth-of-type(1) input";
@@ -45,7 +60,8 @@ public class SelectorsArla {
     public static final String COURSE_CHAPTER_QUIZ_CORRECT_ANSWER_CHECKBOX = "app-quiz > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) mat-checkbox";
     public static final String COURSE_CHAPTER_QUIZ_QUESTION_SAVE_BUTTON = "app-quiz > div:nth-of-type(2) > button:nth-of-type(2)";
     public static final String COURSE_CHAPTER_SAVE_BUTTON = "app-new-chapter-modal > div:nth-of-type(2) > button:nth-of-type(2)";
-    //CATEGORYS
+
+    //CATEGORY
     public static final String CATEGORY_MENU_BUTTON = "mat-list > mat-list-item:nth-of-type(1)";
     public static final String CATEGORY_CREATE_BUTTON = "app-category-list > div > div:nth-of-type(1) button";
     public static final String CATEGORY_NAME_INPUT = "app-category-creation > div > div:nth-of-type(1) > div:nth-of-type(2) > app-mat-form-field:nth-of-type(1) input";
@@ -58,12 +74,13 @@ public class SelectorsArla {
     public static final String CATEGORY_LENGUAGE_LIST = ".cdk-overlay-container > div:nth-of-type(2) > div > div > mat-option:nth-of-type(1)";
     public static final String CATEGORY_PRICE_INPUT = "app-price-input > form > div > div > mat-form-field:nth-of-type(2) input";
     public static final String CATEGORY_DISCOUNT_INPUT = "app-price-input > form > div > div:nth-of-type(2) input";
-    public static final String CATEGORY_SELECT_COURSE_BUTTON = "app-category-creation > div > div:nth-of-type(1) button:nth-of-type(2)";
-    public static final String CATEGORY_LIST_CHECKBOX = "mat-dialog-content app-table table tbody tr:nth-of-type(1) mat-checkbox";
     public static final String CATEGORY_OPENLISTVIDEO_BUTTON = "app-content-video-upload button";
     public static final String CATEGORY_OPENUPLOADVIDEO_MODAL = "app-media-library .row-upload button";
     public static final String CATEGORY_SAVEVIDEO_BUTTON = "app-upload-video .footer > div:nth-of-type(2) > button:nth-of-type(2)";
     public static final String CATEGORY_VIDEO_UPLOAD = "app-upload-video .overflow input:nth-of-type(2)";
+    public static final String CATEGORY_VIDEO_LIST = "app-table > table tbody tr:nth-of-type(1)";
+    public static final String CATEGORY_SELECT_COURSE_BUTTON = "app-category-creation > div > div:nth-of-type(1) button:nth-of-type(2)";
+    public static final String CATEGORY_LIST_CHECKBOX = "mat-dialog-content app-table table tbody tr:nth-of-type(1) mat-checkbox";
     public static final String CATEGORY_COURSE_SAVE_BUTTON = "app-select-courses-dialog > mat-dialog-actions button:nth-of-type(2)";
     public static final String CATEGORY_CONTINUE_BUTTON = "app-category-creation > div > div:nth-of-type(2) > div > button:nth-of-type(2)";
 

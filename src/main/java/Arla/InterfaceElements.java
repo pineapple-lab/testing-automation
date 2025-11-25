@@ -44,6 +44,7 @@ public abstract class InterfaceElements extends Application {
     Tab tbTestCase = new Tab("TestCase");
 
     //TEST CASE BUTTONS
+    Button hpRegisterButton = new Button ("Hp register");
     Button hpLoginButton = new Button("Hp Login");
     Button hpUploadVideos = new Button ("Hp upload video");
     Button hpCreateCourses = new Button ("Hp create course");

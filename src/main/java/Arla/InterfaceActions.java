@@ -9,6 +9,7 @@ import java.util.List;
 public class InterfaceActions extends InterfaceProperties{
     enum ExecMethod {
         //CREATE
+        HP_REGISTER,
         HP_LOGIN_USER,
         HP_UPLOAD_VIDEO,
         HP_CREATE_COURSE,
@@ -30,6 +31,9 @@ public class InterfaceActions extends InterfaceProperties{
         }
     }
     //create actions
+    public void actionHpRegister() {
+        executeService(new FunctionRegister(), FunctionRegister::serviceRegister);
+    }
     public void actionHpLogin() {
         executeService(new FunctionLogin(), FunctionLogin::serviceLogin);
     }

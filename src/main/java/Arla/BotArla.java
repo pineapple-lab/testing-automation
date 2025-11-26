@@ -38,12 +38,16 @@ public class BotArla extends Arla.InterfaceActions {
                 }
             }));
             outputStream.println("Bienvenido, selecciona un ambiente y el numero de executionDetails para empezar.\n\n");
-            //CREATOR buttons
+            //Test case HAPPY PATH buttons
             hpRegisterButton.setOnAction(e -> handleAction(ExecMethod.HP_REGISTER,"HP_REGISTER"));
             hpLoginButton.setOnAction(e -> handleAction(ExecMethod.HP_LOGIN_USER,"HP_LOGIN_USER"));
             hpUploadVideos.setOnAction(e -> handleAction(ExecMethod.HP_UPLOAD_VIDEO,"HP_UPLOAD_VIDEO"));
             hpCreateCourses.setOnAction(e -> handleAction(ExecMethod.HP_CREATE_COURSE,"HP_CREATE_COURSE"));
             hpCreateCategory.setOnAction(e -> handleAction(ExecMethod.HP_CREATE_CATEGORY,"HP_CREATE_CATEGORY"));
+
+            //Test case VALIDATION ERROR MESSAGE buttons
+            testCourseInputEmptyStep1.setOnAction(e -> handleAction(ExecMethod.VALIDATION_STEP1_EMPTYMESSAGE,"VALIDATION_STEP1_EMPTYMESSAGE"));
+            testCourseInputEmptyStep2.setOnAction(e -> handleAction(ExecMethod.VALIDATION_STEP2_EMPTYMESSAGE,"VALIDATION_STEP2_EMPTYMESSAGE"));
             //hpInviteClient.setOnAction(e -> handleAction(ExecMethod.HP_INVITE_CLIENT,"HP_INVITE_CLIENT"));
             //HEADER
             comboBox.setOnAction(e -> handleComboBoxAction());
@@ -171,7 +175,7 @@ public class BotArla extends Arla.InterfaceActions {
         for (int i = 0; i < waitingList.size(); i++) {
             Arla.InterfaceActions.ExecMethod var = waitingList.get(i);
             switch (var) {
-                //CASE CREATION
+                //Happy path test case
                 case HP_REGISTER:
                     actionHpRegister();
                     break;
@@ -189,6 +193,16 @@ public class BotArla extends Arla.InterfaceActions {
                     break;
                 case HP_INVITE_CLIENT:
                     actionHpInviteClient();
+                    break;
+                    //Validation error message test case
+                case VALIDATION_STEP1_EMPTYMESSAGE:
+                    actionValidationCourseStep1InputEmpty();
+                    break;
+                case VALIDATION_STEP2_EMPTYMESSAGE:
+                    actionValidationCourseStep2InputEmpty();
+                    break;
+                case VALIDATION_STEP3_EMPTYMESSAGE:
+                    actionValidationCourseStep3InputEmpty();
                     break;
             }
             if (!isRunning) {

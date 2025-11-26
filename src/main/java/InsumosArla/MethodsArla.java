@@ -76,20 +76,16 @@ public class MethodsArla extends ContextArla{
         page.click(SelectorsArla.REGISTER_NAVIGATION_FORM_BUTTON);
     }
     public void register(){
-        System.out.println("register 3");
         emailInfo = generate.generateEmail();
         userEmail = emailInfo.getEmail();
         goRegisterForm();
-        System.out.println("register 5");
         page.fill(SelectorsArla.REGISTER_FIRSTNAME_INPUT, emailInfo.getFirstName());
-        System.out.println("register 6");
         page.fill(SelectorsArla.REGISTER_LASTNAME_INPUT, emailInfo.getFirstName());
         page.fill(SelectorsArla.REGISTER_EMAIL_INPUT, userEmail);
         page.fill(SelectorsArla.REGISTER_PASSWORD_INPUT, password);
         page.fill(SelectorsArla.REGISTER_CONFIRMPASWORD_INPUT, password);
         page.click(SelectorsArla.REGISTER_TERMSANDCONDITION_CHECKBOX);
         page.click(SelectorsArla.REGISTER_BUTTON);
-        System.out.println("register 7");
     }
     public void login(){
         page.fill(SelectorsArla.USERNAME_INPUT,username);
@@ -116,7 +112,7 @@ public class MethodsArla extends ContextArla{
         page.click(SelectorsArla.CLIENT_MENU_BUTTON);
         page.click(SelectorsArla.CLIENT_NEW_INVITE_BUTTON);
     }
-    public void createCourse(){
+    public void courseFormCompleteStep1(){
         Keyboard kb = page.keyboard();
         page.fill(SelectorsArla.COURSE_NAME_INPUT, generate.generateContentTitle());
         page.fill(SelectorsArla.COURSE_DESCRIBE_INPUT, generate.generateContentDescription());
@@ -126,31 +122,48 @@ public class MethodsArla extends ContextArla{
         page.click(SelectorsArla.COURSE_LENGUAGE_SELECTOR);
         page.click(SelectorsArla.COURSE_LENGUAGE_LIST);
         page.click(SelectorsArla.COURSE_CONTINUE_BUTTON);
+    }
+    public void courseFormCompleteStep2(){
         page.locator(SelectorsArla.COURSE_UPLOAD_IMAGE).setInputFiles(Paths.get(generate.generateImage()));
         page.click(SelectorsArla.COURSE_UPLOAD_IMAGE_SAVE_BUTTON);
         page.click(SelectorsArla.COURSE_CONTINUE_BUTTON);
+    }
+    public void courseFormCompleteStep3(){
         page.click(SelectorsArla.COURSE_CHAPTER_ADD_BUTTON);
-        page.fill(SelectorsArla.COURSE_CHAPTER_TITLE_INPUT, generate.generateContentTitle());
-        page.click(SelectorsArla.COURSE_CHAPTER_CREATE_QUIZ_BUTTON);
-        page.fill(SelectorsArla.COURSE_CHAPTER_APPROVAL_PERCENTAGE_INPUT, "50");
-        page.click(SelectorsArla.COURSE_CHAPTER_QUIZ_ADDQUESTION_BUTTON);
-        page.fill(SelectorsArla.COURSE_CHAPTER_QUIZ_QUESTION_INPUT, generate.generateQuestion());
-        for(counter = 1; counter <= generate.generateResponseCount(); counter++) {
-            page.fill(selector.courseChapterQuizAnswerInput(counter), generate.generateAnswer());
-        }
-        page.click(SelectorsArla.COURSE_CHAPTER_QUIZ_CORRECT_ANSWER_CHECKBOX);
-        //page.click(SelectorsArla.COURSE_CHAPTER_QUIZ_TIME_TOGGLE);
-        //page.fill(SelectorsArla.COURSE_CHAPTER_QUIZ_TIME_INPUT, "60");
-        page.click(SelectorsArla.COURSE_CHAPTER_QUIZ_QUESTION_SAVE_BUTTON);
-        page.click(SelectorsArla.COURSE_CHAPTER_QUIZ_QUESTION_SAVE_BUTTON);
+        createQuiz();
+        configureApprovalPercentage();
+        uploadChapterFile();
+        page.click(SelectorsArla.COURSE_CHAPTER_SAVE_BUTTON);
+        page.click(SelectorsArla.COURSE_CONTINUE_BUTTON);
+    }
+    public void uploadChapterFile(){
         page.click(SelectorsArla.COURSE_CHAPTER_ADD_VIDEO);
         page.click(SelectorsArla.COURSE_CHAPTER_UPLOAD_VIDEO_BUTTON);
         page.locator(SelectorsArla.COURSE_CHAPTER_UPLOAD_VIDEO).setInputFiles(Paths.get(generate.generateVideo()));
         page.waitForTimeout(1000);
         page.click(SelectorsArla.COURSE_CHAPTER_UPLOAD_VIDEO_SAVE_BUTTON);
         page.click(SelectorsArla.COURSE_CHAPTER_SELECT_VIDEO_LIST);
-        page.click(SelectorsArla.COURSE_CHAPTER_SAVE_BUTTON);
-        page.click(SelectorsArla.COURSE_CONTINUE_BUTTON);
+    }
+    public void createQuiz(){
+        page.fill(SelectorsArla.COURSE_CHAPTER_TITLE_INPUT, generate.generateContentTitle());
+        page.click(SelectorsArla.COURSE_CHAPTER_CREATE_QUIZ_BUTTON);
+
+        page.click(SelectorsArla.COURSE_CHAPTER_QUIZ_ADDQUESTION_BUTTON);
+        page.fill(SelectorsArla.COURSE_CHAPTER_QUIZ_QUESTION_INPUT, generate.generateQuestion());
+        for(counter = 1; counter <= generate.generateResponseCount(); counter++) {
+            page.fill(selector.courseChapterQuizAnswerInput(counter), generate.generateAnswer());
+        }
+        page.click(SelectorsArla.COURSE_CHAPTER_QUIZ_CORRECT_ANSWER_CHECKBOX);
+        page.click(SelectorsArla.COURSE_CHAPTER_QUIZ_QUESTION_SAVE_BUTTON);
+    }
+    public void configureApprovalPercentage(){
+        page.fill(SelectorsArla.COURSE_CHAPTER_APPROVAL_PERCENTAGE_INPUT, "50");
+        page.click(SelectorsArla.COURSE_CHAPTER_QUIZ_QUESTION_SAVE_BUTTON);
+    }
+    public void createCourse(){
+        courseFormCompleteStep1();
+        courseFormCompleteStep2();
+        courseFormCompleteStep3();
         page.click(SelectorsArla.COURSE_CONTINUE_BUTTON);
     }
     public void createCategory(){
@@ -196,11 +209,10 @@ public class MethodsArla extends ContextArla{
         querie.saveClient(companyEmail,false);
     }
     public void waitForToast(String expectedMessage) {
-        Locator toast = page.locator(SelectorsArla.APP_TOASTERS); // Ajusta el selector según el HTML real
-        // Espera indefinidamente hasta que el toast aparezca
+        Locator toast = page.locator(SelectorsArla.APP_TOASTERS);
         try {
-            toast.waitFor(); // Espera hasta que el toast esté presente
-            String actualText = toast.innerText().trim(); // Obtiene el texto visible sin espacios extra
+            toast.waitFor();
+            String actualText = toast.innerText().trim();
             System.out.println(actualText);
             assertThat(()->Assertions.assertEquals(expectedMessage, actualText), "El mensaje de confirmación no coincide."+expectedMessage);
         } catch (TimeoutError e) {
@@ -224,13 +236,38 @@ public class MethodsArla extends ContextArla{
             }, "Verificación de visibilidad fallida: " + selector);
         }
     }
-    public void waitForPopUp(String expectedMessage) {
-        Locator toast = page.locator(SelectorsArla.APP_POPUPS); // Ajusta el selector según el HTML real
-        // Espera indefinidamente hasta que el toast aparezca
+    public void waitForInputErrorMessage(String selector, String expectedMessage) {
+        Locator locator = page.locator(selector);
+        final int TIMEOUT_VISIBILIDAD = 5000;
         try {
-            toast.waitFor(); // Espera hasta que el toast esté presente
-            String actualText = toast.innerText().trim(); // Obtiene el texto visible sin espacios extra
-            System.out.println(actualText); // Depuración
+            locator.waitFor(new Locator.WaitForOptions().setTimeout(TIMEOUT_VISIBILIDAD));
+            assertThat(() -> {
+                PlaywrightAssertions.assertThat(locator).isVisible();
+            }, "Verificación de visibilidad fallida para el selector: \"" + selector + "\".");
+            String actualText = locator.innerText().trim();
+            System.out.println("Mensaje de error encontrado:" + actualText);
+            assertThat(() -> {
+                Assertions.assertEquals(expectedMessage, actualText,
+                        "\nEl mensaje de error no coincide con el esperado." +
+                                "\n -> Esperado: \"" + expectedMessage + "\"" +
+                                "\n -> Encontrado: \"" + actualText + "\"");
+            }, "Verificación de contenido fallida para el selector: \"" + selector + "\".");
+
+        } catch (TimeoutError e) {
+            String errorMsg = "❌ ¡Error de Timeout! El componente no apareció en el DOM en " + TIMEOUT_VISIBILIDAD + "ms.\n" +
+                    " -> Selector fallido: \"" + selector + "\"" +
+                    " -> Mensaje esperado: \"" + expectedMessage + "\"";
+            System.out.println(errorMsg);
+            errores.add(errorMsg);
+        }
+    }
+
+    public void waitForPopUp(String expectedMessage) {
+        Locator toast = page.locator(SelectorsArla.APP_POPUPS);
+        try {
+            toast.waitFor();
+            String actualText = toast.innerText().trim();
+            System.out.println(actualText);
             Assertions.assertEquals(expectedMessage, actualText, "El mensaje de confirmación no coincide.");
         } catch (TimeoutError e) {
             throw new AssertionError("El mensaje esperado no apareció: " + expectedMessage);

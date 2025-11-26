@@ -30,6 +30,7 @@ public abstract class InterfaceElements extends Application {
     //WAITING LIST
     ArrayList<BotArla.ExecMethod> waitingList = new ArrayList<>();
     GridPane gridCreator = new GridPane();
+    GridPane gridCourseFormValidations = new GridPane();
     GridPane gridValidationsRegister = new GridPane();
     GridPane gridValidationsLogin = new GridPane();
     GridPane gridValidationsResources = new GridPane();
@@ -41,7 +42,8 @@ public abstract class InterfaceElements extends Application {
 
     //TABS
     TabPane tabPane = new TabPane();
-    Tab tbTestCase = new Tab("TestCase");
+    Tab tbHappyPath = new Tab("happy path");
+    Tab tbValidationsMessage = new Tab ("message validations");
 
     //TEST CASE BUTTONS
     Button hpRegisterButton = new Button ("Hp register");
@@ -49,6 +51,9 @@ public abstract class InterfaceElements extends Application {
     Button hpUploadVideos = new Button ("Hp upload video");
     Button hpCreateCourses = new Button ("Hp create course");
     Button hpCreateCategory = new Button ("Hp create category");
+    Button testCourseInputEmptyStep1= new Button ("empty inputs step 1");
+    Button testCourseInputEmptyStep2= new Button ("empty inputs step 2");
+    Button testCourseInputEmptyStep3= new Button ("empty inputs step 3");
     Button hpInviteClient = new Button ("Hp invite client");
 
     public abstract void start(Stage stage);

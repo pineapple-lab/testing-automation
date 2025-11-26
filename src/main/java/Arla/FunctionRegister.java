@@ -9,7 +9,6 @@ public class FunctionRegister extends TestCaseArla {
     MethodsArla methods = new MethodsArla();
     @Test
     public void serviceRegister(){
-        System.out.println("register1");
         methods.startContextAndNavigation();
         happyPathRegister();
         teardownPlaywright();

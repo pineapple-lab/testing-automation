@@ -14,7 +14,10 @@ public class InterfaceActions extends InterfaceProperties{
         HP_UPLOAD_VIDEO,
         HP_CREATE_COURSE,
         HP_CREATE_CATEGORY,
-        HP_INVITE_CLIENT
+        HP_INVITE_CLIENT,
+        VALIDATION_STEP1_EMPTYMESSAGE,
+        VALIDATION_STEP2_EMPTYMESSAGE,
+        VALIDATION_STEP3_EMPTYMESSAGE
     }
     public void actionEliminarDeLaCola() {
         List<CheckBox> checkBoxesSeleccionados = new ArrayList<>();
@@ -30,7 +33,7 @@ public class InterfaceActions extends InterfaceProperties{
             gridCola.getChildren().remove(checkBox);
         }
     }
-    //create actions
+    //Test case HAPPY PATH actions
     public void actionHpRegister() {
         executeService(new FunctionRegister(), FunctionRegister::serviceRegister);
     }
@@ -48,6 +51,17 @@ public class InterfaceActions extends InterfaceProperties{
     }
     public void actionHpInviteClient() {
         executeService(new FunctionInviteClient(), FunctionInviteClient::serviceInviteClients);
+    }
+
+    //Test case VALIDATION ERROR MESSAGE actions
+    public void actionValidationCourseStep1InputEmpty() {
+        executeService(new TestErrorMessageValidations(), TestErrorMessageValidations::serviceValidationCourseNameMessaegeErrorStep1);
+    }
+    public void actionValidationCourseStep2InputEmpty() {
+        executeService(new TestErrorMessageValidations(), TestErrorMessageValidations::serviceValidationCourseNameMessaegeErrorStep2);
+    }
+    public void actionValidationCourseStep3InputEmpty() {
+        executeService(new TestErrorMessageValidations(), TestErrorMessageValidations::serviceValidationCourseNameMessaegeErrorStep3);
     }
     private <T> void executeService(T serviceInstance, Arla.InterfaceActions.CheckedConsumer<T> action) {
         try {

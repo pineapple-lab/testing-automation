@@ -10,7 +10,11 @@ public class SelectorsArla {
 
     //ASSERTIONS SELECTORS
     public static final String ASSERTION_MENU_USER = "app-header > header .mat-mdc-menu-trigger";
-
+    public static final String ASSERTION_FORMCOURSE_NAME_EMPTY = "app-course-creation > div > div:nth-of-type(1) > div:nth-of-type(2) > app-mat-form-field:nth-of-type(1) mat-error span";
+    public static final String ASSERTION_FORMCOURSE_DESCRIBE_EMPTY = "app-course-creation > div > div:nth-of-type(1) > div:nth-of-type(2) > app-mat-form-field:nth-of-type(2) mat-error span";
+    public static final String ASSERTION_FORMCOURSE_LENGUAGE_EMPTY = "app-language-selector mat-error span";
+    public static final String ASSERTION_FORMCOURSE_IMAGE_EMPTY = "app-upload-image .container-error span";
+    public static final String ASSERTION_FORMCOURSE_CHAPTER_EMPTY = "app-course-creation .warning-container span";
     //REGISTER
     public static final String REGISTER_NAVIGATION_FORM_BUTTON = "header > div > div:nth-of-type(2) > button:nth-of-type(2)";
     public static final String REGISTER_FIRSTNAME_INPUT = "form > div > div:nth-of-type(1) > mat-form-field input";

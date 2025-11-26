@@ -20,6 +20,9 @@ public class MethodsArla extends ContextArla{
     QueriesArla querie = new QueriesArla();
     GeneratorArla.EmailInfo emailInfo;
     private static final List<String> errores = new ArrayList<>();
+    public void F5(){
+        page.keyboard().press("F5");
+    }
     public void startContextAndNavigation(){
         startContext();
         startNavigation();

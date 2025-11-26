@@ -59,7 +59,7 @@ public class SelectorsArla {
     public String courseChapterQuizAnswerInput(int counter){
         return "app-quiz > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type("+counter+") > div > div:nth-of-type(1) input";
     }
-    public static final String COURSE_CHAPTER_QUIZ_TIME_TOGGLE = "app-quiz > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) mat-slide-toggle";
+    public static final String COURSE_CHAPTER_QUIZ_TIME_TOGGLE = "app-quiz > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) mat-slide-toggle button";
     public static final String COURSE_CHAPTER_QUIZ_TIME_INPUT = "app-quiz > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) input";
     public static final String COURSE_CHAPTER_QUIZ_CORRECT_ANSWER_CHECKBOX = "app-quiz > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) mat-checkbox";
     public static final String COURSE_CHAPTER_QUIZ_QUESTION_SAVE_BUTTON = "app-quiz > div:nth-of-type(2) > button:nth-of-type(2)";

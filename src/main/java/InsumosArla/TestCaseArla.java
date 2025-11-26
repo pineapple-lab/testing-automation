@@ -45,6 +45,7 @@ public class TestCaseArla extends ContextArla{
         for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
             methods.createCourse();
             methods.waitForToast(toast.COURSE_CREATE_SUCESS);
+            methods.F5();
         }
         methods.printErrores();
         methods.reset();

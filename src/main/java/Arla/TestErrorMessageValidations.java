@@ -6,19 +6,29 @@ import org.junit.jupiter.api.Test;
 public class TestErrorMessageValidations extends TestCaseArla {
     MethodsArla methods = new MethodsArla();
     @Test
-    public void serviceValidationCourseNameMessaegeErrorStep1(){
+    public void serviceValidationCourseFormMessageErrorStep1(){
         methods.startContextAndNavigation();
         testEmptyInputsCourseFormStep1();
         teardownPlaywright();
     }
-    public void serviceValidationCourseNameMessaegeErrorStep2(){
+    public void serviceValidationCourseFormMessageErrorStep2(){
         methods.startContextAndNavigation();
         testEmptyInputsCourseFormStep2();
         teardownPlaywright();
     }
-    public void serviceValidationCourseNameMessaegeErrorStep3(){
+    public void serviceValidationCourseFormMessaegeErrorStep3(){
         methods.startContextAndNavigation();
         testEmptyInputsCourseFormStep3();
+        teardownPlaywright();
+    }
+    public void serviceValidationCourseListQuizMessageError(){
+        methods.startContextAndNavigation();
+        testEmptyListQuizCourseForm();
+        teardownPlaywright();
+    }
+    public void serviceValidationCourseAddQuestionMessageError(){
+        methods.startContextAndNavigation();
+        testEmptyAddQuestionCourseForm();
         teardownPlaywright();
     }
 }

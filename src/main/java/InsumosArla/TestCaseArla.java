@@ -82,12 +82,15 @@ public class TestCaseArla extends ContextArla{
             page.click(SelectorsArla.COURSE_CONTINUE_BUTTON);
             methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMCOURSE_NAME_EMPTY,message.MESSAGE_COURSENAME_EMPTY);
             methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMCOURSE_DESCRIBE_EMPTY,message.MESSAGE_COURSEDESCRIBE_EMPTY);
+            page.fill(SelectorsArla.COURSE_NAME_INPUT, generate.generateContentTitle());
+            page.fill(SelectorsArla.COURSE_DESCRIBE_INPUT, generate.generateContentDescription());
+            page.click(SelectorsArla.COURSE_CONTINUE_BUTTON);
             methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMCOURSE_LENGUAGE_EMPTY,message.MESSAGE_COURSELENGUAGE_EMPTY);
         }
         cleanupContext();
     }
     public void testEmptyInputsCourseFormStep2(){
-        System.out.println("Testeando mensajes de campos vacios del paso 1 de la creacion de cursos\n");
+        System.out.println("Testeando mensajes de campos vacios del paso 2 de la creacion de cursos\n");
         methods.login();
         methods.goToFormCreateCourse();
         for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
@@ -98,7 +101,7 @@ public class TestCaseArla extends ContextArla{
         cleanupContext();
     }
     public void testEmptyInputsCourseFormStep3(){
-        System.out.println("Testeando mensajes de campos vacios del paso 1 de la creacion de cursos\n");
+        System.out.println("Testeando mensajes de campos vacios del paso 3 de la creacion de cursos\n");
         methods.login();
         methods.goToFormCreateCourse();
         for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
@@ -109,16 +112,41 @@ public class TestCaseArla extends ContextArla{
         }
         cleanupContext();
     }
-    public void testEmptyCreateQuizCourseForm(){
-        System.out.println("Testeando mensajes de campos vacios del paso 1 de la creacion de cursos\n");
+    public void testEmptyListQuizCourseForm(){
+        System.out.println("Testeando mensajes de campos vacios del modal crear cuestionario de la creacion de cursos\n");
         methods.login();
         methods.goToFormCreateCourse();
         for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
             methods.courseFormCompleteStep1();
             methods.courseFormCompleteStep2();
+            page.click(SelectorsArla.COURSE_CHAPTER_ADD_BUTTON);
             page.click(SelectorsArla.COURSE_CHAPTER_CREATE_QUIZ_BUTTON);
             page.click(SelectorsArla.COURSE_CHAPTER_QUIZ_QUESTION_SAVE_BUTTON);
-            methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMCOURSE_CHAPTER_EMPTY,message.MESSAGE_COURSECHAPTER_EMPTY);
+            methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMCOURSE_LISTQUESTIONS_EMPTY,message.MESSAGE_COURSEQUIZLIST_EMPTY);
+            methods.addQuestion();
+            page.click(SelectorsArla.COURSE_CHAPTER_QUIZ_QUESTION_SAVE_BUTTON);
+            methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMCOURSE_APPROVALPERCENTAGE_EMPTY,message.MESSAGE_COURSEPERCENTAGEAPPROVE_EMPTY);
+        }
+        cleanupContext();
+    }
+    public void testEmptyAddQuestionCourseForm(){
+        System.out.println("Testeando mensajes de campos vacios del modal agregar pregunta de la creacion de cursos\n");
+        methods.login();
+        methods.goToFormCreateCourse();
+        for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
+            methods.courseFormCompleteStep1();
+            methods.courseFormCompleteStep2();
+            page.click(SelectorsArla.COURSE_CHAPTER_ADD_BUTTON);
+            page.click(SelectorsArla.COURSE_CHAPTER_CREATE_QUIZ_BUTTON);
+            page.click(SelectorsArla.COURSE_CHAPTER_QUIZ_ADDQUESTION_BUTTON);
+            page.click(SelectorsArla.COURSE_CHAPTER_QUIZ_QUESTION_SAVE_BUTTON);
+            methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMCOURSE_QUESTION_EMPTY, message.MESSAGE_COURSEQUIZQUESTION_EMPTY);
+            page.fill(SelectorsArla.COURSE_CHAPTER_QUIZ_QUESTION_INPUT, generate.generateQuestion());
+            page.click(SelectorsArla.COURSE_CHAPTER_QUIZ_QUESTION_SAVE_BUTTON);
+            methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMCOURSE_QUESTION_EMPTY, message.MESSAGE_COURSECORRECTANSWER_EMPTY);
+            page.click(SelectorsArla.COURSE_CHAPTER_QUIZ_CORRECT_ANSWER_CHECKBOX);
+            page.click(SelectorsArla.COURSE_CHAPTER_QUIZ_QUESTION_SAVE_BUTTON);
+            methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMCOURSE_QUESTION_EMPTY, message.MESSAGE_COURSEANSWER_EMPTY);
         }
         cleanupContext();
     }

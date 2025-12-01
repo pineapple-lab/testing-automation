@@ -48,6 +48,9 @@ public class BotArla extends Arla.InterfaceActions {
             //Test case VALIDATION ERROR MESSAGE buttons
             testCourseInputEmptyStep1.setOnAction(e -> handleAction(ExecMethod.VALIDATION_STEP1_EMPTYMESSAGE,"VALIDATION_STEP1_EMPTYMESSAGE"));
             testCourseInputEmptyStep2.setOnAction(e -> handleAction(ExecMethod.VALIDATION_STEP2_EMPTYMESSAGE,"VALIDATION_STEP2_EMPTYMESSAGE"));
+            testCourseInputEmptyStep3.setOnAction(e -> handleAction(ExecMethod.VALIDATION_STEP3_EMPTYMESSAGE,"VALIDATION_STEP3_EMPTYMESSAGE"));
+            testCourseListQuizEmpty.setOnAction(e -> handleAction(ExecMethod.VALIDATION_QUIZLIST_EMPTY, "VALIDATION_QUIZLIST_EMPTY"));
+            testCourseAddQuestionEmpty.setOnAction(e -> handleAction(ExecMethod.VALIDATION_ADDQUESTION_EMPTY, "VALIDATION_ADDQUESTION_EMPTY"));
             //hpInviteClient.setOnAction(e -> handleAction(ExecMethod.HP_INVITE_CLIENT,"HP_INVITE_CLIENT"));
             //HEADER
             comboBox.setOnAction(e -> handleComboBoxAction());
@@ -203,6 +206,12 @@ public class BotArla extends Arla.InterfaceActions {
                     break;
                 case VALIDATION_STEP3_EMPTYMESSAGE:
                     actionValidationCourseStep3InputEmpty();
+                    break;
+                case VALIDATION_QUIZLIST_EMPTY:
+                    actionValidationCourseQuizListEmpty();
+                    break;
+                case VALIDATION_ADDQUESTION_EMPTY:
+                    actionValidationCourseAddQuestionEmpty();
                     break;
             }
             if (!isRunning) {

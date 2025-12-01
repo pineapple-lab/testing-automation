@@ -15,6 +15,10 @@ public class SelectorsArla {
     public static final String ASSERTION_FORMCOURSE_LENGUAGE_EMPTY = "app-language-selector mat-error span";
     public static final String ASSERTION_FORMCOURSE_IMAGE_EMPTY = "app-upload-image .container-error span";
     public static final String ASSERTION_FORMCOURSE_CHAPTER_EMPTY = "app-course-creation .warning-container span";
+    public static final String ASSERTION_FORMCOURSE_LISTQUESTIONS_EMPTY = "app-quiz .container-error span";
+    public static final String ASSERTION_FORMCOURSE_APPROVALPERCENTAGE_EMPTY = "app-quiz .container-error-percentage span";
+    public static final String ASSERTION_FORMCOURSE_QUESTION_EMPTY = "app-quiz .text-warn";
+
     //REGISTER
     public static final String REGISTER_NAVIGATION_FORM_BUTTON = "header > div > div:nth-of-type(2) > button:nth-of-type(2)";
     public static final String REGISTER_FIRSTNAME_INPUT = "form > div > div:nth-of-type(1) > mat-form-field input";

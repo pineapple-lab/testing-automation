@@ -45,16 +45,20 @@ public abstract class InterfaceElements extends Application {
     Tab tbHappyPath = new Tab("happy path");
     Tab tbValidationsMessage = new Tab ("message validations");
 
-    //TEST CASE BUTTONS
+    //TEST CASE HAPPY PATH BUTTONS
     Button hpRegisterButton = new Button ("Hp register");
     Button hpLoginButton = new Button("Hp Login");
     Button hpUploadVideos = new Button ("Hp upload video");
     Button hpCreateCourses = new Button ("Hp create course");
     Button hpCreateCategory = new Button ("Hp create category");
+
+    //TEST CASE VALIDATION ERRORS BUTTONS
     Button testCourseInputEmptyStep1= new Button ("empty inputs step 1");
     Button testCourseInputEmptyStep2= new Button ("empty inputs step 2");
     Button testCourseInputEmptyStep3= new Button ("empty inputs step 3");
-    Button hpInviteClient = new Button ("Hp invite client");
+    Button testCourseListQuizEmpty = new Button("empty list quiz");
+    Button testCourseAddQuestionEmpty = new Button("empty add question");
 
     public abstract void start(Stage stage);
 }
+//Button hpInviteClient = new Button ("Hp invite client");

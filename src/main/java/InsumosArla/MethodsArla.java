@@ -133,6 +133,7 @@ public class MethodsArla extends ContextArla{
     }
     public void courseFormCompleteStep3(){
         page.click(SelectorsArla.COURSE_CHAPTER_ADD_BUTTON);
+        page.fill(SelectorsArla.COURSE_CHAPTER_TITLE_INPUT, generate.generateContentTitle());
         createQuiz();
         configureApprovalPercentage();
         uploadChapterFile();
@@ -148,9 +149,10 @@ public class MethodsArla extends ContextArla{
         page.click(SelectorsArla.COURSE_CHAPTER_SELECT_VIDEO_LIST);
     }
     public void createQuiz(){
-        page.fill(SelectorsArla.COURSE_CHAPTER_TITLE_INPUT, generate.generateContentTitle());
         page.click(SelectorsArla.COURSE_CHAPTER_CREATE_QUIZ_BUTTON);
-
+        addQuestion();
+    }
+    public void addQuestion(){
         page.click(SelectorsArla.COURSE_CHAPTER_QUIZ_ADDQUESTION_BUTTON);
         page.fill(SelectorsArla.COURSE_CHAPTER_QUIZ_QUESTION_INPUT, generate.generateQuestion());
         for(counter = 1; counter <= generate.generateResponseCount(); counter++) {

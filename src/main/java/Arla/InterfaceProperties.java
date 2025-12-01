@@ -66,6 +66,8 @@ public class InterfaceProperties extends InterfaceElements{
         GridPane.setConstraints(testCourseInputEmptyStep1,2, 3);
         GridPane.setConstraints(testCourseInputEmptyStep2,2, 4);
         GridPane.setConstraints(testCourseInputEmptyStep3,2,5);
+        GridPane.setConstraints(testCourseListQuizEmpty,2,6);
+        GridPane.setConstraints(testCourseAddQuestionEmpty,2,7);
         //GridPane.setConstraints(hpInviteClient, 2, 7);
         comboBox.getItems().add("DEV");
         comboBox.getItems().add("QA");
@@ -90,6 +92,9 @@ public class InterfaceProperties extends InterfaceElements{
     private void addElementsGridCourseValidations(){
         gridCourseFormValidations.getChildren().add(testCourseInputEmptyStep1);
         gridCourseFormValidations.getChildren().add(testCourseInputEmptyStep2);
+        gridCourseFormValidations.getChildren().add(testCourseInputEmptyStep3);
+        gridCourseFormValidations.getChildren().add(testCourseListQuizEmpty);
+        gridCourseFormValidations.getChildren().add(testCourseAddQuestionEmpty);
     }
     private void setColors(){
         //HEADER buttons
@@ -107,6 +112,8 @@ public class InterfaceProperties extends InterfaceElements{
         setButtonStyle(testCourseInputEmptyStep1);
         setButtonStyle(testCourseInputEmptyStep2);
         setButtonStyle(testCourseInputEmptyStep3);
+        setButtonStyle(testCourseListQuizEmpty);
+        setButtonStyle(testCourseAddQuestionEmpty);
     }
     private void setButtonStyle(Button button) {
         button.setStyle("-fx-background-color: #cb4b81;");
@@ -127,6 +134,8 @@ public class InterfaceProperties extends InterfaceElements{
         setupHoverEffect(testCourseInputEmptyStep1);
         setupHoverEffect(testCourseInputEmptyStep2);
         setupHoverEffect(testCourseInputEmptyStep3);
+        setupHoverEffect(testCourseListQuizEmpty);
+        setupHoverEffect(testCourseAddQuestionEmpty);
     }
     private void setupHoverEffect(Button button) {
         button.setOnMouseEntered(e -> button.setStyle("-fx-background-color: #e27da1; -fx-text-fill: white;"));

@@ -74,9 +74,8 @@ public class SelectorsArla {
     public static final String CATEGORY_CREATE_BUTTON = "app-category-list > div > div:nth-of-type(1) button";
     public static final String CATEGORY_NAME_INPUT = "app-category-creation > div > div:nth-of-type(1) > div:nth-of-type(2) > app-mat-form-field:nth-of-type(1) input";
     public static final String CATEGORY_DESCRIPTION_INPUT = "app-category-creation > div > div:nth-of-type(1) > div:nth-of-type(2) > app-mat-form-field:nth-of-type(2) textarea";
-    public static final String CATEGORY_CLIENTS_SELECT = "app-category-creation > div > div:nth-of-type(1) > div:nth-of-type(2) > mat-form-field mat-select";
-    public static final String CATEGORY_CLIENTS_SEARCH_SELECT = ".cdk-overlay-pane mat-form-field input";
-    public static final String CATEGORY_CLIENTS_CHECKBOX = ".cdk-overlay-pane mat-option > mat-pseudo-checkbox";
+    //public static final String CATEGORY_TYPE_SELECT = " ";
+    public static final String CATEGORY_MAXCAPACITY_INPUT = "app-category-creation app-mat-form-field:nth-of-type(3) input";
     public static final String CATEGORY_KEYWORD_INPUT = "app-category-creation > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) mat-form-field input";
     public static final String CATEGORY_LENGUAGE_SELECTOR = "app-language-selector > mat-form-field";
     public static final String CATEGORY_LENGUAGE_LIST = ".cdk-overlay-container > div:nth-of-type(2) > div > div > mat-option:nth-of-type(1)";

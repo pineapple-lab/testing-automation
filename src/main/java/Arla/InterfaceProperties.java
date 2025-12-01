@@ -10,7 +10,7 @@ public class InterfaceProperties extends InterfaceElements{
     @Override
     public void start(Stage stage) {
         setupUIElements();
-        tabPane.getTabs().addAll(tbHappyPath, tbValidationsMessage);
+        tabPane.getTabs().addAll(tbHappyPath, tbCourseMessageValidations);
         splitPane.getItems().addAll(gridHeader, tabPane, scrollPane);
         splitMain.getItems().addAll(gridCola, splitPane);
         Scene scene = new Scene(splitMain, 550, 670);
@@ -47,7 +47,7 @@ public class InterfaceProperties extends InterfaceElements{
     }
     public void addGridToTabs(){
         tbHappyPath.setContent(gridCreator);
-        tbValidationsMessage.setContent(gridCourseFormValidations);
+        tbCourseMessageValidations.setContent(gridCourseFormValidations);
     }
     private void setupGridConstraints(){
         GridPane.setConstraints(execute, 3, 1);

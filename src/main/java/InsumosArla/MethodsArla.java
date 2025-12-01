@@ -176,6 +176,7 @@ public class MethodsArla extends ContextArla{
         page.fill(SelectorsArla.CATEGORY_NAME_INPUT, generate.generateContentTitle());
         page.fill(SelectorsArla.CATEGORY_DESCRIPTION_INPUT, generate.generateContentDescription());
         page.fill(SelectorsArla.CATEGORY_KEYWORD_INPUT, generate.generatekeywords());
+        page.fill(SelectorsArla.CATEGORY_MAXCAPACITY_INPUT, "10");
         kb.press("Enter");
         page.click(SelectorsArla.CATEGORY_LENGUAGE_SELECTOR);
         page.click(SelectorsArla.CATEGORY_LENGUAGE_LIST);

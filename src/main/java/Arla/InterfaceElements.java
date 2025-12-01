@@ -42,8 +42,8 @@ public abstract class InterfaceElements extends Application {
 
     //TABS
     TabPane tabPane = new TabPane();
-    Tab tbHappyPath = new Tab("happy path");
-    Tab tbValidationsMessage = new Tab ("message validations");
+    Tab tbHappyPath = new Tab("Happy path");
+    Tab tbCourseMessageValidations = new Tab ("Course message validations");
 
     //TEST CASE HAPPY PATH BUTTONS
     Button hpRegisterButton = new Button ("Hp register");

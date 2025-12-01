@@ -41,41 +41,12 @@ public class MethodsArla extends ContextArla{
         page.navigate(navigationLink);
         System.out.println("Ambiente: "+navigationLink+"\n");
     }
-    public void startTest(){
 
-        stopTest = false;
-    }
-    public void stopTest(){
-
-        stopTest = true;
-    }
-    public static void assertThat(Runnable assertion, String mensaje) {
-        try {
-            assertion.run();
-        } catch (AssertionError e) {
-            String errorMsg = "❌ " + mensaje + ": " + e.getMessage();
-            System.out.println(errorMsg);
-            errores.add(errorMsg);
-        }
-    }
-    public void printErrores() {
-        if (!errores.isEmpty()) {
-            System.out.println("\n🧾 Errores detectados:");
-            errores.forEach(System.out::println);
-        } else {
-            System.out.println("✅ Todas las comprobaciones pasaron.");
-        }
-    }
-
-    public void reset() {
-        errores.clear();
-    }
 
     public static boolean hayErrores() {
         return !errores.isEmpty();
     }
     public void goRegisterForm(){
-        System.out.println("register 4");
         page.click(SelectorsArla.REGISTER_NAVIGATION_FORM_BUTTON);
     }
     public void register(){
@@ -90,12 +61,16 @@ public class MethodsArla extends ContextArla{
         page.click(SelectorsArla.REGISTER_TERMSANDCONDITION_CHECKBOX);
         page.click(SelectorsArla.REGISTER_BUTTON);
     }
+    public void goToLogin(){
+        page.click(SelectorsArla.LOGIN_NAVIGATION_HOMBE_BUTTON);
+    }
     public void login(){
+        goToLogin();
         page.fill(SelectorsArla.USERNAME_INPUT,username);
         page.fill(SelectorsArla.PASSWORD_INPUT, password);
         page.click(SelectorsArla.LOGIN_BUTTON);
     }
-    public void uploadVideo(){
+    public void uploadMediaLibrary(){
         page.click(SelectorsArla.MEDIA_LIBRARY_MENU);
         page.click(SelectorsArla.MEDIA_LIBRARY_UPLOAD_BUTTON);
         page.locator(SelectorsArla.UPLOAD_VIDEO_INPUT).setInputFiles(Paths.get(generate.generateVideo()));
@@ -171,7 +146,7 @@ public class MethodsArla extends ContextArla{
         courseFormCompleteStep3();
         page.click(SelectorsArla.COURSE_CONTINUE_BUTTON);
     }
-    public void createCategory(){
+    public void categoryFormCompleteStep1(){
         Keyboard kb = page.keyboard();
         page.fill(SelectorsArla.CATEGORY_NAME_INPUT, generate.generateContentTitle());
         page.fill(SelectorsArla.CATEGORY_DESCRIPTION_INPUT, generate.generateContentDescription());
@@ -183,19 +158,35 @@ public class MethodsArla extends ContextArla{
         page.fill(SelectorsArla.CATEGORY_PRICE_INPUT, "10");
         page.fill(SelectorsArla.CATEGORY_DISCOUNT_INPUT, "10");
         page.click(SelectorsArla.CATEGORY_CONTINUE_BUTTON);
+    }
+    public void categoryFormCompleteStep2(){
+        uploadImage();
+        uploadVideo();
+        page.click(SelectorsArla.CATEGORY_CONTINUE_BUTTON);
+    }
+    public void uploadImage(){
         page.locator(SelectorsArla.COURSE_UPLOAD_IMAGE).setInputFiles(Paths.get(generate.generateImage()));
         page.click(SelectorsArla.COURSE_UPLOAD_IMAGE_SAVE_BUTTON);
+    }
+    public void uploadVideo(){
         page.click(SelectorsArla.CATEGORY_OPENLISTVIDEO_BUTTON);
         page.click(SelectorsArla.CATEGORY_OPENUPLOADVIDEO_MODAL);
         page.locator(SelectorsArla.CATEGORY_VIDEO_UPLOAD).setInputFiles(Paths.get(generate.generateVideo()));
-        page.waitForTimeout(10000);
+        page.waitForTimeout(1000);
         page.click(SelectorsArla.CATEGORY_SAVEVIDEO_BUTTON);
         page.click(SelectorsArla.CATEGORY_VIDEO_LIST);
-        page.click(SelectorsArla.CATEGORY_CONTINUE_BUTTON);
+    }
+    public void categoryFormCompleteStep3(){
         page.click(SelectorsArla.CATEGORY_SELECT_COURSE_BUTTON);
         page.click(SelectorsArla.CATEGORY_LIST_CHECKBOX);
         page.click(SelectorsArla.CATEGORY_COURSE_SAVE_BUTTON);
         page.click(SelectorsArla.CATEGORY_CONTINUE_BUTTON);
+    }
+    public void createCategory(){
+        Keyboard kb = page.keyboard();
+        categoryFormCompleteStep1();
+        categoryFormCompleteStep2();
+        categoryFormCompleteStep3();
         page.click(SelectorsArla.CATEGORY_CONTINUE_BUTTON);
         page.click(SelectorsArla.CATEGORY_CONTINUE_BUTTON);
         page.click(SelectorsArla.CATEGORY_CONTINUE_BUTTON);
@@ -214,13 +205,60 @@ public class MethodsArla extends ContextArla{
         page.click(SelectorsArla.CLIENT_SEND_INVITE_BUTTON);
         querie.saveClient(companyEmail,false);
     }
+    public void startTest(){
+
+        stopTest = false;
+    }
+    public void stopTest(){
+
+        stopTest = true;
+    }
+    public static void assertThat(Runnable assertion, String mensaje) {
+        try {
+            assertion.run();
+        } catch (AssertionError e) {
+            String errorMsg = "❌ " + mensaje + ": " + e.getMessage();
+            System.out.println(errorMsg);
+            errores.add(errorMsg);
+        }
+    }
+    public void printErrores() {
+        if (!errores.isEmpty()) {
+            System.out.println("\n🧾 Errores detectados:");
+            errores.forEach(System.out::println);
+        } else {
+            System.out.println("✅ Todas las comprobaciones pasaron.");
+        }
+    }
+    public boolean verifyAssertions(Runnable... assertions){
+        boolean allPassed = true;
+        for (Runnable assertion : assertions) {
+            try {
+                assertion.run();
+            } catch (AssertionError | Exception e) {
+                allPassed = false;
+                System.out.println("❌ Falló una validación: " + e.getMessage());
+            }
+        }
+        return allPassed;
+    }
+    public void printFinalTestResult(boolean allPassed){
+        if (allPassed) {
+            System.out.println("\n✅ Prueba superada con éxito");
+        } else {
+            System.out.println("\n❌ La prueba tuvo errores");
+        }
+    }
+    public void reset() {
+        errores.clear();
+    }
     public void waitForToast(String expectedMessage) {
         Locator toast = page.locator(SelectorsArla.APP_TOASTERS);
         try {
             toast.waitFor();
             String actualText = toast.innerText().trim();
             System.out.println(actualText);
-            assertThat(()->Assertions.assertEquals(expectedMessage, actualText), "El mensaje de confirmación no coincide."+expectedMessage);
+            assertThat(()->Assertions.assertEquals(expectedMessage, actualText), "El mensaje de confirmación no coincide. "+expectedMessage);
         } catch (TimeoutError e) {
             assertThat(() -> {throw new AssertionError("El mensaje esperado no apareció: " + expectedMessage);}, "Timeout esperando el toast con mensaje: " + expectedMessage);
         }
@@ -251,7 +289,7 @@ public class MethodsArla extends ContextArla{
                 PlaywrightAssertions.assertThat(locator).isVisible();
             }, "Verificación de visibilidad fallida para el selector: \"" + selector + "\".");
             String actualText = locator.innerText().trim();
-            System.out.println("Mensaje de error encontrado:" + actualText);
+            System.out.println("Mensaje de error encontrado: " + actualText);
             assertThat(() -> {
                 Assertions.assertEquals(expectedMessage, actualText,
                         "\nEl mensaje de error no coincide con el esperado." +

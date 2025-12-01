@@ -9,6 +9,8 @@ public class TestCaseArla extends ContextArla{
     MethodsArla methods = new MethodsArla();
     ToastMessages toast = new ToastMessages();
     ErrorMessages message = new ErrorMessages();
+
+    //TEST CASE HAPPY PATH
     public void happyPathLogin(){
         System.out.println("El usuario se logeara "+generate.generateExecutions()+" veces\n");
         for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
@@ -74,33 +76,60 @@ public class TestCaseArla extends ContextArla{
         }
         cleanupContext();
     }
+
+    //TEST CASE MESSAGE ERRORS EMPTY INPUTS
+    public void testEmptyLoginInputs() {
+        boolean allStepsPassed = true;
+        System.out.println("El usuario se logeara " + generate.generateExecutions() + " veces\n");
+        for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
+            methods.goToLogin();
+            page.click(SelectorsArla.LOGIN_BUTTON);
+            allStepsPassed &= methods.verifyAssertions(
+                    ()->  methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMLOGIN_EMAIL_EMPTY,message.MESSAGE_LOGINEMAIL_EMPTY),
+                    ()->  methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMLOGIN_PASSWORD_EMPTY,message.MESSAGE_LOGINPASS_EMPTY)
+            );
+        }
+        methods.printFinalTestResult(allStepsPassed);
+        cleanupContext();
+    }
     public void testEmptyInputsCourseFormStep1(){
+        boolean allStepsPassed = true;
         System.out.println("Testeando mensajes de campos vacios del paso 1 de la creacion de cursos\n");
         methods.login();
         methods.goToFormCreateCourse();
         for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
             page.click(SelectorsArla.COURSE_CONTINUE_BUTTON);
-            methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMCOURSE_NAME_EMPTY,message.MESSAGE_COURSENAME_EMPTY);
-            methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMCOURSE_DESCRIBE_EMPTY,message.MESSAGE_COURSEDESCRIBE_EMPTY);
+            allStepsPassed &= methods.verifyAssertions(
+                    ()->  methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMCOURSE_NAME_EMPTY,message.MESSAGE_CONTENTNAME_EMPTY),
+                    ()->  methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMCOURSE_DESCRIBE_EMPTY,message.MESSAGE_COURSEDESCRIBE_EMPTY)
+            );
             page.fill(SelectorsArla.COURSE_NAME_INPUT, generate.generateContentTitle());
             page.fill(SelectorsArla.COURSE_DESCRIBE_INPUT, generate.generateContentDescription());
             page.click(SelectorsArla.COURSE_CONTINUE_BUTTON);
-            methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMCOURSE_LENGUAGE_EMPTY,message.MESSAGE_COURSELENGUAGE_EMPTY);
+            allStepsPassed &= methods.verifyAssertions(
+                    ()-> methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMCOURSE_LENGUAGE_EMPTY,message.MESSAGE_CONTENTLANGUAGE_EMPTY)
+            );
         }
+        methods.printFinalTestResult(allStepsPassed);
         cleanupContext();
     }
     public void testEmptyInputsCourseFormStep2(){
+        boolean allStepsPassed = true;
         System.out.println("Testeando mensajes de campos vacios del paso 2 de la creacion de cursos\n");
         methods.login();
         methods.goToFormCreateCourse();
         for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
             methods.courseFormCompleteStep1();
             page.click(SelectorsArla.COURSE_CONTINUE_BUTTON);
-            methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMCOURSE_IMAGE_EMPTY,message.MESSAGE_COURSEIMAGE_EMPTY);
+            allStepsPassed &= methods.verifyAssertions(
+                    ()-> methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_CONTENT_IMAGE_EMPTY,message.MESSAGE_CONTENTNAME_EMPTY)
+            );
         }
+        methods.printFinalTestResult(allStepsPassed);
         cleanupContext();
     }
     public void testEmptyInputsCourseFormStep3(){
+        boolean allStepsPassed = true;
         System.out.println("Testeando mensajes de campos vacios del paso 3 de la creacion de cursos\n");
         methods.login();
         methods.goToFormCreateCourse();
@@ -108,11 +137,15 @@ public class TestCaseArla extends ContextArla{
             methods.courseFormCompleteStep1();
             methods.courseFormCompleteStep2();
             page.click(SelectorsArla.COURSE_CONTINUE_BUTTON);
-            methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMCOURSE_CHAPTER_EMPTY,message.MESSAGE_COURSECHAPTER_EMPTY);
+            allStepsPassed &= methods.verifyAssertions(
+                    ()-> methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMCOURSE_CHAPTER_EMPTY,message.MESSAGE_COURSECHAPTER_EMPTY)
+            );
         }
+        methods.printFinalTestResult(allStepsPassed);
         cleanupContext();
     }
     public void testEmptyListQuizCourseForm(){
+        boolean allStepsPassed = true;
         System.out.println("Testeando mensajes de campos vacios del modal crear cuestionario de la creacion de cursos\n");
         methods.login();
         methods.goToFormCreateCourse();
@@ -122,32 +155,102 @@ public class TestCaseArla extends ContextArla{
             page.click(SelectorsArla.COURSE_CHAPTER_ADD_BUTTON);
             page.click(SelectorsArla.COURSE_CHAPTER_CREATE_QUIZ_BUTTON);
             page.click(SelectorsArla.COURSE_CHAPTER_QUIZ_QUESTION_SAVE_BUTTON);
-            methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMCOURSE_LISTQUESTIONS_EMPTY,message.MESSAGE_COURSEQUIZLIST_EMPTY);
+            allStepsPassed &= methods.verifyAssertions(
+                    ()-> methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMCOURSE_LISTQUESTIONS_EMPTY,message.MESSAGE_COURSEQUIZLIST_EMPTY)
+            );
             methods.addQuestion();
             page.click(SelectorsArla.COURSE_CHAPTER_QUIZ_QUESTION_SAVE_BUTTON);
-            methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMCOURSE_APPROVALPERCENTAGE_EMPTY,message.MESSAGE_COURSEPERCENTAGEAPPROVE_EMPTY);
+            allStepsPassed &= methods.verifyAssertions(
+                    ()-> methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMCOURSE_APPROVALPERCENTAGE_EMPTY,message.MESSAGE_COURSEPERCENTAGEAPPROVE_EMPTY)
+            );
         }
+        methods.printFinalTestResult(allStepsPassed);
         cleanupContext();
     }
     public void testEmptyAddQuestionCourseForm(){
+        boolean allStepsPassed = true;
         System.out.println("Testeando mensajes de campos vacios del modal agregar pregunta de la creacion de cursos\n");
         methods.login();
         methods.goToFormCreateCourse();
         for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
+
             methods.courseFormCompleteStep1();
             methods.courseFormCompleteStep2();
             page.click(SelectorsArla.COURSE_CHAPTER_ADD_BUTTON);
             page.click(SelectorsArla.COURSE_CHAPTER_CREATE_QUIZ_BUTTON);
             page.click(SelectorsArla.COURSE_CHAPTER_QUIZ_ADDQUESTION_BUTTON);
             page.click(SelectorsArla.COURSE_CHAPTER_QUIZ_QUESTION_SAVE_BUTTON);
-            methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMCOURSE_QUESTION_EMPTY, message.MESSAGE_COURSEQUIZQUESTION_EMPTY);
+            allStepsPassed &= methods.verifyAssertions(
+                    ()-> methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMCOURSE_QUESTION_EMPTY, message.MESSAGE_COURSEQUIZQUESTION_EMPTY)
+            );
             page.fill(SelectorsArla.COURSE_CHAPTER_QUIZ_QUESTION_INPUT, generate.generateQuestion());
             page.click(SelectorsArla.COURSE_CHAPTER_QUIZ_QUESTION_SAVE_BUTTON);
-            methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMCOURSE_QUESTION_EMPTY, message.MESSAGE_COURSECORRECTANSWER_EMPTY);
+            allStepsPassed &= methods.verifyAssertions(
+                    ()-> methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMCOURSE_QUESTION_EMPTY, message.MESSAGE_COURSECORRECTANSWER_EMPTY)
+            );
             page.click(SelectorsArla.COURSE_CHAPTER_QUIZ_CORRECT_ANSWER_CHECKBOX);
             page.click(SelectorsArla.COURSE_CHAPTER_QUIZ_QUESTION_SAVE_BUTTON);
-            methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMCOURSE_QUESTION_EMPTY, message.MESSAGE_COURSEANSWER_EMPTY);
+            allStepsPassed &= methods.verifyAssertions(
+                    ()-> methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMCOURSE_QUESTION_EMPTY, message.MESSAGE_COURSEANSWER_EMPTY)
+            );
         }
+        methods.printFinalTestResult(allStepsPassed);
+        cleanupContext();
+    }
+    public void testEmptyInputsCategoryFormStep1(){
+        boolean allStepsPassed = true;
+        System.out.println("Testeando mensajes de campos vacios del primer paso de la creacion de CATEGORYS\n");
+        methods.login();
+        methods.goToFormCreateCategory();
+        for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
+            page.click(SelectorsArla.CATEGORY_CONTINUE_BUTTON);
+            allStepsPassed &= methods.verifyAssertions(
+                    () -> methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMCATEGORY_NAME_EMPTY, message.MESSAGE_CONTENTNAME_EMPTY),
+                    () -> methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMCATEGORY_LANGUAGE_EMPTY, message.MESSAGE_CONTENTLANGUAGE_EMPTY),
+                    () -> methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMCATEGORY_LANGUAGE_EMPTY, message.MESSAGE_CONTENTLANGUAGE_EMPTY),
+                    () -> methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMCATEGORY_PRICE_EMPTY, message.MESSAGE_CATEGORYPRICE_EMPTY)
+            );
+
+        }
+        methods.printFinalTestResult(allStepsPassed);
+        cleanupContext();
+    }
+    public void testEmptyInputsCategoryFormStep2(){
+        boolean allStepsPassed = true;
+        System.out.println("Testeando mensajes de campos vacios del segundo paso de la creacion de CATEGORYS\n");
+        methods.login();
+        methods.goToFormCreateCategory();
+        for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
+            methods.categoryFormCompleteStep1();
+            methods.uploadImage();
+            page.click(SelectorsArla.CATEGORY_CONTINUE_BUTTON);
+            allStepsPassed &= methods.verifyAssertions(
+                    ()-> methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_CONTENT_VIDEO_EMPTY, message.MESSAGE_CONTENTVIDEO_EMPTY)
+            );
+            page.click(SelectorsArla.MEDIA_REMOVE_FORM_IMAGE_BUTTON);
+            methods.uploadVideo();
+            page.click(SelectorsArla.CATEGORY_CONTINUE_BUTTON);
+            allStepsPassed &= methods.verifyAssertions(
+                    ()-> methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_CONTENT_IMAGE_EMPTY, message.MESSAGE_CONTENTIMAGE_EMPTY)
+            );
+        }
+        methods.printFinalTestResult(allStepsPassed);
+        cleanupContext();
+    }
+    public void testEmptyInputsCategoryFormStep3(){
+        boolean allStepsPassed = true;
+        System.out.println("Testeando mensajes de campos vacios del TERCER paso de la creacion de CATEGORYS\n");
+        methods.login();
+        methods.goToFormCreateCategory();
+        for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
+            methods.categoryFormCompleteStep1();
+            methods.categoryFormCompleteStep2();
+            page.click(SelectorsArla.CATEGORY_CONTINUE_BUTTON);
+            allStepsPassed &= methods.verifyAssertions(
+                    ()-> methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMCATEGORY_COURSE_EMPTY, message.MESSAGE_CATEGORYCOURSE_EMPTY)
+            );
+        }
+        methods.printFinalTestResult(allStepsPassed);
         cleanupContext();
     }
 }

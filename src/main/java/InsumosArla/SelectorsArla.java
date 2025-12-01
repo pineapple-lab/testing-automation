@@ -8,16 +8,33 @@ public class SelectorsArla {
     public static final String PASSWORD_INPUT = "form > mat-form-field:nth-of-type(2) input";
     public static final String LOGIN_BUTTON = "form > button";
 
-    //ASSERTIONS SELECTORS
+    //LOGIN ERROR MESSAGE SELECTORS
+    public static final String ASSERTION_FORMLOGIN_EMAIL_EMPTY = "form mat-form-field:nth-of-type(1) mat-error span";
+    public static final String ASSERTION_FORMLOGIN_PASSWORD_EMPTY = "form mat-form-field:nth-of-type(2) mat-error span";
+
+    //CATEGORY AND COURSE ERROR MESSAGE SELECTORS
     public static final String ASSERTION_MENU_USER = "app-header > header .mat-mdc-menu-trigger";
+    public static final String ASSERTION_FORMCOURSE_LENGUAGE_EMPTY = "app-language-selector mat-error span";
+    public static final String ASSERTION_CONTENT_IMAGE_EMPTY = "app-upload-image .container-error span";
+    public static final String ASSERTION_CONTENT_VIDEO_EMPTY = "app-content-video-upload .container-error span";
+
+    //COURSE ERROR MESSAGE SELECTORS
     public static final String ASSERTION_FORMCOURSE_NAME_EMPTY = "app-course-creation > div > div:nth-of-type(1) > div:nth-of-type(2) > app-mat-form-field:nth-of-type(1) mat-error span";
     public static final String ASSERTION_FORMCOURSE_DESCRIBE_EMPTY = "app-course-creation > div > div:nth-of-type(1) > div:nth-of-type(2) > app-mat-form-field:nth-of-type(2) mat-error span";
-    public static final String ASSERTION_FORMCOURSE_LENGUAGE_EMPTY = "app-language-selector mat-error span";
-    public static final String ASSERTION_FORMCOURSE_IMAGE_EMPTY = "app-upload-image .container-error span";
     public static final String ASSERTION_FORMCOURSE_CHAPTER_EMPTY = "app-course-creation .warning-container span";
     public static final String ASSERTION_FORMCOURSE_LISTQUESTIONS_EMPTY = "app-quiz .container-error span";
     public static final String ASSERTION_FORMCOURSE_APPROVALPERCENTAGE_EMPTY = "app-quiz .container-error-percentage span";
     public static final String ASSERTION_FORMCOURSE_QUESTION_EMPTY = "app-quiz .text-warn";
+
+    //CATEGORY ERROR MESSAGE SELECTORS
+    public static final String ASSERTION_FORMCATEGORY_NAME_EMPTY = "app-category-creation .container > div:nth-of-type(2) > app-mat-form-field:nth-of-type(1) mat-error span";
+    public static final String ASSERTION_FORMCATEGORY_LANGUAGE_EMPTY = "app-category-creation .container > div:nth-of-type(2) > div:nth-of-type(2) mat-error span";
+    public static final String ASSERTION_FORMCATEGORY_PRICE_EMPTY = "app-category-creation .container > div:nth-of-type(2) app-price-input mat-error span";
+    public static final String ASSERTION_FORMCATEGORY_COURSE_EMPTY = "app-category-creation .error-message span";
+
+    //LOGIN
+    public static final String LOGIN_NAVIGATION_HOMBE_BUTTON = "header  > div > .flex > button:nth-of-type(1)";
+
 
     //REGISTER
     public static final String REGISTER_NAVIGATION_FORM_BUTTON = "header > div > div:nth-of-type(2) > button:nth-of-type(2)";
@@ -36,6 +53,7 @@ public class SelectorsArla {
     public static final String UPLOAD_VIDEO_ADD_LENGUAGE = "app-upload-video app-table tbody td:nth-of-type(3) mat-chip";
     public static final String UPLOAD_VIDEO_SELECT_LENGUAGE = "app-overlay > div > div > mat-option:nth-of-type(1)";
     public static final String UPLOAD_VIDEO_SAVE_BUTTON = "app-upload-video > div:nth-of-type(2) div:nth-of-type(2) > button:nth-of-type(2)";
+    public static final String MEDIA_REMOVE_FORM_IMAGE_BUTTON = "app-upload-image .button-container > button:nth-of-type(1)";
 
     //COURSE
     public static final String COURSE_MENU_BUTTON = "mat-list > mat-list-item:nth-of-type(2)";

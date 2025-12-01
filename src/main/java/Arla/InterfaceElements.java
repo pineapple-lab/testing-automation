@@ -29,10 +29,12 @@ public abstract class InterfaceElements extends Application {
 
     //WAITING LIST
     ArrayList<BotArla.ExecMethod> waitingList = new ArrayList<>();
+
+    //GRIDS
     GridPane gridCreator = new GridPane();
+    GridPane gridCLoginFormValidations = new GridPane();
     GridPane gridCourseFormValidations = new GridPane();
-    GridPane gridValidationsRegister = new GridPane();
-    GridPane gridValidationsLogin = new GridPane();
+    GridPane gridCategoryFormValidations = new GridPane();
     GridPane gridValidationsResources = new GridPane();
     GridPane gridHeader = new GridPane();
     GridPane gridCola = new GridPane();
@@ -43,7 +45,10 @@ public abstract class InterfaceElements extends Application {
     //TABS
     TabPane tabPane = new TabPane();
     Tab tbHappyPath = new Tab("Happy path");
+    Tab tbLoginMessageValidations = new Tab ("Login message validations");
     Tab tbCourseMessageValidations = new Tab ("Course message validations");
+    Tab tbCategoryMessageValidations = new Tab ("Category message validations");
+
 
     //TEST CASE HAPPY PATH BUTTONS
     Button hpRegisterButton = new Button ("Hp register");
@@ -52,12 +57,20 @@ public abstract class InterfaceElements extends Application {
     Button hpCreateCourses = new Button ("Hp create course");
     Button hpCreateCategory = new Button ("Hp create category");
 
-    //TEST CASE VALIDATION ERRORS BUTTONS
+    //LOGIN TEST CASE VALIDATION ERRORS BUTTONS
+    Button testLoginInputEmpty= new Button ("empty inputs");
+
+    //COURSE TEST CASE VALIDATION ERRORS BUTTONS
     Button testCourseInputEmptyStep1= new Button ("empty inputs step 1");
     Button testCourseInputEmptyStep2= new Button ("empty inputs step 2");
     Button testCourseInputEmptyStep3= new Button ("empty inputs step 3");
     Button testCourseListQuizEmpty = new Button("empty list quiz");
     Button testCourseAddQuestionEmpty = new Button("empty add question");
+
+    //CATEGORY TEST CASE VALIDATION ERRORS BUTTONS
+    Button testCategoryInputEmptyStep1= new Button ("empty inputs step 1");
+    Button testCategoryInputEmptyStep2= new Button ("empty inputs step 2");
+    Button testCategoryInputEmptyStep3= new Button ("empty inputs step 3");
 
     public abstract void start(Stage stage);
 }

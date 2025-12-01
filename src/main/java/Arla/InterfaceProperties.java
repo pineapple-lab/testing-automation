@@ -10,7 +10,7 @@ public class InterfaceProperties extends InterfaceElements{
     @Override
     public void start(Stage stage) {
         setupUIElements();
-        tabPane.getTabs().addAll(tbHappyPath, tbCourseMessageValidations);
+        tabPane.getTabs().addAll(tbHappyPath,tbLoginMessageValidations, tbCourseMessageValidations, tbCategoryMessageValidations);
         splitPane.getItems().addAll(gridHeader, tabPane, scrollPane);
         splitMain.getItems().addAll(gridCola, splitPane);
         Scene scene = new Scene(splitMain, 550, 670);
@@ -23,8 +23,12 @@ public class InterfaceProperties extends InterfaceElements{
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
         gridCreator.setHgap(3);
         gridCreator.setVgap(10);
+        gridCLoginFormValidations.setHgap(3);
+        gridCLoginFormValidations.setVgap(10);
         gridCourseFormValidations.setHgap(3);
         gridCourseFormValidations.setVgap(10);
+        gridCategoryFormValidations.setHgap(3);
+        gridCategoryFormValidations.setVgap(10);
         gridHeader.setHgap(3);
         gridHeader.setVgap(10);
         splitPane.setOrientation(Orientation.VERTICAL);
@@ -38,7 +42,9 @@ public class InterfaceProperties extends InterfaceElements{
         addElementsGridHeader();
         setupGridConstraints();
         addElementsGridCreator();
+        addElementsGridLoginValidations();
         addElementsGridCourseValidations();
+        addElementsGridCategoryValidations();
         addGridToTabs();
         setColors();
         setHover();
@@ -47,7 +53,9 @@ public class InterfaceProperties extends InterfaceElements{
     }
     public void addGridToTabs(){
         tbHappyPath.setContent(gridCreator);
+        tbLoginMessageValidations.setContent(gridCLoginFormValidations);
         tbCourseMessageValidations.setContent(gridCourseFormValidations);
+        tbCategoryMessageValidations.setContent(gridCategoryFormValidations);
     }
     private void setupGridConstraints(){
         GridPane.setConstraints(execute, 3, 1);
@@ -56,18 +64,28 @@ public class InterfaceProperties extends InterfaceElements{
         GridPane.setConstraints(removeQueue, 5, 1);
         GridPane.setConstraints(comboBox,2,1);
         GridPane.setConstraints(botConfigurations, 7, 1);
-        //Test case Happy path buttons
+
+        //TEST CASE HAPPY PATH BUTTONS
         GridPane.setConstraints(hpRegisterButton, 2, 3);
         GridPane.setConstraints(hpLoginButton, 2, 4);
         GridPane.setConstraints(hpUploadVideos, 2, 5);
         GridPane.setConstraints(hpCreateCourses, 2, 6);
         GridPane.setConstraints(hpCreateCategory, 2, 7);
-        //Test case VALIDATION ERRORS MESSAGE buttons
+
+        //LOGIN TEST CASE VALIDATION ERRORS MESSAGE BUTTONS
+        GridPane.setConstraints(testLoginInputEmpty,2, 3);
+
+        //COURSE TEST CASE VALIDATION ERRORS MESSAGE BUTTONS
         GridPane.setConstraints(testCourseInputEmptyStep1,2, 3);
         GridPane.setConstraints(testCourseInputEmptyStep2,2, 4);
         GridPane.setConstraints(testCourseInputEmptyStep3,2,5);
         GridPane.setConstraints(testCourseListQuizEmpty,2,6);
         GridPane.setConstraints(testCourseAddQuestionEmpty,2,7);
+
+        //CATEGORY TEST CASE VALIDATION ERROR MESSAGE BUTTONS
+        GridPane.setConstraints(testCategoryInputEmptyStep1,2,3);
+        GridPane.setConstraints(testCategoryInputEmptyStep2,2,4);
+        GridPane.setConstraints(testCategoryInputEmptyStep3,2,5);
         //GridPane.setConstraints(hpInviteClient, 2, 7);
         comboBox.getItems().add("DEV");
         comboBox.getItems().add("QA");
@@ -89,6 +107,9 @@ public class InterfaceProperties extends InterfaceElements{
         gridCreator.getChildren().add(hpCreateCourses);
         gridCreator.getChildren().add(hpCreateCategory);
     }
+    private void addElementsGridLoginValidations(){
+        gridCLoginFormValidations.getChildren().add(testLoginInputEmpty);
+    }
     private void addElementsGridCourseValidations(){
         gridCourseFormValidations.getChildren().add(testCourseInputEmptyStep1);
         gridCourseFormValidations.getChildren().add(testCourseInputEmptyStep2);
@@ -96,46 +117,63 @@ public class InterfaceProperties extends InterfaceElements{
         gridCourseFormValidations.getChildren().add(testCourseListQuizEmpty);
         gridCourseFormValidations.getChildren().add(testCourseAddQuestionEmpty);
     }
+    private void addElementsGridCategoryValidations(){
+        gridCategoryFormValidations.getChildren().add(testCategoryInputEmptyStep1);
+        gridCategoryFormValidations.getChildren().add(testCategoryInputEmptyStep2);
+        gridCategoryFormValidations.getChildren().add(testCategoryInputEmptyStep3);
+    }
     private void setColors(){
-        //HEADER buttons
+        //HEADER BUTTONS
         setButtonStyle(execute);
         setButtonStyle(stopTestCase);
         setButtonStyle(removeQueue);
         setButtonStyle(botConfigurations);
-        //Test case HAPPY PATH buttons
+        //HAPPY PATH TEST CASE BUTTONS
         setButtonStyle(hpRegisterButton);
         setButtonStyle(hpLoginButton);
         setButtonStyle(hpUploadVideos);
         setButtonStyle(hpCreateCourses);
         setButtonStyle(hpCreateCategory);
-        //Test case VALIDATION ERRORS MESSAGE buttons
+        //LOGIN TEST CASE VALIDATION MESSAGE ERROR BUTTONS
+        setButtonStyle(testLoginInputEmpty);
+        //COURSE TEST CASE VALIDATION MESSAGE ERROR BUTTONS
         setButtonStyle(testCourseInputEmptyStep1);
         setButtonStyle(testCourseInputEmptyStep2);
         setButtonStyle(testCourseInputEmptyStep3);
         setButtonStyle(testCourseListQuizEmpty);
         setButtonStyle(testCourseAddQuestionEmpty);
+        //CATEGORY TEST CASE VALIDATION MESSAGE ERROR BUTTONS
+        setButtonStyle(testCategoryInputEmptyStep1);
+        setButtonStyle(testCategoryInputEmptyStep2);
+        setButtonStyle(testCategoryInputEmptyStep3);
     }
     private void setButtonStyle(Button button) {
         button.setStyle("-fx-background-color: #cb4b81;");
     }
     public void setHover(){
-        //HEADER buttons
+        //HEADER BUTTONS
         setupHoverEffect(execute);
         setupHoverEffect(stopTestCase);
         setupHoverEffect(removeQueue);
         setupHoverEffect(botConfigurations);
-        //Test case VALIDATION ERRORS MESSAGE buttons
+        //HAPPY PATH TEST CASE BUTTONS
         setupHoverEffect(hpRegisterButton);
         setupHoverEffect(hpLoginButton);
         setupHoverEffect(hpUploadVideos);
         setupHoverEffect(hpCreateCourses);
         setupHoverEffect(hpCreateCategory);
-        //Test case VALIDATION ERRORS buttons
+        //LOGIN TEST CASE VALIDATION MESSAGE ERROR
+        setupHoverEffect(testLoginInputEmpty);
+        //COURSE TEST CASE VALIDATION MESSAGE ERROR
         setupHoverEffect(testCourseInputEmptyStep1);
         setupHoverEffect(testCourseInputEmptyStep2);
         setupHoverEffect(testCourseInputEmptyStep3);
         setupHoverEffect(testCourseListQuizEmpty);
         setupHoverEffect(testCourseAddQuestionEmpty);
+        //CATEGORY TEST CASE VALIDATION MESSAGE ERROR
+        setupHoverEffect(testCategoryInputEmptyStep1);
+        setupHoverEffect(testCategoryInputEmptyStep2);
+        setupHoverEffect(testCategoryInputEmptyStep3);
     }
     private void setupHoverEffect(Button button) {
         button.setOnMouseEntered(e -> button.setStyle("-fx-background-color: #e27da1; -fx-text-fill: white;"));

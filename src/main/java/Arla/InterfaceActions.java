@@ -15,12 +15,18 @@ public class InterfaceActions extends InterfaceProperties{
         HP_CREATE_COURSE,
         HP_CREATE_CATEGORY,
         HP_INVITE_CLIENT,
-        //ENUM TEST CASE ERROR MESSAGE VALIDATION
-        VALIDATION_STEP1_EMPTYMESSAGE,
-        VALIDATION_STEP2_EMPTYMESSAGE,
-        VALIDATION_STEP3_EMPTYMESSAGE,
-        VALIDATION_QUIZLIST_EMPTY,
-        VALIDATION_ADDQUESTION_EMPTY
+        //ENUM LOGIN TEST CASE ERROR MESSAGE VALIDATION
+        LOGIN_VALIDATION_EMPTYMESSAGE,
+        //ENUM COURSE TEST CASE ERROR MESSAGE VALIDATION
+        COURSE_VALIDATION_STEP1_EMPTYMESSAGE,
+        COURSE_VALIDATION_STEP2_EMPTYMESSAGE,
+        COURSE_VALIDATION_STEP3_EMPTYMESSAGE,
+        COURSE_VALIDATION_QUIZLIST_EMPTY,
+        COURSE_VALIDATION_ADDQUESTION_EMPTY,
+        //ENUM CATEGORY TEST CASE ERROR MESSAGE VALIDATIONS
+        CATEGORY_VALIDATION_STEP1_EMPTYMESSAGE,
+        CATEGORY_VALIDATION_STEP2_EMPTYMESSAGE,
+        CATEGORY_VALIDATION_STEP3_EMPTYMESSAGE
     }
     public void actionEliminarDeLaCola() {
         List<CheckBox> checkBoxesSeleccionados = new ArrayList<>();
@@ -36,7 +42,8 @@ public class InterfaceActions extends InterfaceProperties{
             gridCola.getChildren().remove(checkBox);
         }
     }
-    //Test case HAPPY PATH actions
+
+    //ACTIONS TEST CASE HAPPY PATH
     public void actionHpRegister() {
         executeService(new FunctionRegister(), FunctionRegister::serviceRegister);
     }
@@ -55,8 +62,12 @@ public class InterfaceActions extends InterfaceProperties{
     public void actionHpInviteClient() {
         executeService(new FunctionInviteClient(), FunctionInviteClient::serviceInviteClients);
     }
+    //ACTIONS LOGIN TEST CASE VALIDATION ERROR MESSAGE
+    public void actionValidationLoginInputEmpty() {
+        executeService(new TestErrorMessageValidations(), TestErrorMessageValidations::serviceValidationLoginFormMessageError);
+    }
 
-    //Test case VALIDATION ERROR MESSAGE actions
+    //ACTIONS COURSE TEST CASE VALIDATION ERROR MESSAGE
     public void actionValidationCourseStep1InputEmpty() {
         executeService(new TestErrorMessageValidations(), TestErrorMessageValidations::serviceValidationCourseFormMessageErrorStep1);
     }
@@ -72,6 +83,18 @@ public class InterfaceActions extends InterfaceProperties{
     public void actionValidationCourseAddQuestionEmpty() {
         executeService(new TestErrorMessageValidations(), TestErrorMessageValidations::serviceValidationCourseAddQuestionMessageError);
     }
+
+   //ACTIONS CATEGORY TEST CASE VALIDATION ERROR MESSAGE
+   public void actionValidationCategoryStep1InputEmpty() {
+       executeService(new TestErrorMessageValidations(), TestErrorMessageValidations::serviceValidationCategoryFormMessageErrorStep1);
+   }
+    public void actionValidationCategoryStep2InputEmpty() {
+        executeService(new TestErrorMessageValidations(), TestErrorMessageValidations::serviceValidationCategoryFormMessageErrorStep2);
+    }
+    public void actionValidationCategoryStep3InputEmpty() {
+        executeService(new TestErrorMessageValidations(), TestErrorMessageValidations::serviceValidationCategoryFormMessageErrorStep3);
+    }
+
     private <T> void executeService(T serviceInstance, Arla.InterfaceActions.CheckedConsumer<T> action) {
         try {
             action.accept(serviceInstance);
@@ -79,7 +102,7 @@ public class InterfaceActions extends InterfaceProperties{
             e.printStackTrace();
         }
     }
-    // Interfaz funcional para consumidores con excepción
+
     @FunctionalInterface
     private interface CheckedConsumer<T> {
         void accept(T t) throws Exception;

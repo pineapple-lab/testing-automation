@@ -38,19 +38,27 @@ public class BotArla extends Arla.InterfaceActions {
                 }
             }));
             outputStream.println("Bienvenido, selecciona un ambiente y el numero de executionDetails para empezar.\n\n");
-            //Test case HAPPY PATH buttons
+            //TEST CASE HAPPY PATH BUTTONS
             hpRegisterButton.setOnAction(e -> handleAction(ExecMethod.HP_REGISTER,"HP_REGISTER"));
             hpLoginButton.setOnAction(e -> handleAction(ExecMethod.HP_LOGIN_USER,"HP_LOGIN_USER"));
             hpUploadVideos.setOnAction(e -> handleAction(ExecMethod.HP_UPLOAD_VIDEO,"HP_UPLOAD_VIDEO"));
             hpCreateCourses.setOnAction(e -> handleAction(ExecMethod.HP_CREATE_COURSE,"HP_CREATE_COURSE"));
             hpCreateCategory.setOnAction(e -> handleAction(ExecMethod.HP_CREATE_CATEGORY,"HP_CREATE_CATEGORY"));
 
-            //Test case VALIDATION ERROR MESSAGE buttons
-            testCourseInputEmptyStep1.setOnAction(e -> handleAction(ExecMethod.VALIDATION_STEP1_EMPTYMESSAGE,"VALIDATION_STEP1_EMPTYMESSAGE"));
-            testCourseInputEmptyStep2.setOnAction(e -> handleAction(ExecMethod.VALIDATION_STEP2_EMPTYMESSAGE,"VALIDATION_STEP2_EMPTYMESSAGE"));
-            testCourseInputEmptyStep3.setOnAction(e -> handleAction(ExecMethod.VALIDATION_STEP3_EMPTYMESSAGE,"VALIDATION_STEP3_EMPTYMESSAGE"));
-            testCourseListQuizEmpty.setOnAction(e -> handleAction(ExecMethod.VALIDATION_QUIZLIST_EMPTY, "VALIDATION_QUIZLIST_EMPTY"));
-            testCourseAddQuestionEmpty.setOnAction(e -> handleAction(ExecMethod.VALIDATION_ADDQUESTION_EMPTY, "VALIDATION_ADDQUESTION_EMPTY"));
+            //BUTTONS COURSE TEST CASE VALIDATION MESSAGE ERROR
+            testLoginInputEmpty.setOnAction(e -> handleAction(ExecMethod.LOGIN_VALIDATION_EMPTYMESSAGE,"LOGIN_VALIDATION_EMPTYMESSAGE"));
+
+            //BUTTONS COURSE TEST CASE VALIDATION MESSAGE ERROR
+            testCourseInputEmptyStep1.setOnAction(e -> handleAction(ExecMethod.COURSE_VALIDATION_STEP1_EMPTYMESSAGE,"COURSE_VALIDATION_STEP1_EMPTYMESSAGE"));
+            testCourseInputEmptyStep2.setOnAction(e -> handleAction(ExecMethod.COURSE_VALIDATION_STEP2_EMPTYMESSAGE,"COURSE_VALIDATION_STEP2_EMPTYMESSAGE"));
+            testCourseInputEmptyStep3.setOnAction(e -> handleAction(ExecMethod.COURSE_VALIDATION_STEP3_EMPTYMESSAGE,"COURSE_VALIDATION_STEP3_EMPTYMESSAGE"));
+            testCourseListQuizEmpty.setOnAction(e -> handleAction(ExecMethod.COURSE_VALIDATION_QUIZLIST_EMPTY, "COURSE_VALIDATION_QUIZLIST_EMPTY"));
+            testCourseAddQuestionEmpty.setOnAction(e -> handleAction(ExecMethod.COURSE_VALIDATION_ADDQUESTION_EMPTY, "COURSE_VALIDATION_ADDQUESTION_EMPTY"));
+
+            //BUTTONS CATEGORY TEST CASE VALIDATION MESSAGE ERROR
+            testCategoryInputEmptyStep1.setOnAction(e -> handleAction(ExecMethod.CATEGORY_VALIDATION_STEP1_EMPTYMESSAGE,"CATEGORY_VALIDATION_STEP1_EMPTYMESSAGE"));
+            testCategoryInputEmptyStep2.setOnAction(e -> handleAction(ExecMethod.CATEGORY_VALIDATION_STEP2_EMPTYMESSAGE,"CATEGORY_VALIDATION_STEP2_EMPTYMESSAGE"));
+            testCategoryInputEmptyStep3.setOnAction(e -> handleAction(ExecMethod.CATEGORY_VALIDATION_STEP3_EMPTYMESSAGE,"CATEGORY_VALIDATION_STEP3_EMPTYMESSAGE"));
             //hpInviteClient.setOnAction(e -> handleAction(ExecMethod.HP_INVITE_CLIENT,"HP_INVITE_CLIENT"));
             //HEADER
             comboBox.setOnAction(e -> handleComboBoxAction());
@@ -149,7 +157,7 @@ public class BotArla extends Arla.InterfaceActions {
             VariablesArla.navigationLink = "https://docola-qa.web.app/";
         }*/
         if ("DEV".equals(seleccion)) {
-            navigationLink = "https://thezone-dev.web.app/login";
+            navigationLink = "https://thezone-dev.web.app/";
         }
     }
     private void handleStopTestCase() {
@@ -178,7 +186,7 @@ public class BotArla extends Arla.InterfaceActions {
         for (int i = 0; i < waitingList.size(); i++) {
             Arla.InterfaceActions.ExecMethod var = waitingList.get(i);
             switch (var) {
-                //Happy path test case
+                //CASE COURSE HAPPY PATH TEST
                 case HP_REGISTER:
                     actionHpRegister();
                     break;
@@ -197,21 +205,35 @@ public class BotArla extends Arla.InterfaceActions {
                 case HP_INVITE_CLIENT:
                     actionHpInviteClient();
                     break;
-                    //Validation error message test case
-                case VALIDATION_STEP1_EMPTYMESSAGE:
+                //CASE LOGIN VALIDATION MESSAGE ERROR TEST
+                case LOGIN_VALIDATION_EMPTYMESSAGE:
+                    actionValidationLoginInputEmpty();
+                    break;
+                //CASE COURSE VALIDATION MESSAGE ERROR TEST
+                case COURSE_VALIDATION_STEP1_EMPTYMESSAGE:
                     actionValidationCourseStep1InputEmpty();
                     break;
-                case VALIDATION_STEP2_EMPTYMESSAGE:
+                case COURSE_VALIDATION_STEP2_EMPTYMESSAGE:
                     actionValidationCourseStep2InputEmpty();
                     break;
-                case VALIDATION_STEP3_EMPTYMESSAGE:
+                case COURSE_VALIDATION_STEP3_EMPTYMESSAGE:
                     actionValidationCourseStep3InputEmpty();
                     break;
-                case VALIDATION_QUIZLIST_EMPTY:
+                case COURSE_VALIDATION_QUIZLIST_EMPTY:
                     actionValidationCourseQuizListEmpty();
                     break;
-                case VALIDATION_ADDQUESTION_EMPTY:
+                case COURSE_VALIDATION_ADDQUESTION_EMPTY:
                     actionValidationCourseAddQuestionEmpty();
+                    break;
+                //CASE CATEGORY VALIDATION MESSAGE ERROR TEST
+                case CATEGORY_VALIDATION_STEP1_EMPTYMESSAGE:
+                    actionValidationCategoryStep1InputEmpty();
+                    break;
+                case CATEGORY_VALIDATION_STEP2_EMPTYMESSAGE:
+                    actionValidationCategoryStep2InputEmpty();
+                    break;
+                case CATEGORY_VALIDATION_STEP3_EMPTYMESSAGE:
+                    actionValidationCategoryStep3InputEmpty();
                     break;
             }
             if (!isRunning) {

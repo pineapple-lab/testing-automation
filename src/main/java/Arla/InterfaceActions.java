@@ -15,6 +15,8 @@ public class InterfaceActions extends InterfaceProperties{
         HP_CREATE_COURSE,
         HP_CREATE_CATEGORY,
         HP_INVITE_CLIENT,
+        //ENUM REGISTER TEST CASE ERROR MESSAGE VALIDATION
+        REGISTER_VALIDATION_EMPTYMESSAGE,
         //ENUM LOGIN TEST CASE ERROR MESSAGE VALIDATION
         LOGIN_VALIDATION_EMPTYMESSAGE,
         //ENUM COURSE TEST CASE ERROR MESSAGE VALIDATION
@@ -62,6 +64,11 @@ public class InterfaceActions extends InterfaceProperties{
     public void actionHpInviteClient() {
         executeService(new FunctionInviteClient(), FunctionInviteClient::serviceInviteClients);
     }
+    //ACTIONS REGISTER TEST CASE VALIDATION ERROR MESSAGE
+    public void actionValidationRegisterInputEmpty() {
+        executeService(new TestErrorMessageValidations(), TestErrorMessageValidations::serviceValidationRegisterFormMessageError);
+    }
+
     //ACTIONS LOGIN TEST CASE VALIDATION ERROR MESSAGE
     public void actionValidationLoginInputEmpty() {
         executeService(new TestErrorMessageValidations(), TestErrorMessageValidations::serviceValidationLoginFormMessageError);

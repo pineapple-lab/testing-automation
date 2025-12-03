@@ -32,10 +32,10 @@ public abstract class InterfaceElements extends Application {
 
     //GRIDS
     GridPane gridCreator = new GridPane();
-    GridPane gridCLoginFormValidations = new GridPane();
+    GridPane gridRegisterFormValidations = new GridPane();
+    GridPane gridLoginFormValidations = new GridPane();
     GridPane gridCourseFormValidations = new GridPane();
     GridPane gridCategoryFormValidations = new GridPane();
-    GridPane gridValidationsResources = new GridPane();
     GridPane gridHeader = new GridPane();
     GridPane gridCola = new GridPane();
     SplitPane splitMain = new SplitPane();
@@ -45,6 +45,7 @@ public abstract class InterfaceElements extends Application {
     //TABS
     TabPane tabPane = new TabPane();
     Tab tbHappyPath = new Tab("Happy path");
+    Tab tbRegisterMessageValidations = new Tab ("Register message validations");
     Tab tbLoginMessageValidations = new Tab ("Login message validations");
     Tab tbCourseMessageValidations = new Tab ("Course message validations");
     Tab tbCategoryMessageValidations = new Tab ("Category message validations");
@@ -56,7 +57,8 @@ public abstract class InterfaceElements extends Application {
     Button hpUploadVideos = new Button ("Hp upload video");
     Button hpCreateCourses = new Button ("Hp create course");
     Button hpCreateCategory = new Button ("Hp create category");
-
+    //REGISTER TEST CASE VALIDATION ERRORS BUTTONS
+    Button testRegisterInputEmpty= new Button ("empty inputs");
     //LOGIN TEST CASE VALIDATION ERRORS BUTTONS
     Button testLoginInputEmpty= new Button ("empty inputs");
 

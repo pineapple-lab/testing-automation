@@ -10,7 +10,7 @@ public class InterfaceProperties extends InterfaceElements{
     @Override
     public void start(Stage stage) {
         setupUIElements();
-        tabPane.getTabs().addAll(tbHappyPath,tbLoginMessageValidations, tbCourseMessageValidations, tbCategoryMessageValidations);
+        tabPane.getTabs().addAll(tbHappyPath,tbRegisterMessageValidations,tbLoginMessageValidations, tbCourseMessageValidations, tbCategoryMessageValidations);
         splitPane.getItems().addAll(gridHeader, tabPane, scrollPane);
         splitMain.getItems().addAll(gridCola, splitPane);
         Scene scene = new Scene(splitMain, 550, 670);
@@ -23,8 +23,10 @@ public class InterfaceProperties extends InterfaceElements{
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
         gridCreator.setHgap(3);
         gridCreator.setVgap(10);
-        gridCLoginFormValidations.setHgap(3);
-        gridCLoginFormValidations.setVgap(10);
+        gridRegisterFormValidations.setHgap(3);
+        gridRegisterFormValidations.setVgap(10);
+        gridLoginFormValidations.setHgap(3);
+        gridLoginFormValidations.setVgap(10);
         gridCourseFormValidations.setHgap(3);
         gridCourseFormValidations.setVgap(10);
         gridCategoryFormValidations.setHgap(3);
@@ -42,6 +44,7 @@ public class InterfaceProperties extends InterfaceElements{
         addElementsGridHeader();
         setupGridConstraints();
         addElementsGridCreator();
+        addElementsGridRegisterValidations();
         addElementsGridLoginValidations();
         addElementsGridCourseValidations();
         addElementsGridCategoryValidations();
@@ -53,7 +56,8 @@ public class InterfaceProperties extends InterfaceElements{
     }
     public void addGridToTabs(){
         tbHappyPath.setContent(gridCreator);
-        tbLoginMessageValidations.setContent(gridCLoginFormValidations);
+        tbRegisterMessageValidations.setContent(gridRegisterFormValidations);
+        tbLoginMessageValidations.setContent(gridLoginFormValidations);
         tbCourseMessageValidations.setContent(gridCourseFormValidations);
         tbCategoryMessageValidations.setContent(gridCategoryFormValidations);
     }
@@ -71,6 +75,9 @@ public class InterfaceProperties extends InterfaceElements{
         GridPane.setConstraints(hpUploadVideos, 2, 5);
         GridPane.setConstraints(hpCreateCourses, 2, 6);
         GridPane.setConstraints(hpCreateCategory, 2, 7);
+
+        //REGISTER TEST CASE VALIDATION ERRORS MESSAGE BUTTONS
+        GridPane.setConstraints(testRegisterInputEmpty,2, 3);
 
         //LOGIN TEST CASE VALIDATION ERRORS MESSAGE BUTTONS
         GridPane.setConstraints(testLoginInputEmpty,2, 3);
@@ -107,8 +114,11 @@ public class InterfaceProperties extends InterfaceElements{
         gridCreator.getChildren().add(hpCreateCourses);
         gridCreator.getChildren().add(hpCreateCategory);
     }
+    private void addElementsGridRegisterValidations() {
+        gridRegisterFormValidations.getChildren().add(testRegisterInputEmpty);
+    }
     private void addElementsGridLoginValidations(){
-        gridCLoginFormValidations.getChildren().add(testLoginInputEmpty);
+        gridLoginFormValidations.getChildren().add(testLoginInputEmpty);
     }
     private void addElementsGridCourseValidations(){
         gridCourseFormValidations.getChildren().add(testCourseInputEmptyStep1);
@@ -134,6 +144,8 @@ public class InterfaceProperties extends InterfaceElements{
         setButtonStyle(hpUploadVideos);
         setButtonStyle(hpCreateCourses);
         setButtonStyle(hpCreateCategory);
+        //REGISTER TEST CASE VALIDATION MESSAGE ERROR BUTTONS
+        setButtonStyle(testRegisterInputEmpty);
         //LOGIN TEST CASE VALIDATION MESSAGE ERROR BUTTONS
         setButtonStyle(testLoginInputEmpty);
         //COURSE TEST CASE VALIDATION MESSAGE ERROR BUTTONS
@@ -162,6 +174,8 @@ public class InterfaceProperties extends InterfaceElements{
         setupHoverEffect(hpUploadVideos);
         setupHoverEffect(hpCreateCourses);
         setupHoverEffect(hpCreateCategory);
+        //REGISTER TEST CASE VALIDATION MESSAGE ERROR
+        setupHoverEffect(testRegisterInputEmpty);
         //LOGIN TEST CASE VALIDATION MESSAGE ERROR
         setupHoverEffect(testLoginInputEmpty);
         //COURSE TEST CASE VALIDATION MESSAGE ERROR

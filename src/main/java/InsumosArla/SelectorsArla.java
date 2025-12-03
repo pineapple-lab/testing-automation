@@ -7,30 +7,36 @@ public class SelectorsArla {
     public static final String USERNAME_INPUT = "form > mat-form-field:nth-of-type(1) input";
     public static final String PASSWORD_INPUT = "form > mat-form-field:nth-of-type(2) input";
     public static final String LOGIN_BUTTON = "form > button";
+    //REGISTER ERROR MESSAGE SELECTORS
+    public static final String ASSERTION_FORMREGISTER_NAME = "form > div:nth-of-type(1) > div:nth-of-type(1) mat-error";
+    public static final String ASSERTION_FORMREGISTER_LASTNAME = "form > div:nth-of-type(1) > div:nth-of-type(2) mat-error";
+    public static final String ASSERTION_FORMREGISTER_EMAIL = "form > mat-form-field:nth-of-type(1) mat-error";
+    public static final String ASSERTION_FORMREGISTER_PASSWORD = "form > mat-form-field:nth-of-type(2) mat-error";
+    public static final String ASSERTION_FORMREGISTER_CONFIRMPASSWORD = "form > mat-form-field:nth-of-type(3) mat-error";
 
     //LOGIN ERROR MESSAGE SELECTORS
-    public static final String ASSERTION_FORMLOGIN_EMAIL_EMPTY = "form mat-form-field:nth-of-type(1) mat-error span";
-    public static final String ASSERTION_FORMLOGIN_PASSWORD_EMPTY = "form mat-form-field:nth-of-type(2) mat-error span";
+    public static final String ASSERTION_FORMLOGIN_EMAIL = "form mat-form-field:nth-of-type(1) mat-error span";
+    public static final String ASSERTION_FORMLOGIN_PASSWORD = "form mat-form-field:nth-of-type(2) mat-error span";
 
     //CATEGORY AND COURSE ERROR MESSAGE SELECTORS
     public static final String ASSERTION_MENU_USER = "app-header > header .mat-mdc-menu-trigger";
-    public static final String ASSERTION_FORMCOURSE_LENGUAGE_EMPTY = "app-language-selector mat-error span";
-    public static final String ASSERTION_CONTENT_IMAGE_EMPTY = "app-upload-image .container-error span";
-    public static final String ASSERTION_CONTENT_VIDEO_EMPTY = "app-content-video-upload .container-error span";
+    public static final String ASSERTION_FORMCOURSE_LENGUAGE = "app-language-selector mat-error span";
+    public static final String ASSERTION_CONTENT_IMAGE = "app-upload-image .container-error span";
+    public static final String ASSERTION_CONTENT_VIDEO = "app-content-video-upload .container-error span";
 
     //COURSE ERROR MESSAGE SELECTORS
-    public static final String ASSERTION_FORMCOURSE_NAME_EMPTY = "app-course-creation > div > div:nth-of-type(1) > div:nth-of-type(2) > app-mat-form-field:nth-of-type(1) mat-error span";
-    public static final String ASSERTION_FORMCOURSE_DESCRIBE_EMPTY = "app-course-creation > div > div:nth-of-type(1) > div:nth-of-type(2) > app-mat-form-field:nth-of-type(2) mat-error span";
-    public static final String ASSERTION_FORMCOURSE_CHAPTER_EMPTY = "app-course-creation .warning-container span";
-    public static final String ASSERTION_FORMCOURSE_LISTQUESTIONS_EMPTY = "app-quiz .container-error span";
-    public static final String ASSERTION_FORMCOURSE_APPROVALPERCENTAGE_EMPTY = "app-quiz .container-error-percentage span";
-    public static final String ASSERTION_FORMCOURSE_QUESTION_EMPTY = "app-quiz .text-warn";
+    public static final String ASSERTION_FORMCOURSE_NAME = "app-course-creation > div > div:nth-of-type(1) > div:nth-of-type(2) > app-mat-form-field:nth-of-type(1) mat-error span";
+    public static final String ASSERTION_FORMCOURSE_DESCRIBE = "app-course-creation > div > div:nth-of-type(1) > div:nth-of-type(2) > app-mat-form-field:nth-of-type(2) mat-error span";
+    public static final String ASSERTION_FORMCOURSE_CHAPTER = "app-course-creation .warning-container span";
+    public static final String ASSERTION_FORMCOURSE_LISTQUESTIONS = "app-quiz .container-error span";
+    public static final String ASSERTION_FORMCOURSE_APPROVALPERCENTAGE = "app-quiz .container-error-percentage span";
+    public static final String ASSERTION_FORMCOURSE_QUESTION = "app-quiz .text-warn";
 
     //CATEGORY ERROR MESSAGE SELECTORS
-    public static final String ASSERTION_FORMCATEGORY_NAME_EMPTY = "app-category-creation .container > div:nth-of-type(2) > app-mat-form-field:nth-of-type(1) mat-error span";
-    public static final String ASSERTION_FORMCATEGORY_LANGUAGE_EMPTY = "app-category-creation .container > div:nth-of-type(2) > div:nth-of-type(2) mat-error span";
-    public static final String ASSERTION_FORMCATEGORY_PRICE_EMPTY = "app-category-creation .container > div:nth-of-type(2) app-price-input mat-error span";
-    public static final String ASSERTION_FORMCATEGORY_COURSE_EMPTY = "app-category-creation .error-message span";
+    public static final String ASSERTION_FORMCATEGORY_NAME = "app-category-creation .container > div:nth-of-type(2) > app-mat-form-field:nth-of-type(1) mat-error span";
+    public static final String ASSERTION_FORMCATEGORY_LANGUAGE = "app-category-creation .container > div:nth-of-type(2) > div:nth-of-type(2) mat-error span";
+    public static final String ASSERTION_FORMCATEGORY_PRICE = "app-category-creation .container > div:nth-of-type(2) app-price-input mat-error span";
+    public static final String ASSERTION_FORMCATEGORY_COURSE = "app-category-creation .error-message span";
 
     //LOGIN
     public static final String LOGIN_NAVIGATION_HOMBE_BUTTON = "header  > div > .flex > button:nth-of-type(1)";

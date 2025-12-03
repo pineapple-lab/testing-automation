@@ -1,6 +1,13 @@
 package InsumosArla;
 
 public class ErrorMessages {
+    //REGISTER ERROR MESSAGE
+    public static final String MESSAGE_REGISTERNAME_EMPTY = "El campo 'Nombre' no puede estar vacio.";
+    public static final String MESSAGE_REGISTERLASTNAME_EMPTY = "El campo 'Apellido' no puede estar vacio.";
+    public static final String MESSAGE_REGISTEREMAIL_EMPTY = "El campo 'Email' no puede estar vacio.";
+    public static final String MESSAGE_REGISTERPASSWORD_EMPTY = "El campo 'Contraseña' no puede estar vacio.";
+    public static final String MESSAGE_REGISTERCONFIRMPASSWORD_EMPTY = "El campo 'Confirmar contraseña' no puede estar vacio.";
+
     //LOGIN ERROR MESSAGE
     public static final String MESSAGE_LOGINEMAIL_EMPTY = "El campo: 'Correo' no puede estar vacío";
     public static final String MESSAGE_LOGINPASS_EMPTY = "El campo 'Contraseña' no puede estar vacio.";

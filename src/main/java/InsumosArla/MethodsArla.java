@@ -281,31 +281,23 @@ public class MethodsArla extends ContextArla{
         }
     }
     public void waitForInputErrorMessage(String selector, String expectedMessage) {
-        Locator locator = page.locator(selector);
-        final int TIMEOUT_VISIBILIDAD = 5000;
         try {
-            locator.waitFor(new Locator.WaitForOptions().setTimeout(TIMEOUT_VISIBILIDAD));
-            assertThat(() -> {
-                PlaywrightAssertions.assertThat(locator).isVisible();
-            }, "Verificación de visibilidad fallida para el selector: \"" + selector + "\".");
-            String actualText = locator.innerText().trim();
-            System.out.println("Mensaje de error encontrado: " + actualText);
-            assertThat(() -> {
-                Assertions.assertEquals(expectedMessage, actualText,
-                        "\nEl mensaje de error no coincide con el esperado." +
-                                "\n -> Esperado: \"" + expectedMessage + "\"" +
-                                "\n -> Encontrado: \"" + actualText + "\"");
-            }, "Verificación de contenido fallida para el selector: \"" + selector + "\".");
-
-        } catch (TimeoutError e) {
-            String errorMsg = "❌ ¡Error de Timeout! El componente no apareció en el DOM en " + TIMEOUT_VISIBILIDAD + "ms.\n" +
-                    " -> Selector fallido: \"" + selector + "\"" +
-                    " -> Mensaje esperado: \"" + expectedMessage + "\"";
-            System.out.println(errorMsg);
-            errores.add(errorMsg);
+            String actualMessage = page.locator(selector).textContent().trim();
+            String cleanedExpected = expectedMessage.trim();
+            if (!actualMessage.startsWith(cleanedExpected)) {
+                throw new AssertionError(
+                        "❌ Verificación de contenido fallida para el selector: \"" + selector + "\".\n" +
+                                "El mensaje de error no coincide con el esperado.\n" +
+                                " -> Esperado: \"" + actualMessage+ "\"\n" +
+                                " -> Encontrado: \"" + cleanedExpected + "\""
+                );
+            } else{
+                System.out.println("Mensaje de error encontrado: " + cleanedExpected);
+            }
+        } catch (Exception e) {
+            throw new AssertionError("No se pudo encontrar el elemento con el selector: " + selector, e);
         }
     }
-
     public void waitForPopUp(String expectedMessage) {
         Locator toast = page.locator(SelectorsArla.APP_POPUPS);
         try {

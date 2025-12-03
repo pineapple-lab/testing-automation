@@ -35,6 +35,11 @@ public class TestErrorMessageValidations extends TestCaseArla {
     }
 
     //SERVICE CATEGORY ERROR MESSAGE VALIDATIONS
+    public void serviceValidationRegisterFormMessageError(){
+        methods.startContextAndNavigation();
+        testEmptyRegisterInputs();
+        teardownPlaywright();
+    }
     public void serviceValidationLoginFormMessageError(){
         methods.startContextAndNavigation();
         testEmptyLoginInputs();

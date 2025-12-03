@@ -46,6 +46,9 @@ public class BotArla extends Arla.InterfaceActions {
             hpCreateCategory.setOnAction(e -> handleAction(ExecMethod.HP_CREATE_CATEGORY,"HP_CREATE_CATEGORY"));
 
             //BUTTONS COURSE TEST CASE VALIDATION MESSAGE ERROR
+            testRegisterInputEmpty.setOnAction(e -> handleAction(ExecMethod.REGISTER_VALIDATION_EMPTYMESSAGE,"REGISTER_VALIDATION_EMPTYMESSAGE"));
+
+            //BUTTONS COURSE TEST CASE VALIDATION MESSAGE ERROR
             testLoginInputEmpty.setOnAction(e -> handleAction(ExecMethod.LOGIN_VALIDATION_EMPTYMESSAGE,"LOGIN_VALIDATION_EMPTYMESSAGE"));
 
             //BUTTONS COURSE TEST CASE VALIDATION MESSAGE ERROR
@@ -204,6 +207,10 @@ public class BotArla extends Arla.InterfaceActions {
                     break;
                 case HP_INVITE_CLIENT:
                     actionHpInviteClient();
+                    break;
+                //CASE REGISTER VALIDATION MESSAGE ERROR TEST
+                case REGISTER_VALIDATION_EMPTYMESSAGE:
+                    actionValidationRegisterInputEmpty();
                     break;
                 //CASE LOGIN VALIDATION MESSAGE ERROR TEST
                 case LOGIN_VALIDATION_EMPTYMESSAGE:

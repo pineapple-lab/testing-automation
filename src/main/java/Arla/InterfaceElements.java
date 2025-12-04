@@ -45,10 +45,10 @@ public abstract class InterfaceElements extends Application {
     //TABS
     TabPane tabPane = new TabPane();
     Tab tbHappyPath = new Tab("Happy path");
-    Tab tbRegisterMessageValidations = new Tab ("Register message validations");
-    Tab tbLoginMessageValidations = new Tab ("Login message validations");
-    Tab tbCourseMessageValidations = new Tab ("Course message validations");
-    Tab tbCategoryMessageValidations = new Tab ("Category message validations");
+    Tab tbRegister = new Tab ("Register");
+    Tab tbLogin = new Tab ("Login");
+    Tab tbCourse = new Tab ("Course");
+    Tab tbCategory = new Tab ("Category");
 
 
     //TEST CASE HAPPY PATH BUTTONS
@@ -58,9 +58,9 @@ public abstract class InterfaceElements extends Application {
     Button hpCreateCourses = new Button ("Hp create course");
     Button hpCreateCategory = new Button ("Hp create category");
     //REGISTER TEST CASE VALIDATION ERRORS BUTTONS
-    Button testRegisterInputEmpty= new Button ("empty inputs");
+    Button testRegisterInputEmpty= new Button ("message error inputs");
     //LOGIN TEST CASE VALIDATION ERRORS BUTTONS
-    Button testLoginInputEmpty= new Button ("empty inputs");
+    Button testLoginInputEmpty= new Button ("message error inputs");
 
     //COURSE TEST CASE VALIDATION ERRORS BUTTONS
     Button testCourseInputEmptyStep1= new Button ("empty inputs step 1");

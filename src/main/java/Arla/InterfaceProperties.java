@@ -10,7 +10,7 @@ public class InterfaceProperties extends InterfaceElements{
     @Override
     public void start(Stage stage) {
         setupUIElements();
-        tabPane.getTabs().addAll(tbHappyPath,tbRegisterMessageValidations,tbLoginMessageValidations, tbCourseMessageValidations, tbCategoryMessageValidations);
+        tabPane.getTabs().addAll(tbHappyPath,tbRegister,tbLogin, tbCourse, tbCategory);
         splitPane.getItems().addAll(gridHeader, tabPane, scrollPane);
         splitMain.getItems().addAll(gridCola, splitPane);
         Scene scene = new Scene(splitMain, 550, 670);
@@ -56,10 +56,10 @@ public class InterfaceProperties extends InterfaceElements{
     }
     public void addGridToTabs(){
         tbHappyPath.setContent(gridCreator);
-        tbRegisterMessageValidations.setContent(gridRegisterFormValidations);
-        tbLoginMessageValidations.setContent(gridLoginFormValidations);
-        tbCourseMessageValidations.setContent(gridCourseFormValidations);
-        tbCategoryMessageValidations.setContent(gridCategoryFormValidations);
+        tbRegister.setContent(gridRegisterFormValidations);
+        tbLogin.setContent(gridLoginFormValidations);
+        tbCourse.setContent(gridCourseFormValidations);
+        tbCategory.setContent(gridCategoryFormValidations);
     }
     private void setupGridConstraints(){
         GridPane.setConstraints(execute, 3, 1);

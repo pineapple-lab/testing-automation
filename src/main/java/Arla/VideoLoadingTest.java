@@ -32,10 +32,10 @@ public class VideoLoadingTest extends TestCaseArla {
                     String username = usersList[userIndex];
                     System.out.println("Usuario: " + username);
                     page.navigate("https://arla-cms-dev.web.app/login");
-                    page.waitForSelector(SelectorsArla.USERNAME_INPUT);
-                    page.fill(SelectorsArla.USERNAME_INPUT, username);
-                    page.waitForSelector(SelectorsArla.PASSWORD_INPUT);
-                    page.fill(SelectorsArla.PASSWORD_INPUT, "123123aA.");
+                    page.waitForSelector(SelectorsArla.LOGIN_USERNAME_INPUT);
+                    page.fill(SelectorsArla.LOGIN_USERNAME_INPUT, username);
+                    page.waitForSelector(SelectorsArla.LOGIN_PASSWORD_INPUT);
+                    page.fill(SelectorsArla.LOGIN_PASSWORD_INPUT, "123123aA.");
                     page.click(SelectorsArla.LOGIN_BUTTON);
                     page.waitForSelector(SelectorsArla.COURSE_MENU_BUTTON);
                     page.navigate("https://arla-cms-dev.web.app/my-courses/chapter-view/901421/101696");

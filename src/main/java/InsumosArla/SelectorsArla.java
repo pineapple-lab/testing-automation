@@ -4,8 +4,8 @@ public class SelectorsArla {
     VariablesArla variable = new VariablesArla();
     public static final String APP_TOASTERS = "app-toasters";
     public static final String APP_POPUPS = "app-invite-client-dialog h4";
-    public static final String USERNAME_INPUT = "form > mat-form-field:nth-of-type(1) input";
-    public static final String PASSWORD_INPUT = "form > mat-form-field:nth-of-type(2) input";
+    public static final String LOGIN_USERNAME_INPUT = "form > mat-form-field:nth-of-type(1) input";
+    public static final String LOGIN_PASSWORD_INPUT = "form > mat-form-field:nth-of-type(2) input";
     public static final String LOGIN_BUTTON = "form > button";
     //REGISTER ERROR MESSAGE SELECTORS
     public static final String ASSERTION_FORMREGISTER_NAME = "form > div:nth-of-type(1) > div:nth-of-type(1) mat-error";
@@ -17,6 +17,7 @@ public class SelectorsArla {
     //LOGIN ERROR MESSAGE SELECTORS
     public static final String ASSERTION_FORMLOGIN_EMAIL = "form mat-form-field:nth-of-type(1) mat-error span";
     public static final String ASSERTION_FORMLOGIN_PASSWORD = "form mat-form-field:nth-of-type(2) mat-error span";
+    public static final String ASSERTION_FORMLOGIN_PASSWORDEMAIL = "form mat-hint span";
 
     //CATEGORY AND COURSE ERROR MESSAGE SELECTORS
     public static final String ASSERTION_MENU_USER = "app-header > header .mat-mdc-menu-trigger";

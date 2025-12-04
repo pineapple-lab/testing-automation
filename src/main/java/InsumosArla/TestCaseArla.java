@@ -80,7 +80,7 @@ public class TestCaseArla extends ContextArla{
     //TEST CASE MESSAGE ERRORS EMPTY INPUTS
     public void testEmptyRegisterInputs() {
         boolean allStepsPassed = true;
-        System.out.println("Testeando mensajes de error al dejar campos vacios en el formulario de registro\n");
+        System.out.println("Testeando mensajes de error de los inputs del formulario de registro\n");
         for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
             methods.goRegisterForm();
             page.click(SelectorsArla.REGISTER_FIRSTNAME_INPUT);
@@ -96,6 +96,38 @@ public class TestCaseArla extends ContextArla{
                     ()->  methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMREGISTER_PASSWORD,message.MESSAGE_REGISTERPASSWORD_EMPTY),
                     ()->  methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMREGISTER_CONFIRMPASSWORD,message.MESSAGE_REGISTERCONFIRMPASSWORD_EMPTY)
                     );
+            page.fill(SelectorsArla.REGISTER_FIRSTNAME_INPUT,"a1");
+            page.fill(SelectorsArla.REGISTER_LASTNAME_INPUT, "a1");
+            page.fill(SelectorsArla.REGISTER_EMAIL_INPUT,"a");
+            page.fill(SelectorsArla.REGISTER_PASSWORD_INPUT,"a");
+            page.fill(SelectorsArla.REGISTER_CONFIRMPASWORD_INPUT,"e");
+            allStepsPassed &= methods.verifyAssertions(
+                    ()->  methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMREGISTER_NAME,message.MESSAGE_REGISTERNAME_NUMBERS),
+                    ()->  methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMREGISTER_LASTNAME,message.MESSAGE_REGISTERLASTNAME_NUMBERS),
+                    ()->  methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMREGISTER_EMAIL,message.MESSAGE_REGISTEREMAIL_INVALIDFORMAT),
+                    ()->  methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMREGISTER_PASSWORD,message.MESSAGE_REGISTERPASSWORD_MINIMUMCHARACTERS),
+                    ()->  methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMREGISTER_CONFIRMPASSWORD,message.MESSAGE_REGISTERCONFIRMPASSWORD_NOMATCH)
+            );
+            page.fill(SelectorsArla.REGISTER_FIRSTNAME_INPUT,"a");
+            page.fill(SelectorsArla.REGISTER_LASTNAME_INPUT, "a");
+            page.fill(SelectorsArla.REGISTER_PASSWORD_INPUT,"aaaaaaaa");
+            allStepsPassed &= methods.verifyAssertions(
+                    ()->  methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMREGISTER_NAME,message.MESSAGE_REGISTERNAME_MINIMUMCHARACTERS),
+                    ()->  methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMREGISTER_LASTNAME,message.MESSAGE_REGISTERLASTNAME_MINIMUMCHARACTERS),
+                    ()->  methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMREGISTER_PASSWORD,message.MESSAGE_REGISTERPASSWORD_MISSCAPITALLETTER)
+            );
+            page.fill(SelectorsArla.REGISTER_PASSWORD_INPUT,"aaaaaaaaA");
+            allStepsPassed &= methods.verifyAssertions(
+                    ()->  methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMREGISTER_PASSWORD,message.MESSAGE_REGISTERPASSWORD_MISSNUMBER)
+            );
+            page.fill(SelectorsArla.REGISTER_PASSWORD_INPUT,"aaaaaaaaA1");
+            allStepsPassed &= methods.verifyAssertions(
+                    ()->  methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMREGISTER_PASSWORD,message.MESSAGE_REGISTERPASSWORD_MISSSPECIALCARACTER)
+            );
+            page.fill(SelectorsArla.REGISTER_PASSWORD_INPUT,"AAAAAAAA1-");
+            allStepsPassed &= methods.verifyAssertions(
+                    ()->  methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMREGISTER_PASSWORD,message.MESSAGE_REGISTERPASSWORD_MISSLOWERCASE)
+            );
         }
         methods.printFinalTestResult(allStepsPassed);
         cleanupContext();
@@ -109,6 +141,12 @@ public class TestCaseArla extends ContextArla{
             allStepsPassed &= methods.verifyAssertions(
                     ()->  methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMLOGIN_EMAIL,message.MESSAGE_LOGINEMAIL_EMPTY),
                     ()->  methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMLOGIN_PASSWORD,message.MESSAGE_LOGINPASS_EMPTY)
+            );
+            page.fill(SelectorsArla.LOGIN_USERNAME_INPUT,"a");
+            page.fill(SelectorsArla.LOGIN_PASSWORD_INPUT, "1");
+            page.click(SelectorsArla.LOGIN_BUTTON);
+            allStepsPassed &= methods.verifyAssertions(
+                    ()->  methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMLOGIN_PASSWORDEMAIL,message.MESSAGE_LOGINPASSEMAIL_INCORRECT)
             );
         }
         methods.printFinalTestResult(allStepsPassed);
@@ -144,7 +182,7 @@ public class TestCaseArla extends ContextArla{
             methods.courseFormCompleteStep1();
             page.click(SelectorsArla.COURSE_CONTINUE_BUTTON);
             allStepsPassed &= methods.verifyAssertions(
-                    ()-> methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_CONTENT_IMAGE,message.MESSAGE_CONTENTNAME_EMPTY)
+                    ()-> methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_CONTENT_IMAGE,message.MESSAGE_CONTENTIMAGE_EMPTY)
             );
         }
         methods.printFinalTestResult(allStepsPassed);
@@ -195,7 +233,6 @@ public class TestCaseArla extends ContextArla{
         methods.login();
         methods.goToFormCreateCourse();
         for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
-
             methods.courseFormCompleteStep1();
             methods.courseFormCompleteStep2();
             page.click(SelectorsArla.COURSE_CHAPTER_ADD_BUTTON);
@@ -232,7 +269,6 @@ public class TestCaseArla extends ContextArla{
                     () -> methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMCATEGORY_LANGUAGE, message.MESSAGE_CONTENTLANGUAGE_EMPTY),
                     () -> methods.waitForInputErrorMessage(SelectorsArla.ASSERTION_FORMCATEGORY_PRICE, message.MESSAGE_CATEGORYPRICE_EMPTY)
             );
-
         }
         methods.printFinalTestResult(allStepsPassed);
         cleanupContext();

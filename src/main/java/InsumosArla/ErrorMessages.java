@@ -7,10 +7,21 @@ public class ErrorMessages {
     public static final String MESSAGE_REGISTEREMAIL_EMPTY = "El campo 'Email' no puede estar vacio.";
     public static final String MESSAGE_REGISTERPASSWORD_EMPTY = "El campo 'Contraseña' no puede estar vacio.";
     public static final String MESSAGE_REGISTERCONFIRMPASSWORD_EMPTY = "El campo 'Confirmar contraseña' no puede estar vacio.";
-
+    public static final String MESSAGE_REGISTERNAME_NUMBERS = "Solo se permiten letras";
+    public static final String MESSAGE_REGISTERLASTNAME_NUMBERS = "Solo se permiten letras";
+    public static final String MESSAGE_REGISTEREMAIL_INVALIDFORMAT = "El correo no es válido.";
+    public static final String MESSAGE_REGISTERPASSWORD_MINIMUMCHARACTERS = "La contraseña debe tener al menos 8 caracteres.";
+    public static final String MESSAGE_REGISTERCONFIRMPASSWORD_NOMATCH = "Las contraseñas no coinciden";
+    public static final String MESSAGE_REGISTERNAME_MINIMUMCHARACTERS = "El nombre debe tener entre 2 y 50 caracteres.";
+    public static final String MESSAGE_REGISTERLASTNAME_MINIMUMCHARACTERS = "El apellido debe tener entre 2 y 50 caracteres.";
+    public static final String MESSAGE_REGISTERPASSWORD_MISSCAPITALLETTER = "La contraseña debe contener al menos una letra mayúscula";
+    public static final String MESSAGE_REGISTERPASSWORD_MISSNUMBER = "La contraseña debe contener al menos un número";
+    public static final String MESSAGE_REGISTERPASSWORD_MISSSPECIALCARACTER = "La contraseña debe contener al menos un carácter especial (@$!%*?&.-)";
+    public static final String MESSAGE_REGISTERPASSWORD_MISSLOWERCASE = "La contraseña debe contener al menos una letra minúscula";
     //LOGIN ERROR MESSAGE
     public static final String MESSAGE_LOGINEMAIL_EMPTY = "El campo: 'Correo' no puede estar vacío";
     public static final String MESSAGE_LOGINPASS_EMPTY = "El campo 'Contraseña' no puede estar vacio.";
+    public static final String MESSAGE_LOGINPASSEMAIL_INCORRECT = "Usuario o contraseña incorrecto. Por favor intente nuevamente";
 
     //COURSE AND CATEGORY ERROR MESSAGES
     public static final String MESSAGE_CONTENTNAME_EMPTY = "The field: 'Name' can't be empty.";

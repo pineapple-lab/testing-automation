@@ -13,6 +13,8 @@ import org.junit.jupiter.api.Assertions;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class MethodsArla extends ContextArla{
     GeneratorArla generate = new GeneratorArla();
@@ -54,7 +56,7 @@ public class MethodsArla extends ContextArla{
         userEmail = emailInfo.getEmail();
         goRegisterForm();
         page.fill(SelectorsArla.REGISTER_FIRSTNAME_INPUT, emailInfo.getFirstName());
-        page.fill(SelectorsArla.REGISTER_LASTNAME_INPUT, emailInfo.getFirstName());
+        page.fill(SelectorsArla.REGISTER_LASTNAME_INPUT, emailInfo.getLastName());
         page.fill(SelectorsArla.REGISTER_EMAIL_INPUT, userEmail);
         page.fill(SelectorsArla.REGISTER_PASSWORD_INPUT, password);
         page.fill(SelectorsArla.REGISTER_CONFIRMPASWORD_INPUT, password);
@@ -66,8 +68,8 @@ public class MethodsArla extends ContextArla{
     }
     public void login(){
         goToLogin();
-        page.fill(SelectorsArla.USERNAME_INPUT,username);
-        page.fill(SelectorsArla.PASSWORD_INPUT, password);
+        page.fill(SelectorsArla.LOGIN_USERNAME_INPUT,username);
+        page.fill(SelectorsArla.LOGIN_PASSWORD_INPUT, password);
         page.click(SelectorsArla.LOGIN_BUTTON);
     }
     public void uploadMediaLibrary(){
@@ -288,8 +290,8 @@ public class MethodsArla extends ContextArla{
                 throw new AssertionError(
                         "❌ Verificación de contenido fallida para el selector: \"" + selector + "\".\n" +
                                 "El mensaje de error no coincide con el esperado.\n" +
-                                " -> Esperado: \"" + actualMessage+ "\"\n" +
-                                " -> Encontrado: \"" + cleanedExpected + "\""
+                                " -> Esperado: \"" + cleanedExpected+ "\"\n" +
+                                " -> Encontrado: \"" + actualMessage+ "\""
                 );
             } else{
                 System.out.println("Mensaje de error encontrado: " + cleanedExpected);

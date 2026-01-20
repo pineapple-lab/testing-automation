@@ -62,6 +62,7 @@ public class InterfaceProperties extends InterfaceElements{
             //HAPPY PATH BUTTONS
             GridPane.setConstraints(loginHappyPath, 2, 3);
             GridPane.setConstraints(createReCompanieHapyPath, 2, 4);
+            GridPane.setConstraints(createNationalAccountHapyPath, 2, 5);
 
             //ENVIRONMENTS OPTIONS
             comboBox.getItems().add("DEV");
@@ -80,6 +81,7 @@ public class InterfaceProperties extends InterfaceElements{
         private void addElementsGridHappyPath(){
             gridHappyPath.getChildren().add(loginHappyPath);
             gridHappyPath.getChildren().add(createReCompanieHapyPath);
+            gridHappyPath.getChildren().add(createNationalAccountHapyPath);
         }
         private void setColors(){
             //HEADER
@@ -91,6 +93,7 @@ public class InterfaceProperties extends InterfaceElements{
             //HAPPY PATH BUTTONS
             setButtonStyle(loginHappyPath);
             setButtonStyle(createReCompanieHapyPath);
+            setButtonStyle(createNationalAccountHapyPath);
         }
         private void setButtonStyle(Button button) {
             button.setStyle("-fx-background-color: #fb9957;");
@@ -105,6 +108,7 @@ public class InterfaceProperties extends InterfaceElements{
             //HAPPY PATH BUTTONS
             setupHoverEffect(loginHappyPath);
             setupHoverEffect(createReCompanieHapyPath);
+            setupHoverEffect(createNationalAccountHapyPath);
         }
         private void setupHoverEffect(Button button) {
             button.setOnMouseEntered(e -> button.setStyle("-fx-background-color: #d89743; -fx-text-fill: white;"));

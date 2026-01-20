@@ -7,6 +7,7 @@ import com.microsoft.playwright.TimeoutError;
 import com.microsoft.playwright.assertions.PlaywrightAssertions;
 import org.junit.jupiter.api.Assertions;
 
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +15,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
     private static final List<String> errores = new ArrayList<>();
     GeneratorSpaceLogik generate = new GeneratorSpaceLogik();
     GeneratorSpaceLogik.EmailInfo emailInfo;
+    ToastMessageSpacelogik toast = new ToastMessageSpacelogik();
     public void startTest(){
 
         stopTest = false;
@@ -82,6 +84,54 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         completeReCompanieStep1();
         completeReCompanieStep2();
         completeReCompanieStep3();
+    }
+    public void goToNationalAccountPage(){
+        page.click(SelectorsSpacelogik.MENU_ADMIN);
+        page.click(SelectorsSpacelogik.NACCOUNT_MENU_BUTTON);
+    }
+    public void goToNationalAccountForm (){
+        page.click(SelectorsSpacelogik.NACCOUNT_NEW_BUTTON);
+    }
+    public void completeNationalAccountStep1(){
+        page.waitForTimeout(1000);
+        page.fill(SelectorsSpacelogik.NACCOUNT_COMPANY_NAME_INPUT, generate.generateCompanyName());
+        page.click(SelectorsSpacelogik.NACCOUNT_COMPANY_INDUSTRY_SELECT);
+        page.click(SelectorsSpacelogik.NACCOUNT_COMPANY_INDUSTRY_OPTION);
+        page.locator(SelectorsSpacelogik.NACCOUNT_COMPANY_ADDRESS_INPUT).type("T", new Locator.TypeOptions().setDelay(200));
+        page.click(SelectorsSpacelogik.NACCOUNT_COMPANY_ADDRESS_OPTION);
+        page.click(SelectorsSpacelogik.NACCOUNT_COMPANY_STATE_SELECT);
+        page.click(SelectorsSpacelogik.NACCOUNT_COMPANY_STATE_OPTION);
+        page.click(SelectorsSpacelogik.NACCOUNT_COMPANY_CITY_SELECT);
+        page.click(SelectorsSpacelogik.NACCOUNT_COMPANY_CITY_OPTION);
+        page.click(SelectorsSpacelogik.NACCOUNT_COMPANY_ZIPCODE_SELECT);
+        page.click(SelectorsSpacelogik.NACCOUNT_COMPANY_ZIPCODE_OPTION);
+        page.click(SelectorsSpacelogik.NACCOUNT_COMPANY_LOGO_MODAL_OPEN);
+        page.locator(SelectorsSpacelogik.NACCOUNT_COMPANY_LOGO_UPLOAD).setInputFiles(Paths.get(generate.generateImage()));
+        waitForToast(toast.FILE_UPLOAD_SUCESS);
+        page.click(SelectorsSpacelogik.NACCOUNT_COMPANY_LOGO_SAVE);
+        page.waitForTimeout(3000);
+        page.click(SelectorsSpacelogik.NACCOUNT_COMPANY_CONTINUE_BUTTON);
+    }
+    public void completeNationalAccountStep2(){
+        emailInfo = generate.generateEmail();
+        userEmail = emailInfo.getEmail();
+        page.fill(SelectorsSpacelogik.NACCOUNT_TENANT_FNAME_INPUT, generate.firstName);
+        page.fill(SelectorsSpacelogik.NACCOUNT_TENANT_LNAME_INPUT, generate.lastName);
+        page.click(SelectorsSpacelogik.NACCOUNT_TENANT_SALUTATION_SELECT);
+        page.click(SelectorsSpacelogik.NACCOUNT_TENANT_SALUTATION_OPTION);
+        page.fill(SelectorsSpacelogik.NACCOUNT_TENANT_TITLE_INPUT, "Director");
+        page.fill(SelectorsSpacelogik.NACCOUNT_TENANT_MOBILE_INPUT,"(999) 999-9999");
+        page.fill(SelectorsSpacelogik.NACCOUNT_TENANT_PHONE_INPUT, "(999) 999-9999");
+        page.fill(SelectorsSpacelogik.NACCOUNT_TENANT_EMAIL_INPUT, userEmail);
+        page.fill(SelectorsSpacelogik.NACCOUNT_TENANT_PASSWORD_INPUT,"Pickle30");
+        page.fill(SelectorsSpacelogik.NACCOUNT_TENANT_CPASSOWRD_INPUT, "Pickle30");
+        page.click(SelectorsSpacelogik.NACCOUNT_TENANT_SAVE_BUTTON);
+        page.click(SelectorsSpacelogik.NACCOUNT_TENANT_SAVE_BUTTON);
+
+    }
+    public void createNationalAccount(){
+        completeNationalAccountStep1();
+        completeNationalAccountStep2();
     }
     public static void assertThat(Runnable assertion, String mensaje) {
         try {

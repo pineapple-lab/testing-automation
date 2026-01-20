@@ -28,4 +28,20 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
             cleanupContext();
         }
     }
+    public void happyPathNationalAccountCreate(){
+        System.out.println("Se van a crear "+generate.generateExecutions()+" National Account\n");
+        methods.login();
+        methods.goToNationalAccountPage();
+        try{
+            for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
+                methods.goToNationalAccountForm();
+                methods.createNationalAccount();
+                methods.waitForToast(toast.NATIONALACCOUNT_SUCCESS);
+            }
+            methods.printErrores();
+            methods.reset();
+        }finally{
+            cleanupContext();
+        }
+    }
 }

@@ -46,6 +46,7 @@ public abstract class InterfaceElements extends Application {
     //HAPPY PATH BUTTONS
     Button loginHappyPath = new Button("Login");
     Button createReCompanieHapyPath = new Button("Create RE Companie");
+    Button createNationalAccountHapyPath = new Button("Create National account");
 
     public abstract void start(Stage stage);
 }

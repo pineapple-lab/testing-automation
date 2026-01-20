@@ -42,6 +42,7 @@ public class BotSpacelogik extends Spacelogik.InterfaceActions {
                 //HAPPY PATH BUTTONS
                 loginHappyPath.setOnAction(e -> handleAction(ExecMethod.LOGIN_HP,"LOGIN_HP"));
                 createReCompanieHapyPath.setOnAction(e -> handleAction(ExecMethod.CREATERECOMPANIE_HP,"CREATERECOMPANIE_HP"));
+                createNationalAccountHapyPath.setOnAction(e -> handleAction(ExecMethod.CREATENATIONALACCOUNT_HP,"CREATENATIONALACCOUNT_HP"));
 
                 //HEADER
                 comboBox.setOnAction(e -> handleComboBoxAction());
@@ -123,6 +124,9 @@ public class BotSpacelogik extends Spacelogik.InterfaceActions {
                         break;
                     case CREATERECOMPANIE_HP:
                         actionHpCreateReCompanie();
+                        break;
+                    case CREATENATIONALACCOUNT_HP:
+                        actionHpCreateNationalAccount();
                         break;
                 }
                 if (!isRunning) {

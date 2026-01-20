@@ -11,7 +11,8 @@ public class InterfaceActions extends InterfaceProperties {
         enum ExecMethod {
             //HAPPY PATH
             LOGIN_HP,
-            CREATERECOMPANIE_HP
+            CREATERECOMPANIE_HP,
+            CREATENATIONALACCOUNT_HP
         }
         public void actionEliminarDeLaCola() {
             List<CheckBox> checkBoxesSeleccionados = new ArrayList<>();
@@ -33,6 +34,9 @@ public class InterfaceActions extends InterfaceProperties {
         }
         public void actionHpCreateReCompanie() {
         executeService(new FunctionReCompanie(), FunctionReCompanie::serviceCreateReCompanieHappyPath);
+        }
+        public void actionHpCreateNationalAccount() {
+        executeService(new FunctionNationalAccount(), FunctionNationalAccount::serviceNewNationalAccount);
         }
         private <T> void executeService(T serviceInstance, Spacelogik.InterfaceActions.CheckedConsumer<T> action) {
         try {

@@ -11,7 +11,7 @@ public class InterfaceProperties extends InterfaceElements{
         @Override
         public void start(Stage stage){
             setupUIElements();
-            tabPane.getTabs().addAll(tbValidationsLogin);
+            tabPane.getTabs().addAll(tbHappyPath);
             splitPane.getItems().addAll(gridHeader, tabPane, scrollPane);
             splitMain.getItems().addAll(gridCola, splitPane);
             Scene scene = new Scene (splitMain,550, 670);
@@ -24,8 +24,8 @@ public class InterfaceProperties extends InterfaceElements{
             scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
             gridCreator.setHgap(3);
             gridCreator.setVgap(10);
-            gridValidationsLogin.setHgap(3);
-            gridValidationsLogin.setVgap(10);
+            gridHappyPath.setHgap(3);
+            gridHappyPath.setVgap(10);
             gridHeader.setHgap(3);
             gridHeader.setVgap(10);
             splitPane.setOrientation(Orientation.VERTICAL);
@@ -38,7 +38,7 @@ public class InterfaceProperties extends InterfaceElements{
             gridCola.setMaxWidth(100);
             addElementsGridHeader();
             setupGridConstraints();
-            addElementsGridValidationsLogin();
+            addElementsGridHappyPath();
             addGridToTabs();
             setColors();
             setHover();
@@ -47,17 +47,23 @@ public class InterfaceProperties extends InterfaceElements{
         }
         public void addGridToTabs(){
             tbcreator.setContent(gridCreator);
-            tbValidationsLogin.setContent(gridValidationsLogin);
+            tbHappyPath.setContent(gridHappyPath);
         }
         private void setupGridConstraints(){
+
+            //HEADER BUTTONS
             GridPane.setConstraints(execute, 3, 1);
             GridPane.setConstraints(tfExecute,2,2);
             GridPane.setConstraints(stopTestCase,4,1);
             GridPane.setConstraints(removeQueue, 5, 1);
             GridPane.setConstraints(comboBox,2,1);
             GridPane.setConstraints(botConfigurations, 7, 1);
-            //Create buttons
-            GridPane.setConstraints(login, 2, 3);
+
+            //HAPPY PATH BUTTONS
+            GridPane.setConstraints(loginHappyPath, 2, 3);
+            GridPane.setConstraints(createReCompanieHapyPath, 2, 4);
+
+            //ENVIRONMENTS OPTIONS
             comboBox.getItems().add("DEV");
             comboBox.getItems().add("QA");
             comboBox.getItems().add("Local");
@@ -71,30 +77,34 @@ public class InterfaceProperties extends InterfaceElements{
             gridHeader.getChildren().add(comboBox);
             gridHeader.getChildren().add(botConfigurations);
         }
-        private void addElementsGridValidationsLogin(){
-            gridValidationsLogin.getChildren().add(login);
+        private void addElementsGridHappyPath(){
+            gridHappyPath.getChildren().add(loginHappyPath);
+            gridHappyPath.getChildren().add(createReCompanieHapyPath);
         }
         private void setColors(){
-            //HEADER buttons
+            //HEADER
             setButtonStyle(execute);
             setButtonStyle(stopTestCase);
             setButtonStyle(removeQueue);
             setButtonStyle(botConfigurations);
-            //Create buttons
-            setButtonStyle(login);
 
+            //HAPPY PATH BUTTONS
+            setButtonStyle(loginHappyPath);
+            setButtonStyle(createReCompanieHapyPath);
         }
         private void setButtonStyle(Button button) {
             button.setStyle("-fx-background-color: #fb9957;");
         }
         public void setHover(){
-            //HEADER buttons
+            //HEADER
             setupHoverEffect(execute);
             setupHoverEffect(stopTestCase);
             setupHoverEffect(removeQueue);
             setupHoverEffect(botConfigurations);
-            //Create buttons
-            setupHoverEffect(login);
+
+            //HAPPY PATH BUTTONS
+            setupHoverEffect(loginHappyPath);
+            setupHoverEffect(createReCompanieHapyPath);
         }
         private void setupHoverEffect(Button button) {
             button.setOnMouseEntered(e -> button.setStyle("-fx-background-color: #d89743; -fx-text-fill: white;"));

@@ -2,10 +2,11 @@ package InsumosSpacelogik;
 
 import java.io.PrintStream;
 
-public class VariablesSpacelogik {
+public class VariablesSpacelogik extends PathUtilsSpacelogik {
     public static volatile PrintStream outputStream;
     public static volatile boolean stopTest;
     public static String executionDetails;
+    public int executeCounter;
     //Variables de configuracion del bot
     public static double setSlowMotion= 0.1;
     public static boolean setHeadless = false;
@@ -17,4 +18,5 @@ public class VariablesSpacelogik {
     //Variables login
     public String userEmail = "admin";
     public String userPassword = "Pickle30";
+    public String emailDomain = "pineapple-lab";
 }

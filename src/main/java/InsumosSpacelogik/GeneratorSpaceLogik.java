@@ -1,12 +1,21 @@
-package InsumosArla;
+package InsumosSpacelogik;
+
+import Configurations.*;
+import InsumosSpacelogik.PathUtilsSpacelogik;
+
+import com.microsoft.playwright.ElementHandle;
+
 import java.nio.file.Paths;
 import java.time.Instant;
-import java.util.*;
-import Configurations.*;
-import com.microsoft.playwright.ElementHandle;
-public class GeneratorArla extends ContextArla {
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
+
+public class GeneratorSpaceLogik extends ContextBaseSpacelogik{
     String firstName;
     String lastName;
+
     public int generateExecutions(){
         return Integer.parseInt(executionDetails);
     }
@@ -26,10 +35,10 @@ public class GeneratorArla extends ContextArla {
         String[] imageList = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
                 "11", "12", "13", "14", "15", "16", "17", "18", "19", "20","21","22","23","24","25","26"
         };
-        String basePath = Paths.get(InsumosDocola.PathUtils.getBasePath(), PathUtilsArla.RELATIVE_PICTURE_PROFILE_PATH).toString();
+        String basePath = Paths.get(InsumosDocola.PathUtils.getBasePath(), PathUtilsSpacelogik.RELATIVE_PICTURE_PROFILE_PATH).toString();
         return generateRandomFileName(imageList,basePath,".jpg");
     }
-    public GeneratorArla.EmailInfo generateEmail(){
+    public GeneratorSpaceLogik.EmailInfo generateEmail(){
         generateFirstName();
         generateLastName();
         long timeStamp = Instant.now().toEpochMilli();
@@ -37,7 +46,7 @@ public class GeneratorArla extends ContextArla {
         firstName=generateFirstName();
         lastName=generateLastName();
         userEmail = firstName+lastName+timeStamp+"@"+ emailDomain +".com";
-        return new GeneratorArla.EmailInfo(userEmail, firstName, lastName);
+        return new GeneratorSpaceLogik.EmailInfo(userEmail, firstName, lastName);
     }
     public String generateFirstName(){
         String [] listFirstNames = FirstNames.firstNames;
@@ -74,6 +83,7 @@ public class GeneratorArla extends ContextArla {
     }
     private List<Integer> availableIndices = new ArrayList<>();
     public int generateSetContentStep(){
+        page.waitForSelector("app-crud");
         List<ElementHandle> elements = page.querySelectorAll("app-crud app-cards-container > div > app-card");
         if (availableIndices.isEmpty()) {
             for (int i = 0; i < elements.size(); i++) {

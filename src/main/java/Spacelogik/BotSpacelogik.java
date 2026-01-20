@@ -38,8 +38,11 @@ public class BotSpacelogik extends Spacelogik.InterfaceActions {
                     }
                 }));
                 outputStream.println("Bienvenido, selecciona un ambiente y el numero de executionDetails para empezar.\n\n");
-                //CREATOR buttons
-                login.setOnAction(e -> handleAction(ExecMethod.LOGIN_USER,"LOGIN_USER"));
+
+                //HAPPY PATH BUTTONS
+                loginHappyPath.setOnAction(e -> handleAction(ExecMethod.LOGIN_HP,"LOGIN_HP"));
+                createReCompanieHapyPath.setOnAction(e -> handleAction(ExecMethod.CREATERECOMPANIE_HP,"CREATERECOMPANIE_HP"));
+
                 //HEADER
                 comboBox.setOnAction(e -> handleComboBoxAction());
                 stopTestCase.setOnAction(event -> handleStopTestCase());
@@ -114,9 +117,12 @@ public class BotSpacelogik extends Spacelogik.InterfaceActions {
             for (int i = 0; i < waitingList.size(); i++) {
                 Spacelogik.InterfaceActions.ExecMethod var = waitingList.get(i);
                 switch (var) {
-                    //CASE CREATION
-                    case LOGIN_USER:
-                        actionLogin();
+                    //HAPPY PATH CASE
+                    case LOGIN_HP:
+                        actionHpLogin();
+                        break;
+                    case CREATERECOMPANIE_HP:
+                        actionHpCreateReCompanie();
                         break;
                 }
                 if (!isRunning) {

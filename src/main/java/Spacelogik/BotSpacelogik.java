@@ -43,7 +43,8 @@ public class BotSpacelogik extends Spacelogik.InterfaceActions {
                 loginHappyPath.setOnAction(e -> handleAction(ExecMethod.LOGIN_HP,"LOGIN_HP"));
                 createReCompanieHapyPath.setOnAction(e -> handleAction(ExecMethod.CREATERECOMPANIE_HP,"CREATERECOMPANIE_HP"));
                 createNationalAccountHapyPath.setOnAction(e -> handleAction(ExecMethod.CREATENATIONALACCOUNT_HP,"CREATENATIONALACCOUNT_HP"));
-
+                createGuruHapyPath.setOnAction(e -> handleAction(ExecMethod.CREATEGURU_HP,"CREATEGURU_HP"));
+                createClientHapyPath.setOnAction(e -> handleAction(ExecMethod.CREATECLIENT_HP,"CREATECLIENT_HP"));
                 //HEADER
                 comboBox.setOnAction(e -> handleComboBoxAction());
                 stopTestCase.setOnAction(event -> handleStopTestCase());
@@ -127,6 +128,12 @@ public class BotSpacelogik extends Spacelogik.InterfaceActions {
                         break;
                     case CREATENATIONALACCOUNT_HP:
                         actionHpCreateNationalAccount();
+                        break;
+                    case CREATEGURU_HP:
+                        actionHpCreateGuru();
+                        break;
+                    case CREATECLIENT_HP:
+                        actionHpCreateClient();
                         break;
                 }
                 if (!isRunning) {

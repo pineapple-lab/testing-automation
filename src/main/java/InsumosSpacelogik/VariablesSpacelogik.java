@@ -16,7 +16,7 @@ public class VariablesSpacelogik extends PathUtilsSpacelogik {
     //Variables navigation
     public static String navigationLink = "https://spacelogic-development.web.app/";
     //Variables login
-    public String userEmail = "admin";
-    public String userPassword = "Pickle30";
+    public String userEmail;
+    public String userPassword;
     public String emailDomain = "pineapple-lab";
 }

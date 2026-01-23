@@ -63,8 +63,10 @@ public class InterfaceProperties extends InterfaceElements{
             GridPane.setConstraints(loginHappyPath, 2, 3);
             GridPane.setConstraints(createReCompanieHapyPath, 2, 4);
             GridPane.setConstraints(createNationalAccountHapyPath, 2, 5);
-            GridPane.setConstraints(createGuruHapyPath, 2, 6);
-            GridPane.setConstraints(createClientHapyPath, 2, 7);
+            GridPane.setConstraints(createOfficeHapyPath, 2, 6);
+            GridPane.setConstraints(createGuruHapyPath, 2, 7);
+            GridPane.setConstraints(createClientHapyPath, 2, 8);
+
             //ENVIRONMENTS OPTIONS
             comboBox.getItems().add("DEV");
             comboBox.getItems().add("QA");
@@ -85,6 +87,7 @@ public class InterfaceProperties extends InterfaceElements{
             gridHappyPath.getChildren().add(createNationalAccountHapyPath);
             gridHappyPath.getChildren().add(createGuruHapyPath);
             gridHappyPath.getChildren().add(createClientHapyPath);
+            gridHappyPath.getChildren().add(createOfficeHapyPath);
         }
         private void setColors(){
             //HEADER
@@ -99,6 +102,7 @@ public class InterfaceProperties extends InterfaceElements{
             setButtonStyle(createNationalAccountHapyPath);
             setButtonStyle(createGuruHapyPath);
             setButtonStyle(createClientHapyPath);
+            setButtonStyle(createOfficeHapyPath);
         }
         private void setButtonStyle(Button button) {
             button.setStyle("-fx-background-color: #fb9957;");
@@ -116,7 +120,7 @@ public class InterfaceProperties extends InterfaceElements{
             setupHoverEffect(createNationalAccountHapyPath);
             setupHoverEffect(createGuruHapyPath);
             setupHoverEffect(createClientHapyPath);
-
+            setupHoverEffect(createOfficeHapyPath);
         }
         private void setupHoverEffect(Button button) {
             button.setOnMouseEntered(e -> button.setStyle("-fx-background-color: #d89743; -fx-text-fill: white;"));

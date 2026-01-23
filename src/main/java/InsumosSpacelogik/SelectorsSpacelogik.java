@@ -3,6 +3,8 @@ package InsumosSpacelogik;
 import org.jetbrains.kotlin.backend.common.serialization.signature.PublicIdSignatureComputer;
 
 public class SelectorsSpacelogik extends VariablesSpacelogik {
+    //WAIT COMPONENT
+    public static final String WAIT_RECOMPANIE_TABLE_FIRSTROW = ".MuiDataGrid-virtualScrollerContent > div > div:nth-of-type(1)";
 
     //TOASTER
     public static final String APP_TOASTERS = ".Toastify__toast";
@@ -115,6 +117,7 @@ public class SelectorsSpacelogik extends VariablesSpacelogik {
     public static final String CLIENT_TENANT_CONTINUESTEP2_BUTTON = ".tenant-registration-buttons > div > button";
     public static final String CLIENT_LOCATION_NEW_BUTTON = ".tenant-registration-step-container > div > button";
     public static final String CLIENT_MODAL_LOCATION_CARD = ".location-item";
+
     //LOCATIONS
     public static final String LOCATION_NAME_INPUT = ".location-form-content > div > div:nth-of-type(1) input";
     public static final String LOCATION_OFICCE_DISTANCE_SELECT = ".location-form-content > div > div:nth-of-type(3) .select-row-container > .info-component:nth-of-type(1) .generic-select-container";
@@ -136,7 +139,20 @@ public class SelectorsSpacelogik extends VariablesSpacelogik {
     public static final String LOCATION_CONTINUESTEP3_BUTTON = ".new-location-modal-footer > button:nth-of-type(2)";
     public static final String LOCATION_SAVE_BUTTON = ".new-location-modal-footer > button:nth-of-type(2)";
     public static final String CLIENT_CREATE_BUTTON = ".tenant-registration-buttons > div > button";
-
     public static final String CLIENT_RETURNTOMYCLIENT_BUTTON = ".ReactModal__Content .action-buttons > button:nth-of-type(1)";
     public static final String CLIENT_POPUP_SUCCESS = ".ReactModal__Content";
+
+    //OFFICES
+    public static final String OFFICES_HEADERMENU_BUTTON = ".app-header > div:nth-of-type(4) > button:nth-of-type(2)";
+    public static final String OFFICES_NEW_BUTTON = ".offices-page-main-container .content-between > div > button:nth-of-type(2)";
+    public static final String OFFICES_LOCATION_NAME_INPUT = ".ReactModal__Content > label input";
+    public static final String OFFICES_ADRESS_INPUT = ".ReactModal__Content > div:nth-of-type(2) label input";
+    public static final String OFFICES_ADRESS_OPTION = ".pac-container > .pac-item:nth-of-type(1)";
+    public static final String OFFICES_STATE_SELECTOR = ".ReactModal__Content > div:nth-of-type(2) > div > div:nth-of-type(1) > div";
+    public static final String OFFICES_STATE_OPTION = ".MuiPaper-root ul > li:nth-of-type(2)";
+    public static final String OFFICES_CITY_SELECTOR = ".ReactModal__Content > div:nth-of-type(2) > div > div:nth-of-type(2) > div";
+    public static final String OFFICES_CITY_OPTION = ".MuiPaper-root ul > li:nth-of-type(2)";
+    public static final String OFFICES_ZIPCODE_SELECTOR = ".ReactModal__Content > div:nth-of-type(2) > div > div:nth-of-type(3) > div";
+    public static final String OFFICES_ZIPCODE_OPTION = ".MuiPaper-root ul > li:nth-of-type(2)";
+    public static final String OFFICES_SAVE_BUTTON = ".ReactModal__Content > div:nth-of-type(3) > button:nth-of-type(2)";
 }

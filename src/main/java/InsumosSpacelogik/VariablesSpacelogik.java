@@ -18,5 +18,7 @@ public class VariablesSpacelogik extends PathUtilsSpacelogik {
     //Variables login
     public String userEmail;
     public String userPassword;
+    public String guruEmail;
+    public String reCompanieEmail;
     public String emailDomain = "pineapple-lab";
 }

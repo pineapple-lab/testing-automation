@@ -56,7 +56,22 @@ public class GeneratorSpaceLogik extends ContextBaseSpacelogik{
         String[] listLastNames = LastNames.lastNames;
         return getRandomString(listLastNames);
     }
-
+    public String generateLocationName(){
+        String[] locationsNamesList = LocationNames.locationNames;
+        return getRandomString(locationsNamesList);
+    }
+    public String generatePhone(){
+        String [] phonesList = Phones.phoneNumbers;
+        return getRandomString(phonesList);
+    }
+    public String generateMobile(){
+        String [] mobileList = Mobile.mobileNumbers;
+        return getRandomString(mobileList);
+    }
+    public String generateAdress(){
+        String [] adressList = Adress.addresses;
+        return getRandomString(adressList);
+    }
     public String generateCompanyName(){
         String[] companyList = CompanyNames.companyNames;
         return getRandomString(companyList);
@@ -68,6 +83,22 @@ public class GeneratorSpaceLogik extends ContextBaseSpacelogik{
     public String generateContentDescription(){
         String [] contentDescriptiontList = ContentDescriptions.contentDescritpion;
         return getRandomString(contentDescriptiontList);
+    }
+    public String generateProfesionalTitle(){
+        String [] profesionalTitleList = ProfesionalTitles.professionalTitles;
+        return getRandomString(profesionalTitleList);
+    }
+    public String generateProfileDescription(){
+        String [] profileDescriptiontList = ProfileDescriptions.profileDescriptions;
+        return getRandomString(profileDescriptiontList);
+    }
+    public String generateRsf(){
+        String [] rsfList = Rsf.rsfsValues;
+        return getRandomString(rsfList);
+    }
+    public String generateCompanyDescription(){
+        String [] companyDescriptiontList = CompanyDescriptions.companyDescriptions;
+        return getRandomString(companyDescriptiontList);
     }
     public String generatekeywords(){
         String [] keywordstList = Keywords.keywords;

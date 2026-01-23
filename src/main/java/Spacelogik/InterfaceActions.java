@@ -12,6 +12,7 @@ public class InterfaceActions extends InterfaceProperties {
             //HAPPY PATH
             LOGIN_HP,
             CREATERECOMPANIE_HP,
+            CREATEOFFICE_HP,
             CREATENATIONALACCOUNT_HP,
             CREATEGURU_HP,
             CREATECLIENT_HP
@@ -35,8 +36,11 @@ public class InterfaceActions extends InterfaceProperties {
             executeService(new FunctionLoginSpacelogik(), FunctionLoginSpacelogik::serviceLogin);
         }
         public void actionHpCreateReCompanie() {
-        executeService(new FunctionReCompanie(), FunctionReCompanie::serviceCreateReCompanieHappyPath);
+        executeService(new FunctionReCompanie(), FunctionReCompanie::serviceNewReCompanieHappyPath);
         }
+    public void actionHpCreateOffice() {
+        executeService(new FunctionOffice(), FunctionOffice::serviceNewOffice);
+    }
         public void actionHpCreateNationalAccount() {
         executeService(new FunctionNationalAccount(), FunctionNationalAccount::serviceNewNationalAccount);
         }

@@ -2,6 +2,8 @@ package Spacelogik;
 import Docola.BotModalConfigs;
 import InsumosDocola.VariablesDocola;
 import InsumosSpacelogik.MethodsSpacelogik;
+import InsumosSpacelogik.VariablesSpacelogik;
+import com.cedarsoft.unit.si.V;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
@@ -46,6 +48,7 @@ public class BotSpacelogik extends Spacelogik.InterfaceActions {
                 createGuruHapyPath.setOnAction(e -> handleAction(ExecMethod.CREATEGURU_HP,"CREATEGURU_HP"));
                 createClientHapyPath.setOnAction(e -> handleAction(ExecMethod.CREATECLIENT_HP,"CREATECLIENT_HP"));
                 createOfficeHapyPath.setOnAction(e -> handleAction(ExecMethod.CREATEOFFICE_HP,"CREATEOFFICE_HP"));
+                createLocationHapyPath.setOnAction(e -> handleAction(ExecMethod.CREATELOCATION_HP,"CREATELOCATION_HP"));
 
                 //HEADER
                 comboBox.setOnAction(e -> handleComboBoxAction());
@@ -71,10 +74,13 @@ public class BotSpacelogik extends Spacelogik.InterfaceActions {
     private void handleComboBoxAction() {
         seleccion = comboBox.getValue();
         if ("Local".equals(seleccion)) {
-            VariablesDocola.navigationLink = "http://localhost:4200/";
+            VariablesSpacelogik.navigationLink = "http://localhost:4200/";
         }
         if ("DEV".equals(seleccion)) {
-            VariablesDocola.navigationLink = "https://spacelogic-development.web.app/";
+            VariablesSpacelogik.navigationLink = "https://spacelogic-development.web.app/";
+        }
+        if ("PROD".equals(seleccion)) {
+            VariablesSpacelogik.navigationLink = "https://space-logic.web.app/";
         }
     }
         private void stopExecuteThread() {
@@ -139,6 +145,8 @@ public class BotSpacelogik extends Spacelogik.InterfaceActions {
                         break;
                     case CREATEOFFICE_HP:
                         actionHpCreateOffice();
+                    case CREATELOCATION_HP:
+                        actionHpCreateLocation();
                 }
                 if (!isRunning) {
                     cleanWaitingList();

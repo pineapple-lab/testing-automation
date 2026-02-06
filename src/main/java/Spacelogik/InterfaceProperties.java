@@ -66,11 +66,12 @@ public class InterfaceProperties extends InterfaceElements{
             GridPane.setConstraints(createOfficeHapyPath, 2, 6);
             GridPane.setConstraints(createGuruHapyPath, 2, 7);
             GridPane.setConstraints(createClientHapyPath, 2, 8);
+            GridPane.setConstraints(createLocationHapyPath, 2, 9);
 
             //ENVIRONMENTS OPTIONS
-            comboBox.getItems().add("DEV");
-            comboBox.getItems().add("QA");
             comboBox.getItems().add("Local");
+            comboBox.getItems().add("DEV");
+            comboBox.getItems().add("PROD");
             comboBox.setValue("Elegir ambiente");
         }
         private void addElementsGridHeader(){
@@ -88,6 +89,7 @@ public class InterfaceProperties extends InterfaceElements{
             gridHappyPath.getChildren().add(createGuruHapyPath);
             gridHappyPath.getChildren().add(createClientHapyPath);
             gridHappyPath.getChildren().add(createOfficeHapyPath);
+            gridHappyPath.getChildren().add(createLocationHapyPath);
         }
         private void setColors(){
             //HEADER
@@ -103,6 +105,7 @@ public class InterfaceProperties extends InterfaceElements{
             setButtonStyle(createGuruHapyPath);
             setButtonStyle(createClientHapyPath);
             setButtonStyle(createOfficeHapyPath);
+            setButtonStyle(createLocationHapyPath);
         }
         private void setButtonStyle(Button button) {
             button.setStyle("-fx-background-color: #fb9957;");
@@ -121,6 +124,7 @@ public class InterfaceProperties extends InterfaceElements{
             setupHoverEffect(createGuruHapyPath);
             setupHoverEffect(createClientHapyPath);
             setupHoverEffect(createOfficeHapyPath);
+            setupHoverEffect(createLocationHapyPath);
         }
         private void setupHoverEffect(Button button) {
             button.setOnMouseEntered(e -> button.setStyle("-fx-background-color: #d89743; -fx-text-fill: white;"));

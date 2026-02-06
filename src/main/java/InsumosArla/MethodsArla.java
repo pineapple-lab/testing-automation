@@ -58,6 +58,7 @@ public class MethodsArla extends ContextArla{
         page.fill(SelectorsArla.REGISTER_FIRSTNAME_INPUT, emailInfo.getFirstName());
         page.fill(SelectorsArla.REGISTER_LASTNAME_INPUT, emailInfo.getLastName());
         page.fill(SelectorsArla.REGISTER_EMAIL_INPUT, userEmail);
+        System.out.println("Se va a crear el usuario: "+userEmail);
         page.fill(SelectorsArla.REGISTER_PASSWORD_INPUT, password);
         page.fill(SelectorsArla.REGISTER_CONFIRMPASWORD_INPUT, password);
         page.click(SelectorsArla.REGISTER_TERMSANDCONDITION_CHECKBOX);

@@ -48,6 +48,36 @@ public class GeneratorSpaceLogik extends ContextBaseSpacelogik{
         userEmail = firstName+lastName+timeStamp+"@"+ emailDomain +".com";
         return new GeneratorSpaceLogik.EmailInfo(userEmail, firstName, lastName);
     }
+    public int generateSalutation(){
+        page.waitForSelector(".MuiPaper-root > ul > li:nth-of-type(2)");
+        List<ElementHandle> elements = page.querySelectorAll(".MuiPaper-root > ul > li");
+        int n = elements.size();
+        return getRandomIndex(n - 1) + 2;
+    }
+    public int generateIndustry(){
+        page.waitForSelector(".MuiPopover-root > .MuiPaper-root > ul > li:nth-of-type(2)");
+        List<ElementHandle> elements = page.querySelectorAll(".MuiPopover-root > .MuiPaper-root > ul > li");
+        int n = elements.size();
+        return getRandomIndex(n - 1) + 2;
+    }
+    public int generateState(){
+        page.waitForSelector(".MuiPopover-root ul > li:nth-of-type(2)");
+        List<ElementHandle> elements = page.querySelectorAll(".MuiPopover-root ul > li");
+        int n = elements.size();
+        return getRandomIndex(n - 1) + 2;
+    }
+    public int generateCity(){
+        page.waitForSelector(".MuiPopover-root ul > li:nth-of-type(2)");
+        List<ElementHandle> elements = page.querySelectorAll(".MuiPopover-root ul > li");
+        int n = elements.size();
+        return getRandomIndex(n - 1) + 2;
+    }
+    public int generateZipCode(){
+        page.waitForSelector(".MuiPopover-root ul > li:nth-of-type(2)");
+        List<ElementHandle> elements = page.querySelectorAll(".MuiPopover-root ul > li");
+        int n = elements.size();
+        return getRandomIndex(n - 1) + 2;
+    }
     public String generateFirstName(){
         String [] listFirstNames = FirstNames.firstNames;
         return getRandomString(listFirstNames);
@@ -75,6 +105,24 @@ public class GeneratorSpaceLogik extends ContextBaseSpacelogik{
     public String generateCompanyName(){
         String[] companyList = CompanyNames.companyNames;
         return getRandomString(companyList);
+    }
+    public int generateOffice(){
+        page.waitForSelector(".MuiPaper-root > ul > li:nth-of-type(2)");
+        List<ElementHandle> elements = page.querySelectorAll(".MuiPaper-root > ul > li");
+        int n = elements.size();
+        return getRandomIndex(n - 1) + 2;
+    }
+    public int generateDistanceOption(){
+        page.waitForSelector(".MuiPaper-root > ul > li:nth-of-type(2)");
+        List<ElementHandle> elements = page.querySelectorAll(".MuiPaper-root > ul > li");
+        int n = elements.size();
+        return getRandomIndex(n - 1) + 2;
+    }
+    public int generateFromOption(){
+        page.waitForSelector(".MuiPaper-root > ul > li:nth-of-type(2)");
+        List<ElementHandle> elements = page.querySelectorAll(".MuiPaper-root > ul > li");
+        int n = elements.size();
+        return getRandomIndex(n - 1) + 2;
     }
     public String generateContentTitle(){
         String [] nameContentList = ContentTitle.contentTitle;
@@ -111,18 +159,6 @@ public class GeneratorSpaceLogik extends ContextBaseSpacelogik{
     public int generateTag(){
         List<ElementHandle> elements = page.querySelectorAll("app-tags-search-overlay > div > cdk-virtual-scroll-viewport > div > button");
         return getRandomIndex(elements.size()-1)+1;
-    }
-    private List<Integer> availableIndices = new ArrayList<>();
-    public int generateSetContentStep(){
-        page.waitForSelector("app-crud");
-        List<ElementHandle> elements = page.querySelectorAll("app-crud app-cards-container > div > app-card");
-        if (availableIndices.isEmpty()) {
-            for (int i = 0; i < elements.size(); i++) {
-                availableIndices.add(i);
-            }
-            Collections.shuffle(availableIndices);
-        }
-        return availableIndices.remove(0) + 1;
     }
     public String generateQuestion(){
         String [] questionList = ContentQuestions.contentQuestions;

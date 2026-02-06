@@ -50,6 +50,7 @@ public abstract class InterfaceElements extends Application {
     Button createOfficeHapyPath = new Button("Create Office");
     Button createGuruHapyPath = new Button("Create Guru");
     Button createClientHapyPath = new Button("Create Client");
+    Button createLocationHapyPath = new Button("Create Location");
 
 
     public abstract void start(Stage stage);

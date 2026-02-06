@@ -22,6 +22,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
     private static final List<String> errores = new ArrayList<>();
     GeneratorSpaceLogik generate = new GeneratorSpaceLogik();
     GeneratorSpaceLogik.EmailInfo emailInfo;
+    SelectorsSpacelogik selector =new SelectorsSpacelogik();
     ToastMessageSpacelogik toast = new ToastMessageSpacelogik();
     QueriesSpacelogik sql = new QueriesSpacelogik();
     public void startTest(){
@@ -65,7 +66,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
     public void completeReCompanieStep1(){
         page.fill(SelectorsSpacelogik.RECOMPANIE_COMPANYNAME_INPUT, generate.generateCompanyName());
         page.waitForTimeout(1000);
-        page.locator(SelectorsSpacelogik.RECOMPANIE_COMPANYADRESS_INPUT).type("Dallas North Tollway, Dallas, Texas, EE. UU.", new Locator.TypeOptions().setDelay(200));
+        page.locator(SelectorsSpacelogik.RECOMPANIE_COMPANYADRESS_INPUT).type("Dallas North Tollway, Dallas, Texas, EE. UU.", new Locator.TypeOptions().setDelay(10));
         page.click(SelectorsSpacelogik.RECOMPANIE_COMPANYADRESS_OPTIONS);
         page.waitForTimeout(1000);
         page.click(SelectorsSpacelogik.RECOMPANIE_NEXTBUTTON_STEP1);
@@ -81,7 +82,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
     }
     public void completeReCompanieStep3(){
         page.click(SelectorsSpacelogik.RECOMPANIE_CONTACTSALUTATION_SELECTOR);
-        page.click(SelectorsSpacelogik.RECOMPANIE_CONTACTSALUTATION_OPTION);
+        page.click(selector.SalutationOption(generate.generateSalutation()));
         page.fill(SelectorsSpacelogik.RECOMPANIE_CONTACTITLE_INPUT, generate.generateProfesionalTitle());
         page.fill(SelectorsSpacelogik.RECOMPANIE_CONTACTNAME_INPUT, emailInfo.getFirstName());
         page.fill(SelectorsSpacelogik.RECOMPANIE_CONTACTLASTNAME_INPUT, emailInfo.getLastName());
@@ -100,14 +101,14 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
     }
     public void completeFormNewOffice(){
         page.fill(SelectorsSpacelogik.OFFICES_LOCATION_NAME_INPUT, generate.generateLocationName());
-        page.locator(SelectorsSpacelogik.OFFICES_ADRESS_INPUT).type("Dallas North Tollway, Dallas, Texas, EE. UU.", new Locator.TypeOptions().setDelay(28));
+        page.locator(SelectorsSpacelogik.OFFICES_ADRESS_INPUT).type("Dallas North Tollway, Dallas, Texas, EE. UU.", new Locator.TypeOptions().setDelay(10));
         page.click(SelectorsSpacelogik.OFFICES_ADRESS_OPTION);
         page.click(SelectorsSpacelogik.OFFICES_STATE_SELECTOR);
-        page.click(SelectorsSpacelogik.OFFICES_STATE_OPTION);
+        page.click(selector.StateOption(generate.generateState()));
         page.click(SelectorsSpacelogik.OFFICES_CITY_SELECTOR);
-        page.click(SelectorsSpacelogik.OFFICES_CITY_OPTION);
+        page.click(selector.CityOption(generate.generateCity()));
         page.click(SelectorsSpacelogik.OFFICES_ZIPCODE_SELECTOR);
-        page.click(SelectorsSpacelogik.OFFICES_ZIPCODE_OPTION);
+        page.click(selector.ZipcodeOption(generate.generateZipCode()));
     }
     public void createOffice(){
         completeFormNewOffice();
@@ -124,15 +125,15 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         page.waitForTimeout(1000);
         page.fill(SelectorsSpacelogik.NACCOUNT_COMPANY_NAME_INPUT, generate.generateCompanyName());
         page.click(SelectorsSpacelogik.NACCOUNT_COMPANY_INDUSTRY_SELECT);
-        page.click(SelectorsSpacelogik.NACCOUNT_COMPANY_INDUSTRY_OPTION);
-        page.locator(SelectorsSpacelogik.NACCOUNT_COMPANY_ADDRESS_INPUT).type("Dallas North Tollway, Dallas, Texas, EE. UU.", new Locator.TypeOptions().setDelay(200));
+        page.click(selector.IndustryOption(generate.generateIndustry()));
+        page.locator(SelectorsSpacelogik.NACCOUNT_COMPANY_ADDRESS_INPUT).type("Dallas North Tollway, Dallas, Texas, EE. UU.", new Locator.TypeOptions().setDelay(10));
         page.click(SelectorsSpacelogik.NACCOUNT_COMPANY_ADDRESS_OPTION);
         page.click(SelectorsSpacelogik.NACCOUNT_COMPANY_STATE_SELECT);
-        page.click(SelectorsSpacelogik.NACCOUNT_COMPANY_STATE_OPTION);
+        page.click(selector.StateOption(generate.generateState()));
         page.click(SelectorsSpacelogik.NACCOUNT_COMPANY_CITY_SELECT);
-        page.click(SelectorsSpacelogik.NACCOUNT_COMPANY_CITY_OPTION);
+        page.click(selector.CityOption(generate.generateCity()));
         page.click(SelectorsSpacelogik.NACCOUNT_COMPANY_ZIPCODE_SELECT);
-        page.click(SelectorsSpacelogik.NACCOUNT_COMPANY_ZIPCODE_OPTION);
+        page.click(selector.ZipcodeOption(generate.generateZipCode()));
         page.click(SelectorsSpacelogik.NACCOUNT_COMPANY_LOGO_MODAL_OPEN);
         page.locator(SelectorsSpacelogik.NACCOUNT_COMPANY_LOGO_UPLOAD).setInputFiles(Paths.get(generate.generateImage()));
         waitForToast(toast.FILE_UPLOAD_SUCCESS);
@@ -146,11 +147,12 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         page.fill(SelectorsSpacelogik.NACCOUNT_TENANT_FNAME_INPUT, generate.firstName);
         page.fill(SelectorsSpacelogik.NACCOUNT_TENANT_LNAME_INPUT, generate.lastName);
         page.click(SelectorsSpacelogik.NACCOUNT_TENANT_SALUTATION_SELECT);
-        page.click(SelectorsSpacelogik.NACCOUNT_TENANT_SALUTATION_OPTION);
+        page.click(selector.SalutationOption(generate.generateSalutation()));
         page.fill(SelectorsSpacelogik.NACCOUNT_TENANT_TITLE_INPUT, generate.generateProfesionalTitle());
         page.fill(SelectorsSpacelogik.NACCOUNT_TENANT_MOBILE_INPUT, generate.generateMobile());
         page.fill(SelectorsSpacelogik.NACCOUNT_TENANT_PHONE_INPUT, generate.generatePhone());
         page.fill(SelectorsSpacelogik.NACCOUNT_TENANT_EMAIL_INPUT, userEmail);
+        System.out.println("Se va a crear el usuario: "+userEmail);
         page.fill(SelectorsSpacelogik.NACCOUNT_TENANT_PASSWORD_INPUT,"Pickle30");
         page.fill(SelectorsSpacelogik.NACCOUNT_TENANT_CPASSOWRD_INPUT, "Pickle30");
         page.click(SelectorsSpacelogik.NACCOUNT_TENANT_SAVE_BUTTON);
@@ -167,7 +169,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         emailInfo = generate.generateEmail();
         guruEmail = emailInfo.getEmail();
         page.click(SelectorsSpacelogik.PEOPLE_FORM_SALUTATION_SELECT);
-        page.click(SelectorsSpacelogik.PEOPLE_FORM_SALUTATION_OPTION);
+        page.click(selector.SalutationOption(generate.generateSalutation()));
         page.fill(SelectorsSpacelogik.PEOPLE_FORM_TITLE_INPUT, generate.generateProfesionalTitle());
         page.fill(SelectorsSpacelogik.PEOPLE_FORM_NAME_INPUT, generate.firstName);
         page.fill(SelectorsSpacelogik.PEOPLE_FORM_LNAME_INPUT, generate.lastName);
@@ -180,20 +182,16 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
     public void completeNewGuruStep2(){
         Keyboard kb = page.keyboard();
         page.click(SelectorsSpacelogik.PEOPLE_FORM_OFFICE_SELECT);
-        page.click(SelectorsSpacelogik.PEOPLE_FORM_OFFICE_OPTION);
+        page.click(selector.oficeOption(generate.generateOffice()));
         page.click(SelectorsSpacelogik.PEOPLE_FORM_SKILL_SELECT);
         page.click(SelectorsSpacelogik.PEOPLE_FORM_SKILL_OPTION);
         kb.press("Escape");
         page.fill(SelectorsSpacelogik.PEOPLE_FORM_DESCRIPTION_INPUT, generate.generateProfileDescription());
-        page.click(SelectorsSpacelogik.PEOPLE_FORM_CONTINUEANDSAVE_BUTTON);
-    }
-    public void completeNewGuruStep3(){
-        page.click(SelectorsSpacelogik.PEOPLE_FORM_PAYMENT_OPTION);
+
     }
     public void createNewGuru(String reCompanie){
         completeNewGuruStep1();
         completeNewGuruStep2();
-        completeNewGuruStep3();
         page.waitForTimeout(2000);
         page.click(SelectorsSpacelogik.PEOPLE_FORM_CONTINUEANDSAVE_BUTTON);
         sql.saveUser(guruEmail,reCompanie,navigationLink);
@@ -204,7 +202,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
     public void completeNewClientStep1(){
         page.fill(SelectorsSpacelogik.CLIENT_COMPANY_NAME_INPUT, generate.generateCompanyName());
         page.click(SelectorsSpacelogik.CLIENT_INDUSTRY_SELECT);
-        page.click(SelectorsSpacelogik.CLIENT_INDUSTRY_OPTION);
+        page.click(selector.IndustryOption(generate.generateIndustry()));
         page.click(SelectorsSpacelogik.CLIENT_CONTINUESTEP1_BUTTON);
     }
     public void completeNewClientStep2(){
@@ -218,26 +216,32 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         page.fill(SelectorsSpacelogik.CLIENT_TENANT_CPASSWORD_INPUT, "Pickle30");
         page.fill(SelectorsSpacelogik.CLIENT_TENANT_MOBILE_INPUT, generate.generateMobile());
         page.fill(SelectorsSpacelogik.CLIENT_TENANT_PHONE_INPUT, generate.generatePhone());
-        page.fill(SelectorsSpacelogik.CLIENT_TENANT_ADRESS_INPUT, generate.generateAdress());
+        page.locator(SelectorsSpacelogik.CLIENT_TENANT_ADRESS_INPUT).type("Dallas North Tollway, Dallas, Texas, EE. UU.", new Locator.TypeOptions().setDelay(10));
+        page.click(SelectorsSpacelogik.CLIENT_TENANT_ADDRESS_OPTION);
         page.click(SelectorsSpacelogik.CLIENT_TENANT_STATE_SELECT);
-        page.click(SelectorsSpacelogik.CLIENT_TENANT_STATE_OPTION);
+        page.click(selector.StateOption(generate.generateState()));
         page.click(SelectorsSpacelogik.CLIENT_TENANT_CITY_SELECT);
-        page.click(SelectorsSpacelogik.CLIENT_TENANT_CITY_OPTION);
+        page.click(selector.CityOption(generate.generateCity()));
         page.click(SelectorsSpacelogik.CLIENT_TENANT_ZIPCODE_SELECT);
-        page.click(SelectorsSpacelogik.CLIENT_TENANT_ZIPCODE_OPTION);
+        page.click(selector.ZipcodeOption(generate.generateZipCode()));
         page.click(SelectorsSpacelogik.CLIENT_TENANT_CONTINUESTEP2_BUTTON);
     }
     public void goToNewLocationFromNewClientForm(){
         page.click(SelectorsSpacelogik.CLIENT_LOCATION_NEW_BUTTON);
     }
+    public void goToLocationView(){
+        page.click(SelectorsSpacelogik.CLIENT_CARD);
+    }
+    public void goToNewLocationForm(){
+        page.click(SelectorsSpacelogik.LOCATION_NEW_BUTTON);
+    }
     public void completeNewLocationStep1(){
-        long timeStamp = Instant.now().toEpochMilli();
         page.fill(SelectorsSpacelogik.LOCATION_NAME_INPUT,generate.generateLocationName());
         page.click(SelectorsSpacelogik.LOCATION_OFICCE_DISTANCE_SELECT);
-        page.click(SelectorsSpacelogik.LOCATION_OFFICE_DISTANCE_OPTION);
+        page.click(selector.LocationOfficeDistanceOption(generate.generateDistanceOption()));
         page.click(SelectorsSpacelogik.LOCATION_OFFICE_FROM_SELECT);
-        page.click(SelectorsSpacelogik.LOCATION_OFFICE_FROM_OPTION);
-        page.locator(SelectorsSpacelogik.LOCATION_OFFICE_ADRESS_INPUT).type("Dallas North Tollway, Dallas, Texas, EE. UU.", new Locator.TypeOptions().setDelay(200));
+        page.click(selector.LocationOfficeFromOption(generate.generateFromOption()));
+        page.locator(SelectorsSpacelogik.LOCATION_OFFICE_ADRESS_INPUT).type("Dallas North Tollway, Dallas, Texas, EE. UU.", new Locator.TypeOptions().setDelay(10));
         page.click(SelectorsSpacelogik.LOCATION_OFFICE_ADRESS_OPTION);
         page.click(SelectorsSpacelogik.LOCATION_CONTINUESTEP1_BUTTON);
     }
@@ -255,7 +259,13 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         completeNewLocationStep1();
         completeNewLocationStep2();
         page.click(SelectorsSpacelogik.LOCATION_CONTINUESTEP3_BUTTON);
+        page.click(SelectorsSpacelogik.LOCATION_SELECTTRANSACTION_BUTTON);
+        page.click(SelectorsSpacelogik.LOCATION_OPTIONTRANSACTION_BUTTON);
         page.click(SelectorsSpacelogik.LOCATION_SAVE_BUTTON);
+    }
+    public void goToActivateLocationForm(){
+        page.click(SelectorsSpacelogik.CLIENT_CARD);
+        page.click(SelectorsSpacelogik.LOCATION_ACTIVATE_BUTTON);
     }
     public void createDraftClient(){
         completeNewClientStep1();

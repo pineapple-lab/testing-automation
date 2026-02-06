@@ -15,7 +15,8 @@ public class InterfaceActions extends InterfaceProperties {
             CREATEOFFICE_HP,
             CREATENATIONALACCOUNT_HP,
             CREATEGURU_HP,
-            CREATECLIENT_HP
+            CREATECLIENT_HP,
+            CREATELOCATION_HP
         }
         public void actionEliminarDeLaCola() {
             List<CheckBox> checkBoxesSeleccionados = new ArrayList<>();
@@ -38,7 +39,7 @@ public class InterfaceActions extends InterfaceProperties {
         public void actionHpCreateReCompanie() {
         executeService(new FunctionReCompanie(), FunctionReCompanie::serviceNewReCompanieHappyPath);
         }
-    public void actionHpCreateOffice() {
+        public void actionHpCreateOffice() {
         executeService(new FunctionOffice(), FunctionOffice::serviceNewOffice);
     }
         public void actionHpCreateNationalAccount() {
@@ -50,6 +51,7 @@ public class InterfaceActions extends InterfaceProperties {
         public void actionHpCreateGuru() {
         executeService(new FunctionPeople(), FunctionPeople::serviceNewGuru);
         }
+        public void actionHpCreateLocation() { executeService(new FunctionLocations(), FunctionLocations::serviceNewLocation); }
         private <T> void executeService(T serviceInstance, Spacelogik.InterfaceActions.CheckedConsumer<T> action) {
         try {
             action.accept(serviceInstance);

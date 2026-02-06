@@ -14,7 +14,7 @@ public class VariablesSpacelogik extends PathUtilsSpacelogik {
     public static int setSizeWidth = 1820;
     public static int setSizeHeight = 980;
     //Variables navigation
-    public static String navigationLink = "https://spacelogic-development.web.app/";
+    public static String navigationLink;
     //Variables login
     public String userEmail;
     public String userPassword;

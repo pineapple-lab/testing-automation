@@ -12,4 +12,10 @@ public class FunctionReCompanie extends TestCaseSpacelogik {
         happyPathReCompanieCreate();
         teardownPlaywright();
     }
+    @Test
+    public void serviceAssertReCompanieFormMessageEmptyInputs(){
+        methods.startContextAndNavigation();
+        assertReCompanieFormEmptyInputs();
+        teardownPlaywright();
+    }
 }

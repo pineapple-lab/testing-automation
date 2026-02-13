@@ -12,4 +12,10 @@ public class FunctionNationalAccount extends TestCaseSpacelogik {
         happyPathNationalAccountCreate();
         teardownPlaywright();
     }
+    @Test
+    public void serviceAssertNationalAccountFormMessageEmptyInputs(){
+        methods.startContextAndNavigation();
+        assertNationalAccountFormEmptyInputs();
+        teardownPlaywright();
+    }
 }

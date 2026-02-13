@@ -6,6 +6,7 @@ import org.jetbrains.kotlin.backend.common.serialization.signature.PublicIdSigna
 public class SelectorsSpacelogik extends VariablesSpacelogik {
     //WAIT COMPONENT
     public static final String WAIT_RECOMPANIE_TABLE_FIRSTROW = ".MuiDataGrid-virtualScrollerContent > div > div:nth-of-type(1)";
+    public static final String WAIT_LOGIN_PROFILE = ".app-header__content > div > div";
 
     //TOASTER
     public static final String APP_TOASTERS = ".Toastify__toast";
@@ -20,6 +21,7 @@ public class SelectorsSpacelogik extends VariablesSpacelogik {
 
     //GENERAL MENU SELECTORS
     public static final String MENU_ADMIN = ".app-sidebar ul > div:nth-of-type(5) > div:nth-of-type(1)";
+    public static final String MENU_SPACE = ".app-sidebar ul > div:nth-of-type(1) > div:nth-of-type(1)";
 
     public String StateOption(int statePosition){
         return ".MuiPopover-root ul > li:nth-of-type("+statePosition+")";
@@ -37,11 +39,11 @@ public class SelectorsSpacelogik extends VariablesSpacelogik {
     public static final String RECOMPANIE_COMPANYADRESS_INPUT = "body > div:nth-of-type(6) > div > div > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > label:nth-of-type(2) input";
     public static final String RECOMPANIE_COMPANYADRESS_OPTIONS = ".pac-container > .pac-item:nth-of-type(1)";
     public static final String RECOMPANIE_COMPANYPHOTO_UPDATE = "";
-    public static final String RECOMPANIE_NEXTBUTTON_STEP1 = ".justify-content-end button";
+    public static final String RECOMPANIE_CONTINUEBUTTON_STEP1 = ".justify-content-end button";
     public static final String RECOMPANIE_EMAIL_INPUT = "body > div:nth-of-type(6) > div > div > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > label input";
     public static final String RECOMPANIE_PASSWORD_INPUT = "body > div:nth-of-type(6) > div > div > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div > label:nth-of-type(1) input";
     public static final String RECOMPANIE_PASSWORDCONFIRM_INPUT = "body > div:nth-of-type(6) > div > div > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div > label:nth-of-type(2) input";
-    public static final String RECOMPANIE_NEXTBUTTON_STEP2 = ".content-between > button:nth-of-type(2)";
+    public static final String RECOMPANIE_CONTINUEBUTTON_STEP2 = ".content-between > button:nth-of-type(2)";
     public static final String RECOMPANIE_CONTACTSALUTATION_SELECTOR = ".MuiInputBase-root";
     public String SalutationOption(int salutationPosition){
         return ".MuiPaper-root > ul > li:nth-of-type("+salutationPosition+")";
@@ -52,6 +54,7 @@ public class SelectorsSpacelogik extends VariablesSpacelogik {
     public static final String RECOMPANIE_CONTACTMOBILE_INPUT = "body .ReactModal__Content > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(3) > label:nth-of-type(1) input";
     public static final String RECOMPANIE_CONTACTPHONE_INPUT = "body .ReactModal__Content > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(3) > label:nth-of-type(2) input";
     public static final String RECOMPANIE_SAVE_BUTTON = "body .ReactModal__Content > div:nth-of-type(3) > button:nth-of-type(2)";
+    public static final String RECOMPANIE_ERRORMESSAGE_EMPTYINPUTS = ".create-real-estate-company-modal-error > p";
 
     //NATIONAL ACCOUNT
     public static final String NACCOUNT_MENU_BUTTON = ".MuiCollapse-wrapperInner > .MuiList-root > a:nth-of-type(7)";
@@ -69,7 +72,7 @@ public class SelectorsSpacelogik extends VariablesSpacelogik {
     public static final String NACCOUNT_COMPANY_LOGO_MODAL_OPEN = ".image-holder > button";
     public static final String NACCOUNT_COMPANY_LOGO_UPLOAD = ".filepond--browser";
     public static final String NACCOUNT_COMPANY_LOGO_SAVE = ".modal-buttons > button:nth-of-type(2)";
-    public static final String NACCOUNT_COMPANY_CONTINUE_BUTTON = ".national-account-modal-container > .display-flex-column-space-between > .justify-content-end button";
+    public static final String NACCOUNT_CONTINUE_BUTTON = ".national-account-modal-container > .display-flex-column-space-between > .justify-content-end button";
     public static final String NACCOUNT_TENANT_FNAME_INPUT = ".national-account-modal-container > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > .d-flex-column > div > .d-flex:nth-of-type(2) > .d-flex-column:nth-of-type(1) input";
     public static final String NACCOUNT_TENANT_LNAME_INPUT = ".national-account-modal-container > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > .d-flex-column > div > .d-flex:nth-of-type(2) > .d-flex-column:nth-of-type(2) input";
     public static final String NACCOUNT_TENANT_SALUTATION_SELECT = ".national-account-modal-container > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > .d-flex-column > div > .d-flex:nth-of-type(3) > .generic-select-container";
@@ -79,8 +82,8 @@ public class SelectorsSpacelogik extends VariablesSpacelogik {
     public static final String NACCOUNT_TENANT_EMAIL_INPUT = ".national-account-modal-container > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > .d-flex-column > div > label input";
     public static final String NACCOUNT_TENANT_PASSWORD_INPUT = ".national-account-modal-container > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > .d-flex-column > div > .d-flex:nth-of-type(5) > label:nth-of-type(1) input";
     public static final String NACCOUNT_TENANT_CPASSOWRD_INPUT = ".national-account-modal-container > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > .d-flex-column > div > .d-flex:nth-of-type(5) > label:nth-of-type(2) input";
-    public static final String NACCOUNT_TENANT_SAVE_BUTTON = ".national-account-modal-container > .display-flex-column-space-between > .content-between > button:nth-of-type(2)";
-
+    public static final String NACCOUNT_TENANT_CONTINUE_BUTTON = ".national-account-modal-container > .display-flex-column-space-between > .content-between > button:nth-of-type(2)";
+    public static final String NACCOUNT_ERRORMESSAGE_EMPTYINPUTS = ".ReactModal__Content > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) p";
     //PEOPLE
     public static final String PEOPLE_FORM_NEWGURU_BUTTON = ".represented-tenants-header-container button";
     public static final String PEOPLE_FORM_SALUTATION_SELECT = ".guru-modal-main-container > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > div > div";
@@ -157,7 +160,7 @@ public class SelectorsSpacelogik extends VariablesSpacelogik {
     public static final String CLIENT_CREATE_BUTTON = ".tenant-registration-buttons > div > button";
     public static final String CLIENT_RETURNTOMYCLIENT_BUTTON = ".ReactModal__Content .action-buttons > button:nth-of-type(1)";
     public static final String CLIENT_POPUP_SUCCESS = ".ReactModal__Content";
-    public static final String CLIENT_CARD = ".represented-tenants-children-container > span  .represented-tenants-cards-grid-container > .represented-tenants-card-main-container:last-of-type";
+    public static final String CLIENT_CARD = ".represented-tenants-children-container > span  .represented-tenants-cards-grid-container > .represented-tenants-card-main-container:nth-of-type(1)";
 
     //OFFICES
     public static final String OFFICES_HEADERMENU_BUTTON = ".app-header > div:nth-of-type(4) > button:nth-of-type(2)";
@@ -171,6 +174,7 @@ public class SelectorsSpacelogik extends VariablesSpacelogik {
     public static final String OFFICES_SAVE_BUTTON = ".ReactModal__Content > div:nth-of-type(3) > button:nth-of-type(2)";
 
     //ACTIVATE LOCATION
+    public static final String LOCATION_CARD = ".locations-grid-container > div:nth-of-type(1)";
     public static final String LOCATION_ACTIVATE_BUTTON = ".locations-grid-container > .location-item:last-of-type button:nth-of-type(1)";
     public static final String LOCATION_ACTIVATE_BUY_CREDITS_BUTTON = ".main-shared-container-body > div:nth-of-type(2) > div:nth-of-type(2) > button:nth-of-type(1)";
     public static final String LOCATION_ACTIVATE_PACKAGE_BRONZE_BUTTON = ".credit-packages-body > div:nth-of-type(2) > div:nth-of-type(1) button";
@@ -183,4 +187,20 @@ public class SelectorsSpacelogik extends VariablesSpacelogik {
     public static final String LOCATION_ACTIVATE_PACKAGE_GOTOHOME_BUTTON = ".main-shared-container-body > div > div:nth-of-type(3) > button:nth-of-type(1)";
     public static final String LOCATION_ACTIVATE_PACKAGE_PAYMENT_COMPLETED_MESSAGE = ".main-shared-container-body > div:nth-of-type(1) h1";
 
+    //PROGRAMS
+    public static final String PROGRAM_MENU_BUTTON = ".app-sidebar ul > div:nth-of-type(1) > div:nth-of-type(2) > div .MuiCollapse-vertical a:nth-of-type(1)";
+    public static final String PROGRAM_NEW_BUTTON = ".generic-header-title-container > div:nth-of-type(2) button";
+    public static final String PROGRAM_AUTOOFFICE_OPTION = ".program-list-select-program-main-container > div:nth-of-type(2)";
+    public static final String PROGRAM_MANUAL_OPTION = ".program-list-select-program-main-container > div:nth-of-type(1)";
+    public static final String PROGRAM_MODALTYPE_CONTINUE_BUTTON = ".modal-buttons > button:nth-of-type(2)";
+    public static final String PROGRAM_AUTO_NAME_INPUT = ".auto-office-setup-main-container-body > div:nth-of-type(1) input";
+    public static final String PROGRAM_AUTO_INDUSTRY_SELECT = ".auto-office-setup-main-container-body > div:nth-of-type(2) > .generic-select-container > div";
+    public static final String PROGRAM_AUTO_INDUSTRY_OPTION = ".MuiPaper-root > ul > li:nth-of-type(2)";
+    public static final String PROGRAM_AUTO_ROOM_ADD_BUTTON = ".create-plan-information-main-container-body > div:nth-of-type(2) > button";
+    public static final String PROGRAM_AUTO_ROOM_NAME_INPUT = ".create-plan-information-add-room-main-container > div:nth-of-type(2) input";
+    public static final String PROGRAM_AUTO_ROOM_SIZE_SELECT = ".create-plan-information-add-room-main-container > div:nth-of-type(4) .MuiInputBase-root";
+    public static final String PROGRAM_AUTO_ROOM_SIZE_OPTION = ".MuiPaper-root > ul > li:nth-of-type(2)";
+    public static final String PROGRAM_AUTO_ROOM_QUANTITY_INPUT = ".create-plan-information-add-room-main-container > div:nth-of-type(6) .number-input-container > input:nth-of-type(2)";
+    public static final String PROGRAM_AUTO_ROOM_SAVE_BUTTON = ".create-plan-information-add-room-main-container > div:nth-of-type(7) > button:nth-of-type(2)";
+    public static final String PROGRAM_AUTO_CREATE_BUTTON = ".generic-header-container > div > div:nth-of-type(2) button";
 }

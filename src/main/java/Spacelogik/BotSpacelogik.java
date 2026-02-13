@@ -49,7 +49,11 @@ public class BotSpacelogik extends Spacelogik.InterfaceActions {
                 createClientHapyPath.setOnAction(e -> handleAction(ExecMethod.CREATECLIENT_HP,"CREATECLIENT_HP"));
                 createOfficeHapyPath.setOnAction(e -> handleAction(ExecMethod.CREATEOFFICE_HP,"CREATEOFFICE_HP"));
                 createLocationHapyPath.setOnAction(e -> handleAction(ExecMethod.CREATELOCATION_HP,"CREATELOCATION_HP"));
+                createProgramHapyPath.setOnAction(e -> handleAction(ExecMethod.CREATEPROGRAM_HP,"CREATEPROGRAM_HP"));
 
+                //ASSERTS BUTTONS
+                reCompanieAssertFormMessageEmptyInputs.setOnAction(e -> handleAction(ExecMethod.RECOMPANIE_VALIDATION_EMPTYMESSAGE,"RECOMPANIE_VALIDATION_EMPTYMESSAGE"));
+                nationalAccountAssertFormMessageEmptyInputs.setOnAction(e -> handleAction(ExecMethod.NATIONALACCOUNT_VALIDATION_EMPTYMESSAGE,"NATIONALACCOUNT_VALIDATION_EMPTYMESSAGE"));
                 //HEADER
                 comboBox.setOnAction(e -> handleComboBoxAction());
                 stopTestCase.setOnAction(event -> handleStopTestCase());
@@ -145,8 +149,20 @@ public class BotSpacelogik extends Spacelogik.InterfaceActions {
                         break;
                     case CREATEOFFICE_HP:
                         actionHpCreateOffice();
+                        break;
                     case CREATELOCATION_HP:
                         actionHpCreateLocation();
+                        break;
+                    case CREATEPROGRAM_HP:
+                        actionHpCreateProgram();
+                        break;
+                        //ASSERT CASE
+                    case RECOMPANIE_VALIDATION_EMPTYMESSAGE:
+                        actionAssertReCompanieFormEmptyInputs();
+                        break;
+                    case NATIONALACCOUNT_VALIDATION_EMPTYMESSAGE:
+                        actionAssertNationalAccountFormEmptyInputs();
+                        break;
                 }
                 if (!isRunning) {
                     cleanWaitingList();

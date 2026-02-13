@@ -11,7 +11,7 @@ public class InterfaceProperties extends InterfaceElements{
         @Override
         public void start(Stage stage){
             setupUIElements();
-            tabPane.getTabs().addAll(tbHappyPath);
+            tabPane.getTabs().addAll(tbHappyPath, tbRecompanie, tbNationalAccount);
             splitPane.getItems().addAll(gridHeader, tabPane, scrollPane);
             splitMain.getItems().addAll(gridCola, splitPane);
             Scene scene = new Scene (splitMain,550, 670);
@@ -22,12 +22,14 @@ public class InterfaceProperties extends InterfaceElements{
             consoleTextArea.setEditable(false);
             scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
             scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
-            gridCreator.setHgap(3);
-            gridCreator.setVgap(10);
             gridHappyPath.setHgap(3);
             gridHappyPath.setVgap(10);
             gridHeader.setHgap(3);
             gridHeader.setVgap(10);
+            gridValidationsReCompanie.setHgap(3);
+            gridValidationsReCompanie.setVgap(10);
+            gridValidationsNationalAccount.setHgap(3);
+            gridValidationsNationalAccount.setVgap(10);
             splitPane.setOrientation(Orientation.VERTICAL);
             gridHeader.setPrefHeight(300);
             tabPane.setPrefHeight(200);
@@ -39,6 +41,8 @@ public class InterfaceProperties extends InterfaceElements{
             addElementsGridHeader();
             setupGridConstraints();
             addElementsGridHappyPath();
+            addElementsGridReCompanieValidations();
+            addElementsGridNationalAccountValidations();
             addGridToTabs();
             setColors();
             setHover();
@@ -46,11 +50,11 @@ public class InterfaceProperties extends InterfaceElements{
             setupScrollAndConsole();
         }
         public void addGridToTabs(){
-            tbcreator.setContent(gridCreator);
             tbHappyPath.setContent(gridHappyPath);
+            tbRecompanie.setContent(gridValidationsReCompanie);
+            tbNationalAccount.setContent(gridValidationsNationalAccount);
         }
         private void setupGridConstraints(){
-
             //HEADER BUTTONS
             GridPane.setConstraints(execute, 3, 1);
             GridPane.setConstraints(tfExecute,2,2);
@@ -67,6 +71,11 @@ public class InterfaceProperties extends InterfaceElements{
             GridPane.setConstraints(createGuruHapyPath, 2, 7);
             GridPane.setConstraints(createClientHapyPath, 2, 8);
             GridPane.setConstraints(createLocationHapyPath, 2, 9);
+            GridPane.setConstraints(createProgramHapyPath, 3, 3);
+
+            //TEST CASE RECOMPANIE VALIDATION ERRORS
+            GridPane.setConstraints(reCompanieAssertFormMessageEmptyInputs,2,3);
+            GridPane.setConstraints(nationalAccountAssertFormMessageEmptyInputs,2,3);
 
             //ENVIRONMENTS OPTIONS
             comboBox.getItems().add("Local");
@@ -90,6 +99,13 @@ public class InterfaceProperties extends InterfaceElements{
             gridHappyPath.getChildren().add(createClientHapyPath);
             gridHappyPath.getChildren().add(createOfficeHapyPath);
             gridHappyPath.getChildren().add(createLocationHapyPath);
+            gridHappyPath.getChildren().add(createProgramHapyPath);
+        }
+        private void addElementsGridReCompanieValidations() {
+            gridValidationsReCompanie.getChildren().add(reCompanieAssertFormMessageEmptyInputs);
+        }
+        private void addElementsGridNationalAccountValidations() {
+            gridValidationsNationalAccount.getChildren().add(nationalAccountAssertFormMessageEmptyInputs);
         }
         private void setColors(){
             //HEADER
@@ -106,6 +122,11 @@ public class InterfaceProperties extends InterfaceElements{
             setButtonStyle(createClientHapyPath);
             setButtonStyle(createOfficeHapyPath);
             setButtonStyle(createLocationHapyPath);
+            setButtonStyle(createProgramHapyPath);
+
+            //RECOMPANIE TEST CASE VALIDATION MESSAGE ERROR
+            setButtonStyle(reCompanieAssertFormMessageEmptyInputs);
+            setButtonStyle(nationalAccountAssertFormMessageEmptyInputs);
         }
         private void setButtonStyle(Button button) {
             button.setStyle("-fx-background-color: #fb9957;");
@@ -125,6 +146,11 @@ public class InterfaceProperties extends InterfaceElements{
             setupHoverEffect(createClientHapyPath);
             setupHoverEffect(createOfficeHapyPath);
             setupHoverEffect(createLocationHapyPath);
+            setupHoverEffect(createProgramHapyPath);
+
+            //RECOMPANIE TEST CASE VALIDATION MESSAGE ERROR
+            setupHoverEffect(reCompanieAssertFormMessageEmptyInputs);
+            setupHoverEffect(nationalAccountAssertFormMessageEmptyInputs);
         }
         private void setupHoverEffect(Button button) {
             button.setOnMouseEntered(e -> button.setStyle("-fx-background-color: #d89743; -fx-text-fill: white;"));

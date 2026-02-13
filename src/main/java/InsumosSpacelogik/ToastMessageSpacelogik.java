@@ -6,4 +6,5 @@ public class ToastMessageSpacelogik {
     public static final String FILE_UPLOAD_SUCCESS = "File uploaded successfully";
     public static final String GURU_SUCCESS = "User created successfully.";
     public static final String OFFICES_SUCESS = "Offices saved successfully";
+    public static final String PROGRAM_SUCESS = "Changes saved successfully";
 }

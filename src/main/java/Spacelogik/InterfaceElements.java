@@ -14,10 +14,9 @@ public abstract class InterfaceElements extends Application {
     ArrayList<BotSpacelogik.ExecMethod> waitingList = new ArrayList<>();
 
     //GRIDS
-    GridPane gridCreator = new GridPane();
-    GridPane gridValidationsRegister = new GridPane();
     GridPane gridHappyPath = new GridPane();
-    GridPane gridValidationsResources = new GridPane();
+    GridPane gridValidationsReCompanie = new GridPane();
+    GridPane gridValidationsNationalAccount = new GridPane();
     GridPane gridHeader = new GridPane();
     GridPane gridCola = new GridPane();
 
@@ -29,8 +28,9 @@ public abstract class InterfaceElements extends Application {
     //TABS
     TabPane tabPane = new TabPane();
     Tab tbHappyPath = new Tab ("Happy path");
+    Tab tbRecompanie = new Tab ("Re companie");
+    Tab tbNationalAccount = new Tab ("National account");
     SplitPane splitPane = new SplitPane();
-    Tab tbcreator = new Tab("Creador");
 
     //HEADER
     Button botConfigurations = new Button("⚙");
@@ -51,7 +51,11 @@ public abstract class InterfaceElements extends Application {
     Button createGuruHapyPath = new Button("Create Guru");
     Button createClientHapyPath = new Button("Create Client");
     Button createLocationHapyPath = new Button("Create Location");
+    Button createProgramHapyPath = new Button("Create Program");
 
+    //ASSERTION BUTTONS
+    Button reCompanieAssertFormMessageEmptyInputs = new Button("Test form empty inputs");
+    Button nationalAccountAssertFormMessageEmptyInputs = new Button("Test form empty inputs");
 
     public abstract void start(Stage stage);
 }

@@ -6,6 +6,8 @@ public class VariablesSpacelogik extends PathUtilsSpacelogik {
     public static volatile PrintStream outputStream;
     public static volatile boolean stopTest;
     public static String executionDetails;
+    public boolean allStepsPassed = true;
+    boolean allPassed = true;
     public int executeCounter;
     //Variables de configuracion del bot
     public static double setSlowMotion= 0.1;
@@ -16,8 +18,8 @@ public class VariablesSpacelogik extends PathUtilsSpacelogik {
     //Variables navigation
     public static String navigationLink;
     //Variables login
-    public String userEmail;
-    public String userPassword;
+    public static String userEmail;
+    public static String userPassword;
     public String guruEmail;
     public String reCompanieEmail;
     public String emailDomain = "pineapple-lab";

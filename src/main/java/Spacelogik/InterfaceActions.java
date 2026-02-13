@@ -1,4 +1,5 @@
 package Spacelogik;
+import Arla.TestErrorMessageValidations;
 import InsumosSpacelogik.MethodsSpacelogik;
 import InsumosSpacelogik.VariablesSpacelogik;
 import Spacelogik.InterfaceProperties;
@@ -16,7 +17,12 @@ public class InterfaceActions extends InterfaceProperties {
             CREATENATIONALACCOUNT_HP,
             CREATEGURU_HP,
             CREATECLIENT_HP,
-            CREATELOCATION_HP
+            CREATELOCATION_HP,
+            CREATEPROGRAM_HP,
+
+            //TEST CASE ERROR MESSAGE VALIDATION
+            RECOMPANIE_VALIDATION_EMPTYMESSAGE,
+            NATIONALACCOUNT_VALIDATION_EMPTYMESSAGE
         }
         public void actionEliminarDeLaCola() {
             List<CheckBox> checkBoxesSeleccionados = new ArrayList<>();
@@ -48,10 +54,12 @@ public class InterfaceActions extends InterfaceProperties {
         public void actionHpCreateClient() {
         executeService(new FunctionClient(), FunctionClient::serviceNewClient);
         }
-        public void actionHpCreateGuru() {
-        executeService(new FunctionPeople(), FunctionPeople::serviceNewGuru);
-        }
-        public void actionHpCreateLocation() { executeService(new FunctionLocations(), FunctionLocations::serviceNewLocation); }
+        public void actionHpCreateGuru() {executeService(new FunctionPeople(), FunctionPeople::serviceNewGuru);}
+        public void actionHpCreateLocation(){executeService(new FunctionLocations(), FunctionLocations::serviceNewLocation);}
+        public void actionHpCreateProgram() { executeService(new FunctionPrograms(), FunctionPrograms::serviceNewProgram); }
+        //RECOMPANIE TEST CASE VALIDATION ERROR MESSAGE
+        public void actionAssertReCompanieFormEmptyInputs() {executeService(new FunctionReCompanie(), FunctionReCompanie::serviceAssertReCompanieFormMessageEmptyInputs);}
+        public void actionAssertNationalAccountFormEmptyInputs() {executeService(new FunctionNationalAccount(), FunctionNationalAccount::serviceAssertNationalAccountFormMessageEmptyInputs);}
         private <T> void executeService(T serviceInstance, Spacelogik.InterfaceActions.CheckedConsumer<T> action) {
         try {
             action.accept(serviceInstance);

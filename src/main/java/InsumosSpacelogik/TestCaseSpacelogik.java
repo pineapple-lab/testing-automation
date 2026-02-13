@@ -1,33 +1,40 @@
 package InsumosSpacelogik;
 
+import InsumosArla.SelectorsArla;
+import clojure.lang.Var;
+import com.microsoft.playwright.Locator;
+
 public class TestCaseSpacelogik extends ContextBaseSpacelogik{
     private final GeneratorSpaceLogik generate = new GeneratorSpaceLogik();
     MethodsSpacelogik methods = new MethodsSpacelogik();
     ToastMessageSpacelogik toast = new ToastMessageSpacelogik();
     ModalMessageSpaceLogik modal = new ModalMessageSpaceLogik();
 
+    ErrorPathSpaceLogik errorPath = new ErrorPathSpaceLogik();
+    VariablesSpacelogik variables = new VariablesSpacelogik();
     public void happyPathLogin(){
         userEmail="admin";
+        methods.startBackendMOnitoring(page);
         System.out.println("El usuario se logeara "+generate.generateExecutions()+" veces\n");
         for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
-            methods.login(userEmail, userPassword);
+            methods.login(VariablesSpacelogik.userEmail, VariablesSpacelogik.userPassword);
             System.out.println("\nse compeletaron "+executeCounter+" ejecuciones");
             System.out.println("----------------------------------------------------\n");
         }
         cleanupContext();
     }
-
+//TEST CASE RECOMPANIE
     public void happyPathReCompanieCreate(){
-        userEmail="admin";
-        userPassword = "Pickle30";
+        methods.setAdminUser();
+        methods.startBackendMOnitoring(page);
         System.out.println("Se van a crear "+generate.generateExecutions()+" ReCompanie\n");
-        methods.login(userEmail, userPassword);
+        methods.login(VariablesSpacelogik.userEmail, VariablesSpacelogik.userPassword);
         methods.goToReCompaniePage();
         methods.goToRecompanieForm();
         try{
         for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
-           methods.createRecCompanie();
-            methods.waitForToast(toast.RECOMPANIE_SUCCESS);
+            methods.createRecCompanie();
+            methods.verifyToast(toast.RECOMPANIE_SUCCESS);
             System.out.println("\nse compeletaron "+executeCounter+" ejecuciones");
             System.out.println("----------------------------------------------------\n");
         }
@@ -37,17 +44,38 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
             cleanupContext();
         }
     }
+    public void assertReCompanieFormEmptyInputs() {
+        System.out.println("Testeando mensajes de error al dejar campos vacios en el paso 1 del formulario de creacion de re companies\n");
+        methods.setAdminUser();
+        methods.startBackendMOnitoring(page);
+        methods.login(VariablesSpacelogik.userEmail, VariablesSpacelogik.userPassword);
+        methods.goToReCompaniePage();
+        methods.goToRecompanieForm();
+        try{
+            for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
+               boolean verify1 = errorPath.verifyReCompanieFormStep1EmptyInputs();
+               boolean verify2 = errorPath.verifyReCompanieFormStep2EmptyInputs();
+               boolean verify3 = errorPath.verifyReCompanieFormStep3EmptyInputs();
+                variables.allStepsPassed &= (verify1 && verify2 && verify3);
+            }
+            methods.printFinalTestResult(variables.allStepsPassed);
+            methods.printErrores();
+            methods.reset();
+        }finally{
+            cleanupContext();
+        }
+    }
     public void happyPathNationalAccountCreate(){
-        userEmail="admin";
-        userPassword="Pickle30";
+        methods.setAdminUser();
+        methods.startBackendMOnitoring(page);
         System.out.println("Se van a crear "+generate.generateExecutions()+" National Account\n");
-        methods.login(userEmail, userPassword);
+        methods.login(VariablesSpacelogik.userEmail, VariablesSpacelogik.userPassword);
         methods.goToNationalAccountPage();
         try{
             for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
                 methods.goToNationalAccountForm();
                 methods.createNationalAccount();
-                methods.waitForToast(toast.NATIONALACCOUNT_SUCCESS);
+                methods.verifyToast(toast.NATIONALACCOUNT_SUCCESS);
                 System.out.println("\nse compeletaron "+executeCounter+" ejecuciones");
                 System.out.println("----------------------------------------------------\n");
             }
@@ -57,15 +85,39 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
             cleanupContext();
         }
     }
+    public void assertNationalAccountFormEmptyInputs(){
+        methods.setAdminUser();
+        methods.startBackendMOnitoring(page);
+        System.out.println("Se van a crear "+generate.generateExecutions()+" National Account\n");
+        methods.login(VariablesSpacelogik.userEmail, VariablesSpacelogik.userPassword);
+        methods.goToNationalAccountPage();
+        try{
+            for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
+                methods.goToNationalAccountForm();
+                boolean verify1 = errorPath.verifyNationalAccountFormStep1EmptyInputs();
+                boolean verify2 = errorPath.verifyNationalAccountFormStep2EmptyInputs();
+                variables.allStepsPassed &= (verify1 && verify2);
+            }
+            methods.printFinalTestResult(variables.allStepsPassed);
+            System.out.println("\nse compeletaron "+executeCounter+" ejecuciones");
+            System.out.println("----------------------------------------------------\n");
+            methods.printErrores();
+            methods.reset();
+        }finally{
+            cleanupContext();
+        }
+    }
     public void happyPathOfficeCreate(){
+
         switch (navigationLink){
             case "https://spacelogic-development.web.app/":
-                reCompanieEmail = "valentingarrido1769193783329@pineapple-lab.com";
+                reCompanieEmail = "MarinaViana1770640127541@pineapple-lab.com";
                 break;
             case "https://space-logic.web.app/":
                 reCompanieEmail = "ZulemaHernandez1769798909068@pineapple-lab.com";
                 break;
         }
+        methods.startBackendMOnitoring(page);
         userPassword = "Pickle30";
         System.out.println("Se van a crear "+generate.generateExecutions()+" offices\n");
         methods.login(reCompanieEmail, userPassword);
@@ -73,7 +125,7 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
             for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
                 methods.goToNewOfficesForm();
                 methods.createOffice();
-                methods.waitForToast(toast.OFFICES_SUCESS);
+                methods.verifyToast(toast.OFFICES_SUCESS);
                 System.out.println("\nse compeletaron "+executeCounter+" ejecuciones");
                 System.out.println("----------------------------------------------------\n");
             }
@@ -86,12 +138,13 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
     public void happyPathGuruCreate(){
         switch (navigationLink){
             case "https://spacelogic-development.web.app/":
-                reCompanieEmail = "valentingarrido1769193783329@pineapple-lab.com";
+                reCompanieEmail = "MarinaViana1770640127541@pineapple-lab.com";
                 break;
             case "https://space-logic.web.app/":
                 reCompanieEmail = "ZulemaHernandez1769798909068@pineapple-lab.com";
                 break;
         }
+        methods.startBackendMOnitoring(page);
         userPassword = "Pickle30";
         System.out.println("Se van a crear "+generate.generateExecutions()+" Guru\n");
         methods.login(reCompanieEmail, userPassword);
@@ -99,10 +152,10 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
             for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
                 methods.goToNewGuruForm();
                 methods.createNewGuru(reCompanieEmail);
-                methods.waitForComponent(SelectorsSpacelogik.PEOPLE_FORM_POPUP_SUCCESSFULLY);
-                methods.waitForToast(toast.GURU_SUCCESS);
+                methods.verifyComponent(SelectorsSpacelogik.PEOPLE_FORM_POPUP_SUCCESSFULLY);
+                methods.verifyToast(toast.GURU_SUCCESS);
                 page.click(SelectorsSpacelogik.PEOPLE_FORM_POPUP_OK_BUTTON);
-                methods.waitForComponent(SelectorsSpacelogik.WAIT_RECOMPANIE_TABLE_FIRSTROW);
+                methods.verifyComponent(SelectorsSpacelogik.WAIT_RECOMPANIE_TABLE_FIRSTROW);
                 System.out.println("\nse compeleto "+executeCounter+" ejecuciones");
                 System.out.println("----------------------------------------------------\n");
             }
@@ -115,12 +168,13 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
     public void happyPathClientCreate(){
         switch (navigationLink){
             case "https://spacelogic-development.web.app/":
-                userEmail = "deliarico1769455006783@pineapple-lab.com";
+                userEmail = "FelipeMontoya1770640706141@pineapple-lab.com";
                 break;
             case "https://space-logic.web.app/":
                 userEmail= "ninfajimenez1769799535493@pineapple-lab.com";
                 break;
         }
+        methods.startBackendMOnitoring(page);
         userPassword = "Pickle30";
         System.out.println("Se van a crear "+generate.generateExecutions()+" Clients\n");
         methods.login(userEmail, userPassword);
@@ -128,10 +182,10 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
             for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
                 methods.goToNewClientForm();
                 methods.createFullClient();
-                methods.waitForComponent(SelectorsSpacelogik.CLIENT_POPUP_SUCCESS);
-                methods.waitForModalMessage(modal.CLIENT_HEADER_SUCCESSFULLY);
-                methods.waitForModalMessage(modal.CLIENT_BODY1_SUCCESSFULLY);
-                methods.waitForModalMessage(modal.CLIENT_BODY2_SUCCESSFULLY);
+                methods.verifyComponent(SelectorsSpacelogik.CLIENT_POPUP_SUCCESS);
+                methods.verifyModalMessage(modal.CLIENT_HEADER_SUCCESSFULLY);
+                methods.verifyModalMessage(modal.CLIENT_BODY1_SUCCESSFULLY);
+                methods.verifyModalMessage(modal.CLIENT_BODY2_SUCCESSFULLY);
                 page.click(SelectorsSpacelogik.CLIENT_RETURNTOMYCLIENT_BUTTON);
                 System.out.println("\nse compeletaron "+executeCounter+" ejecuciones");
                 System.out.println("----------------------------------------------------\n");
@@ -145,17 +199,18 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
     public void happyPathLocationCreate(){
         switch (navigationLink){
             case "https://spacelogic-development.web.app/":
-                userEmail = "deliarico1769455006783@pineapple-lab.com";
+                userEmail = "FelipeMontoya1770640706141@pineapple-lab.com";
                 break;
             case "https://space-logic.web.app/":
                 userEmail= "ninfajimenez1769799535493@pineapple-lab.com";
                 break;
         }
+        methods.startBackendMOnitoring(page);
         userPassword = "Pickle30";
         System.out.println("Se van a crear "+generate.generateExecutions()+" locations\n");
         methods.login(userEmail, userPassword);
         page.waitForTimeout(3000);
-        methods.waitForComponent(SelectorsSpacelogik.CLIENT_CARD);
+        methods.verifyComponent(SelectorsSpacelogik.CLIENT_CARD);
         methods.goToLocationView();
         try{
             for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
@@ -171,4 +226,35 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
             cleanupContext();
         }
     }
+    public void happyPathAutoofficeProgramCreate(){
+        switch (navigationLink){
+            case "https://spacelogic-development.web.app/":
+                userEmail = "FelipeMontoya1770640706141@pineapple-lab.com";
+                break;
+            case "https://space-logic.web.app/":
+                userEmail= "ninfajimenez1769799535493@pineapple-lab.com";
+                break;
+        }
+        methods.startBackendMOnitoring(page);
+        userPassword = "Pickle30";
+        System.out.println("Se van a crear "+generate.generateExecutions()+" programs\n");
+        methods.login(userEmail, userPassword);
+        page.waitForSelector(SelectorsSpacelogik.CLIENT_CARD);
+        page.waitForTimeout(3000);
+        methods.goToProgramView();
+        try{
+            for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
+                methods.goToNewProgramForm();
+                methods.createAutoOfficeProgram();
+                methods.verifyToast(toast.PROGRAM_SUCESS);
+                System.out.println("\nse compeletaron "+executeCounter+" ejecuciones");
+                System.out.println("----------------------------------------------------\n");
+            }
+            methods.printErrores();
+            methods.reset();
+        }finally{
+            cleanupContext();
+        }
+    }
+
 }

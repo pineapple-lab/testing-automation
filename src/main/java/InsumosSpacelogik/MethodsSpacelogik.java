@@ -1,10 +1,7 @@
 package InsumosSpacelogik;
 
 import InsumosArla.SelectorsArla;
-import com.microsoft.playwright.Keyboard;
-import com.microsoft.playwright.Locator;
-import com.microsoft.playwright.PlaywrightException;
-import com.microsoft.playwright.TimeoutError;
+import com.microsoft.playwright.*;
 import com.microsoft.playwright.assertions.LocatorAssertions;
 import com.microsoft.playwright.assertions.PlaywrightAssertions;
 import org.junit.jupiter.api.Assertions;
@@ -33,6 +30,10 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
 
         stopTest = true;
     }
+    public void setAdminUser(){
+        userEmail="admin";
+        userPassword = "Pickle30";
+    }
     public void startNavigation(){
         page.navigate(navigationLink);
     }
@@ -55,6 +56,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         page.fill(SelectorsSpacelogik.LOGIN_EMAIL,email);
         page.fill(SelectorsSpacelogik.LOGIN_PASSWORD,password);
         page.click(SelectorsSpacelogik.LOGIN_BUTTON);
+        verifyComponent(SelectorsSpacelogik.WAIT_LOGIN_PROFILE);
     }
     public void goToReCompaniePage(){
         page.click(SelectorsSpacelogik.MENU_ADMIN);
@@ -69,7 +71,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         page.locator(SelectorsSpacelogik.RECOMPANIE_COMPANYADRESS_INPUT).type("Dallas North Tollway, Dallas, Texas, EE. UU.", new Locator.TypeOptions().setDelay(10));
         page.click(SelectorsSpacelogik.RECOMPANIE_COMPANYADRESS_OPTIONS);
         page.waitForTimeout(1000);
-        page.click(SelectorsSpacelogik.RECOMPANIE_NEXTBUTTON_STEP1);
+        page.click(SelectorsSpacelogik.RECOMPANIE_CONTINUEBUTTON_STEP1);
     }
     public void completeReCompanieStep2(){
         emailInfo = generate.generateEmail();
@@ -77,7 +79,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         page.fill(SelectorsSpacelogik.RECOMPANIE_EMAIL_INPUT, userEmail);
         page.fill(SelectorsSpacelogik.RECOMPANIE_PASSWORD_INPUT,"Pickle30");
         page.fill(SelectorsSpacelogik.RECOMPANIE_PASSWORDCONFIRM_INPUT, "Pickle30");
-        page.click(SelectorsSpacelogik.RECOMPANIE_NEXTBUTTON_STEP2);
+        page.click(SelectorsSpacelogik.RECOMPANIE_CONTINUEBUTTON_STEP2);
         System.out.println("Se creo el usuario: "+userEmail);
     }
     public void completeReCompanieStep3(){
@@ -101,7 +103,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
     }
     public void completeFormNewOffice(){
         page.fill(SelectorsSpacelogik.OFFICES_LOCATION_NAME_INPUT, generate.generateLocationName());
-        page.locator(SelectorsSpacelogik.OFFICES_ADRESS_INPUT).type("Dallas North Tollway, Dallas, Texas, EE. UU.", new Locator.TypeOptions().setDelay(10));
+        page.locator(SelectorsSpacelogik.OFFICES_ADRESS_INPUT).type("Dallas North Tollway, Dallas, Texas, EE. UU.", new Locator.TypeOptions().setDelay(15));
         page.click(SelectorsSpacelogik.OFFICES_ADRESS_OPTION);
         page.click(SelectorsSpacelogik.OFFICES_STATE_SELECTOR);
         page.click(selector.StateOption(generate.generateState()));
@@ -136,10 +138,10 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         page.click(selector.ZipcodeOption(generate.generateZipCode()));
         page.click(SelectorsSpacelogik.NACCOUNT_COMPANY_LOGO_MODAL_OPEN);
         page.locator(SelectorsSpacelogik.NACCOUNT_COMPANY_LOGO_UPLOAD).setInputFiles(Paths.get(generate.generateImage()));
-        waitForToast(toast.FILE_UPLOAD_SUCCESS);
+        verifyToast(toast.FILE_UPLOAD_SUCCESS);
         page.click(SelectorsSpacelogik.NACCOUNT_COMPANY_LOGO_SAVE);
         page.waitForTimeout(3000);
-        page.click(SelectorsSpacelogik.NACCOUNT_COMPANY_CONTINUE_BUTTON);
+        page.click(SelectorsSpacelogik.NACCOUNT_CONTINUE_BUTTON);
     }
     public void completeNationalAccountStep2(){
         emailInfo = generate.generateEmail();
@@ -155,8 +157,8 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         System.out.println("Se va a crear el usuario: "+userEmail);
         page.fill(SelectorsSpacelogik.NACCOUNT_TENANT_PASSWORD_INPUT,"Pickle30");
         page.fill(SelectorsSpacelogik.NACCOUNT_TENANT_CPASSOWRD_INPUT, "Pickle30");
-        page.click(SelectorsSpacelogik.NACCOUNT_TENANT_SAVE_BUTTON);
-        page.click(SelectorsSpacelogik.NACCOUNT_TENANT_SAVE_BUTTON);
+        page.click(SelectorsSpacelogik.NACCOUNT_TENANT_CONTINUE_BUTTON);
+        page.click(SelectorsSpacelogik.NACCOUNT_TENANT_CONTINUE_BUTTON);
     }
     public void createNationalAccount(){
         completeNationalAccountStep1();
@@ -275,8 +277,55 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         createDraftClient();
         goToNewLocationFromNewClientForm();
         createLocation();
-        waitForComponent(SelectorsSpacelogik.CLIENT_MODAL_LOCATION_CARD);
+        verifyComponent(SelectorsSpacelogik.CLIENT_MODAL_LOCATION_CARD);
         page.click(SelectorsSpacelogik.CLIENT_CREATE_BUTTON);
+    }
+    public void goToProgramView(){
+        page.click(SelectorsSpacelogik.CLIENT_CARD);
+        page.click(SelectorsSpacelogik.LOCATION_CARD);
+        page.click(SelectorsSpacelogik.MENU_SPACE);
+        page.click(SelectorsSpacelogik.PROGRAM_MENU_BUTTON);
+    }
+    public void goToNewProgramForm(){
+        page.click(SelectorsSpacelogik.PROGRAM_NEW_BUTTON);
+    }
+    public void createAutoOfficeProgram(){
+        long timeStamp = Instant.now().toEpochMilli();
+        page.click(SelectorsSpacelogik.PROGRAM_AUTOOFFICE_OPTION);
+        page.click(SelectorsSpacelogik.PROGRAM_MODALTYPE_CONTINUE_BUTTON);
+        page.fill(SelectorsSpacelogik.PROGRAM_AUTO_NAME_INPUT, "TestProgram"+timeStamp);
+        page.click(SelectorsSpacelogik.PROGRAM_AUTO_INDUSTRY_SELECT);
+        page.click(SelectorsSpacelogik.PROGRAM_AUTO_INDUSTRY_OPTION);
+        page.click(SelectorsSpacelogik.PROGRAM_AUTO_ROOM_ADD_BUTTON);
+        page.fill(SelectorsSpacelogik.PROGRAM_AUTO_ROOM_NAME_INPUT, "TestRoom"+timeStamp);
+        page.click(SelectorsSpacelogik.PROGRAM_AUTO_ROOM_SIZE_SELECT);
+        page.click(SelectorsSpacelogik.PROGRAM_AUTO_ROOM_SIZE_OPTION);
+        page.fill(SelectorsSpacelogik.PROGRAM_AUTO_ROOM_QUANTITY_INPUT, "30");
+        page.click(SelectorsSpacelogik.PROGRAM_AUTO_ROOM_SAVE_BUTTON);
+        page.click(SelectorsSpacelogik.PROGRAM_AUTO_CREATE_BUTTON);
+    }
+    public void startBackendMOnitoring(Page page){
+        page.onResponse(response -> {
+            String url = response.url();
+            int status = response.status();
+            String contentType = response.headerValue("content-type");
+            if (contentType != null && contentType.contains("application/json")){
+                if(status == 200 || status == 201){
+                    System.out.println("✅ BACKEND OK [" + status + "]: " + url);
+                } else if (status >= 400) {
+                    System.err.println("\n⚠️ FALLO DE BACKEND (SQL/API)");
+                    System.err.println("URL: " + response.url());
+                    System.err.println("Status: " + status + " " + response.statusText());
+                    try{
+                        String errorDetall = response.text();
+                        System.err.println("Detalle del servidor:"+errorDetall);
+                    }catch (Exception e){
+                        System.err.println("No se pudo leer el cuerpo del error.");
+                    }
+                    System.err.println("-----------------------------------\n");
+                }
+            }
+        });
     }
     public static void assertVerify(Runnable assertion, String mensaje) {
         try {
@@ -292,7 +341,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
             System.out.println("\n🧾 Errores detectados:");
             errores.forEach(System.out::println);
         } else {
-            System.out.println("\n✅ Todas las comprobaciones pasaron.");
+            System.out.println("\n✅ No hubo errores inesperados.");
         }
     }
     public boolean verifyAssertions(Runnable... assertions){
@@ -317,7 +366,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
     public void reset() {
         errores.clear();
     }
-    public void waitForToast(String expectedMessage) {
+    public void verifyToast(String expectedMessage) {
         Locator toast = page.locator(SelectorsSpacelogik.APP_TOASTERS).filter(new Locator.FilterOptions().setHasText(expectedMessage)).first();
         try {
             toast.waitFor();
@@ -328,13 +377,13 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
             assertVerify(() -> {throw new AssertionError("El mensaje esperado no apareció: " + expectedMessage);}, "Timeout esperando el toast con mensaje: " + expectedMessage+"\n ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾");
         }
     }
-    public void waitForModalMessage(String expectedMessage) {
+    public void verifyModalMessage(String expectedMessage) {
         Locator modal = page.locator(SelectorsSpacelogik.GENERIC_MODAL);
         Locator messageLocator = modal.getByText(expectedMessage);
         assertThat(messageLocator).isVisible();
         System.out.println("El modal contiene el mensaje esperado: " + expectedMessage);
     }
-    public void waitForComponent(String selector) {
+    public void verifyComponent(String selector) {
         Locator componentLocator = page.locator(selector);
         try {
             componentLocator.waitFor();
@@ -352,7 +401,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
             }, "Verificación de visibilidad fallida: " + selector);
         }
     }
-    public void waitForInputErrorMessage(String selector, String expectedMessage) {
+    public void verifyInputErrorMessage(String selector, String expectedMessage) {
         try {
             String actualMessage = page.locator(selector).textContent().trim();
             String cleanedExpected = expectedMessage.trim();

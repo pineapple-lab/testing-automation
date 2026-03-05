@@ -15,6 +15,7 @@ import java.util.Random;
 public class GeneratorSpaceLogik extends ContextBaseSpacelogik{
     String firstName;
     String lastName;
+    private int currentIndex = 0;
 
     public int generateExecutions(){
         return Integer.parseInt(executionDetails);
@@ -101,6 +102,13 @@ public class GeneratorSpaceLogik extends ContextBaseSpacelogik{
     public String generateAdress(){
         String [] adressList = Adress.addresses;
         return getRandomString(adressList);
+    }
+    public String buildingName() {
+        String[] listBuildingNames = BuildingNames.buildingNames;
+        String buildingName = listBuildingNames[currentIndex % listBuildingNames.length];
+        currentIndex++;
+
+        return buildingName;
     }
     public String generateCompanyName(){
         String[] companyList = CompanyNames.companyNames;

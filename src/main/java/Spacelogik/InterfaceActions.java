@@ -22,7 +22,8 @@ public class InterfaceActions extends InterfaceProperties {
 
             //TEST CASE ERROR MESSAGE VALIDATION
             RECOMPANIE_VALIDATION_EMPTYMESSAGE,
-            NATIONALACCOUNT_VALIDATION_EMPTYMESSAGE
+            NATIONALACCOUNT_VALIDATION_EMPTYMESSAGE,
+            SEARCH_VALIDATION
         }
         public void actionEliminarDeLaCola() {
             List<CheckBox> checkBoxesSeleccionados = new ArrayList<>();
@@ -48,16 +49,15 @@ public class InterfaceActions extends InterfaceProperties {
         public void actionHpCreateOffice() {
         executeService(new FunctionOffice(), FunctionOffice::serviceNewOffice);
     }
-        public void actionHpCreateNationalAccount() {
-        executeService(new FunctionNationalAccount(), FunctionNationalAccount::serviceNewNationalAccount);
-        }
+        public void actionHpCreateNationalAccount() {executeService(new FunctionNationalAccount(), FunctionNationalAccount::serviceNewNationalAccount);}
         public void actionHpCreateClient() {
         executeService(new FunctionClient(), FunctionClient::serviceNewClient);
         }
         public void actionHpCreateGuru() {executeService(new FunctionPeople(), FunctionPeople::serviceNewGuru);}
         public void actionHpCreateLocation(){executeService(new FunctionLocations(), FunctionLocations::serviceNewLocation);}
         public void actionHpCreateProgram() { executeService(new FunctionPrograms(), FunctionPrograms::serviceNewProgram); }
-        //RECOMPANIE TEST CASE VALIDATION ERROR MESSAGE
+        public void actionSearchValidation() { executeService(new FunctionSearch(), FunctionSearch::serviceBuildingsInfoValidations); }
+    //RECOMPANIE TEST CASE VALIDATION ERROR MESSAGE
         public void actionAssertReCompanieFormEmptyInputs() {executeService(new FunctionReCompanie(), FunctionReCompanie::serviceAssertReCompanieFormMessageEmptyInputs);}
         public void actionAssertNationalAccountFormEmptyInputs() {executeService(new FunctionNationalAccount(), FunctionNationalAccount::serviceAssertNationalAccountFormMessageEmptyInputs);}
         private <T> void executeService(T serviceInstance, Spacelogik.InterfaceActions.CheckedConsumer<T> action) {

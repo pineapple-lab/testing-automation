@@ -11,7 +11,7 @@ public class InterfaceProperties extends InterfaceElements{
         @Override
         public void start(Stage stage){
             setupUIElements();
-            tabPane.getTabs().addAll(tbHappyPath, tbRecompanie, tbNationalAccount);
+            tabPane.getTabs().addAll(tbHappyPath, tbRecompanie, tbNationalAccount, tbSearch);
             splitPane.getItems().addAll(gridHeader, tabPane, scrollPane);
             splitMain.getItems().addAll(gridCola, splitPane);
             Scene scene = new Scene (splitMain,550, 670);
@@ -30,6 +30,8 @@ public class InterfaceProperties extends InterfaceElements{
             gridValidationsReCompanie.setVgap(10);
             gridValidationsNationalAccount.setHgap(3);
             gridValidationsNationalAccount.setVgap(10);
+            gridValidationsSearch.setHgap(3);
+            gridValidationsSearch.setVgap(10);
             splitPane.setOrientation(Orientation.VERTICAL);
             gridHeader.setPrefHeight(300);
             tabPane.setPrefHeight(200);
@@ -43,6 +45,7 @@ public class InterfaceProperties extends InterfaceElements{
             addElementsGridHappyPath();
             addElementsGridReCompanieValidations();
             addElementsGridNationalAccountValidations();
+            addElementsGridSearchValidations();
             addGridToTabs();
             setColors();
             setHover();
@@ -53,6 +56,7 @@ public class InterfaceProperties extends InterfaceElements{
             tbHappyPath.setContent(gridHappyPath);
             tbRecompanie.setContent(gridValidationsReCompanie);
             tbNationalAccount.setContent(gridValidationsNationalAccount);
+            tbSearch.setContent(gridValidationsSearch);
         }
         private void setupGridConstraints(){
             //HEADER BUTTONS
@@ -75,7 +79,13 @@ public class InterfaceProperties extends InterfaceElements{
 
             //TEST CASE RECOMPANIE VALIDATION ERRORS
             GridPane.setConstraints(reCompanieAssertFormMessageEmptyInputs,2,3);
+
+            //TEST CASE NATIONAL ACCOUNT VALIDATION ERRORS
             GridPane.setConstraints(nationalAccountAssertFormMessageEmptyInputs,2,3);
+
+            //TEST CASE SEARCH VALIDATIONS
+            GridPane.setConstraints(searchAssertion,2,3);
+
 
             //ENVIRONMENTS OPTIONS
             comboBox.getItems().add("Local");
@@ -107,6 +117,9 @@ public class InterfaceProperties extends InterfaceElements{
         private void addElementsGridNationalAccountValidations() {
             gridValidationsNationalAccount.getChildren().add(nationalAccountAssertFormMessageEmptyInputs);
         }
+        private void addElementsGridSearchValidations() {
+            gridValidationsSearch.getChildren().add(searchAssertion);
+        }
         private void setColors(){
             //HEADER
             setButtonStyle(execute);
@@ -127,6 +140,7 @@ public class InterfaceProperties extends InterfaceElements{
             //RECOMPANIE TEST CASE VALIDATION MESSAGE ERROR
             setButtonStyle(reCompanieAssertFormMessageEmptyInputs);
             setButtonStyle(nationalAccountAssertFormMessageEmptyInputs);
+            setButtonStyle(searchAssertion);
         }
         private void setButtonStyle(Button button) {
             button.setStyle("-fx-background-color: #fb9957;");
@@ -151,6 +165,7 @@ public class InterfaceProperties extends InterfaceElements{
             //RECOMPANIE TEST CASE VALIDATION MESSAGE ERROR
             setupHoverEffect(reCompanieAssertFormMessageEmptyInputs);
             setupHoverEffect(nationalAccountAssertFormMessageEmptyInputs);
+            setupHoverEffect(searchAssertion);
         }
         private void setupHoverEffect(Button button) {
             button.setOnMouseEntered(e -> button.setStyle("-fx-background-color: #d89743; -fx-text-fill: white;"));

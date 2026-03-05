@@ -7,7 +7,12 @@ public class SelectorsSpacelogik extends VariablesSpacelogik {
     //WAIT COMPONENT
     public static final String WAIT_RECOMPANIE_TABLE_FIRSTROW = ".MuiDataGrid-virtualScrollerContent > div > div:nth-of-type(1)";
     public static final String WAIT_LOGIN_PROFILE = ".app-header__content > div > div";
-
+    public static final String WAIT_BUILDING_FLOORS_LIST = ".building-floors-table-container > div > div:nth-of-type(2) > div";
+    public static final String WAIT_BUILDING_FIRST_FLOOR = ".building-floors-table-container > div > div:nth-of-type(2) > div:first-child";
+    public static final String WAIT_BUILDING_MEDIA_LIST = ".marketing-image-files-div > div";
+    public static final String WAIT_BUILDING_FIRST_MEDIA = ".marketing-image-files-div > div:first-child";
+    public static final String WAIT_BUILDING_STACKING_LIST = ".building-stacking-svg rect.bar.suite-bar";
+    public static final String WAIT_BUILDING_FIRST_STACKING = ".building-stacking-svg rect.bar.suite-bar:first-child";
     //TOASTER
     public static final String APP_TOASTERS = ".Toastify__toast";
 
@@ -32,6 +37,16 @@ public class SelectorsSpacelogik extends VariablesSpacelogik {
     public String ZipcodeOption(int zipcodePosition){
         return ".MuiPopover-root ul > li:nth-of-type("+zipcodePosition+")";
     }
+    //SEARCH
+    public static final String SEARCH_MENU_BUTTON = ".MuiCollapse-wrapperInner > div > a:nth-of-type(1)";
+    public static final String SEARCH_BUILDINGNAME_INPUT = ".building-search-criteria-container > div:nth-of-type(2) > div:nth-of-type(3) input";
+    public static final String SEARCH_BUTTON = ".building-search-criteria-container > div:nth-of-type(2) > div:nth-of-type(8) > button";
+    public static final String SEARCH_SELECT_BUTTON = "tbody > tr:nth-of-type(1) > td:nth-of-type(9) button";
+    //BUILDINGS
+    public static final String BUILDING_MENU_SPACE = ".MuiTabs-scroller > div > button:nth-of-type(2)";
+    public static final String BUILDING_MENU_STACKING = ".MuiTabs-scroller > div > button:nth-of-type(3)";
+    public static final String BUILDING_MENU_MEDIA = ".MuiTabs-scroller > div > button:nth-of-type(5)";
+
     //RE COMPANIE SELECTORS
     public static final String RECOMPANIE_MENU_BUTTON = ".app-sidebar ul > div:nth-of-type(5) > div:nth-of-type(2) > div > div > div > a:nth-of-type(5)";
     public static final String RECOMPANIE_NEW_BUTTON = ".real-estate-company-admin-container > .generic-header-container button";
@@ -84,6 +99,7 @@ public class SelectorsSpacelogik extends VariablesSpacelogik {
     public static final String NACCOUNT_TENANT_CPASSOWRD_INPUT = ".national-account-modal-container > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > .d-flex-column > div > .d-flex:nth-of-type(5) > label:nth-of-type(2) input";
     public static final String NACCOUNT_TENANT_CONTINUE_BUTTON = ".national-account-modal-container > .display-flex-column-space-between > .content-between > button:nth-of-type(2)";
     public static final String NACCOUNT_ERRORMESSAGE_EMPTYINPUTS = ".ReactModal__Content > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) p";
+
     //PEOPLE
     public static final String PEOPLE_FORM_NEWGURU_BUTTON = ".represented-tenants-header-container button";
     public static final String PEOPLE_FORM_SALUTATION_SELECT = ".guru-modal-main-container > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > div > div";
@@ -108,6 +124,8 @@ public class SelectorsSpacelogik extends VariablesSpacelogik {
     //CLIENT
     //public static final String CLIENT_CARD = ".represented-tenants-children-container > span span > div > div";
     public static final String CLIENT_NEW_BUTTON = ".locations-filters-header button";
+    public static final String CLIENT_NEW_REGULARCLIENT_BUTTON = ".ReactModal__Content > .d-flex > div:nth-of-type(1)";
+    public static final String CLIENT_NEW_MODALNEWCLIENT_CONTINUE_BUTTON = ".ReactModal__Content .modal-buttons > button:nth-of-type(2)";
     public static final String CLIENT_COMPANY_NAME_INPUT = ".tenant-registration-step-container .row-container > div:nth-of-type(1) input";
     public static final String CLIENT_INDUSTRY_SELECT = ".tenant-registration-step-container .row-container > div:nth-of-type(2)";
     public static final String CLIENT_CONTINUESTEP1_BUTTON = ".tenant-registration-buttons-right button";

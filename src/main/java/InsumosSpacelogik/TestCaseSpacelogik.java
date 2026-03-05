@@ -12,12 +12,33 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
 
     ErrorPathSpaceLogik errorPath = new ErrorPathSpaceLogik();
     VariablesSpacelogik variables = new VariablesSpacelogik();
+//LOGIN
     public void happyPathLogin(){
-        userEmail="admin";
+        methods.setAdminUser();
         methods.startBackendMOnitoring(page);
         System.out.println("El usuario se logeara "+generate.generateExecutions()+" veces\n");
         for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
             methods.login(VariablesSpacelogik.userEmail, VariablesSpacelogik.userPassword);
+            System.out.println("\nse compeletaron "+executeCounter+" ejecuciones");
+            System.out.println("----------------------------------------------------\n");
+        }
+        cleanupContext();
+    }
+ //SEARCH
+    public void happyPathSearchBuilding(){
+        methods.setAdminUser();
+        //methods.startBackendMOnitoring(page);
+        methods.login(VariablesSpacelogik.userEmail, VariablesSpacelogik.userPassword);
+        System.out.println("Se va a comprobar la informacion de "+generate.generateExecutions()+" buildings\n");
+        methods.assertComponent(SelectorsSpacelogik.MENU_ADMIN);
+        System.out.println("----------------------------------------------------------------");
+        page.click(SelectorsSpacelogik.MENU_ADMIN);
+        for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
+            String buildingName = generate.buildingName();
+            methods.goToSearchPage();
+            System.out.println("se va a revisar el edificio: "+buildingName);
+            methods.searchBuilding(buildingName);
+            methods.verifyBuildingComponents();
             System.out.println("\nse compeletaron "+executeCounter+" ejecuciones");
             System.out.println("----------------------------------------------------\n");
         }
@@ -152,10 +173,10 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
             for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
                 methods.goToNewGuruForm();
                 methods.createNewGuru(reCompanieEmail);
-                methods.verifyComponent(SelectorsSpacelogik.PEOPLE_FORM_POPUP_SUCCESSFULLY);
+                methods.assertComponent(SelectorsSpacelogik.PEOPLE_FORM_POPUP_SUCCESSFULLY);
                 methods.verifyToast(toast.GURU_SUCCESS);
                 page.click(SelectorsSpacelogik.PEOPLE_FORM_POPUP_OK_BUTTON);
-                methods.verifyComponent(SelectorsSpacelogik.WAIT_RECOMPANIE_TABLE_FIRSTROW);
+                methods.assertComponent(SelectorsSpacelogik.WAIT_RECOMPANIE_TABLE_FIRSTROW);
                 System.out.println("\nse compeleto "+executeCounter+" ejecuciones");
                 System.out.println("----------------------------------------------------\n");
             }
@@ -182,7 +203,7 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
             for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
                 methods.goToNewClientForm();
                 methods.createFullClient();
-                methods.verifyComponent(SelectorsSpacelogik.CLIENT_POPUP_SUCCESS);
+                methods.assertComponent(SelectorsSpacelogik.CLIENT_POPUP_SUCCESS);
                 methods.verifyModalMessage(modal.CLIENT_HEADER_SUCCESSFULLY);
                 methods.verifyModalMessage(modal.CLIENT_BODY1_SUCCESSFULLY);
                 methods.verifyModalMessage(modal.CLIENT_BODY2_SUCCESSFULLY);
@@ -210,7 +231,7 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
         System.out.println("Se van a crear "+generate.generateExecutions()+" locations\n");
         methods.login(userEmail, userPassword);
         page.waitForTimeout(3000);
-        methods.verifyComponent(SelectorsSpacelogik.CLIENT_CARD);
+        methods.assertComponent(SelectorsSpacelogik.CLIENT_CARD);
         methods.goToLocationView();
         try{
             for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {

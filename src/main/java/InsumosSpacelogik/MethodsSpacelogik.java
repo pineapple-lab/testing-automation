@@ -56,8 +56,19 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         page.fill(SelectorsSpacelogik.LOGIN_EMAIL,email);
         page.fill(SelectorsSpacelogik.LOGIN_PASSWORD,password);
         page.click(SelectorsSpacelogik.LOGIN_BUTTON);
-        verifyComponent(SelectorsSpacelogik.WAIT_LOGIN_PROFILE);
+        assertComponent(SelectorsSpacelogik.WAIT_LOGIN_PROFILE);
     }
+    //SEARCH
+    public void goToSearchPage(){
+        page.waitForTimeout(3000);
+        page.click(SelectorsSpacelogik.SEARCH_MENU_BUTTON);
+    }
+    public void searchBuilding(String buildingName){
+        page.fill(SelectorsSpacelogik.SEARCH_BUILDINGNAME_INPUT, buildingName);
+        page.click(SelectorsSpacelogik.SEARCH_BUTTON);
+        page.click(SelectorsSpacelogik.SEARCH_SELECT_BUTTON);
+    }
+    //RE COMPANIE
     public void goToReCompaniePage(){
         page.click(SelectorsSpacelogik.MENU_ADMIN);
         page.click(SelectorsSpacelogik.RECOMPANIE_MENU_BUTTON);
@@ -97,6 +108,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         completeReCompanieStep2();
         completeReCompanieStep3();
     }
+    //OFFICE
     public void goToNewOfficesForm(){
         page.click(SelectorsSpacelogik.OFFICES_HEADERMENU_BUTTON);
         page.click(SelectorsSpacelogik.OFFICES_NEW_BUTTON);
@@ -116,6 +128,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         completeFormNewOffice();
         page.click(SelectorsSpacelogik.OFFICES_SAVE_BUTTON);
     }
+    //NATIONAL ACCOUNT
     public void goToNationalAccountPage(){
         page.click(SelectorsSpacelogik.MENU_ADMIN);
         page.click(SelectorsSpacelogik.NACCOUNT_MENU_BUTTON);
@@ -164,6 +177,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         completeNationalAccountStep1();
         completeNationalAccountStep2();
     }
+    //GURU
     public void goToNewGuruForm(){
         page.click(SelectorsSpacelogik.PEOPLE_FORM_NEWGURU_BUTTON);
     }
@@ -198,36 +212,8 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         page.click(SelectorsSpacelogik.PEOPLE_FORM_CONTINUEANDSAVE_BUTTON);
         sql.saveUser(guruEmail,reCompanie,navigationLink);
     }
-    public void goToNewClientForm(){
-        page.click(SelectorsSpacelogik.CLIENT_NEW_BUTTON);
-    }
-    public void completeNewClientStep1(){
-        page.fill(SelectorsSpacelogik.CLIENT_COMPANY_NAME_INPUT, generate.generateCompanyName());
-        page.click(SelectorsSpacelogik.CLIENT_INDUSTRY_SELECT);
-        page.click(selector.IndustryOption(generate.generateIndustry()));
-        page.click(SelectorsSpacelogik.CLIENT_CONTINUESTEP1_BUTTON);
-    }
-    public void completeNewClientStep2(){
-        emailInfo = generate.generateEmail();
-        userEmail = emailInfo.getEmail();
-        page.fill(SelectorsSpacelogik.CLIENT_TENANT_NAME_INPUT, generate.firstName);
-        page.fill(SelectorsSpacelogik.CLIENT_TENANT_LNAME_INPUT, generate.lastName);
-        page.fill(SelectorsSpacelogik.CLIENT_TENANT_TITLE_INPUT, generate.generateProfesionalTitle());
-        page.fill(SelectorsSpacelogik.CLIENT_TENANT_EMAIL_INPUT, userEmail);
-        page.fill(SelectorsSpacelogik.CLIENT_TENANT_PASSWORD_INPUT, "Pickle30");
-        page.fill(SelectorsSpacelogik.CLIENT_TENANT_CPASSWORD_INPUT, "Pickle30");
-        page.fill(SelectorsSpacelogik.CLIENT_TENANT_MOBILE_INPUT, generate.generateMobile());
-        page.fill(SelectorsSpacelogik.CLIENT_TENANT_PHONE_INPUT, generate.generatePhone());
-        page.locator(SelectorsSpacelogik.CLIENT_TENANT_ADRESS_INPUT).type("Dallas North Tollway, Dallas, Texas, EE. UU.", new Locator.TypeOptions().setDelay(10));
-        page.click(SelectorsSpacelogik.CLIENT_TENANT_ADDRESS_OPTION);
-        page.click(SelectorsSpacelogik.CLIENT_TENANT_STATE_SELECT);
-        page.click(selector.StateOption(generate.generateState()));
-        page.click(SelectorsSpacelogik.CLIENT_TENANT_CITY_SELECT);
-        page.click(selector.CityOption(generate.generateCity()));
-        page.click(SelectorsSpacelogik.CLIENT_TENANT_ZIPCODE_SELECT);
-        page.click(selector.ZipcodeOption(generate.generateZipCode()));
-        page.click(SelectorsSpacelogik.CLIENT_TENANT_CONTINUESTEP2_BUTTON);
-    }
+
+    //LOCATION
     public void goToNewLocationFromNewClientForm(){
         page.click(SelectorsSpacelogik.CLIENT_LOCATION_NEW_BUTTON);
     }
@@ -269,6 +255,33 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         page.click(SelectorsSpacelogik.CLIENT_CARD);
         page.click(SelectorsSpacelogik.LOCATION_ACTIVATE_BUTTON);
     }
+    //CLIENT
+    public void goToNewClientForm(){
+        page.click(SelectorsSpacelogik.CLIENT_NEW_BUTTON);
+        page.click(SelectorsSpacelogik.CLIENT_NEW_REGULARCLIENT_BUTTON);
+        page.click(SelectorsSpacelogik.CLIENT_NEW_MODALNEWCLIENT_CONTINUE_BUTTON);
+    }
+    public void completeNewClientStep1(){
+        page.fill(SelectorsSpacelogik.CLIENT_COMPANY_NAME_INPUT, generate.generateCompanyName());
+        page.click(SelectorsSpacelogik.CLIENT_INDUSTRY_SELECT);
+        page.click(selector.IndustryOption(generate.generateIndustry()));
+        page.click(SelectorsSpacelogik.CLIENT_CONTINUESTEP1_BUTTON);
+    }
+    public void completeNewClientStep2(){
+        emailInfo = generate.generateEmail();
+        userEmail = emailInfo.getEmail();
+        page.fill(SelectorsSpacelogik.CLIENT_TENANT_NAME_INPUT, generate.firstName);
+        page.fill(SelectorsSpacelogik.CLIENT_TENANT_LNAME_INPUT, generate.lastName);
+        page.fill(SelectorsSpacelogik.CLIENT_TENANT_TITLE_INPUT, generate.generateProfesionalTitle());
+        page.fill(SelectorsSpacelogik.CLIENT_TENANT_EMAIL_INPUT, userEmail);
+        page.fill(SelectorsSpacelogik.CLIENT_TENANT_PASSWORD_INPUT, "Pickle30");
+        page.fill(SelectorsSpacelogik.CLIENT_TENANT_CPASSWORD_INPUT, "Pickle30");
+        page.fill(SelectorsSpacelogik.CLIENT_TENANT_MOBILE_INPUT, generate.generateMobile());
+        page.fill(SelectorsSpacelogik.CLIENT_TENANT_PHONE_INPUT, generate.generatePhone());
+        page.locator(SelectorsSpacelogik.CLIENT_TENANT_ADRESS_INPUT).type("Dallas North Tollway, Dallas, Texas, EE. UU.", new Locator.TypeOptions().setDelay(10));
+        page.click(SelectorsSpacelogik.CLIENT_TENANT_ADDRESS_OPTION);
+        page.click(SelectorsSpacelogik.CLIENT_TENANT_CONTINUESTEP2_BUTTON);
+    }
     public void createDraftClient(){
         completeNewClientStep1();
         completeNewClientStep2();
@@ -277,9 +290,10 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         createDraftClient();
         goToNewLocationFromNewClientForm();
         createLocation();
-        verifyComponent(SelectorsSpacelogik.CLIENT_MODAL_LOCATION_CARD);
+        assertComponent(SelectorsSpacelogik.CLIENT_MODAL_LOCATION_CARD);
         page.click(SelectorsSpacelogik.CLIENT_CREATE_BUTTON);
     }
+    //PROGRAM
     public void goToProgramView(){
         page.click(SelectorsSpacelogik.CLIENT_CARD);
         page.click(SelectorsSpacelogik.LOCATION_CARD);
@@ -304,6 +318,20 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         page.click(SelectorsSpacelogik.PROGRAM_AUTO_ROOM_SAVE_BUTTON);
         page.click(SelectorsSpacelogik.PROGRAM_AUTO_CREATE_BUTTON);
     }
+    //BUILDINGS
+    public void verifyBuildingComponents(){
+     page.click(SelectorsSpacelogik.BUILDING_MENU_SPACE);
+     verifyComponent(SelectorsSpacelogik.WAIT_BUILDING_FIRST_FLOOR, "Floor");
+     verifyComponentsList(SelectorsSpacelogik.WAIT_BUILDING_FLOORS_LIST, "Floors encontrados ");
+     page.click(SelectorsSpacelogik.BUILDING_MENU_STACKING);
+     verifyComponent(SelectorsSpacelogik.WAIT_BUILDING_FIRST_STACKING, "Stacking");
+     verifyComponentsList(SelectorsSpacelogik.WAIT_BUILDING_STACKING_LIST, "Stacking encontrados ");
+     page.click(SelectorsSpacelogik.BUILDING_MENU_MEDIA);
+     verifyComponent(SelectorsSpacelogik.WAIT_BUILDING_FIRST_MEDIA, "Media");
+     verifyComponentsList(SelectorsSpacelogik.WAIT_BUILDING_MEDIA_LIST, "Archivos multimedia encontrados ");
+    }
+
+    //UTILIDAD
     public void startBackendMOnitoring(Page page){
         page.onResponse(response -> {
             String url = response.url();
@@ -383,7 +411,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         assertThat(messageLocator).isVisible();
         System.out.println("El modal contiene el mensaje esperado: " + expectedMessage);
     }
-    public void verifyComponent(String selector) {
+    public void assertComponent(String selector) {
         Locator componentLocator = page.locator(selector);
         try {
             componentLocator.waitFor();
@@ -399,6 +427,34 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
             assertVerify(() -> {
                 throw new AssertionError("\n¡Error de Visibilidad! El componente no es visible.\n -> Selector fallido: \"" + selector + "\"\nDetalles: " + e.getMessage());
             }, "Verificación de visibilidad fallida: " + selector);
+        }
+    }
+    public void verifyComponent(String selector, String contexto) {
+        Locator componentLocator = page.locator(selector);
+        try {
+            componentLocator.waitFor(new Locator.WaitForOptions()
+                    .setTimeout(10000));
+            System.out.println("✅ " + contexto);
+
+        } catch (com.microsoft.playwright.TimeoutError e) {
+            System.out.println("⏳ " + contexto + " no apareció (Timeout 10s). Continuando ejecución...");
+
+        } catch (Exception e) {
+            System.out.println("❌ Error inesperado con " + contexto + ": " + e.getMessage());
+        }
+    }
+    public void verifyComponentsList(String selector, String contexto) {
+        Locator components = page.locator(selector);
+        try {
+            components.first().waitFor(new Locator.WaitForOptions().setTimeout(2000));
+            int count = components.count();
+            if (count > 0) {
+                System.out.println("✅ " + contexto + ": " + count);
+            } else {
+                System.out.println("⚠ " + contexto + ": VACÍO.");
+            }
+        } catch (Exception e) {
+            System.out.println("❌ " + contexto + ": No se encontró el elemento.");
         }
     }
     public void verifyInputErrorMessage(String selector, String expectedMessage) {

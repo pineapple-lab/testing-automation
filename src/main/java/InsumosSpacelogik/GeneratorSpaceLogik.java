@@ -7,16 +7,27 @@ import com.microsoft.playwright.ElementHandle;
 
 import java.nio.file.Paths;
 import java.time.Instant;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class GeneratorSpaceLogik extends ContextBaseSpacelogik{
     String firstName;
     String lastName;
     private int currentIndex = 0;
+    SelectorsSpacelogik selector = new SelectorsSpacelogik();
 
+    public String generateNumber(){
+        return String.valueOf(new Random().nextInt(100000));
+    }
+    public String generateSpecialChars(){
+        String [] listSpecialChars = SpecialCaracters.specialCaracters;
+        Random rand = new Random();
+        StringBuilder sb = new StringBuilder();
+        for(int i=0; i < 3; i++){
+         int randomIndex = rand.nextInt(listSpecialChars.length);
+         sb.append(listSpecialChars[randomIndex]);
+        }
+        return sb.toString();
+    }
     public int generateExecutions(){
         return Integer.parseInt(executionDetails);
     }
@@ -103,14 +114,110 @@ public class GeneratorSpaceLogik extends ContextBaseSpacelogik{
         String [] adressList = Adress.addresses;
         return getRandomString(adressList);
     }
+    public String generateIndustryOption(String columna, Map<String, String> row, Map<String, Integer> positionsMap) {
+        String valorPICT = row.get(columna);
+        if (valorPICT != null && !valorPICT.equalsIgnoreCase("N/A")) {
+            Integer posicion = positionsMap.get(valorPICT);
+            if (posicion != null) {
+                return selector.IndustryOption(posicion);
+            }
+        }
+        return "";
+    }
+    public String generateWidthPrimaryPreference(String columna, Map<String, String> row, Map<String, Integer> positionsMap) {
+        String valorPICT = row.get(columna);
+        if (valorPICT != null && !valorPICT.equalsIgnoreCase("N/A")) {
+            Integer posicion = positionsMap.get(valorPICT);
+            if (posicion != null) {
+                int rowPosition = 2;
+                return selector.widthPreference(rowPosition, posicion);
+            }
+        }
+        return "";
+    }
+    public String generateRoomTypePreference(String columna, Map<String, String> row, Map<String, Integer> positionsMap) {
+        String valorPICT = row.get(columna);
+        if (valorPICT != null && !valorPICT.equalsIgnoreCase("N/A")) {
+            Integer posicion = positionsMap.get(valorPICT);
+            if (posicion != null) {
+                return selector.programAutoRoomType(posicion);
+            }
+        }
+        return "";
+    }
+    public String generateLightPreference(String columna, Map<String, String> row, Map<String, Integer> positionsMap) {
+        String valorPICT = row.get(columna);
+        if (valorPICT != null && !valorPICT.equalsIgnoreCase("N/A")) {
+            Integer posicion = positionsMap.get(valorPICT);
+            if (posicion != null) {
+                return selector.programLightPreference(posicion);
+            }
+        }
+        return "";
+    }
+    public String generateWidthSecondaryPreference(String columna, Map<String, String> row, Map<String, Integer> positionsMap) {
+        String valorPICT = row.get(columna);
+        if (valorPICT != null && !valorPICT.equalsIgnoreCase("N/A")) {
+            Integer posicion = positionsMap.get(valorPICT);
+            if (posicion != null) {
+                int rowPosition = 3;
+                return selector.widthPreference(rowPosition, posicion);
+            }
+        }
+        return "";
+    }
+    public String generateConstructionLevel(String columna, Map<String, String> row, Map<String, Integer> positionsMap) {
+        String valorPICT = row.get(columna);
+        if (valorPICT != null && !valorPICT.equalsIgnoreCase("N/A")) {
+            Integer posicion = positionsMap.get(valorPICT);
+            if (posicion != null) {
+                int rowPosition = 2;
+                return selector.programLevelOption(rowPosition, posicion);
+            }
+        }
+        return "";
+    }
+    public String generateFurnitureLevel(String columna, Map<String, String> row, Map<String, Integer> positionsMap) {
+        String valorPICT = row.get(columna);
+        if (valorPICT != null && !valorPICT.equalsIgnoreCase("N/A")) {
+            Integer posicion = positionsMap.get(valorPICT);
+            if (posicion != null) {
+                int rowPosition = 3;
+                return selector.programLevelOption(rowPosition, posicion);
+            }
+        }
+        return "";
+    }
+    public String generateNumberbetweenOne_oneHundred(String columna, Map<String, String> row) {
+        String valorPICT = row.get(columna);
+        if (valorPICT == null && !valorPICT.equalsIgnoreCase("N/A")) {
+        return "";
+        }
+            int min;
+            int max;
+            switch (valorPICT) {
+                case "1_49":
+                    min = 1;
+                    max = 49;
+                    break;
+                case "50_100":
+                    min = 50;
+                    max = 100;
+                    break;
+                default:
+                    return valorPICT;
+            }
+            return String.valueOf(new Random().nextInt(max - min + 1) + min);
+        }
+
+
     public String buildingName() {
         String[] listBuildingNames = BuildingNames.buildingNames;
         String buildingName = listBuildingNames[currentIndex % listBuildingNames.length];
         currentIndex++;
-
         return buildingName;
     }
-    public String generateCompanyName(){
+    public String   generateCompanyName(){
         String[] companyList = CompanyNames.companyNames;
         return getRandomString(companyList);
     }

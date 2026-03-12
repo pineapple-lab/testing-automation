@@ -4,12 +4,16 @@ import InsumosArla.SelectorsArla;
 import com.microsoft.playwright.*;
 import com.microsoft.playwright.assertions.LocatorAssertions;
 import com.microsoft.playwright.assertions.PlaywrightAssertions;
+import com.microsoft.playwright.options.WaitForSelectorState;
+import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 
+import java.net.URL;
 import java.nio.file.Paths;
 import java.time.Instant;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.temporal.ValueRange;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.regex.Pattern;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
@@ -18,6 +22,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
     String recompanieEmail;
     private static final List<String> errores = new ArrayList<>();
     GeneratorSpaceLogik generate = new GeneratorSpaceLogik();
+    DataTestCaseSpacelogik dataTestCase= new DataTestCaseSpacelogik(generate);
     GeneratorSpaceLogik.EmailInfo emailInfo;
     SelectorsSpacelogik selector =new SelectorsSpacelogik();
     ToastMessageSpacelogik toast = new ToastMessageSpacelogik();
@@ -33,6 +38,30 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
     public void setAdminUser(){
         userEmail="admin";
         userPassword = "Pickle30";
+    }
+    public void setGuruUser(){
+        switch (navigationLink){
+            case "https://spacelogic-development.web.app/":
+                userEmail = "FelipeMontoya1770640706141@pineapple-lab.com";
+                userPassword = "Pickle30";
+                break;
+            case "https://space-logic.web.app/":
+                userEmail= "ninfajimenez1769799535493@pineapple-lab.com";
+                userPassword = "Pickle30";
+                break;
+        }
+    }
+    public void setReCompanieUser(){
+        switch (navigationLink){
+            case "https://spacelogic-development.web.app/":
+                reCompanieEmail = "MarinaViana1770640127541@pineapple-lab.com";
+                userPassword = "Pickle30";
+                break;
+            case "https://space-logic.web.app/":
+                reCompanieEmail = "ZulemaHernandez1769798909068@pineapple-lab.com";
+                userPassword = "Pickle30";
+                break;
+        }
     }
     public void startNavigation(){
         page.navigate(navigationLink);
@@ -66,7 +95,6 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
     public void searchBuilding(String buildingName){
         page.fill(SelectorsSpacelogik.SEARCH_BUILDINGNAME_INPUT, buildingName);
         page.click(SelectorsSpacelogik.SEARCH_BUTTON);
-        page.click(SelectorsSpacelogik.SEARCH_SELECT_BUTTON);
     }
     //RE COMPANIE
     public void goToReCompaniePage(){
@@ -303,35 +331,73 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
     public void goToNewProgramForm(){
         page.click(SelectorsSpacelogik.PROGRAM_NEW_BUTTON);
     }
-    public void createAutoOfficeProgram(){
+
+    private void setConstructionLevel(Map<String, String> row){
+        Locator constructionLevel = page.locator(generate.generateConstructionLevel("Construction", row, dataTestCase.getLevelConstruction()));
+        Locator constructionThumblr = page.locator(SelectorsSpacelogik.PROGRAM_CONSTRUCTION_THUMBLR);
+        String constructionTumblrPosicion = constructionThumblr.locator("input").getAttribute("aria-valuenow");
+        String constructionNewLevel = constructionLevel.getAttribute("data-index");
+        int indexNumerico = Integer.parseInt(constructionNewLevel);
+        int nivelEsperado = indexNumerico+1;
+        if (Integer.parseInt(constructionTumblrPosicion) != nivelEsperado) {
+            constructionThumblr.dragTo(constructionLevel);
+        }
+    }
+    private void setFurnitureLevel(Map<String, String> row){
+        Locator furnitureLevel = page.locator(generate.generateFurnitureLevel("Furniture", row, dataTestCase.getLevelFurniture()));
+        Locator furnitureThumblr = page.locator(SelectorsSpacelogik.PROGRAM_FURNITURE_THUMBLR);
+        String furnitureThumblrPosicion = furnitureThumblr.locator("input").getAttribute("aria-valuenow");
+        String furnitureNewLevel = furnitureLevel.getAttribute("data-index");
+        int indexNumerico = Integer.parseInt(furnitureNewLevel);
+        int nivelEsperado = indexNumerico+1;
+        if (Integer.parseInt(furnitureThumblrPosicion) != nivelEsperado) {
+            furnitureThumblr.dragTo(furnitureLevel);
+        }
+    }
+    public void createAutoOfficeProgram(Map<String, String> row){
         long timeStamp = Instant.now().toEpochMilli();
+        String valorPICTpri = row.get(VariablesSpacelogik.HEADER_PRIMARY_PREFERENCE);
+        String valorPICTsecond = row.get(VariablesSpacelogik.HEADER_SECONDARY_PREFERENCE);
         page.click(SelectorsSpacelogik.PROGRAM_AUTOOFFICE_OPTION);
         page.click(SelectorsSpacelogik.PROGRAM_MODALTYPE_CONTINUE_BUTTON);
-        page.fill(SelectorsSpacelogik.PROGRAM_AUTO_NAME_INPUT, "TestProgram"+timeStamp);
+        page.fill(SelectorsSpacelogik.PROGRAM_AUTO_NAME_INPUT, dataTestCase.selectCase(row.get("Program name")));
         page.click(SelectorsSpacelogik.PROGRAM_AUTO_INDUSTRY_SELECT);
-        page.click(SelectorsSpacelogik.PROGRAM_AUTO_INDUSTRY_OPTION);
+        page.waitForTimeout(1000);
+        page.click(generate.generateIndustryOption("Industry", row, dataTestCase.getIndustryMap()));
+        setConstructionLevel(row);
+        setFurnitureLevel(row);
+        page.click(generate.generateWidthPrimaryPreference(VariablesSpacelogik.HEADER_PRIMARY_PREFERENCE, row, dataTestCase.getWidthPrimaryPreference()));
+        page.click(generate.generateWidthSecondaryPreference("predeterminatesecondarypreference", row, dataTestCase.getWidthSecondaryPreference()));
+        if ("1-49".equals(valorPICTpri)||"50-100".equals(valorPICTpri)){
+            page.fill(SelectorsSpacelogik.PROGRAM_AUTO_WIDTHPRIMARYPREFERENCE_INPUT,generate.generateNumberbetweenOne_oneHundred(VariablesSpacelogik.HEADER_PRIMARY_PREFERENCE, row));
+        }
+        if ("1-49".equals(valorPICTsecond)||"50-100".equals(valorPICTsecond)){
+            page.fill(SelectorsSpacelogik.PROGRAM_AUTO_WIDTHSECONPREFERENCE_INPUT, generate.generateNumberbetweenOne_oneHundred("predeterminatesecondarypreference", row));
+        }
         page.click(SelectorsSpacelogik.PROGRAM_AUTO_ROOM_ADD_BUTTON);
-        page.fill(SelectorsSpacelogik.PROGRAM_AUTO_ROOM_NAME_INPUT, "TestRoom"+timeStamp);
+        page.fill(SelectorsSpacelogik.PROGRAM_AUTO_ROOM_NAME_INPUT, dataTestCase.selectCase(row.get("Room name")));
+        page.click(generate.generateRoomTypePreference("Room type", row, dataTestCase.getRoomTypePreference()));
         page.click(SelectorsSpacelogik.PROGRAM_AUTO_ROOM_SIZE_SELECT);
-        page.click(SelectorsSpacelogik.PROGRAM_AUTO_ROOM_SIZE_OPTION);
-        page.fill(SelectorsSpacelogik.PROGRAM_AUTO_ROOM_QUANTITY_INPUT, "30");
+        page.locator(SelectorsSpacelogik.PROGRAM_AUTO_ROOM_SIZE_OPTION).filter(new Locator.FilterOptions().setHasText(row.get("Room size").replace("s", "").replace("x", "*"))).first().click(new Locator.ClickOptions().setForce(true));
+        page.click(generate.generateLightPreference("NaturalLightPreference", row, dataTestCase.getLightPreference()));
+        page.fill(SelectorsSpacelogik.PROGRAM_AUTO_ROOM_QUANTITY_INPUT, generate.generateNumberbetweenOne_oneHundred("Quantity", row));
         page.click(SelectorsSpacelogik.PROGRAM_AUTO_ROOM_SAVE_BUTTON);
         page.click(SelectorsSpacelogik.PROGRAM_AUTO_CREATE_BUTTON);
     }
     //BUILDINGS
     public void verifyBuildingComponents(){
-     page.click(SelectorsSpacelogik.BUILDING_MENU_SPACE);
-     verifyComponent(SelectorsSpacelogik.WAIT_BUILDING_FIRST_FLOOR, "Floor");
+     page.click(SelectorsSpacelogik.SEARCH_SELECT_BUTTON);
+     page.click(SelectorsSpacelogik.BUILDING_MENU_SPACE_BUTTON);
+     verifyComponent(SelectorsSpacelogik.WAIT_BUILDING_CHECK_FLOOR, "Floor");
      verifyComponentsList(SelectorsSpacelogik.WAIT_BUILDING_FLOORS_LIST, "Floors encontrados ");
-     page.click(SelectorsSpacelogik.BUILDING_MENU_STACKING);
-     verifyComponent(SelectorsSpacelogik.WAIT_BUILDING_FIRST_STACKING, "Stacking");
+     page.click(SelectorsSpacelogik.BUILDING_MENU_STACKING_BUTTON);
+     verifyComponent(SelectorsSpacelogik.WAIT_BUILDING_CHECK_STACKING, "Stacking");
      verifyComponentsList(SelectorsSpacelogik.WAIT_BUILDING_STACKING_LIST, "Stacking encontrados ");
-     page.click(SelectorsSpacelogik.BUILDING_MENU_MEDIA);
-     verifyComponent(SelectorsSpacelogik.WAIT_BUILDING_FIRST_MEDIA, "Media");
+     page.click(SelectorsSpacelogik.BUILDING_MENU_MEDIA_BUTTON);
+     verifyComponent(SelectorsSpacelogik.WAIT_BUILDING_CHECK_MEDIA, "Media");
      verifyComponentsList(SelectorsSpacelogik.WAIT_BUILDING_MEDIA_LIST, "Archivos multimedia encontrados ");
     }
-
-    //UTILIDAD
+    //UTIL
     public void startBackendMOnitoring(Page page){
         page.onResponse(response -> {
             String url = response.url();
@@ -414,12 +480,12 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
     public void assertComponent(String selector) {
         Locator componentLocator = page.locator(selector);
         try {
-            componentLocator.waitFor();
+            componentLocator.waitFor(new Locator.WaitForOptions().setTimeout(14000));
             assertThat(componentLocator).isVisible();
             System.out.println("Componente encontrado: " + selector);
         } catch (TimeoutError e) {
             assertVerify(() -> {
-                throw new AssertionError("\n¡Error de Timeout! El componente no apareció en el DOM.\n -> Selector fallido: \"" + selector + "\""+"\n ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾");
+                throw new AssertionError("\n¡Error de Timeout 14s! El componente no apareció en el DOM.\n -> Selector fallido: \"" + selector + "\""+"\n ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾");
             }, "Timeout esperando el componente: " + selector);
             System.out.println("");
 
@@ -429,15 +495,60 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
             }, "Verificación de visibilidad fallida: " + selector);
         }
     }
+    public void loading(String selector){
+        Locator componentLocator = page.locator(selector);
+        AtomicBoolean isLoading = new AtomicBoolean(true);
+
+        Thread spinnerThread = new Thread (() -> {
+            String [] frames = {"|", "/", "-", "\\"};
+            int i = 0;
+            while (isLoading.get()){
+                System.out.print("\r"+frames[i % frames.length]+" Cargando ");
+                try {
+                    Thread.sleep(150);
+                } catch(InterruptedException e){break;}
+                    i++;
+            }
+        });
+        try {
+            assertComponent(selector);
+            spinnerThread.start();
+            componentLocator.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.HIDDEN).setTimeout(14000));
+            isLoading.set(false);
+            System.out.print("\r✅ Cargando\n");
+        } catch (TimeoutError e) {
+            assertVerify(() -> {
+                isLoading.set(false);
+                throw new AssertionError("El componente demoro mucho en cargar\n ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾");
+            }, "\\r❌ Cargando (Timeout 14s) ");
+        }
+    }
+    public void compareContentFoundWithSaved(String selector, String contentSaved){
+        Locator componentLocator = page.locator(selector);
+        try {
+            componentLocator.waitFor(new Locator.WaitForOptions()
+                    .setTimeout(14000));
+            String contentFound = componentLocator.innerText().trim();
+            if (contentFound.equals(contentSaved)) {
+                System.out.println("✅ Revisando: " + contentSaved);
+            }
+
+        } catch (com.microsoft.playwright.TimeoutError e) {
+            System.out.println("⏳ " + contentSaved + " no apareció (Timeout 14s). Continuando ejecución...");
+
+        } catch (Exception e) {
+            System.out.println("❌ Error inesperado con " + contentSaved + ": " + e.getMessage());
+        }
+    }
     public void verifyComponent(String selector, String contexto) {
         Locator componentLocator = page.locator(selector);
         try {
             componentLocator.waitFor(new Locator.WaitForOptions()
-                    .setTimeout(10000));
+                    .setTimeout(14000));
             System.out.println("✅ " + contexto);
 
         } catch (com.microsoft.playwright.TimeoutError e) {
-            System.out.println("⏳ " + contexto + " no apareció (Timeout 10s). Continuando ejecución...");
+            System.out.println("⏳ " + contexto + " no apareció (Timeout 14s). Continuando ejecución...");
 
         } catch (Exception e) {
             System.out.println("❌ Error inesperado con " + contexto + ": " + e.getMessage());
@@ -454,7 +565,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
                 System.out.println("⚠ " + contexto + ": VACÍO.");
             }
         } catch (Exception e) {
-            System.out.println("❌ " + contexto + ": No se encontró el elemento.");
+            System.out.println("❌ " + contexto + ": 0");
         }
     }
     public void verifyInputErrorMessage(String selector, String expectedMessage) {
@@ -474,5 +585,40 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         } catch (Exception e) {
             throw new AssertionError("No se pudo encontrar el elemento con el selector: " + selector, e);
         }
+    }
+    //MAPPING
+    public List<Map<String, String>> getTestCase(String urlCsv) {
+        List<Map<String, String>> listaFinal = new ArrayList<>();
+        try {
+            URL url = new URL(urlCsv);
+            java.net.HttpURLConnection connection = (java.net.HttpURLConnection) url.openConnection();
+            connection.setRequestProperty("User-Agent", "Mozilla/5.0");
+            java.io.BufferedReader reader = new java.io.BufferedReader(new java.io.InputStreamReader(connection.getInputStream(), "UTF-8"));
+            String primeraLinea = reader.readLine();
+            if (primeraLinea == null) return listaFinal;
+            if (primeraLinea.startsWith("\uFEFF")) {
+                primeraLinea = primeraLinea.substring(1);
+            }
+            String regex = ",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)";
+            String[] headers = primeraLinea.split(regex);
+            String filaTexto;
+            while ((filaTexto = reader.readLine()) != null) {
+                if (filaTexto.trim().isEmpty()) continue;
+                String[] rowValues = filaTexto.split(regex);
+                Map<String, String> filaMap = new HashMap<>();
+                for (int i = 0; i < headers.length; i++) {
+                    String headerName = headers[i].replace("\"", "").trim();
+                    String cellValue = (i < rowValues.length) ? rowValues[i].replace("\"", "").trim() : "";
+                    filaMap.put(headerName, cellValue);
+                }
+                listaFinal.add(filaMap);
+            }
+            reader.close();
+            System.out.println("✅ Filas cargadas: " + listaFinal.size());
+
+        } catch (Exception e) {
+            System.out.println("❌ ERROR: " + e.getMessage());
+        }
+        return listaFinal;
     }
 }

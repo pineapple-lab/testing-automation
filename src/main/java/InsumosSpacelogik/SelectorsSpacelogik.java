@@ -7,12 +7,7 @@ public class SelectorsSpacelogik extends VariablesSpacelogik {
     //WAIT COMPONENT
     public static final String WAIT_RECOMPANIE_TABLE_FIRSTROW = ".MuiDataGrid-virtualScrollerContent > div > div:nth-of-type(1)";
     public static final String WAIT_LOGIN_PROFILE = ".app-header__content > div > div";
-    public static final String WAIT_BUILDING_FLOORS_LIST = ".building-floors-table-container > div > div:nth-of-type(2) > div";
-    public static final String WAIT_BUILDING_FIRST_FLOOR = ".building-floors-table-container > div > div:nth-of-type(2) > div:first-child";
-    public static final String WAIT_BUILDING_MEDIA_LIST = ".marketing-image-files-div > div";
-    public static final String WAIT_BUILDING_FIRST_MEDIA = ".marketing-image-files-div > div:first-child";
-    public static final String WAIT_BUILDING_STACKING_LIST = ".building-stacking-svg rect.bar.suite-bar";
-    public static final String WAIT_BUILDING_FIRST_STACKING = ".building-stacking-svg rect.bar.suite-bar:first-child";
+
     //TOASTER
     public static final String APP_TOASTERS = ".Toastify__toast";
 
@@ -38,14 +33,23 @@ public class SelectorsSpacelogik extends VariablesSpacelogik {
         return ".MuiPopover-root ul > li:nth-of-type("+zipcodePosition+")";
     }
     //SEARCH
+    public static final String WAIT_SEARCH_LOADER_CHECK = ".d-flex-column.content-between.search-results-table-container > .loading-wrapper";
+    public static final String WAIT_SEARCH_CHECK = "tbody tr:nth-of-type(1) > td:nth-of-type(1)";
     public static final String SEARCH_MENU_BUTTON = ".MuiCollapse-wrapperInner > div > a:nth-of-type(1)";
     public static final String SEARCH_BUILDINGNAME_INPUT = ".building-search-criteria-container > div:nth-of-type(2) > div:nth-of-type(3) input";
     public static final String SEARCH_BUTTON = ".building-search-criteria-container > div:nth-of-type(2) > div:nth-of-type(8) > button";
     public static final String SEARCH_SELECT_BUTTON = "tbody > tr:nth-of-type(1) > td:nth-of-type(9) button";
+
     //BUILDINGS
-    public static final String BUILDING_MENU_SPACE = ".MuiTabs-scroller > div > button:nth-of-type(2)";
-    public static final String BUILDING_MENU_STACKING = ".MuiTabs-scroller > div > button:nth-of-type(3)";
-    public static final String BUILDING_MENU_MEDIA = ".MuiTabs-scroller > div > button:nth-of-type(5)";
+    public static final String BUILDING_MENU_SPACE_BUTTON = ".MuiTabs-scroller > div > button:nth-of-type(2)";
+    public static final String BUILDING_MENU_STACKING_BUTTON = ".MuiTabs-scroller > div > button:nth-of-type(3)";
+    public static final String BUILDING_MENU_MEDIA_BUTTON = ".MuiTabs-scroller > div > button:nth-of-type(5)";
+    public static final String WAIT_BUILDING_FLOORS_LIST = ".building-floors-table-container > div > div:nth-of-type(2) > div";
+    public static final String WAIT_BUILDING_CHECK_FLOOR = ".generic-spacelogik-container.building-space-container";
+    public static final String WAIT_BUILDING_MEDIA_LIST = ".marketing-image-files-div > div";
+    public static final String WAIT_BUILDING_CHECK_MEDIA = ".generic-spacelogik-container.marketing-info-component.marketing-media-image-container > div:nth-of-type(1)";
+    public static final String WAIT_BUILDING_STACKING_LIST = ".building-stacking-svg rect.bar.suite-bar";
+    public static final String WAIT_BUILDING_CHECK_STACKING = ".building-stacking-information-year-available-main-container";
 
     //RE COMPANIE SELECTORS
     public static final String RECOMPANIE_MENU_BUTTON = ".app-sidebar ul > div:nth-of-type(5) > div:nth-of-type(2) > div > div > div > a:nth-of-type(5)";
@@ -214,10 +218,26 @@ public class SelectorsSpacelogik extends VariablesSpacelogik {
     public static final String PROGRAM_AUTO_NAME_INPUT = ".auto-office-setup-main-container-body > div:nth-of-type(1) input";
     public static final String PROGRAM_AUTO_INDUSTRY_SELECT = ".auto-office-setup-main-container-body > div:nth-of-type(2) > .generic-select-container > div";
     public static final String PROGRAM_AUTO_INDUSTRY_OPTION = ".MuiPaper-root > ul > li:nth-of-type(2)";
+    public static final String PROGRAM_CONSTRUCTION_THUMBLR = ".auto-office-construction-and-furniture-level-main-container > div:nth-of-type(2) .slider-container .MuiSlider-thumb";
+    public static final String PROGRAM_FURNITURE_THUMBLR = ".auto-office-construction-and-furniture-level-main-container > div:nth-of-type(3) .slider-container .MuiSlider-thumb";
+    public String widthPreference(int rowPosition , int preferencePosition){
+        return ".auto-office-setup-aisle-width-main-container > .auto-office-setup-aisle-input-container:nth-of-type("+rowPosition+") > div:nth-of-type(2) > label:nth-of-type("+preferencePosition+") input";
+    }
+    public String programLevelOption(int rowPosition, int preferencePosition){
+        return ".auto-office-construction-and-furniture-level-main-container > div:nth-of-type("+rowPosition+") .slider-container > span > .MuiSlider-mark[data-index=\""+preferencePosition+"\"]";
+    }
+    public static final String PROGRAM_AUTO_WIDTHPRIMARYPREFERENCE_INPUT = ".auto-office-setup-aisle-width-main-container > .auto-office-setup-aisle-input-container:nth-of-type(2) > label input";
+    public static final String PROGRAM_AUTO_WIDTHSECONPREFERENCE_INPUT = ".auto-office-setup-aisle-width-main-container > .auto-office-setup-aisle-input-container:nth-of-type(3) > label input";
     public static final String PROGRAM_AUTO_ROOM_ADD_BUTTON = ".create-plan-information-main-container-body > div:nth-of-type(2) > button";
     public static final String PROGRAM_AUTO_ROOM_NAME_INPUT = ".create-plan-information-add-room-main-container > div:nth-of-type(2) input";
+    public String programAutoRoomType(int preferencePosition){
+        return ".create-plan-information-add-room-main-container > div:nth-of-type(3) > .MuiToggleButtonGroup-root > div > button:nth-of-type("+preferencePosition+")";
+    }
     public static final String PROGRAM_AUTO_ROOM_SIZE_SELECT = ".create-plan-information-add-room-main-container > div:nth-of-type(4) .MuiInputBase-root";
-    public static final String PROGRAM_AUTO_ROOM_SIZE_OPTION = ".MuiPaper-root > ul > li:nth-of-type(2)";
+    public static final String PROGRAM_AUTO_ROOM_SIZE_OPTION = ".MuiPaper-root > ul > li";
+    public String programLightPreference(int preferencePosition){
+        return ".create-plan-information-add-room-main-container > div:nth-of-type(5) .MuiToggleButtonGroup-root > div > button:nth-of-type("+preferencePosition+")";
+    }
     public static final String PROGRAM_AUTO_ROOM_QUANTITY_INPUT = ".create-plan-information-add-room-main-container > div:nth-of-type(6) .number-input-container > input:nth-of-type(2)";
     public static final String PROGRAM_AUTO_ROOM_SAVE_BUTTON = ".create-plan-information-add-room-main-container > div:nth-of-type(7) > button:nth-of-type(2)";
     public static final String PROGRAM_AUTO_CREATE_BUTTON = ".generic-header-container > div > div:nth-of-type(2) button";

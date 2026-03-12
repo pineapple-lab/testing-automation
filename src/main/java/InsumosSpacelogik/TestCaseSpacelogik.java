@@ -4,6 +4,9 @@ import InsumosArla.SelectorsArla;
 import clojure.lang.Var;
 import com.microsoft.playwright.Locator;
 
+import java.util.List;
+import java.util.Map;
+
 public class TestCaseSpacelogik extends ContextBaseSpacelogik{
     private final GeneratorSpaceLogik generate = new GeneratorSpaceLogik();
     MethodsSpacelogik methods = new MethodsSpacelogik();
@@ -36,8 +39,9 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
         for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
             String buildingName = generate.buildingName();
             methods.goToSearchPage();
-            System.out.println("se va a revisar el edificio: "+buildingName);
             methods.searchBuilding(buildingName);
+            methods.loading(SelectorsSpacelogik.WAIT_SEARCH_LOADER_CHECK);
+            methods.compareContentFoundWithSaved(SelectorsSpacelogik.WAIT_SEARCH_CHECK,buildingName);
             methods.verifyBuildingComponents();
             System.out.println("\nse compeletaron "+executeCounter+" ejecuciones");
             System.out.println("----------------------------------------------------\n");
@@ -129,17 +133,8 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
         }
     }
     public void happyPathOfficeCreate(){
-
-        switch (navigationLink){
-            case "https://spacelogic-development.web.app/":
-                reCompanieEmail = "MarinaViana1770640127541@pineapple-lab.com";
-                break;
-            case "https://space-logic.web.app/":
-                reCompanieEmail = "ZulemaHernandez1769798909068@pineapple-lab.com";
-                break;
-        }
+        methods.setReCompanieUser();
         methods.startBackendMOnitoring(page);
-        userPassword = "Pickle30";
         System.out.println("Se van a crear "+generate.generateExecutions()+" offices\n");
         methods.login(reCompanieEmail, userPassword);
         try{
@@ -157,16 +152,8 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
         }
     }
     public void happyPathGuruCreate(){
-        switch (navigationLink){
-            case "https://spacelogic-development.web.app/":
-                reCompanieEmail = "MarinaViana1770640127541@pineapple-lab.com";
-                break;
-            case "https://space-logic.web.app/":
-                reCompanieEmail = "ZulemaHernandez1769798909068@pineapple-lab.com";
-                break;
-        }
+        methods.setReCompanieUser();
         methods.startBackendMOnitoring(page);
-        userPassword = "Pickle30";
         System.out.println("Se van a crear "+generate.generateExecutions()+" Guru\n");
         methods.login(reCompanieEmail, userPassword);
         try{
@@ -187,16 +174,8 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
         }
     }
     public void happyPathClientCreate(){
-        switch (navigationLink){
-            case "https://spacelogic-development.web.app/":
-                userEmail = "FelipeMontoya1770640706141@pineapple-lab.com";
-                break;
-            case "https://space-logic.web.app/":
-                userEmail= "ninfajimenez1769799535493@pineapple-lab.com";
-                break;
-        }
+        methods.setGuruUser();
         methods.startBackendMOnitoring(page);
-        userPassword = "Pickle30";
         System.out.println("Se van a crear "+generate.generateExecutions()+" Clients\n");
         methods.login(userEmail, userPassword);
         try{
@@ -218,16 +197,8 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
         }
     }
     public void happyPathLocationCreate(){
-        switch (navigationLink){
-            case "https://spacelogic-development.web.app/":
-                userEmail = "FelipeMontoya1770640706141@pineapple-lab.com";
-                break;
-            case "https://space-logic.web.app/":
-                userEmail= "ninfajimenez1769799535493@pineapple-lab.com";
-                break;
-        }
+        methods.setGuruUser();
         methods.startBackendMOnitoring(page);
-        userPassword = "Pickle30";
         System.out.println("Se van a crear "+generate.generateExecutions()+" locations\n");
         methods.login(userEmail, userPassword);
         page.waitForTimeout(3000);
@@ -248,28 +219,29 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
         }
     }
     public void happyPathAutoofficeProgramCreate(){
-        switch (navigationLink){
-            case "https://spacelogic-development.web.app/":
-                userEmail = "FelipeMontoya1770640706141@pineapple-lab.com";
-                break;
-            case "https://space-logic.web.app/":
-                userEmail= "ninfajimenez1769799535493@pineapple-lab.com";
-                break;
-        }
+        String urlMiTabla = "https://docs.google.com/spreadsheets/d/1Goc7muuoXZ3FEzFpZ4ol7aSASlZum7ubgEmmLSZbuUc/export?format=csv";
+        List<Map<String, String>> testCaseList = methods.getTestCase(urlMiTabla);
+        methods.setGuruUser();
         methods.startBackendMOnitoring(page);
-        userPassword = "Pickle30";
-        System.out.println("Se van a crear "+generate.generateExecutions()+" programs\n");
         methods.login(userEmail, userPassword);
         page.waitForSelector(SelectorsSpacelogik.CLIENT_CARD);
         page.waitForTimeout(3000);
         methods.goToProgramView();
+        System.out.println("Se van a crear "+generate.generateExecutions()+" programs\n");
         try{
             for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
+                Map<String, String> currentRow = testCaseList.get((executeCounter-1) % testCaseList.size());
+                int testCaseId = executeCounter+1;
+                System.out.println("\n----------------------------------------------------");
+                System.out.println("📊 TESTEANDO CASO DE PRUEBA: " + testCaseId);
+                page.click(SelectorsSpacelogik.MENU_SPACE);
+                page.click(SelectorsSpacelogik.PROGRAM_MENU_BUTTON);
                 methods.goToNewProgramForm();
-                methods.createAutoOfficeProgram();
+                methods.createAutoOfficeProgram(currentRow);
                 methods.verifyToast(toast.PROGRAM_SUCESS);
                 System.out.println("\nse compeletaron "+executeCounter+" ejecuciones");
                 System.out.println("----------------------------------------------------\n");
+                page.waitForTimeout(3000);
             }
             methods.printErrores();
             methods.reset();

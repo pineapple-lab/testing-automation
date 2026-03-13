@@ -55,6 +55,9 @@ public class BotSpacelogik extends Spacelogik.InterfaceActions {
                 reCompanieAssertFormMessageEmptyInputs.setOnAction(e -> handleAction(ExecMethod.RECOMPANIE_VALIDATION_EMPTYMESSAGE,"RECOMPANIE_VALIDATION_EMPTYMESSAGE"));
                 nationalAccountAssertFormMessageEmptyInputs.setOnAction(e -> handleAction(ExecMethod.NATIONALACCOUNT_VALIDATION_EMPTYMESSAGE,"NATIONALACCOUNT_VALIDATION_EMPTYMESSAGE"));
                 searchAssertion.setOnAction(e -> handleAction(ExecMethod.SEARCH_VALIDATION,"SEARCH_VALIDATION"));
+
+                //SWEET BUTTONS
+                sweetCaseNewAutoProgram.setOnAction(e -> handleAction(ExecMethod.EXECUTE_SWEET_NEW_PROGRAMS,"EXECUTE_SWEET_NEW_PROGRAMS"));
                 //HEADER
                 comboBox.setOnAction(e -> handleComboBoxAction());
                 stopTestCase.setOnAction(event -> handleStopTestCase());
@@ -166,6 +169,10 @@ public class BotSpacelogik extends Spacelogik.InterfaceActions {
                         break;
                     case SEARCH_VALIDATION:
                         actionSearchValidation();
+                        break;
+                        //SWEET TEST CASE
+                    case EXECUTE_SWEET_NEW_PROGRAMS:
+                        actionExecuteSweetCaseNewProgram();
                         break;
                 }
                 if (!isRunning) {

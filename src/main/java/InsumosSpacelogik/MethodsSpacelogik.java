@@ -333,7 +333,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
     }
 
     private void setConstructionLevel(Map<String, String> row){
-        Locator constructionLevel = page.locator(generate.generateConstructionLevel("Construction", row, dataTestCase.getLevelConstruction()));
+        Locator constructionLevel = page.locator(generate.generateDataTestCase(VariablesSpacelogik.HEADER_CONSTRUCTION, row, dataTestCase.getLevelConstruction()));
         Locator constructionThumblr = page.locator(SelectorsSpacelogik.PROGRAM_CONSTRUCTION_THUMBLR);
         String constructionTumblrPosicion = constructionThumblr.locator("input").getAttribute("aria-valuenow");
         String constructionNewLevel = constructionLevel.getAttribute("data-index");
@@ -344,7 +344,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         }
     }
     private void setFurnitureLevel(Map<String, String> row){
-        Locator furnitureLevel = page.locator(generate.generateFurnitureLevel("Furniture", row, dataTestCase.getLevelFurniture()));
+        Locator furnitureLevel = page.locator(generate.generateDataTestCase(VariablesSpacelogik.HEADER_FURNITURE, row, dataTestCase.getLevelFurniture()));
         Locator furnitureThumblr = page.locator(SelectorsSpacelogik.PROGRAM_FURNITURE_THUMBLR);
         String furnitureThumblrPosicion = furnitureThumblr.locator("input").getAttribute("aria-valuenow");
         String furnitureNewLevel = furnitureLevel.getAttribute("data-index");
@@ -354,35 +354,49 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
             furnitureThumblr.dragTo(furnitureLevel);
         }
     }
-    public void createAutoOfficeProgram(Map<String, String> row){
-        long timeStamp = Instant.now().toEpochMilli();
+    public void createAutoOfficeProgram(){
+        page.click(SelectorsSpacelogik.PROGRAM_AUTOOFFICE_OPTION);
+        page.click(SelectorsSpacelogik.PROGRAM_MODALTYPE_CONTINUE_BUTTON);
+        page.fill(SelectorsSpacelogik.PROGRAM_AUTO_NAME_INPUT, generate.generateCompanyName());
+        page.click(SelectorsSpacelogik.PROGRAM_AUTO_INDUSTRY_SELECT);
+        page.click(SelectorsSpacelogik.PROGRAM_AUTO_INDUSTRY_OPTION);
+        page.click(SelectorsSpacelogik.PROGRAM_AUTO_ROOM_ADD_BUTTON);
+        page.fill(SelectorsSpacelogik.PROGRAM_AUTO_ROOM_NAME_INPUT, generate.buildingName());
+        page.click(SelectorsSpacelogik.PROGRAM_AUTO_ROOM_SIZE_SELECT);
+        page.click(SelectorsSpacelogik.PROGRAM_AUTO_ROOM_SIZE_OPTION);
+        page.fill(SelectorsSpacelogik.PROGRAM_AUTO_ROOM_QUANTITY_INPUT, generate.generateNumber());
+        page.click(SelectorsSpacelogik.PROGRAM_AUTO_ROOM_SAVE_BUTTON);
+        page.click(SelectorsSpacelogik.PROGRAM_AUTO_CREATE_BUTTON);
+    }
+    public void executeSweetTestAutoOfficeProgram(Map<String, String> row){
         String valorPICTpri = row.get(VariablesSpacelogik.HEADER_PRIMARY_PREFERENCE);
         String valorPICTsecond = row.get(VariablesSpacelogik.HEADER_SECONDARY_PREFERENCE);
         page.click(SelectorsSpacelogik.PROGRAM_AUTOOFFICE_OPTION);
         page.click(SelectorsSpacelogik.PROGRAM_MODALTYPE_CONTINUE_BUTTON);
-        page.fill(SelectorsSpacelogik.PROGRAM_AUTO_NAME_INPUT, dataTestCase.selectCase(row.get("Program name")));
+        page.fill(SelectorsSpacelogik.PROGRAM_AUTO_NAME_INPUT, dataTestCase.selectCase(row.get(HEADER_PROGRAM_NAME)));
         page.click(SelectorsSpacelogik.PROGRAM_AUTO_INDUSTRY_SELECT);
         page.waitForTimeout(1000);
-        page.click(generate.generateIndustryOption("Industry", row, dataTestCase.getIndustryMap()));
+        page.click(generate.generateDataTestCase(VariablesSpacelogik.HEADER_INDUSTRY, row, dataTestCase.getIndustryMap()));
         setConstructionLevel(row);
         setFurnitureLevel(row);
-        page.click(generate.generateWidthPrimaryPreference(VariablesSpacelogik.HEADER_PRIMARY_PREFERENCE, row, dataTestCase.getWidthPrimaryPreference()));
-        page.click(generate.generateWidthSecondaryPreference("predeterminatesecondarypreference", row, dataTestCase.getWidthSecondaryPreference()));
-        if ("1-49".equals(valorPICTpri)||"50-100".equals(valorPICTpri)){
+        page.click(generate.generateDataTestCase(VariablesSpacelogik.HEADER_PRIMARY_PREFERENCE, row, dataTestCase.getWidthPrimaryPreference()));
+        page.click(generate.generateDataTestCase(VariablesSpacelogik.HEADER_SECONDARY_PREFERENCE, row, dataTestCase.getWidthSecondaryPreference()));
+        if ("1_49".equals(valorPICTpri)||"50_100".equals(valorPICTpri)){
             page.fill(SelectorsSpacelogik.PROGRAM_AUTO_WIDTHPRIMARYPREFERENCE_INPUT,generate.generateNumberbetweenOne_oneHundred(VariablesSpacelogik.HEADER_PRIMARY_PREFERENCE, row));
         }
-        if ("1-49".equals(valorPICTsecond)||"50-100".equals(valorPICTsecond)){
-            page.fill(SelectorsSpacelogik.PROGRAM_AUTO_WIDTHSECONPREFERENCE_INPUT, generate.generateNumberbetweenOne_oneHundred("predeterminatesecondarypreference", row));
+        if ("1_49".equals(valorPICTsecond)||"50_100".equals(valorPICTsecond)){
+            page.fill(SelectorsSpacelogik.PROGRAM_AUTO_WIDTHSECONPREFERENCE_INPUT, generate.generateNumberbetweenOne_oneHundred(VariablesSpacelogik.HEADER_SECONDARY_PREFERENCE, row));
         }
         page.click(SelectorsSpacelogik.PROGRAM_AUTO_ROOM_ADD_BUTTON);
-        page.fill(SelectorsSpacelogik.PROGRAM_AUTO_ROOM_NAME_INPUT, dataTestCase.selectCase(row.get("Room name")));
-        page.click(generate.generateRoomTypePreference("Room type", row, dataTestCase.getRoomTypePreference()));
+        page.fill(SelectorsSpacelogik.PROGRAM_AUTO_ROOM_NAME_INPUT, dataTestCase.selectCase(row.get(HEADER_ROOM_NAME)));
+        page.click(generate.generateDataTestCase(VariablesSpacelogik.HEADER_ROOM_TYPE, row, dataTestCase.getRoomTypePreference()));
         page.click(SelectorsSpacelogik.PROGRAM_AUTO_ROOM_SIZE_SELECT);
-        page.locator(SelectorsSpacelogik.PROGRAM_AUTO_ROOM_SIZE_OPTION).filter(new Locator.FilterOptions().setHasText(row.get("Room size").replace("s", "").replace("x", "*"))).first().click(new Locator.ClickOptions().setForce(true));
-        page.click(generate.generateLightPreference("NaturalLightPreference", row, dataTestCase.getLightPreference()));
-        page.fill(SelectorsSpacelogik.PROGRAM_AUTO_ROOM_QUANTITY_INPUT, generate.generateNumberbetweenOne_oneHundred("Quantity", row));
+            page.locator(SelectorsSpacelogik.PROGRAM_AUTO_ROOM_SIZE_LIST).filter(new Locator.FilterOptions().setHasText(row.get(VariablesSpacelogik.HEADER_ROOM_SIZE))).click(new Locator.ClickOptions().setForce(true));
+        page.click(generate.generateDataTestCase(VariablesSpacelogik.HEADER_NATURAL_LIGHT_PREFERENCE, row, dataTestCase.getLightPreference()));
+        page.fill(SelectorsSpacelogik.PROGRAM_AUTO_ROOM_QUANTITY_INPUT, generate.generateNumberbetweenOne_oneHundred(VariablesSpacelogik.HEADER_QUANTITY, row));
         page.click(SelectorsSpacelogik.PROGRAM_AUTO_ROOM_SAVE_BUTTON);
         page.click(SelectorsSpacelogik.PROGRAM_AUTO_CREATE_BUTTON);
+
     }
     //BUILDINGS
     public void verifyBuildingComponents(){

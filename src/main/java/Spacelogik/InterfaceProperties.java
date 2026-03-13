@@ -11,7 +11,7 @@ public class InterfaceProperties extends InterfaceElements{
         @Override
         public void start(Stage stage){
             setupUIElements();
-            tabPane.getTabs().addAll(tbHappyPath, tbRecompanie, tbNationalAccount, tbSearch);
+            tabPane.getTabs().addAll(tbHappyPath, tbRecompanie, tbNationalAccount, tbSearch, tbSweetCase);
             splitPane.getItems().addAll(gridHeader, tabPane, scrollPane);
             splitMain.getItems().addAll(gridCola, splitPane);
             Scene scene = new Scene (splitMain,550, 670);
@@ -32,6 +32,8 @@ public class InterfaceProperties extends InterfaceElements{
             gridValidationsNationalAccount.setVgap(10);
             gridValidationsSearch.setHgap(3);
             gridValidationsSearch.setVgap(10);
+            gridSweetCase.setHgap(3);
+            gridSweetCase.setVgap(10);
             splitPane.setOrientation(Orientation.VERTICAL);
             gridHeader.setPrefHeight(300);
             tabPane.setPrefHeight(200);
@@ -46,6 +48,7 @@ public class InterfaceProperties extends InterfaceElements{
             addElementsGridReCompanieValidations();
             addElementsGridNationalAccountValidations();
             addElementsGridSearchValidations();
+            addElementsGridSweetCase();
             addGridToTabs();
             setColors();
             setHover();
@@ -57,6 +60,7 @@ public class InterfaceProperties extends InterfaceElements{
             tbRecompanie.setContent(gridValidationsReCompanie);
             tbNationalAccount.setContent(gridValidationsNationalAccount);
             tbSearch.setContent(gridValidationsSearch);
+            tbSweetCase.setContent(gridSweetCase);
         }
         private void setupGridConstraints(){
             //HEADER BUTTONS
@@ -86,6 +90,8 @@ public class InterfaceProperties extends InterfaceElements{
             //TEST CASE SEARCH VALIDATIONS
             GridPane.setConstraints(searchAssertion,2,3);
 
+            //SWEET CASES
+            GridPane.setConstraints(sweetCaseNewAutoProgram, 2, 3);;
 
             //ENVIRONMENTS OPTIONS
             comboBox.getItems().add("Local");
@@ -120,6 +126,9 @@ public class InterfaceProperties extends InterfaceElements{
         private void addElementsGridSearchValidations() {
             gridValidationsSearch.getChildren().add(searchAssertion);
         }
+        private void addElementsGridSweetCase() {
+            gridSweetCase.getChildren().add(sweetCaseNewAutoProgram);
+        }
         private void setColors(){
             //HEADER
             setButtonStyle(execute);
@@ -141,6 +150,9 @@ public class InterfaceProperties extends InterfaceElements{
             setButtonStyle(reCompanieAssertFormMessageEmptyInputs);
             setButtonStyle(nationalAccountAssertFormMessageEmptyInputs);
             setButtonStyle(searchAssertion);
+
+            //SWEET CASES
+            setButtonStyle(sweetCaseNewAutoProgram);
         }
         private void setButtonStyle(Button button) {
             button.setStyle("-fx-background-color: #fb9957;");
@@ -166,6 +178,9 @@ public class InterfaceProperties extends InterfaceElements{
             setupHoverEffect(reCompanieAssertFormMessageEmptyInputs);
             setupHoverEffect(nationalAccountAssertFormMessageEmptyInputs);
             setupHoverEffect(searchAssertion);
+
+            //SWEET CASES
+            setupHoverEffect(sweetCaseNewAutoProgram);
         }
         private void setupHoverEffect(Button button) {
             button.setOnMouseEntered(e -> button.setStyle("-fx-background-color: #d89743; -fx-text-fill: white;"));

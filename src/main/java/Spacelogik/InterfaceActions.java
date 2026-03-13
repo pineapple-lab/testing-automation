@@ -23,7 +23,10 @@ public class InterfaceActions extends InterfaceProperties {
             //TEST CASE ERROR MESSAGE VALIDATION
             RECOMPANIE_VALIDATION_EMPTYMESSAGE,
             NATIONALACCOUNT_VALIDATION_EMPTYMESSAGE,
-            SEARCH_VALIDATION
+            SEARCH_VALIDATION,
+
+            //SWEET TEST CASE
+            EXECUTE_SWEET_NEW_PROGRAMS
         }
         public void actionEliminarDeLaCola() {
             List<CheckBox> checkBoxesSeleccionados = new ArrayList<>();
@@ -57,9 +60,12 @@ public class InterfaceActions extends InterfaceProperties {
         public void actionHpCreateLocation(){executeService(new FunctionLocations(), FunctionLocations::serviceNewLocation);}
         public void actionHpCreateProgram() { executeService(new FunctionPrograms(), FunctionPrograms::serviceNewProgram); }
         public void actionSearchValidation() { executeService(new FunctionSearch(), FunctionSearch::serviceBuildingsInfoValidations); }
-    //RECOMPANIE TEST CASE VALIDATION ERROR MESSAGE
+        //RECOMPANIE TEST CASE VALIDATION ERROR MESSAGE
         public void actionAssertReCompanieFormEmptyInputs() {executeService(new FunctionReCompanie(), FunctionReCompanie::serviceAssertReCompanieFormMessageEmptyInputs);}
         public void actionAssertNationalAccountFormEmptyInputs() {executeService(new FunctionNationalAccount(), FunctionNationalAccount::serviceAssertNationalAccountFormMessageEmptyInputs);}
+        //SWEET TEST CASE
+        public void actionExecuteSweetCaseNewProgram() { executeService(new FunctionPrograms(), FunctionPrograms::serviceProgramSweetExecute); }
+
         private <T> void executeService(T serviceInstance, Spacelogik.InterfaceActions.CheckedConsumer<T> action) {
         try {
             action.accept(serviceInstance);

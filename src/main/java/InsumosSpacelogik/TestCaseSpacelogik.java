@@ -219,6 +219,32 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
         }
     }
     public void happyPathAutoofficeProgramCreate(){
+        methods.setGuruUser();
+        methods.startBackendMOnitoring(page);
+        methods.login(userEmail, userPassword);
+        page.waitForSelector(SelectorsSpacelogik.CLIENT_CARD);
+        page.waitForTimeout(3000);
+        methods.goToProgramView();
+        System.out.println("Se van a crear "+generate.generateExecutions()+" programs\n");
+        try{
+            for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
+                System.out.println("\n----------------------------------------------------");
+                page.click(SelectorsSpacelogik.MENU_SPACE);
+                page.click(SelectorsSpacelogik.PROGRAM_MENU_BUTTON);
+                methods.goToNewProgramForm();
+                methods.createAutoOfficeProgram();
+                methods.verifyToast(toast.PROGRAM_SUCESS);
+                System.out.println("\nse compeletaron "+executeCounter+" ejecuciones");
+                System.out.println("----------------------------------------------------\n");
+                page.waitForTimeout(3000);
+            }
+            methods.printErrores();
+            methods.reset();
+        }finally{
+            cleanupContext();
+        }
+    }
+    public void executeSweetCaseNewAutoofficeProgram(){
         String urlMiTabla = "https://docs.google.com/spreadsheets/d/1Goc7muuoXZ3FEzFpZ4ol7aSASlZum7ubgEmmLSZbuUc/export?format=csv";
         List<Map<String, String>> testCaseList = methods.getTestCase(urlMiTabla);
         methods.setGuruUser();
@@ -237,7 +263,7 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
                 page.click(SelectorsSpacelogik.MENU_SPACE);
                 page.click(SelectorsSpacelogik.PROGRAM_MENU_BUTTON);
                 methods.goToNewProgramForm();
-                methods.createAutoOfficeProgram(currentRow);
+                methods.executeSweetTestAutoOfficeProgram(currentRow);
                 methods.verifyToast(toast.PROGRAM_SUCESS);
                 System.out.println("\nse compeletaron "+executeCounter+" ejecuciones");
                 System.out.println("----------------------------------------------------\n");

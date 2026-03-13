@@ -79,9 +79,7 @@ public class DataTestCaseSpacelogik {
     public Map<String, Integer> getIndustryMap() {return industryMap;}
     public Map<String, Integer> getLevelConstruction() {return levelConstruction;}
     public Map<String, Integer> getLevelFurniture() {return levelFurniture;}
-    public Map<String, Integer> getWidthPrimaryPreference() {
-        return widthPrimaryPreference;
-    }
+    public Map<String, Integer> getWidthPrimaryPreference() {return widthPrimaryPreference;}
     public Map<String, Integer> getWidthSecondaryPreference() {return widthSecondaryPreference;}
     public Map<String, Integer> getRoomTypePreference() {return roomType;}
     public Map<String, Integer> getLightPreference() {return lightPreference;}

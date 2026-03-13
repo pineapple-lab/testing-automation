@@ -18,6 +18,7 @@ public abstract class InterfaceElements extends Application {
     GridPane gridValidationsReCompanie = new GridPane();
     GridPane gridValidationsNationalAccount = new GridPane();
     GridPane gridValidationsSearch = new GridPane();
+    GridPane gridSweetCase = new GridPane();
     GridPane gridHeader = new GridPane();
     GridPane gridCola = new GridPane();
 
@@ -32,6 +33,7 @@ public abstract class InterfaceElements extends Application {
     Tab tbRecompanie = new Tab ("Re companie");
     Tab tbNationalAccount = new Tab ("National account");
     Tab tbSearch = new Tab("Search");
+    Tab tbSweetCase = new Tab("Sweet case");
     SplitPane splitPane = new SplitPane();
 
     //HEADER
@@ -59,6 +61,9 @@ public abstract class InterfaceElements extends Application {
     Button reCompanieAssertFormMessageEmptyInputs = new Button("Test form empty inputs");
     Button nationalAccountAssertFormMessageEmptyInputs = new Button("Test form empty inputs");
     Button searchAssertion = new Button("Test search");
+
+    //SWEET TEST CASE
+    Button sweetCaseNewAutoProgram = new Button("New program");
 
     public abstract void start(Stage stage);
 }

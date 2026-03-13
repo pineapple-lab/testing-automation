@@ -234,7 +234,8 @@ public class SelectorsSpacelogik extends VariablesSpacelogik {
         return ".create-plan-information-add-room-main-container > div:nth-of-type(3) > .MuiToggleButtonGroup-root > div > button:nth-of-type("+preferencePosition+")";
     }
     public static final String PROGRAM_AUTO_ROOM_SIZE_SELECT = ".create-plan-information-add-room-main-container > div:nth-of-type(4) .MuiInputBase-root";
-    public static final String PROGRAM_AUTO_ROOM_SIZE_OPTION = ".MuiPaper-root > ul > li";
+    public static final String PROGRAM_AUTO_ROOM_SIZE_OPTION = ".MuiPaper-root > ul > li:nth-of-type(2)";
+    public static final String PROGRAM_AUTO_ROOM_SIZE_LIST = ".MuiPaper-root > ul > li";
     public String programLightPreference(int preferencePosition){
         return ".create-plan-information-add-room-main-container > div:nth-of-type(5) .MuiToggleButtonGroup-root > div > button:nth-of-type("+preferencePosition+")";
     }

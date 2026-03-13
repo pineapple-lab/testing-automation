@@ -4,6 +4,7 @@ import Configurations.*;
 import InsumosSpacelogik.PathUtilsSpacelogik;
 
 import com.microsoft.playwright.ElementHandle;
+import org.jetbrains.kotlin.serialization.js.ast.JsAstProtoBuf;
 
 import java.nio.file.Paths;
 import java.time.Instant;
@@ -114,76 +115,32 @@ public class GeneratorSpaceLogik extends ContextBaseSpacelogik{
         String [] adressList = Adress.addresses;
         return getRandomString(adressList);
     }
-    public String generateIndustryOption(String columna, Map<String, String> row, Map<String, Integer> positionsMap) {
+    public String generateDataTestCase(String columna, Map<String, String> row, Map<String, Integer> positionsMap) {
         String valorPICT = row.get(columna);
         if (valorPICT != null && !valorPICT.equalsIgnoreCase("N/A")) {
             Integer posicion = positionsMap.get(valorPICT);
             if (posicion != null) {
-                return selector.IndustryOption(posicion);
-            }
-        }
-        return "";
-    }
-    public String generateWidthPrimaryPreference(String columna, Map<String, String> row, Map<String, Integer> positionsMap) {
-        String valorPICT = row.get(columna);
-        if (valorPICT != null && !valorPICT.equalsIgnoreCase("N/A")) {
-            Integer posicion = positionsMap.get(valorPICT);
-            if (posicion != null) {
-                int rowPosition = 2;
-                return selector.widthPreference(rowPosition, posicion);
-            }
-        }
-        return "";
-    }
-    public String generateRoomTypePreference(String columna, Map<String, String> row, Map<String, Integer> positionsMap) {
-        String valorPICT = row.get(columna);
-        if (valorPICT != null && !valorPICT.equalsIgnoreCase("N/A")) {
-            Integer posicion = positionsMap.get(valorPICT);
-            if (posicion != null) {
-                return selector.programAutoRoomType(posicion);
-            }
-        }
-        return "";
-    }
-    public String generateLightPreference(String columna, Map<String, String> row, Map<String, Integer> positionsMap) {
-        String valorPICT = row.get(columna);
-        if (valorPICT != null && !valorPICT.equalsIgnoreCase("N/A")) {
-            Integer posicion = positionsMap.get(valorPICT);
-            if (posicion != null) {
-                return selector.programLightPreference(posicion);
-            }
-        }
-        return "";
-    }
-    public String generateWidthSecondaryPreference(String columna, Map<String, String> row, Map<String, Integer> positionsMap) {
-        String valorPICT = row.get(columna);
-        if (valorPICT != null && !valorPICT.equalsIgnoreCase("N/A")) {
-            Integer posicion = positionsMap.get(valorPICT);
-            if (posicion != null) {
-                int rowPosition = 3;
-                return selector.widthPreference(rowPosition, posicion);
-            }
-        }
-        return "";
-    }
-    public String generateConstructionLevel(String columna, Map<String, String> row, Map<String, Integer> positionsMap) {
-        String valorPICT = row.get(columna);
-        if (valorPICT != null && !valorPICT.equalsIgnoreCase("N/A")) {
-            Integer posicion = positionsMap.get(valorPICT);
-            if (posicion != null) {
-                int rowPosition = 2;
-                return selector.programLevelOption(rowPosition, posicion);
-            }
-        }
-        return "";
-    }
-    public String generateFurnitureLevel(String columna, Map<String, String> row, Map<String, Integer> positionsMap) {
-        String valorPICT = row.get(columna);
-        if (valorPICT != null && !valorPICT.equalsIgnoreCase("N/A")) {
-            Integer posicion = positionsMap.get(valorPICT);
-            if (posicion != null) {
-                int rowPosition = 3;
-                return selector.programLevelOption(rowPosition, posicion);
+                int rowPosition;
+                switch (columna){
+                    case "Industry":
+                        return selector.IndustryOption(posicion);
+                    case "Construction":
+                        rowPosition = 2;
+                        return selector.programLevelOption(rowPosition, posicion);
+                    case "Furniture":
+                        rowPosition = 3;
+                        return selector.programLevelOption(rowPosition, posicion);
+                    case "PrimaryPref":
+                        rowPosition = 2;
+                        return selector.widthPreference(rowPosition, posicion);
+                    case "SecondaryPref":
+                        rowPosition = 3;
+                        return selector.widthPreference(rowPosition, posicion);
+                    case "RoomType":
+                        return selector.programAutoRoomType(posicion);
+                    case "LightPref":
+                        return selector.programLightPreference(posicion);
+                }
             }
         }
         return "";

@@ -92,6 +92,7 @@ public class InterfaceProperties extends InterfaceElements{
 
             //SWEET CASES
             GridPane.setConstraints(sweetCaseNewAutoProgram, 2, 3);;
+            GridPane.setConstraints(sweetCaseNewReCompanie, 2, 4);;
 
             //ENVIRONMENTS OPTIONS
             comboBox.getItems().add("Local");
@@ -128,6 +129,7 @@ public class InterfaceProperties extends InterfaceElements{
         }
         private void addElementsGridSweetCase() {
             gridSweetCase.getChildren().add(sweetCaseNewAutoProgram);
+            gridSweetCase.getChildren().add(sweetCaseNewReCompanie);
         }
         private void setColors(){
             //HEADER
@@ -153,6 +155,7 @@ public class InterfaceProperties extends InterfaceElements{
 
             //SWEET CASES
             setButtonStyle(sweetCaseNewAutoProgram);
+            setButtonStyle(sweetCaseNewReCompanie);
         }
         private void setButtonStyle(Button button) {
             button.setStyle("-fx-background-color: #fb9957;");
@@ -181,6 +184,7 @@ public class InterfaceProperties extends InterfaceElements{
 
             //SWEET CASES
             setupHoverEffect(sweetCaseNewAutoProgram);
+            setupHoverEffect(sweetCaseNewReCompanie);
         }
         private void setupHoverEffect(Button button) {
             button.setOnMouseEntered(e -> button.setStyle("-fx-background-color: #d89743; -fx-text-fill: white;"));

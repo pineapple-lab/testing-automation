@@ -35,5 +35,13 @@ public class VariablesSpacelogik extends PathUtilsSpacelogik {
     public static final String HEADER_ROOM_SIZE = "RoomSize";
     public static final String HEADER_NATURAL_LIGHT_PREFERENCE = "LightPref";
     public static final String HEADER_QUANTITY = "Quantity";
+    public static final String HEADER_COMPANYNAME = "CompanyName";
+    public static final String HEADER_EMAIL = "Email";
+    public static final String HEADER_SALUTATION = "Salutation";
+    public static final String HEADER_TITLE = "Title";
+    public static final String HEADER_NAME = "Name";
+    public static final String HEADER_LASTNAME = "LastName";
+    public static final String HEADER_MOBILE = "Mobile";
+    public static final String HEADER_PHONE = "Phone";
 
 }

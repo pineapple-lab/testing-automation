@@ -58,7 +58,7 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
         methods.goToRecompanieForm();
         try{
         for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
-            methods.createRecCompanie();
+            methods.createReCompanie();
             methods.verifyToast(toast.RECOMPANIE_SUCCESS);
             System.out.println("\nse compeletaron "+executeCounter+" ejecuciones");
             System.out.println("----------------------------------------------------\n");
@@ -66,6 +66,33 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
             methods.printErrores();
             methods.reset();
     }finally{
+            cleanupContext();
+        }
+    }
+    public void executeSweetCaseNewReCompanie(){
+        String urlMiTabla = "https://docs.google.com/spreadsheets/d/1EpqGvtV-eLPT7KCD2alu3MZWH0k-iMl3BnAD_zZCJS0/export?format=csv";
+        List<Map<String, String>> testCaseList = methods.getTestCase(urlMiTabla);
+        methods.setAdminUser();
+        methods.startBackendMOnitoring(page);
+        System.out.println("Se van a crear "+generate.generateExecutions()+" ReCompanie\n");
+        methods.login(VariablesSpacelogik.userEmail, VariablesSpacelogik.userPassword);
+        methods.goToReCompaniePage();
+        methods.goToRecompanieForm();
+        try{
+            for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
+                Map<String, String> currentRow = testCaseList.get((executeCounter-1) % testCaseList.size());
+                methods.reportCaseNumberToBeTested(executeCounter);
+                if(executeCounter>1){
+                    methods.goToRecompanieForm();
+                }
+                methods.executeSweetTestNewReCompanie(currentRow);
+                methods.verifyToast(toast.RECOMPANIE_SUCCESS);
+                System.out.println("\nse compeletaron "+executeCounter+" ejecuciones");
+                System.out.println("----------------------------------------------------\n");
+            }
+            methods.printErrores();
+            methods.reset();
+        }finally{
             cleanupContext();
         }
     }
@@ -257,17 +284,14 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
         try{
             for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
                 Map<String, String> currentRow = testCaseList.get((executeCounter-1) % testCaseList.size());
-                int testCaseId = executeCounter+1;
-                System.out.println("\n----------------------------------------------------");
-                System.out.println("📊 TESTEANDO CASO DE PRUEBA: " + testCaseId);
-                page.click(SelectorsSpacelogik.MENU_SPACE);
+                methods.reportCaseNumberToBeTested(executeCounter);
                 page.click(SelectorsSpacelogik.PROGRAM_MENU_BUTTON);
                 methods.goToNewProgramForm();
                 methods.executeSweetTestAutoOfficeProgram(currentRow);
                 methods.verifyToast(toast.PROGRAM_SUCESS);
                 System.out.println("\nse compeletaron "+executeCounter+" ejecuciones");
                 System.out.println("----------------------------------------------------\n");
-                page.waitForTimeout(3000);
+                page.waitForTimeout(2000);
             }
             methods.printErrores();
             methods.reset();

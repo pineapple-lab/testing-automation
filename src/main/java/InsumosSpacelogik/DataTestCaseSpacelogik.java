@@ -23,6 +23,13 @@ public class DataTestCaseSpacelogik {
             default -> "";
         };
     }
+    private final Map<String, Integer> salutationMap = Map.of(
+            "Mr", 2,
+            "Mrs", 3,
+            "Ms", 4,
+            "Miss", 5,
+            "Dr", 6
+    );
     private final Map<String, Integer> industryMap = Map.of(
             "Accounting", 2,
             "Accounting_clone", 3,
@@ -83,7 +90,7 @@ public class DataTestCaseSpacelogik {
     public Map<String, Integer> getWidthSecondaryPreference() {return widthSecondaryPreference;}
     public Map<String, Integer> getRoomTypePreference() {return roomType;}
     public Map<String, Integer> getLightPreference() {return lightPreference;}
-    public Map<String, Integer> getQuantityPreference() {return quantity;}
+    public Map<String, Integer> getSalutationPreference() {return salutationMap;}
     public int getIndustryPosition(String valorExcel) {
         return industryMap.getOrDefault(valorExcel, 1);
     }

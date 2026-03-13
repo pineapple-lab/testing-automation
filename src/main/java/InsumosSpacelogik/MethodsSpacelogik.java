@@ -131,10 +131,32 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         page.fill(SelectorsSpacelogik.RECOMPANIE_CONTACTPHONE_INPUT,generate.generatePhone());
         page.click(SelectorsSpacelogik.RECOMPANIE_SAVE_BUTTON);
     }
-    public void createRecCompanie(){
+    public void createReCompanie(){
         completeReCompanieStep1();
         completeReCompanieStep2();
         completeReCompanieStep3();
+    }
+    public void executeSweetTestNewReCompanie(Map<String, String> row){
+        userEmail = generate.firstName+generate.firstName+dataTestCase.selectCase(row.get(HEADER_EMAIL))+"@"+emailDomain+".com";
+        page.fill(SelectorsSpacelogik.RECOMPANIE_COMPANYNAME_INPUT, dataTestCase.selectCase(row.get(HEADER_COMPANYNAME)));
+        page.waitForTimeout(1000);
+        page.locator(SelectorsSpacelogik.RECOMPANIE_COMPANYADRESS_INPUT).type("Dallas North Tollway, Dallas, Texas, EE. UU.", new Locator.TypeOptions().setDelay(10));
+        page.click(SelectorsSpacelogik.RECOMPANIE_COMPANYADRESS_OPTIONS);
+        page.waitForTimeout(1000);
+        page.click(SelectorsSpacelogik.RECOMPANIE_CONTINUEBUTTON_STEP1);
+        page.fill(SelectorsSpacelogik.RECOMPANIE_EMAIL_INPUT, userEmail);
+        page.fill(SelectorsSpacelogik.RECOMPANIE_PASSWORD_INPUT,"Pickle30");
+        page.fill(SelectorsSpacelogik.RECOMPANIE_PASSWORDCONFIRM_INPUT, "Pickle30");
+        page.click(SelectorsSpacelogik.RECOMPANIE_CONTINUEBUTTON_STEP2);
+        System.out.println("Se creo el usuario: "+userEmail);
+        page.click(SelectorsSpacelogik.RECOMPANIE_CONTACTSALUTATION_SELECTOR);
+        page.click(generate.generateDataTestCase(VariablesSpacelogik.HEADER_SALUTATION, row, dataTestCase.getSalutationPreference()));
+        page.fill(SelectorsSpacelogik.RECOMPANIE_CONTACTITLE_INPUT, dataTestCase.selectCase(row.get(HEADER_TITLE)));
+        page.fill(SelectorsSpacelogik.RECOMPANIE_CONTACTNAME_INPUT, dataTestCase.selectCase(row.get(HEADER_NAME)));
+        page.fill(SelectorsSpacelogik.RECOMPANIE_CONTACTLASTNAME_INPUT, dataTestCase.selectCase(row.get(HEADER_LASTNAME)));
+        page.fill(SelectorsSpacelogik.RECOMPANIE_CONTACTMOBILE_INPUT,generate.generateMobile());
+        page.fill(SelectorsSpacelogik.RECOMPANIE_CONTACTPHONE_INPUT,generate.generatePhone());
+        page.click(SelectorsSpacelogik.RECOMPANIE_SAVE_BUTTON);
     }
     //OFFICE
     public void goToNewOfficesForm(){
@@ -240,7 +262,6 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         page.click(SelectorsSpacelogik.PEOPLE_FORM_CONTINUEANDSAVE_BUTTON);
         sql.saveUser(guruEmail,reCompanie,navigationLink);
     }
-
     //LOCATION
     public void goToNewLocationFromNewClientForm(){
         page.click(SelectorsSpacelogik.CLIENT_LOCATION_NEW_BUTTON);
@@ -412,6 +433,10 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
      verifyComponentsList(SelectorsSpacelogik.WAIT_BUILDING_MEDIA_LIST, "Archivos multimedia encontrados ");
     }
     //UTIL
+    public void reportCaseNumberToBeTested(int testCaseId){
+        System.out.println("\n----------------------------------------------------");
+        System.out.println("📊 TESTEANDO CASO DE PRUEBA: " + testCaseId);
+    }
     public void startBackendMOnitoring(Page page){
         page.onResponse(response -> {
             String url = response.url();

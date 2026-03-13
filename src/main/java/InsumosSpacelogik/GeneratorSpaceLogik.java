@@ -140,6 +140,8 @@ public class GeneratorSpaceLogik extends ContextBaseSpacelogik{
                         return selector.programAutoRoomType(posicion);
                     case "LightPref":
                         return selector.programLightPreference(posicion);
+                    case "Salutation":
+                        return selector.SalutationOption(posicion);
                 }
             }
         }

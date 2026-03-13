@@ -18,4 +18,10 @@ public class FunctionReCompanie extends TestCaseSpacelogik {
         assertReCompanieFormEmptyInputs();
         teardownPlaywright();
     }
+    @Test
+    public void serviceReCompanieSweetExecute(){
+        methods.startContextAndNavigation();
+        executeSweetCaseNewReCompanie();
+        teardownPlaywright();
+    }
 }

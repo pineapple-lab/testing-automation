@@ -253,7 +253,6 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         page.click(SelectorsSpacelogik.PEOPLE_FORM_SKILL_OPTION);
         kb.press("Escape");
         page.fill(SelectorsSpacelogik.PEOPLE_FORM_DESCRIPTION_INPUT, generate.generateProfileDescription());
-
     }
     public void createNewGuru(String reCompanie){
         completeNewGuruStep1();
@@ -261,6 +260,31 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         page.waitForTimeout(2000);
         page.click(SelectorsSpacelogik.PEOPLE_FORM_CONTINUEANDSAVE_BUTTON);
         sql.saveUser(guruEmail,reCompanie,navigationLink);
+    }
+    public void executeSweetTestNewGuru(Map<String, String> row){
+        String valorPICT = row.get(VariablesSpacelogik.HEADER_SKILL);
+        guruEmail = dataTestCase.selectCase(row.get(HEADER_EMAIL))+"@"+emailDomain+".com";
+        page.click(SelectorsSpacelogik.PEOPLE_FORM_SALUTATION_SELECT);
+        page.click(generate.generateDataTestCase(VariablesSpacelogik.HEADER_SALUTATION, row, dataTestCase.getSalutationPreference()));
+        page.fill(SelectorsSpacelogik.PEOPLE_FORM_TITLE_INPUT, generate.generateProfesionalTitle());
+        page.fill(SelectorsSpacelogik.PEOPLE_FORM_NAME_INPUT, dataTestCase.selectCase(row.get(HEADER_NAME)));
+        page.fill(SelectorsSpacelogik.PEOPLE_FORM_LNAME_INPUT, dataTestCase.selectCase(row.get(HEADER_LASTNAME)));
+        page.fill(SelectorsSpacelogik.PEOPLE_FORM_EMAIL_INPUT, guruEmail);
+        System.out.println("Se va a crear el siguiente usuario: "+guruEmail);
+        page.fill(SelectorsSpacelogik.PEOPLE_FORM_MOBILE_INPUT, generate.generateMobile());
+        page.fill(SelectorsSpacelogik.PEOPLE_FORM_PHONE_INPUT, generate.generatePhone());
+        page.click(SelectorsSpacelogik.PEOPLE_FORM_CONTINUEANDSAVE_BUTTON);
+        Keyboard kb = page.keyboard();
+        page.click(SelectorsSpacelogik.PEOPLE_FORM_OFFICE_SELECT);
+        page.click(selector.oficeOption(generate.generateOffice()));
+        page.click(SelectorsSpacelogik.PEOPLE_FORM_SKILL_SELECT);
+        page.click(generate.generateDataTestCase(VariablesSpacelogik.HEADER_SKILL, row, dataTestCase.getSkillPreference()));
+        kb.press("Escape");
+        if (!"Assistant".equals(valorPICT)){
+            page.fill(SelectorsSpacelogik.PEOPLE_FORM_DESCRIPTION_INPUT, dataTestCase.selectCase(row.get(HEADER_DESCRIPTION)));
+        }
+        page.waitForTimeout(2000);
+        page.click(SelectorsSpacelogik.PEOPLE_FORM_CONTINUEANDSAVE_BUTTON);
     }
     //LOCATION
     public void goToNewLocationFromNewClientForm(){

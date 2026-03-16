@@ -200,6 +200,33 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
             cleanupContext();
         }
     }
+    public void executeSweetCaseNewGuru(){
+        String urlMiTabla = "https://docs.google.com/spreadsheets/d/1h0V2UwPbTL-hs2lDya3cskx4BwJjx7IZfDq-muQLbe0/export?format=csv";
+        List<Map<String, String>> testCaseList = methods.getTestCase(urlMiTabla);
+        methods.setReCompanieUser();
+        methods.startBackendMOnitoring(page);
+        System.out.println("Se van a crear "+generate.generateExecutions()+" Guru\n");
+        System.out.println(reCompanieEmail);
+        methods.login(reCompanieEmail, userPassword);
+        try{
+            for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
+                Map<String, String> currentRow = testCaseList.get((executeCounter-1) % testCaseList.size());
+                methods.reportCaseNumberToBeTested(executeCounter);
+                methods.goToNewGuruForm();
+                methods.executeSweetTestNewGuru(currentRow);
+                methods.assertComponent(SelectorsSpacelogik.PEOPLE_FORM_POPUP_SUCCESSFULLY);
+                methods.verifyToast(toast.GURU_SUCCESS);
+                page.click(SelectorsSpacelogik.PEOPLE_FORM_POPUP_OK_BUTTON);
+                methods.assertComponent(SelectorsSpacelogik.WAIT_RECOMPANIE_TABLE_FIRSTROW);
+                System.out.println("\nse compeleto "+executeCounter+" ejecuciones");
+                System.out.println("----------------------------------------------------\n");
+            }
+            methods.printErrores();
+            methods.reset();
+        }finally{
+            cleanupContext();
+        }
+    }
     public void happyPathClientCreate(){
         methods.setGuruUser();
         methods.startBackendMOnitoring(page);

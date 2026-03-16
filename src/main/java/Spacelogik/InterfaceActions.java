@@ -27,7 +27,8 @@ public class InterfaceActions extends InterfaceProperties {
 
             //SWEET TEST CASE
             EXECUTE_SWEET_NEW_PROGRAMS,
-            EXECUTE_SWEET_NEW_RECOMPANIE
+            EXECUTE_SWEET_NEW_RECOMPANIE,
+            EXECUTE_SWEET_NEW_GURU
         }
         public void actionEliminarDeLaCola() {
             List<CheckBox> checkBoxesSeleccionados = new ArrayList<>();
@@ -44,17 +45,11 @@ public class InterfaceActions extends InterfaceProperties {
             }
         }
         //HAPPY PATH ACTIONS
-        public void actionHpLogin() {
-            executeService(new FunctionLoginSpacelogik(), FunctionLoginSpacelogik::serviceLogin);
-        }
+        public void actionHpLogin() {executeService(new FunctionLoginSpacelogik(), FunctionLoginSpacelogik::serviceLogin);}
         public void actionHpCreateReCompanie() {executeService(new FunctionReCompanie(), FunctionReCompanie::serviceNewReCompanieHappyPath);}
-        public void actionHpCreateOffice() {
-        executeService(new FunctionOffice(), FunctionOffice::serviceNewOffice);
-    }
+        public void actionHpCreateOffice() {executeService(new FunctionOffice(), FunctionOffice::serviceNewOffice);}
         public void actionHpCreateNationalAccount() {executeService(new FunctionNationalAccount(), FunctionNationalAccount::serviceNewNationalAccount);}
-        public void actionHpCreateClient() {
-        executeService(new FunctionClient(), FunctionClient::serviceNewClient);
-        }
+        public void actionHpCreateClient() {executeService(new FunctionClient(), FunctionClient::serviceNewClient);}
         public void actionHpCreateGuru() {executeService(new FunctionPeople(), FunctionPeople::serviceNewGuru);}
         public void actionHpCreateLocation(){executeService(new FunctionLocations(), FunctionLocations::serviceNewLocation);}
         public void actionHpCreateProgram() { executeService(new FunctionPrograms(), FunctionPrograms::serviceNewProgram); }
@@ -65,6 +60,7 @@ public class InterfaceActions extends InterfaceProperties {
         //SWEET TEST CASE
         public void actionExecuteSweetCaseNewProgram() { executeService(new FunctionPrograms(), FunctionPrograms::serviceProgramSweetExecute); }
         public void actionExecuteSweetCaseNewReCompanie() {executeService(new FunctionReCompanie(), FunctionReCompanie::serviceReCompanieSweetExecute);}
+        public void actionExecuteSweetCaseNewGuru() {executeService(new FunctionPeople(), FunctionPeople::serviceNewGuruSweetExecute);}
         private <T> void executeService(T serviceInstance, Spacelogik.InterfaceActions.CheckedConsumer<T> action) {
         try {
             action.accept(serviceInstance);

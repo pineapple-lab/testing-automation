@@ -120,6 +120,9 @@ public class SelectorsSpacelogik extends VariablesSpacelogik {
     }
     public static final String PEOPLE_FORM_SKILL_SELECT = ".offices-and-skill-children-container .MuiFormControl-root";
     public static final String PEOPLE_FORM_SKILL_OPTION = ".MuiPaper-root > ul > li:nth-of-type(1)";
+    public String peopleSkillPreference(int skillPosition){
+        return ".MuiPaper-root > ul > li:nth-of-type("+skillPosition+")";
+    }
     public static final String PEOPLE_FORM_DESCRIPTION_INPUT = ".generic-text-area";
     public static final String PEOPLE_FORM_PAYMENT_OPTION = ".payment-main-container > div > div:nth-of-type(1)";
     public static final String PEOPLE_FORM_POPUP_SUCCESSFULLY = ".modal > .generic-action-modal-body";

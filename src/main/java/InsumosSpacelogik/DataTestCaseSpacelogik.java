@@ -16,7 +16,7 @@ public class DataTestCaseSpacelogik {
             case "letras" -> gen.generateCompanyName() + gen.generateLocationName();
             case "numeros" -> gen.generateNumber();
             case "caracteres" -> gen.generateSpecialChars();
-            case "letrasynumeros" -> gen.generateCompanyName() + " " + gen.generateNumber();
+            case "letrasynumeros" -> gen.generateCompanyName() + gen.generateNumber();
             case "caracteresynumeros" -> gen.generateSpecialChars() + gen.generateNumber();
             case "caracteresyletras" -> gen.generateSpecialChars() + gen.generateCompanyName();
             case "caracteresletrasynumeros" -> gen.generateSpecialChars() + gen.generateNumber() + gen.generateCompanyName();
@@ -29,6 +29,12 @@ public class DataTestCaseSpacelogik {
             "Ms", 4,
             "Miss", 5,
             "Dr", 6
+    );
+    private final Map<String, Integer> skillMap = Map.of(
+            "TransactionGuru", 1,
+            "ConstructionGuru", 2,
+            "WorkplaceGuru", 3,
+            "Assistant", 4
     );
     private final Map<String, Integer> industryMap = Map.of(
             "Accounting", 2,
@@ -91,6 +97,7 @@ public class DataTestCaseSpacelogik {
     public Map<String, Integer> getRoomTypePreference() {return roomType;}
     public Map<String, Integer> getLightPreference() {return lightPreference;}
     public Map<String, Integer> getSalutationPreference() {return salutationMap;}
+    public Map<String, Integer> getSkillPreference() {return skillMap;}
     public int getIndustryPosition(String valorExcel) {
         return industryMap.getOrDefault(valorExcel, 1);
     }

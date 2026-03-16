@@ -12,4 +12,10 @@ public class FunctionPeople extends TestCaseSpacelogik {
         happyPathGuruCreate();
         teardownPlaywright();
     }
+    @Test
+    public void serviceNewGuruSweetExecute(){
+        methods.startContextAndNavigation();
+        executeSweetCaseNewGuru();
+        teardownPlaywright();
+    }
 }

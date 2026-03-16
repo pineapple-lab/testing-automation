@@ -142,6 +142,8 @@ public class GeneratorSpaceLogik extends ContextBaseSpacelogik{
                         return selector.programLightPreference(posicion);
                     case "Salutation":
                         return selector.SalutationOption(posicion);
+                    case "Skill":
+                        return selector.peopleSkillPreference(posicion);
                 }
             }
         }

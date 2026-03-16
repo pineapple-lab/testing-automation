@@ -21,7 +21,7 @@ public class VariablesSpacelogik extends PathUtilsSpacelogik {
     public static String userEmail;
     public static String userPassword;
     public String guruEmail;
-    public String reCompanieEmail;
+    public static String reCompanieEmail;
     public String emailDomain = "pineapple-lab";
     //HEADERS
     public static final String HEADER_PRIMARY_PREFERENCE = "PrimaryPref";
@@ -41,6 +41,8 @@ public class VariablesSpacelogik extends PathUtilsSpacelogik {
     public static final String HEADER_TITLE = "Title";
     public static final String HEADER_NAME = "Name";
     public static final String HEADER_LASTNAME = "LastName";
+    public static final String HEADER_DESCRIPTION = "Description";
+    public static final String HEADER_SKILL = "Skill";
     public static final String HEADER_MOBILE = "Mobile";
     public static final String HEADER_PHONE = "Phone";
 

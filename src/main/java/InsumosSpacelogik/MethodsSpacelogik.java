@@ -457,6 +457,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
      verifyComponentsList(SelectorsSpacelogik.WAIT_BUILDING_MEDIA_LIST, "Archivos multimedia encontrados ");
     }
     //UTIL
+
     public void reportCaseNumberToBeTested(int testCaseId){
         System.out.println("\n----------------------------------------------------");
         System.out.println("📊 TESTEANDO CASO DE PRUEBA: " + testCaseId);

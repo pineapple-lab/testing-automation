@@ -23,6 +23,7 @@ public class VariablesSpacelogik extends PathUtilsSpacelogik {
     public String guruEmail;
     public static String reCompanieEmail;
     public String emailDomain = "pineapple-lab";
+    public String testCaseInitials;
     //HEADERS
     public static final String HEADER_PRIMARY_PREFERENCE = "PrimaryPref";
     public static final String HEADER_SECONDARY_PREFERENCE = "SecondaryPref";

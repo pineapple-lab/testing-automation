@@ -40,7 +40,7 @@ public class GoogleSheetsService {
         BatchUpdateSpreadsheetRequest batchUpdate = new BatchUpdateSpreadsheetRequest().setRequests(Collections.singletonList(request));
         service.spreadsheets().batchUpdate(spreadsheetId, batchUpdate).execute();
         String date = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
-        ValueRange body = new ValueRange().setValues(Collections.singletonList(Collections.singletonList("Test: " + date)));
+        ValueRange body = new ValueRange().setValues(Collections.singletonList(Collections.singletonList(date)));
         service.spreadsheets().values().update(spreadsheetId, "A1", body).setValueInputOption("RAW").execute();
     }
 

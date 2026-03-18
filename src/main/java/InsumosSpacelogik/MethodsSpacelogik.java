@@ -137,7 +137,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         completeReCompanieStep3();
     }
     public void executeSweetTestNewReCompanie(Map<String, String> row){
-        userEmail = generate.firstName+generate.firstName+dataTestCase.selectCase(row.get(HEADER_EMAIL))+"@"+emailDomain+".com";
+        userEmail = dataTestCase.selectCase(row.get(HEADER_EMAIL))+"@"+emailDomain+".com";
         page.fill(SelectorsSpacelogik.RECOMPANIE_COMPANYNAME_INPUT, dataTestCase.selectCase(row.get(HEADER_COMPANYNAME)));
         page.waitForTimeout(1000);
         page.locator(SelectorsSpacelogik.RECOMPANIE_COMPANYADRESS_INPUT).type("Dallas North Tollway, Dallas, Texas, EE. UU.", new Locator.TypeOptions().setDelay(10));
@@ -366,6 +366,28 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         assertComponent(SelectorsSpacelogik.CLIENT_MODAL_LOCATION_CARD);
         page.click(SelectorsSpacelogik.CLIENT_CREATE_BUTTON);
     }
+    public void executeSweetTestNewClient(Map<String, String> row){
+        userEmail = dataTestCase.selectCase(row.get(HEADER_EMAIL))+"@"+emailDomain+".com";
+        page.fill(SelectorsSpacelogik.CLIENT_COMPANY_NAME_INPUT, dataTestCase.selectCase(row.get(HEADER_COMPANYNAME)));
+        page.click(SelectorsSpacelogik.CLIENT_INDUSTRY_SELECT);
+        page.click(generate.generateDataTestCase(VariablesSpacelogik.HEADER_INDUSTRY, row, dataTestCase.getIndustryMap()));
+        page.click(SelectorsSpacelogik.CLIENT_CONTINUESTEP1_BUTTON);
+        page.fill(SelectorsSpacelogik.CLIENT_TENANT_NAME_INPUT, dataTestCase.selectCase(row.get(HEADER_NAME)));
+        page.fill(SelectorsSpacelogik.CLIENT_TENANT_LNAME_INPUT, dataTestCase.selectCase(row.get(HEADER_LASTNAME)));
+        page.fill(SelectorsSpacelogik.CLIENT_TENANT_TITLE_INPUT, dataTestCase.selectCase(row.get(HEADER_TITLE)));
+        page.fill(SelectorsSpacelogik.CLIENT_TENANT_EMAIL_INPUT, userEmail);
+        page.fill(SelectorsSpacelogik.CLIENT_TENANT_PASSWORD_INPUT, "Pickle30");
+        page.fill(SelectorsSpacelogik.CLIENT_TENANT_CPASSWORD_INPUT, "Pickle30");
+        page.fill(SelectorsSpacelogik.CLIENT_TENANT_MOBILE_INPUT, generate.generateMobile());
+        page.fill(SelectorsSpacelogik.CLIENT_TENANT_PHONE_INPUT, generate.generatePhone());
+        page.locator(SelectorsSpacelogik.CLIENT_TENANT_ADRESS_INPUT).type("Dallas North Tollway, Dallas, Texas, EE. UU.", new Locator.TypeOptions().setDelay(10));
+        page.click(SelectorsSpacelogik.CLIENT_TENANT_ADDRESS_OPTION);
+        page.click(SelectorsSpacelogik.CLIENT_TENANT_CONTINUESTEP2_BUTTON);
+        goToNewLocationFromNewClientForm();
+        createLocation();
+        assertComponent(SelectorsSpacelogik.CLIENT_MODAL_LOCATION_CARD);
+        page.click(SelectorsSpacelogik.CLIENT_CREATE_BUTTON);
+    }
     //PROGRAM
     public void goToProgramView(){
         page.click(SelectorsSpacelogik.CLIENT_CARD);
@@ -458,9 +480,9 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
     }
     //UTIL
 
-    public void reportCaseNumberToBeTested(int testCaseId){
+    public void reportCaseNumberToBeTested(String testCaseInitials,int testCaseId){
         System.out.println("\n----------------------------------------------------");
-        System.out.println("📊 TESTEANDO CASO DE PRUEBA: " + testCaseId);
+        System.out.println("📊 TESTEANDO CASO DE PRUEBA: "+testCaseInitials+ testCaseId);
     }
     public void startBackendMOnitoring(Page page){
         page.onResponse(response -> {

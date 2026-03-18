@@ -28,7 +28,8 @@ public class InterfaceActions extends InterfaceProperties {
             //SWEET TEST CASE
             EXECUTE_SWEET_NEW_PROGRAMS,
             EXECUTE_SWEET_NEW_RECOMPANIE,
-            EXECUTE_SWEET_NEW_GURU
+            EXECUTE_SWEET_NEW_GURU,
+            EXECUTE_SWEET_NEW_CLIENT
         }
         public void actionEliminarDeLaCola() {
             List<CheckBox> checkBoxesSeleccionados = new ArrayList<>();
@@ -61,6 +62,7 @@ public class InterfaceActions extends InterfaceProperties {
         public void actionExecuteSweetCaseNewProgram() { executeService(new FunctionPrograms(), FunctionPrograms::serviceProgramSweetExecute); }
         public void actionExecuteSweetCaseNewReCompanie() {executeService(new FunctionReCompanie(), FunctionReCompanie::serviceReCompanieSweetExecute);}
         public void actionExecuteSweetCaseNewGuru() {executeService(new FunctionPeople(), FunctionPeople::serviceNewGuruSweetExecute);}
+        public void actionExecuteSweetCaseNewClient() {executeService(new FunctionClient(), FunctionClient::serviceNewClientSweetExecute);}
         private <T> void executeService(T serviceInstance, Spacelogik.InterfaceActions.CheckedConsumer<T> action) {
         try {
             action.accept(serviceInstance);

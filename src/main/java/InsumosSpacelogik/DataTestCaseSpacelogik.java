@@ -40,10 +40,10 @@ public class DataTestCaseSpacelogik {
             "Accounting", 2,
             "Accounting_clone", 3,
             "Accounting_clone_clone", 4,
-            "Consulting", 5,
+            "Consulting/ProfessionalServices", 5,
             "Insurance", 6,
             "Legal", 7,
-            "Marketing", 8,
+            "Marketing&Advertising", 8,
             "SalesOffices",9,
             "Technology", 10,
             "Technology_clone", 11

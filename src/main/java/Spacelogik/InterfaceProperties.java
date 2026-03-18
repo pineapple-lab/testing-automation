@@ -94,6 +94,7 @@ public class InterfaceProperties extends InterfaceElements{
             GridPane.setConstraints(sweetCaseNewAutoProgram, 2, 3);;
             GridPane.setConstraints(sweetCaseNewReCompanie, 2, 4);;
             GridPane.setConstraints(sweetCaseNewGuru, 2, 5);;
+            GridPane.setConstraints(sweetCaseNewClient, 2, 6);;
             //ENVIRONMENTS OPTIONS
             comboBox.getItems().add("Local");
             comboBox.getItems().add("DEV");
@@ -131,6 +132,7 @@ public class InterfaceProperties extends InterfaceElements{
             gridSweetCase.getChildren().add(sweetCaseNewAutoProgram);
             gridSweetCase.getChildren().add(sweetCaseNewReCompanie);
             gridSweetCase.getChildren().add(sweetCaseNewGuru);
+            gridSweetCase.getChildren().add(sweetCaseNewClient);
         }
         private void setColors(){
             //HEADER
@@ -158,6 +160,7 @@ public class InterfaceProperties extends InterfaceElements{
             setButtonStyle(sweetCaseNewAutoProgram);
             setButtonStyle(sweetCaseNewReCompanie);
             setButtonStyle(sweetCaseNewGuru);
+            setButtonStyle(sweetCaseNewClient);
         }
         private void setButtonStyle(Button button) {
             button.setStyle("-fx-background-color: #fb9957;");
@@ -188,6 +191,7 @@ public class InterfaceProperties extends InterfaceElements{
             setupHoverEffect(sweetCaseNewAutoProgram);
             setupHoverEffect(sweetCaseNewReCompanie);
             setupHoverEffect(sweetCaseNewGuru);
+            setupHoverEffect(sweetCaseNewClient);
         }
         private void setupHoverEffect(Button button) {
             button.setOnMouseEntered(e -> button.setStyle("-fx-background-color: #d89743; -fx-text-fill: white;"));

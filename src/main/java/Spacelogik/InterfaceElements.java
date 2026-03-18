@@ -66,5 +66,6 @@ public abstract class InterfaceElements extends Application {
     Button sweetCaseNewAutoProgram = new Button("New program");
     Button sweetCaseNewReCompanie = new Button("New recompanie");
     Button sweetCaseNewGuru = new Button("New guru");
+    Button sweetCaseNewClient = new Button("New client");
     public abstract void start(Stage stage);
 }

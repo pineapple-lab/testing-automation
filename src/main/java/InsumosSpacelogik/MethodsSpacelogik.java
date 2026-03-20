@@ -150,7 +150,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         page.click(SelectorsSpacelogik.RECOMPANIE_CONTINUEBUTTON_STEP2);
         System.out.println("Se creo el usuario: "+userEmail);
         page.click(SelectorsSpacelogik.RECOMPANIE_CONTACTSALUTATION_SELECTOR);
-        page.click(generate.generateDataTestCase(VariablesSpacelogik.HEADER_SALUTATION, row, dataTestCase.getSalutationPreference()));
+        page.click(generate.generateDataTestCase(null, VariablesSpacelogik.HEADER_SALUTATION, row, dataTestCase.getSalutationPreference()));
         page.fill(SelectorsSpacelogik.RECOMPANIE_CONTACTITLE_INPUT, dataTestCase.selectCase(row.get(HEADER_TITLE)));
         page.fill(SelectorsSpacelogik.RECOMPANIE_CONTACTNAME_INPUT, dataTestCase.selectCase(row.get(HEADER_NAME)));
         page.fill(SelectorsSpacelogik.RECOMPANIE_CONTACTLASTNAME_INPUT, dataTestCase.selectCase(row.get(HEADER_LASTNAME)));
@@ -265,7 +265,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         String valorPICT = row.get(VariablesSpacelogik.HEADER_SKILL);
         guruEmail = dataTestCase.selectCase(row.get(HEADER_EMAIL))+"@"+emailDomain+".com";
         page.click(SelectorsSpacelogik.PEOPLE_FORM_SALUTATION_SELECT);
-        page.click(generate.generateDataTestCase(VariablesSpacelogik.HEADER_SALUTATION, row, dataTestCase.getSalutationPreference()));
+        page.click(generate.generateDataTestCase(null, VariablesSpacelogik.HEADER_SALUTATION, row, dataTestCase.getSalutationPreference()));
         page.fill(SelectorsSpacelogik.PEOPLE_FORM_TITLE_INPUT, generate.generateProfesionalTitle());
         page.fill(SelectorsSpacelogik.PEOPLE_FORM_NAME_INPUT, dataTestCase.selectCase(row.get(HEADER_NAME)));
         page.fill(SelectorsSpacelogik.PEOPLE_FORM_LNAME_INPUT, dataTestCase.selectCase(row.get(HEADER_LASTNAME)));
@@ -278,13 +278,36 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         page.click(SelectorsSpacelogik.PEOPLE_FORM_OFFICE_SELECT);
         page.click(selector.oficeOption(generate.generateOffice()));
         page.click(SelectorsSpacelogik.PEOPLE_FORM_SKILL_SELECT);
-        page.click(generate.generateDataTestCase(VariablesSpacelogik.HEADER_SKILL, row, dataTestCase.getSkillPreference()));
+        page.click(generate.generateDataTestCase(null, VariablesSpacelogik.HEADER_SKILL, row, dataTestCase.getSkillPreference()));
         kb.press("Escape");
         if (!"Assistant".equals(valorPICT)){
             page.fill(SelectorsSpacelogik.PEOPLE_FORM_DESCRIPTION_INPUT, dataTestCase.selectCase(row.get(HEADER_DESCRIPTION)));
         }
         page.waitForTimeout(2000);
         page.click(SelectorsSpacelogik.PEOPLE_FORM_CONTINUEANDSAVE_BUTTON);
+    }
+    public void assignGurus(Map<String, String> row) {
+        page.waitForTimeout(1000);
+        if ("si".equalsIgnoreCase(row.get(VariablesSpacelogik.HEADER_CONSTRUCTION_GURU))) {
+            page.waitForSelector(SelectorsSpacelogik.LOCATION_SELECTCONSTRUCTION_BUTTON);
+            page.click(SelectorsSpacelogik.LOCATION_SELECTCONSTRUCTION_BUTTON);
+            page.waitForSelector(SelectorsSpacelogik.LOCATION_CONSTRUCTIONOPTION_BUTTON);
+            page.click(SelectorsSpacelogik.LOCATION_CONSTRUCTIONOPTION_BUTTON);
+        }
+        if ("si".equalsIgnoreCase(row.get(VariablesSpacelogik.HEADER_WORKPLACE_GURU))) {
+            page.click(SelectorsSpacelogik.LOCATION_SELECTWORKPLACE_BUTTON);
+            page.waitForSelector(SelectorsSpacelogik.LOCATION_WORPLACEOPTION_BUTTON);
+            page.click(SelectorsSpacelogik.LOCATION_WORPLACEOPTION_BUTTON);
+        }
+        String supportCount = row.get(VariablesSpacelogik.HEADER_SUPPORT_GURU);
+        int cantidad = Integer.parseInt(supportCount);
+        for (int i = 0; i < cantidad; i++) {
+            int posicion = i + 2;
+            int supportOption = i + 5;
+            page.click(selector.locationSupportSelect(posicion));
+            page.waitForTimeout(1000);
+            page.click(selector.LocationSuportOptionButton(supportOption));
+        }
     }
     //LOCATION
     public void goToNewLocationFromNewClientForm(){
@@ -321,14 +344,45 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         completeNewLocationStep2();
         page.click(SelectorsSpacelogik.LOCATION_CONTINUESTEP3_BUTTON);
         page.click(SelectorsSpacelogik.LOCATION_SELECTTRANSACTION_BUTTON);
-        page.click(SelectorsSpacelogik.LOCATION_OPTIONTRANSACTION_BUTTON);
+        page.click(SelectorsSpacelogik.LOCATION_TRANSACTIONOPTION_BUTTON);
         page.click(SelectorsSpacelogik.LOCATION_SAVE_BUTTON);
     }
     public void goToActivateLocationForm(){
         page.click(SelectorsSpacelogik.CLIENT_CARD);
         page.click(SelectorsSpacelogik.LOCATION_ACTIVATE_BUTTON);
     }
+    public void excuteSweetTestNewLocation(Map<String, String> row){
+        String functionality = "construction-and-furniture-level-main-container";
+        page.fill(SelectorsSpacelogik.LOCATION_NAME_INPUT,dataTestCase.selectCase(row.get(HEADER_NAME)));
+        page.click(generate.generateDataTestCase(null, VariablesSpacelogik.HEADER_LEASE_TYPE, row, dataTestCase.getLeaseTypePreference()));
+        page.click(SelectorsSpacelogik.LOCATION_OFICCE_DISTANCE_SELECT);
+        page.click(generate.generateDataTestCase(null, VariablesSpacelogik.HEADER_MAP_CENTER, row, dataTestCase.getCenterMapPreference()));
+        page.click(SelectorsSpacelogik.LOCATION_OFFICE_FROM_SELECT);
+        page.click(generate.generateDataTestCase(null, VariablesSpacelogik.HEADER_FROM, row, dataTestCase.getFromPreference()));
+        page.locator(SelectorsSpacelogik.LOCATION_OFFICE_ADRESS_INPUT).type("Dallas North Tollway, Dallas, Texas, EE. UU.", new Locator.TypeOptions().setDelay(10));
+        page.click(SelectorsSpacelogik.LOCATION_OFFICE_ADRESS_OPTION);
+        page.click(SelectorsSpacelogik.LOCATION_CONTINUESTEP1_BUTTON);
+        page.fill(SelectorsSpacelogik.LOCATION_CURRESNTRSF_INPUT,generate.generateNumberbetweenOne_oneHundred(VariablesSpacelogik.HEADER_CURRENT_RSF, row));
+        page.fill(SelectorsSpacelogik.LOCATION_ANTICIPATEDRSF_INPUT, generate.generateNumberbetweenOne_oneHundred(VariablesSpacelogik.HEADER_ANTICIPATED_RSF, row));
+        page.click(SelectorsSpacelogik.LOCATION_EXPIRATIONDAY_CALENDAR_OPEN_BUTTON);
+        page.click(SelectorsSpacelogik.LOCATION_EXPIRATIONDAY_CALENDAR_DAY_OPTION);
+        page.click(SelectorsSpacelogik.LOCATION_NEWOCCUPATION_CALENDAR_OPEN_BUTTON);
+        page.click(SelectorsSpacelogik.LOCATION_NEWOCCUPATION_CALENDAR_DAY_OPTION);
+        page.click(SelectorsSpacelogik.LOCATION_COMPANYSIZE_ADD_BUTTON);
+        page.click(SelectorsSpacelogik.LOCATION_CONTINUESTEP2_BUTTON);
+        setConstructionLevel(functionality, row);
+        setFurnitureLevel(functionality, row);
+        page.click(SelectorsSpacelogik.LOCATION_CONTINUESTEP3_BUTTON);
+        page.click(SelectorsSpacelogik.LOCATION_SELECTTRANSACTION_BUTTON);
+        page.click(SelectorsSpacelogik.LOCATION_TRANSACTIONOPTION_BUTTON);
+        assignGurus(row);
+        page.click(SelectorsSpacelogik.LOCATION_SAVE_BUTTON);
+    }
     //CLIENT
+    public void searchClient(String clientName){
+        page.fill(SelectorsSpacelogik.CLIENT_SEARCH_INPUT, clientName);
+        page.waitForTimeout(2000);
+    }
     public void goToNewClientForm(){
         page.click(SelectorsSpacelogik.CLIENT_NEW_BUTTON);
         page.click(SelectorsSpacelogik.CLIENT_NEW_REGULARCLIENT_BUTTON);
@@ -370,7 +424,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         userEmail = dataTestCase.selectCase(row.get(HEADER_EMAIL))+"@"+emailDomain+".com";
         page.fill(SelectorsSpacelogik.CLIENT_COMPANY_NAME_INPUT, dataTestCase.selectCase(row.get(HEADER_COMPANYNAME)));
         page.click(SelectorsSpacelogik.CLIENT_INDUSTRY_SELECT);
-        page.click(generate.generateDataTestCase(VariablesSpacelogik.HEADER_INDUSTRY, row, dataTestCase.getIndustryMap()));
+        page.click(generate.generateDataTestCase(null, VariablesSpacelogik.HEADER_INDUSTRY, row, dataTestCase.getIndustryMap()));
         page.click(SelectorsSpacelogik.CLIENT_CONTINUESTEP1_BUTTON);
         page.fill(SelectorsSpacelogik.CLIENT_TENANT_NAME_INPUT, dataTestCase.selectCase(row.get(HEADER_NAME)));
         page.fill(SelectorsSpacelogik.CLIENT_TENANT_LNAME_INPUT, dataTestCase.selectCase(row.get(HEADER_LASTNAME)));
@@ -399,9 +453,9 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         page.click(SelectorsSpacelogik.PROGRAM_NEW_BUTTON);
     }
 
-    private void setConstructionLevel(Map<String, String> row){
-        Locator constructionLevel = page.locator(generate.generateDataTestCase(VariablesSpacelogik.HEADER_CONSTRUCTION, row, dataTestCase.getLevelConstruction()));
-        Locator constructionThumblr = page.locator(SelectorsSpacelogik.PROGRAM_CONSTRUCTION_THUMBLR);
+    private void setConstructionLevel( String functionality, Map<String, String> row){
+        Locator constructionLevel = page.locator(generate.generateDataTestCase(functionality, VariablesSpacelogik.HEADER_CONSTRUCTION, row, dataTestCase.getLevelConstruction()));
+        Locator constructionThumblr = page.locator(selector.ConstructionThumblr(functionality));
         String constructionTumblrPosicion = constructionThumblr.locator("input").getAttribute("aria-valuenow");
         String constructionNewLevel = constructionLevel.getAttribute("data-index");
         int indexNumerico = Integer.parseInt(constructionNewLevel);
@@ -410,9 +464,31 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
             constructionThumblr.dragTo(constructionLevel);
         }
     }
-    private void setFurnitureLevel(Map<String, String> row){
-        Locator furnitureLevel = page.locator(generate.generateDataTestCase(VariablesSpacelogik.HEADER_FURNITURE, row, dataTestCase.getLevelFurniture()));
-        Locator furnitureThumblr = page.locator(SelectorsSpacelogik.PROGRAM_FURNITURE_THUMBLR);
+    private void setFurnitureLevel(String functionality, Map<String, String> row){
+        Locator furnitureLevel = page.locator(generate.generateDataTestCase(functionality ,VariablesSpacelogik.HEADER_FURNITURE, row, dataTestCase.getLevelFurniture()));
+        Locator furnitureThumblr = page.locator(selector.FurnitureThumblr(functionality));
+        String furnitureThumblrPosicion = furnitureThumblr.locator("input").getAttribute("aria-valuenow");
+        String furnitureNewLevel = furnitureLevel.getAttribute("data-index");
+        int indexNumerico = Integer.parseInt(furnitureNewLevel);
+        int nivelEsperado = indexNumerico+1;
+        if (Integer.parseInt(furnitureThumblrPosicion) != nivelEsperado) {
+            furnitureThumblr.dragTo(furnitureLevel);
+        }
+    }
+    private void setConstructionLevelStandardProgram(String functionality, Map<String, String> row){
+        Locator constructionLevel = page.locator(generate.generateDataTestCase(functionality, VariablesSpacelogik.HEADER_CONSTRUCTION, row, dataTestCase.getLevelConstruction()));
+        Locator constructionThumblr = page.locator(SelectorsSpacelogik.PROGRAM_STANDARD_CONSTRUCTION_LEVEL_THUMBLR);
+        String constructionTumblrPosicion = constructionThumblr.locator("input").getAttribute("aria-valuenow");
+        String constructionNewLevel = constructionLevel.getAttribute("data-index");
+        int indexNumerico = Integer.parseInt(constructionNewLevel);
+        int nivelEsperado = indexNumerico+1;
+        if (Integer.parseInt(constructionTumblrPosicion) != nivelEsperado) {
+            constructionThumblr.dragTo(constructionLevel);
+        }
+    }
+    private void setFurnitureLevelStandardProgram(String functionality, Map<String, String> row){
+        Locator furnitureLevel = page.locator(generate.generateDataTestCase(functionality ,VariablesSpacelogik.HEADER_FURNITURE, row, dataTestCase.getLevelFurniture()));
+        Locator furnitureThumblr = page.locator(SelectorsSpacelogik.PROGRAM_STANDARD_FURNITURE_LEVEL_THUMBLR);
         String furnitureThumblrPosicion = furnitureThumblr.locator("input").getAttribute("aria-valuenow");
         String furnitureNewLevel = furnitureLevel.getAttribute("data-index");
         int indexNumerico = Integer.parseInt(furnitureNewLevel);
@@ -436,6 +512,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         page.click(SelectorsSpacelogik.PROGRAM_AUTO_CREATE_BUTTON);
     }
     public void executeSweetTestAutoOfficeProgram(Map<String, String> row){
+        String functionality = "auto-office-construction-and-furniture-level-main-container";
         String valorPICTpri = row.get(VariablesSpacelogik.HEADER_PRIMARY_PREFERENCE);
         String valorPICTsecond = row.get(VariablesSpacelogik.HEADER_SECONDARY_PREFERENCE);
         page.click(SelectorsSpacelogik.PROGRAM_AUTOOFFICE_OPTION);
@@ -443,11 +520,11 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         page.fill(SelectorsSpacelogik.PROGRAM_AUTO_NAME_INPUT, dataTestCase.selectCase(row.get(HEADER_PROGRAM_NAME)));
         page.click(SelectorsSpacelogik.PROGRAM_AUTO_INDUSTRY_SELECT);
         page.waitForTimeout(1000);
-        page.click(generate.generateDataTestCase(VariablesSpacelogik.HEADER_INDUSTRY, row, dataTestCase.getIndustryMap()));
-        setConstructionLevel(row);
-        setFurnitureLevel(row);
-        page.click(generate.generateDataTestCase(VariablesSpacelogik.HEADER_PRIMARY_PREFERENCE, row, dataTestCase.getWidthPrimaryPreference()));
-        page.click(generate.generateDataTestCase(VariablesSpacelogik.HEADER_SECONDARY_PREFERENCE, row, dataTestCase.getWidthSecondaryPreference()));
+        page.click(generate.generateDataTestCase(null,VariablesSpacelogik.HEADER_INDUSTRY, row, dataTestCase.getIndustryMap()));
+        setConstructionLevel(functionality, row);
+        setFurnitureLevel(functionality, row);
+        page.click(generate.generateDataTestCase(functionality,VariablesSpacelogik.HEADER_PRIMARY_PREFERENCE, row, dataTestCase.getWidthPrimaryPreference()));
+        page.click(generate.generateDataTestCase(functionality,VariablesSpacelogik.HEADER_SECONDARY_PREFERENCE, row, dataTestCase.getWidthSecondaryPreference()));
         if ("1_49".equals(valorPICTpri)||"50_100".equals(valorPICTpri)){
             page.fill(SelectorsSpacelogik.PROGRAM_AUTO_WIDTHPRIMARYPREFERENCE_INPUT,generate.generateNumberbetweenOne_oneHundred(VariablesSpacelogik.HEADER_PRIMARY_PREFERENCE, row));
         }
@@ -456,14 +533,44 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         }
         page.click(SelectorsSpacelogik.PROGRAM_AUTO_ROOM_ADD_BUTTON);
         page.fill(SelectorsSpacelogik.PROGRAM_AUTO_ROOM_NAME_INPUT, dataTestCase.selectCase(row.get(HEADER_ROOM_NAME)));
-        page.click(generate.generateDataTestCase(VariablesSpacelogik.HEADER_ROOM_TYPE, row, dataTestCase.getRoomTypePreference()));
+        page.click(generate.generateDataTestCase(null, VariablesSpacelogik.HEADER_ROOM_TYPE, row, dataTestCase.getRoomTypePreference()));
         page.click(SelectorsSpacelogik.PROGRAM_AUTO_ROOM_SIZE_SELECT);
-            page.locator(SelectorsSpacelogik.PROGRAM_AUTO_ROOM_SIZE_LIST).filter(new Locator.FilterOptions().setHasText(row.get(VariablesSpacelogik.HEADER_ROOM_SIZE))).click(new Locator.ClickOptions().setForce(true));
-        page.click(generate.generateDataTestCase(VariablesSpacelogik.HEADER_NATURAL_LIGHT_PREFERENCE, row, dataTestCase.getLightPreference()));
+        page.locator(SelectorsSpacelogik.PROGRAM_AUTO_ROOM_SIZE_LIST).filter(new Locator.FilterOptions().setHasText(row.get(VariablesSpacelogik.HEADER_ROOM_SIZE))).click(new Locator.ClickOptions().setForce(true));
+        page.click(generate.generateDataTestCase(null, VariablesSpacelogik.HEADER_NATURAL_LIGHT_PREFERENCE, row, dataTestCase.getLightPreference()));
         page.fill(SelectorsSpacelogik.PROGRAM_AUTO_ROOM_QUANTITY_INPUT, generate.generateNumberbetweenOne_oneHundred(VariablesSpacelogik.HEADER_QUANTITY, row));
         page.click(SelectorsSpacelogik.PROGRAM_AUTO_ROOM_SAVE_BUTTON);
         page.click(SelectorsSpacelogik.PROGRAM_AUTO_CREATE_BUTTON);
 
+    }
+    public void executeSweetTestStandardProgram(Map<String, String> row){
+        String functionality = "setup-container-body";
+        String valorPICTpri = row.get(VariablesSpacelogik.HEADER_PRIMARY_PREFERENCE);
+        String valorPICTsecond = row.get(VariablesSpacelogik.HEADER_SECONDARY_PREFERENCE);
+        page.click(SelectorsSpacelogik.PROGRAM_STANDARD_OPTION);
+        page.click(SelectorsSpacelogik.PROGRAM_MODALTYPE_CONTINUE_BUTTON);
+        page.fill(selector.ProgramNameInput(functionality), dataTestCase.selectCase(row.get(HEADER_PROGRAM_NAME)));
+        page.click(SelectorsSpacelogik.PROGRAM_STANDARD_INDUSTRY_SELECT);
+        page.click(generate.generateDataTestCase(null,VariablesSpacelogik.HEADER_INDUSTRY,row,dataTestCase.getIndustryMap()));
+        page.click(SelectorsSpacelogik.PROGRAM_STANDARD_LEASEYEAR_SELECT);
+        page.click(generate.generateDataTestCase(null, VariablesSpacelogik.HEADER_NEW_LEASE_YEAR, row, dataTestCase.getStandardProgramYearPreference()));
+        page.click(SelectorsSpacelogik.PROGRAM_STANDARD_LEASETERM_SELECT);
+        page.click(generate.generateDataTestCase(null,VariablesSpacelogik.HEADER_NEW_LEASE_TERM, row, dataTestCase.getNewLeaseTermPreference()));
+        page.click(SelectorsSpacelogik.PROGRAM_STANDARD_FLEXIBILITYPOIN_SELECT);
+        page.click(generate.generateDataTestCase(null, VariablesSpacelogik.HEADER_FLEXIBILITY_POINT, row, dataTestCase.getStandardProgramYearPreference()));
+        page.click(SelectorsSpacelogik.PROGRAM_STANDARD_PLANNEDGROWTH_SELECT);
+        page.click(generate.generateDataTestCase(null, VariablesSpacelogik.HEADER_PLANNED_GROWTH, row, dataTestCase.getStandardProgramYearPreference()));
+        setConstructionLevelStandardProgram(functionality, row);
+        setFurnitureLevelStandardProgram(functionality, row);
+        page.click(generate.generateDataTestCase(functionality,VariablesSpacelogik.HEADER_PRIMARY_PREFERENCE, row, dataTestCase.getWidthPrimaryPreference()));
+        page.click(generate.generateDataTestCase(functionality,VariablesSpacelogik.HEADER_SECONDARY_PREFERENCE, row, dataTestCase.getWidthSecondaryPreference()));
+        if ("1_49".equals(valorPICTpri)||"50_100".equals(valorPICTpri)){
+            page.fill(SelectorsSpacelogik.PROGRAM_STANDARD_PRIMARYOTHER_INPUT,generate.generateNumberbetweenOne_oneHundred(VariablesSpacelogik.HEADER_PRIMARY_PREFERENCE, row));
+        }
+        if ("1_49".equals(valorPICTsecond)||"50_100".equals(valorPICTsecond)){
+            page.fill(SelectorsSpacelogik.PROGRAM_STANDARD_SECONDARYOTHER_INPUT, generate.generateNumberbetweenOne_oneHundred(VariablesSpacelogik.HEADER_SECONDARY_PREFERENCE, row));
+        }
+        page.click(SelectorsSpacelogik.PROGRAM_STANDARD_RECALCULATE_BUTOTN);
+        page.click(SelectorsSpacelogik.PROGRAM_AUTO_CREATE_BUTTON);
     }
     //BUILDINGS
     public void verifyBuildingComponents(){

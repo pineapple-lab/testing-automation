@@ -339,6 +339,44 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
             cleanupContext();
         }
     }
+    public void executeSweetCaseNewLocation(){
+        testCaseInitials = "LOC";
+        String spreadsheetId = "1vcNY38yuAPCmfhiCjvfode_KzLVo7mV2MF330IEq1Zg";
+        String urlMiTabla = "https://docs.google.com/spreadsheets/d/"+spreadsheetId+"/export?format=csv";
+        GoogleSheetsService gSheets = null;
+        try {
+            gSheets = new GoogleSheetsService("src/main/resources/credentials.json");
+        } catch (Exception e) {
+            System.err.println("Error crítico: No se pudo cargar el archivo credentials.json");
+        }
+        if (gSheets != null) gSheets.startReporting(spreadsheetId);
+        List<Map<String, String>> testCaseList = methods.getTestCase(urlMiTabla);
+        methods.setGuruUser();
+        methods.startBackendMOnitoring(page);
+        System.out.println("Se van a crear "+generate.generateExecutions()+" locations\n");
+        methods.login(userEmail, userPassword);
+        page.waitForTimeout(3000);
+        methods.assertComponent(SelectorsSpacelogik.CLIENT_CARD);
+        methods.goToLocationView();
+        try{
+            for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
+                Map<String, String> currentRow = testCaseList.get((executeCounter-1) % testCaseList.size());
+                methods.reportCaseNumberToBeTested(testCaseInitials, executeCounter);
+                methods.goToNewLocationForm();
+                methods.excuteSweetTestNewLocation(currentRow);
+                page.waitForTimeout(3000);
+                if (gSheets != null) gSheets.reportResult(spreadsheetId, executeCounter, "✅");
+                System.out.println("\nse compeletaron "+executeCounter+" ejecuciones");
+                System.out.println("----------------------------------------------------\n");
+            }
+            methods.printErrores();
+            methods.reset();
+        }catch (Exception e) {
+            if (gSheets != null) gSheets.reportResult(spreadsheetId, executeCounter, "❌");
+        }finally{
+            cleanupContext();
+        }
+    }
 
     //AUTOOFFICE PROGRAM
     public void happyPathAutoofficeProgramCreate(){
@@ -407,5 +445,47 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
             cleanupContext();
         }
     }
-
+    //STANDARDPROGRAM
+    public void executeSweetCaseNewStandardProgram(){
+        testCaseInitials = "SP";
+        String spreadsheetId = "1aN1XF-RSJ9nXELu3zZIjfaKx0S0dzsfU4zQlF2HIwFQ";
+        String urlMiTabla = "https://docs.google.com/spreadsheets/d/"+spreadsheetId+"/export?format=csv";
+        String clientName = "CorporateAccount11372003";
+        GoogleSheetsService gSheets = null;
+        try {
+            gSheets = new GoogleSheetsService("src/main/resources/credentials.json");
+        } catch (Exception e) {
+            System.err.println("Error crítico: No se pudo cargar el archivo credentials.json");
+        }
+        if (gSheets != null) gSheets.startReporting(spreadsheetId);
+        List<Map<String, String>> testCaseList = methods.getTestCase(urlMiTabla);
+        methods.setGuruUser();
+        methods.startBackendMOnitoring(page);
+        methods.login(userEmail, userPassword);
+        page.waitForSelector(SelectorsSpacelogik.CLIENT_CARD);
+        page.waitForTimeout(3000);
+        methods.searchClient(clientName);
+        methods.goToProgramView();
+        System.out.println("Se van a crear "+generate.generateExecutions()+" programs\n");
+        try{
+            for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
+                Map<String, String> currentRow = testCaseList.get((executeCounter-1) % testCaseList.size());
+                methods.reportCaseNumberToBeTested(testCaseInitials, executeCounter);
+                page.click(SelectorsSpacelogik.PROGRAM_MENU_BUTTON);
+                methods.goToNewProgramForm();
+                methods.executeSweetTestStandardProgram(currentRow);
+                methods.verifyToast(toast.PROGRAM_SUCESS);
+                if (gSheets != null) gSheets.reportResult(spreadsheetId, executeCounter, "✅");
+                System.out.println("\nse compeletaron "+executeCounter+" ejecuciones");
+                System.out.println("----------------------------------------------------\n");
+                page.waitForTimeout(1000);
+            }
+            methods.printErrores();
+            methods.reset();
+        } catch (Exception e) {
+            if (gSheets != null) gSheets.reportResult(spreadsheetId, executeCounter, "❌");
+        } finally{
+            cleanupContext();
+        }
+    }
 }

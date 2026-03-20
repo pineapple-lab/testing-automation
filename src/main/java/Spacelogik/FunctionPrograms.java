@@ -18,4 +18,10 @@ public class FunctionPrograms extends TestCaseSpacelogik {
         executeSweetCaseNewAutoofficeProgram();
         teardownPlaywright();
     }
+    @Test
+    public void serviceStandardProgramSweetExecute(){
+        methods.startContextAndNavigation();
+        executeSweetCaseNewStandardProgram();
+        teardownPlaywright();
+    }
 }

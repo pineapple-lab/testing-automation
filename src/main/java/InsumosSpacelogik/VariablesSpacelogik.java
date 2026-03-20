@@ -46,5 +46,18 @@ public class VariablesSpacelogik extends PathUtilsSpacelogik {
     public static final String HEADER_SKILL = "Skill";
     public static final String HEADER_MOBILE = "Mobile";
     public static final String HEADER_PHONE = "Phone";
+    public static final String HEADER_LEASE_TYPE = "LeaseType";
+    public static final String HEADER_MAP_CENTER = "MapCenter";
+    public static final String HEADER_FROM = "From";
+    public static final String HEADER_CURRENT_RSF = "CurrentRSF";
+    public static final String HEADER_ANTICIPATED_RSF = "AnticipatedRSF";
+    public static final String HEADER_CONSTRUCTION_GURU = "ConstructionGuru";
+    public static final String HEADER_WORKPLACE_GURU = "WorkplaceGuru";
+    public static final String HEADER_SUPPORT_GURU = "SupportGuru";
+    public static final String HEADER_NEW_LEASE_YEAR = "NewLeaseYear";
+    public static final String HEADER_NEW_LEASE_TERM = "NewLeaseTerm";
+    public static final String HEADER_FLEXIBILITY_POINT = "FlexibilityPoint";
+    public static final String HEADER_PLANNED_GROWTH = "PlannedGrowth";
+    public int thumblrPosition;
 
 }

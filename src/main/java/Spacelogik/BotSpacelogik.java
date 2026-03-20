@@ -61,7 +61,8 @@ public class BotSpacelogik extends Spacelogik.InterfaceActions {
                 sweetCaseNewReCompanie.setOnAction(e -> handleAction(ExecMethod.EXECUTE_SWEET_NEW_RECOMPANIE,"EXECUTE_SWEET_NEW_RECOMPANIE"));
                 sweetCaseNewGuru.setOnAction(e -> handleAction(ExecMethod.EXECUTE_SWEET_NEW_GURU,"EXECUTE_SWEET_NEW_GURU"));
                 sweetCaseNewClient.setOnAction(e -> handleAction(ExecMethod.EXECUTE_SWEET_NEW_CLIENT,"EXECUTE_SWEET_NEW_CLIENT"));
-
+                sweetCaseNewLocation.setOnAction(e -> handleAction(ExecMethod.EXECUTE_SWEET_NEW_LOCATION,"EXECUTE_SWEET_NEW_LOCATION"));
+                sweetCaseNewStandardProgram.setOnAction(e -> handleAction(ExecMethod.EXECUTE_SWEET_NEW_STANDARD_PROGRAM,"EXECUTE_SWEET_NEW_STANDARD_PROGRAM"));
                 //HEADER
                 comboBox.setOnAction(e -> handleComboBoxAction());
                 stopTestCase.setOnAction(event -> handleStopTestCase());
@@ -186,6 +187,12 @@ public class BotSpacelogik extends Spacelogik.InterfaceActions {
                         break;
                     case EXECUTE_SWEET_NEW_CLIENT:
                         actionExecuteSweetCaseNewClient();
+                        break;
+                    case EXECUTE_SWEET_NEW_LOCATION:
+                        actionExecuteSweetCaseNewLocation();
+                        break;
+                    case EXECUTE_SWEET_NEW_STANDARD_PROGRAM:
+                        actionExecuteSweetCaseNewStandardProgram();
                         break;
                 }
                 if (!isRunning) {

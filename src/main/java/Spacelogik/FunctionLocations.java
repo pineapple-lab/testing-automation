@@ -12,4 +12,10 @@ public class FunctionLocations extends TestCaseSpacelogik {
         happyPathLocationCreate();
         teardownPlaywright();
     }
+    @Test
+    public void serviceNewLocationSweetExecute(){
+        methods.startContextAndNavigation();
+        executeSweetCaseNewLocation();
+        teardownPlaywright();
+    }
 }

@@ -85,9 +85,44 @@ public class DataTestCaseSpacelogik {
             "locateoninterior", 2,
             "Locateonwindowline", 3
     );
+    private final Map<String, Integer> leaseTypeMap = Map.of(
+            "Replace", 1,
+            "New", 2
+    );
     private final Map<String, Integer> quantity = Map.of(
             "1_49", 4,
             "50_100", 4
+    );
+    private final Map<String, Integer> centerMap = Map.of (
+            "1mile", 2,
+            "3miles", 3,
+            "5miles", 4,
+            "10miles", 5
+    );
+    private final Map<String, Integer> fromMap = Map.of (
+            "CurrentLocation", 2,
+            "AnotherAddress", 3
+    );
+    private final Map<String, Integer> standardProgramYearInputsMap = Map.of(
+            "2027", 1,
+            "2028", 2,
+            "2031", 5,
+            "2032", 6,
+            "2035", 9,
+            "2036", 10
+            );
+    private final Map <String, Integer> newLeaseTermMap = Map.ofEntries(
+            Map.entry("1", 1),
+            Map.entry("2", 2),
+            Map.entry("3", 3),
+            Map.entry("4", 4),
+            Map.entry("5", 5),
+            Map.entry("6", 6),
+            Map.entry("7", 7),
+            Map.entry("8", 8),
+            Map.entry("9", 9),
+            Map.entry("10", 10),
+            Map.entry("11", 11)
     );
     public Map<String, Integer> getIndustryMap() {return industryMap;}
     public Map<String, Integer> getLevelConstruction() {return levelConstruction;}
@@ -98,6 +133,11 @@ public class DataTestCaseSpacelogik {
     public Map<String, Integer> getLightPreference() {return lightPreference;}
     public Map<String, Integer> getSalutationPreference() {return salutationMap;}
     public Map<String, Integer> getSkillPreference() {return skillMap;}
+    public Map <String, Integer> getLeaseTypePreference(){return leaseTypeMap;}
+    public Map <String, Integer> getCenterMapPreference(){return centerMap;}
+    public Map <String, Integer> getFromPreference (){return fromMap;}
+    public Map <String, Integer> getStandardProgramYearPreference(){return  standardProgramYearInputsMap;}
+    public Map <String, Integer> getNewLeaseTermPreference (){return newLeaseTermMap;}
     public int getIndustryPosition(String valorExcel) {
         return industryMap.getOrDefault(valorExcel, 1);
     }

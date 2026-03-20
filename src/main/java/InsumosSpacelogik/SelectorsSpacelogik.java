@@ -129,6 +129,7 @@ public class SelectorsSpacelogik extends VariablesSpacelogik {
     public static final String PEOPLE_FORM_POPUP_OK_BUTTON = ".modal > .modal-buttons > button:nth-of-type(2)";
 
     //CLIENT
+    public static final String CLIENT_SEARCH_INPUT = ".locations-filters-header-search input";
     //public static final String CLIENT_CARD = ".represented-tenants-children-container > span span > div > div";
     public static final String CLIENT_NEW_BUTTON = ".locations-filters-header button";
     public static final String CLIENT_NEW_REGULARCLIENT_BUTTON = ".ReactModal__Content > .d-flex > div:nth-of-type(1)";
@@ -159,6 +160,9 @@ public class SelectorsSpacelogik extends VariablesSpacelogik {
     public static final String LOCATION_NEW_BUTTON = ".locations-filters-header > div > div:nth-of-type(4) button";
     public static final String LOCATION_NAME_INPUT = ".location-form-content > div > div:nth-of-type(1) input";
     public static final String LOCATION_OFICCE_DISTANCE_SELECT = ".location-form-content > div > div:nth-of-type(3) .select-row-container > .info-component:nth-of-type(1) .generic-select-container";
+    public String LocationLeaseType (int preferencePosition){
+       return ".lease-details-container > div:nth-of-type(2) > div > div:nth-of-type("+preferencePosition+") input";
+    }
     public String LocationOfficeDistanceOption (int distanceOfficePosition){
         return ".MuiPaper-root > ul > li:nth-of-type("+distanceOfficePosition+")";
     }
@@ -181,7 +185,18 @@ public class SelectorsSpacelogik extends VariablesSpacelogik {
     public static final String LOCATION_CONTINUESTEP3_BUTTON = ".new-location-modal-footer > button:nth-of-type(2)";
     public static final String LOCATION_SAVE_BUTTON = ".new-location-modal-footer > button:nth-of-type(2)";
     public static final String LOCATION_SELECTTRANSACTION_BUTTON = ".location-form-content > div > div:nth-of-type(2) > div:nth-of-type(1) button";
-    public static final String LOCATION_OPTIONTRANSACTION_BUTTON = ".MuiDataGrid-virtualScrollerRenderZone > div:nth-of-type(2) button";
+    public static final String LOCATION_SELECTCONSTRUCTION_BUTTON = ".location-form-content > div > div:nth-of-type(2) > div:nth-of-type(2) button";
+    public static final String LOCATION_SELECTWORKPLACE_BUTTON = ".location-form-content > div > div:nth-of-type(2) > div:nth-of-type(3) button";
+    public String locationSupportSelect (int position){
+        return ".location-form-content > div > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type("+position+") button";
+    }
+    public static final String LOCATION_TRANSACTIONOPTION_BUTTON = ".MuiDataGrid-virtualScrollerRenderZone > div:nth-of-type(2) button";
+    public static final String LOCATION_CONSTRUCTIONOPTION_BUTTON = ".MuiDataGrid-virtualScrollerRenderZone > div:nth-of-type(3) button";
+    public static final String LOCATION_WORPLACEOPTION_BUTTON = ".MuiDataGrid-virtualScrollerRenderZone > div:nth-of-type(4) button";
+    public String LocationSuportOptionButton(int position){
+
+        return ".MuiDataGrid-virtualScrollerRenderZone > div:nth-of-type("+position+") button";
+    }
     public static final String CLIENT_CREATE_BUTTON = ".tenant-registration-buttons > div > button";
     public static final String CLIENT_RETURNTOMYCLIENT_BUTTON = ".ReactModal__Content .action-buttons > button:nth-of-type(1)";
     public static final String CLIENT_POPUP_SUCCESS = ".ReactModal__Content";
@@ -218,16 +233,36 @@ public class SelectorsSpacelogik extends VariablesSpacelogik {
     public static final String PROGRAM_AUTOOFFICE_OPTION = ".program-list-select-program-main-container > div:nth-of-type(2)";
     public static final String PROGRAM_MANUAL_OPTION = ".program-list-select-program-main-container > div:nth-of-type(1)";
     public static final String PROGRAM_MODALTYPE_CONTINUE_BUTTON = ".modal-buttons > button:nth-of-type(2)";
+    public String ProgramNameInput(String functionality){
+        return"."+functionality+" > div:nth-of-type(1) input";
+    }
+
     public static final String PROGRAM_AUTO_NAME_INPUT = ".auto-office-setup-main-container-body > div:nth-of-type(1) input";
     public static final String PROGRAM_AUTO_INDUSTRY_SELECT = ".auto-office-setup-main-container-body > div:nth-of-type(2) > .generic-select-container > div";
     public static final String PROGRAM_AUTO_INDUSTRY_OPTION = ".MuiPaper-root > ul > li:nth-of-type(2)";
-    public static final String PROGRAM_CONSTRUCTION_THUMBLR = ".auto-office-construction-and-furniture-level-main-container > div:nth-of-type(2) .slider-container .MuiSlider-thumb";
-    public static final String PROGRAM_FURNITURE_THUMBLR = ".auto-office-construction-and-furniture-level-main-container > div:nth-of-type(3) .slider-container .MuiSlider-thumb";
+    public String ConstructionThumblr (String functionality){
+                if(functionality=="construction-and-furniture-level-main-container"){
+                    thumblrPosition = 1;
+
+                } else if (functionality == "auto-office-construction-and-furniture-level-main-container") {
+                    thumblrPosition = 2;
+                }
+        return "."+functionality+" > div:nth-of-type("+thumblrPosition+") .slider-container .MuiSlider-thumb";
+    }
+    public String FurnitureThumblr(String functionality){
+        if(functionality=="construction-and-furniture-level-main-container"){
+            thumblrPosition = 2;
+
+        } else if (functionality == "auto-office-construction-and-furniture-level-main-container") {
+            thumblrPosition = 3;
+        }
+        return "."+functionality+" > div:nth-of-type("+thumblrPosition+") .slider-container .MuiSlider-thumb";
+    }
     public String widthPreference(int rowPosition , int preferencePosition){
         return ".auto-office-setup-aisle-width-main-container > .auto-office-setup-aisle-input-container:nth-of-type("+rowPosition+") > div:nth-of-type(2) > label:nth-of-type("+preferencePosition+") input";
     }
-    public String programLevelOption(int rowPosition, int preferencePosition){
-        return ".auto-office-construction-and-furniture-level-main-container > div:nth-of-type("+rowPosition+") .slider-container > span > .MuiSlider-mark[data-index=\""+preferencePosition+"\"]";
+    public String constructionAndFurnitureLevelOption(String functionality, int rowPosition, int preferencePosition){
+        return "."+functionality+" > div:nth-of-type("+rowPosition+") .slider-container > span > .MuiSlider-mark[data-index=\""+preferencePosition+"\"]";
     }
     public static final String PROGRAM_AUTO_WIDTHPRIMARYPREFERENCE_INPUT = ".auto-office-setup-aisle-width-main-container > .auto-office-setup-aisle-input-container:nth-of-type(2) > label input";
     public static final String PROGRAM_AUTO_WIDTHSECONPREFERENCE_INPUT = ".auto-office-setup-aisle-width-main-container > .auto-office-setup-aisle-input-container:nth-of-type(3) > label input";
@@ -245,4 +280,24 @@ public class SelectorsSpacelogik extends VariablesSpacelogik {
     public static final String PROGRAM_AUTO_ROOM_QUANTITY_INPUT = ".create-plan-information-add-room-main-container > div:nth-of-type(6) .number-input-container > input:nth-of-type(2)";
     public static final String PROGRAM_AUTO_ROOM_SAVE_BUTTON = ".create-plan-information-add-room-main-container > div:nth-of-type(7) > button:nth-of-type(2)";
     public static final String PROGRAM_AUTO_CREATE_BUTTON = ".generic-header-container > div > div:nth-of-type(2) button";
+    //STANDARD PROGRAMS
+    public static final String PROGRAM_STANDARD_OPTION = ".program-list-select-program-main-container > div:nth-of-type(3)";
+    public static final String PROGRAM_STANDARD_LEASEYEAR_SELECT = ".standard-programs .setup-container > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > div";
+    public static final String PROGRAM_STANDARD_INDUSTRY_SELECT = ".setup-container-body > div:nth-of-type(2) > div:nth-of-type(2)";
+    public static final String PROGRAM_STANDARD_LEASETERM_SELECT = ".standard-programs .setup-container > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2) > div";
+    public static final String PROGRAM_STANDARD_FLEXIBILITYPOIN_SELECT = ".standard-programs .setup-container > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(3) > div:nth-of-type(1) > div";
+    public static final String PROGRAM_STANDARD_PLANNEDGROWTH_SELECT = ".standard-programs .setup-container > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(3) > div:nth-of-type(2) > div";
+    public String ProgramStandardSelectOption (int preferencePosition){return ".MuiPaper-root > ul > li:nth-of-type("+preferencePosition+")";}
+    public static final String PROGRAM_STANDARD_CONSTRUCTION_LEVEL_THUMBLR =  ".standard-programs .auto-office-construction-and-furniture-level-main-container > div:nth-of-type(2) .slider-container .MuiSlider-thumb";
+    public static final String PROGRAM_STANDARD_FURNITURE_LEVEL_THUMBLR = ".standard-programs .auto-office-construction-and-furniture-level-main-container > div:nth-of-type(3) .slider-container .MuiSlider-thumb";
+    public String ProgramStandardWidthPreference(int rowPosition , int preferencePosition){
+        return ".auto-office-setup-aisle-width-main-container > .auto-office-setup-aisle-input-container:nth-of-type("+rowPosition+") > div:nth-of-type(2) > label:nth-of-type("+preferencePosition+") input";
+    }
+    public static final String PROGRAM_STANDARD_PRIMARYOTHER_INPUT = ".auto-office-setup-aisle-width-main-container > div:nth-of-type(2) > label input";
+    public static final String PROGRAM_STANDARD_SECONDARYOTHER_INPUT = ".auto-office-setup-aisle-width-main-container > div:nth-of-type(3) > label input";
+    public String ProgramStandardConstructionAndFurnitureLevelOption(int rowPosition, int preferencePosition){
+        return ".standard-programs .auto-office-construction-and-furniture-level-main-container > div:nth-of-type("+rowPosition+") .slider-container > span > .MuiSlider-mark[data-index=\""+preferencePosition+"\"]";
+    }
+
+    public static final String PROGRAM_STANDARD_RECALCULATE_BUTOTN = ".standard-programs > .setup-container > div:nth-of-type(1) button";
 }

@@ -115,27 +115,54 @@ public class GeneratorSpaceLogik extends ContextBaseSpacelogik{
         String [] adressList = Adress.addresses;
         return getRandomString(adressList);
     }
-    public String generateDataTestCase(String columna, Map<String, String> row, Map<String, Integer> positionsMap) {
+    public String generateDataTestCase(String functionality, String columna, Map<String, String> row, Map<String, Integer> positionsMap) {
         String valorPICT = row.get(columna);
         if (valorPICT != null && !valorPICT.equalsIgnoreCase("N/A")) {
             Integer posicion = positionsMap.get(valorPICT);
             if (posicion != null) {
                 int rowPosition;
+
                 switch (columna){
                     case "Industry":
                         return selector.IndustryOption(posicion);
                     case "Construction":
-                        rowPosition = 2;
-                        return selector.programLevelOption(rowPosition, posicion);
+                        if (functionality=="construction-and-furniture-level-main-container"){
+                        rowPosition = 1;
+                            return selector.constructionAndFurnitureLevelOption(functionality,rowPosition, posicion);
+                        } else if (functionality=="auto-office-construction-and-furniture-level-main-container") {
+                            rowPosition = 2;
+                            return selector.constructionAndFurnitureLevelOption(functionality,rowPosition, posicion);
+                        } else if (functionality=="setup-container-body") {
+                            rowPosition = 2;
+                            return selector.ProgramStandardConstructionAndFurnitureLevelOption(rowPosition, posicion);
+                        }
+
                     case "Furniture":
-                        rowPosition = 3;
-                        return selector.programLevelOption(rowPosition, posicion);
+                        if (functionality=="construction-and-furniture-level-main-container"){
+                            rowPosition = 2;
+                            return selector.constructionAndFurnitureLevelOption(functionality,rowPosition, posicion);
+                        } else if (functionality=="auto-office-construction-and-furniture-level-main-container") {
+                            rowPosition = 3;
+                            return selector.constructionAndFurnitureLevelOption(functionality,rowPosition, posicion);
+                        }else if (functionality=="setup-container-body") {
+                            rowPosition = 3;
+                        return selector.ProgramStandardConstructionAndFurnitureLevelOption(rowPosition, posicion);
+                    }
                     case "PrimaryPref":
                         rowPosition = 2;
-                        return selector.widthPreference(rowPosition, posicion);
+                        if(functionality == "auto-office-construction-and-furniture-level-main-container") {
+                            return selector.widthPreference(rowPosition, posicion);
+                        } else if (functionality=="setup-container-body") {
+                            return selector.ProgramStandardWidthPreference(rowPosition, posicion);
+                        }
+
                     case "SecondaryPref":
                         rowPosition = 3;
+                        if(functionality == "auto-office-construction-and-furniture-level-main-container"){
                         return selector.widthPreference(rowPosition, posicion);
+                        } else if (functionality == "setup-container-body") {
+                            return selector.ProgramStandardWidthPreference(rowPosition, posicion);
+                        }
                     case "RoomType":
                         return selector.programAutoRoomType(posicion);
                     case "LightPref":
@@ -144,6 +171,14 @@ public class GeneratorSpaceLogik extends ContextBaseSpacelogik{
                         return selector.SalutationOption(posicion);
                     case "Skill":
                         return selector.peopleSkillPreference(posicion);
+                    case "LeaseType":
+                        return selector.LocationLeaseType(posicion);
+                    case "MapCenter":
+                        return selector.LocationOfficeDistanceOption(posicion);
+                    case "From":
+                        return selector.LocationOfficeFromOption(posicion);
+                    case "NewLeaseYear", "NewLeaseTerm","FlexibilityPoint","PlannedGrowth":
+                        return selector.ProgramStandardSelectOption(posicion);
                 }
             }
         }
@@ -165,13 +200,15 @@ public class GeneratorSpaceLogik extends ContextBaseSpacelogik{
                     min = 50;
                     max = 100;
                     break;
+                case "Range33k_100k":
+                    min = 33000;
+                    max = 100000;
+                    break;
                 default:
                     return valorPICT;
             }
             return String.valueOf(new Random().nextInt(max - min + 1) + min);
         }
-
-
     public String buildingName() {
         String[] listBuildingNames = BuildingNames.buildingNames;
         String buildingName = listBuildingNames[currentIndex % listBuildingNames.length];

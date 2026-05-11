@@ -50,6 +50,8 @@ public class BotSpacelogik extends Spacelogik.InterfaceActions {
                 createOfficeHapyPath.setOnAction(e -> handleAction(ExecMethod.CREATEOFFICE_HP,"CREATEOFFICE_HP"));
                 createLocationHapyPath.setOnAction(e -> handleAction(ExecMethod.CREATELOCATION_HP,"CREATELOCATION_HP"));
                 createProgramHapyPath.setOnAction(e -> handleAction(ExecMethod.CREATEPROGRAM_HP,"CREATEPROGRAM_HP"));
+                configPasswordHapyPath.setOnAction(e -> handleAction(ExecMethod.SETPASSWORD_HP,"SETPASSWORD_HP"));
+                completeOnboardingHapyPath.setOnAction(e -> handleAction(ExecMethod.COMPLETEONBOARDING_HP,"COMPLETEONBOARDING_HP"));
 
                 //ASSERTS BUTTONS
                 reCompanieAssertFormMessageEmptyInputs.setOnAction(e -> handleAction(ExecMethod.RECOMPANIE_VALIDATION_EMPTYMESSAGE,"RECOMPANIE_VALIDATION_EMPTYMESSAGE"));
@@ -164,6 +166,12 @@ public class BotSpacelogik extends Spacelogik.InterfaceActions {
                         break;
                     case CREATEPROGRAM_HP:
                         actionHpCreateProgram();
+                        break;
+                    case SETPASSWORD_HP:
+                        actionHpConfigPassword();
+                        break;
+                    case COMPLETEONBOARDING_HP:
+                        actionHpCompleteOnboarding();
                         break;
                         //ASSERT CASE
                     case RECOMPANIE_VALIDATION_EMPTYMESSAGE:

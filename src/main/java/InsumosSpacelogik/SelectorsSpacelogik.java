@@ -10,7 +10,13 @@ public class SelectorsSpacelogik extends VariablesSpacelogik {
 
     //TOASTER
     public static final String APP_TOASTERS = ".Toastify__toast";
-
+    //PROFILE
+    public static final String PROFILE_MENU = ".widget-content-left.ml-3.header-user-info";
+    //ONBOARDING
+    public static final String ONBOARDING_TERMSANDCONDITION_CONTINUE_BUTTON = ".generic-button.large.primary.no-icon";
+    public static final String ONBOARDING_TERMSANDCONDITION_CHECK = ".d-flex.gap-8.align-center.pointer";
+    public static final String ONBOARDING_CONTINUE_BUTTON = "button.generic-button.medium.secondary.icon-right";
+    public static final String ONBOARDING_SAVE_BUTTON = "generic-button.medium.primary.icon-left";
     //MODAL
     public static final String GENERIC_MODAL = ".ReactModal__Content";
 
@@ -18,7 +24,8 @@ public class SelectorsSpacelogik extends VariablesSpacelogik {
     public static final String LOGIN_EMAIL = ".login-form-children-container > label:nth-of-type(1) input";
     public static final String LOGIN_PASSWORD = ".login-form-children-container > label:nth-of-type(2) input";
     public static final String LOGIN_BUTTON = ".login-form-main-container button";
-
+    //LOGOUT
+    public static final String LOGOUT_BUTTON = "ul > div > div:nth-of-type(3) li";
     //GENERAL MENU SELECTORS
     public static final String MENU_ADMIN = ".app-sidebar ul > div:nth-of-type(5) > div:nth-of-type(1)";
     public static final String MENU_SPACE = ".app-sidebar ul > div:nth-of-type(1) > div:nth-of-type(1)";
@@ -39,7 +46,13 @@ public class SelectorsSpacelogik extends VariablesSpacelogik {
     public static final String SEARCH_BUILDINGNAME_INPUT = ".building-search-criteria-container > div:nth-of-type(2) > div:nth-of-type(3) input";
     public static final String SEARCH_BUTTON = ".building-search-criteria-container > div:nth-of-type(2) > div:nth-of-type(8) > button";
     public static final String SEARCH_SELECT_BUTTON = "tbody > tr:nth-of-type(1) > td:nth-of-type(9) button";
-
+    public static final String SEARCH_INPUT = ".gurus-search-input";
+    public static final String SEARCH_DELETE_BUTTON = ".d-flex-column.generic-input-label > div > svg:nth-of-type(2)";
+    //SETPASSWORD
+    public static final String PASSWORD_SET_BUTTON = ".MuiDataGrid-main > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div > div:nth-of-type(9) > div > button:nth-of-type(3)";
+    public static final String PASSWORD_INPUT = ".password-reset-modal > div:nth-of-type(2) > div > div:nth-of-type(1) > label:nth-of-type(1) input";
+    public static final String PASSWORD_CONFIRM_INPUT = ".password-reset-modal > div:nth-of-type(2) > div > div:nth-of-type(1) > label:nth-of-type(2) input";
+    public static final String PASSWORD_CONFIRM_BUTTON = ".password-reset-modal .modal-buttons button:nth-of-type(2)";
     //BUILDINGS
     public static final String BUILDING_MENU_SPACE_BUTTON = ".MuiTabs-scroller > div > button:nth-of-type(2)";
     public static final String BUILDING_MENU_STACKING_BUTTON = ".MuiTabs-scroller > div > button:nth-of-type(3)";
@@ -190,7 +203,7 @@ public class SelectorsSpacelogik extends VariablesSpacelogik {
     public String locationSupportSelect (int position){
         return ".location-form-content > div > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type("+position+") button";
     }
-    public static final String LOCATION_TRANSACTIONOPTION_BUTTON = ".MuiDataGrid-virtualScrollerRenderZone > div:nth-of-type(2) button";
+    public static final String LOCATION_TRANSACTIONOPTION_BUTTON = ".MuiDataGrid-virtualScrollerRenderZone > div:nth-of-type(2) > div:nth-of-type(6) button:nth-of-type(2)";
     public static final String LOCATION_CONSTRUCTIONOPTION_BUTTON = ".MuiDataGrid-virtualScrollerRenderZone > div:nth-of-type(3) button";
     public static final String LOCATION_WORPLACEOPTION_BUTTON = ".MuiDataGrid-virtualScrollerRenderZone > div:nth-of-type(4) button";
     public String LocationSuportOptionButton(int position){

@@ -80,6 +80,8 @@ public class InterfaceProperties extends InterfaceElements{
             GridPane.setConstraints(createClientHapyPath, 2, 8);
             GridPane.setConstraints(createLocationHapyPath, 2, 9);
             GridPane.setConstraints(createProgramHapyPath, 3, 3);
+            GridPane.setConstraints(configPasswordHapyPath, 3, 4);
+            GridPane.setConstraints(completeOnboardingHapyPath, 3, 5);
 
             //TEST CASE RECOMPANIE VALIDATION ERRORS
             GridPane.setConstraints(reCompanieAssertFormMessageEmptyInputs,2,3);
@@ -120,6 +122,8 @@ public class InterfaceProperties extends InterfaceElements{
             gridHappyPath.getChildren().add(createOfficeHapyPath);
             gridHappyPath.getChildren().add(createLocationHapyPath);
             gridHappyPath.getChildren().add(createProgramHapyPath);
+            gridHappyPath.getChildren().add(configPasswordHapyPath);
+            gridHappyPath.getChildren().add(completeOnboardingHapyPath);
         }
         private void addElementsGridReCompanieValidations() {
             gridValidationsReCompanie.getChildren().add(reCompanieAssertFormMessageEmptyInputs);
@@ -154,6 +158,8 @@ public class InterfaceProperties extends InterfaceElements{
             setButtonStyle(createOfficeHapyPath);
             setButtonStyle(createLocationHapyPath);
             setButtonStyle(createProgramHapyPath);
+            setButtonStyle(configPasswordHapyPath);
+            setButtonStyle(completeOnboardingHapyPath);
 
             //RECOMPANIE TEST CASE VALIDATION MESSAGE ERROR
             setButtonStyle(reCompanieAssertFormMessageEmptyInputs);
@@ -187,6 +193,8 @@ public class InterfaceProperties extends InterfaceElements{
             setupHoverEffect(createOfficeHapyPath);
             setupHoverEffect(createLocationHapyPath);
             setupHoverEffect(createProgramHapyPath);
+            setupHoverEffect(configPasswordHapyPath);
+            setupHoverEffect(completeOnboardingHapyPath);
 
             //RECOMPANIE TEST CASE VALIDATION MESSAGE ERROR
             setupHoverEffect(reCompanieAssertFormMessageEmptyInputs);

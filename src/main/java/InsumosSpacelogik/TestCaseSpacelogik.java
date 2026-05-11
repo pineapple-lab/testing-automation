@@ -488,4 +488,42 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
             cleanupContext();
         }
     }
+    //PASSWORD
+    public void happyPathConfigPassword() {
+        methods.setReCompanieUser();
+        methods.startBackendMOnitoring(page);
+        System.out.println("Se van a setear " + generate.generateExecutions() + " contraseñas\n");
+        methods.login(reCompanieEmail, userPassword);
+        page.waitForTimeout(3000);
+        try {
+            for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
+                methods.setPassword();
+                page.waitForTimeout(3000);
+                System.out.println("\nse compeletaron " + executeCounter + " ejecuciones");
+                System.out.println("----------------------------------------------------\n");
+            }
+            methods.printErrores();
+            methods.reset();
+        } finally {
+            cleanupContext();
+        }
+    }
+    //ONBOARDING
+    public void happyPathConfigOnboarding() {
+        methods.startBackendMOnitoring(page);
+        System.out.println("Se van a setear " + generate.generateExecutions() + " onboarding\n");
+        page.waitForTimeout(3000);
+        try {
+            for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
+                methods.completeOnboarding();
+                page.waitForTimeout(3000);
+                System.out.println("\nse compeletaron " + executeCounter + " ejecuciones");
+                System.out.println("----------------------------------------------------\n");
+            }
+            methods.printErrores();
+            methods.reset();
+        } finally {
+            cleanupContext();
+        }
+    }
 }

@@ -19,6 +19,8 @@ public class InterfaceActions extends InterfaceProperties {
             CREATECLIENT_HP,
             CREATELOCATION_HP,
             CREATEPROGRAM_HP,
+            SETPASSWORD_HP,
+            COMPLETEONBOARDING_HP,
 
             //TEST CASE ERROR MESSAGE VALIDATION
             RECOMPANIE_VALIDATION_EMPTYMESSAGE,
@@ -57,6 +59,8 @@ public class InterfaceActions extends InterfaceProperties {
         public void actionHpCreateLocation(){executeService(new FunctionLocations(), FunctionLocations::serviceNewLocation);}
         public void actionHpCreateProgram() { executeService(new FunctionPrograms(), FunctionPrograms::serviceNewProgram); }
         public void actionSearchValidation() { executeService(new FunctionSearch(), FunctionSearch::serviceBuildingsInfoValidations); }
+        public void actionHpConfigPassword() { executeService(new FunctionPassword(), FunctionPassword::serviceSetPassword); }
+        public void actionHpCompleteOnboarding() { executeService(new FunctionOnboarding(), FunctionOnboarding::serviceCompleteOnboarding); }
         //RECOMPANIE TEST CASE VALIDATION ERROR MESSAGE
         public void actionAssertReCompanieFormEmptyInputs() {executeService(new FunctionReCompanie(), FunctionReCompanie::serviceAssertReCompanieFormMessageEmptyInputs);}
         public void actionAssertNationalAccountFormEmptyInputs() {executeService(new FunctionNationalAccount(), FunctionNationalAccount::serviceAssertNationalAccountFormMessageEmptyInputs);}

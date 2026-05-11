@@ -1,6 +1,10 @@
 package InsumosSpacelogik;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class QueriesSpacelogik {private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/testbdspacelogik?serverTimezone=UTC";
     private static final String DATABASE_USER = "root";
@@ -9,7 +13,7 @@ public class QueriesSpacelogik {private static final String DATABASE_URL = "jdbc
         return DriverManager.getConnection(DATABASE_URL, DATABASE_USER, DATABASE_PASSWORD);
     }
     public void saveUser(String guru, String recompanie, String environment){
-        String insertSql = "INSERT INTO users (`guru`,`re_companie`,`environment`) VALUES(?, ?, ?)";
+        String insertSql = "INSERT INTO users (`guru`,`re_companie`,`environment`,`passwordConfig`) VALUES(?, ?, ?,false)";
         try {Connection connection = connectDatabase();
             PreparedStatement stmt = connection.prepareStatement(insertSql);
             stmt.setString(1,guru);
@@ -20,6 +24,91 @@ public class QueriesSpacelogik {private static final String DATABASE_URL = "jdbc
         }catch(SQLException ex) {
             handleSQLException(ex);
         }
+    }
+    public Map<String, String> getNoOnboardingCompleteUser() {
+        String query = "SELECT guru, environment FROM users WHERE onboardingComplete = false LIMIT 1";
+        Map<String, String> user = new HashMap<>();
+
+        try (Connection connection = connectDatabase();
+             PreparedStatement stmt = connection.prepareStatement(query);
+             ResultSet rs = stmt.executeQuery()) {
+
+            if (rs.next()) {
+                user.put("guru", rs.getString("guru"));
+                user.put("environment", rs.getString("environment"));
+            }
+        } catch (SQLException ex) {
+            handleSQLException(ex);
+        }
+        return user;
+    }
+    public void updateOnboarding(String guru) {
+        String updateSql = "UPDATE users SET onboardingComplete = true WHERE guru = ?";
+
+        try (Connection connection = connectDatabase();
+             PreparedStatement stmt = connection.prepareStatement(updateSql)) {
+
+            stmt.setString(1, guru);
+
+            int rowsAffected = stmt.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Onboarding actualizado para: " + guru);
+            }
+        } catch (SQLException ex) {
+            handleSQLException(ex);
+        }
+    }
+    public Map<String, String> getNoPasswordConfigUser() {
+        String query = "SELECT guru, environment FROM users WHERE passwordConfig = false LIMIT 1";
+        Map<String, String> user = new HashMap<>();
+
+        try (Connection connection = connectDatabase();
+             PreparedStatement stmt = connection.prepareStatement(query);
+             ResultSet rs = stmt.executeQuery()) {
+
+            if (rs.next()) {
+                user.put("guru", rs.getString("guru"));
+                user.put("environment", rs.getString("environment"));
+            }
+        } catch (SQLException ex) {
+            handleSQLException(ex);
+        }
+        return user;
+    }
+    public void updatePassword(String guru) {
+        String updateSql = "UPDATE users SET passwordConfig = true WHERE guru = ?";
+
+        try (Connection connection = connectDatabase();
+             PreparedStatement stmt = connection.prepareStatement(updateSql)) {
+
+            stmt.setString(1, guru);
+
+            int rowsAffected = stmt.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Contraseña actualizada para: " + guru);
+            }
+        } catch (SQLException ex) {
+            handleSQLException(ex);
+        }
+    }
+    public List<Map<String, String>> getConfiguredUsers() {
+        String query = "SELECT guru, environment FROM users WHERE passwordConfig = true";
+        List<Map<String, String>> userList = new ArrayList<>();
+
+        try (Connection connection = connectDatabase();
+             PreparedStatement stmt = connection.prepareStatement(query);
+             ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                Map<String, String> user = new HashMap<>();
+                user.put("guru", rs.getString("guru"));
+                user.put("environment", rs.getString("environment"));
+                userList.add(user);
+            }
+        } catch (SQLException ex) {
+            handleSQLException(ex);
+        }
+        return userList;
     }
     /*public void updateUndefinedUser(String email) {
         String updateSql = "UPDATE undefinedusers SET emailUser = ? WHERE rol = ? AND ambiente = ?";
@@ -77,13 +166,6 @@ public class QueriesSpacelogik {private static final String DATABASE_URL = "jdbc
         System.out.println("Se actualizo correctamente el estado register\n" +
                 "User: "+email+"\n");
     }
-    public String getEmailUser(String joinRol){
-        if(joinRol == null){
-            joinRol = "Content provider";
-        }
-        String selectSql = "SELECT * FROM testbddocola.users WHERE rol = ? and ambiente =  ? ORDER BY RAND() LIMIT 1";
-        return getUserEmailQuery(selectSql, joinRol);
-    }
     public String getUndefinedUser(String joinRol){
         if(joinRol == null){
             joinRol = "Content provider";
@@ -106,22 +188,7 @@ public class QueriesSpacelogik {private static final String DATABASE_URL = "jdbc
         }
         return userInvitation;
     }
-    private String getUserEmailQuery(String sql, String joinRol){
-        String email = null;
-        try(Connection connection = connectDatabase();
-            PreparedStatement stmt = connection.prepareStatement(sql)){
-            stmt.setString(1,joinRol);
-            stmt.setString(2,navigationLink);
-            try (ResultSet rs = stmt.executeQuery()){
-                if(rs.next()){
-                    email = rs.getString("emailUser");
-                }
-            }
-        }catch (SQLException ex){
-            handleSQLException(ex);
-        }
-        return email;
-    }*/
+   */
     private void handleSQLException(SQLException ex) {
         System.err.println("SQL Error: " + ex.getMessage());
         ex.printStackTrace();

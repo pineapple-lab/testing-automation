@@ -87,6 +87,50 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         page.click(SelectorsSpacelogik.LOGIN_BUTTON);
         assertComponent(SelectorsSpacelogik.WAIT_LOGIN_PROFILE);
     }
+    public void logout(){
+        page.click(SelectorsSpacelogik.PROFILE_MENU);
+        page.click(SelectorsSpacelogik.LOGOUT_BUTTON);
+    }
+    //PASSWORD
+    public void setPassword(){
+        Map<String, String> user = sql.getNoPasswordConfigUser();
+        if(!user.isEmpty()){
+            String email = user.get("guru");
+            page.fill(SelectorsSpacelogik.SEARCH_INPUT,email);
+            page.waitForTimeout(1000);
+            page.click(SelectorsSpacelogik.PASSWORD_SET_BUTTON);
+            page.waitForTimeout(1000);
+            page.fill(SelectorsSpacelogik.PASSWORD_INPUT,"Pickle30");
+            page.fill(SelectorsSpacelogik.PASSWORD_CONFIRM_INPUT,"Pickle30");
+            page.waitForTimeout(1000);
+            page.click(SelectorsSpacelogik.PASSWORD_CONFIRM_BUTTON);
+            page.click(SelectorsSpacelogik.SEARCH_DELETE_BUTTON);
+            sql.updatePassword(email);
+        }else {
+            System.out.println("No hay usuarios pendientes para procesar.");
+        }
+
+    }
+    //ONBOARDING
+    public void completeOnboarding(){
+        Map<String, String> user = sql.getNoOnboardingCompleteUser();
+        if(!user.isEmpty()){
+            String email = user.get("guru");
+            login(email, "Pickle30");
+            page.waitForTimeout(1000);
+            page.click(SelectorsSpacelogik.ONBOARDING_TERMSANDCONDITION_CHECK);
+            page.waitForTimeout(1000);
+            page.click(SelectorsSpacelogik.ONBOARDING_TERMSANDCONDITION_CONTINUE_BUTTON);
+            page.click(SelectorsSpacelogik.ONBOARDING_CONTINUE_BUTTON);
+            page.click(SelectorsSpacelogik.ONBOARDING_CONTINUE_BUTTON);
+            page.click(SelectorsSpacelogik.ONBOARDING_CONTINUE_BUTTON);
+            page.click(SelectorsSpacelogik.ONBOARDING_SAVE_BUTTON);
+            sql.updateOnboarding(email);
+            logout();
+        }else {
+            System.out.println("No hay usuarios pendientes para procesar.");
+        }
+    }
     //SEARCH
     public void goToSearchPage(){
         page.waitForTimeout(3000);

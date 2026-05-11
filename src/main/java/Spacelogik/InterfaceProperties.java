@@ -82,6 +82,10 @@ public class InterfaceProperties extends InterfaceElements{
             GridPane.setConstraints(createProgramHapyPath, 3, 3);
             GridPane.setConstraints(configPasswordHapyPath, 3, 4);
             GridPane.setConstraints(completeOnboardingHapyPath, 3, 5);
+            GridPane.setConstraints(completeBuyCreditsHapyPath, 3, 6);
+            GridPane.setConstraints(createCliendAndLocationMultipleGuru, 3, 7);
+            GridPane.setConstraints(activateLocationMultipleGuru, 3, 8);
+            GridPane.setConstraints(createProgramMultipleGuru, 3, 9);
 
             //TEST CASE RECOMPANIE VALIDATION ERRORS
             GridPane.setConstraints(reCompanieAssertFormMessageEmptyInputs,2,3);
@@ -124,6 +128,10 @@ public class InterfaceProperties extends InterfaceElements{
             gridHappyPath.getChildren().add(createProgramHapyPath);
             gridHappyPath.getChildren().add(configPasswordHapyPath);
             gridHappyPath.getChildren().add(completeOnboardingHapyPath);
+            gridHappyPath.getChildren().add(completeBuyCreditsHapyPath);
+            gridHappyPath.getChildren().add(createCliendAndLocationMultipleGuru);
+            gridHappyPath.getChildren().add(activateLocationMultipleGuru);
+            gridHappyPath.getChildren().add(createProgramMultipleGuru);
         }
         private void addElementsGridReCompanieValidations() {
             gridValidationsReCompanie.getChildren().add(reCompanieAssertFormMessageEmptyInputs);
@@ -160,6 +168,10 @@ public class InterfaceProperties extends InterfaceElements{
             setButtonStyle(createProgramHapyPath);
             setButtonStyle(configPasswordHapyPath);
             setButtonStyle(completeOnboardingHapyPath);
+            setButtonStyle(completeBuyCreditsHapyPath);
+            setButtonStyle(createCliendAndLocationMultipleGuru);
+            setButtonStyle(activateLocationMultipleGuru);
+            setButtonStyle(createProgramMultipleGuru);
 
             //RECOMPANIE TEST CASE VALIDATION MESSAGE ERROR
             setButtonStyle(reCompanieAssertFormMessageEmptyInputs);
@@ -195,6 +207,10 @@ public class InterfaceProperties extends InterfaceElements{
             setupHoverEffect(createProgramHapyPath);
             setupHoverEffect(configPasswordHapyPath);
             setupHoverEffect(completeOnboardingHapyPath);
+            setupHoverEffect(completeBuyCreditsHapyPath);
+            setupHoverEffect(createCliendAndLocationMultipleGuru);
+            setupHoverEffect(activateLocationMultipleGuru);
+            setupHoverEffect(createProgramMultipleGuru);
 
             //RECOMPANIE TEST CASE VALIDATION MESSAGE ERROR
             setupHoverEffect(reCompanieAssertFormMessageEmptyInputs);

@@ -58,7 +58,10 @@ public abstract class InterfaceElements extends Application {
     Button createProgramHapyPath = new Button("Create Program");
     Button configPasswordHapyPath = new Button("Config password");
     Button completeOnboardingHapyPath = new Button("Complete onboarding");
-
+    Button completeBuyCreditsHapyPath = new Button("Buy credits");
+    Button createCliendAndLocationMultipleGuru = new Button("Create client and location");
+    Button activateLocationMultipleGuru = new Button("Activate location multiple guru");
+    Button createProgramMultipleGuru = new Button("Create program mutiple guru");
     //ASSERTION BUTTONS
     Button reCompanieAssertFormMessageEmptyInputs = new Button("Test form empty inputs");
     Button nationalAccountAssertFormMessageEmptyInputs = new Button("Test form empty inputs");

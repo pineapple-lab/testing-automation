@@ -21,6 +21,10 @@ public class InterfaceActions extends InterfaceProperties {
             CREATEPROGRAM_HP,
             SETPASSWORD_HP,
             COMPLETEONBOARDING_HP,
+            BUYCREDITS_HP,
+            CREATECLIENTANDLOCATION_HP,
+            ACTIVATELOCATIONMULTIGURU_HP,
+            CREATEPROGRAMMULTIGURU_HP,
 
             //TEST CASE ERROR MESSAGE VALIDATION
             RECOMPANIE_VALIDATION_EMPTYMESSAGE,
@@ -61,6 +65,10 @@ public class InterfaceActions extends InterfaceProperties {
         public void actionSearchValidation() { executeService(new FunctionSearch(), FunctionSearch::serviceBuildingsInfoValidations); }
         public void actionHpConfigPassword() { executeService(new FunctionPassword(), FunctionPassword::serviceSetPassword); }
         public void actionHpCompleteOnboarding() { executeService(new FunctionOnboarding(), FunctionOnboarding::serviceCompleteOnboarding); }
+        public void actionHpBuyCredit() { executeService(new FunctionCredits(), FunctionCredits::serviceBuyCredits); }
+        public void actionHpCreateClientAndLocationMultipleGuru() { executeService(new FunctionClient(), FunctionClient::serviceNewClientAndLocation); }
+        public void actionHpActivateLocationMultiGuru() { executeService(new FunctionLocations(), FunctionLocations::serviceActivateLocationMultipleGuru); }
+        public void actionHpCreateProgramMultiGuru() { executeService(new FunctionPrograms(), FunctionPrograms::serviceNewProgramMultipleGuru); }
         //RECOMPANIE TEST CASE VALIDATION ERROR MESSAGE
         public void actionAssertReCompanieFormEmptyInputs() {executeService(new FunctionReCompanie(), FunctionReCompanie::serviceAssertReCompanieFormMessageEmptyInputs);}
         public void actionAssertNationalAccountFormEmptyInputs() {executeService(new FunctionNationalAccount(), FunctionNationalAccount::serviceAssertNationalAccountFormMessageEmptyInputs);}

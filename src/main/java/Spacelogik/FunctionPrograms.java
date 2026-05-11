@@ -24,4 +24,10 @@ public class FunctionPrograms extends TestCaseSpacelogik {
         executeSweetCaseNewStandardProgram();
         teardownPlaywright();
     }
+    @Test
+    public void serviceNewProgramMultipleGuru(){
+        methods.startContextAndNavigation();
+        happyPathCreateProgramMultipleGuru();
+        teardownPlaywright();
+    }
 }

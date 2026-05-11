@@ -25,39 +25,6 @@ public class QueriesSpacelogik {private static final String DATABASE_URL = "jdbc
             handleSQLException(ex);
         }
     }
-    public Map<String, String> getNoOnboardingCompleteUser() {
-        String query = "SELECT guru, environment FROM users WHERE onboardingComplete = false LIMIT 1";
-        Map<String, String> user = new HashMap<>();
-
-        try (Connection connection = connectDatabase();
-             PreparedStatement stmt = connection.prepareStatement(query);
-             ResultSet rs = stmt.executeQuery()) {
-
-            if (rs.next()) {
-                user.put("guru", rs.getString("guru"));
-                user.put("environment", rs.getString("environment"));
-            }
-        } catch (SQLException ex) {
-            handleSQLException(ex);
-        }
-        return user;
-    }
-    public void updateOnboarding(String guru) {
-        String updateSql = "UPDATE users SET onboardingComplete = true WHERE guru = ?";
-
-        try (Connection connection = connectDatabase();
-             PreparedStatement stmt = connection.prepareStatement(updateSql)) {
-
-            stmt.setString(1, guru);
-
-            int rowsAffected = stmt.executeUpdate();
-            if (rowsAffected > 0) {
-                System.out.println("Onboarding actualizado para: " + guru);
-            }
-        } catch (SQLException ex) {
-            handleSQLException(ex);
-        }
-    }
     public Map<String, String> getNoPasswordConfigUser() {
         String query = "SELECT guru, environment FROM users WHERE passwordConfig = false LIMIT 1";
         Map<String, String> user = new HashMap<>();
@@ -91,24 +58,170 @@ public class QueriesSpacelogik {private static final String DATABASE_URL = "jdbc
             handleSQLException(ex);
         }
     }
-    public List<Map<String, String>> getConfiguredUsers() {
-        String query = "SELECT guru, environment FROM users WHERE passwordConfig = true";
-        List<Map<String, String>> userList = new ArrayList<>();
+    public Map<String, String> getNoOnboardingCompleteUser() {
+        String query = "SELECT guru, environment FROM users WHERE onboardingComplete = false LIMIT 1";
+        Map<String, String> user = new HashMap<>();
 
         try (Connection connection = connectDatabase();
              PreparedStatement stmt = connection.prepareStatement(query);
              ResultSet rs = stmt.executeQuery()) {
 
-            while (rs.next()) {
-                Map<String, String> user = new HashMap<>();
+            if (rs.next()) {
                 user.put("guru", rs.getString("guru"));
                 user.put("environment", rs.getString("environment"));
-                userList.add(user);
             }
         } catch (SQLException ex) {
             handleSQLException(ex);
         }
-        return userList;
+        return user;
+    }
+    public void updateOnboarding(String guru) {
+        String updateSql = "UPDATE users SET onboardingComplete = true WHERE guru = ?";
+
+        try (Connection connection = connectDatabase();
+             PreparedStatement stmt = connection.prepareStatement(updateSql)) {
+
+            stmt.setString(1, guru);
+
+            int rowsAffected = stmt.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Onboarding actualizado para: " + guru);
+            }
+        } catch (SQLException ex) {
+            handleSQLException(ex);
+        }
+    }
+    public Map<String, String> getNoCreditComplete() {
+        String query = "SELECT guru, environment FROM users WHERE creditsComplete = false LIMIT 1";
+        Map<String, String> user = new HashMap<>();
+
+        try (Connection connection = connectDatabase();
+             PreparedStatement stmt = connection.prepareStatement(query);
+             ResultSet rs = stmt.executeQuery()) {
+
+            if (rs.next()) {
+                user.put("guru", rs.getString("guru"));
+                user.put("environment", rs.getString("environment"));
+            }
+        } catch (SQLException ex) {
+            handleSQLException(ex);
+        }
+        return user;
+    }
+    public void updateCredit(String guru) {
+        String updateSql = "UPDATE users SET creditsComplete = true WHERE guru = ?";
+
+        try (Connection connection = connectDatabase();
+             PreparedStatement stmt = connection.prepareStatement(updateSql)) {
+
+            stmt.setString(1, guru);
+
+            int rowsAffected = stmt.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Creditos comprados para: " + guru);
+            }
+        } catch (SQLException ex) {
+            handleSQLException(ex);
+        }
+    }
+    public Map<String, String> getNoClientAndLocationComplete() {
+        String query = "SELECT guru, environment FROM users WHERE clientCreate = false LIMIT 1";
+        Map<String, String> user = new HashMap<>();
+
+        try (Connection connection = connectDatabase();
+             PreparedStatement stmt = connection.prepareStatement(query);
+             ResultSet rs = stmt.executeQuery()) {
+
+            if (rs.next()) {
+                user.put("guru", rs.getString("guru"));
+                user.put("environment", rs.getString("environment"));
+            }
+        } catch (SQLException ex) {
+            handleSQLException(ex);
+        }
+        return user;
+    }
+    public void updateClientAndLocation(String guru) {
+        String updateSql = "UPDATE users SET clientCreate = true,locationCreate = true WHERE guru = ?";
+
+        try (Connection connection = connectDatabase();
+             PreparedStatement stmt = connection.prepareStatement(updateSql)) {
+
+            stmt.setString(1, guru);
+
+            int rowsAffected = stmt.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Cliente y location creada para: " + guru);
+            }
+        } catch (SQLException ex) {
+            handleSQLException(ex);
+        }
+    }
+    public Map<String, String> getNoLocationActivate() {
+        String query = "SELECT guru, environment FROM users WHERE locationActivate = false LIMIT 1";
+        Map<String, String> user = new HashMap<>();
+
+        try (Connection connection = connectDatabase();
+             PreparedStatement stmt = connection.prepareStatement(query);
+             ResultSet rs = stmt.executeQuery()) {
+
+            if (rs.next()) {
+                user.put("guru", rs.getString("guru"));
+                user.put("environment", rs.getString("environment"));
+            }
+        } catch (SQLException ex) {
+            handleSQLException(ex);
+        }
+        return user;
+    }
+    public void updateLocationActivate(String guru) {
+        String updateSql = "UPDATE users SET locationActivate = true WHERE guru = ?";
+
+        try (Connection connection = connectDatabase();
+             PreparedStatement stmt = connection.prepareStatement(updateSql)) {
+
+            stmt.setString(1, guru);
+
+            int rowsAffected = stmt.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Location activada para: " + guru);
+            }
+        } catch (SQLException ex) {
+            handleSQLException(ex);
+        }
+    }
+    public Map<String, String> getNoProgramCreate() {
+        String query = "SELECT guru, environment FROM users WHERE programCreate = false LIMIT 1";
+        Map<String, String> user = new HashMap<>();
+
+        try (Connection connection = connectDatabase();
+             PreparedStatement stmt = connection.prepareStatement(query);
+             ResultSet rs = stmt.executeQuery()) {
+
+            if (rs.next()) {
+                user.put("guru", rs.getString("guru"));
+                user.put("environment", rs.getString("environment"));
+            }
+        } catch (SQLException ex) {
+            handleSQLException(ex);
+        }
+        return user;
+    }
+    public void updateProgram(String guru) {
+        String updateSql = "UPDATE users SET programCreate = true WHERE guru = ?";
+
+        try (Connection connection = connectDatabase();
+             PreparedStatement stmt = connection.prepareStatement(updateSql)) {
+
+            stmt.setString(1, guru);
+
+            int rowsAffected = stmt.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Program creado para: " + guru);
+            }
+        } catch (SQLException ex) {
+            handleSQLException(ex);
+        }
     }
     /*public void updateUndefinedUser(String email) {
         String updateSql = "UPDATE undefinedusers SET emailUser = ? WHERE rol = ? AND ambiente = ?";

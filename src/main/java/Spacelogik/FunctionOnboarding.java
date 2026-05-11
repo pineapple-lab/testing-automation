@@ -11,7 +11,6 @@ public class FunctionOnboarding  extends TestCaseSpacelogik{
         public void serviceCompleteOnboarding(){
             methods.startContextAndNavigation();
             happyPathConfigOnboarding();
-            happyPathConfigPassword();
             teardownPlaywright();
 
     }

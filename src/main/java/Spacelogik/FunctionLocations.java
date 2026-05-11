@@ -18,4 +18,10 @@ public class FunctionLocations extends TestCaseSpacelogik {
         executeSweetCaseNewLocation();
         teardownPlaywright();
     }
+    @Test
+    public void serviceActivateLocationMultipleGuru(){
+        methods.startContextAndNavigation();
+        happyPathAcivateLocationMultipleGuru();
+        teardownPlaywright();
+    }
 }

@@ -52,7 +52,10 @@ public class BotSpacelogik extends Spacelogik.InterfaceActions {
                 createProgramHapyPath.setOnAction(e -> handleAction(ExecMethod.CREATEPROGRAM_HP,"CREATEPROGRAM_HP"));
                 configPasswordHapyPath.setOnAction(e -> handleAction(ExecMethod.SETPASSWORD_HP,"SETPASSWORD_HP"));
                 completeOnboardingHapyPath.setOnAction(e -> handleAction(ExecMethod.COMPLETEONBOARDING_HP,"COMPLETEONBOARDING_HP"));
-
+                completeBuyCreditsHapyPath.setOnAction(e -> handleAction(ExecMethod.BUYCREDITS_HP,"BUYCREDITS_HP"));
+                createCliendAndLocationMultipleGuru.setOnAction(e -> handleAction(ExecMethod.CREATECLIENTANDLOCATION_HP,"CREATECLIENTANDLOCATION_HP"));
+                activateLocationMultipleGuru.setOnAction(e -> handleAction(ExecMethod.ACTIVATELOCATIONMULTIGURU_HP,"ACTIVATELOCATIONMULTIGURU_HP"));
+                createProgramMultipleGuru.setOnAction(e -> handleAction(ExecMethod.CREATEPROGRAMMULTIGURU_HP,"CREATEPROGRAMMULTIGURU_HP"));
                 //ASSERTS BUTTONS
                 reCompanieAssertFormMessageEmptyInputs.setOnAction(e -> handleAction(ExecMethod.RECOMPANIE_VALIDATION_EMPTYMESSAGE,"RECOMPANIE_VALIDATION_EMPTYMESSAGE"));
                 nationalAccountAssertFormMessageEmptyInputs.setOnAction(e -> handleAction(ExecMethod.NATIONALACCOUNT_VALIDATION_EMPTYMESSAGE,"NATIONALACCOUNT_VALIDATION_EMPTYMESSAGE"));
@@ -172,6 +175,18 @@ public class BotSpacelogik extends Spacelogik.InterfaceActions {
                         break;
                     case COMPLETEONBOARDING_HP:
                         actionHpCompleteOnboarding();
+                        break;
+                    case BUYCREDITS_HP:
+                        actionHpBuyCredit();
+                        break;
+                    case CREATECLIENTANDLOCATION_HP:
+                        actionHpCreateClientAndLocationMultipleGuru();
+                        break;
+                    case ACTIVATELOCATIONMULTIGURU_HP:
+                        actionHpActivateLocationMultiGuru();
+                        break;
+                    case CREATEPROGRAMMULTIGURU_HP:
+                        actionHpCreateProgramMultiGuru();
                         break;
                         //ASSERT CASE
                     case RECOMPANIE_VALIDATION_EMPTYMESSAGE:

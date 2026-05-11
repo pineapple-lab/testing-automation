@@ -18,4 +18,10 @@ public class FunctionClient extends TestCaseSpacelogik {
         executeSweetCaseNewClient();
         teardownPlaywright();
     }
+    @Test
+    public void serviceNewClientAndLocation(){
+        methods.startContextAndNavigation();
+        happyPathCreateClientAndLocationMultipleGuru();
+        teardownPlaywright();
+    }
 }

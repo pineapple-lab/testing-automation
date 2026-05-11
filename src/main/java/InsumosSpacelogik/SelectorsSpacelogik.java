@@ -15,8 +15,8 @@ public class SelectorsSpacelogik extends VariablesSpacelogik {
     //ONBOARDING
     public static final String ONBOARDING_TERMSANDCONDITION_CONTINUE_BUTTON = ".generic-button.large.primary.no-icon";
     public static final String ONBOARDING_TERMSANDCONDITION_CHECK = ".d-flex.gap-8.align-center.pointer";
-    public static final String ONBOARDING_CONTINUE_BUTTON = "button.generic-button.medium.secondary.icon-right";
-    public static final String ONBOARDING_SAVE_BUTTON = "generic-button.medium.primary.icon-left";
+    public static final String ONBOARDING_CONTINUE_BUTTON = ".generic-button.medium.secondary.icon-right";
+    public static final String ONBOARDING_SAVE_BUTTON = ".generic-button.medium.primary.icon-left";
     //MODAL
     public static final String GENERIC_MODAL = ".ReactModal__Content";
 
@@ -53,6 +53,16 @@ public class SelectorsSpacelogik extends VariablesSpacelogik {
     public static final String PASSWORD_INPUT = ".password-reset-modal > div:nth-of-type(2) > div > div:nth-of-type(1) > label:nth-of-type(1) input";
     public static final String PASSWORD_CONFIRM_INPUT = ".password-reset-modal > div:nth-of-type(2) > div > div:nth-of-type(1) > label:nth-of-type(2) input";
     public static final String PASSWORD_CONFIRM_BUTTON = ".password-reset-modal .modal-buttons button:nth-of-type(2)";
+    //BUY CREDITS
+    public static final String CREDITS_IFRAME = ".StripeElement iframe";
+    public static final String CREDITS_UNLOCKFEATURES_BUTTON = ".main-shared-container.buy-package-container button";
+    public static final String CREDITS_GETPACKAGE_BUTTON = ".credit-package-item.d-flex.flex-column.g-16.credit-package-item-best button";
+    public static final String CREDITS_CARDNUMBER_INPUT = ".p-CardNumberInput input";
+    public static final String CREDITS_EXPIRATIONDATE_INPUT = ".p-Grid.p-CardForm > div:nth-of-type(2) input";
+    public static final String CREDITS_CVC_INPUT = ".p-Grid.p-CardForm > div:nth-of-type(3) input";
+    public static final String CREDITS_PAYMENTTERMS1_CHECKBOX = ".d-flex.flex-column.g-16.pt-24 > label:nth-of-type(1) input";
+    public static final String CREDITS_PAYMENTTERMS2_CHECKBOX = ".d-flex.flex-column.g-16.pt-24 > label:nth-of-type(2) input";
+    public static final String CREDITS_PAYNOW_BUTTON = ".mt-16.generic-button.medium.primary.no-icon";
     //BUILDINGS
     public static final String BUILDING_MENU_SPACE_BUTTON = ".MuiTabs-scroller > div > button:nth-of-type(2)";
     public static final String BUILDING_MENU_STACKING_BUTTON = ".MuiTabs-scroller > div > button:nth-of-type(3)";
@@ -213,8 +223,9 @@ public class SelectorsSpacelogik extends VariablesSpacelogik {
     public static final String CLIENT_CREATE_BUTTON = ".tenant-registration-buttons > div > button";
     public static final String CLIENT_RETURNTOMYCLIENT_BUTTON = ".ReactModal__Content .action-buttons > button:nth-of-type(1)";
     public static final String CLIENT_POPUP_SUCCESS = ".ReactModal__Content";
-    public static final String CLIENT_CARD = ".represented-tenants-children-container > span  .represented-tenants-cards-grid-container > .represented-tenants-card-main-container:nth-of-type(1)";
-
+    public static final String CLIENT_CARD = ".represented-tenants-cards-grid-container .represented-tenants-card-main-container.pointer:first-child";
+    public static final String ACTIVATELOCATION_PROCEEDPAY_BUTTON = ".w-50.generic-button.medium.primary.icon-left";
+    public static final String ACTIVATELOCATION_CONFIRM_BUTTON = ".generic-button.small.primary.no-icon";
     //OFFICES
     public static final String OFFICES_HEADERMENU_BUTTON = ".app-header > div:nth-of-type(4) > button:nth-of-type(2)";
     public static final String OFFICES_NEW_BUTTON = ".offices-page-main-container .content-between > div > button:nth-of-type(2)";

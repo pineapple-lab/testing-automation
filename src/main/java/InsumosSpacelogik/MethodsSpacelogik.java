@@ -85,7 +85,6 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         page.fill(SelectorsSpacelogik.LOGIN_EMAIL,email);
         page.fill(SelectorsSpacelogik.LOGIN_PASSWORD,password);
         page.click(SelectorsSpacelogik.LOGIN_BUTTON);
-        assertComponent(SelectorsSpacelogik.WAIT_LOGIN_PROFILE);
     }
     public void logout(){
         page.click(SelectorsSpacelogik.PROFILE_MENU);
@@ -119,13 +118,14 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
             login(email, "Pickle30");
             page.waitForTimeout(1000);
             page.click(SelectorsSpacelogik.ONBOARDING_TERMSANDCONDITION_CHECK);
-            page.waitForTimeout(1000);
             page.click(SelectorsSpacelogik.ONBOARDING_TERMSANDCONDITION_CONTINUE_BUTTON);
+            page.waitForTimeout(2000);
             page.click(SelectorsSpacelogik.ONBOARDING_CONTINUE_BUTTON);
             page.click(SelectorsSpacelogik.ONBOARDING_CONTINUE_BUTTON);
             page.click(SelectorsSpacelogik.ONBOARDING_CONTINUE_BUTTON);
             page.click(SelectorsSpacelogik.ONBOARDING_SAVE_BUTTON);
             sql.updateOnboarding(email);
+            page.waitForTimeout(2000);
             logout();
         }else {
             System.out.println("No hay usuarios pendientes para procesar.");
@@ -139,6 +139,29 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
     public void searchBuilding(String buildingName){
         page.fill(SelectorsSpacelogik.SEARCH_BUILDINGNAME_INPUT, buildingName);
         page.click(SelectorsSpacelogik.SEARCH_BUTTON);
+    }
+    //BUY CREDIT
+    public void buyCredit(){
+        FrameLocator stripeFrame = page.frameLocator(SelectorsSpacelogik.CREDITS_IFRAME);
+        Map<String, String> user = sql.getNoCreditComplete();
+        if(!user.isEmpty()) {
+            String email = user.get("guru");
+            login(email, "Pickle30");
+            page.waitForTimeout(2000);
+            page.click(SelectorsSpacelogik.CREDITS_UNLOCKFEATURES_BUTTON);
+            page.click(SelectorsSpacelogik.CREDITS_GETPACKAGE_BUTTON);
+            page.waitForTimeout(2000);
+            stripeFrame.locator(SelectorsSpacelogik.CREDITS_CARDNUMBER_INPUT).fill("4242 4242 4242 4242");
+            stripeFrame.locator(SelectorsSpacelogik.CREDITS_EXPIRATIONDATE_INPUT).fill( "442");
+            stripeFrame.locator(SelectorsSpacelogik.CREDITS_CVC_INPUT).fill("424");
+            page.click(SelectorsSpacelogik.CREDITS_PAYMENTTERMS1_CHECKBOX);
+            page.click(SelectorsSpacelogik.CREDITS_PAYMENTTERMS2_CHECKBOX);
+            page.click(SelectorsSpacelogik.CREDITS_PAYNOW_BUTTON);
+            sql.updateCredit(email);
+            logout();
+        }else {
+            System.out.println("No hay usuarios pendientes para procesar.");
+        }
     }
     //RE COMPANIE
     public void goToReCompaniePage(){
@@ -387,13 +410,30 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         completeNewLocationStep1();
         completeNewLocationStep2();
         page.click(SelectorsSpacelogik.LOCATION_CONTINUESTEP3_BUTTON);
-        page.click(SelectorsSpacelogik.LOCATION_SELECTTRANSACTION_BUTTON);
-        page.click(SelectorsSpacelogik.LOCATION_TRANSACTIONOPTION_BUTTON);
         page.click(SelectorsSpacelogik.LOCATION_SAVE_BUTTON);
     }
     public void goToActivateLocationForm(){
         page.click(SelectorsSpacelogik.CLIENT_CARD);
         page.click(SelectorsSpacelogik.LOCATION_ACTIVATE_BUTTON);
+    }
+    public void activateLocation(){
+        page.click(SelectorsSpacelogik.ACTIVATELOCATION_PROCEEDPAY_BUTTON);
+        page.click(SelectorsSpacelogik.ACTIVATELOCATION_CONFIRM_BUTTON);
+    }
+    public void activateLocationMultipleGuru(){
+        Map<String, String> user = sql.getNoLocationActivate();
+        if(!user.isEmpty()){
+            String email = user.get("guru");
+            login(email, "Pickle30");
+            page.waitForTimeout(1000);
+            goToActivateLocationForm();
+            activateLocation();
+            sql.updateLocationActivate(email);
+            page.waitForTimeout(2000);
+            logout();
+        }else {
+            System.out.println("No hay usuarios pendientes para procesar.");
+        }
     }
     public void excuteSweetTestNewLocation(Map<String, String> row){
         String functionality = "construction-and-furniture-level-main-container";
@@ -485,6 +525,21 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         createLocation();
         assertComponent(SelectorsSpacelogik.CLIENT_MODAL_LOCATION_CARD);
         page.click(SelectorsSpacelogik.CLIENT_CREATE_BUTTON);
+    }
+    public void createClientAndLocationMultipleGuru(){
+        Map<String, String> user = sql.getNoClientAndLocationComplete();
+        if(!user.isEmpty()){
+            String email = user.get("guru");
+            login(email, "Pickle30");
+            page.waitForTimeout(1000);
+            goToNewClientForm();
+            createFullClient();
+            sql.updateClientAndLocation(email);
+            page.waitForTimeout(2000);
+            logout();
+        }else {
+            System.out.println("No hay usuarios pendientes para procesar.");
+        }
     }
     //PROGRAM
     public void goToProgramView(){
@@ -616,6 +671,22 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         page.click(SelectorsSpacelogik.PROGRAM_STANDARD_RECALCULATE_BUTOTN);
         page.click(SelectorsSpacelogik.PROGRAM_AUTO_CREATE_BUTTON);
     }
+    public void createProgramMultipleGuru(){
+        Map<String, String> user = sql.getNoProgramCreate();
+        if(!user.isEmpty()){
+            String email = user.get("guru");
+            login(email, "Pickle30");
+            page.waitForTimeout(1000);
+            goToProgramView();
+            goToNewProgramForm();
+            createAutoOfficeProgram();
+            sql.updateProgram(email);
+            page.waitForTimeout(2000);
+            logout();
+        }else {
+            System.out.println("No hay usuarios pendientes para procesar.");
+        }
+    }
     //BUILDINGS
     public void verifyBuildingComponents(){
      page.click(SelectorsSpacelogik.SEARCH_SELECT_BUTTON);
@@ -630,7 +701,6 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
      verifyComponentsList(SelectorsSpacelogik.WAIT_BUILDING_MEDIA_LIST, "Archivos multimedia encontrados ");
     }
     //UTIL
-
     public void reportCaseNumberToBeTested(String testCaseInitials,int testCaseId){
         System.out.println("\n----------------------------------------------------");
         System.out.println("📊 TESTEANDO CASO DE PRUEBA: "+testCaseInitials+ testCaseId);

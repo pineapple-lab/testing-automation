@@ -227,15 +227,15 @@ public class SelectorsSpacelogik extends VariablesSpacelogik {
     public static final String ACTIVATELOCATION_PROCEEDPAY_BUTTON = ".w-50.generic-button.medium.primary.icon-left";
     public static final String ACTIVATELOCATION_CONFIRM_BUTTON = ".generic-button.small.primary.no-icon";
     //OFFICES
-    public static final String OFFICES_HEADERMENU_BUTTON = ".app-header > div:nth-of-type(4) > button:nth-of-type(2)";
+    public static final String OFFICES_HEADERMENU_BUTTON = ".client-type-selector > button:nth-of-type(2)";
     public static final String OFFICES_NEW_BUTTON = ".offices-page-main-container .content-between > div > button:nth-of-type(2)";
     public static final String OFFICES_LOCATION_NAME_INPUT = ".ReactModal__Content > label input";
     public static final String OFFICES_ADRESS_INPUT = ".ReactModal__Content > div:nth-of-type(2) label input";
     public static final String OFFICES_ADRESS_OPTION = ".pac-container > .pac-item:nth-of-type(1)";
-    public static final String OFFICES_STATE_SELECTOR = ".ReactModal__Content > div:nth-of-type(2) > div > div:nth-of-type(1) > div";
+    /*public static final String OFFICES_STATE_SELECTOR = ".ReactModal__Content > div:nth-of-type(2) > div > div:nth-of-type(1) > div";
     public static final String OFFICES_CITY_SELECTOR = ".ReactModal__Content > div:nth-of-type(2) > div > div:nth-of-type(2) > div";
-    public static final String OFFICES_ZIPCODE_SELECTOR = ".ReactModal__Content > div:nth-of-type(2) > div > div:nth-of-type(3) > div";
-    public static final String OFFICES_SAVE_BUTTON = ".ReactModal__Content > div:nth-of-type(3) > button:nth-of-type(2)";
+    public static final String OFFICES_ZIPCODE_SELECTOR = ".ReactModal__Content > div:nth-of-type(2) > div > div:nth-of-type(3) > div";*/
+    public static final String OFFICES_SAVE_BUTTON = ".generic-button.small.primary.icon-left";
 
     //ACTIVATE LOCATION
     public static final String LOCATION_CARD = ".locations-grid-container > div:nth-of-type(1)";

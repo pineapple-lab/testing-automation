@@ -46,7 +46,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
                 userPassword = "Pickle30";
                 break;
             case "https://space-logic.web.app/":
-                userEmail= "ninfajimenez1769799535493@pineapple-lab.com";
+                userEmail= "raquelvelazco1778588971999@pineapple-lab.com";
                 userPassword = "Pickle30";
                 break;
         }
@@ -58,7 +58,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
                 userPassword = "Pickle30";
                 break;
             case "https://space-logic.web.app/":
-                reCompanieEmail = "ZulemaHernandez1769798909068@pineapple-lab.com";
+                reCompanieEmail = "testrecompanie172429042026@pineapple-lab.com";
                 userPassword = "Pickle30";
                 break;
         }
@@ -234,15 +234,10 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         page.fill(SelectorsSpacelogik.OFFICES_LOCATION_NAME_INPUT, generate.generateLocationName());
         page.locator(SelectorsSpacelogik.OFFICES_ADRESS_INPUT).type("Dallas North Tollway, Dallas, Texas, EE. UU.", new Locator.TypeOptions().setDelay(15));
         page.click(SelectorsSpacelogik.OFFICES_ADRESS_OPTION);
-        page.click(SelectorsSpacelogik.OFFICES_STATE_SELECTOR);
-        page.click(selector.StateOption(generate.generateState()));
-        page.click(SelectorsSpacelogik.OFFICES_CITY_SELECTOR);
-        page.click(selector.CityOption(generate.generateCity()));
-        page.click(SelectorsSpacelogik.OFFICES_ZIPCODE_SELECTOR);
-        page.click(selector.ZipcodeOption(generate.generateZipCode()));
     }
     public void createOffice(){
         completeFormNewOffice();
+        page.waitForTimeout(1000);
         page.click(SelectorsSpacelogik.OFFICES_SAVE_BUTTON);
     }
     //NATIONAL ACCOUNT
@@ -324,7 +319,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
     public void createNewGuru(String reCompanie){
         completeNewGuruStep1();
         completeNewGuruStep2();
-        page.waitForTimeout(2000);
+        page.waitForTimeout(4000);
         page.click(SelectorsSpacelogik.PEOPLE_FORM_CONTINUEANDSAVE_BUTTON);
         sql.saveUser(guruEmail,reCompanie,navigationLink);
     }
@@ -710,21 +705,18 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
             String url = response.url();
             int status = response.status();
             String contentType = response.headerValue("content-type");
-            if (contentType != null && contentType.contains("application/json")){
-                if(status == 200 || status == 201){
-                    System.out.println("✅ BACKEND OK [" + status + "]: " + url);
-                } else if (status >= 400) {
-                    System.err.println("\n⚠️ FALLO DE BACKEND (SQL/API)");
-                    System.err.println("URL: " + response.url());
-                    System.err.println("Status: " + status + " " + response.statusText());
-                    try{
-                        String errorDetall = response.text();
-                        System.err.println("Detalle del servidor:"+errorDetall);
-                    }catch (Exception e){
-                        System.err.println("No se pudo leer el cuerpo del error.");
-                    }
-                    System.err.println("-----------------------------------\n");
+            if (status >= 200 && status < 300) {
+                System.out.println("✅ OK [" + status + "]: " + url);
+            } else {
+                System.err.println("\n⚠️ DETECTADO ESTADO: " + status);
+                System.err.println("URL: " + url);
+                System.err.println("Tipo de contenido: " + (contentType != null ? contentType : "N/A")); // <--- Aquí se usa
+                try {
+                    System.err.println("Respuesta: " + response.text());
+                } catch (Exception e) {
+                    System.err.println("Cuerpo no legible.");
                 }
+                System.err.println("-----------------------------------\n");
             }
         });
     }

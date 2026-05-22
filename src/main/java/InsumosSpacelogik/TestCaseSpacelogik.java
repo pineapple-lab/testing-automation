@@ -31,9 +31,9 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
     public void happyPathSearchBuilding(){
         methods.setAdminUser();
         //methods.startBackendMOnitoring(page);
+        System.out.println("Se va a comprobar la informacion de "+generate.generateExecutions()+" buildings\n");
         methods.login(VariablesSpacelogik.userEmail, VariablesSpacelogik.userPassword);
         methods.assertComponent(SelectorsSpacelogik.WAIT_LOGIN_PROFILE);
-        System.out.println("Se va a comprobar la informacion de "+generate.generateExecutions()+" buildings\n");
         methods.assertComponent(SelectorsSpacelogik.MENU_ADMIN);
         System.out.println("----------------------------------------------------------------");
         page.click(SelectorsSpacelogik.MENU_ADMIN);
@@ -54,17 +54,19 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
         methods.setAdminUser();
         methods.startBackendMOnitoring(page);
         System.out.println("Se van a crear "+generate.generateExecutions()+" ReCompanie\n");
+        try{
+            methods.runSafely(() -> {
         methods.login(VariablesSpacelogik.userEmail, VariablesSpacelogik.userPassword);
         methods.assertComponent(SelectorsSpacelogik.WAIT_LOGIN_PROFILE);
-        methods.goToReCompaniePage();
-        methods.goToRecompanieForm();
-        try{
         for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
+            methods.goToReCompaniePage();
+            methods.goToRecompanieForm();
             methods.createReCompanie();
             methods.verifyToast(toast.RECOMPANIE_SUCCESS);
             System.out.println("\nse compeletaron "+executeCounter+" ejecuciones");
             System.out.println("----------------------------------------------------\n");
         }
+            });
             methods.printErrores();
             methods.reset();
     }finally{
@@ -86,6 +88,7 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
         methods.setAdminUser();
         methods.startBackendMOnitoring(page);
         System.out.println("Se van a crear "+generate.generateExecutions()+" ReCompanie\n");
+
         methods.login(VariablesSpacelogik.userEmail, VariablesSpacelogik.userPassword);
         methods.assertComponent(SelectorsSpacelogik.WAIT_LOGIN_PROFILE);
         methods.goToReCompaniePage();
@@ -115,17 +118,19 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
         System.out.println("Testeando mensajes de error al dejar campos vacios en el paso 1 del formulario de creacion de re companies\n");
         methods.setAdminUser();
         methods.startBackendMOnitoring(page);
+        try{
+            methods.runSafely(() -> {
         methods.login(VariablesSpacelogik.userEmail, VariablesSpacelogik.userPassword);
         methods.assertComponent(SelectorsSpacelogik.WAIT_LOGIN_PROFILE);
         methods.goToReCompaniePage();
         methods.goToRecompanieForm();
-        try{
             for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
                boolean verify1 = errorPath.verifyReCompanieFormStep1EmptyInputs();
                boolean verify2 = errorPath.verifyReCompanieFormStep2EmptyInputs();
                boolean verify3 = errorPath.verifyReCompanieFormStep3EmptyInputs();
                 variables.allStepsPassed &= (verify1 && verify2 && verify3);
             }
+            });
             methods.printFinalTestResult(variables.allStepsPassed);
             methods.printErrores();
             methods.reset();
@@ -138,10 +143,11 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
         methods.setAdminUser();
         methods.startBackendMOnitoring(page);
         System.out.println("Se van a crear "+generate.generateExecutions()+" National Account\n");
+        try{
+            methods.runSafely(() -> {
         methods.login(VariablesSpacelogik.userEmail, VariablesSpacelogik.userPassword);
         methods.assertComponent(SelectorsSpacelogik.WAIT_LOGIN_PROFILE);
         methods.goToNationalAccountPage();
-        try{
             for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
                 methods.goToNationalAccountForm();
                 methods.createNationalAccount();
@@ -149,6 +155,7 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
                 System.out.println("\nse compeletaron "+executeCounter+" ejecuciones");
                 System.out.println("----------------------------------------------------\n");
             }
+            });
             methods.printErrores();
             methods.reset();
         }finally{
@@ -159,10 +166,11 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
         methods.setAdminUser();
         methods.startBackendMOnitoring(page);
         System.out.println("Se van a crear "+generate.generateExecutions()+" National Account\n");
+        try{
+            methods.runSafely(() -> {
         methods.login(VariablesSpacelogik.userEmail, VariablesSpacelogik.userPassword);
         methods.assertComponent(SelectorsSpacelogik.WAIT_LOGIN_PROFILE);
         methods.goToNationalAccountPage();
-        try{
             for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
                 methods.goToNationalAccountForm();
                 boolean verify1 = errorPath.verifyNationalAccountFormStep1EmptyInputs();
@@ -172,6 +180,7 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
             methods.printFinalTestResult(variables.allStepsPassed);
             System.out.println("\nse compeletaron "+executeCounter+" ejecuciones");
             System.out.println("----------------------------------------------------\n");
+            });
             methods.printErrores();
             methods.reset();
         }finally{
@@ -183,9 +192,10 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
         methods.setReCompanieUser();
         methods.startBackendMOnitoring(page);
         System.out.println("Se van a crear "+generate.generateExecutions()+" offices\n");
+        try{
+            methods.runSafely(() -> {
         methods.login(reCompanieEmail, userPassword);
         methods.assertComponent(SelectorsSpacelogik.WAIT_LOGIN_PROFILE);
-        try{
             for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
                 methods.goToNewOfficesForm();
                 methods.createOffice();
@@ -193,6 +203,7 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
                 System.out.println("\nse compeletaron "+executeCounter+" ejecuciones");
                 System.out.println("----------------------------------------------------\n");
             }
+            });
             methods.printErrores();
             methods.reset();
         }finally{
@@ -204,19 +215,22 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
         methods.setReCompanieUser();
         methods.startBackendMOnitoring(page);
         System.out.println("Se van a crear "+generate.generateExecutions()+" Guru\n");
+        try{
+            methods.runSafely(() -> {
         methods.login(reCompanieEmail, userPassword);
         methods.assertComponent(SelectorsSpacelogik.WAIT_LOGIN_PROFILE);
-        try{
-            for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
-                methods.goToNewGuruForm();
-                methods.createNewGuru(reCompanieEmail);
-                methods.assertComponent(SelectorsSpacelogik.PEOPLE_FORM_POPUP_SUCCESSFULLY);
-                methods.verifyToast(toast.GURU_SUCCESS);
-                page.click(SelectorsSpacelogik.PEOPLE_FORM_POPUP_OK_BUTTON);
-                methods.assertComponent(SelectorsSpacelogik.WAIT_RECOMPANIE_TABLE_FIRSTROW);
-                System.out.println("\nse compeleto "+executeCounter+" ejecuciones");
-                System.out.println("----------------------------------------------------\n");
-            }
+
+                for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
+                    methods.goToNewGuruForm();
+                    methods.createNewGuru(reCompanieEmail);
+                    methods.assertComponent(SelectorsSpacelogik.PEOPLE_FORM_POPUP_SUCCESSFULLY);
+                    methods.verifyToast(toast.GURU_SUCCESS);
+                    page.click(SelectorsSpacelogik.PEOPLE_FORM_POPUP_OK_BUTTON);
+                    methods.assertComponent(SelectorsSpacelogik.WAIT_RECOMPANIE_TABLE_FIRSTROW);
+                    System.out.println("\nse compeleto " + executeCounter + " ejecuciones");
+                    System.out.println("----------------------------------------------------\n");
+                }
+            });
             methods.printErrores();
             methods.reset();
         }finally{
@@ -268,9 +282,10 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
         methods.setGuruUser();
         methods.startBackendMOnitoring(page);
         System.out.println("Se van a crear "+generate.generateExecutions()+" Clients\n");
+        try{
+            methods.runSafely(() -> {
         methods.login(userEmail, userPassword);
         methods.assertComponent(SelectorsSpacelogik.WAIT_LOGIN_PROFILE);
-        try{
             for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
                 methods.goToNewClientForm();
                 methods.createFullClient();
@@ -282,6 +297,7 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
                 System.out.println("\nse compeletaron "+executeCounter+" ejecuciones");
                 System.out.println("----------------------------------------------------\n");
             }
+            });
             methods.printErrores();
             methods.reset();
         }finally{
@@ -332,13 +348,15 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
         methods.startBackendMOnitoring(page);
         System.out.println("Se van a crear " + generate.generateExecutions() + " clientes y locations\n");
         page.waitForTimeout(1000);
-        try {
+            try{
+                methods.runSafely(() -> {
             for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
                 methods.createClientAndLocationMultipleGuru();
                 page.waitForTimeout(1000);
                 System.out.println("\nse compeletaron " + executeCounter + " ejecuciones");
                 System.out.println("----------------------------------------------------\n");
             }
+                });
             methods.printErrores();
             methods.reset();
         } finally {
@@ -350,12 +368,13 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
         methods.setGuruUser();
         methods.startBackendMOnitoring(page);
         System.out.println("Se van a crear "+generate.generateExecutions()+" locations\n");
+        try{
+            methods.runSafely(() -> {
         methods.login(userEmail, userPassword);
         methods.assertComponent(SelectorsSpacelogik.WAIT_LOGIN_PROFILE);
         page.waitForTimeout(3000);
         methods.assertComponent(SelectorsSpacelogik.CLIENT_CARD);
         methods.goToLocationView();
-        try{
             for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
                 methods.goToNewLocationForm();
                 methods.createLocation();
@@ -363,6 +382,7 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
                 System.out.println("\nse compeletaron "+executeCounter+" ejecuciones");
                 System.out.println("----------------------------------------------------\n");
             }
+            });
             methods.printErrores();
             methods.reset();
         }finally{
@@ -412,13 +432,15 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
         methods.startBackendMOnitoring(page);
         System.out.println("Se van a activar locations para " + generate.generateExecutions() + " usuarios\n");
         page.waitForTimeout(1000);
-        try {
+        try{
+            methods.runSafely(() -> {
             for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
                 methods.activateLocationMultipleGuru();
                 page.waitForTimeout(1000);
                 System.out.println("\nse compeletaron " + executeCounter + " ejecuciones");
                 System.out.println("----------------------------------------------------\n");
             }
+            });
             methods.printErrores();
             methods.reset();
         } finally {
@@ -429,13 +451,14 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
     public void happyPathAutoofficeProgramCreate(){
         methods.setGuruUser();
         methods.startBackendMOnitoring(page);
+        try{
+            methods.runSafely(() -> {
         methods.login(userEmail, userPassword);
         methods.assertComponent(SelectorsSpacelogik.WAIT_LOGIN_PROFILE);
         page.waitForSelector(SelectorsSpacelogik.CLIENT_CARD);
         page.waitForTimeout(3000);
         methods.goToProgramView();
         System.out.println("Se van a crear "+generate.generateExecutions()+" programs\n");
-        try{
             for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
                 System.out.println("\n----------------------------------------------------");
                 page.click(SelectorsSpacelogik.MENU_SPACE);
@@ -447,6 +470,7 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
                 System.out.println("----------------------------------------------------\n");
                 page.waitForTimeout(3000);
             }
+            });
             methods.printErrores();
             methods.reset();
         }finally{
@@ -542,13 +566,15 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
         methods.startBackendMOnitoring(page);
         System.out.println("Se van a crear programs para " + generate.generateExecutions() + " usuarios\n");
         page.waitForTimeout(1000);
-        try {
+        try{
+            methods.runSafely(() -> {
             for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
                 methods.createProgramMultipleGuru();
                 page.waitForTimeout(1000);
                 System.out.println("\nse compeletaron " + executeCounter + " ejecuciones");
                 System.out.println("----------------------------------------------------\n");
             }
+            });
             methods.printErrores();
             methods.reset();
         } finally {
@@ -560,15 +586,17 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
         methods.setReCompanieUser();
         methods.startBackendMOnitoring(page);
         System.out.println("Se van a setear " + generate.generateExecutions() + " contraseñas\n");
+        try{
+            methods.runSafely(() -> {
         methods.login(reCompanieEmail, userPassword);
         page.waitForTimeout(3000);
-        try {
             for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
                 methods.setPassword();
                 page.waitForTimeout(1000);
                 System.out.println("\nse compeletaron " + executeCounter + " ejecuciones");
                 System.out.println("----------------------------------------------------\n");
             }
+            });
             methods.printErrores();
             methods.reset();
         } finally {
@@ -580,13 +608,15 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
         methods.startBackendMOnitoring(page);
         System.out.println("Se van a setear " + generate.generateExecutions() + " onboarding\n");
         page.waitForTimeout(1000);
-        try {
+        try{
+            methods.runSafely(() -> {
             for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
                 methods.completeOnboarding();
                 page.waitForTimeout(1000);
                 System.out.println("\nse compeletaron " + executeCounter + " ejecuciones");
                 System.out.println("----------------------------------------------------\n");
             }
+            });
             methods.printErrores();
             methods.reset();
         } finally {
@@ -598,13 +628,15 @@ public class TestCaseSpacelogik extends ContextBaseSpacelogik{
         methods.startBackendMOnitoring(page);
         System.out.println("Se van a comprar creditos para " + generate.generateExecutions() + " usuarios\n");
         page.waitForTimeout(1000);
-        try {
+        try{
+            methods.runSafely(() -> {
             for (executeCounter = 1; executeCounter <= generate.generateExecutions(); executeCounter++) {
                 methods.buyCredit();
                 page.waitForTimeout(1000);
                 System.out.println("\nse compeletaron " + executeCounter + " ejecuciones");
                 System.out.println("----------------------------------------------------\n");
             }
+            });
             methods.printErrores();
             methods.reset();
         } finally {

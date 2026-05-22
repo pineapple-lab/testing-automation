@@ -262,7 +262,7 @@ public class SelectorsSpacelogik extends VariablesSpacelogik {
     }
 
     public static final String PROGRAM_AUTO_NAME_INPUT = ".auto-office-setup-main-container-body > div:nth-of-type(1) input";
-    public static final String PROGRAM_AUTO_INDUSTRY_SELECT = ".auto-office-setup-main-container-body > div:nth-of-type(2) > .generic-select-container > div";
+    public static final String PROGRAM_AUTO_INDUSTRY_SELECT = ".generic-select-container > div";
     public static final String PROGRAM_AUTO_INDUSTRY_OPTION = ".MuiPaper-root > ul > li:nth-of-type(2)";
     public String ConstructionThumblr (String functionality){
                 if(functionality=="construction-and-furniture-level-main-container"){

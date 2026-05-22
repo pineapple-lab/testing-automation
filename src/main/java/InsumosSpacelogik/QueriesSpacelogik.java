@@ -25,8 +25,20 @@ public class QueriesSpacelogik {private static final String DATABASE_URL = "jdbc
             handleSQLException(ex);
         }
     }
-    public Map<String, String> getNoPasswordConfigUser() {
-        String query = "SELECT guru, environment FROM users WHERE passwordConfig = false LIMIT 1";
+    public void saveUserRecompanie(String email, String environment){
+        String insertSql = "INSERT INTO recompanieusers (`email`,`environment`) VALUES(?, ?)";
+        try {Connection connection = connectDatabase();
+            PreparedStatement stmt = connection.prepareStatement(insertSql);
+            stmt.setString(1,email);
+            stmt.setString(2,environment);
+            stmt.executeUpdate();
+            System.out.println("Recomanie guardado con exito");
+        }catch(SQLException ex) {
+            handleSQLException(ex);
+        }
+    }
+    public Map<String, String> getNoPasswordConfigUser(String environment) {
+        String query = "SELECT guru, environment FROM users WHERE passwordConfig = false and environment = '"+environment+"' LIMIT 1";
         Map<String, String> user = new HashMap<>();
 
         try (Connection connection = connectDatabase();
@@ -58,8 +70,8 @@ public class QueriesSpacelogik {private static final String DATABASE_URL = "jdbc
             handleSQLException(ex);
         }
     }
-    public Map<String, String> getNoOnboardingCompleteUser() {
-        String query = "SELECT guru, environment FROM users WHERE onboardingComplete = false LIMIT 1";
+    public Map<String, String> getNoOnboardingCompleteUser(String environment) {
+        String query = "SELECT guru, environment FROM users WHERE onboardingComplete = false and environment = '"+environment+"' LIMIT 1";
         Map<String, String> user = new HashMap<>();
 
         try (Connection connection = connectDatabase();
@@ -91,8 +103,8 @@ public class QueriesSpacelogik {private static final String DATABASE_URL = "jdbc
             handleSQLException(ex);
         }
     }
-    public Map<String, String> getNoCreditComplete() {
-        String query = "SELECT guru, environment FROM users WHERE creditsComplete = false LIMIT 1";
+    public Map<String, String> getNoCreditComplete(String environment) {
+        String query = "SELECT guru, environment FROM users WHERE creditsComplete = false and environment = '"+environment+"' LIMIT 1";
         Map<String, String> user = new HashMap<>();
 
         try (Connection connection = connectDatabase();
@@ -124,8 +136,8 @@ public class QueriesSpacelogik {private static final String DATABASE_URL = "jdbc
             handleSQLException(ex);
         }
     }
-    public Map<String, String> getNoClientAndLocationComplete() {
-        String query = "SELECT guru, environment FROM users WHERE clientCreate = false LIMIT 1";
+    public Map<String, String> getNoClientAndLocationComplete(String environment) {
+        String query = "SELECT guru, environment FROM users WHERE clientCreate = false and environment = '"+environment+"' LIMIT 1";
         Map<String, String> user = new HashMap<>();
 
         try (Connection connection = connectDatabase();
@@ -157,8 +169,8 @@ public class QueriesSpacelogik {private static final String DATABASE_URL = "jdbc
             handleSQLException(ex);
         }
     }
-    public Map<String, String> getNoLocationActivate() {
-        String query = "SELECT guru, environment FROM users WHERE locationActivate = false LIMIT 1";
+    public Map<String, String> getNoLocationActivate(String environment) {
+        String query = "SELECT guru, environment FROM users WHERE locationActivate = false and environment = '"+environment+"' LIMIT 1";
         Map<String, String> user = new HashMap<>();
 
         try (Connection connection = connectDatabase();
@@ -190,14 +202,14 @@ public class QueriesSpacelogik {private static final String DATABASE_URL = "jdbc
             handleSQLException(ex);
         }
     }
-    public Map<String, String> getNoProgramCreate() {
-        String query = "SELECT guru, environment FROM users WHERE programCreate = false LIMIT 1";
+    public Map<String, String> getNoProgramCreate(String environment) {
+        String query = "SELECT guru, environment FROM users WHERE programCreate = false and environment = '" +environment + "' LIMIT 1";
+        System.out.println(environment);
         Map<String, String> user = new HashMap<>();
 
         try (Connection connection = connectDatabase();
              PreparedStatement stmt = connection.prepareStatement(query);
              ResultSet rs = stmt.executeQuery()) {
-
             if (rs.next()) {
                 user.put("guru", rs.getString("guru"));
                 user.put("environment", rs.getString("environment"));

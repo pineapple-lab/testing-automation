@@ -92,7 +92,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
     }
     //PASSWORD
     public void setPassword(){
-        Map<String, String> user = sql.getNoPasswordConfigUser();
+        Map<String, String> user = sql.getNoPasswordConfigUser(navigationLink);
         if(!user.isEmpty()){
             String email = user.get("guru");
             page.fill(SelectorsSpacelogik.SEARCH_INPUT,email);
@@ -112,7 +112,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
     }
     //ONBOARDING
     public void completeOnboarding(){
-        Map<String, String> user = sql.getNoOnboardingCompleteUser();
+        Map<String, String> user = sql.getNoOnboardingCompleteUser(navigationLink);
         if(!user.isEmpty()){
             String email = user.get("guru");
             login(email, "Pickle30");
@@ -143,7 +143,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
     //BUY CREDIT
     public void buyCredit(){
         FrameLocator stripeFrame = page.frameLocator(SelectorsSpacelogik.CREDITS_IFRAME);
-        Map<String, String> user = sql.getNoCreditComplete();
+        Map<String, String> user = sql.getNoCreditComplete(navigationLink);
         if(!user.isEmpty()) {
             String email = user.get("guru");
             login(email, "Pickle30");
@@ -179,7 +179,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         page.waitForTimeout(1000);
         page.click(SelectorsSpacelogik.RECOMPANIE_CONTINUEBUTTON_STEP1);
     }
-    public void completeReCompanieStep2(){
+    public String completeReCompanieStep2(){
         emailInfo = generate.generateEmail();
         userEmail = emailInfo.getEmail();
         page.fill(SelectorsSpacelogik.RECOMPANIE_EMAIL_INPUT, userEmail);
@@ -187,6 +187,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         page.fill(SelectorsSpacelogik.RECOMPANIE_PASSWORDCONFIRM_INPUT, "Pickle30");
         page.click(SelectorsSpacelogik.RECOMPANIE_CONTINUEBUTTON_STEP2);
         System.out.println("Se creo el usuario: "+userEmail);
+        return userEmail;
     }
     public void completeReCompanieStep3(){
         page.click(SelectorsSpacelogik.RECOMPANIE_CONTACTSALUTATION_SELECTOR);
@@ -200,8 +201,9 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
     }
     public void createReCompanie(){
         completeReCompanieStep1();
-        completeReCompanieStep2();
+        String userEmail = completeReCompanieStep2();
         completeReCompanieStep3();
+        sql.saveUserRecompanie(userEmail,navigationLink);
     }
     public void executeSweetTestNewReCompanie(Map<String, String> row){
         userEmail = dataTestCase.selectCase(row.get(HEADER_EMAIL))+"@"+emailDomain+".com";
@@ -319,7 +321,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
     public void createNewGuru(String reCompanie){
         completeNewGuruStep1();
         completeNewGuruStep2();
-        page.waitForTimeout(4000);
+        page.waitForTimeout(600);
         page.click(SelectorsSpacelogik.PEOPLE_FORM_CONTINUEANDSAVE_BUTTON);
         sql.saveUser(guruEmail,reCompanie,navigationLink);
     }
@@ -416,7 +418,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         page.click(SelectorsSpacelogik.ACTIVATELOCATION_CONFIRM_BUTTON);
     }
     public void activateLocationMultipleGuru(){
-        Map<String, String> user = sql.getNoLocationActivate();
+        Map<String, String> user = sql.getNoLocationActivate(navigationLink);
         if(!user.isEmpty()){
             String email = user.get("guru");
             login(email, "Pickle30");
@@ -522,7 +524,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         page.click(SelectorsSpacelogik.CLIENT_CREATE_BUTTON);
     }
     public void createClientAndLocationMultipleGuru(){
-        Map<String, String> user = sql.getNoClientAndLocationComplete();
+        Map<String, String> user = sql.getNoClientAndLocationComplete(navigationLink);
         if(!user.isEmpty()){
             String email = user.get("guru");
             login(email, "Pickle30");
@@ -596,6 +598,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         page.click(SelectorsSpacelogik.PROGRAM_MODALTYPE_CONTINUE_BUTTON);
         page.fill(SelectorsSpacelogik.PROGRAM_AUTO_NAME_INPUT, generate.generateCompanyName());
         page.click(SelectorsSpacelogik.PROGRAM_AUTO_INDUSTRY_SELECT);
+        page.waitForTimeout(1000);
         page.click(SelectorsSpacelogik.PROGRAM_AUTO_INDUSTRY_OPTION);
         page.click(SelectorsSpacelogik.PROGRAM_AUTO_ROOM_ADD_BUTTON);
         page.fill(SelectorsSpacelogik.PROGRAM_AUTO_ROOM_NAME_INPUT, generate.buildingName());
@@ -667,7 +670,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         page.click(SelectorsSpacelogik.PROGRAM_AUTO_CREATE_BUTTON);
     }
     public void createProgramMultipleGuru(){
-        Map<String, String> user = sql.getNoProgramCreate();
+        Map<String, String> user = sql.getNoProgramCreate(navigationLink);
         if(!user.isEmpty()){
             String email = user.get("guru");
             login(email, "Pickle30");
@@ -705,10 +708,12 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
             String url = response.url();
             int status = response.status();
             String contentType = response.headerValue("content-type");
+            String method = response.request().method();
             if (status >= 200 && status < 300) {
-                System.out.println("✅ OK [" + status + "]: " + url);
+                System.out.println(method + " ✅OK [" + status + "]: " + url);
             } else {
                 System.err.println("\n⚠️ DETECTADO ESTADO: " + status);
+                System.err.println("Metodo: " + method);
                 System.err.println("URL: " + url);
                 System.err.println("Tipo de contenido: " + (contentType != null ? contentType : "N/A")); // <--- Aquí se usa
                 try {
@@ -919,5 +924,16 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
             System.out.println("❌ ERROR: " + e.getMessage());
         }
         return listaFinal;
+    }
+    public void runSafely(Runnable testSteps) {
+        try {
+            testSteps.run();
+        } catch (PlaywrightException e) {
+            if (e.getMessage() != null && e.getMessage().contains("Target closed")) {
+                System.out.println("\nEjecucion detenida por cierre del navegador.");
+            } else {
+                throw e;
+            }
+        }
     }
 }

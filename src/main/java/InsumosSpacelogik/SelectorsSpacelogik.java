@@ -99,7 +99,7 @@ public class SelectorsSpacelogik extends VariablesSpacelogik {
     public static final String RECOMPANIE_ERRORMESSAGE_EMPTYINPUTS = ".create-real-estate-company-modal-error > p";
 
     //NATIONAL ACCOUNT
-    public static final String NACCOUNT_MENU_BUTTON = ".MuiCollapse-wrapperInner > .MuiList-root > a:nth-of-type(7)";
+    public static final String NACCOUNT_MENU_BUTTON = ".MuiCollapse-wrapperInner > .MuiList-root > a:nth-of-type(6)";
     public static final String NACCOUNT_NEW_BUTTON = ".app-main__inner .generic-header-container button";
     public static final String NACCOUNT_COMPANY_NAME_INPUT = ".national-account-modal-container > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > .d-flex:nth-of-type(2) label > input";
     public static final String NACCOUNT_COMPANY_INDUSTRY_SELECT = ".national-account-modal-container > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > .d-flex:nth-of-type(2) .MuiInputBase-root";

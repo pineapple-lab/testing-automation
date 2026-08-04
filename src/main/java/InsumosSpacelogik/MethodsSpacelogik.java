@@ -42,7 +42,8 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
     public void setGuruUser(){
         switch (navigationLink){
             case "https://spacelogic-development.web.app/":
-                userEmail = "FelipeMontoya1770640706141@pineapple-lab.com";
+                userEmail = "testrecompanie105827072026@pineapplelab.com";
+                //userEmail = "raquelvelazco1778588971999@pineapple-lab.com";
                 userPassword = "Pickle30";
                 break;
             case "https://space-logic.web.app/":
@@ -54,7 +55,7 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
     public void setReCompanieUser(){
         switch (navigationLink){
             case "https://spacelogic-development.web.app/":
-                reCompanieEmail = "MarinaViana1770640127541@pineapple-lab.com";
+                reCompanieEmail = "testrecompanie172429042026@pineapple-lab.com";
                 userPassword = "Pickle30";
                 break;
             case "https://space-logic.web.app/":
@@ -257,12 +258,6 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         page.click(selector.IndustryOption(generate.generateIndustry()));
         page.locator(SelectorsSpacelogik.NACCOUNT_COMPANY_ADDRESS_INPUT).type("Dallas North Tollway, Dallas, Texas, EE. UU.", new Locator.TypeOptions().setDelay(10));
         page.click(SelectorsSpacelogik.NACCOUNT_COMPANY_ADDRESS_OPTION);
-        page.click(SelectorsSpacelogik.NACCOUNT_COMPANY_STATE_SELECT);
-        page.click(selector.StateOption(generate.generateState()));
-        page.click(SelectorsSpacelogik.NACCOUNT_COMPANY_CITY_SELECT);
-        page.click(selector.CityOption(generate.generateCity()));
-        page.click(SelectorsSpacelogik.NACCOUNT_COMPANY_ZIPCODE_SELECT);
-        page.click(selector.ZipcodeOption(generate.generateZipCode()));
         page.click(SelectorsSpacelogik.NACCOUNT_COMPANY_LOGO_MODAL_OPEN);
         page.locator(SelectorsSpacelogik.NACCOUNT_COMPANY_LOGO_UPLOAD).setInputFiles(Paths.get(generate.generateImage()));
         verifyToast(toast.FILE_UPLOAD_SUCCESS);
@@ -284,7 +279,9 @@ public class MethodsSpacelogik extends ContextBaseSpacelogik {
         System.out.println("Se va a crear el usuario: "+userEmail);
         page.fill(SelectorsSpacelogik.NACCOUNT_TENANT_PASSWORD_INPUT,"Pickle30");
         page.fill(SelectorsSpacelogik.NACCOUNT_TENANT_CPASSOWRD_INPUT, "Pickle30");
+        page.waitForTimeout(10000);
         page.click(SelectorsSpacelogik.NACCOUNT_TENANT_CONTINUE_BUTTON);
+        page.waitForTimeout(10000);
         page.click(SelectorsSpacelogik.NACCOUNT_TENANT_CONTINUE_BUTTON);
     }
     public void createNationalAccount(){

@@ -3,7 +3,7 @@ package com.pap.CMS.auth.pom;
 import com.pap.core.action.ElementActions;
 import com.pap.core.browser.instance.PlaywrightManager;
 
-public class LoginPO {
+public class AuthPO {
     private ElementActions actions = new ElementActions();
     private final String userInput = "[data-testid='login-email-input']";
     private final String passInput = "[data-testid='login-password-input']";

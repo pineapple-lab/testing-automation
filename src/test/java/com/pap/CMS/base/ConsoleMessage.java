@@ -27,4 +27,7 @@ public class ConsoleMessage {
     public void messageEndTest() {
         System.out.println("\n----------------------END TEST-----------------------");
     }
+    public void printProgress(String label, int current, int total) {
+        System.out.println(label + ": " + current + " / " + total);
+    }
 }

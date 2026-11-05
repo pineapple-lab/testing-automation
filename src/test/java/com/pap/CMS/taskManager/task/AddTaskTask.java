@@ -5,14 +5,15 @@ import com.pap.CMS.taskManager.pom.AddTaskPO;
 public class AddTaskTask {
     AddTaskPO taskPO = new AddTaskPO();
 
-    public void createTask(int cant, String title, String description){
+    public void goProject(){
         taskPO.clickButtonEnterProject();
-        for(int i =1; i<=cant; i++){
+    }
+    public void createTask(String title, String description){
             taskPO.clickButtonColumnAddTask();
             taskPO.typeInputTaskTitle(title);
             taskPO.clickButtonOpenDescriptionInput();
             taskPO.typeInputTaskDescription(description);
             taskPO.clickButtonTaskSave();
-        }
+
     }
 }

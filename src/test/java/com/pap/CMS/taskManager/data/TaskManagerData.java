@@ -1,6 +1,13 @@
 package com.pap.CMS.taskManager.data;
 
+import com.pap.CMS.base.GeneratorData;
+
 public class TaskManagerData {
-    public String taskName = "taskName1";
-    public String taskDescription ="taskDescription1";
+    GeneratorData generator = new GeneratorData();
+    public String getTaskName(){
+        return generator.generateTaskName();
+    }
+    public String getTaskDescription(){
+        return generator.generateTaskDescription();
+    }
 }

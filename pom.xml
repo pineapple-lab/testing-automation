@@ -20,6 +20,16 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- JUnit BOM: alinea Jupiter + Platform (suite, engine, etc.) -->
+            <dependency>
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
+                <version>${junit.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- Allure BOM -->
             <dependency>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-bom</artifactId>
@@ -38,11 +48,17 @@
             <version>${playwright.version}</version>
         </dependency>
 
-        <!-- JUnit 5 -->
+        <!-- JUnit 5 (versión gestionada por el BOM) -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- JUnit Platform Suite: @Suite, @SelectPackages, @IncludeTags (versión gestionada por el BOM) -->
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-suite</artifactId>
             <scope>test</scope>
         </dependency>
 

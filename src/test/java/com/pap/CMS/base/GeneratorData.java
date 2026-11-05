@@ -1,0 +1,335 @@
+package com.pap.CMS.base;
+
+import com.microsoft.playwright.ElementHandle;
+import com.pap.core.dataCollections.TaskDescription;
+import com.pap.core.dataCollections.TaskName;
+
+import java.nio.file.Paths;
+import java.time.Instant;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+
+public class GeneratorData {
+
+    public String generateTaskName(){
+        String [] listTaskName = TaskName.taskName;
+        return getRandomString(listTaskName);
+    }
+    public String generateTaskDescription(){
+        String [] listTaskDescription = TaskDescription.taskDescription;
+        return getRandomString(listTaskDescription);
+    }
+    private String generateRandomFileName(String[] fileList, String basePath, String extension){
+        Random rand = new Random();
+        int index = rand.nextInt(fileList.length);
+        return basePath + fileList[index] + extension;
+
+    }
+    private String getRandomString(String[] array){
+        Random rand = new Random();
+        int index = rand.nextInt(array.length);
+        return array[index];
+    }
+    private int getRandomIndex(int size){
+        Random random = new Random();
+        return random.nextInt(size);
+    }
+    /*
+    public String generateNumber(){
+        return String.valueOf(new Random().nextInt(100000));
+    }
+    public String generateSpecialChars(){
+        String [] listSpecialChars = SpecialCaracters.specialCaracters;
+        Random rand = new Random();
+        StringBuilder sb = new StringBuilder();
+        for(int i=0; i < 3; i++){
+            int randomIndex = rand.nextInt(listSpecialChars.length);
+            sb.append(listSpecialChars[randomIndex]);
+        }
+        return sb.toString();
+    }
+    public int generateExecutions(){
+        return Integer.parseInt(executionDetails);
+    }
+    public String generateImage(){
+        String[] imageList = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
+                "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
+        };
+        return generateRandomFileName(imageList, Paths.get(getBasePath())+"\\"+RELATIVE_IMAGE_PATH,".jpg");
+    }
+    public String generateVideo(){
+        String[] videoList = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
+                "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
+        };
+        return generateRandomFileName(videoList,Paths.get(getBasePath())+"\\"+RELATIVE_VIDEO_PATH,".mp4");
+    }
+    public String generatePictureProfile(){
+        String[] imageList = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
+                "11", "12", "13", "14", "15", "16", "17", "18", "19", "20","21","22","23","24","25","26"
+        };
+        String basePath = Paths.get(InsumosDocola.PathUtils.getBasePath(), PathUtilsSpacelogik.RELATIVE_PICTURE_PROFILE_PATH).toString();
+        return generateRandomFileName(imageList,basePath,".jpg");
+    }
+    public GeneratorSpaceLogik.EmailInfo generateEmail(){
+        generateFirstName();
+        generateLastName();
+        long timeStamp = Instant.now().toEpochMilli();
+        //if(configurationAdvancedRegistration==false) {
+        firstName=generateFirstName();
+        lastName=generateLastName();
+        userEmail = firstName+lastName+timeStamp+"@"+ emailDomain +".com";
+        return new GeneratorSpaceLogik.EmailInfo(userEmail, firstName, lastName);
+    }
+    public int generateSalutation(){
+        page.waitForSelector(".MuiPaper-root > ul > li:nth-of-type(2)");
+        List<ElementHandle> elements = page.querySelectorAll(".MuiPaper-root > ul > li");
+        int n = elements.size();
+        return getRandomIndex(n - 1) + 2;
+    }
+    public int generateIndustry(){
+        page.waitForSelector(".MuiPopover-root > .MuiPaper-root > ul > li:nth-of-type(2)");
+        List<ElementHandle> elements = page.querySelectorAll(".MuiPopover-root > .MuiPaper-root > ul > li");
+        int n = elements.size();
+        return getRandomIndex(n - 1) + 2;
+    }
+    public int generateState(){
+        page.waitForSelector(".MuiPopover-root ul > li:nth-of-type(2)");
+        List<ElementHandle> elements = page.querySelectorAll(".MuiPopover-root ul > li");
+        int n = elements.size();
+        return getRandomIndex(n - 1) + 2;
+    }
+    public int generateCity(){
+        page.waitForSelector(".MuiPopover-root ul > li:nth-of-type(2)");
+        List<ElementHandle> elements = page.querySelectorAll(".MuiPopover-root ul > li");
+        int n = elements.size();
+        return getRandomIndex(n - 1) + 2;
+    }
+    public int generateZipCode(){
+        page.waitForSelector(".MuiPopover-root ul > li:nth-of-type(2)");
+        List<ElementHandle> elements = page.querySelectorAll(".MuiPopover-root ul > li");
+        int n = elements.size();
+        return getRandomIndex(n - 1) + 2;
+    }
+    public String generateLastName(){
+        String[] listLastNames = LastNames.lastNames;
+        return getRandomString(listLastNames);
+    }
+    public String generateLocationName(){
+        String[] locationsNamesList = LocationNames.locationNames;
+        return getRandomString(locationsNamesList);
+    }
+    public String generatePhone(){
+        String [] phonesList = Phones.phoneNumbers;
+        return getRandomString(phonesList);
+    }
+    public String generateMobile(){
+        String [] mobileList = Mobile.mobileNumbers;
+        return getRandomString(mobileList);
+    }
+    public String generateAdress(){
+        String [] adressList = Adress.addresses;
+        return getRandomString(adressList);
+    }
+    public String generateDataTestCase(String functionality, String columna, Map<String, String> row, Map<String, Integer> positionsMap) {
+        String valorPICT = row.get(columna);
+        if (valorPICT != null && !valorPICT.equalsIgnoreCase("N/A")) {
+            Integer posicion = positionsMap.get(valorPICT);
+            if (posicion != null) {
+                int rowPosition;
+
+                switch (columna){
+                    case "Industry":
+                        return selector.IndustryOption(posicion);
+                    case "Construction":
+                        if (functionality=="construction-and-furniture-level-main-container"){
+                            rowPosition = 1;
+                            return selector.constructionAndFurnitureLevelOption(functionality,rowPosition, posicion);
+                        } else if (functionality=="auto-office-construction-and-furniture-level-main-container") {
+                            rowPosition = 2;
+                            return selector.constructionAndFurnitureLevelOption(functionality,rowPosition, posicion);
+                        } else if (functionality=="setup-container-body") {
+                            rowPosition = 2;
+                            return selector.ProgramStandardConstructionAndFurnitureLevelOption(rowPosition, posicion);
+                        }
+
+                    case "Furniture":
+                        if (functionality=="construction-and-furniture-level-main-container"){
+                            rowPosition = 2;
+                            return selector.constructionAndFurnitureLevelOption(functionality,rowPosition, posicion);
+                        } else if (functionality=="auto-office-construction-and-furniture-level-main-container") {
+                            rowPosition = 3;
+                            return selector.constructionAndFurnitureLevelOption(functionality,rowPosition, posicion);
+                        }else if (functionality=="setup-container-body") {
+                            rowPosition = 3;
+                            return selector.ProgramStandardConstructionAndFurnitureLevelOption(rowPosition, posicion);
+                        }
+                    case "PrimaryPref":
+                        rowPosition = 2;
+                        if(functionality == "auto-office-construction-and-furniture-level-main-container") {
+                            return selector.widthPreference(rowPosition, posicion);
+                        } else if (functionality=="setup-container-body") {
+                            return selector.ProgramStandardWidthPreference(rowPosition, posicion);
+                        }
+
+                    case "SecondaryPref":
+                        rowPosition = 3;
+                        if(functionality == "auto-office-construction-and-furniture-level-main-container"){
+                            return selector.widthPreference(rowPosition, posicion);
+                        } else if (functionality == "setup-container-body") {
+                            return selector.ProgramStandardWidthPreference(rowPosition, posicion);
+                        }
+                    case "RoomType":
+                        return selector.programAutoRoomType(posicion);
+                    case "LightPref":
+                        return selector.programLightPreference(posicion);
+                    case "Salutation":
+                        return selector.SalutationOption(posicion);
+                    case "Skill":
+                        return selector.peopleSkillPreference(posicion);
+                    case "LeaseType":
+                        return selector.LocationLeaseType(posicion);
+                    case "MapCenter":
+                        return selector.LocationOfficeDistanceOption(posicion);
+                    case "From":
+                        return selector.LocationOfficeFromOption(posicion);
+                    case "NewLeaseYear", "NewLeaseTerm","FlexibilityPoint","PlannedGrowth":
+                        return selector.ProgramStandardSelectOption(posicion);
+                }
+            }
+        }
+        return "";
+    }
+    public String generateNumberbetweenOne_oneHundred(String columna, Map<String, String> row) {
+        String valorPICT = row.get(columna);
+        if (valorPICT == null && !valorPICT.equalsIgnoreCase("N/A")) {
+            return "";
+        }
+        int min;
+        int max;
+        switch (valorPICT) {
+            case "1_49":
+                min = 1;
+                max = 49;
+                break;
+            case "50_100":
+                min = 50;
+                max = 100;
+                break;
+            case "Range33k_100k":
+                min = 33000;
+                max = 100000;
+                break;
+            default:
+                return valorPICT;
+        }
+        return String.valueOf(new Random().nextInt(max - min + 1) + min);
+    }
+    public String buildingName() {
+        String[] listBuildingNames = BuildingNames.buildingNames;
+        String buildingName = listBuildingNames[currentIndex % listBuildingNames.length];
+        currentIndex++;
+        return buildingName;
+    }
+    public String   generateCompanyName(){
+        String[] companyList = CompanyNames.companyNames;
+        return getRandomString(companyList);
+    }
+    public int generateOffice(){
+        page.waitForSelector(".MuiPaper-root > ul > li:nth-of-type(2)");
+        List<ElementHandle> elements = page.querySelectorAll(".MuiPaper-root > ul > li");
+        int n = elements.size();
+        return getRandomIndex(n - 1) + 2;
+    }
+    public int generateDistanceOption(){
+        page.waitForSelector(".MuiPaper-root > ul > li:nth-of-type(2)");
+        List<ElementHandle> elements = page.querySelectorAll(".MuiPaper-root > ul > li");
+        int n = elements.size();
+        return getRandomIndex(n - 1) + 2;
+    }
+    public int generateFromOption(){
+        page.waitForSelector(".MuiPaper-root > ul > li:nth-of-type(2)");
+        List<ElementHandle> elements = page.querySelectorAll(".MuiPaper-root > ul > li");
+        int n = elements.size();
+        return getRandomIndex(n - 1) + 2;
+    }
+    public String generateContentTitle(){
+        String [] nameContentList = ContentTitle.contentTitle;
+        return getRandomString(nameContentList);
+    }
+    public String generateContentDescription(){
+        String [] contentDescriptiontList = ContentDescriptions.contentDescritpion;
+        return getRandomString(contentDescriptiontList);
+    }
+    public String generateProfesionalTitle(){
+        String [] profesionalTitleList = ProfesionalTitles.professionalTitles;
+        return getRandomString(profesionalTitleList);
+    }
+    public String generateProfileDescription(){
+        String [] profileDescriptiontList = ProfileDescriptions.profileDescriptions;
+        return getRandomString(profileDescriptiontList);
+    }
+    public String generateRsf(){
+        String [] rsfList = Rsf.rsfsValues;
+        return getRandomString(rsfList);
+    }
+    public String generateCompanyDescription(){
+        String [] companyDescriptiontList = CompanyDescriptions.companyDescriptions;
+        return getRandomString(companyDescriptiontList);
+    }
+    public String generatekeywords(){
+        String [] keywordstList = Keywords.keywords;
+        return getRandomString(keywordstList);
+    }
+    public int generateTagType(){
+        List<ElementHandle> elements = page.querySelectorAll("app-tags > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > app-tag-type-button");
+        return getRandomIndex(elements.size()-1)+1;
+    }
+    public int generateTag(){
+        List<ElementHandle> elements = page.querySelectorAll("app-tags-search-overlay > div > cdk-virtual-scroll-viewport > div > button");
+        return getRandomIndex(elements.size()-1)+1;
+    }
+    public String generateQuestion(){
+        String [] questionList = ContentQuestions.contentQuestions;
+        return getRandomString(questionList);
+    }
+    public String generateAnswer(){
+        String[] answerList = ContentAnswers.contentAnswers;
+        return getRandomString(answerList);
+    }
+    public int generateThumbnailCategory(){
+        List<ElementHandle> elements = page.querySelectorAll("mat-dialog-container > div > div > app-unsplash > form > div:nth-of-type(2) > div > div > button");
+        return getRandomIndex(elements.size()-1)+ 1;
+    }
+    public int generateThumbnailSplash(){
+        page.waitForSelector(".grid-container");
+        List<ElementHandle> elements = page.querySelectorAll("mat-dialog-container > div > div > app-unsplash > form > div:nth-of-type(3) > img");
+        return getRandomIndex(elements.size()-1)+1;
+    }
+    public int generateResponseCount(){
+        page.waitForSelector("app-quiz");
+        List<ElementHandle> elements = page.querySelectorAll("app-quiz > div:nth-of-type(1) > div:nth-of-type(3) > div");
+        return elements.size();
+    }
+
+    class EmailInfo {
+        private String email;
+        private String firstName;
+        private String lastName;
+        public EmailInfo(String email, String firstName, String lastName) {
+            this.email = email;
+            this.firstName = firstName;
+            this.lastName = lastName;
+        }
+        public String getEmail() {
+            return email;
+        }
+        public String getFirstName() {
+            return firstName;
+        }
+        public String getLastName() {
+            return lastName;
+        }
+    }*/
+
+}

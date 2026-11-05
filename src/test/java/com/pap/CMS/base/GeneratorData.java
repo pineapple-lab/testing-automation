@@ -1,14 +1,12 @@
 package com.pap.CMS.base;
 
-import com.microsoft.playwright.ElementHandle;
 import com.pap.core.dataCollections.TaskDescription;
 import com.pap.core.dataCollections.TaskName;
+import com.pap.core.util.PathUtils;
 
 import java.nio.file.Paths;
-import java.time.Instant;
-import java.util.List;
-import java.util.Map;
 import java.util.Random;
+
 
 public class GeneratorData {
 
@@ -20,12 +18,6 @@ public class GeneratorData {
         String [] listTaskDescription = TaskDescription.taskDescription;
         return getRandomString(listTaskDescription);
     }
-    private String generateRandomFileName(String[] fileList, String basePath, String extension){
-        Random rand = new Random();
-        int index = rand.nextInt(fileList.length);
-        return basePath + fileList[index] + extension;
-
-    }
     private String getRandomString(String[] array){
         Random rand = new Random();
         int index = rand.nextInt(array.length);
@@ -34,6 +26,27 @@ public class GeneratorData {
     private int getRandomIndex(int size){
         Random random = new Random();
         return random.nextInt(size);
+    }
+    private String generateRandomFileName(String[] fileList, String basePath, String extension){
+        Random rand = new Random();
+        int index = rand.nextInt(fileList.length);
+        return basePath + fileList[index] + extension;
+
+    }
+    public String generateImage() {
+        String[] imageList = {"1", "2", "3", "4", "5"
+        };
+        String directoryPath = PathUtils.getAbsolutePath(PathUtils.RELATIVE_IMAGE_PATH);
+
+        return generateRandomFileName(imageList, directoryPath, ".jpg");
+    }
+
+    public String generateVideo() {
+        String[] videoList = {"1", "2", "3", "4", "5"
+        };
+        String directoryPath = PathUtils.getAbsolutePath(PathUtils.RELATIVE_VIDEO_PATH);
+
+        return generateRandomFileName(videoList, directoryPath, ".mp4");
     }
     /*
     public String generateNumber(){

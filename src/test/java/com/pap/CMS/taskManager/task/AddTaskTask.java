@@ -8,11 +8,14 @@ public class AddTaskTask {
     public void goProject(){
         taskPO.clickButtonEnterProject();
     }
-    public void createTask(String title, String description){
+    public void createTask(String title, String description, int quantityImage, String pathfile){
             taskPO.clickButtonColumnAddTask();
             taskPO.typeInputTaskTitle(title);
             taskPO.clickButtonOpenDescriptionInput();
             taskPO.typeInputTaskDescription(description);
+            for(int i=1; i<=quantityImage;i++){
+            taskPO.uploadImage(pathfile);
+            }
             taskPO.clickButtonTaskSave();
 
     }

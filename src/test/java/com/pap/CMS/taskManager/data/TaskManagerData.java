@@ -4,6 +4,9 @@ import com.pap.CMS.base.GeneratorData;
 
 public class TaskManagerData {
     GeneratorData generator = new GeneratorData();
+    public String getImage(){
+        return generator.generateImage();
+    }
     public String getTaskName(){
         return generator.generateTaskName();
     }

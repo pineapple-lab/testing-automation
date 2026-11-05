@@ -3,6 +3,8 @@ import com.microsoft.playwright.Page;
 import com.pap.core.browser.instance.PlaywrightManager;
 import io.qameta.allure.Step;
 
+import java.nio.file.Path;
+
 public class ElementActions {
 
     private Page getPage(){
@@ -45,5 +47,9 @@ public class ElementActions {
     @Step("Comprobando si es visible el elemento: '{selector}'")
     public boolean isVisible(String selector){
         return getPage().locator(selector).isVisible();
+    }
+    @Step("Subir archivo '{filePath}' en el elemento: '{selector}'")
+    public void uploadFile(String selector, String filePath) {
+        getPage().locator(selector).setInputFiles(Path.of(filePath));
     }
 }

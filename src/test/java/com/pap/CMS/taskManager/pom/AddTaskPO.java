@@ -13,7 +13,7 @@ public class AddTaskPO {
     private final String selectTaskStatusOption = "";
     private final String selectTaskSprintOption = "";
     private final String selectTaskAssigneeOption = "";
-    private final String buttonTaskAddImage = "";
+    private final String buttonTaskAddImage = "app-task-attachments .upload-input";
     private final String buttonTaskSave = "mat-dialog-actions .mdc-button.mat-primary";
 
     public void clickButtonEnterProject(){
@@ -33,5 +33,8 @@ public class AddTaskPO {
     }
     public void clickButtonTaskSave(){
         actions.click(buttonTaskSave);
+    }
+    public void uploadImage(String pathFile){
+        actions.uploadFile(buttonTaskAddImage,pathFile);
     }
 }

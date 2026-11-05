@@ -26,13 +26,14 @@ public class AddTaskTest extends BaseTest {
     @Tag("regresion")
     void test_pineappleCMS001_createTask(){
         int quantityTask = 100;
+        int quantityImage = 5;
         utils.runSafely(()->{
         authTask.enterToSystem(URL);
         authTask.loginToSystem(authData.userTest, authData.passwordTest);
         navTask.goToTaskManagmentMenu();
         addTask.goProject();
         for(int i=1; i<=quantityTask; i++) {
-            addTask.createTask(taskData.getTaskName(), taskData.getTaskDescription());
+            addTask.createTask(taskData.getTaskName(), taskData.getTaskDescription(), quantityImage, taskData.getImage());
             console.printProgress("Progress",i, quantityTask);
             }
         });

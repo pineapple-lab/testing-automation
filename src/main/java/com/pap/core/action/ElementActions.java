@@ -1,9 +1,11 @@
 package com.pap.core.action;
+import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.pap.core.browser.instance.PlaywrightManager;
 import io.qameta.allure.Step;
 
 import java.nio.file.Path;
+import java.util.List;
 
 public class ElementActions {
 
@@ -31,6 +33,14 @@ public class ElementActions {
     public void hover(String selector){
         getPage().locator(selector).hover();
     }
+    @Step("Hacer focus sobre el elemento: '{selector}'")
+    public void focus(String selector){
+        getPage().locator(selector).focus();
+    }
+    @Step("Seleccionando lista del elemento: '{selector}'")
+    public List<String> getTexts(String selector) {
+        return PlaywrightManager.getPage().locator(selector).allInnerTexts();
+    }
     @Step("Seleccionando la opcion '{value}' del elemento: '{selector}'")
     public void selectByValue(String selector, String value){
         getPage().locator(selector).selectOption(value);
@@ -51,5 +61,16 @@ public class ElementActions {
     @Step("Subir archivo '{filePath}' en el elemento: '{selector}'")
     public void uploadFile(String selector, String filePath) {
         getPage().locator(selector).setInputFiles(Path.of(filePath));
+    }
+    @Step("Esperando a que aparezca el elemento: '{selector}'")
+    public void waitForVisible(String selector){
+        getPage().locator(selector).first().waitFor();
+    }
+    @Step("Esperando elemento '{selector}' con el texto: '{text}'")
+    public void waitForText(String selector, String text){
+        getPage().locator(selector)
+                .filter(new Locator.FilterOptions().setHasText(text))
+                .first()
+                .waitFor();
     }
 }

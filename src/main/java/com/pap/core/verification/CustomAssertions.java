@@ -1,8 +1,13 @@
 package com.pap.core.verification;
+import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.pap.core.browser.instance.PlaywrightManager;
 import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
+
+import java.util.List;
+import java.util.regex.Pattern;
+
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 public class CustomAssertions {
@@ -55,6 +60,21 @@ public class CustomAssertions {
     public void assertElementHasValue(String selector, String expectedValue) {
         try {
             assertThat(getPage().locator(selector)).hasValue(expectedValue);
+        } catch (AssertionError e) {
+            takeScreenshot();
+            throw e;
+        }
+    }
+    @Step("Validar que '{expectedText}' aparezca una sola vez en la lista")
+    public void assertTextExistsInList(List<String> titles, String expectedText) {
+        try {
+            long count = titles.stream()
+                    .filter(t -> t.trim().equals(expectedText))
+                    .count();
+            if (count != 1) {
+                throw new AssertionError("Se esperaba 1 coincidencia de '" + expectedText
+                        + "' y hubo " + count + ". Lista: " + titles);
+            }
         } catch (AssertionError e) {
             takeScreenshot();
             throw e;

@@ -2,6 +2,7 @@ package com.pap.CMS.taskManager.task;
 
 import com.pap.CMS.taskManager.pom.AddTaskPO;
 
+import java.util.List;
 public class AddTaskTask {
     AddTaskPO taskPO = new AddTaskPO();
 
@@ -18,5 +19,8 @@ public class AddTaskTask {
             }
             taskPO.clickButtonTaskSave();
 
+    }
+    public List<String> getFirstColumnTaskTitles(String text){
+       return taskPO.focusFirstColumnTaskTitle(text);
     }
 }

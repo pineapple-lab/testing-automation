@@ -6,6 +6,9 @@ public class CreateGuruPO {
     ElementActions actions = new ElementActions();
     public static final String BUTTON_NEW_GURU = "//button[normalize-space()='New user']";
     public static final String SELECT_SALUTATION = ".ReactModal__Content .MuiSelect-select";
+    public String SALUTATION_OPTION (String salutationOption){
+        return "//li[normalize-space()='"+salutationOption+"']";
+    }
     public static final String INPUT_TITLE = "[placeholder='Eg. Director']";
     public static final String INPUT_NAME = "[placeholder='Enter name']";
     public static final String INPUT_LNAME = "[placeholder='Enter last name']";
@@ -14,7 +17,7 @@ public class CreateGuruPO {
     public static final String INPUT_PHONE = "//span[text()='Phone*']/f ollowing-sibling::input";
     public static final String BUTTON_CONTINUEANDSAVE = ".modal-buttons .primary";
     public static final String SELECT_OFFICE = ".ReactModal__Overlay .generic-select-container [aria-haspopup='listbox']";
-    public String oficeOption (int officePosition){
+    public String OFFICE_OPTION (int officePosition){
         return ".MuiPaper-root > ul > li:nth-of-type("+officePosition+")";
     }
     public static final String SELECT_SKILL = ".ReactModal__Overlay .d-flex [aria-haspopup='listbox']";
@@ -35,6 +38,9 @@ public class CreateGuruPO {
     }
     public void clickSelectSalutation(){
         actions.click(SELECT_SALUTATION);
+    }
+    public void clickOptionSalutation(String salutationOption){
+        actions.click(SALUTATION_OPTION(salutationOption));
     }
     public void fillInputTitle(String title){
         actions.type(INPUT_TITLE, title);
@@ -60,13 +66,13 @@ public class CreateGuruPO {
     public void clickSelectOffice(){
         actions.click(SELECT_OFFICE);
     }
-    public void clickOfficeOption(int officeOption){
-        actions.click(oficeOption(officeOption));
+    public void clickOptionOffice(int officeOption){
+        actions.click(OFFICE_OPTION(officeOption));
     }
     public void clickSelectSkill(){
         actions.click(SELECT_SKILL);
     }
-    public void clickSkillOption(String skillOption){
+    public void clickOptionSkill(String skillOption){
         actions.click(SELECT_SKILL_OPTION(skillOption));
     }
     public void fillInputDescription(String description){

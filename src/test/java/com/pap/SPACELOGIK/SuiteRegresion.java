@@ -1,0 +1,12 @@
+package com.pap.SPACELOGIK;
+import org.junit.platform.suite.api.IncludeTags;
+import org.junit.platform.suite.api.SelectPackages;
+import org.junit.platform.suite.api.Suite;
+import org.junit.platform.suite.api.SuiteDisplayName;
+
+@Suite
+@SuiteDisplayName("Suite por tag: regresion")
+@SelectPackages("com.pap.SPACELOGIK")
+@IncludeTags("regresion")
+public class SuiteRegresion {
+}

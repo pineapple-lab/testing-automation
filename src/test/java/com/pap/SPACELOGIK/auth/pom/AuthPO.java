@@ -4,9 +4,9 @@ import com.pap.core.action.ElementActions;
 
 public class AuthPO {
     private ElementActions actions = new ElementActions();
-    private final String inputEmail = ".login-form-children-container [placeholder='Enter your email']";
-    private final String inputPassword = ".login-form-children-container [type='password']";
-    private final String buttonLoggin = "[type='submit']";
+    private static final String INPUT_EMAIL = ".login-form-children-container [placeholder='Enter your email']";
+    private static final String INPUT_PASSWORD = ".login-form-children-container [type='password']";
+    private static final String BUTTON_LOGIN = "[type='submit']";
 
 
     public void navigateToSystem(String url){
@@ -14,12 +14,12 @@ public class AuthPO {
     }
 
     public void enterEmail (String email){
-        actions.type(inputEmail, email);
+        actions.type(INPUT_EMAIL, email);
     }
     public void enterPassword(String password){
-        actions.type(inputPassword, password);
+        actions.type(INPUT_PASSWORD, password);
     }
     public void clickButtonLogin(){
-        actions.click(buttonLoggin);
+        actions.click(BUTTON_LOGIN);
     }
 }

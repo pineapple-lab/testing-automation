@@ -5,20 +5,20 @@ import com.pap.core.browser.instance.PlaywrightManager;
 
 public class AuthPO {
     private ElementActions actions = new ElementActions();
-    private final String userInput = "[data-testid='login-email-input']";
-    private final String passInput = "[data-testid='login-password-input']";
-    private final String loginButton = "[data-testid='login-submit-btn']";
+    private static final String USERNAME_INPUT = "[data-testid='login-email-input']";
+    private static final String PASSWORD_INPUT = "[data-testid='login-password-input']";
+    private static final String LOGIN_BUTTON = "[data-testid='login-submit-btn']";
 
     public void navigateTo(String url){
         actions.navigateTo(url);
     }
     public void enterUsername(String user){
-        actions.type(userInput, user);
+        actions.type(USERNAME_INPUT, user);
     }
     public void enterPassword(String password){
-        actions.type(passInput, password);
+        actions.type(PASSWORD_INPUT, password);
     }
     public void clickLoginButton(){
-        actions.click(loginButton);
+        actions.click(LOGIN_BUTTON);
     }
 }

@@ -1,11 +1,6 @@
 package com.pap.CMS.taskManager.test;
 
-import com.pap.CMS.auth.data.AuthData;
-import com.pap.CMS.auth.task.AuthTask;
 import com.pap.CMS.base.BaseTest;
-import com.pap.CMS.base.ConsoleMessage;
-import com.pap.CMS.base.GeneratorData;
-import com.pap.CMS.base.TestExecutionUtils;
 import com.pap.CMS.navigation.task.NavigationTask;
 import com.pap.CMS.taskManager.data.TaskManagerData;
 import com.pap.CMS.taskManager.task.AddTaskTask;
@@ -13,8 +8,6 @@ import com.pap.core.verification.CustomAssertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
 
 public class AddTaskTest extends BaseTest {
     NavigationTask navTask = new NavigationTask();

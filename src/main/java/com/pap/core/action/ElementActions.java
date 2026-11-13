@@ -1,6 +1,8 @@
 package com.pap.core.action;
+
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
+import com.microsoft.playwright.options.WaitUntilState;
 import com.pap.core.browser.instance.PlaywrightManager;
 import io.qameta.allure.Step;
 
@@ -13,6 +15,30 @@ public class ElementActions {
         return PlaywrightManager.getPage();
     }
 
+    // ---------- Navegación ----------
+    @Step("Navegando a la URL: '{url}'")
+    public void navigateTo(String url){
+        getPage().navigate(url, new Page.NavigateOptions()
+                .setWaitUntil(WaitUntilState.DOMCONTENTLOADED));
+    }
+    @Step("Recargando la página")
+    public void reload(){
+        getPage().reload();
+    }
+    @Step("Volviendo a la página anterior")
+    public void goBack(){
+        getPage().goBack();
+    }
+    @Step("Esperando a que la URL coincida con: '{urlPattern}'")
+    public void waitForUrl(String urlPattern){
+        getPage().waitForURL(urlPattern);
+    }
+    @Step("Obteniendo la URL actual")
+    public String getCurrentUrl(){
+        return getPage().url();
+    }
+
+    // ---------- Elementos ----------
     @Step("Hacer click en el elemento:'{selector}'")
     public void click(String selector){
         getPage().locator(selector).click();
@@ -37,9 +63,9 @@ public class ElementActions {
     public void focus(String selector){
         getPage().locator(selector).focus();
     }
-    @Step("Seleccionando lista del elemento: '{selector}'")
+    @Step("Obteniendo la lista de textos del elemento: '{selector}'")
     public List<String> getTexts(String selector) {
-        return PlaywrightManager.getPage().locator(selector).allInnerTexts();
+        return getPage().locator(selector).allInnerTexts();
     }
     @Step("Seleccionando la opcion '{value}' del elemento: '{selector}'")
     public void selectByValue(String selector, String value){
@@ -51,7 +77,6 @@ public class ElementActions {
     }
     @Step("Desmarcando checkbox: '{selector}'")
     public void uncheck(String selector){
-        System.out.println("Desmarcando checkbox: " + selector);
         getPage().locator(selector).uncheck();
     }
     @Step("Comprobando si es visible el elemento: '{selector}'")

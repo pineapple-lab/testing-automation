@@ -10,7 +10,7 @@ public class AuthPO {
     private final String loginButton = "[data-testid='login-submit-btn']";
 
     public void navigateTo(String url){
-        PlaywrightManager.getPage().navigate(url);
+        actions.navigateTo(url);
     }
     public void enterUsername(String user){
         actions.type(userInput, user);

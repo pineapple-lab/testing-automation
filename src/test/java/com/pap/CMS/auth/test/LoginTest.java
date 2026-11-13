@@ -18,8 +18,10 @@ public class LoginTest extends BaseTest {
     @Test
     @Tag("regresion")
     public void testSuccesfullLogin(){
-        authTask.enterToSystem(URL);
-        authTask.loginToSystem(data.userTest,data.passwordTest);
-        assertions.assertPageUrl("https://app.dev.pineapplelab.com/auth/login");
+        utils.runSafely(()-> {
+            authTask.enterToSystem(URL);
+            authTask.loginToSystem(data.userTest, data.passwordTest);
+            assertions.assertPageUrl("https://app.dev.pineapplelab.com/auth/login");
+        });
     }
 }

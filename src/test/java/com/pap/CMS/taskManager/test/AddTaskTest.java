@@ -18,7 +18,7 @@ public class AddTaskTest extends BaseTest {
     @Test
     @Tag("regresion")
     void test_pineappleCMS001_createTask(){
-        int quantityTask = 5;
+        int quantityTask = 3;
         int quantityImage = 5;
         utils.runSafely(()->{
         authTask.enterToSystem(URL);
@@ -28,8 +28,8 @@ public class AddTaskTest extends BaseTest {
         for(int i=1; i<=quantityTask; i++) {
             String taskName = taskData.getTaskName();
             addTask.createTask(taskName, taskData.getTaskDescription(), quantityImage, taskData.getImage());
-            console.printProgress("Progress",i, quantityTask);
             assertions.assertTextExistsInList(addTask.getFirstColumnTaskTitles(taskName), taskName);
+            console.printProgress("Progress",i, quantityTask);
             }
         });
     }

@@ -1,7 +1,6 @@
 package com.pap.SPACELOGIK.base;
-import com.pap.CMS.auth.data.AuthData;
-import com.pap.CMS.auth.task.AuthTask;
-import com.pap.CMS.config.CMSConfig;
+import com.pap.SPACELOGIK.auth.data.AuthData;
+import com.pap.SPACELOGIK.auth.task.AuthTask;
 import com.pap.SPACELOGIK.config.SPACELOGIKConfig;
 import com.pap.core.browser.instance.PlaywrightManager;
 import org.junit.jupiter.api.AfterEach;

@@ -35,9 +35,9 @@ public class CreateGuruTask {
      po.fillInputDescription(guru.getDescription());
     }
 
-    public void fillFormNewGuruStepThree(CreateGuruData guru){
+    public void fillFormNewGuruStepThree(String pathAsset){
         po.clickButtonOpenModalEditImageProfile();
-        uploadImage(guru.getPathAsset());
+        uploadImage(pathAsset);
     }
     public void uploadImage(String pathAsset){
         po.uploadProfileImage(pathAsset);
@@ -46,13 +46,13 @@ public class CreateGuruTask {
     public void acceptSuccessModal(){
         po.clickButtonOkSuccessModal();
     }
-    public void createNewGuru(CreateGuruData guru){
+    public void createNewGuru(CreateGuruData guru, String pathAsset){
         goNewGuruForm();
         fillFormNewGuruStepOne(guru);
         po.clickButtonContinueAndSave();
         fillFormNewGuruStepTwo(guru);
         po.clickButtonContinueAndSave();
-        fillFormNewGuruStepThree(guru);
+        fillFormNewGuruStepThree(pathAsset);
         po.clickButtonContinueAndSave();
         acceptSuccessModal();
     }

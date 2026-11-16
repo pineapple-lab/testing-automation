@@ -14,7 +14,7 @@ public class CreateGuruPO {
     public static final String INPUT_LNAME = "[placeholder='Enter last name']";
     public static final String INPUT_EMAIL = "[placeholder='Enter email']";
     public static final String INPUT_MOBILE = "//span[text()='Mobile*']/following-sibling::input";
-    public static final String INPUT_PHONE = "//span[text()='Phone*']/f ollowing-sibling::input";
+    public static final String INPUT_PHONE = "//span[text()='Phone*']/following-sibling::input";
     public static final String BUTTON_CONTINUEANDSAVE = ".modal-buttons .primary";
     public static final String SELECT_OFFICE = ".ReactModal__Overlay .generic-select-container [aria-haspopup='listbox']";
     public String OFFICE_OPTION (int officePosition){
@@ -28,7 +28,6 @@ public class CreateGuruPO {
     public static final String BUTTON_EDIT_IMAGE_PROFILE = ".image-holder button";
     public static final String INPUT_IMAGE_PROFILE = "[name='filepond']";
     public static final String BUTTON_UPLOAD_IMAGE_PROFILE = "//button[normalize-space()='Upload']";
-    public static final String OPTION_PAYMENT = ".payment-main-container > div > div:nth-of-type(1)";
     public static final String POPUP_SUCCESSFULLY = ".ReactModal__Content.modal";
     public static final String BUTTON_MODALSUCCESS_OK= "//button[normalize-space()='Ok']";
 

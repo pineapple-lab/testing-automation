@@ -3,6 +3,8 @@ import com.microsoft.playwright.*;
 import com.pap.core.config.ConfigReader;
 import com.pap.core.browser.factory.BrowserFactory;
 import com.pap.core.browser.factory.BrowserType;
+import com.pap.core.monitoring.BackendMonitor;
+
 public class PlaywrightManager {
     private static final ThreadLocal<Playwright> PLAYWRIGHT_THREAD_LOCAL = new ThreadLocal<>();
     private static final ThreadLocal<Browser> BROWSER_THREAD_LOCAL = new ThreadLocal<>();
@@ -20,9 +22,13 @@ public class PlaywrightManager {
         Browser browser = BrowserFactory.getBrowser(playwright, type);
         BROWSER_THREAD_LOCAL.set(browser);
 
-        BrowserContext context = browser.newContext();
+        int width = Integer.parseInt(ConfigReader.getProperty("viewport.width"));
+        int height = Integer.parseInt(ConfigReader.getProperty("viewport.height"));
+        BrowserContext context = browser.newContext(new Browser.NewContextOptions().setViewportSize(width, height));
         CONTEXT_THREAD_LOCAL.set(context);
-
+        if (Boolean.parseBoolean(ConfigReader.getProperty("monitor.backend"))) {
+            BackendMonitor.attach(context);
+        }
         Page page = context.newPage();
         PAGE_THREAD_LOCAL.set(page);
     }

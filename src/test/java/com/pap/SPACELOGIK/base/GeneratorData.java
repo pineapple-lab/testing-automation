@@ -47,6 +47,11 @@ public class GeneratorData {
 
         return generateRandomFileName(videoList, directoryPath, ".mp4");
     }
+    public String generateEmail(String firstName, String lastname, String domain, String TLD){
+        String timestamp = String.valueOf(System.currentTimeMillis());
+        String email = firstName+lastname+timestamp+"@"+domain+TLD;
+        return email;
+    }
     /*
     public String generateNumber(){
         return String.valueOf(new Random().nextInt(100000));

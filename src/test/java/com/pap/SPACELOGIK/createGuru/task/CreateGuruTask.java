@@ -22,7 +22,7 @@ public class CreateGuruTask {
     public void completeSkillSelect(String skill){
         po.clickSelectSkill();
         po.clickOptionSkill(skill);
-        po.clickSelectSkill();
+
     }
     public void uploadImage(String pathAsset){
         po.uploadProfileImage(pathAsset);

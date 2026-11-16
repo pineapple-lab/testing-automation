@@ -98,4 +98,8 @@ public class ElementActions {
                 .first()
                 .waitFor();
     }
+    @Step("Presiona tecla del teclado")
+    public void pressKey(String tecla){
+        getPage().keyboard().press(tecla);
+    }
 }

@@ -78,6 +78,7 @@ public class CreateGuruPO {
     }
     public void clickOptionSkill(String skillOption){
         actions.check(SELECT_SKILL_OPTION(skillOption));
+        actions.pressKey("Escape");
     }
     public void fillInputDescription(String description){
         actions.type(INPUT_DESCRIPTION, description);

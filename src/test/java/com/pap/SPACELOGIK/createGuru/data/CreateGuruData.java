@@ -30,7 +30,6 @@ public class CreateGuruData {
     @Builder.Default private int office = 2;
     @Builder.Default private String skill = "Transaction guru";
     @Builder.Default private String description = "Guru creado por automatización";
-    //@Builder.Default private String pathAsset = "Guru creado por automatización";
 
     public String getImage(){
         return data.image();

@@ -39,8 +39,6 @@ public class PathUtils {
         return basePathPath.relativize(fullPath).toString();
     }
     private static void initializeBasePath() {
-        System.out.println(">>> config.properties = " + ConfigReader.class.getClassLoader().getResource("config.properties"));
-        System.out.println(">>> assets.path (sysprop) = " + System.getProperty("assets.path"));
         String configuredPath = ConfigReader.getProperty("assets.path");
 
         if (configuredPath == null || configuredPath.isEmpty()) {

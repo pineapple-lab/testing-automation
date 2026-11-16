@@ -19,6 +19,7 @@ public class AddTaskPO {
     private final static String BUTTON_TASK_ADD_IMAGE = "app-task-attachments .upload-input";
     private final static String BUTTON_TASK_SAVE = "mat-dialog-actions .mdc-button.mat-primary";
 
+
     public void clickButtonEnterProject(){
         actions.click(BUTTON_ENTER_PROJECT);
     }

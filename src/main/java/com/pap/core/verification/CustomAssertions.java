@@ -143,4 +143,33 @@ public class CustomAssertions {
             throw e;
         }
     }
+    @Step("Validar que el texto '{actualText}' contenga: '{expectedText}'")
+    public void assertTextContains(String actualText, String expectedText) {
+        try {
+            if (actualText == null || !normalize(actualText).contains(normalize(expectedText))) {
+                throw new AssertionError("Se esperaba que el texto contenga '" + expectedText
+                        + "' pero fue: '" + actualText + "'");
+            }
+        } catch (AssertionError e) {
+            takeScreenshot();
+            throw e;
+        }
+    }
+
+    @Step("Validar que el texto '{actualText}' sea exactamente: '{expectedText}'")
+    public void assertTextEquals(String actualText, String expectedText) {
+        try {
+            if (actualText == null || !normalize(actualText).equals(normalize(expectedText))) {
+                throw new AssertionError("Se esperaba '" + expectedText
+                        + "' pero fue: '" + actualText + "'");
+            }
+        } catch (AssertionError e) {
+            takeScreenshot();
+            throw e;
+        }
+    }
+
+    private String normalize(String text) {
+        return text.trim().replaceAll("\\s+", " ");
+    }
 }

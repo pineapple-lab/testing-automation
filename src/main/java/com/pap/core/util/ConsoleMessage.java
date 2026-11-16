@@ -1,12 +1,10 @@
-package com.pap.CMS.base;
-
-import com.microsoft.playwright.BrowserContext;
-
-import java.util.function.Supplier;
+package com.pap.core.util;
 
 public class ConsoleMessage {
-
-      public void messageStartTest(String nameTest) {
+    private static final String RESET = "\u001B[0m";
+    private static final String CYAN_BOLD = "\u001B[1;36m";
+    private static final String GREEN_BOLD = "\u001B[1;32m";
+    public void messageStartTest(String nameTest) {
         System.out.println("\n----------------------START TEST-----------------------");
         System.out.println("Execution test: " + nameTest);
     }
@@ -27,9 +25,6 @@ public class ConsoleMessage {
     public void messageEndTest() {
         System.out.println("\n----------------------END TEST-----------------------");
     }
-    private static final String RESET = "\u001B[0m";
-    private static final String CYAN_BOLD = "\u001B[1;36m";
-    private static final String GREEN_BOLD = "\u001B[1;32m";
 
     public void printProgress(String label, int current, int total) {
         int width = 20;

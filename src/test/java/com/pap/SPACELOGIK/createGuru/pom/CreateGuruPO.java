@@ -2,6 +2,8 @@ package com.pap.SPACELOGIK.createGuru.pom;
 
 import com.pap.core.action.ElementActions;
 
+import java.util.List;
+
 public class CreateGuruPO {
     ElementActions actions = new ElementActions();
     public static final String BUTTON_NEW_GURU = "//button[normalize-space()='New user']";
@@ -28,9 +30,12 @@ public class CreateGuruPO {
     public static final String BUTTON_EDIT_IMAGE_PROFILE = ".image-holder button";
     public static final String INPUT_IMAGE_PROFILE = "[name='filepond']";
     public static final String BUTTON_UPLOAD_IMAGE_PROFILE = "//button[normalize-space()='Upload']";
+    public static final String BUTTON_REMOVE_IMAGE = "button.delete";
     public static final String POPUP_SUCCESSFULLY = ".ReactModal__Content.modal";
     public static final String BUTTON_MODALSUCCESS_OK= "//button[normalize-space()='Ok']";
-
+    public String GURU_SKILL (String guruEmail){
+        return "//*[@title='"+guruEmail+"']/preceding-sibling::*[@data-field='skill_sets'] //span[text()]";
+    }
 
     public void clickButtonNewGuru(){
         actions.click(BUTTON_NEW_GURU);
@@ -72,7 +77,7 @@ public class CreateGuruPO {
         actions.click(SELECT_SKILL);
     }
     public void clickOptionSkill(String skillOption){
-        actions.click(SELECT_SKILL_OPTION(skillOption));
+        actions.check(SELECT_SKILL_OPTION(skillOption));
     }
     public void fillInputDescription(String description){
         actions.type(INPUT_DESCRIPTION, description);
@@ -86,10 +91,17 @@ public class CreateGuruPO {
     public void clickButtonUploadImage(){
         actions.click(BUTTON_UPLOAD_IMAGE_PROFILE);
     }
-    public void getTextModalSuccess(){
-        actions.getTexts(POPUP_SUCCESSFULLY);
+    public List<String> getTextModalSuccess(){
+        actions.waitForVisible(POPUP_SUCCESSFULLY);
+        return actions.getTexts(POPUP_SUCCESSFULLY);
     }
     public void clickButtonOkSuccessModal(){
         actions.click(BUTTON_MODALSUCCESS_OK);
+    }
+    public void waitForRemoveImageButton(){
+        actions.waitForVisible(BUTTON_REMOVE_IMAGE);
+    }
+    public String getGuruSkill(String guruEmail){
+      return actions.getText(GURU_SKILL(guruEmail));
     }
 }

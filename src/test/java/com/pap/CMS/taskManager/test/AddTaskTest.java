@@ -4,6 +4,8 @@ import com.pap.CMS.base.BaseTest;
 import com.pap.CMS.navigation.task.NavigationTask;
 import com.pap.CMS.taskManager.data.TaskManagerData;
 import com.pap.CMS.taskManager.task.AddTaskTask;
+import com.pap.core.util.ConsoleMessage;
+import com.pap.core.util.ExecutionUtils;
 import com.pap.core.verification.CustomAssertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -13,14 +15,13 @@ public class AddTaskTest extends BaseTest {
     NavigationTask navTask = new NavigationTask();
     TaskManagerData taskData = new TaskManagerData();
     AddTaskTask addTask = new AddTaskTask();
-    CustomAssertions assertions = new CustomAssertions();
     @DisplayName("Create task happy path test_001")
     @Test
     @Tag("regresion")
     void test_pineappleCMS001_createTask(){
         int quantityTask = 3;
         int quantityImage = 5;
-        utils.runSafely(()->{
+        run.runSafely(()->{
         authTask.enterToSystem(URL);
         authTask.loginToSystem(authData.userTest, authData.passwordTest);
         navTask.goToTaskManagmentMenu();

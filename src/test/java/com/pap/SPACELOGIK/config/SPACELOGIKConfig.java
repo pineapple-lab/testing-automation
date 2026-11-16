@@ -9,6 +9,6 @@ public class SPACELOGIKConfig {
     private SPACELOGIKConfig() {}
 
     public static String getUrl() {
-        return CONFIG.get("spacelogik.base.url");
+        return CONFIG.get("spacelogik.base.url.dev");
     }
 }

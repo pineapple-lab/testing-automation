@@ -1,16 +1,16 @@
 package com.pap.CMS.taskManager.data;
 
-import com.pap.CMS.base.GeneratorData;
+import com.pap.CMS.base.CmsDataGenerator;
 
 public class TaskManagerData {
-    GeneratorData generator = new GeneratorData();
+    CmsDataGenerator data = new CmsDataGenerator();
     public String getImage(){
-        return generator.generateImage();
+        return data.image();
     }
     public String getTaskName(){
-        return generator.generateTaskName();
+        return data.taskName();
     }
     public String getTaskDescription(){
-        return generator.generateTaskDescription();
+        return data.taskDescription();
     }
 }

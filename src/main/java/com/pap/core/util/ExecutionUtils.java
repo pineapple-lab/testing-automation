@@ -1,6 +1,8 @@
-package com.pap.SPACELOGIK.base;
+package com.pap.core.util;
+
 import com.microsoft.playwright.PlaywrightException;
-public class TestExecutionUtils {
+
+public class ExecutionUtils {
     public void runSafely(Runnable testSteps) {
         try {
             testSteps.run();

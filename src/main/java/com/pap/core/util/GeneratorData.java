@@ -49,11 +49,6 @@ public class GeneratorData {
             return random.nextInt(size);
         }
 
-        /**
-         * Para listas de UI donde la primera opción es un placeholder:
-         * devuelve un índice entre `from` y `size` (ambos incluidos).
-         * Reemplaza a getRandomIndex(n - 1) + 2  ->  randomIndexFrom(2, n)
-         */
         public int randomIndexFrom(int from, int size) {
             return randomInt(from, size);
         }

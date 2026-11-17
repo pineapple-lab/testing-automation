@@ -1,7 +1,7 @@
 package com.pap.core.dataCollections;
 
-public class TaskDescription {
-    public static String [] taskDescription ={
+public class Description {
+    public static String [] description ={
             "Fix authentication bug in login controller", "Implement OAuth2 login with Google provider", "Refactor user service to reduce complexity", "Update API documentation for v2 release", "Write unit tests for checkout edge cases", "Optimize database query for user feeds", "Design landing page wireframe in Figma", "Setup CI/CD pipeline with GitHub Actions", "Migrate backend services to Kubernetes", "Configure Docker environment for local development",
             "Fix CSS layout issue in main navbar", "Implement dark mode toggle in navbar", "Add input validation for signup form", "Create database migration script for user table", "Update npm dependencies to latest versions", "Fix memory leak in background worker queue", "Implement payment gateway with Stripe API", "Set up Sentry error tracking for production", "Build admin dashboard metrics widget", "Refactor legacy codebase for payment processing",
             "Implement JWT refreshing mechanism", "Add audit logging for security events", "Optimize image loading speed with WebP", "Create user profile API endpoint", "Fix CORS issue in staging environment", "Add pagination to user list view", "Implement WebSocket support for live chat", "Write integration tests for order flow", "Fix broken link in footer section", "Update Readme.md with setup instructions",

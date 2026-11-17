@@ -1,6 +1,6 @@
 package com.pap.CMS.base;
 
-import com.pap.core.dataCollections.TaskDescription;
+import com.pap.core.dataCollections.Description;
 import com.pap.core.dataCollections.TaskName;
 import com.pap.core.util.GeneratorData;
 import com.pap.core.util.PathUtils;
@@ -23,7 +23,7 @@ public class CmsDataGenerator {
     }
 
     public String taskDescription() {
-        return gen.randomFrom(TaskDescription.taskDescription);
+        return gen.randomFrom(Description.description);
     }
 
     public String image() {

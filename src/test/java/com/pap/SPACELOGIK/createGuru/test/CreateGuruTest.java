@@ -46,7 +46,6 @@ public class CreateGuruTest extends BaseTest {
                 assertion.assertTextEquals(createTask.getGuruSkill(guru.getEmail()), CreateGuruData.skillConstruction);
                 console.printProgress("Progress",i, quantityCreate);
             }
-            createTask.acceptSuccessModal();
         });
     }
     @DisplayName("Create guru workplace success - test003")
@@ -66,7 +65,6 @@ public class CreateGuruTest extends BaseTest {
                 assertion.assertTextEquals(createTask.getGuruSkill(guru.getEmail()), CreateGuruData.skillWorkplace);
                 console.printProgress("Progress",i, quantityCreate);
             }
-            createTask.acceptSuccessModal();
         });
     }
     @DisplayName("Create guru assistant success - test004")
@@ -86,7 +84,6 @@ public class CreateGuruTest extends BaseTest {
                 assertion.assertTextEquals(createTask.getGuruSkill(guru.getEmail()), CreateGuruData.skillAssistant);
                 console.printProgress("Progress",i, quantityCreate);
             }
-            createTask.acceptSuccessModal();
         });
     }
 }

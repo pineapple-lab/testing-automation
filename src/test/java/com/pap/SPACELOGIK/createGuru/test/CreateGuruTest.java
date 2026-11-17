@@ -20,7 +20,7 @@ public class CreateGuruTest extends BaseTest {
             authTask.enterSystem(URL);
             authTask.fillFormLoginAndEnter(authData.emailReCompanie, authData.password);
             for (int i = 1; i<=quantityCreate; i++) {
-                CreateGuruData guru = CreateGuruData.builder().build();
+                CreateGuruData guru = CreateGuruData.random(data).build();
                 createTask.createNewGuru(guru, guru.getImage());
                 assertion.assertTextExistsInList(createTask.getTextModalSuccess(), CreateGuruData.TEXT_SUCCESS_MODAL);
                 createTask.acceptSuccessModal();
@@ -38,12 +38,52 @@ public class CreateGuruTest extends BaseTest {
             authTask.enterSystem(URL);
             authTask.fillFormLoginAndEnter(authData.emailReCompanie, authData.password);
             for (int i = 1; i<=quantityCreate; i++) {
-                CreateGuruData guru = CreateGuruData.builder().skill("Construction guru ").build();
+                CreateGuruData guru = CreateGuruData.random(data).skill("Construction guru ").build();
                 createTask.createNewGuru(guru, guru.getImage());
                 assertion.assertTextExistsInList(createTask.getTextModalSuccess(), CreateGuruData.TEXT_SUCCESS_MODAL);
                 createTask.acceptSuccessModal();
                 search.searchCreateGuru(guru.getEmail());
                 assertion.assertTextEquals(createTask.getGuruSkill(guru.getEmail()), CreateGuruData.skillConstruction);
+                console.printProgress("Progress",i, quantityCreate);
+            }
+            createTask.acceptSuccessModal();
+        });
+    }
+    @DisplayName("Create guru workplace success - test003")
+    @Test
+    @Tag("regresion")
+    public void testCreateGuruWorkplaceSuccess(){
+        int quantityCreate = 2;
+        run.runSafely(()->{
+            authTask.enterSystem(URL);
+            authTask.fillFormLoginAndEnter(authData.emailReCompanie, authData.password);
+            for (int i = 1; i<=quantityCreate; i++) {
+                CreateGuruData guru = CreateGuruData.random(data).skill("Workplace guru ").build();
+                createTask.createNewGuru(guru, guru.getImage());
+                assertion.assertTextExistsInList(createTask.getTextModalSuccess(), CreateGuruData.TEXT_SUCCESS_MODAL);
+                createTask.acceptSuccessModal();
+                search.searchCreateGuru(guru.getEmail());
+                assertion.assertTextEquals(createTask.getGuruSkill(guru.getEmail()), CreateGuruData.skillWorkplace);
+                console.printProgress("Progress",i, quantityCreate);
+            }
+            createTask.acceptSuccessModal();
+        });
+    }
+    @DisplayName("Create guru assistant success - test004")
+    @Test
+    @Tag("regresion")
+    public void testCreateGuruAssistantSuccess(){
+        int quantityCreate = 2;
+        run.runSafely(()->{
+            authTask.enterSystem(URL);
+            authTask.fillFormLoginAndEnter(authData.emailReCompanie, authData.password);
+            for (int i = 1; i<=quantityCreate; i++) {
+                CreateGuruData guru = CreateGuruData.random(data).skill("Assistant").build();
+                createTask.createNewGuru(guru, guru.getImage());
+                assertion.assertTextExistsInList(createTask.getTextModalSuccess(), CreateGuruData.TEXT_SUCCESS_MODAL);
+                createTask.acceptSuccessModal();
+                search.searchCreateGuru(guru.getEmail());
+                assertion.assertTextEquals(createTask.getGuruSkill(guru.getEmail()), CreateGuruData.skillAssistant);
                 console.printProgress("Progress",i, quantityCreate);
             }
             createTask.acceptSuccessModal();

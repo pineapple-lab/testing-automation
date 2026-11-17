@@ -1,4 +1,5 @@
 package com.pap.SPACELOGIK.base;
+import com.pap.core.util.GeneratorData;
 import com.pap.SPACELOGIK.auth.data.AuthData;
 import com.pap.SPACELOGIK.auth.task.AuthTask;
 import com.pap.SPACELOGIK.config.SPACELOGIKConfig;
@@ -19,6 +20,7 @@ public class BaseTest {
     protected AuthTask authTask;
     protected ExecutionUtils run;
     protected CustomAssertions assertion;
+    protected SpacelogikDataGenerator data;
     @BeforeEach
     void setUp(TestInfo testInfo) {
         PlaywrightManager.initBrowser();
@@ -30,6 +32,9 @@ public class BaseTest {
         run = new ExecutionUtils();
         assertion = new CustomAssertions();
         console.messageStartTest(testInfo.getDisplayName());
+        long seed = Long.getLong("seed", System.currentTimeMillis());
+        System.out.println("Seed usada: " + seed);
+        data = new SpacelogikDataGenerator(new GeneratorData(seed));
     }
 
     @AfterEach

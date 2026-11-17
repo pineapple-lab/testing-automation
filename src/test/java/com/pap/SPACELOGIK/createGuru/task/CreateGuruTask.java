@@ -5,6 +5,7 @@ import com.pap.SPACELOGIK.createGuru.data.CreateGuruData;
 import com.pap.SPACELOGIK.createGuru.pom.CreateGuruPO;
 
 import java.util.List;
+import java.util.Objects;
 
 public class CreateGuruTask {
     CreateGuruPO po = new CreateGuruPO();
@@ -50,7 +51,9 @@ public class CreateGuruTask {
     public void fillFormNewGuruStepTwo(CreateGuruData guru){
         completeOfficeSelect(guru.getOffice());
         completeSkillSelect(guru.getSkill());
-        po.fillInputDescription(guru.getDescription());
+        if(!Objects.equals(guru.getSkill(), "Assistant")) {
+            po.fillInputDescription(guru.getDescription());
+        }
     }
     public void fillFormNewGuruStepThree(String pathAsset){
         po.clickButtonOpenModalEditImageProfile();

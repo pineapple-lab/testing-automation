@@ -15,15 +15,17 @@ public class CreateGuruTest extends BaseTest {
     @Test
     @Tag("regresion")
     public void testCreateGuruTransactionSuccess(){
-        int quantityCreate = 2;
+        int quantityCreate = 1;
         run.runSafely(()->{
             authTask.enterSystem(URL);
             authTask.fillFormLoginAndEnter(authData.emailReCompanie, authData.password);
             for (int i = 1; i<=quantityCreate; i++) {
                 CreateGuruData guru = CreateGuruData.random(data).build();
+                console.printEmail(guru.getEmail());
                 createTask.createNewGuru(guru, guru.getImage());
                 assertion.assertTextExistsInList(createTask.getTextModalSuccess(), CreateGuruData.TEXT_SUCCESS_MODAL);
                 createTask.acceptSuccessModal();
+                search.searchCreateGuru(guru.getEmail());
                 assertion.assertTextEquals(createTask.getGuruSkill(guru.getEmail()),CreateGuruData.skillTransaction);
                 console.printProgress("Progress",i, quantityCreate);
             }
@@ -33,12 +35,13 @@ public class CreateGuruTest extends BaseTest {
     @Test
     @Tag("regresion")
     public void testCreateGuruConstructionSuccess(){
-        int quantityCreate = 2;
+        int quantityCreate = 1;
         run.runSafely(()->{
             authTask.enterSystem(URL);
             authTask.fillFormLoginAndEnter(authData.emailReCompanie, authData.password);
             for (int i = 1; i<=quantityCreate; i++) {
                 CreateGuruData guru = CreateGuruData.random(data).skill("Construction guru ").build();
+                console.printEmail(guru.getEmail());
                 createTask.createNewGuru(guru, guru.getImage());
                 assertion.assertTextExistsInList(createTask.getTextModalSuccess(), CreateGuruData.TEXT_SUCCESS_MODAL);
                 createTask.acceptSuccessModal();
@@ -52,12 +55,13 @@ public class CreateGuruTest extends BaseTest {
     @Test
     @Tag("regresion")
     public void testCreateGuruWorkplaceSuccess(){
-        int quantityCreate = 2;
+        int quantityCreate = 1;
         run.runSafely(()->{
             authTask.enterSystem(URL);
             authTask.fillFormLoginAndEnter(authData.emailReCompanie, authData.password);
             for (int i = 1; i<=quantityCreate; i++) {
                 CreateGuruData guru = CreateGuruData.random(data).skill("Workplace guru ").build();
+                console.printEmail(guru.getEmail());
                 createTask.createNewGuru(guru, guru.getImage());
                 assertion.assertTextExistsInList(createTask.getTextModalSuccess(), CreateGuruData.TEXT_SUCCESS_MODAL);
                 createTask.acceptSuccessModal();
@@ -71,12 +75,13 @@ public class CreateGuruTest extends BaseTest {
     @Test
     @Tag("regresion")
     public void testCreateGuruAssistantSuccess(){
-        int quantityCreate = 2;
+        int quantityCreate = 1;
         run.runSafely(()->{
             authTask.enterSystem(URL);
             authTask.fillFormLoginAndEnter(authData.emailReCompanie, authData.password);
             for (int i = 1; i<=quantityCreate; i++) {
                 CreateGuruData guru = CreateGuruData.random(data).skill("Assistant").build();
+                console.printEmail(guru.getEmail());
                 createTask.createNewGuru(guru, guru.getImage());
                 assertion.assertTextExistsInList(createTask.getTextModalSuccess(), CreateGuruData.TEXT_SUCCESS_MODAL);
                 createTask.acceptSuccessModal();

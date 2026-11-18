@@ -65,7 +65,9 @@ public class CreateGuruTask {
         po.clickButtonContinueAndSave();
         fillFormNewGuruStepTwo(guru);
         po.clickButtonContinueAndSave();
-        fillFormNewGuruStepThree(pathAsset);
+        if(!Objects.equals(guru.getSkill(),"Assistant")) {
+            fillFormNewGuruStepThree(pathAsset);
+        }
         po.clickButtonContinueAndSave();
     }
 }

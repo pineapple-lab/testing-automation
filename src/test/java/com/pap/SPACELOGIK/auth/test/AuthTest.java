@@ -21,8 +21,8 @@ public class AuthTest extends BaseTest {
     public void testSuccessfullLogin(){
         run.runSafely(()->{
         task.enterSystem(URL);
-        task.fillFormLoginAndEnter(data.emailGuruTransaction, data.password);
-        assertion.assertPageUrl("https://space-logic.web.app/tenant-clients");
+        task.fillFormLoginAndEnter(data.emailReCompanie, data.password);
+        assertion.assertPageUrl("https://spacelogic-development.web.app/tenant-people");
         });
     }
 }

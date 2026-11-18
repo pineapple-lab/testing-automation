@@ -36,4 +36,7 @@ public class ConsoleMessage {
         System.out.println("\n" + color + "▶ " + label + "  [" + bar + "]  "
                 + current + " / " + total + "  (" + percent + "%)" + RESET + "\n");
     }
+    public void printEmail(String email){
+        System.out.println("Email usado: "+email);
+    }
 }

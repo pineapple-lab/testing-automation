@@ -1,4 +1,4 @@
-package com.pap.SPACELOGIK.createGuru.pom;
+package com.pap.SPACELOGIK.guru.pom;
 
 import com.pap.core.action.ElementActions;
 

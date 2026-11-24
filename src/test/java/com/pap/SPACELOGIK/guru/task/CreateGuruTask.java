@@ -1,8 +1,7 @@
-package com.pap.SPACELOGIK.createGuru.task;
+package com.pap.SPACELOGIK.guru.task;
 
-import com.microsoft.playwright.Keyboard;
-import com.pap.SPACELOGIK.createGuru.data.CreateGuruData;
-import com.pap.SPACELOGIK.createGuru.pom.CreateGuruPO;
+import com.pap.SPACELOGIK.guru.data.CreateGuruData;
+import com.pap.SPACELOGIK.guru.pom.CreateGuruPO;
 
 import java.util.List;
 import java.util.Objects;
@@ -67,7 +66,8 @@ public class CreateGuruTask {
         po.clickButtonContinueAndSave();
         if(!Objects.equals(guru.getSkill(),"Assistant")) {
             fillFormNewGuruStepThree(pathAsset);
+            po.clickButtonContinueAndSave();
         }
-        po.clickButtonContinueAndSave();
+
     }
 }

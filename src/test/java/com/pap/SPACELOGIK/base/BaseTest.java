@@ -24,6 +24,7 @@ public class BaseTest {
     @BeforeEach
     void setUp(TestInfo testInfo) {
         PlaywrightManager.initBrowser();
+
         URL = SPACELOGIKConfig.getUrl() + "/login";
         console = new ConsoleMessage();
         utils = new ExecutionUtils();

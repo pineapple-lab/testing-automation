@@ -19,6 +19,7 @@ public class PlaywrightManager {
         BrowserType type = BrowserType.valueOf(browserTypeStr.toUpperCase());
 
         Playwright playwright = Playwright.create(new Playwright.CreateOptions().setEnv(java.util.Map.of("PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD", "1")));
+        PLAYWRIGHT_THREAD_LOCAL.set(playwright);
         Browser browser = BrowserFactory.getBrowser(playwright, type);
         BROWSER_THREAD_LOCAL.set(browser);
 

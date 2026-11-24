@@ -1,8 +1,8 @@
-package com.pap.SPACELOGIK.createGuru.test;
+package com.pap.SPACELOGIK.guru.test;
 
 import com.pap.SPACELOGIK.base.BaseTest;
-import com.pap.SPACELOGIK.createGuru.data.CreateGuruData;
-import com.pap.SPACELOGIK.createGuru.task.CreateGuruTask;
+import com.pap.SPACELOGIK.guru.data.CreateGuruData;
+import com.pap.SPACELOGIK.guru.task.CreateGuruTask;
 import com.pap.SPACELOGIK.search.task.RePeopleSearchTask;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;

@@ -1,4 +1,4 @@
-package com.pap.SPACELOGIK.createGuru.data;
+package com.pap.SPACELOGIK.guru.data;
 import com.pap.SPACELOGIK.base.SpacelogikDataGenerator;
 import lombok.Builder;
 import lombok.Getter;

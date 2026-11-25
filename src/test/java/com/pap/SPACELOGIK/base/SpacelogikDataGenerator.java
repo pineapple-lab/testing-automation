@@ -6,7 +6,7 @@ import com.pap.core.util.PathUtils;
 import java.util.List;
 
 public class SpacelogikDataGenerator {
-    private static final String[] MEDIA_IDS = {"1", "2", "3", "4", "5"};
+    private static final String[] MEDIA_IDS = {"1", "2", "3", "4"};
 
     private final GeneratorData gen;
 

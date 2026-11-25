@@ -6,7 +6,7 @@ import com.pap.core.util.GeneratorData;
 import com.pap.core.util.PathUtils;
 
 public class CmsDataGenerator {
-    private static final String[] MEDIA_IDS = {"1", "2", "3", "4", "5"};
+    private static final String[] MEDIA_IDS = {"1", "2", "3", "4"};
 
     private final com.pap.core.util.GeneratorData gen;
 

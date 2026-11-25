@@ -4,14 +4,14 @@ import com.papa.core.action.ElementActions;
 
 public class clientPO {
     ElementActions action = new ElementActions();
-    private final static String BUTTON_NEW_CLIENT = "";
-    private final static String RADIOBUTTON_OPTION_CORPORATEACCOUNT ="";
-    private final static String BUTTON_CONTINUE = "";
-    private final static String BUTTON_UPLOADPHOTO_OPEN = "";
-    private final static String INPUT_PHOTO = "";
-    private final static String BUTTON_PHOTO_SAVE = "";
-    private final static String INPUT_COMPANYNAME = "";
-    private final static String SELECT_INDUSTRY = "";
+    private final static String BUTTON_NEW_CLIENT = ".generic-button.medium.primary.icon-left";
+    private final static String RADIOBUTTON_OPTION_CORPORATEACCOUNT ="//h3[text()='Corporate account']/../../..";
+    private final static String BUTTON_CONTINUE = "//button[text()='Continue']";
+    private final static String BUTTON_UPLOADPHOTO_OPEN = "//button[text()='Edit']";
+    private final static String INPUT_PHOTO = "input[name='filepond']";
+    private final static String BUTTON_PHOTO_SAVE = "//button[text()='Upload']";
+    private final static String INPUT_COMPANYNAME = "input[placeholder='Company name']";
+    private final static String SELECT_INDUSTRY = "//div[text()='Select']";
     private final static String SELECT_INDUSTRY_OPTION = "";
     private final static String INPUT_NAME = "";
     private final static String INPUT_LAST_NAME = "";

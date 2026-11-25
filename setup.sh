@@ -48,7 +48,7 @@ download() { # url dest
 }
 
 # ------------------------------- 1. Git ----------------------------------
-log "--- Step 1/5: Git ---"
+log "--- Step 1/6: Git ---"
 if has git; then
   ok "Git already installed: $(git --version)"
 else
@@ -65,7 +65,7 @@ fi
 if [ "$OS" = "Darwin" ] && has brew; then brew upgrade git >/dev/null 2>&1 || true; fi
 
 # ------------------------------- 2. JDK ----------------------------------
-log "--- Step 2/5: JDK $JDK_VERSION (Temurin) ---"
+log "--- Step 2/6: JDK $JDK_VERSION (Temurin) ---"
 JDK_HOME="$TOOLS_DIR/jdk-$JDK_VERSION"
 JDK_TMP="$(mktemp -d)"
 JDK_URL="https://api.adoptium.net/v3/binary/latest/${JDK_VERSION}/ga/${ADOPTIUM_OS}/${ADOPTIUM_ARCH}/jdk/hotspot/normal/eclipse"
@@ -91,9 +91,14 @@ rm -rf "$JDK_TMP"
 if [ "$OS" = "Darwin" ]; then export JAVA_HOME="$JDK_HOME/Contents/Home"; else export JAVA_HOME="$JDK_HOME"; fi
 export PATH="$JAVA_HOME/bin:$PATH"
 ok "Java ready: $(java -version 2>&1 | head -n 1)"
+if [ "$OS" = "Darwin" ]; then
+  mkdir -p "$HOME/Library/Java/JavaVirtualMachines"
+  ln -sfn "$JDK_HOME" "$HOME/Library/Java/JavaVirtualMachines/temurin-$JDK_VERSION.jdk"
+  ok "JDK linked for macOS/IDE discovery: ~/Library/Java/JavaVirtualMachines/temurin-$JDK_VERSION.jdk"
+fi
 
 # ------------------------------ 3. Maven ---------------------------------
-log "--- Step 3/5: Maven $MAVEN_VERSION ---"
+log "--- Step 3/6: Maven $MAVEN_VERSION ---"
 MAVEN_HOME="$TOOLS_DIR/apache-maven-$MAVEN_VERSION"
 if [ -x "$MAVEN_HOME/bin/mvn" ]; then
   ok "Maven $MAVEN_VERSION already installed - skipping download."
@@ -121,8 +126,8 @@ export MAVEN_HOME=\"$MAVEN_HOME\"
 export M2_HOME=\"$MAVEN_HOME\"
 export PATH=\"\$JAVA_HOME/bin:\$MAVEN_HOME/bin:\$PATH\"
 $END"
-for rc in "$HOME/.bashrc" "$HOME/.zshrc" "$HOME/.profile"; do
-  [ "$rc" = "$HOME/.zshrc" ] && [ "$OS" = "Darwin" ] && touch "$rc"
+for rc in "$HOME/.bashrc" "$HOME/.zshrc" "$HOME/.bash_profile" "$HOME/.profile"; do
+  if [ "$OS" = "Darwin" ] && { [ "$rc" = "$HOME/.zshrc" ] || [ "$rc" = "$HOME/.bash_profile" ]; }; then touch "$rc"; fi
   [ -f "$rc" ] || continue
   if grep -qF "$BEGIN" "$rc"; then
     tmp="$(mktemp)"
@@ -138,7 +143,7 @@ ok "JAVA_HOME=$JAVA_HOME"
 ok "MAVEN_HOME=$MAVEN_HOME"
 
 # ---------------------- 4. Dependencies and Chromium ---------------------
-log "--- Step 4/5: Dependencies and Chromium ---"
+log "--- Step 4/6: Dependencies and Chromium ---"
 cd "$PROJECT_DIR"
 if [ -d .git ]; then log "Updating repository (git pull --ff-only)..."; git pull --ff-only || warn "git pull failed - continuing with local copy."; fi
 log "Resolving/updating Maven dependencies..."
@@ -150,10 +155,63 @@ if [ "$OS" = "Linux" ] && [ -n "$SUDO" ]; then $SUDO -v || true; fi
 mvn -B exec:java -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="$PW_ARGS" || fail "Playwright Chromium installation failed."
 ok "Chromium ready."
 
-# ---------------------------- 5. Smoke test ------------------------------
-log "--- Step 5/5: Running $TEST_NAME ---"
+# ------------------------ 5. VS Code configuration -----------------------
+log "--- Step 5/6: VS Code configuration ---"
+CODE_BIN=""
+if has code; then CODE_BIN="code"
+elif [ -x "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code" ]; then
+  CODE_BIN="/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"
+fi
+if [ -n "$CODE_BIN" ]; then
+  log "Installing/updating VS Code extension: Extension Pack for Java..."
+  "$CODE_BIN" --install-extension vscjava.vscode-java-pack --force && ok "VS Code Java extensions ready." \
+    || warn "Could not install the VS Code extension - install 'Extension Pack for Java' manually."
+else
+  warn "VS Code CLI ('code') not found - install the 'Extension Pack for Java' manually."
+fi
+
+mkdir -p "$PROJECT_DIR/.vscode"
+SETTINGS_FILE="$PROJECT_DIR/.vscode/settings.json"
+if [ ! -f "$SETTINGS_FILE" ]; then
+  cat > "$SETTINGS_FILE" <<EOF
+{
+  "java.jdt.ls.java.home": "$JAVA_HOME",
+  "java.configuration.runtimes": [
+    { "name": "JavaSE-$JDK_VERSION", "path": "$JAVA_HOME", "default": true }
+  ],
+  "maven.executable.path": "$MAVEN_HOME/bin/mvn"
+}
+EOF
+  ok "VS Code settings written: $SETTINGS_FILE"
+elif has python3; then
+  SETTINGS_FILE="$SETTINGS_FILE" JH="$JAVA_HOME" MH="$MAVEN_HOME" JV="$JDK_VERSION" python3 - <<'PY' \
+    && ok "VS Code settings updated: $SETTINGS_FILE" \
+    || warn "Existing .vscode/settings.json could not be parsed (comments?) - left untouched. Add java.jdt.ls.java.home=$JAVA_HOME manually."
+import json, os
+p = os.environ["SETTINGS_FILE"]
+with open(p) as f:
+    data = json.load(f)
+data["java.jdt.ls.java.home"] = os.environ["JH"]
+data["java.configuration.runtimes"] = [{"name": "JavaSE-" + os.environ["JV"], "path": os.environ["JH"], "default": True}]
+data["maven.executable.path"] = os.environ["MH"] + "/bin/mvn"
+with open(p, "w") as f:
+    json.dump(data, f, indent=2)
+PY
+else
+  warn "Existing .vscode/settings.json found and python3 is unavailable - add java.jdt.ls.java.home=$JAVA_HOME manually."
+fi
+# Keep this machine-specific file out of git without touching the shared .gitignore
+if [ -d "$PROJECT_DIR/.git" ]; then
+  mkdir -p "$PROJECT_DIR/.git/info"
+  grep -qxF ".vscode/settings.json" "$PROJECT_DIR/.git/info/exclude" 2>/dev/null \
+    || { echo ".vscode/settings.json" >> "$PROJECT_DIR/.git/info/exclude"; log "Added .vscode/settings.json to .git/info/exclude (local only)."; }
+fi
+
+# ---------------------------- 6. Smoke test ------------------------------
+log "--- Step 6/6: Running $TEST_NAME ---"
 mvn -B test -Dtest="$TEST_NAME" -DfailIfNoTests=false || fail "$TEST_NAME failed. Review the log above."
 ok "$TEST_NAME passed."
 
 ok "=== Setup completed successfully ==="
-warn "Open a NEW terminal (or restart VS Code) so the environment variables take effect."
+warn "Open a NEW terminal so the environment variables take effect."
+warn "If VS Code is already open: Cmd+Shift+P > Developer: Reload Window."

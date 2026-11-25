@@ -12,18 +12,20 @@ public class clientPO {
     private final static String BUTTON_PHOTO_SAVE = "//button[text()='Upload']";
     private final static String INPUT_COMPANYNAME = "input[placeholder='Company name']";
     private final static String SELECT_INDUSTRY = "//div[text()='Select']";
-    private final static String SELECT_INDUSTRY_OPTION = "";
-    private final static String INPUT_NAME = "";
-    private final static String INPUT_LAST_NAME = "";
-    private final static String SELECT_SALUTATION = "";
-    private final static String SELECT_SALUTATION_OPTION = "";
-    private final static String INPUT_TITLE = "";
-    private final static String INPUT_EMAIL = "";
-    private final static String INPUT_PASSWORD = "";
-    private final static String INPUT_CONFIRM_PASSWORD = "";
-    private final static String INPUT_MOBILE = "";
-    private final static String INPUT_PHONE = "";
-    private final static String INPUT_ADRESS = "";
-    private final static String INPUT_ADRESS_OPTION = "";
-
+    private static String SELECT_INDUSTRY_OPTION (String industry){
+        return "//div[text()='"+industry+"']";
+    }
+    private final static String INPUT_NAME = "input[placeholder='Enter tenant name']";
+    private final static String INPUT_LAST_NAME = "input[placeholder='Enter tenant last name']";
+    private final static String SELECT_SALUTATION = "//div[text()='Mr.']/..";
+    private static String SELECT_SALUTATION_OPTION (String salutation){
+        return "//p[text()='"+salutation+"']/..";
+    }
+    private final static String INPUT_TITLE = "input[placeholder='Eg. Director']";
+    private final static String INPUT_EMAIL = "input[placeholder='name@example.com']";
+    private final static String INPUT_PASSWORD = "input[placeholder='Enter your password']";
+    private final static String INPUT_CONFIRM_PASSWORD = "input[placeholder='Confirm your password']";
+    private final static String INPUT_MOBILE = "//label[text()='Mobile*']/..//input";
+    private final static String INPUT_PHONE = "//label[text()='Phone*']/..//input";
+    private final static String INPUT_ADRESS = "input[placeholder='Address']";
 }

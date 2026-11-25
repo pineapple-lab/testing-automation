@@ -6,34 +6,34 @@ import java.util.List;
 
 public class CreateGuruPO {
     ElementActions actions = new ElementActions();
-    public static final String BUTTON_NEW_GURU = "//button[normalize-space()='New user']";
-    public static final String SELECT_SALUTATION = ".ReactModal__Content .MuiSelect-select";
-    public String SALUTATION_OPTION (String salutationOption){
+    private static final String BUTTON_NEW_GURU = "//button[normalize-space()='New user']";
+    private static final String SELECT_SALUTATION = ".ReactModal__Content .MuiSelect-select";
+    private String SALUTATION_OPTION (String salutationOption){
         return "//li[normalize-space()='"+salutationOption+"']";
     }
-    public static final String INPUT_TITLE = "[placeholder='Eg. Director']";
-    public static final String INPUT_NAME = "[placeholder='Enter name']";
-    public static final String INPUT_LNAME = "[placeholder='Enter last name']";
-    public static final String INPUT_EMAIL = "[placeholder='Enter email']";
-    public static final String INPUT_MOBILE = "//span[text()='Mobile*']/following-sibling::input";
-    public static final String INPUT_PHONE = "//span[text()='Phone*']/following-sibling::input";
-    public static final String BUTTON_CONTINUEANDSAVE = ".modal-buttons .primary";
-    public static final String SELECT_OFFICE = ".ReactModal__Overlay .generic-select-container [aria-haspopup='listbox']";
-    public String OFFICE_OPTION (int officePosition){
+    private static final String INPUT_TITLE = "[placeholder='Eg. Director']";
+    private static final String INPUT_NAME = "[placeholder='Enter name']";
+    private static final String INPUT_LNAME = "[placeholder='Enter last name']";
+    private static final String INPUT_EMAIL = "[placeholder='Enter email']";
+    private static final String INPUT_MOBILE = "//span[text()='Mobile*']/following-sibling::input";
+    private static final String INPUT_PHONE = "//span[text()='Phone*']/following-sibling::input";
+    private static final String BUTTON_CONTINUEANDSAVE = ".modal-buttons .primary";
+    private static final String SELECT_OFFICE = ".ReactModal__Overlay .generic-select-container [aria-haspopup='listbox']";
+    private String OFFICE_OPTION (int officePosition){
         return ".MuiPaper-root > ul > li:nth-of-type("+officePosition+")";
     }
-    public static final String SELECT_SKILL = ".ReactModal__Overlay .d-flex [aria-haspopup='listbox']";
-    public String SELECT_SKILL_OPTION(String skillOption){
+    private static final String SELECT_SKILL = ".ReactModal__Overlay .d-flex [aria-haspopup='listbox']";
+    private String SELECT_SKILL_OPTION(String skillOption){
         return "//span[text()='"+skillOption+"']/parent::*/preceding-sibling::label";
     }
-    public static final String INPUT_DESCRIPTION = ".generic-text-area";
-    public static final String BUTTON_EDIT_IMAGE_PROFILE = ".image-holder button";
-    public static final String INPUT_IMAGE_PROFILE = "[name='filepond']";
-    public static final String BUTTON_UPLOAD_IMAGE_PROFILE = "//button[normalize-space()='Upload']";
-    public static final String BUTTON_REMOVE_IMAGE = "button.delete";
-    public static final String POPUP_SUCCESSFULLY = ".ReactModal__Content.modal";
-    public static final String BUTTON_MODALSUCCESS_OK= "//button[normalize-space()='Ok']";
-    public String GURU_SKILL (String guruEmail){
+    private static final String INPUT_DESCRIPTION = ".generic-text-area";
+    private static final String BUTTON_EDIT_IMAGE_PROFILE = ".image-holder button";
+    private static final String INPUT_IMAGE_PROFILE = "[name='filepond']";
+    private static final String BUTTON_UPLOAD_IMAGE_PROFILE = "//button[normalize-space()='Upload']";
+    private static final String BUTTON_REMOVE_IMAGE = "button.delete";
+    private static final String POPUP_SUCCESSFULLY = ".ReactModal__Content.modal";
+    private static final String BUTTON_MODALSUCCESS_OK= "//button[normalize-space()='Ok']";
+    private String GURU_SKILL (String guruEmail){
         return "//*[@title='"+guruEmail+"']/preceding-sibling::*[@data-field='skill_sets'] //span[text()]";
     }
 

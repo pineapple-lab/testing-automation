@@ -1,4 +1,5 @@
 package com.papa.SPACELOGIK.base;
+import com.papa.SPACELOGIK.client.data.ClientData;
 import com.papa.core.dataCollections.*;
 import com.papa.core.util.GeneratorData;
 import com.papa.core.util.PathUtils;
@@ -36,6 +37,9 @@ public class SpacelogikDataGenerator {
     public String description(){
         return gen.randomFrom(Description.description);
     }
+    public String industry(){return gen.randomFrom(ClientData.industryCollection);}
+    public String salutation(){return gen.randomFrom(ClientData.salutationCollection);}
+    public String companyName(){return gen.randomFrom(CompanyName.companyName);}
     public String image() {
         return gen.randomFilePath(MEDIA_IDS,
                 PathUtils.getAbsolutePath(PathUtils.RELATIVE_IMAGE_PATH), ".jpg");
@@ -53,5 +57,6 @@ public class SpacelogikDataGenerator {
     public String email(String firstName, String lastName, String domain, String TLD) {
         return gen.uniqueEmail(firstName, lastName, domain, TLD);
     }
+
 }
 

@@ -1,12 +1,16 @@
 package com.papa.SPACELOGIK.client.pom;
 
 import com.papa.core.action.ElementActions;
+import com.papa.core.action.KeyboardActions;
 
 public class ClientPO {
     ElementActions action = new ElementActions();
+    KeyboardActions kb = new KeyboardActions();
     private final static String BUTTON_NEW_CLIENT = ".generic-button.medium.primary.icon-left";
     private final static String RADIOBUTTON_OPTION_CORPORATEACCOUNT ="//h3[text()='Corporate account']/../../..";
     private final static String BUTTON_CONTINUE = "//button[text()='Continue']";
+    private final static String BUTTON_SAVE_AND_CONTINUE = "//button[text()='Save and continue']";
+    private final static String BUTTON_CREATE_CLIENT = "//button[text()='Create client']";
     private final static String BUTTON_UPLOADPHOTO_OPEN = "//button[text()='Edit']";
     private final static String INPUT_PHOTO = "input[name='filepond']";
     private final static String BUTTON_PHOTO_SAVE = "//button[text()='Upload']";
@@ -41,7 +45,7 @@ public class ClientPO {
     public void clickButtonOpenUploadPhotoModal(){
         action.click(BUTTON_UPLOADPHOTO_OPEN);
     }
-    public void inputPhoto(String filePath){
+    public void inputImage(String filePath){
         action.uploadFile(INPUT_PHOTO, filePath);
     }
     public void clickSavePhoto(){
@@ -88,5 +92,17 @@ public class ClientPO {
     }
     public void inputAdress(String adress){
         action.type(INPUT_ADRESS, adress);
+    }
+    public void clickButtonContinueAndSave(){
+        action.click(BUTTON_SAVE_AND_CONTINUE);
+    }
+    public void clickButtonCreateClient(){
+        action.click(BUTTON_CREATE_CLIENT);
+    }
+    public void pressDownArrow(){
+        kb.press("ArrowDown");
+    }
+    public void pressEnter(){
+        kb.press("Enter");
     }
 }
